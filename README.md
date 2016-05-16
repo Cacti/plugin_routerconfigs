@@ -1,2 +1,2 @@
-# plugin_routerconfig
+# plugin_routerconfigs
 Router Config Plugin for Cacti
