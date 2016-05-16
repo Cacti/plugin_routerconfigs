@@ -1,0 +1,79 @@
+/*******************************************************************************
+
+    Author ......... Jimmy Conner
+    Contact ........ jimmy@sqmail.org
+    Home Site ...... http://cactiusers.org
+    Program ........ Router Config Backup
+    Version ........ 0.3
+    Purpose ........ Backup Router Configurations
+
+*******************************************************************************/
+
+----[ Purpose
+
+	This plugin is for the nightly backup of Router Configs
+
+----[ Features
+
+	Nightly Backup
+	Configurable User accounts per device
+	Keeps each backup for a configurable number of days
+	Can compare and display the exact differences between any 2 configs	
+		
+----[ Installation
+
+	Requires TFTP server on the Cacti box
+	For CentOS, just run these commands (remove the #)
+
+		# yum install tftp-server
+
+		The edit the tftp startup script (/etc/xinetd.d/tftp) to change the server
+		arguments, I used this line
+			server_args		= -c -s /home/configs/backups
+		You will need to create this folder (or whatever folder you specify) and give
+		the apache server and the tftp server permissions to access it
+
+		I have provided a copy of this file for you.  Then we just need to turn on
+		the tftp server so do this.
+
+		# chkconfig xinetd on
+		# service xinetd start
+
+	There are a few options in Cacti you will need to change to then get the plugin up
+	and running.  They are located under Settings >> Misc >> Router Configs
+		>> TFTP Server IP = The IP Address of the Cacti server given to the routers
+		>> Backup Directory Path = The directory you put in the TFTP file above
+
+	Now you should be good to go, just add an authenication account, and a device and it
+	will download the first backup after a few pollings.
+
+----[ Possible Bugs?
+   
+	Only Cisco IOS and CatOS Routers are currently supported
+	If you find a problem, let me know!!! http://cactiusers.org/bugs/
+
+----[ Future Changes
+
+	SNMP Traps to allow automatic backup of routers after every change
+	Auto-detection of router type
+	HTML Frames around compare windows to allow highlighting of the config
+    
+	Got any ideas or complaints, please e-mail me!
+
+----[ Changelog
+  --- 0.3 ---
+  compat: Remove PIA 1.x support
+  compat: Register Realms
+  compat: 0.8.7g
+
+	--- 0.2 ---
+  feature: Allow the use of enable passwords
+  feature: Add support for SSH Connections (thanks to Abdul Pallarés)
+
+	--- 0.1 ---
+  Initial Release
+  Nightly Backups
+  View Config of any backup
+  Compare Configs
+  Automatically update Hostname from config file
+  
