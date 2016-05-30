@@ -37,7 +37,7 @@ function display_tabs () {
 	);
 
    /* set the default tab */
-    load_current_session_value('tab', 'sess_ts_tabs', 'devices');
+    load_current_session_value('tab', 'sess_rc_tabs', 'devices');
     $current_tab = get_nfilter_request_var('tab');
 
     $header_label = 'Technical Support [ ' . $tabs[get_request_var('tab')] . ' ]';
