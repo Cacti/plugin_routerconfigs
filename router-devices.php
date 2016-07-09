@@ -401,11 +401,13 @@ function show_devices() {
 
 	$url_page_select = get_page_list(get_request_var('page'), MAX_DISPLAY_PAGES, $num_rows, $total_rows, 'router-devices.php?' . ($account != '' ? 'account=' . $account:''));
 
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), '20', $total_rows, 10, 'Devices', 'page', 'main');
 
+	form_start('router-devices.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	html_header_checkbox(array('Actions', 'Hostname', 'Configs', 'IP Address', 'Directory', 'Last Backup', 'Last Change', 'Changed By', 'Enabled'));
 
@@ -434,9 +436,7 @@ function show_devices() {
 			form_end_row();
 		}
 	}else{
-		form_alternate_row();
-		print '<td colspan="5">No Router Devices Found</td>';
-		form_end_row();
+		print "<tr class='even'><td colspan='5'>No Router Devices Found</td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -444,5 +444,7 @@ function show_devices() {
 	draw_actions_dropdown($ds_actions);
 
 	print "&nbsp;&nbsp;&nbsp;<input type='button' value='Add' onClick='cactiReturnTo(\"router-devices.php?action=edit\")'>";
+
+	form_end();
 }
 

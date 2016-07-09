@@ -269,11 +269,13 @@ function show_accounts () {
 
 	$total_rows = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_accounts');
 
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('router-accounts.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 5, 'Accounts', 'page', 'main');
 
+	form_start('router-accounts.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	html_header_checkbox(array('Description', 'Username', 'Devices'));
 
@@ -300,4 +302,6 @@ function show_accounts () {
 	draw_actions_dropdown($ds_actions);
 
 	print "&nbsp;&nbsp;&nbsp;<input type='button' value='Add' onClick='cactiReturnTo(\"router-accounts.php?action=edit\")'>";
+
+	form_end();
 }
