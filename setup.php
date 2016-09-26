@@ -22,16 +22,10 @@
  +-------------------------------------------------------------------------+
 */
 
-function routerconfigs_version () {
-	return array(
-		'name'     => 'routerconfigs',
-		'version'  => '1.0',
-		'longname' => 'Router Configs',
-		'author'   => 'Jimmy Conner',
-		'webpage' =>  'http://cactiusers.org',
-		'email'    => 'jimmy@sqmail.org',
-		'url'      => 'http://cactiusers.org/cacti/versions.php'
-	);
+function plugin_routerconfigs_version () {
+	global $config;
+	$info = parse_ini_file($config['base_path'] . '/plugins/routerconfigs/INFO', true);
+	return $info['info'];
 }
 
 function plugin_routerconfigs_install () {
@@ -57,10 +51,6 @@ function plugin_routerconfigs_upgrade() {
 	return false;
 }
 
-function plugin_routerconfigs_version() {
-	return routerconfigs_version();
-}
-
 function routerconfigs_check_upgrade() {
 	global $config, $database_default;
 
@@ -73,7 +63,7 @@ function routerconfigs_check_upgrade() {
 		return;
 	}
 
-	$current = routerconfigs_version();
+	$current = plugin_routerconfigs_version();
 	$current = $current['version'];
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
 
