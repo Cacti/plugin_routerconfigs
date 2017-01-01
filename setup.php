@@ -306,7 +306,7 @@ function routerconfigs_config_settings () {
 function routerconfigs_config_arrays () {
 	global $menu;
 
-	$menu['Utilities']['plugins/routerconfigs/router-devices.php'] = 'Router Configs';
+	$menu[__('Utilities')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs');
 }
 
 function routerconfigs_draw_navigation_text ($nav) {
