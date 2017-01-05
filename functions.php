@@ -30,17 +30,17 @@ function display_tabs () {
 	/* ==================================================== */
 
 	$tabs = array(
-		'devices'  => 'Devices',
-		'backups'  => 'Backups',
-		'accounts' => 'Authentication',
-		'compare'  => 'Compare'
+		'devices'  => __('Devices'),
+		'backups'  => __('Backups'),
+		'accounts' => __('Authentication'),
+		'compare'  => __('Compare')
 	);
 
    /* set the default tab */
     load_current_session_value('tab', 'sess_rc_tabs', 'devices');
     $current_tab = get_nfilter_request_var('tab');
 
-    $header_label = 'Technical Support [ ' . $tabs[get_request_var('tab')] . ' ]';
+    $header_label = __('Technical Support [ %s ]', $tabs[get_request_var('tab')]);
 
 	if (sizeof($tabs)) {
 		/* draw the tabs */
@@ -81,7 +81,7 @@ function plugin_routerconfigs_redownload_failed () {
 	}
 
 	if (!empty($passed)) {
-		$message = "A successful backup has now been completed on these devices\n--------------------------------\n";
+		$message = __("A successful backup has now been completed on these devices\n--------------------------------\n");
 		foreach ($passed as $f) {
 			$message .= $f['hostname'] . "\n";
 		}
@@ -94,14 +94,14 @@ function plugin_routerconfigs_redownload_failed () {
 				$from = 'ConfigBackups@reyrey.com';
 			}
 		}
-		send_mail($email, $from, 'Network Device Configuration Backups - Reattempt', $message, $filename = '', $headers = '', $fromname = 'Config Backups');
+		send_mail($email, $from, __('Network Device Configuration Backups - Reattempt'), $message, $filename = '', $headers = '', $fromname = __('Config Backups'));
 	}
 }
 
 function plugin_routerconfigs_retention () {
 	$backuppath = read_config_option("routerconfigs_backup_path");
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		print "Backup Path is not set or is not a directory";
+		print __("Backup Path is not set or is not a directory");
 		exit;
 	}
 
@@ -132,13 +132,13 @@ function plugin_routerconfigs_download_config ($device) {
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		print 'Backup Path is not set or is not a directory';
+		print __('Backup Path is not set or is not a directory');
 		exit;
 	}
 
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 	if (strlen($tftpserver) < 2) {
-		print 'TFTP Server is not set';
+		print __('TFTP Server is not set');
 		exit;
 	}
 

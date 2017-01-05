@@ -29,7 +29,7 @@ include('./include/auth.php');
 include_once('./plugins/routerconfigs/functions.php');
 
 $ds_actions = array(
-	1 => 'Delete'
+	1 => __('Delete')
 );
 
 set_default_action();
@@ -49,22 +49,22 @@ if (isset_request_var('username')) {
 $account_edit = array(
 	'name' => array(
 		'method' => 'textbox',
-		'friendly_name' => 'Name',
-		'description' => 'Give this account a meaningful name that will be displayed.',
+		'friendly_name' => __('Name'),
+		'description' => __('Give this account a meaningful name that will be displayed.'),
 		'value' => '|arg1:name|',
 		'max_length' => '64',
 		),
 	'username' => array(
 		'method' => 'textbox',
-		'friendly_name' => 'Username',
-		'description' => 'The username that will be used for authenication.',
+		'friendly_name' => __('Username'),
+		'description' => __('The username that will be used for authenication.'),
 		'value' => '|arg1:username|',
 		'max_length' => '64',
 		),
 	'password' => array(
 		'method' => 'textbox_password',
-		'friendly_name' => 'Password',
-		'description' => 'The password used for authenication.',
+		'friendly_name' => __('Password'),
+		'description' => __('The password used for authenication.'),
 		'value' => '|arg1:password|',
 		'default' => '',
 		'max_length' => '64',
@@ -72,8 +72,8 @@ $account_edit = array(
 		),
 	'enablepw' => array(
 		'method' => 'textbox_password',
-		'friendly_name' => 'Enable Password',
-		'description' => 'Your Enable Password, if required.',
+		'friendly_name' => __('Enable Password'),
+		'description' => __('Your Enable Password, if required.'),
 		'value' => '|arg1:enable_pw|',
 		'default' => '',
 		'max_length' => '64',
@@ -82,10 +82,6 @@ $account_edit = array(
 	'id' => array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:id|'
-		),
-	'action' => array(
-		'method' => 'hidden_zero',
-		'value' => 'edit'
 		)
 );
 
@@ -161,16 +157,16 @@ function actions_accounts () {
 		if (get_nfilter_request_var('drp_action') == '1') { /* Delete */
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>Click Continue to delete the following account(s).</p>
+					<p>" . __('Click Continue to delete the following account(s).') . "</p>
 					<p><ul>$account_list</ul></p>
 				</td>
 			</tr>";
 		}
 
-		$save_html = "<input type='button' value='Cancel' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='Continue' title='Delete Device(s)'>";
+		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
 	}else{
-		print "<tr><td class='even'><span class='textError'>You must select at least one device.</span></td></tr>\n";
-		$save_html = "<input type='button' value='Return' onClick='cactiReturnTo()'>";
+		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one device.') . "</span></td></tr>\n";
+		$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
 	}
 
 	print "<tr>
@@ -242,7 +238,7 @@ function edit_accounts () {
 
 	form_start('router-accounts.php', 'chk');
 
-	html_start_box("Account: $header_label", '100%', '', '3', 'center', '');
+	html_start_box(__('Account: %s', $header_label), '100%', '', '3', 'center', '');
 
 	draw_edit_form(
 		array(
@@ -277,12 +273,12 @@ function show_accounts () {
 
 	html_start_box('', '100%', '', '4', 'center', '');
 
-	html_header_checkbox(array('Description', 'Username', 'Devices'));
+	html_header_checkbox(array(__('Description'), __('Username'), __('Devices')));
 
 	$c=0;
 	if (sizeof($result)) {
 		foreach ($result as $row) {
-			$count = db_fetch_cell("SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = " . $row['id']);
+			$count = db_fetch_cell_prepared('SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = ?', array($row['id']));
 
 			form_alternate_row('line' . $row['id'], false);
 			form_selectable_cell('<a class="linkEditMain" href="router-accounts.php?&action=edit&id=' . $row['id'] . '">' . $row['name'] . '</a>', $row['id']);
@@ -293,7 +289,7 @@ function show_accounts () {
 		}
 	}else{
 		form_alternate_row();
-		print '<td colspan="10">No Router Accounts Found</td>';
+		print '<td colspan="10">' . __('No Router Accounts Found') . '</td>';
 		form_end_row();
 	}
 
@@ -301,7 +297,7 @@ function show_accounts () {
 
 	draw_actions_dropdown($ds_actions);
 
-	print "&nbsp;&nbsp;&nbsp;<input type='button' value='Add' onClick='cactiReturnTo(\"router-accounts.php?action=edit\")'>";
+	print "&nbsp;&nbsp;&nbsp;<input type='button' value='" . __('Add') . "' onClick='cactiReturnTo(\"router-accounts.php?action=edit\")'>";
 
 	form_end();
 }

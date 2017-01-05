@@ -118,7 +118,7 @@ print '</select></td></tr>';
 html_end_box(false);
 form_end();
 
-html_start_box('Compare Output', '100%', '', '1', 'center', '');
+html_start_box(__('Compare Output'), '100%', '', '1', 'center', '');
 
 if (!empty($file1) && !empty($file2)) {
 	$device1 = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_backups WHERE id = ?', array($file1));
@@ -138,11 +138,12 @@ if (!empty($file1) && !empty($file2)) {
 		$text = $renderer->render($diff);
 
 		html_start_box('', '100%', '', '1', 'center', '');
-		html_header(array('<strong>' . $device1['directory'] . '/' . $device1['filename'] . '</strong>', '', '<strong>' . $device2['directory'] . '/' . $device2['filename'] . '</strong>'));
+		html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
+
 		print "<tr bgcolor='#6d88ad' height='1'><td width='50%'></td><td width='1'></td><td width='50%'></td></tr>";
 
 		if (trim($text) == '') {
-			print '<tr><td colspan=3><center>There are no Changes</center></td></tr>';
+			print '<tr><td colspan=3><center>' . __('There are no Changes') . '</center></td></tr>';
 		} else {
 			$text = str_replace("\n", '<br>', $text);
 			$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
@@ -152,10 +153,10 @@ if (!empty($file1) && !empty($file2)) {
 
 		html_end_box(false);
 	}else{
-		print '<tr><td><h3>Error, you must have backups for each device.</h3></td></tr>';
+		print '<tr><td><h3>' . __('Error, you must have backups for each device.') . '</h3></td></tr>';
 	}
 }else{
-	print '<tr><td><h3>Error, you must have backups for each device.</h3></td></tr>';
+	print '<tr><td><h3>' . __('Error, you must have backups for each device.') . '</h3></td></tr>';
 }
 
 html_end_box();

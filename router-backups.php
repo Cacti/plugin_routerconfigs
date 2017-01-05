@@ -69,9 +69,9 @@ function view_device_config() {
 
 		form_alternate_row();
 
-		print '<td><h2>Router Config for ' . $device['hostname'] . ' (' . $device['ipaddress'] . ')<br><br>';
-		print 'Backup from ' . date('M j Y H:i:s', $device['btime']) . '<br>';
-		print 'File: ' . $device['directory'] . '/' . $device['filename'];
+		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress']);
+		print __('Backup from %s', date('M j Y H:i:s', $device['btime'])) . '<br>';
+		print __('File: %s/%s', $device['directory'], $device['filename']);
 		print '</h1><textarea rows=36 cols=120>';
 		print $device['config'];
 		print '</textarea></td></tr>';
@@ -132,7 +132,17 @@ function show_devices () {
 
 	print $nav;
 
-	html_header(array('Hostname', 'Compare', 'Directory','Filename', 'Backup Time', 'Last Change', 'Changed By'));
+	html_header(
+		array(
+			__('Hostname'), 
+			__('Compare'), 
+			__('Directory'),
+			__('Filename'), 
+			__('Backup Time'), 
+			__('Last Change'), 
+			__('Changed By')
+		)
+	);
 
 	if (sizeof($result)) {
 		$r = db_fetch_assoc('SELECT device, id FROM plugin_routerconfigs_backups ORDER BY btime ASC');
@@ -149,7 +159,7 @@ function show_devices () {
 				form_alternate_row();
 
 				print '<td><a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['device'] . '">' . $row['hostname'] . '</a></td>';
-				print "<td><a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>View Config</a> - <a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>Compare</a></td>";
+				print "<td><a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config') . "</a> - <a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>" . __('Compare') . "</a></td>";
 				print '<td>' . $row['directory'] . '</td>';
 				print '<td>' . $row['filename'] . '</td>';
 				print '<td>' . date('M j Y H:i:s', $row['btime']) . '</td>';
@@ -168,7 +178,7 @@ function show_devices () {
 		}
 	}else{
 		form_alternate_row();
-		print '<td colspan="10">No Router Backups Found</td>';
+		print '<td colspan="10">' . __('No Router Backups Found') . '</td>';
 		form_end_row();
 	}
 
