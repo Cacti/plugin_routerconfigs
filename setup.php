@@ -116,7 +116,7 @@ function routerconfigs_setup_table_new() {
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-    $data['columns'][] = array('name' => 'btype', 'type' => 'int(18)', 'NULL' => true);
+    $data['columns'][] = array('name' => 'btime', 'type' => 'int(18)', 'NULL' => true);
     $data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
     $data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
     $data['columns'][] = array('name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true);
@@ -124,7 +124,7 @@ function routerconfigs_setup_table_new() {
     $data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
     $data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
     $data['primary'] = 'id';
-    $data['keys'][] = array('name' => 'btype', 'columns' => 'btype');
+    $data['keys'][] = array('name' => 'btime', 'columns' => 'btime');
     $data['keys'][] = array('name' => 'device', 'columns' => 'device');
     $data['keys'][] = array('name' => 'directory', 'columns' => 'directory');
     $data['keys'][] = array('name' => 'lastchange', 'columns' => 'lastchange');
