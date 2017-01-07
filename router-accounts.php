@@ -147,11 +147,13 @@ function actions_accounts () {
 
 	top_header();
 
-	display_tabs ();
-
 	form_start('router-accounts.php');
 
-	html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+	if (get_nfilter_request_var('drp_action') > 0) {
+		html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+	}else{
+		html_start_box('', '60%', '', '3', 'center', '');
+	}
 
 	if (sizeof($account_array)) {
 		if (get_nfilter_request_var('drp_action') == '1') { /* Delete */
