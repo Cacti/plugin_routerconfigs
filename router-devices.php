@@ -276,7 +276,11 @@ function actions_devices () {
 
 	form_start('router-devices.php');
 
-	html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+	if (get_nfilter_request_var('drp_action') > 0) {
+		html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+	}else{
+		html_start_box('', '60%', '', '3', 'center', '');
+	}
 
 	if (sizeof($account_array)) {
 		if (get_nfilter_request_var('drp_action') == '2') { /* Delete */
@@ -289,7 +293,7 @@ function actions_devices () {
 		}
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
 	}else{
-		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one query.') . "</span></td></tr>\n";
+		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.') . "</span></td></tr>\n";
 
 		$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
 	}
