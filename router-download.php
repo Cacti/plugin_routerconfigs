@@ -50,7 +50,7 @@ $t = $stime = time();
 $devices = db_fetch_assoc("SELECT * 
 	FROM plugin_routerconfigs_devices 
 	WHERE enabled = 'on' 
-	AND ($t - (schedule * 86400)) - 3600 > lastbackup");
+        AND ((($t - lastbackup) - (schedule * 86400)) > -3600)");
 
 $failed = array();
 if (sizeof($devices)) {
