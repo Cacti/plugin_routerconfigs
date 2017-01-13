@@ -57,14 +57,14 @@ $account_edit = array(
 	'username' => array(
 		'method' => 'textbox',
 		'friendly_name' => __('Username'),
-		'description' => __('The username that will be used for authenication.'),
+		'description' => __('The username that will be used for authentication.'),
 		'value' => '|arg1:username|',
 		'max_length' => '64',
 		),
 	'password' => array(
 		'method' => 'textbox_password',
 		'friendly_name' => __('Password'),
-		'description' => __('The password used for authenication.'),
+		'description' => __('The password used for authentication.'),
 		'value' => '|arg1:password|',
 		'default' => '',
 		'max_length' => '64',

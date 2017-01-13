@@ -264,7 +264,7 @@ function routerconfigs_config_settings () {
 		),
 		'routerconfigs_email' => array(
 			'friendly_name' => __('Email Address'),
-			'description' => __('Email address to send the nightly backup email to.  Commna deliminate any extra email addresses.'),
+			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.'),
 			'method' => 'textbox',
 			'size' => 40,
 			'max_length' => 255,

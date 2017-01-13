@@ -104,7 +104,7 @@ $account_edit = array(
 	),
 	'account' => array(
 		'method' => 'drop_array',
-		'friendly_name' => __('Authenication Account'),
+		'friendly_name' => __('Authentication Account'),
 		'description' => __('Choose an account to use to Login to the router'),
 		'value' => '|arg1:account|',
 		'default' => 0,
