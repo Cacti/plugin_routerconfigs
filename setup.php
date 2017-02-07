@@ -242,6 +242,12 @@ function routerconfigs_poller_bottom () {
 function routerconfigs_config_settings () {
 	global $tabs, $settings, $config;
 
+	if (function_exists('gethostname')) {
+		$hostname = gethostname();
+	}else{
+		$hostname = php_uname('n');
+	}
+
 	$temp = array(
 		'routerconfigs_header' => array(
 			'friendly_name' => __('Router Configs'),
@@ -252,7 +258,7 @@ function routerconfigs_config_settings () {
 			'description' => __('Must be an IP pointing to your Cacti server.'),
 			'method' => 'textbox',
 			'max_length' => 255,
-			'default' => gethostbyname(gethostname())
+			'default' => gethostbyname($hostname)
 		),
 		'routerconfigs_backup_path' => array(
 			'friendly_name' => __('Backup Directory Path'),
@@ -294,7 +300,7 @@ function routerconfigs_config_settings () {
 		)
 	);
 
-	$tabs['misc'] = 'Misc';
+	$tabs['misc'] = __('Misc');
 
 	if (isset($settings['misc'])) {
 		$settings['misc'] = array_merge($settings['misc'], $temp);
