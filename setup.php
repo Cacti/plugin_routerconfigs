@@ -35,7 +35,7 @@ function plugin_routerconfigs_install () {
 	api_plugin_register_hook('routerconfigs', 'poller_bottom',        'routerconfigs_poller_bottom',        'setup.php');
 	api_plugin_register_hook('routerconfigs', 'page_head',            'routerconfigs_page_head',            'setup.php');
 
-	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php', 'Plugin -> Router Configs', 1);
+	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs'), 1);
 
 	routerconfigs_setup_table_new();
 }
@@ -168,7 +168,8 @@ function routerconfigs_setup_table_new() {
     $data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
     $data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
     $data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'forceconfirm', 'type' => 'int(1)', 'NULL' => true);
+    $data['columns'][] = array('name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
+    $data['columns'][] = array('name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
     $data['primary'] = 'id';
     $data['type'] = 'InnoDB';
     $data['comment'] = 'Router Config Device Types';
@@ -177,8 +178,8 @@ function routerconfigs_setup_table_new() {
 	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes 
 		(id, name, username, password, copytftp, version, confirm, forceconfirm) 
 		VALUES 
-		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', 0),
-		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 1)");
+		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
+		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '')");
 }
 
 function routerconfigs_page_head () {

@@ -126,7 +126,7 @@ function show_devices () {
 		$total_rows = 0;
 	}
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	html_start_box(__('Router Backups'), '100%', '', '4', 'center', '');
 
 	$nav = html_nav_bar('router-backups.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 7, 'Backups', 'page', 'main');
 

@@ -29,9 +29,11 @@ include('./include/auth.php');
 
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
-$ds_actions = array(
+$device_actions = array(
 	1 => __('Backup'), 
-	2 => __('Delete')
+	2 => __('Delete'),
+	3 => __('Enable'),
+	4 => __('Disable')
 );
 
 set_default_action();
@@ -56,7 +58,7 @@ if (!empty($dtypes)) {
 	}
 }
 
-$account_edit = array(
+$device_edit = array(
 	'enabled' => array(
 		'method' => 'checkbox',
 		'friendly_name' => __('Enable Device'),
@@ -227,15 +229,38 @@ function view_device_config() {
 }
 
 function actions_devices () {
-	global $ds_actions, $config;
+	global $device_actions, $config;
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			if (get_nfilter_request_var('drp_action') == '2') {
+			switch(get_nfilter_request_var('drp_action')) {
+			case '2':
 				for ($i=0; $i<count($selected_items); $i++) {
-					db_execute_prepared('DELETE FROM plugin_routerconfigs_devices WHERE id = ?', array($selected_items[$i]));
+					db_execute_prepared('DELETE FROM plugin_routerconfigs_devices 
+						WHERE id = ?', 
+						array($selected_items[$i]));
 				}
+
+				break;
+			case '3':
+				for ($i=0; $i<count($selected_items); $i++) {
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices 
+						SET enabled="on" 
+						WHERE id = ?', 
+						array($selected_items[$i]));
+				}
+
+				break;
+			case '4':
+				for ($i=0; $i<count($selected_items); $i++) {
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices 
+						SET enabled="" 
+						WHERE id = ?', 
+						array($selected_items[$i]));
+				}
+
+				break;
 			}
 		}
 
@@ -244,8 +269,8 @@ function actions_devices () {
 	}
 
 	/* setup some variables */
-	$account_list  = '';
-	$account_array = array();
+	$device_list  = '';
+	$device_array = array();
 
 	/* loop through each of the devices selected on the previous page and get more info about them */
 	while (list($var,$val) = each($_POST)) {
@@ -254,19 +279,28 @@ function actions_devices () {
 			input_validate_input_number($matches[1]);
 			/* ==================================================== */
 
-			$account_list .= '<li>' . db_fetch_cell('select hostname from plugin_routerconfigs_devices where id=' . $matches[1]) . '</li>';
-			$account_array[] = $matches[1];
+			$device_list .= '<li>' . db_fetch_cell_prepared('SELECT hostname 
+				FROM plugin_routerconfigs_devices 
+				WHERE id = ?', 
+				array($matches[1])) . '</li>';
+
+			$device_array[] = $matches[1];
 		}
 	}
 
-	if (sizeof($account_array)) {
+	if (sizeof($device_array)) {
 		if (get_nfilter_request_var('drp_action') == '1') { /* Backup */
 			ini_set('max_execution_time', 0);
 			ini_set('memory_limit', '256M');
-			foreach ($account_array as $id) {
-				$device = db_fetch_assoc('SELECT * FROM plugin_routerconfigs_devices WHERE id = ' . $id);
-				 plugin_routerconfigs_download_config($device[0]);
+			foreach ($device_array as $id) {
+				$device = db_fetch_assoc_prepared('SELECT * 
+					FROM plugin_routerconfigs_devices 
+					WHERE id = ?', 
+					array($id));
+
+				plugin_routerconfigs_download_config($device[0]);
 			}
+
 			header('Location: router-devices.php?header=false');
 			exit;
 		}
@@ -277,21 +311,41 @@ function actions_devices () {
 	form_start('router-devices.php');
 
 	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+		html_start_box($device_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
 	}else{
 		html_start_box('', '60%', '', '3', 'center', '');
 	}
 
-	if (sizeof($account_array)) {
-		if (get_nfilter_request_var('drp_action') == '2') { /* Delete */
+	if (sizeof($device_array)) {
+		switch (get_nfilter_request_var('drp_action')) {
+		case '2':
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>" . __('Click \'Continue\' to delete the following device(s).') . "</p>
-					<p><ul>$account_list</ul></p>
+					<p>" . __('Click \'Continue\' to Delete the following device(s).') . "</p>
+					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
+			break;
+		case '3':
+			print "<tr>
+				<td colspan='2' class='textArea'>
+					<p>" . __('Click \'Continue\' to Enable the following device(s).') . "</p>
+					<p><ul>$device_list</ul></p>
+				</td>
+			</tr>";
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Enable Device(s)') . "'>";
+			break;
+		case '4':
+			print "<tr>
+				<td colspan='2' class='textArea'>
+					<p>" . __('Click \'Continue\' to Disable the following device(s).') . "</p>
+					<p><ul>$device_list</ul></p>
+				</td>
+			</tr>";
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Disable Device(s)') . "'>";
+			break;
 		}
-		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
 	}else{
 		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.') . "</span></td></tr>\n";
 
@@ -301,7 +355,7 @@ function actions_devices () {
 	print "<tr>
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
-			<input type='hidden' name='selected_items' value='" . (isset($account_array) ? serialize($account_array) : '') . "'>
+			<input type='hidden' name='selected_items' value='" . (isset($device_array) ? serialize($device_array) : '') . "'>
 			<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 			$save_html
 		</td>
@@ -352,7 +406,7 @@ function save_devices () {
 }
 
 function edit_devices () {
-	global $account_edit;
+	global $device_edit;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -374,7 +428,7 @@ function edit_devices () {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true, 'form_name' => 'chk'),
-			'fields' => inject_form_variables($account_edit, $account)
+			'fields' => inject_form_variables($device_edit, $account)
 		)
 	);
 
@@ -385,7 +439,7 @@ function edit_devices () {
 
 function show_devices() {
 	global $host, $username, $password, $command;
-	global $config, $ds_actions, $acc;
+	global $config, $device_actions, $acc;
 
 	get_filter_request_var('account');
 	get_filter_request_var('page');
@@ -419,14 +473,15 @@ function show_devices() {
 
 	form_start('router-devices.php', 'chk');
 
-	print $nav;
+	html_start_box(__('Router Device Management'), '100%', '', '4', 'center', 'router-devices.php?action=edit');
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	print $nav;
 
 	html_header_checkbox(
 		array(
 			__('Actions'), 
 			__('Hostname'), 
+			__('Device Type'), 
 			__('Configs'), 
 			__('IP Address'), 
 			__('Directory'), 
@@ -441,17 +496,27 @@ function show_devices() {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
-			$total = db_fetch_cell('SELECT count(device) FROM plugin_routerconfigs_backups WHERE device=' . $row['id']);
+			$total = db_fetch_cell_prepared('SELECT count(device) 
+				FROM plugin_routerconfigs_backups 
+				WHERE device = ?',
+				array($row['id']));
 
-			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img border=0 src="images/telnet.jpeg" height=10 alt="" title="' . __('Telnet') . '"></a>';
+			$dtype = db_fetch_cell_prepared('SELECT name 
+				FROM plugin_routerconfigs_devicetypes 
+				WHERE id = ?', array($row['devicetype']));
+
+			if (empty($dtype)) $dtype = __('Auto-Detect');
+
+			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __('Telnet') . '"></a>';
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
-				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img border=0 src="images/reddot.png" height=10 alt="" title="' . __('Trace Route') . '"></a>';
+				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __('Trace Route') . '"></a>';
 			}
-			$cell .= '<a class="hyperLink" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img border=0 src="images/feedback.jpg" height=10 alt="" title="' . __('Router Debug Info') . '"></a>';
+			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __('Router Debug Info') . '"></a>';
 
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
 			form_selectable_cell('<a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['id'] . '">' . $row['hostname'] . '</a>', $row['id']);
-			form_selectable_cell("<a class='hyperLink' href='router-devices.php?action=viewconfig&id=" . $row['id'] . "'>" . __('Current') . "</a> - <a class='hyperLink' href='router-backups.php?device=" . $row['id'] . "'>" . __('Backups (%s)', $total) . "</a>", $row['id']);
+			form_selectable_cell('<a class="linkEditMain" href="router-devtypes.php?&action=edit&id=' . $row['devicetype'] . '">' . $dtype . '</a>', $row['id']);
+			form_selectable_cell("<a class='linkEditMain' href='router-devices.php?action=viewconfig&id=" . $row['id'] . "'>" . __('Current') . "</a> - <a class='linkEditMain' href='router-backups.php?device=" . $row['id'] . "'>" . __('Backups (%s)', $total) . "</a>", $row['id']);
 			form_selectable_cell($row['ipaddress'], $row['id']);
 			form_selectable_cell($row['directory'], $row['id']);
 			form_selectable_cell(($row['lastbackup'] < 1 ? '' : date('M j Y H:i:s', $row['lastbackup'])), $row['id']);
@@ -467,9 +532,7 @@ function show_devices() {
 
 	html_end_box(false);
 
-	draw_actions_dropdown($ds_actions);
-
-	print "&nbsp;&nbsp;&nbsp;<input type='button' value='" . __('Add') > "' onClick='cactiReturnTo(\"router-devices.php?action=edit\")'>";
+	draw_actions_dropdown($device_actions);
 
 	form_end();
 }

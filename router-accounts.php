@@ -128,7 +128,6 @@ function actions_accounts () {
 		exit;
 	}
 
-
 	/* setup some variables */
 	$account_list  = '';
 	$account_array = array();
@@ -218,6 +217,7 @@ function save_accounts () {
 		header('Location: router-accounts.php?action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
 		exit;
 	}
+
 	header('Location: router-accounts.php');
 	exit;
 }
@@ -262,18 +262,20 @@ function show_accounts () {
 	load_current_session_value('page', 'sess_wmi_accounts_current_page', '1');
 	$num_rows = 30;
 
-	$sql = 'SELECT * FROM plugin_routerconfigs_accounts limit ' . ($num_rows*(get_request_var('page')-1)) . ", $num_rows";
-	$result = db_fetch_assoc($sql);
+	$result = db_fetch_assoc('SELECT * 
+		FROM plugin_routerconfigs_accounts 
+		LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ", $num_rows");
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_accounts');
+	$total_rows = db_fetch_cell('SELECT COUNT(*) 
+		FROM plugin_routerconfigs_accounts');
 
-	$nav = html_nav_bar('router-accounts.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 5, 'Accounts', 'page', 'main');
+	$nav = html_nav_bar('router-accounts.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 5, __('Accounts'), 'page', 'main');
 
 	form_start('router-accounts.php', 'chk');
 
-	print $nav;
+	html_start_box(__('Account Management'), '100%', '', '4', 'center', 'router-accounts.php?action=edit');
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	print $nav;
 
 	html_header_checkbox(array(__('Description'), __('Username'), __('Devices')));
 
@@ -298,8 +300,6 @@ function show_accounts () {
 	html_end_box(false);
 
 	draw_actions_dropdown($ds_actions);
-
-	print "&nbsp;&nbsp;&nbsp;<input type='button' value='" . __('Add') . "' onClick='cactiReturnTo(\"router-accounts.php?action=edit\")'>";
 
 	form_end();
 }

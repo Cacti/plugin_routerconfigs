@@ -31,8 +31,9 @@ function display_tabs () {
 
 	$tabs = array(
 		'devices'  => __('Devices'),
-		'backups'  => __('Backups'),
+		'devtypes' => __('Device Types'),
 		'accounts' => __('Authentication'),
+		'backups'  => __('Backups'),
 		'compare'  => __('Compare')
 	);
 
@@ -61,18 +62,32 @@ function display_tabs () {
 }
 
 function plugin_routerconfigs_redownload_failed () {
-	$t = time();
+	$t      = time();
 	$passed = array();
+
 	// Get device that have not backed up in 24 hours + 30 minutes and that haven't been tried in the last 30 minutes
-	$devices = db_fetch_assoc("SELECT * FROM plugin_routerconfigs_devices WHERE enabled = 'on' AND ($t - (schedule * 86400)) - 3600 > lastbackup AND $t - lastattempt > 1800", false);
+	$devices = db_fetch_assoc("SELECT * 
+		FROM plugin_routerconfigs_devices 
+		WHERE enabled = 'on' 
+		AND ($t - (schedule * 86400)) - 3600 > lastbackup 
+		AND $t - lastattempt > 1800", false);
 
 	if (!empty($devices)) {
-		db_execute("UPDATE plugin_routerconfigs_devices set lastattempt = $t WHERE $t - lastbackup > 88200 AND $t - lastattempt > 1800");
+		db_execute("UPDATE plugin_routerconfigs_devices 
+			SET lastattempt = $t 
+			WHERE $t - lastbackup > 88200 
+			AND $t - lastattempt > 1800");
+
 		foreach ($devices as $device) {
 			print $device['hostname'] . "\n";
+
 			plugin_routerconfigs_download_config($device);
 			$t = time() - 120;
-			$f = db_fetch_assoc("SELECT * FROM plugin_routerconfigs_backups WHERE btime > $t AND device = " . $device['id']);
+			$f = db_fetch_assoc("SELECT * 
+				FROM plugin_routerconfigs_backups 
+				WHERE btime > $t 
+				AND device = " . $device['id']);
+
 			if (!empty($f)) {
 				$passed[] = array ('hostname' => $device['hostname']);
 			}
@@ -127,33 +142,35 @@ function plugin_routerconfigs_check_config ($data) {
 
 function plugin_routerconfigs_download_config ($device) {
 	$info = plugin_routerconfigs_retrieve_account($device['id']);
-	$dir = $device['directory'];
-	$ip = $device['ipaddress'];
+	$dir  = $device['directory'];
+	$ip   = $device['ipaddress'];
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		print __('Backup Path is not set or is not a directory');
+		print __('FATAL: Backup Path is not set or is not a directory');
 		exit;
 	}
 
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 	if (strlen($tftpserver) < 2) {
-		print __('TFTP Server is not set');
+		print __('FATAL: TFTP Server is not set');
 		exit;
 	}
 
 	$tftpfilename = $device['hostname'];
 	$filename = $tftpfilename;
 
-	$devicetype = db_fetch_row('SELECT * FROM plugin_routerconfigs_devicetypes WHERE id = ' . $device['devicetype']);
+	$devicetype = db_fetch_row('SELECT * 
+		FROM plugin_routerconfigs_devicetypes 
+		WHERE id = ' . $device['devicetype']);
 
 	if (empty($devicetype)){
-		$devicetype = array('username' => 'sername:',
-			'password' => 'assword:',
+		$devicetype = array('username' => 'username:',
+			'password' => 'password:',
 			'copytftp' => 'copy start tftp',
 			'version' => 'show version',
-			'forceconfirm' => 0,
-			'checkendinconfig' => 1
+			'forceconfirm' => '',
+			'checkendinconfig' => 'on'
 		);
 	}
 
@@ -214,6 +231,10 @@ function plugin_routerconfigs_download_config ($device) {
 			plugin_routerconfigs_log($ip . "-> DEBUG: confirm result=$result");
 		}
 
+		if (stristr($result, 'bytes copied')) {
+			plugin_routerconfigs_log($ip . "-> SUCCESSFUL TFTP TRANSFER!!!");
+		}
+
 		$x = 0;
 		while (!stristr($result, 'bytes copied') && !stristr($result,'successfully') && !stristr($result, 'error') && $x<30) {
 			$connection->GetResponse($result);
@@ -222,6 +243,9 @@ function plugin_routerconfigs_download_config ($device) {
 		}
 
 		$data = '';
+
+		plugin_routerconfigs_log($ip . "-> CHECKING FOR valid file at $backuppath/$tftpfilename");
+
 		if (file_exists("$backuppath/$tftpfilename")) {
 			clearstatcache();
 			$file = fopen("$backuppath/$tftpfilename", 'r');
@@ -238,7 +262,7 @@ function plugin_routerconfigs_download_config ($device) {
 			return false;
 		}
 
-		if (!plugin_routerconfigs_check_config ($data) && $devicetype['checkendinconfig']) {
+		if (!plugin_routerconfigs_check_config ($data) && $devicetype['checkendinconfig'] == 'on') {
 			$connection->error = 5;
 			plugin_routerconfigs_save_error ($device['id'], $connection);
 			plugin_routerconfigs_save_debug($device, $debug);
@@ -247,7 +271,7 @@ function plugin_routerconfigs_download_config ($device) {
 			return false;
 		}
 
-		if ($devicetype['checkendinconfig']) {
+		if ($devicetype['checkendinconfig'] == 'on') {
 			plugin_routerconfigs_log($device['ipaddress'].'-> DEBUG: config checked');
 		} else {
 			plugin_routerconfigs_log($device['ipaddress'].'-> DEBUG: config not checked');
@@ -363,15 +387,21 @@ function plugin_routerconfigs_download_config ($device) {
 		$connection->Disconnect();
 
 		plugin_routerconfigs_log($ip . '-> DEBUG: datalen' . strlen($data));
+
 		if (strlen($data) > 100) {
 			if (!is_dir("$backuppath/$dir")) {
-
 				mkdir("$backuppath/$dir", 0777, true);
 			}
-			db_execute('UPDATE plugin_routerconfigs_devices SET lastbackup = ' . time() . ' WHERE id = ' . $device['id']);
+
+			db_execute_prepared('UPDATE plugin_routerconfigs_devices 
+				SET lastbackup = ?
+				WHERE id = ?', 
+				array(time(), $device['id']));
 
 			$date = date("Y-m-d-Hi");
 			$file = fopen("$backuppath/$dir/$filename-$date", 'w');
+
+			plugin_routerconfigs_log($ip . '-> DEBUG: Attempting to backup to filename ' . $backuppath . '/' . $dir . '/' . $filename . '-' . $date);
 
 			fwrite($file, $data);
 			fclose($file);
@@ -382,25 +412,28 @@ function plugin_routerconfigs_download_config ($device) {
 				 $lastchange = 0;
 			}
 
-			db_execute('INSERT INTO plugin_routerconfigs_backups 
-				(device, btime, directory, filename, config, lastchange, username) VALUES 
-				(' . $device['id'] . ",$t,'$dir','$filename-$date', '$data2', $lastchange, '$lastuser')");
+			db_execute_prepared('INSERT INTO plugin_routerconfigs_backups 
+				(device, btime, directory, filename, config, lastchange, username) 
+				VALUES (?, ?, ?, ?, ?, ?, ?)', 
+				array($device['id'], $t, $dir, "$filename-$date", $data2, $lastchange, $lastuser));
 		} else {
-			plugin_routerconfigs_save_error ($device['id'], $connection);
+			plugin_routerconfigs_save_error($device['id'], $connection);
 			plugin_routerconfigs_save_debug($device, $debug);
 
 			return false;
 		}
 	} else {
-		plugin_routerconfigs_save_error ($device['id'], $connection);
+		plugin_routerconfigs_save_error($device['id'], $connection);
 		plugin_routerconfigs_save_debug($device, $debug);
 		plugin_routerconfigs_log($ip . '-> DEBUG: Connection failed');
 
 		return false;
 	}
-	plugin_routerconfigs_save_error ($device['id'], $connection);
+
+	plugin_routerconfigs_save_error($device['id'], $connection);
 	plugin_routerconfigs_save_debug($device, $debug);
 	plugin_routerconfigs_log($device['ipaddress'] . '-> NOTICE: Backed up');
+
 	return true;
 }
 
@@ -435,19 +468,22 @@ function plugin_routerconfigs_retrieve_account ($device) {
 }
 
 function plugin_routerconfigs_decode($info) {
+	plugin_routerconfigs_log("Info passed to decode: $info");
 	$info = base64_decode($info);
-	$info = unserialize($info);
-	$info = $info['password'];
+	plugin_routerconfigs_log("Info Base64 decoded: $info");
 
-	return $info;
+	$info = unserialize($info);
+	plugin_routerconfigs_log("Info Unserialized");
+
+	return $info['password'];
 }
 
 function plugin_routerconfigs_encode($info) {
-	$a = array(rand(1,time()) => rand(1,time()),'password' => '', rand(1,time()) => rand(1,time()));
-	$a['password'] = $info;
-	$a = serialize($a);
-	$a = base64_encode($a);
-	return $a;
+	$crypt = array(rand(1, time()) => rand(1, time()), 'password' => '', rand(1, time()) => rand(1, time()));
+	$crypt['password'] = $info;
+	$crypt = serialize($crypt);
+	$crypt = base64_encode($crypt);
+	return $crypt;
 }
 
 /*
@@ -469,16 +505,18 @@ function plugin_routerconfigs_log($string) {
 	/* format the message */
 	$message = "$date - " . $environ . ': ' . $string . "\n";
 
-	if (substr_count($string,'ERROR:') || substr_count($string,'STATS:'))
+	$log_level = 1;
+
+	if (substr_count($string,'ERROR:') || substr_count($string,'STATS:')) {
 		$log_level = 2;
-	else if (substr_count($string,'WARNING:') || substr_count($string,'NOTICE:'))
+	} else if (substr_count($string,'WARNING:') || substr_count($string,'NOTICE:')) {
 		$log_level = 3;
-	else if (substr_count($string,'DEBUG:'))
+	} else if (substr_count($string,'DEBUG:')) {
 		$log_level = 5;
+	}
 
 	/* Log to Logfile */
 	if ((($logdestination == 1) || ($logdestination == 2)) && read_config_option('log_verbosity') >= $log_level) {
-
 		$log_type = 'note';
 
 		if ($logfile == '') {
@@ -497,24 +535,27 @@ function plugin_routerconfigs_log($string) {
 	/* Log to Syslog/Eventlog */
 	/* Syslog is currently Unstable in Win32 */
 	if (($logdestination == 2) || ($logdestination == 3)) {
-		$string = strip_tags($string);
+		$string   = strip_tags($string);
 		$log_type = '';
-		if (substr_count($string,'ERROR:'))
+
+		if (substr_count($string,'ERROR:')) {
 			$log_type = 'err';
-		else if (substr_count($string,'WARNING:'))
+		} else if (substr_count($string,'WARNING:')) {
 			$log_type = 'warn';
-		else if (substr_count($string,'STATS:'))
+		} else if (substr_count($string,'STATS:')) {
 			$log_type = 'stat';
-		else if (substr_count($string,'NOTICE:'))
+		} else if (substr_count($string,'NOTICE:')) {
 			$log_type = 'note';
+		}
 
 		if (strlen($log_type)) {
 			define_syslog_variables();
 
-			if ($config['cacti_server_os'] == 'win32')
+			if ($config['cacti_server_os'] == 'win32') {
 				openlog('Cacti', LOG_NDELAY | LOG_PID, LOG_USER);
-			else
+			} else {
 				openlog('Cacti', LOG_NDELAY | LOG_PID, LOG_SYSLOG);
+			}
 
 			if (($log_type == 'err') && (read_config_option('log_perror'))) {
 				syslog(LOG_CRIT, $environ . ': ' . $string);
@@ -540,15 +581,15 @@ following the PHPTelnet structure
 and looking arround on Internet
 */
 class PHPSsh {
-	var $show_connect_error=1;
-	var $timeout=1; //Seconds to avoid buggies connections
-	var $connection=NULL; //stores the ssh connection pointer
-	var $stream=NULL; //points to the ssh session stream
-	var $errorcode=0;
-	var $use_usleep=0;	// change to 1 for faster execution
+	var $show_connect_error = 1;
+	var $timeout    = 1; //Seconds to avoid buggies connections
+	var $connection = NULL; //stores the ssh connection pointer
+	var $stream     = NULL; //points to the ssh session stream
+	var $errorcode  = 0;
+	var $use_usleep = 1;	// change to 1 for faster execution
 		// don't change to 1 on Windows servers unless you have PHP 5
-	var $debug='';
-	var $error=0;
+	var $debug = '';
+	var $error = 0;
 
 	/*
 	0 = success
@@ -559,50 +600,57 @@ class PHPSsh {
 	5 = Error enabling device
 	*/
 	function Connect($server, $user, $pass, $enablepw, $devicetype) {
-		$this->debug = '';
-		$rv=0;
+		echo "\nServer: $server User: $user Password: $pass Enablepw: $enablepw Devicetype: $devicetype\n";
 
-		if (!function_exists('ssh2_auth_password'))
-		{
+		$this->debug = '';
+		$rv = 0;
+
+		if (!function_exists('ssh2_auth_password')) {
 			plugin_routerconfigs_log($server . "-> DEBUG: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php");
 			$rv=4;
 			return $rv;
 		}
 
 		if (strlen($server)) {
-			if (preg_match('/[^0-9.]/',$server)) {
-				$ip=gethostbyname($server);
-				if ($ip==$server) {
-					$ip='';
-					$rv=2;
+			if (preg_match('/[^0-9.]/', $server)) {
+				$ip = gethostbyname($server);
+				if ($ip == $server) {
+					$ip = '';
+					$rv = 2;
 				}
-			} else $ip=$server;
-		} else $ip='127.0.0.1';
+			} else {
+				$ip = $server;
+			}
+		} else {
+			$ip = '127.0.0.1';
+		}
 
 		if (strlen($ip)) {
 			if(!($this->connection = ssh2_connect($server, 22))){
-					$rv=1;
+				$rv=1;
 			} else {
 				// try to authenticate
-
-				if(!@ssh2_auth_password($this->connection, $user, $pass)) {
+				if (!@ssh2_auth_password($this->connection, $user, $pass)) {
 					$rv=3;
 				} else {
-					if($this->stream = @ssh2_shell($this->connection,'xterm')) {
+					if ($this->stream = @ssh2_shell($this->connection,'xterm')) {
 						$this->GetResponse($response);
 						plugin_routerconfigs_log($ip . '-> DEBUG: okay: logged in...');
 					}
 
 					if (strstr($response,'>')) {
 						$this->DoCommand('en',$response);
+
 						if (stristr($response,$devicetype['password'])) {
 							if($this->DoCommand($enablepw, $response)){
 								plugin_routerconfigs_log($ip . '-> DEBUG: Enable login failed');
 								$this->Disconnect();
 								$rv=5;
 							}
-							if (strstr($response,'#'))
+
+							if (strstr($response,'#')) {
 								plugin_routerconfigs_log($ip . '-> DEBUG: Ok we are in enabled mode');
+							}
 						}
 					}
 				}
@@ -610,7 +658,7 @@ class PHPSsh {
 		}
 
 		if ($rv) {
-			$error=$this->ConnectError($rv);
+			$error = $this->ConnectError($rv);
 			if (strstr($error,'ERROR')) {
 				echo $ip . '-> ' . $error . '<br>';
 			}
@@ -622,27 +670,34 @@ class PHPSsh {
 
 	function Disconnect($exit=1) {
 		if ($this->stream) {
-			if ($exit)
+			if ($exit) {
 				$this->DoCommand('exit', $junk);
+			}
+
 			fclose($this->stream);
-			$this->stream=NULL;
+
+			$this->stream = NULL;
 		}
 	}
 
 	function DoCommand($cmd, &$response) {
-		$result=0;
+		$result = 0;
 		if ($this->connection) {
 			fwrite($this->stream,$cmd.PHP_EOL);
 			$this->Sleep();
-			$result=$this->GetResponse($response);
-			$response=preg_replace("/^.*?\n(.*)\n([^\n]*)$/", "$2", $response);
+			$result = $this->GetResponse($response);
+			$response = preg_replace("/^.*?\n(.*)\n([^\n]*)$/", "$2", $response);
 		}
+
 		return $result;
 	}
 
 	function Sleep() {
-		if ($this->use_usleep) usleep($this->sleeptime);
-		else sleep(1);
+		if ($this->use_usleep) {
+			usleep($this->sleeptime); 
+		} else {
+			sleep(1);
+		}
 	}
 
 	function GetResponse(&$response) {
@@ -650,19 +705,22 @@ class PHPSsh {
 		$time_start = time();
 		$data = '';
 
-		while( true && isset($this->stream)){
-			while( $buf = fgets($this->stream) ){
+		while (true && isset($this->stream)) {
+			while ($buf = fgets($this->stream)) {
 				$response .= $buf;
 				plugin_routerconfigs_log("DEBUG: SSH buffer=$buf");
-				if(strstr($buf,'#') || strstr($buf,'>') || strstr($buf,']?') || strstr($buf, $devicetype['password']))
+				if (strstr($buf,'#') || strstr($buf,'>') || strstr($buf,']?') || strstr($buf, $devicetype['password'])) {
 					return 0;
+				}
 			}
 
-			if( (time()-$time_start) > $this->timeout ){
+			if ((time()-$time_start) > $this->timeout) {
 				plugin_routerconfigs_log("DEBUG: SSH timeout of {$this->timeout} seconds has been reached");
+
 				return 8;
 			}
 		}
+
 		return 0;
 	}
 
@@ -670,32 +728,32 @@ class PHPSsh {
 		if ($this->show_connect_error) {
 			$this->error=$num;
 			switch ($num) {
-				case 1:
-					return 'WARNING: Unable to open ssh network connection';
-					break;
-				case 2:
-					return 'ERROR: Unknown host';
-					break;
-				case 3:
-					return 'ERROR: SSH login failed';
-					break;
-				case 4:
-					return "ERROR: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual: http://www.php.net/manual/en/ssh2.installation.php";
-					break;
-				case 5:
-					return 'ERROR: Bad download of config';
-					break;
-				case 6:
-					return 'ERROR: SSH access not Permitted';
-					break;
-				case 7:
-					return 'ERROR: SSH no Config uploaded from Router';
-					break;
-				case 8:
-					return "NOTICE: SSH Timeout of {$this->timeout} seconds has been reached";
-					break;
-				case 9:
-					return 'ERROR: SSH Enable login failed';
+			case 1:
+				return 'WARNING: Unable to open ssh network connection';
+				break;
+			case 2:
+				return 'ERROR: Unknown host';
+				break;
+			case 3:
+				return 'ERROR: SSH login failed';
+				break;
+			case 4:
+				return "ERROR: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual: http://www.php.net/manual/en/ssh2.installation.php";
+				break;
+			case 5:
+				return 'ERROR: Bad download of config';
+				break;
+			case 6:
+				return 'ERROR: SSH access not Permitted';
+				break;
+			case 7:
+				return 'ERROR: SSH no Config uploaded from Router';
+				break;
+			case 8:
+				return "NOTICE: SSH Timeout of {$this->timeout} seconds has been reached";
+				break;
+			case 9:
+				return 'ERROR: SSH Enable login failed';
 			}
 		}
 	}
@@ -710,7 +768,7 @@ public domain
 class PHPTelnet {
 	var $show_connect_error=1;
 
-	var $use_usleep=0;	// change to 1 for faster execution
+	var $use_usleep=1;	// change to 1 for faster execution
 		// don't change to 1 on Windows servers unless you have PHP 5
 	var $sleeptime=125000;
 	var $loginsleeptime=1000000;
@@ -771,6 +829,7 @@ class PHPTelnet {
 					echo $r;
 					return 6;
 				}
+				echo "Initial response: ";
 				echo $r;
 
 // Get Username Prompt
@@ -781,17 +840,30 @@ class PHPTelnet {
 					$this->GetResponse($r);
 					echo $r;
 					$res .= $r;
+
+					echo "\nChecking response: $res\n";
+
 					if (strpos($res, $devicetype['username']) !== FALSE) {
+						echo "\nSending username: $user\n";
 						fputs($this->fp, "$user\r");
 						sleep(1);
 						break;
+					}else{
+						plugin_routerconfigs_log("DEBUG: No Prompt received"); 
+						echo "\nNo Prompt received\n"; 
+						fputs($this->fp, "\r\n");
+						$this->GetResponse($r);
+						echo "\nResponse: $r\n";
 					}
+
 					$x++;
 					sleep(1);
 				}
+
 				if ($x == 10) {
 					return 8;
 				}
+
 // Get Password Prompt
 				$res = '';
 				$x = 0;
@@ -804,6 +876,7 @@ class PHPTelnet {
 					if (strpos($res, $devicetype['password']) !== FALSE) {
 						$r=explode("\n", $r);
 						$this->loginprompt = trim(substr($r[count($r) - 1], 0, strpos($r[count($r) - 1], ' ')));
+						echo "\nSending password: $pass\n";
 						@fputs($this->fp, "$pass\r");
 						break;
 					}
