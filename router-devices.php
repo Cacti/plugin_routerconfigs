@@ -507,11 +507,11 @@ function show_devices() {
 
 			if (empty($dtype)) $dtype = __('Auto-Detect');
 
-			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __('Telnet') . '"></a>';
+			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __('Telnet') . '"></a>';
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
-				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __('Trace Route') . '"></a>';
+				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __('Trace Route') . '"></a>';
 			}
-			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __('Router Debug Info') . '"></a>';
+			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __('Router Debug Info') . '"></a>';
 
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
 			form_selectable_cell('<a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['id'] . '">' . $row['hostname'] . '</a>', $row['id']);

@@ -344,7 +344,7 @@ function show_devicetypes() {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
-			$cell = '<a class="hyperLink" href="' . htmlspecialchars('router-devtypes.php?action=edit&id=' . $row['id']) . '"><img border=0 src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 title="' . __('Edit Device Type') . '"></a>';
+			$cell = '<a class="hyperLink" href="' . htmlspecialchars('router-devtypes.php?action=edit&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 title="' . __('Edit Device Type') . '"></a>';
             form_selectable_cell($cell, $row['id'], '1%', 'left');
             form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . $row['name'] . '</a>', $row['id']);
