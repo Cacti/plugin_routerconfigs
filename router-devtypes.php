@@ -328,9 +328,9 @@ function show_devicetypes() {
 
 	form_start('router-devtypes.php', 'chk');
 
-	print $nav;
-
     html_start_box(__('View Router Device Types'), '100%', '', '4', 'center', 'router-devtypes.php?action=edit');
+
+	print $nav;
 
 	html_header_checkbox(
 		array(
