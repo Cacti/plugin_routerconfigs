@@ -30,7 +30,7 @@ include('./include/auth.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
 $device_actions = array(
-	1 => __('Backup'), 
+	1 => __('Backup'),
 	2 => __('Delete'),
 	3 => __('Enable'),
 	4 => __('Disable')
@@ -162,9 +162,9 @@ function plugin_routerconfigs_view_device_debug () {
 
 	$device = array();
 	if (!isempty_request_var('id')) {
-		$device = db_fetch_row_prepared('SELECT * 
-			FROM plugin_routerconfigs_devices 
-			WHERE id = ?', 
+		$device = db_fetch_row_prepared('SELECT *
+			FROM plugin_routerconfigs_devices
+			WHERE id = ?',
 			array(get_request_var('id')));
 	}
 
@@ -198,9 +198,9 @@ function view_device_config() {
 		$device = db_fetch_row_prepared('SELECT prb.*, prd.hostname, prd.ipaddress
 			FROM plugin_routerconfigs_devices AS prd
 			INNER JOIN plugin_routerconfigs_backups AS prb
-			ON prb.device = prd.id 
+			ON prb.device = prd.id
 			WHERE prb.device = ?
-			ORDER BY btime DESC', 
+			ORDER BY btime DESC',
 			array(get_request_var('id')));
 	}
 
@@ -228,7 +228,7 @@ function view_device_config() {
 	}
 }
 
-function actions_devices () {
+function actions_devices() {
 	global $device_actions, $config;
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -237,26 +237,26 @@ function actions_devices () {
 			switch(get_nfilter_request_var('drp_action')) {
 			case '2':
 				for ($i=0; $i<count($selected_items); $i++) {
-					db_execute_prepared('DELETE FROM plugin_routerconfigs_devices 
-						WHERE id = ?', 
+					db_execute_prepared('DELETE FROM plugin_routerconfigs_devices
+						WHERE id = ?',
 						array($selected_items[$i]));
 				}
 
 				break;
 			case '3':
 				for ($i=0; $i<count($selected_items); $i++) {
-					db_execute_prepared('UPDATE plugin_routerconfigs_devices 
-						SET enabled="on" 
-						WHERE id = ?', 
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices
+						SET enabled="on"
+						WHERE id = ?',
 						array($selected_items[$i]));
 				}
 
 				break;
 			case '4':
 				for ($i=0; $i<count($selected_items); $i++) {
-					db_execute_prepared('UPDATE plugin_routerconfigs_devices 
-						SET enabled="" 
-						WHERE id = ?', 
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices
+						SET enabled=""
+						WHERE id = ?',
 						array($selected_items[$i]));
 				}
 
@@ -279,9 +279,9 @@ function actions_devices () {
 			input_validate_input_number($matches[1]);
 			/* ==================================================== */
 
-			$device_list .= '<li>' . db_fetch_cell_prepared('SELECT hostname 
-				FROM plugin_routerconfigs_devices 
-				WHERE id = ?', 
+			$device_list .= '<li>' . db_fetch_cell_prepared('SELECT hostname
+				FROM plugin_routerconfigs_devices
+				WHERE id = ?',
 				array($matches[1])) . '</li>';
 
 			$device_array[] = $matches[1];
@@ -293,9 +293,9 @@ function actions_devices () {
 			ini_set('max_execution_time', 0);
 			ini_set('memory_limit', '256M');
 			foreach ($device_array as $id) {
-				$device = db_fetch_assoc_prepared('SELECT * 
-					FROM plugin_routerconfigs_devices 
-					WHERE id = ?', 
+				$device = db_fetch_assoc_prepared('SELECT *
+					FROM plugin_routerconfigs_devices
+					WHERE id = ?',
 					array($id));
 
 				plugin_routerconfigs_download_config($device[0]);
@@ -362,6 +362,8 @@ function actions_devices () {
 	</tr>";
 
 	html_end_box();
+
+	form_end();
 
 	bottom_footer();
 }
@@ -479,15 +481,15 @@ function show_devices() {
 
 	html_header_checkbox(
 		array(
-			__('Actions'), 
-			__('Hostname'), 
-			__('Device Type'), 
-			__('Configs'), 
-			__('IP Address'), 
-			__('Directory'), 
-			__('Last Backup'), 
-			__('Last Change'), 
-			__('Changed By'), 
+			__('Actions'),
+			__('Hostname'),
+			__('Device Type'),
+			__('Configs'),
+			__('IP Address'),
+			__('Directory'),
+			__('Last Backup'),
+			__('Last Change'),
+			__('Changed By'),
 			__('Enabled')
 		)
 	);
@@ -496,14 +498,15 @@ function show_devices() {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
-			$total = db_fetch_cell_prepared('SELECT count(device) 
-				FROM plugin_routerconfigs_backups 
+			$total = db_fetch_cell_prepared('SELECT count(device)
+				FROM plugin_routerconfigs_backups
 				WHERE device = ?',
 				array($row['id']));
 
-			$dtype = db_fetch_cell_prepared('SELECT name 
-				FROM plugin_routerconfigs_devicetypes 
-				WHERE id = ?', array($row['devicetype']));
+			$dtype = db_fetch_cell_prepared('SELECT name
+				FROM plugin_routerconfigs_devicetypes
+				WHERE id = ?',
+				array($row['devicetype']));
 
 			if (empty($dtype)) $dtype = __('Auto-Detect');
 
@@ -522,7 +525,7 @@ function show_devices() {
 			form_selectable_cell(($row['lastbackup'] < 1 ? '' : date('M j Y H:i:s', $row['lastbackup'])), $row['id']);
 			form_selectable_cell(($row['lastchange'] < 1 ? '' : date('M j Y H:i:s', $row['lastchange'])), $row['id']);
 			form_selectable_cell($row['username'], $row['id']);
-			form_selectable_cell(($row['enabled'] == 'on' ? __('Yes') : '<span class="deviceDown"><b>' . __('No') . '</b></span>'), $row['id']);
+			form_selectable_cell(($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes') . '</span>' : '<span class="deviceDown">' . __('No') . '</span>'), $row['id']);
 			form_checkbox_cell($row['hostname'], $row['id']);
 			form_end_row();
 		}

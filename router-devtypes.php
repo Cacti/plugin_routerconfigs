@@ -28,7 +28,7 @@ include_once('./include/auth.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
 $ds_actions = array(
-	1 => __('Delete'), 
+	1 => __('Delete'),
 );
 
 set_default_action();
@@ -36,8 +36,8 @@ set_default_action();
 set_request_var('tab', 'devtypes');
 
 $acc = array('None');
-$accounts = db_fetch_assoc('SELECT id, name 
-	FROM plugin_routerconfigs_accounts 
+$accounts = db_fetch_assoc('SELECT id, name
+	FROM plugin_routerconfigs_accounts
 	ORDER BY name');
 
 if (!empty($accounts)) {
@@ -47,8 +47,8 @@ if (!empty($accounts)) {
 }
 
 $dtypes = array(__('Auto-Detect'));
-$dtypesarr = db_fetch_assoc('SELECT id, name 
-	FROM plugin_routerconfigs_devicetypes 
+$dtypesarr = db_fetch_assoc('SELECT id, name
+	FROM plugin_routerconfigs_devicetypes
 	ORDER BY name');
 
 if (!empty($dtypes)) {
@@ -162,8 +162,8 @@ function actions_devicetypes () {
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == '1') {
 				for ($i = 0; $i < count($selected_items); $i++) {
-					db_execute_prepared('DELETE FROM plugin_routerconfigs_devicetypes 
-						WHERE id = ?', 
+					db_execute_prepared('DELETE FROM plugin_routerconfigs_devicetypes
+						WHERE id = ?',
 						array($selected_items[$i]));
 				}
 			}
@@ -224,8 +224,10 @@ function actions_devicetypes () {
 			$save_html
 		</td>
 	</tr>";
-            
+
 	html_end_box();
+
+	form_end();
 
 	bottom_footer();
 }
@@ -270,19 +272,23 @@ function edit_devicetypes () {
 
 	$devicetype = array();
 	if (!isempty_request_var('id')) {
-		$devicetype = db_fetch_row('SELECT * FROM plugin_routerconfigs_devicetypes WHERE id=' . get_request_var('id'), FALSE);
-		$header_label = '[edit: ' . $devicetype['name'] . ']';
+		$devicetype = db_fetch_row_prepared('SELECT *
+			FROM plugin_routerconfigs_devicetypes
+			WHERE id = ?',
+			array(get_request_var('id')));
+
+		$header_label = __('Query [edit: %s]', $devicetype['name']);
 	}else{
-		$header_label = '[new]';
+		$header_label = __('Query [new]');
 	}
 
 	form_start('router-devtypes.php', 'chk');
 
-	html_start_box('Query: ' . $header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', '', '3', 'center', '');
 
    	draw_edit_form(
 		array(
-			'config' => array('no_form_tag' => true),   
+			'config' => array('no_form_tag' => true),
 			'fields' => inject_form_variables($devicetype_edit, $devicetype)
 		)
 	);
@@ -304,17 +310,18 @@ function show_devicetypes() {
 	$account = '';
 
 	if (isset_request_var('account')) {
-	$account = get_request_var('account');
+		$account = get_request_var('account');
 	}
 
 	load_current_session_value('page', 'sess_routerconfigs_devtypes_current_page', '1');
 	$num_rows = 30;
 
-	$result = db_fetch_assoc('SELECT * 
+	$result = db_fetch_assoc('SELECT *
 		FROM plugin_routerconfigs_devicetypes
-		ORDER BY id LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows);
+		ORDER BY id
+		LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows);
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*) 
+	$total_rows = db_fetch_cell('SELECT COUNT(*)
 		FROM plugin_routerconfigs_devicetypes' . ($account != '' ? ' WHERE account = ' . $account:''));
 
 	$nav = html_nav_bar('router-devtypes.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 11, __('Device Types'), 'page', 'main');
@@ -327,7 +334,7 @@ function show_devicetypes() {
 
 	html_header_checkbox(
 		array(
-			__('Actions'), 
+			__('Actions'),
 			__('ID'),
 			__('Name'),
 			__('Username'),
@@ -352,9 +359,9 @@ function show_devicetypes() {
 			form_selectable_cell($row['password'], $row['id']);
 			form_selectable_cell($row['copytftp'], $row['id']);
             form_selectable_cell($row['version'], $row['id']);
-            form_selectable_cell(($row['confirm'] == 'y' ? __('Yes') : '<span class="deviceDown"><b>' . __('No') . '</b></span>'), $row['id']);
-            form_selectable_cell(($row['forceconfirm'] == 'on' ? __('Yes') : '<span class="deviceDown"><b>' . __('No') . '</b></span>'), $row['id']);
-			form_selectable_cell(($row['checkendinconfig'] == 'on' ? __('Yes') : '<span class="deviceDown"><b>' . __('No') . '</b></span>'), $row['id']);
+            form_selectable_cell(($row['confirm'] == 'y' ? '<span class="deviceUp">' . __('Yes') . '</span>' : '<span class="deviceDown">' . __('No') . '</span>'), $row['id']);
+            form_selectable_cell(($row['forceconfirm'] == 'on' ? '<span class="deviceUp">' . __('Yes') . '</span>' : '<span class="deviceDown">' . __('No') . '</span>'), $row['id']);
+			form_selectable_cell(($row['checkendinconfig'] == 'on' ? '<span class="deviceUp">' . __('Yes') . '</span>' : '<span class="deviceDown">' . __('No') . '</span>'), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}

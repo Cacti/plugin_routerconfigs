@@ -158,7 +158,7 @@ function actions_accounts () {
 		if (get_nfilter_request_var('drp_action') == '1') { /* Delete */
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>" . __('Click Continue to delete the following account(s).') . "</p>
+					<p>" . __('Click \'Continue\' to delete the following account(s).') . "</p>
 					<p><ul>$account_list</ul></p>
 				</td>
 			</tr>";
@@ -180,6 +180,8 @@ function actions_accounts () {
 	</tr>";
 
 	html_end_box();
+
+	form_end();
 
 	bottom_footer();
 }
@@ -214,11 +216,11 @@ function save_accounts () {
 	$id = sql_save($save, 'plugin_routerconfigs_accounts', 'id');
 
 	if (is_error_message()) {
-		header('Location: router-accounts.php?action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
+		header('Location: router-accounts.php?header=false&action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
 		exit;
 	}
 
-	header('Location: router-accounts.php');
+	header('Location: router-accounts.php?header=fasle');
 	exit;
 }
 
@@ -233,14 +235,14 @@ function edit_accounts () {
 	if (!isempty_request_var('id')) {
 		$account = db_fetch_row('SELECT * FROM plugin_routerconfigs_accounts WHERE id=' . get_request_var('id'), FALSE);
 		$account['password'] = '';
-		$header_label = '[edit: ' . $account['name'] . ']';
+		$header_label = __('Account: [edit: %s]', $account['name']);
 	}else{
-		$header_label = '[new]';
+		$header_label = __('Account: [new]');
 	}
 
 	form_start('router-accounts.php', 'chk');
 
-	html_start_box(__('Account: %s', $header_label), '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', '', '3', 'center', '');
 
 	draw_edit_form(
 		array(
@@ -262,11 +264,11 @@ function show_accounts () {
 	load_current_session_value('page', 'sess_wmi_accounts_current_page', '1');
 	$num_rows = 30;
 
-	$result = db_fetch_assoc('SELECT * 
-		FROM plugin_routerconfigs_accounts 
+	$result = db_fetch_assoc('SELECT *
+		FROM plugin_routerconfigs_accounts
 		LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ", $num_rows");
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*) 
+	$total_rows = db_fetch_cell('SELECT COUNT(*)
 		FROM plugin_routerconfigs_accounts');
 
 	$nav = html_nav_bar('router-accounts.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 5, __('Accounts'), 'page', 'main');
@@ -293,7 +295,7 @@ function show_accounts () {
 		}
 	}else{
 		form_alternate_row();
-		print '<td colspan="10">' . __('No Router Accounts Found') . '</td>';
+		print '<td colspan="10"><em>' . __('No Router Accounts Found') . '</em></td>';
 		form_end_row();
 	}
 
