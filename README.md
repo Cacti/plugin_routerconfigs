@@ -42,7 +42,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 ## ChangeLog
 
 --- 1.1 ---
-* issue#9: Constructurs missing on the Hoard class library
+* issue#9: Constructurs missing on the Horde class library
 * issue#16: HTML style issues during enable/disable operations
 
 --- 0.3 ---
