@@ -35,8 +35,7 @@ class Text_Diff_Renderer {
     /**
      * Constructor.
      */
-    function Text_Diff_Renderer($params = array())
-    {
+    function __construct($params = array()) {
         foreach ($params as $param => $value) {
             $v = '_' . $param;
             if (isset($this->$v)) {
@@ -50,8 +49,7 @@ class Text_Diff_Renderer {
      *
      * @return array  All parameters of this renderer object.
      */
-    function getParams()
-    {
+    function getParams() {
         $params = array();
         foreach (get_object_vars($this) as $k => $v) {
             if ($k[0] == '_') {
@@ -69,8 +67,7 @@ class Text_Diff_Renderer {
      *
      * @return string  The formatted output.
      */
-    function render($diff)
-    {
+    function render($diff) {
         $xi = $yi = 1;
         $block = false;
         $context = array();
@@ -143,8 +140,7 @@ class Text_Diff_Renderer {
         return $output . $this->_endDiff();
     }
 
-    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
-    {
+    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits) {
         $output = $this->_startBlock($this->_blockHeader($xbeg, $xlen, $ybeg, $ylen));
 
         foreach ($edits as $edit) {
@@ -170,18 +166,15 @@ class Text_Diff_Renderer {
         return $output . $this->_endBlock();
     }
 
-    function _startDiff()
-    {
+    function _startDiff() {
         return '';
     }
 
-    function _endDiff()
-    {
+    function _endDiff() {
         return '';
     }
 
-    function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
-    {
+    function _blockHeader($xbeg, $xlen, $ybeg, $ylen) {
         if ($xlen > 1) {
             $xbeg .= ',' . ($xbeg + $xlen - 1);
         }
@@ -199,38 +192,31 @@ class Text_Diff_Renderer {
         return $xbeg . ($xlen ? ($ylen ? 'c' : 'd') : 'a') . $ybeg;
     }
 
-    function _startBlock($header)
-    {
+    function _startBlock($header) {
         return $header . "\n";
     }
 
-    function _endBlock()
-    {
+    function _endBlock() {
         return '';
     }
 
-    function _lines($lines, $prefix = ' ')
-    {
+    function _lines($lines, $prefix = ' ') {
         return $prefix . implode("\n$prefix", $lines) . "\n";
     }
 
-    function _context($lines)
-    {
+    function _context($lines) {
         return $this->_lines($lines, '  ');
     }
 
-    function _added($lines)
-    {
+    function _added($lines) {
         return $this->_lines($lines, '> ');
     }
 
-    function _deleted($lines)
-    {
+    function _deleted($lines) {
         return $this->_lines($lines, '< ');
     }
 
-    function _changed($orig, $final)
-    {
+    function _changed($orig, $final) {
         return $this->_deleted($orig) . "---\n" . $this->_added($final);
     }
 

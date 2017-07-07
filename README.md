@@ -37,11 +37,12 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 
 ## Bugs and Feature Enhancements
    
-Bug and feature enhancements for the hmib plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
+Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
 
 --- 1.1 ---
+* issue#9: Constructurs missing on the Hoard class library
 * issue#16: HTML style issues during enable/disable operations
 
 --- 0.3 ---
