@@ -3,9 +3,9 @@
 The routerconfigs plugin is designed to act in conjuction with the Cacti servers tftp server to receive backups from your router
 devices.  It also provides the ability to view and diff those router configurations as they change over time.  It is designed primarily for Cisco device types, but may work with other device types.
 
-NOTE: This plugin is not actively maintained by the Cacti Group, is a community plugin that receives contributions mainly from the community.  The Cacti Group has gone as far as to make the plugin functional on Cacti 1.x, and to work with the community on smaller functionality changes, compatibility and the like, but expects the Cacti community to assist in it's development.
+NOTE: This plugin is not actively maintained by the Cacti Group and is a community plugin that primarily receives contributions from the Cacti community.  The Cacti Group has gone as far as to make the plugin functional on Cacti 1.x, and to work with the community on smaller functionality changes, compatibility and the like, but expects the Cacti community to assist in it's development.
 
-##Installation
+## Installation
 
 Just like any other Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'routerconfigs', and then from Cacti's Plugin Management interface, Install and Enable the pluign.
 
