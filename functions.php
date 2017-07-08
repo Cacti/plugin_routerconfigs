@@ -30,18 +30,18 @@ function display_tabs () {
 	/* ==================================================== */
 
 	$tabs = array(
-		'devices'  => __('Devices'),
-		'devtypes' => __('Device Types'),
-		'accounts' => __('Authentication'),
-		'backups'  => __('Backups'),
-		'compare'  => __('Compare')
+		'devices'  => __('Devices', 'routerconfigs'),
+		'devtypes' => __('Device Types', 'routerconfigs'),
+		'accounts' => __('Authentication', 'routerconfigs'),
+		'backups'  => __('Backups', 'routerconfigs'),
+		'compare'  => __('Compare', 'routerconfigs')
 	);
 
    /* set the default tab */
     load_current_session_value('tab', 'sess_rc_tabs', 'devices');
     $current_tab = get_nfilter_request_var('tab');
 
-    $header_label = __('Technical Support [ %s ]', $tabs[get_request_var('tab')]);
+    $header_label = __('Technical Support [ %s ]', $tabs[get_request_var('tab')], 'routerconfigs');
 
 	if (sizeof($tabs)) {
 		/* draw the tabs */
@@ -66,16 +66,16 @@ function plugin_routerconfigs_redownload_failed () {
 	$passed = array();
 
 	// Get device that have not backed up in 24 hours + 30 minutes and that haven't been tried in the last 30 minutes
-	$devices = db_fetch_assoc("SELECT * 
-		FROM plugin_routerconfigs_devices 
-		WHERE enabled = 'on' 
-		AND ($t - (schedule * 86400)) - 3600 > lastbackup 
+	$devices = db_fetch_assoc("SELECT *
+		FROM plugin_routerconfigs_devices
+		WHERE enabled = 'on'
+		AND ($t - (schedule * 86400)) - 3600 > lastbackup
 		AND $t - lastattempt > 1800", false);
 
 	if (!empty($devices)) {
-		db_execute("UPDATE plugin_routerconfigs_devices 
-			SET lastattempt = $t 
-			WHERE $t - lastbackup > 88200 
+		db_execute("UPDATE plugin_routerconfigs_devices
+			SET lastattempt = $t
+			WHERE $t - lastbackup > 88200
 			AND $t - lastattempt > 1800");
 
 		foreach ($devices as $device) {
@@ -83,10 +83,11 @@ function plugin_routerconfigs_redownload_failed () {
 
 			plugin_routerconfigs_download_config($device);
 			$t = time() - 120;
-			$f = db_fetch_assoc("SELECT * 
-				FROM plugin_routerconfigs_backups 
-				WHERE btime > $t 
-				AND device = " . $device['id']);
+			$f = db_fetch_assoc_prepared('SELECT *
+				FROM plugin_routerconfigs_backups
+				WHERE btime > ?
+				AND device = ?',
+				array($t, $device['id']));
 
 			if (!empty($f)) {
 				$passed[] = array ('hostname' => $device['hostname']);
@@ -96,7 +97,7 @@ function plugin_routerconfigs_redownload_failed () {
 	}
 
 	if (!empty($passed)) {
-		$message = __("A successful backup has now been completed on these devices\n--------------------------------\n");
+		$message = __("A successful backup has now been completed on these devices\n--------------------------------\n", 'routerconfigs');
 		foreach ($passed as $f) {
 			$message .= $f['hostname'] . "\n";
 		}
@@ -109,14 +110,14 @@ function plugin_routerconfigs_redownload_failed () {
 				$from = 'ConfigBackups@reyrey.com';
 			}
 		}
-		send_mail($email, $from, __('Network Device Configuration Backups - Reattempt'), $message, $filename = '', $headers = '', $fromname = __('Config Backups'));
+		send_mail($email, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $fromname = __('Config Backups', 'routerconfigs'));
 	}
 }
 
 function plugin_routerconfigs_retention () {
-	$backuppath = read_config_option("routerconfigs_backup_path");
+	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		print __("Backup Path is not set or is not a directory");
+		print __('Backup Path is not set or is not a directory', 'routerconfigs');
 		exit;
 	}
 
@@ -125,13 +126,22 @@ function plugin_routerconfigs_retention () {
 		$days = 30;
 	}
 	$time = time() - ($days * 24 * 60 * 60);
-	$backups = db_fetch_assoc("SELECT * FROM plugin_routerconfigs_backups WHERE btime < $time");
-	foreach ($backups as $backup) {
-		$dir = $backup['directory'];
-		$filename = $backup['filename'];
-		@unlink("$backuppath/$dir/$filename");
+	$backups = db_fetch_assoc_prepared('SELECT *
+		FROM plugin_routerconfigs_backups
+		WHERE btime < ?',
+		array($time));
+
+	if (sizeof($backups)) {
+		foreach ($backups as $backup) {
+			$dir = $backup['directory'];
+			$filename = $backup['filename'];
+			@unlink("$backuppath/$dir/$filename");
+		}
 	}
-	db_execute("DELETE FROM plugin_routerconfigs_backups WHERE btime < $time");
+
+	db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
+		WHERE btime < ?',
+		array($time));
 }
 
 function plugin_routerconfigs_check_config ($data) {
@@ -147,22 +157,23 @@ function plugin_routerconfigs_download_config ($device) {
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		print __('FATAL: Backup Path is not set or is not a directory');
+		print __('FATAL: Backup Path is not set or is not a directory', 'routerconfigs');
 		exit;
 	}
 
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 	if (strlen($tftpserver) < 2) {
-		print __('FATAL: TFTP Server is not set');
+		print __('FATAL: TFTP Server is not set', 'routerconfigs');
 		exit;
 	}
 
 	$tftpfilename = $device['hostname'];
-	$filename = $tftpfilename;
+	$filename     = $tftpfilename;
 
-	$devicetype = db_fetch_row('SELECT * 
-		FROM plugin_routerconfigs_devicetypes 
-		WHERE id = ' . $device['devicetype']);
+	$devicetype = db_fetch_row_prepared('SELECT *
+		FROM plugin_routerconfigs_devicetypes
+		WHERE id = ?',
+		array($device['devicetype']));
 
 	if (empty($devicetype)){
 		$devicetype = array('username' => 'username:',
@@ -176,23 +187,25 @@ function plugin_routerconfigs_download_config ($device) {
 
 	$connection = new PHPSsh();
 	if (($result = $connection->Connect($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype))) {
-		$connection=NULL;
+		$connection = NULL;
 		$connection = new PHPTelnet();
 		$result = $connection->Connect($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype);
 		plugin_routerconfigs_log($device['ipaddress'] . '-> DEBUG: telnet');
 	}
 	$debug = $connection->debug;
 
-	db_execute('UPDATE plugin_routerconfigs_devices SET lastattempt = ' . time() . ' WHERE id = ' . $device['id']);
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET lastattempt = ? WHERE id = ?',
+		array(time(), $device['id']));
 
 	if ($result == 0) {
-		$command=$devicetype['copytftp'];
+		$command = $devicetype['copytftp'];
 		if (stristr($command, '%SERVER%')) {
-			$command=str_replace('%SERVER%',$tftpserver,$command);
+			$command = str_replace('%SERVER%', $tftpserver, $command);
 		}
 
 		if (stristr($command, '%FILE%')) {
-			$command=str_replace('%FILE%',$filename,$command);
+			$command=str_replace('%FILE%', $filename, $command);
 		}
 
 		plugin_routerconfigs_log($ip . "-> DEBUG: command to execute $command");
@@ -300,24 +313,33 @@ function plugin_routerconfigs_download_config ($device) {
 				if (substr($d, 0, 9) == 'hostname ') {
 					$filename = trim(substr($d, 9));
 					if ($device['hostname'] != $filename) {
-						db_execute("UPDATE plugin_routerconfigs_devices SET hostname = '$filename' WHERE id = " . $device['id']);
+						db_execute_prepared('UPDATE plugin_routerconfigs_devices
+							SET hostname = ?
+							WHERE id = ?',
+							array($filename, $device['id']));
 					}
 				}
 
 				if (substr($d, 0, 17) == 'set system name ') {
 					$filename = trim(substr($d, 17));
 					if ($device['hostname'] != $filename) {
-						db_execute("UPDATE plugin_routerconfigs_devices SET hostname = '$filename' WHERE id = " . $device['id']);
+						db_execute_prepared('UPDATE plugin_routerconfigs_devices
+							SET hostname = ?
+							WHERE id = ?',
+							array($filename, $device['id']));
 					}
 				}
 			}
 		}
 
 		if ($lastchange != '' && $lastchange != $device['lastchange']) {
-			db_execute("UPDATE plugin_routerconfigs_devices SET lastchange = $lastchange, username = '$lastuser' WHERE id = " . $device['id']);
+			db_execute_prepared('UPDATE plugin_routerconfigs_devices
+				SET lastchange = ?, username = ?
+				WHERE id = ?',
+				array($lastchange, $lastuser, $device['id']));
 		} elseif ($lastchange == '' && $devicetype['version'] != '') {
-			$connection->DoCommand("terminal length 0", $version);
-			$connection->DoCommand("terminal pager 0", $version);
+			$connection->DoCommand('terminal length 0', $version);
+			$connection->DoCommand('terminal pager 0', $version);
 			$connection->DoCommand($devicetype['version'], $version);
 
 			$t       = time();
@@ -375,7 +397,10 @@ function plugin_routerconfigs_download_config ($device) {
 						}
 
 						if ($diff > 60) {
-							db_execute("UPDATE plugin_routerconfigs_devices SET lastchange = $lastchange, username = '$lastuser' WHERE id = " . $device['id']);
+							db_execute_prepared('UPDATE plugin_routerconfigs_devices
+								SET lastchange = ?, username = ?
+								WHERE id = ?',
+								array($lastchange, $lastuser, $device['id']));
 						} else {
 							$lastchange = $device['lastchange'];
 						}
@@ -393,12 +418,12 @@ function plugin_routerconfigs_download_config ($device) {
 				mkdir("$backuppath/$dir", 0777, true);
 			}
 
-			db_execute_prepared('UPDATE plugin_routerconfigs_devices 
+			db_execute_prepared('UPDATE plugin_routerconfigs_devices
 				SET lastbackup = ?
-				WHERE id = ?', 
+				WHERE id = ?',
 				array(time(), $device['id']));
 
-			$date = date("Y-m-d-Hi");
+			$date = date('Y-m-d-Hi');
 			$file = fopen("$backuppath/$dir/$filename-$date", 'w');
 
 			plugin_routerconfigs_log($ip . '-> DEBUG: Attempting to backup to filename ' . $backuppath . '/' . $dir . '/' . $filename . '-' . $date);
@@ -406,15 +431,15 @@ function plugin_routerconfigs_download_config ($device) {
 			fwrite($file, $data);
 			fclose($file);
 
-			$data2 = db_qstr($data);
+			$data2 = $data;
 			$t     = time();
 			if ($lastchange == '') {
 				 $lastchange = 0;
 			}
 
-			db_execute_prepared('INSERT INTO plugin_routerconfigs_backups 
-				(device, btime, directory, filename, config, lastchange, username) 
-				VALUES (?, ?, ?, ?, ?, ?, ?)', 
+			db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
+				(device, btime, directory, filename, config, lastchange, username)
+				VALUES (?, ?, ?, ?, ?, ?, ?)',
 				array($device['id'], $t, $dir, "$filename-$date", $data2, $lastchange, $lastuser));
 		} else {
 			plugin_routerconfigs_save_error($device['id'], $connection);
@@ -440,12 +465,18 @@ function plugin_routerconfigs_download_config ($device) {
 function plugin_routerconfigs_save_debug($device, $debug) {
 	$debug = base64_encode($debug);
 	//echo "Saving Debug\n";
-	db_execute("UPDATE plugin_routerconfigs_devices SET debug = '$debug' WHERE id = " . $device['id']);
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET debug = ?
+		WHERE id = ?',
+		array($debug, $device['id']));
 }
 
 function plugin_routerconfigs_save_error($id, $telnet) {
 	$error = $telnet->ConnectError($telnet->error);
-	db_execute("UPDATE plugin_routerconfigs_devices SET lasterror = '$error' WHERE id = $id");
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET lasterror = ?
+		WHERE id = ?',
+		array($error, $id));
 }
 
 function plugin_routerconfigs_retrieve_account ($device) {
@@ -453,10 +484,12 @@ function plugin_routerconfigs_retrieve_account ($device) {
 		return false;
 	}
 
-	$info = db_fetch_row("SELECT plugin_routerconfigs_accounts.* 
-		FROM plugin_routerconfigs_accounts,plugin_routerconfigs_devices 
-		WHERE plugin_routerconfigs_accounts.id = plugin_routerconfigs_devices.account 
-		AND plugin_routerconfigs_devices.id = " . $device, FALSE);
+	$info = db_fetch_row_prepared('SELECT *
+		FROM plugin_routerconfigs_accounts AS pra
+		INNER JOIN plugin_routerconfigs_devices AS prd
+		ON pra.id=prd.account
+		WHERE prd.id = ?',
+		array($device));
 
 	if (isset($info['username'])) {
 		$info['password'] = plugin_routerconfigs_decode($info['password']);
@@ -694,7 +727,7 @@ class PHPSsh {
 
 	function Sleep() {
 		if ($this->use_usleep) {
-			usleep($this->sleeptime); 
+			usleep($this->sleeptime);
 		} else {
 			sleep(1);
 		}
@@ -849,8 +882,8 @@ class PHPTelnet {
 						sleep(1);
 						break;
 					}else{
-						plugin_routerconfigs_log("DEBUG: No Prompt received"); 
-						echo "\nNo Prompt received\n"; 
+						plugin_routerconfigs_log("DEBUG: No Prompt received");
+						echo "\nNo Prompt received\n";
 						fputs($this->fp, "\r\n");
 						$this->GetResponse($r);
 						echo "\nResponse: $r\n";
@@ -864,7 +897,7 @@ class PHPTelnet {
 					return 8;
 				}
 
-// Get Password Prompt
+				// Get Password Prompt
 				$res = '';
 				$x = 0;
 				while ($x < 10) {

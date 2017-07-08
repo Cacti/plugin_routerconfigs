@@ -35,7 +35,7 @@ function plugin_routerconfigs_install () {
 	api_plugin_register_hook('routerconfigs', 'poller_bottom',        'routerconfigs_poller_bottom',        'setup.php');
 	api_plugin_register_hook('routerconfigs', 'page_head',            'routerconfigs_page_head',            'setup.php');
 
-	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs'), 1);
+	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
 
 	routerconfigs_setup_table_new();
 }
@@ -59,7 +59,7 @@ function routerconfigs_check_upgrade() {
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('plugins.php');
-	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
+	if (!in_array(get_current_page(), $files)) {
 		return;
 	}
 
@@ -91,8 +91,8 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
-		db_execute("UPDATE plugin_config 
-			SET version='$current' 
+		db_execute("UPDATE plugin_config
+			SET version='$current'
 			WHERE directory='routerconfigs'");
 	}
 }
@@ -175,9 +175,9 @@ function routerconfigs_setup_table_new() {
     $data['comment'] = 'Router Config Device Types';
     api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
 
-	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes 
-		(id, name, username, password, copytftp, version, confirm, forceconfirm) 
-		VALUES 
+	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes
+		(id, name, username, password, copytftp, version, confirm, forceconfirm)
+		VALUES
 		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
 		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '')");
 }
@@ -185,7 +185,7 @@ function routerconfigs_setup_table_new() {
 function routerconfigs_page_head () {
 	global $config;
 
-	if (strpos($_SERVER['PHP_SELF'], 'router-compare.php')) {
+	if (strpos(get_current_page(), 'router-compare.php')) {
 		print '<link rel="stylesheet" type="text/css" href="' . $config['url_path'] . "plugins/routerconfigs/diff.css\">\n";
 	}
 }
@@ -220,10 +220,10 @@ function routerconfigs_poller_bottom () {
 	} else if ($s < $poller_interval){
 		$t = time();
 
-		$devices = db_fetch_assoc("SELECT * 
-			FROM plugin_routerconfigs_devices 
-			WHERE enabled = 'on' 
-			AND ($t - (schedule * 86400)) - 3600 > lastbackup 
+		$devices = db_fetch_assoc("SELECT *
+			FROM plugin_routerconfigs_devices
+			WHERE enabled = 'on'
+			AND ($t - (schedule * 86400)) - 3600 > lastbackup
 			AND $t - lastattempt > 1800", false);
 
 		if (!empty($devices)) {
@@ -251,57 +251,57 @@ function routerconfigs_config_settings () {
 
 	$temp = array(
 		'routerconfigs_header' => array(
-			'friendly_name' => __('Router Configs'),
+			'friendly_name' => __('Router Configs', 'routerconfigs'),
 			'method' => 'spacer',
 		),
 		'routerconfigs_tftpserver' => array(
-			'friendly_name' => __('TFTP Server IP'),
-			'description' => __('Must be an IP pointing to your Cacti server.'),
+			'friendly_name' => __('TFTP Server IP', 'routerconfigs'),
+			'description' => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
 			'method' => 'textbox',
 			'max_length' => 255,
 			'default' => gethostbyname($hostname)
 		),
 		'routerconfigs_backup_path' => array(
-			'friendly_name' => __('Backup Directory Path'),
-			'description' => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.'),
+			'friendly_name' => __('Backup Directory Path', 'routerconfigs'),
+			'description' => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.', 'routerconfigs'),
 			'method' => 'dirpath',
 			'max_length' => 255,
 			'size' => '50',
 			'default' => $config['base_path'] . '/backups/'
 		),
 		'routerconfigs_email' => array(
-			'friendly_name' => __('Email Address'),
-			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.'),
+			'friendly_name' => __('Email Address', 'routerconfigs'),
+			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
 			'method' => 'textbox',
 			'size' => 40,
 			'max_length' => 255,
 			'default' => ''
 		),
 		'routerconfigs_from' => array(
-			'friendly_name' => __('From Address'),
-			'description' => __('Email address the nightly backup will be sent from.'),
+			'friendly_name' => __('From Address', 'routerconfigs'),
+			'description' => __('Email address the nightly backup will be sent from.', 'routerconfigs'),
 			'method' => 'textbox',
 			'size' => 40,
 			'max_length' => 255,
 			'default' => ''
 		),
 		'routerconfigs_retention' => array(
-			'friendly_name' => __('Retention Period'),
-			'description' => __('The number of days to retain old backups.'),
+			'friendly_name' => __('Retention Period', 'routerconfigs'),
+			'description' => __('The number of days to retain old backups.', 'routerconfigs'),
 			'method' => 'drop_array',
 			'default' => '30',
 			'array' => array(
-				'30'  => __('%d Month', 1),
-				'60'  => __('%d Months', 2),
-				'90'  => __('%d Months', 3),
-				'120' => __('%d Months', 4),
-				'180' => __('%d Months', 6),
-				'365' => __('%d Year', 1)
+				'30'  => __('%d Month', 1, 'routerconfigs'),
+				'60'  => __('%d Months', 2, 'routerconfigs'),
+				'90'  => __('%d Months', 3, 'routerconfigs'),
+				'120' => __('%d Months', 4, 'routerconfigs'),
+				'180' => __('%d Months', 6, 'routerconfigs'),
+				'365' => __('%d Year', 1, 'routerconfigs')
 			)
 		)
 	);
 
-	$tabs['misc'] = __('Misc');
+	$tabs['misc'] = __('Misc', 'routerconfigs');
 
 	if (isset($settings['misc'])) {
 		$settings['misc'] = array_merge($settings['misc'], $temp);
@@ -313,96 +313,96 @@ function routerconfigs_config_settings () {
 function routerconfigs_config_arrays () {
 	global $menu;
 
-	$menu[__('Utilities')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs');
+	$menu[__('Utilities', 'routerconfigs')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs', 'routerconfigs');
 }
 
 function routerconfigs_draw_navigation_text ($nav) {
 	$nav['router-devices.php:'] = array(
-		'title' => __('Router Devices'), 
+		'title' => __('Router Devices', 'routerconfigs'),
 		'mapping' => 'index.php:',
-		'url' => 'router-devices.php', 
+		'url' => 'router-devices.php',
 		'level' => '1'
 	);
 
 	$nav['router-devices.php:edit'] = array(
-		'title' => __('(edit)'),
+		'title' => __('(edit)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-devices.php:',
 		'url' => 'router-devices.php',
 		'level' => '2'
 	);
 
 	$nav['router-devices.php:actions'] = array(
-		'title' => __('(actions)'),
+		'title' => __('(actions)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-devices.php:',
 		'url' => 'router-devices.php',
 		'level' => '2'
 	);
 
 	$nav['router-devices.php:viewconfig'] = array(
-		'title' => __('View Config'),
+		'title' => __('View Config', 'routerconfigs'),
 		'mapping' => 'index.php:,router-devices.php:',
 		'url' => 'router-devices.php',
 		'level' => '2'
 	);
 
 	$nav['router-devices.php:viewdebug'] = array(
-		'title' => __('View Debug'),
+		'title' => __('View Debug', 'routerconfigs'),
 		'mapping' => 'index.php:,router-devices.php:',
 		'url' => 'router-devices.php',
 		'level' => '2'
 	);
 
 	$nav['router-backups.php:'] = array(
-		'title' => __('Router Backups'), 
+		'title' => __('Router Backups', 'routerconfigs'),
 		'mapping' => 'index.php:',
 		'url' => 'router-backups.php',
 		'level' => '1'
 	);
 
 	$nav['router-backups.php:edit'] = array(
-		'title' => __('(edit)'),
+		'title' => __('(edit)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-backups.php:',
 		'url' => 'router-backups.php',
 		'level' => '2'
 	);
 
 	$nav['router-backups.php:actions'] = array(
-		'title' => __('(actions)'),
+		'title' => __('(actions)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-backups.php:',
 		'url' => 'router-backups.php',
 		'level' => '2'
 	);
 
 	$nav['router-backups.php:viewconfig'] = array(
-		'title' => __('View Config'),
+		'title' => __('View Config', 'routerconfigs'),
 		'mapping' => 'index.php:,router-backups.php:',
 		'url' => 'router-backups.php',
 		'level' => '2'
 	);
 
 	$nav['router-accounts.php:'] = array(
-		'title' => __('Router Accounts'),
+		'title' => __('Router Accounts', 'routerconfigs'),
 		'mapping' => 'index.php:',
 		'url' => 'router-accounts.php',
 		'level' => '1'
 	);
 
 	$nav['router-accounts.php:edit'] = array(
-		'title' => __('(edit)'),
+		'title' => __('(edit)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-accounts.php:',
 		'url' => 'router-accounts.php',
 		'level' => '2'
 	);
 
 	$nav['router-accounts.php:actions'] = array(
-		'title' => __('(actions)'),
+		'title' => __('(actions)', 'routerconfigs'),
 		'mapping' => 'index.php:,router-accounts.php:',
 		'url' => 'router-accounts.php',
 		'level' => '2'
 	);
 
 	$nav['router-compare.php:'] = array(
-		'title' => __('Router Compare'),
+		'title' => __('Router Compare', 'routerconfigs'),
 		'mapping' => 'index.php:',
 		'url' => 'router-compare.php',
 		'level' => '1'

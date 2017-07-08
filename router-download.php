@@ -44,14 +44,14 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 ini_set('max_execution_time', '0');
 ini_set('memory_limit', '256M');
 
-db_execute("REPLACE INTO settings 
-	(name, value) VALUES 
+db_execute("REPLACE INTO settings
+	(name, value) VALUES
 	('plugin_routerconfigs_running', 1)");
 
 $t = $stime = time();
-$devices = db_fetch_assoc("SELECT * 
-	FROM plugin_routerconfigs_devices 
-	WHERE enabled = 'on' 
+$devices = db_fetch_assoc("SELECT *
+	FROM plugin_routerconfigs_devices
+	WHERE enabled = 'on'
 	AND ((($t - lastbackup) - (schedule * 86400)) > -3600)");
 
 $failed = array();
@@ -64,15 +64,15 @@ if (sizeof($devices)) {
 
 		// Check for failed Backup
 		$t = time() - 120;
-		$f = db_fetch_assoc_prepared('SELECT * 
-			FROM plugin_routerconfigs_backups 
-			WHERE btime > ? 
-			AND device = ?', 
+		$f = db_fetch_assoc_prepared('SELECT *
+			FROM plugin_routerconfigs_backups
+			WHERE btime > ?
+			AND device = ?',
 			array($t, $device['id']));
 
 		if (empty($f)) {
-			$device = db_fetch_row_prepared('SELECT * 
-				FROM plugin_routerconfigs_devices 
+			$device = db_fetch_row_prepared('SELECT *
+				FROM plugin_routerconfigs_devices
 				WHERE id = ?',
 				array($device['id']));
 
@@ -82,8 +82,8 @@ if (sizeof($devices)) {
 		sleep(10);
 	}
 } else {
-	db_execute("REPLACE INTO settings 
-		(name, value) VALUES 
+	db_execute("REPLACE INTO settings
+		(name, value) VALUES
 		('plugin_routerconfigs_running', 0)");
 
 	return;
@@ -95,12 +95,12 @@ $cfailed = count($failed);
 cacti_log("NOTE: $success Devices Backed Up and $cfailed Devices Failed in " . time() - $stime . ' seconds', true, 'RCONFIG');
 
 /* print out failures */
-$message  = __("%s devices backed up successfully.<br>", $success);
-$message .= __("%s devices failed to backup.<br>", $cfailed);
+$message  = __('%s devices backed up successfully.<br>', $success, 'routerconfigs');
+$message .= __('%s devices failed to backup.<br>', $cfailed, 'routerconfigs');
 
 if (!empty($failed)) {
-	$message .= __("These devices failed to backup<br>");
-	$message .= __("--------------------------------<br>");
+	$message .= __('These devices failed to backup<br>', 'routerconfigs');
+	$message .= __('--------------------------------<br>', 'routerconfigs');
 	foreach ($failed as $f) {
 		$message .= $f['hostname'] . ' - ' . $f['lasterror'] . '<br>';
 	}
@@ -119,7 +119,7 @@ if ($to != '' && $from_email != '') {
 
 	$from[0] = $from_email;
 	$from[1] = $from_name;
-	$subject = __('Network Device Configuration Backups');
+	$subject = __('Network Device Configuration Backups', 'routerconfigs');
 
 	 mailer($from, $to, $cc, '', '', $subject, $message);
 }
@@ -127,7 +127,7 @@ if ($to != '' && $from_email != '') {
 /* remove old backups */
 plugin_routerconfigs_retention ();
 
-db_execute("REPLACE INTO settings 
-	(name, value) VALUES 
+db_execute("REPLACE INTO settings
+	(name, value) VALUES
 	('plugin_routerconfigs_running', 0)");
 

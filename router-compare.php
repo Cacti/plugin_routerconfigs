@@ -45,8 +45,8 @@ $files1  = array();
 $files2  = array();
 
 if (empty($device1) || empty($device2)) {
-	$devices = db_fetch_assoc('SELECT id, directory, hostname 
-		FROM plugin_routerconfigs_devices 
+	$devices = db_fetch_assoc('SELECT id, directory, hostname
+		FROM plugin_routerconfigs_devices
 		ORDER BY hostname');
 
 	if (sizeof($devices)) {
@@ -65,17 +65,17 @@ if (empty($device1) || empty($device2)) {
 }
 
 if (!empty($device1)) {
-	$files1 = db_fetch_assoc_prepared('SELECT id, directory, filename 
-		FROM plugin_routerconfigs_backups 
-		WHERE device = ? 
+	$files1 = db_fetch_assoc_prepared('SELECT id, directory, filename
+		FROM plugin_routerconfigs_backups
+		WHERE device = ?
 		ORDER BY directory, filename DESC', array($device1));
 }else{
 	$files1 = array();
 }
 
 if (!empty($device2)) {
-	$files2 = db_fetch_assoc_prepared('SELECT id, directory, filename 
-		FROM plugin_routerconfigs_backups 
+	$files2 = db_fetch_assoc_prepared('SELECT id, directory, filename
+		FROM plugin_routerconfigs_backups
 		WHERE device = ? ORDER BY directory, filename DESC', array($device2));
 }else{
 	$files2 = array();
@@ -118,7 +118,7 @@ print '</select></td></tr>';
 html_end_box(false);
 form_end();
 
-html_start_box(__('Compare Output'), '100%', '', '1', 'center', '');
+html_start_box(__('Compare Output', 'routerconfigs'), '100%', '', '1', 'center', '');
 
 if (!empty($file1) && !empty($file2)) {
 	$device1 = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_backups WHERE id = ?', array($file1));
@@ -143,7 +143,7 @@ if (!empty($file1) && !empty($file2)) {
 		print "<tr bgcolor='#6d88ad' height='1'><td width='50%'></td><td width='1'></td><td width='50%'></td></tr>";
 
 		if (trim($text) == '') {
-			print '<tr><td colspan=3><center>' . __('There are no Changes') . '</center></td></tr>';
+			print '<tr><td colspan=3><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
 		} else {
 			$text = str_replace("\n", '<br>', $text);
 			$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
@@ -153,10 +153,10 @@ if (!empty($file1) && !empty($file2)) {
 
 		html_end_box(false);
 	}else{
-		print '<tr><td><h3>' . __('Error, you must have backups for each device.') . '</h3></td></tr>';
+		print '<tr><td><h3>' . __('Error, you must have backups for each device.', 'routerconfigs') . '</h3></td></tr>';
 	}
 }else{
-	print '<tr><td><h3>' . __('Error, you must have backups for each device.') . '</h3></td></tr>';
+	print '<tr><td><h3>' . __('Error, you must have backups for each device.', 'routerconfigs') . '</h3></td></tr>';
 }
 
 html_end_box();

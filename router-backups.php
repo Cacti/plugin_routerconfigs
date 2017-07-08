@@ -69,9 +69,9 @@ function view_device_config() {
 
 		form_alternate_row();
 
-		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress']);
-		print __('Backup from %s', date('M j Y H:i:s', $device['btime'])) . '<br>';
-		print __('File: %s/%s', $device['directory'], $device['filename']);
+		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs');
+		print __('Backup from %s', date('M j Y H:i:s', $device['btime']), 'routerconfigs') . '<br>';
+		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
 		print $device['config'];
 		print '</textarea></td></tr>';
@@ -113,9 +113,9 @@ function show_devices () {
 			prb.btime, prb.device, prb.directory, prb.filename
 			FROM plugin_routerconfigs_devices AS prd
 			INNER JOIN plugin_routerconfigs_backups AS prb
-			ON prd.id = prb.device 
+			ON prd.id = prb.device
 			WHERE prb.device = ' . $device . '
-			ORDER BY prb.btime DESC 
+			ORDER BY prb.btime DESC
 			LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
 
 		$result = db_fetch_assoc($sql);
@@ -126,7 +126,7 @@ function show_devices () {
 		$total_rows = 0;
 	}
 
-	html_start_box(__('Router Backups'), '100%', '', '4', 'center', '');
+	html_start_box(__('Router Backups', 'routerconfigs'), '100%', '', '4', 'center', '');
 
 	$nav = html_nav_bar('router-backups.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 7, 'Backups', 'page', 'main');
 
@@ -134,13 +134,13 @@ function show_devices () {
 
 	html_header(
 		array(
-			__('Hostname'), 
-			__('Compare'), 
-			__('Directory'),
-			__('Filename'), 
-			__('Backup Time'), 
-			__('Last Change'), 
-			__('Changed By')
+			__('Hostname', 'routerconfigs'),
+			__('Compare', 'routerconfigs'),
+			__('Directory', 'routerconfigs'),
+			__('Filename', 'routerconfigs'),
+			__('Backup Time', 'routerconfigs'),
+			__('Last Change', 'routerconfigs'),
+			__('Changed By', 'routerconfigs')
 		)
 	);
 
@@ -159,18 +159,18 @@ function show_devices () {
 				form_alternate_row();
 
 				print '<td><a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['device'] . '">' . $row['hostname'] . '</a></td>';
-				print "<td><a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config') . "</a> - <a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>" . __('Compare') . "</a></td>";
+				print "<td><a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config', 'routerconfigs') . "</a> - <a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>" . __('Compare', 'routerconfigs') . "</a></td>";
 				print '<td>' . $row['directory'] . '</td>';
 				print '<td>' . $row['filename'] . '</td>';
 				print '<td>' . date('M j Y H:i:s', $row['btime']) . '</td>';
-	
+
 				if ($row['lastchange'] > 0) {
 					print '<td>' . date('M j Y H:i:s', $row['lastchange']) . '</td>';
 				} else {
 					print '<td> </td>';
 				}
 				print '<td>' . $row['username'] . '</td>';
-	
+
 				form_end_row();
 			}
 
@@ -178,7 +178,7 @@ function show_devices () {
 		}
 	}else{
 		form_alternate_row();
-		print '<td colspan="10">' . __('No Router Backups Found') . '</td>';
+		print '<td colspan="10">' . __('No Router Backups Found', 'routerconfigs') . '</td>';
 		form_end_row();
 	}
 

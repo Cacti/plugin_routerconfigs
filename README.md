@@ -44,6 +44,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 --- 1.1 ---
 * issue#9: Constructurs missing on the Horde class library
 * issue#16: HTML style issues during enable/disable operations
+* issue: Updating text domain for i18n
 
 --- 0.3 ---
 * compat: Remove PIA 1.x support

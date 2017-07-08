@@ -30,10 +30,10 @@ include('./include/auth.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
 $device_actions = array(
-	1 => __('Backup'),
-	2 => __('Delete'),
-	3 => __('Enable'),
-	4 => __('Disable')
+	1 => __('Backup', 'routerconfigs'),
+	2 => __('Delete', 'routerconfigs'),
+	3 => __('Enable', 'routerconfigs'),
+	4 => __('Disable', 'routerconfigs')
 );
 
 set_default_action();
@@ -61,53 +61,57 @@ if (!empty($dtypes)) {
 $device_edit = array(
 	'enabled' => array(
 		'method' => 'checkbox',
-		'friendly_name' => __('Enable Device'),
-		'description' => __('Uncheck this box to disabled this device from being backed up.'),
+		'friendly_name' => __('Enable Device', 'routerconfigs'),
+		'description' => __('Uncheck this box to disabled this device from being backed up.', 'routerconfigs'),
 		'value' => '|arg1:enabled|',
 		'default' => '',
 		'form_id' => false
 	),
 	'hostname' => array(
 		'method' => 'textbox',
-		'friendly_name' => __('Description'),
-		'description' => __('Name of this device (will be used for config saving and SVN if no hostname is present in config).'),
+		'friendly_name' => __('Description', 'routerconfigs'),
+		'description' => __('Name of this device (will be used for config saving and SVN if no hostname is present in config).', 'routerconfigs'),
 		'value' => '|arg1:hostname|',
 		'max_length' => '128',
 	),
 	'ipaddress' => array(
 		'method' => 'textbox',
-		'friendly_name' => __('IP Address'),
-		'description' => __('This is the IP Address used to communicate with the device.'),
+		'friendly_name' => __('IP Address', 'routerconfigs'),
+		'description' => __('This is the IP Address used to communicate with the device.', 'routerconfigs'),
 		'value' => '|arg1:ipaddress|',
 		'max_length' => '128',
 	),
 	'directory' => array(
 		'method' => 'dirpath',
-		'friendly_name' => __('Directory'),
-		'description' => __('This is the relative directory structure used to store the configs.'),
+		'friendly_name' => __('Directory', 'routerconfigs'),
+		'description' => __('This is the relative directory structure used to store the configs.', 'routerconfigs'),
 		'value' => '|arg1:directory|',
 		'max_length' => '255',
 	),
 	'schedule' => array(
 		'method' => 'drop_array',
-		'friendly_name' => __('Schedule'),
-		'description' => __('How often to Backup this device.'),
+		'friendly_name' => __('Schedule', 'routerconfigs'),
+		'description' => __('How often to Backup this device.', 'routerconfigs'),
 		'value' => '|arg1:schedule|',
 		'default' => 1,
-		'array' => array(1 => __('Daily'), 7 => __('Weekly'), 10 => __('Monthly')),
+		'array' => array(
+			1  => __('Daily', 'routerconfigs'),
+			7  => __('Weekly', 'routerconfigs'),
+			10 => __('Monthly', 'routerconfigs')
+		),
 	),
 	'devicetype' => array(
 		'method' => 'drop_array',
-		'friendly_name' => __('Device Type'),
-		'description' => __('Choose the type of device that the router is.'),
+		'friendly_name' => __('Device Type', 'routerconfigs'),
+		'description' => __('Choose the type of device that the router is.', 'routerconfigs'),
 		'value' => '|arg1:devicetype|',
 		'default' => 0,
 		'array' => $dtypes,
 	),
 	'account' => array(
 		'method' => 'drop_array',
-		'friendly_name' => __('Authentication Account'),
-		'description' => __('Choose an account to use to Login to the router'),
+		'friendly_name' => __('Authentication Account', 'routerconfigs'),
+		'description' => __('Choose an account to use to Login to the router', 'routerconfigs'),
 		'value' => '|arg1:account|',
 		'default' => 0,
 		'array' => $acc,
@@ -176,7 +180,7 @@ function plugin_routerconfigs_view_device_debug () {
 		html_start_box('', '100%', '', '4', 'center', '');
 
 		form_alternate_row();
-		print '<td><h2>' . __('Debug for %s (%s)<br><br>', $device['hostname'], $device['ipaddress']);
+		print '<td><h2>' . __('Debug for %s (%s)<br><br>', $device['hostname'], $device['ipaddress'], 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
 		print base64_decode($device['debug']);
 		print '</textarea></td></tr>';
@@ -212,9 +216,9 @@ function view_device_config() {
 		html_start_box('', '100%', '', '4', 'center', '');
 
 		form_alternate_row();
-		print '<td><h2>' . __('Router Config for %s (%s)<br><br>', $device['hostname'], $device['ipaddress']);
-		print __('Backup from %s', date('M j Y H:i:s', $device['btime'])) . '<br>';
-		print __('File: %s/%s', $device['directory'], $device['filename']);
+		print '<td><h2>' . __('Router Config for %s (%s)<br><br>', $device['hostname'], $device['ipaddress'], 'routerconfigs');
+		print __('Backup from %s', date('M j Y H:i:s', $device['btime']), 'routerconfigs') . '<br>';
+		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
 		print $device['config'];
 		print '</textarea></td></tr>';
@@ -321,35 +325,35 @@ function actions_devices() {
 		case '2':
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>" . __('Click \'Continue\' to Delete the following device(s).') . "</p>
+					<p>" . __('Click \'Continue\' to Delete the following device(s).', 'routerconfigs') . "</p>
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Delete Device(s)', 'routerconfigs') . "'>";
 			break;
 		case '3':
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>" . __('Click \'Continue\' to Enable the following device(s).') . "</p>
+					<p>" . __('Click \'Continue\' to Enable the following device(s).', 'routerconfigs') . "</p>
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Enable Device(s)') . "'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Enable Device(s)', 'routerconfigs') . "'>";
 			break;
 		case '4':
 			print "<tr>
 				<td colspan='2' class='textArea'>
-					<p>" . __('Click \'Continue\' to Disable the following device(s).') . "</p>
+					<p>" . __('Click \'Continue\' to Disable the following device(s).', 'routerconfigs') . "</p>
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Disable Device(s)') . "'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Disable Device(s)', 'routerconfigs') . "'>";
 			break;
 		}
 	}else{
-		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.') . "</span></td></tr>\n";
+		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.', 'routerconfigs') . "</span></td></tr>\n";
 
-		$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input type='button' value='" . __esc('Return', 'routerconfigs') . "' onClick='cactiReturnTo()'>";
 	}
 
 	print "<tr>
@@ -418,9 +422,9 @@ function edit_devices () {
 	if (!isempty_request_var('id')) {
 		$account = db_fetch_row('SELECT * FROM plugin_routerconfigs_devices WHERE id=' . get_request_var('id'), FALSE);
 		$account['password'] = '';
-		$header_label = __('Router: [edit: %s]', $account['hostname']);
+		$header_label = __('Router: [edit: %s]', $account['hostname'], 'routerconfigs');
 	}else{
-		$header_label = __('Router: [new]');
+		$header_label = __('Router: [new]', 'routerconfigs');
 	}
 
 	form_start('router-devices.php', 'chk');
@@ -475,22 +479,22 @@ function show_devices() {
 
 	form_start('router-devices.php', 'chk');
 
-	html_start_box(__('Router Device Management'), '100%', '', '4', 'center', 'router-devices.php?action=edit');
+	html_start_box(__('Router Device Management', 'routerconfigs'), '100%', '', '4', 'center', 'router-devices.php?action=edit');
 
 	print $nav;
 
 	html_header_checkbox(
 		array(
-			__('Actions'),
-			__('Hostname'),
-			__('Device Type'),
-			__('Configs'),
-			__('IP Address'),
-			__('Directory'),
-			__('Last Backup'),
-			__('Last Change'),
-			__('Changed By'),
-			__('Enabled')
+			__('Actions', 'routerconfigs'),
+			__('Hostname', 'routerconfigs'),
+			__('Device Type', 'routerconfigs'),
+			__('Configs', 'routerconfigs'),
+			__('IP Address', 'routerconfigs'),
+			__('Directory', 'routerconfigs'),
+			__('Last Backup', 'routerconfigs'),
+			__('Last Change', 'routerconfigs'),
+			__('Changed By', 'routerconfigs'),
+			__('Enabled', 'routerconfigs')
 		)
 	);
 
@@ -508,29 +512,29 @@ function show_devices() {
 				WHERE id = ?',
 				array($row['devicetype']));
 
-			if (empty($dtype)) $dtype = __('Auto-Detect');
+			if (empty($dtype)) $dtype = __('Auto-Detect', 'routerconfigs');
 
-			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __('Telnet') . '"></a>';
+			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __esc('Telnet', 'routerconfigs') . '"></a>';
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
-				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __('Trace Route') . '"></a>';
+				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
 			}
-			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __('Router Debug Info') . '"></a>';
+			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></a>';
 
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
 			form_selectable_cell('<a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['id'] . '">' . $row['hostname'] . '</a>', $row['id']);
 			form_selectable_cell('<a class="linkEditMain" href="router-devtypes.php?&action=edit&id=' . $row['devicetype'] . '">' . $dtype . '</a>', $row['id']);
-			form_selectable_cell("<a class='linkEditMain' href='router-devices.php?action=viewconfig&id=" . $row['id'] . "'>" . __('Current') . "</a> - <a class='linkEditMain' href='router-backups.php?device=" . $row['id'] . "'>" . __('Backups (%s)', $total) . "</a>", $row['id']);
+			form_selectable_cell("<a class='linkEditMain' href='router-devices.php?action=viewconfig&id=" . $row['id'] . "'>" . __('Current', 'routerconfigs') . "</a> - <a class='linkEditMain' href='router-backups.php?device=" . $row['id'] . "'>" . __('Backups (%s)', $total) . "</a>", $row['id'], 'routerconfigs');
 			form_selectable_cell($row['ipaddress'], $row['id']);
 			form_selectable_cell($row['directory'], $row['id']);
 			form_selectable_cell(($row['lastbackup'] < 1 ? '' : date('M j Y H:i:s', $row['lastbackup'])), $row['id']);
 			form_selectable_cell(($row['lastchange'] < 1 ? '' : date('M j Y H:i:s', $row['lastchange'])), $row['id']);
 			form_selectable_cell($row['username'], $row['id']);
-			form_selectable_cell(($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes') . '</span>' : '<span class="deviceDown">' . __('No') . '</span>'), $row['id']);
+			form_selectable_cell(($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_checkbox_cell($row['hostname'], $row['id']);
 			form_end_row();
 		}
 	}else{
-		print "<tr class='even'><td colspan='10'>" . __('No Router Devices Found') . "</td></tr>\n";
+		print "<tr class='even'><td colspan='10'>" . __('No Router Devices Found', 'routerconfigs') . "</td></tr>\n";
 	}
 
 	html_end_box(false);
