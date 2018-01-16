@@ -484,12 +484,8 @@ function plugin_routerconfigs_retrieve_account ($device) {
 		return false;
 	}
 
-	$info = db_fetch_row_prepared('SELECT *
-		FROM plugin_routerconfigs_accounts AS pra
-		INNER JOIN plugin_routerconfigs_devices AS prd
-		ON pra.id=prd.account
-		WHERE prd.id = ?',
-		array($device));
+	$info = db_fetch_row_prepared('SELECT plugin_routerconfigs_accounts.* FROM plugin_routerconfigs_accounts,plugin_routerconfigs_devices WHERE plugin_routerconfigs_accounts.id = plugin_routerconfigs_devices.account AND plugin_routerconfigs_devices.id = ?',
+                array($device));
 
 	if (isset($info['username'])) {
 		$info['password'] = plugin_routerconfigs_decode($info['password']);
