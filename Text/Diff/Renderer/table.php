@@ -9,8 +9,8 @@
  * "Table" diff renderer.
  *
  * Modified by Steven Whitbread to create a table layout of diff results. Creates three column table with classes to style table on various diff operations.
- * Makes use of marker renderer, which just marks the changes in final and orig with out merging them like in the Inline renderer. 
- * 
+ * Makes use of marker renderer, which just marks the changes in final and orig with out merging them like in the Inline renderer.
+ *
  *
  * $Horde: framework/Text_Diff/Diff/Renderer/inline.php,v 1.16 2006/01/08 00:06:57 jan Exp $
  *
@@ -89,7 +89,7 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
         $lines[count($lines) - 1] .= $this->_ins_suffix;
         return '<tr><td class=noc></td><td class=mid></td><td class=add>'.$this->_lines($lines, ' ', false).'</td></tr>';
     }
-    
+
     function _addedInline($lines)
     {
         array_walk($lines, array(&$this, '_encode'));
@@ -135,8 +135,8 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
     {
         $string = htmlspecialchars($string);
     }
-    
-    
+
+
     function _changed($orig, $final)
     {
         /* If we've already split on words, don't try to do so again - just
@@ -155,43 +155,43 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
 
         $text1 = implode("\n", $orig);
         $text2 = implode("\n", $final);
-        
+
         $html = '';
-        
-        /* These "if" statments catch conditions where the diff engine seems to return added lines as changes, 
+
+        /* These "if" statments catch conditions where the diff engine seems to return added lines as changes,
          * this is seen by a difference between the count of the final array and the orig array. Also catch deleted lines (if there are any, not sure?).
          * it only seems to happen after the line with changes, not before.
-        */  
+        */
         if(count($orig) == count($final)){
             for($i = 0; $i < count($orig); $i++){
-                    /* Non-printing newline marker. */                    
+                    /* Non-printing newline marker. */
                     $nl = "\0";
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = &new Text_Diff($this->_splitOnWords($orig[$i], $nl),
-                                           $this->_splitOnWords($final[$i], $nl));            
+                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                                           $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = &new Text_Diff_Renderer_marker(array_merge($this->getParams(),
-                                                                           array('split_level' => 'words')));            
+                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                                                                           array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
-            
+
                 $html .= '<tr class=chg><td>'.$output->orig.'</td><td class=mid></td><td>'.$output->final.'</td></tr>';
             }
         }else{
             if(count($orig) < count($final)){
                 for($i = 0; $i < count($orig); $i++){
-                    /* Non-printing newline marker. */                    
+                    /* Non-printing newline marker. */
                     $nl = "\0";
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = &new Text_Diff($this->_splitOnWords($orig[$i], $nl),
-                                           $this->_splitOnWords($final[$i], $nl));            
+                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                                           $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = &new Text_Diff_Renderer_marker(array_merge($this->getParams(),
-                                                                           array('split_level' => 'words')));            
+                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                                                                           array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
                     $html .= '<tr class=chg><td>'.$output->orig.'</td><td class=mid></td><td>'.$output->final.'</td></tr>';
@@ -202,16 +202,16 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
             }
             if(count($orig) > count($final)){
                 for($i = 0; $i < count($final); $i++){
-                    /* Non-printing newline marker. */                    
+                    /* Non-printing newline marker. */
                     $nl = "\0";
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = &new Text_Diff($this->_splitOnWords($orig[$i], $nl),
-                                           $this->_splitOnWords($final[$i], $nl));            
+                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                                           $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = &new Text_Diff_Renderer_marker(array_merge($this->getParams(),
-                                                                           array('split_level' => 'words')));            
+                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                                                                           array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
                     $html .= '<tr class=chg><td>'.$output->orig.'</td><td class=mid></td><td>'.$output->final.'</td></tr>';
@@ -223,7 +223,7 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
         }
         return $html;
     }
-    
+
     function _context($lines)
     {
         $linesa = $this->_lines($lines);
@@ -233,7 +233,7 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
         }
         return $output;
     }
-    
+
     function _startBlock($header)
     {
         return '';
@@ -243,7 +243,7 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
     {
         return '';
     }
-    
+
 }
 
 
@@ -384,13 +384,13 @@ class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
     {
         $string = htmlspecialchars($string);
     }
-    
+
     function _block(&$edits)
     {
         //Modified to keep orig and final seperate, but highlight changes
         $marked->orig = Array();
         $marked->final = Array();
-        
+
         foreach ($edits as $edit) {
             switch (strtolower(get_class($edit))) {
             case 'text_diff_op_copy':
@@ -413,12 +413,12 @@ class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
                 break;
             }
         }
-        
+
         $output->final = implode(' ', $marked->final);
         $output->orig = implode(' ', $marked->orig);
         return $output;
     }
-    
+
     function render($diff)
     {
         $xi = $yi = 1;
@@ -440,7 +440,7 @@ class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
                     } else {
                         if ($ntrail) {
                             $context = array_slice($edit->orig, 0, $ntrail);
-                            $block[] = &new Text_Diff_Op_copy($context);
+                            $block[] = new Text_Diff_Op_copy($context);
                         }
                         $output .= $this->_block($x0, $ntrail + $xi - $x0,
                                                  $y0, $ntrail + $yi - $y0,
@@ -456,7 +456,7 @@ class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
                     $y0 = $yi - count($context);
                     $block = array();
                     if ($context) {
-                        $block[] = &new Text_Diff_Op_copy($context);
+                        $block[] = new Text_Diff_Op_copy($context);
                     }
                 }
                 $block[] = $edit;
@@ -477,5 +477,5 @@ class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
         return $output;
     }
 
-    
+
 }
