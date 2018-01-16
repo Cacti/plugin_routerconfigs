@@ -326,8 +326,8 @@ class Text_Diff_Op_copy extends Text_Diff_Op {
         $this->final = $final;
     }
 
-    function &reverse() {
-        $reverse = &new Text_Diff_Op_copy($this->final, $this->orig);
+    function reverse() {
+        $reverse = new Text_Diff_Op_copy($this->final, $this->orig);
         return $reverse;
     }
 
