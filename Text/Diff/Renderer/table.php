@@ -15,9 +15,9 @@
  * $Horde: framework/Text_Diff/Diff/Renderer/inline.php,v 1.16 2006/01/08 00:06:57 jan Exp $
  *
  * @author  Ciprian Popovici
- * @package Text_Diff
+ * @package Horde_Text_Diff
  */
-class Text_Diff_Renderer_table extends Text_Diff_Renderer {
+class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
 
     /**
      * Number of leading context "lines" to preserve.
@@ -169,10 +169,10 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                    $diff = new Horde_Text_Diff($this->_splitOnWords($orig[$i], $nl),
                                            $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                    $renderer = new Horde_Text_Diff_Renderer_marker(array_merge($this->getParams(),
                                                                            array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
@@ -187,10 +187,10 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                    $diff = new Horde_Text_Diff($this->_splitOnWords($orig[$i], $nl),
                                            $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                    $renderer = new Horde_Text_Diff_Renderer_marker(array_merge($this->getParams(),
                                                                            array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
@@ -207,10 +207,10 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = new Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                    $diff = new Horde_Text_Diff($this->_splitOnWords($orig[$i], $nl),
                                            $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
-                    $renderer = new Text_Diff_Renderer_marker(array_merge($this->getParams(),
+                    $renderer = new Horde_Text_Diff_Renderer_marker(array_merge($this->getParams(),
                                                                            array('split_level' => 'words')));
                     /* Run the diff and get the output. */
                     $output = $renderer->render($diff);
@@ -261,7 +261,7 @@ class Text_Diff_Renderer_table extends Text_Diff_Renderer {
  * @author  Ciprian Popovici
  * @package Text_Diff
  */
-class Text_Diff_Renderer_marker extends Text_Diff_Renderer {
+class Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
 
     /**
      * Number of leading context "lines" to preserve.
