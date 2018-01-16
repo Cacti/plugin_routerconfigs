@@ -176,7 +176,7 @@ function routerconfigs_setup_table_new() {
     api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
 
 	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes
-		(id, name, username, password, copytftp, version, confirm, forceconfirm)
+		(id, name, username, password, copytftp, version, confirm, forceconfirm, checkendinconfig)
 		VALUES
 		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
 		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '')");
