@@ -130,10 +130,10 @@ if (!empty($file1) && !empty($file2)) {
 		$lines2 = explode("\n", $device2['config']);
 
 		/* Create the Diff object. */
-		$diff = new Text_Diff('auto', array($lines1, $lines2));
+		$diff = new Horde_Text_Diff('auto', array($lines1, $lines2));
 
 		/* Output the diff in unified format. */
-		$renderer = new Text_Diff_Renderer_table();
+		$renderer = new Horde_Text_Diff_Renderer_table();
 
 		$text = $renderer->render($diff);
 
