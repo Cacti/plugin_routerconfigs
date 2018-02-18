@@ -15,6 +15,15 @@ include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/LastE
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/NotFound.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Wrapped.php');
 
+/* Util Library */
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/String.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/Domhtml.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/Array.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/Util.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/Variables.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/Array/Sort/Helper.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Util/String/Transliterate.php');
+
 /* Diff library */
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Engine/xdiff.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Engine/string.php');
