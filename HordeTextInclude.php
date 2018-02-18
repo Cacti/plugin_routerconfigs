@@ -6,6 +6,12 @@ include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Permi
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/LastError.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/NotFound.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Wrapped.php');
+
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Autodetect.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Handler.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Exception.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Handler/Gettext.php');
+
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay/BlockBuilder.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay/Op/Base.php');

@@ -1,6 +1,6 @@
 When upgrading the Horde libraries, please remember to upgrade from
 	Text Diff
 	Exception
+	Translation
 
-Horder_Exception is no longer included in the Text Diff libraries and must be updated separately.
-
+Horde no longer self contains a repo and stores all classes used in separate libraries
