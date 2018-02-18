@@ -190,11 +190,13 @@ function routerconfigs_page_head () {
 	}
 }
 
-function routerconfigs_poller_bottom () {
+function routerconfigs_poller_bottom ($force = 0) {
+	logit('/tmp/router.log','RC Called from poller');
 	global $config;
 
 	$running = read_config_option('plugin_routerconfigs_running');
-	if ($running == 1) {
+	logit('/tmp/router.log',"RC Already Running: $running");
+	if ($running == 1 && is_array($force) || $force == 0) {
 		return;
 	}
 
@@ -207,7 +209,12 @@ function routerconfigs_poller_bottom () {
 	$h = date('G', time());
 	$s = date('i', time()) * 60;
 
-	if ($h == 0 && $s < $poller_interval) {
+	if (is_array($force)) {
+		$force = json_encode($force);
+	}
+
+	logit('/tmp/router.log',"Force $force, Hour $h, seconds = $s, interval = $poller_interval");
+	if ($force == 1 || ($h == 0 && $s < $poller_interval)) {
 		$command_string = trim(read_config_option('path_php_binary'));
 
 		if (trim($command_string) == '') {
@@ -216,8 +223,9 @@ function routerconfigs_poller_bottom () {
 
 		$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php';
 
+		logit('/tmp/router.log',"RC 1 Executing: $command with arguments " . implode(', ', $extra_args));
 		exec_background($command_string, $extra_args);
-	} else if ($s < $poller_interval){
+	} else if ($force == 2 || $s < $poller_interval){
 		$t = time();
 
 		$devices = db_fetch_assoc("SELECT *
@@ -235,7 +243,24 @@ function routerconfigs_poller_bottom () {
 
 			$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-redownload.php';
 
+			logit('/tmp/router.log',"RC 2 Executing: $command with arguments " . implode(', ', $extra_args));
 			exec_background($command_string, $extra_args);
+		} else {
+			$devices = db_fetch_assoc("SELECT *,
+				(($t - (schedule * 86400) - 3600) > lastbackup) as can_backup,
+				($t - lastattempt > 1800) as can_attempt
+				FROM plugin_routerconfigs_devices
+				WHERE enabled = 'on'", false);
+
+			if (sizeof($devices)) {
+				foreach ($devices as $device) {
+					logit('/tmp/router.log','Found id \''.$device['id'].'\' where');
+					logit('/tmp/router.log',' > time('.$t.') - schedule('.$device['schedule'].')*86400 - 3600 > lastbackup('.$device['lastbackup'].') returns '.$device['can_backup']);
+					logit('/tmp/router.log',' > time('.$t.') - lastattempt('.$device['lastattempt'].') > 1800 returns '.$device['can_attempt']);
+				}
+			} else {
+				logit('/tmp/router.log','WARNING: No enabled devices found');
+			}
 		}
 	}
 }
@@ -409,5 +434,13 @@ function routerconfigs_draw_navigation_text ($nav) {
 	);
 
 	return $nav;
+}
+
+function logit($file, $text) {
+	$t = microtime(true);
+	$micro = sprintf("%06d",($t - floor($t)) * 1000000);
+	$date = new DateTime( date('Y-m-d H:i:s.'.$micro, $t) );
+	$format = 'Y-m-d H:i:s.u';
+	file_put_contents($file, "[".$date->format($format)."] $text\n", FILE_APPEND);
 }
 
