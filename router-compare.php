@@ -41,11 +41,11 @@ $file2   = get_filter_request_var('file2');
 $files1  = array();
 $files2  = array();
 
-if (empty($device1) || empty($device2)) {
-	$devices = db_fetch_assoc('SELECT id, directory, hostname
-		FROM plugin_routerconfigs_devices
-		ORDER BY hostname');
+$devices = db_fetch_assoc('SELECT id, directory, hostname
+	FROM plugin_routerconfigs_devices
+	ORDER BY hostname');
 
+if (empty($device1) || empty($device2)) {
 	if (sizeof($devices)) {
 		$default = $devices[0]['id'];
 
