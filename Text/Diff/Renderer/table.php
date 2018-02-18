@@ -169,7 +169,7 @@ class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
                     /* We want to split on word boundaries, but we need to
                      * preserve whitespace as well. Therefore we split on words,
                      * but include all blocks of whitespace in the wordlist. */
-                    $diff = new Horde_Text_Diff($this->_splitOnWords($orig[$i], $nl),
+                    $diff = new Horde_Text_Diff('auto', $this->_splitOnWords($orig[$i], $nl),
                                            $this->_splitOnWords($final[$i], $nl));
                     /* Get the diff in inline format. */
                     $renderer = new Horde_Text_Diff_Renderer_marker(array_merge($this->getParams(),
