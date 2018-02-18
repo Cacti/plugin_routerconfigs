@@ -385,7 +385,7 @@ class Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
         $string = htmlspecialchars($string);
     }
 
-    function _block(&$edits)
+    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
     {
         //Modified to keep orig and final seperate, but highlight changes
         $marked->orig = Array();

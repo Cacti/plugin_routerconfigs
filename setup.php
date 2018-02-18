@@ -191,7 +191,7 @@ function routerconfigs_page_head () {
 }
 
 function routerconfigs_poller_bottom ($force = 0) {
-	logit('/tmp/router.log','RC Called from poller');
+	logit('/tmp/router.log','RC Called from poller: ' . is_array($force)?'Yes':'No');
 	global $config;
 
 	$running = read_config_option('plugin_routerconfigs_running');

@@ -30,6 +30,7 @@ include('./include/auth.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Engine/native.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Renderer.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Renderer/table.php');
 
