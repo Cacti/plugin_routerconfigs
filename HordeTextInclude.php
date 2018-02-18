@@ -7,7 +7,7 @@ include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/LastE
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/NotFound.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Wrapped.php');
 
-include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Autodetect.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Handler.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Exception.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Translation/Handler/Gettext.php');
