@@ -261,7 +261,7 @@ class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
  * @author  Ciprian Popovici
  * @package Text_Diff
  */
-class Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
+class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
 
     /**
      * Number of leading context "lines" to preserve.
