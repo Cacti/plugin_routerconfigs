@@ -1,0 +1,6 @@
+When upgrading the Horde libraries, please remember to upgrade from
+	Text Diff
+	Exception
+
+Horder_Exception is no longer included in the Text Diff libraries and must be updated separately.
+

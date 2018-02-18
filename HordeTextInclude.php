@@ -1,4 +1,11 @@
 <?php
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Pear.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Translation.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/PermissionDenied.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/LastError.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/NotFound.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/Text/Exception/Wrapped.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay/BlockBuilder.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/ThreeWay/Op/Base.php');
