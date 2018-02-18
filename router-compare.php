@@ -28,7 +28,7 @@ chdir('../../');
 include('./include/auth.php');
 
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/HordeTextDiff.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/HordeTextInclude.php');
 
 top_header();
 
