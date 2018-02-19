@@ -67,7 +67,7 @@ function routerconfigs_check_upgrade() {
 	$current = $current['version'];
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
 
-	if ($current != $old) {	
+	if ($current != $old) {
 		/* update realms for old versions */
 		if ($old < '0.2') {
 			api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php', 'Plugin -> Router Configs', 1);
@@ -322,6 +322,8 @@ function routerconfigs_config_settings () {
 
 function routerconfigs_config_arrays () {
 	global $menu;
+
+	plugin_routerconfigs_upgrade();
 
 	$menu[__('Utilities', 'routerconfigs')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs', 'routerconfigs');
 }
