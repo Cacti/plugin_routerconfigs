@@ -144,7 +144,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 			$success = count($devices) - count($failed);
 			$cfailed = count($failed);
 			$totalsecs = time() - $stime;
-			$notice_level = 'NOTICE:'
+			$notice_level = 'NOTICE:';
 			if ($cfailed > 0) {
 				$notice_level = 'WARNING:'
 			}
