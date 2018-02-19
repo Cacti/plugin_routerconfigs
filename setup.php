@@ -245,7 +245,7 @@ function routerconfigs_poller_bottom ($force = 0) {
 			$extra_args .= ' --force';
 		}
 
-		cacti_log(__("DEBUG: Executing '%s' with arguments '%s'",$command,$extra_args,'routerconfigs'),true,'RCONFIG', POLLER_VERBOSITY_DEBUG);
+		cacti_log(__("DEBUG: Executing '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'),true,'RCONFIG', POLLER_VERBOSITY_DEBUG);
 		exec_background($command_string, $extra_args);
 	}
 }
