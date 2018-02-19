@@ -144,10 +144,12 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 			$success = count($devices) - count($failed);
 			$cfailed = count($failed);
 			$totalsecs = time() - $stime;
+
 			$notice_level = 'NOTICE:';
 			if ($cfailed > 0) {
-				$notice_level = 'WARNING:'
+				$notice_level = 'WARNING:';
 			}
+
 			plugin_routerconfigs_log("$notice_level $success Devices Backed Up and $cfailed Devices Failed in $totalsecs seconds");
 
 			/* print out failures */
