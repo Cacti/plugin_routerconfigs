@@ -313,7 +313,7 @@ function actions_devices() {
 			}
 
 			$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php' .
-				'--devices=' . implode(',',$device_array);
+				' --devices=' . implode(',',$device_array);
 
 			plugin_routerconfigs_log(__("DEBUG: Executing manual backup using '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'));
 			exec_background($command_string, $extra_args);
