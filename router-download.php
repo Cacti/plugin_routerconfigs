@@ -79,5 +79,9 @@ if (sizeof($parms)) {
 	}
 }
 
+if (!is_array($devices)) {
+	$devices = array($devices);
+}
+
 plugin_routerconfigs_download($retryMode, $force, $devices);
 
