@@ -82,9 +82,10 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 	$filter_devices = array();
 	if ($devices != null && strlen($devices)) {
-		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof(filter_devices),'routerconfigs'));
+		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
 		$filter_devices = explode(',',$devices);
 	} else {
+		plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
 		plugin_routerconfigs_start($force);
 	}
 	$start  = microtime(true);
