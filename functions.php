@@ -1082,7 +1082,7 @@ class PHPTelnet {
 					$res .= $r;
 					if (strpos($r, '>') !== FALSE) {
 						break;
-					} else if ($strpos($r, '#') !== FALSE) {
+					} else if (strpos($r, '#') !== FALSE) {
 						$is_enabled = true;
 						break;
 					}
@@ -1126,13 +1126,13 @@ class PHPTelnet {
 					while ($x < 10) {
 						$this->Sleep();
 						$this->GetResponse($r, $enablepw);
-						
+
 						plugin_routerconfigs_log("$ip -> DEBUG: $r");
 
 						$res .= $r;
 						if (strpos($r, '>') !== FALSE) {
 							break;
-						} else if ($strpos($r, '#') !== FALSE) {
+						} else if (strpos($r, '#') !== FALSE) {
 							$is_enabled = true;
 							break;
 						}
