@@ -303,9 +303,9 @@ function plugin_routerconfigs_download_config($device) {
 	}
 
 	$result = 1;
+	$type_dev = isset($device['connect_type']) ? $device['connect_type'] : 'both';
 	$types_ssh = array('','both','ssh');
 	$types_tel = array('','both','telnet');
-	$type_dev = isset($device['connect_type']) ? $device['connect_type'] : '(unknown)';
 
 	if (in_array($type_dev,$types_ssh)) {
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via SSH");
