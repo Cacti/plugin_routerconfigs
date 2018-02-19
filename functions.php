@@ -185,7 +185,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 				$from[1] = $from_name;
 				$subject = __('Network Device Configuration Backups%s', ($retry?__(' - Reattempt','routerconfigs') : ''), 'routerconfigs');
 
-				send_mail($email, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $html = true);
+				send_mail($to, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $html = true);
 			}
 			/* remove old backups */
 			plugin_routerconfigs_retention ();
