@@ -657,7 +657,8 @@ function plugin_routerconfigs_retrieve_account ($device) {
 function plugin_routerconfigs_decode($info) {
 	plugin_routerconfigs_log("DEBUG: passed to decode: $info");
 	$info = base64_decode($info);
-	plugin_routerconfigs_log("DEBUG: Base64 decoded: $info");
+	$debug_info = preg_replace('~(;s:\d+:"password";s:(\d+:))"(.*)\"~','\\1"(\\2 chars)"', $info);
+	plugin_routerconfigs_log("DEBUG: Base64 decoded: $debug_info");
 
 	$info = unserialize($info);
 	plugin_routerconfigs_log("DEBUG: Unserialized");
