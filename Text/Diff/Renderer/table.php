@@ -137,7 +137,7 @@ class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
     }
 
 
-    function _changed($orig, $final)
+    function _changed1($orig, $final)
     {
         /* If we've already split on words, don't try to do so again - just
          * display. */
@@ -385,41 +385,41 @@ class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
         $string = htmlspecialchars($string);
     }
 
-    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
+    function _block1($xbeg, $xlen, $ybeg, $ylen, &$edits)
     {
         //Modified to keep orig and final seperate, but highlight changes
-        $marked->orig = Array();
-        $marked->final = Array();
+        $marked['origin'] = array();
+        $marked['final'] = array();
 
         foreach ($edits as $edit) {
             switch (strtolower(get_class($edit))) {
             case 'text_diff_op_copy':
-                $marked->orig[] = implode(' ',$edit->orig);
-                $marked->final[] = implode(' ',$edit->final);
+                $marked['origin'][] = implode(' ',$edit->orig);
+                $marked['final'][] = implode(' ',$edit->final);
                 break;
 
             case 'text_diff_op_add':
-                $marked->final[] = $this->_added($edit->final);
+                $marked['final'][] = $this->_added($edit->final);
                 break;
 
             case 'text_diff_op_delete':
-                $marked->orig[] = $this->_deleted($edit->orig);
+                $marked['origin'][] = $this->_deleted($edit->orig);
                 break;
 
             case 'text_diff_op_change':
                 $temp3 = $this->_changed($edit->orig, $edit->final);
-                $marked->final[] = $temp3->final;
-                $marked->orig[] = $temp3->orig;
+                $marked['final'][] = $temp3->final;
+                $marked['origin'][] = $temp3->orig;
                 break;
             }
         }
-
-        $output->final = implode(' ', $marked->final);
-        $output->orig = implode(' ', $marked->orig);
+       $output = new stdClass();
+        $output->final = implode(' ', $marked['final']);
+        $output->orig = implode(' ', $marked['origin']);
         return $output;
     }
 
-    function render($diff)
+    function render1($diff)
     {
         $xi = $yi = 1;
         $block = false;
@@ -428,7 +428,7 @@ class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
         $nlead = $this->_leading_context_lines;
         $ntrail = $this->_trailing_context_lines;
 
-        $output = Array();
+        $output = array();
 
         $diffs = $diff->getDiff();
         foreach ($diffs as $i => $edit) {
@@ -442,10 +442,9 @@ class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
                             $context = array_slice($edit->orig, 0, $ntrail);
                             $block[] = new Text_Diff_Op_copy($context);
                         }
-                        $output .= $this->_block($x0, $ntrail + $xi - $x0,
-                                                 $y0, $ntrail + $yi - $y0,
-                                                 $block);
-                        $block = false;
+                        $output[] = $this->_block($x0, $ntrail + $xi - $x0,
+                                                  $y0, $ntrail + $yi - $y0,
+                                                  $block);
                     }
                 }
                 $context = $edit->orig;
@@ -471,7 +470,8 @@ class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
         }
 
         if (is_array($block)) {
-            $output = $this->_block($block);
+            $output .= $this->_block($x0, $ntrail + $xi - $x0,
+                $y0, $ntrail + $yi - $y0, $block);
         }
         //returns object
         return $output;
