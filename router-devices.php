@@ -317,7 +317,7 @@ function actions_devices() {
 
 			plugin_routerconfigs_log(__("DEBUG: Executing manual backup using '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'));
 			exec_background($command_string, $extra_args);
-
+			sleep(1);
 			header('Location: router-devices.php?header=false');
 			exit;
 		}
