@@ -31,6 +31,8 @@ if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 $no_http_headers = true;
 
 $dir = dirname(__FILE__);
+chdir($dir);
+
 if (strpos($dir, 'plugins') !== false) {
 	chdir('../../');
 }
