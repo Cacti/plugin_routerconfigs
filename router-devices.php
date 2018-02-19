@@ -26,7 +26,7 @@
 chdir('../../');
 
 include('./include/auth.php');
-
+include_once($config['base_path'] . '/lib/poller.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 
 $device_actions = array(
@@ -107,6 +107,18 @@ $device_edit = array(
 		'value' => '|arg1:devicetype|',
 		'default' => 0,
 		'array' => $dtypes,
+	),
+	'connect_type' => array(
+		'method' => 'drop_array',
+		'friendly_name' => __('Connection Type', 'routerconfigs'),
+		'description' => __('This is the type of connection used to communicate with the device.', 'routerconfigs'),
+		'value' => '|arg1:connect_type|',
+		'default' => 'both',
+		'array' => array(
+			'both' => __('Both', 'routerconfigs'),
+			'telnet' => __('Telnet', 'routerconfigs'),
+			'ssh' => __('SSH', 'routerconfigs')
+		),
 	),
 	'account' => array(
 		'method' => 'drop_array',
@@ -294,16 +306,17 @@ function actions_devices() {
 
 	if (sizeof($device_array)) {
 		if (get_nfilter_request_var('drp_action') == '1') { /* Backup */
-			ini_set('max_execution_time', 0);
-			ini_set('memory_limit', '256M');
-			foreach ($device_array as $id) {
-				$device = db_fetch_assoc_prepared('SELECT *
-					FROM plugin_routerconfigs_devices
-					WHERE id = ?',
-					array($id));
+			$command_string = trim(read_config_option('path_php_binary'));
 
-				plugin_routerconfigs_download_config($device[0]);
+			if (trim($command_string) == '') {
+			        $command_string = 'php';
 			}
+
+			$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php' .
+				'--devices=' . implode(',',$device_array);
+
+			plugin_routerconfigs_log(__("DEBUG: Executing manual backup using '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'));
+			exec_background($command_string, $extra_args);
 
 			header('Location: router-devices.php?header=false');
 			exit;
@@ -398,7 +411,7 @@ function save_devices () {
 	$save['account']    = get_nfilter_request_var('account');
 	$save['devicetype'] = get_nfilter_request_var('devicetype');
 	$save['schedule']   = get_nfilter_request_var('schedule');
-
+	$save['connect_type'] = get_nfilter_request_var('connect_type');
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
 	if (is_error_message()) {
