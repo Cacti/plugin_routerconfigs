@@ -85,7 +85,6 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 	}
 
 	$start  = microtime(true);
-	$force_stop = false;
 
 	$stime  = time();
 	$passed = array();
@@ -95,7 +94,6 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
 		plugin_routerconfigs_log(__('FATAL: Backup Path is not set or is not a directory', 'routerconfigs'));
-		$force_stop = true;
 	} else {
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		if (strlen($tftpserver) < 2) {
@@ -194,7 +192,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 
 	plugin_routerconfigs_log(__('STATS: ','routerconfigs') . $download_stats);
 
-	plugin_routerconfigs_stop($force_stop);
+	plugin_routerconfigs_stop(sizeof($devices) > 0);
 }
 
 function plugin_routerconfigs_message(&$message, $text) {
