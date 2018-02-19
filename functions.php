@@ -82,8 +82,9 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 
 	if (!sizeof($filter_devices)) {
 		plugin_routerconfigs_start($force);
+	} else {
+		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof(filter_devices),'routerconfigs'));
 	}
-
 	$start  = microtime(true);
 
 	$stime  = time();
