@@ -342,6 +342,7 @@ function plugin_routerconfigs_download_config($device) {
 	}
 
 	$debug = $connection->debug;
+	$ip    = $connection->ip;
 
 	db_execute_prepared('UPDATE plugin_routerconfigs_devices
 		SET lastattempt = ? WHERE id = ?',
@@ -393,23 +394,27 @@ function plugin_routerconfigs_download_config($device) {
 			$debug .= $result;
 		}
 
-		if (stristr($result, 'bytes copied')) {
-			plugin_routerconfigs_log($ip . " -> SUCCESSFUL TFTP TRANSFER!!!");
-		}
-
 		$x = 0;
 		$ret = 0;
-		while (!stristr($result, 'bytes copied') && !stristr($result,'successfully') && !stristr($result, 'error') && ($ret == 0 || $ret == 8) && $x<30) {
-			plugin_routerconfigs_log("$ip -> DEBUG: SSH Attempt $x of 30 to get response");
+		while (($ret == 0 || $ret == 8) && $x<30) {
+			if (stristr($result, 'bytes copied') ||
+				stristr($result,'successful')) {
+				plugin_routerconfigs_log("$ip -> DEBUG: TFP TRANSFER SUCCESSFUL");
+				break;
+			} else if (stristr($result, 'error')) {
+				plugin_routerconfigs_log("$ip -> DEBUG: TFTP TRANSFER ERRORED");
+			}
+
+			plugin_routerconfigs_log("$ip -> DEBUG: Attempt $x of 30 to get response");
 			$ret = $connection->GetResponse($result);
 			$debug .= $result;
-			plugin_routerconfigs_log("$ip -> DEBUG: SSH Attempt $x of 30 result $ret");
+			plugin_routerconfigs_log("$ip -> DEBUG: Attempt $x of 30 result $ret");
 			$x++;
 		}
 
 		$data = '';
 
-		plugin_routerconfigs_log($ip . " -> CHECKING FOR valid file at $backuppath/$tftpfilename");
+		plugin_routerconfigs_log($ip . " -> DEBUG: CHECKING FOR valid file at $backuppath/$tftpfilename");
 
 		if (file_exists("$backuppath/$tftpfilename")) {
 			clearstatcache();
@@ -951,6 +956,7 @@ class PHPTelnet {
 	var $conn2;
 
 	var $debug;
+	var $ip;
 
 	function __construct() {
 		$this->conn1=chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
@@ -1009,6 +1015,7 @@ class PHPTelnet {
 			} else $ip=$server;
 		} else $ip='127.0.0.1';
 
+		$this->ip = $ip;
 		if (strlen($ip)) {
 			if (@$this->fp = fsockopen($ip, 23)) {
 				@fputs($this->fp, $this->conn1);
