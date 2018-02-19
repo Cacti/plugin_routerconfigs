@@ -341,7 +341,7 @@ function show_devices () {
 			}
 			$lastbackup = 'N/A';
 			if ($row['btime'] > 1519049969) {
-				$lastbackup = date('M j Y H:i:s', $row['lastbackup']);
+				$lastbackup = date('M j Y H:i:s', $row['btime']);
 			}
 			form_alternate_row('line' . $row['id'], true);
 
