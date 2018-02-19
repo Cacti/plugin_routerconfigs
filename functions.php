@@ -76,14 +76,16 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 	}
 }
 
-function plugin_routerconfigs_download($retry = false, $force = false, $filter_devices = array()) {
+function plugin_routerconfigs_download($retry = false, $force = false, $devices = null) {
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
-	if (!sizeof($filter_devices)) {
-		plugin_routerconfigs_start($force);
-	} else {
+	$filter_devices = array();
+	if ($devices != null && strlen($devices)) {
 		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof(filter_devices),'routerconfigs'));
+		$filter_devices = explode(',',$devices);
+	} else {
+		plugin_routerconfigs_start($force);
 	}
 	$start  = microtime(true);
 
@@ -99,7 +101,6 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		if (strlen($tftpserver) < 2) {
 			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
-			$force_stop = true;
 		} else {
 
 			// Get device that have not backed up in 24 hours + 30 minutes and that haven't been tried in the last 30 minutes
@@ -198,7 +199,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 
 	plugin_routerconfigs_log(__('STATS: ','routerconfigs') . $download_stats);
 
-	plugin_routerconfigs_stop(sizeof($devices) > 0);
+	plugin_routerconfigs_stop(sizeof($filter_devices) == 0);
 }
 
 function plugin_routerconfigs_message(&$message, $text) {
