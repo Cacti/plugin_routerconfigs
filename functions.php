@@ -125,7 +125,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $filter_d
 			if (sizeof($devices)) {
 				foreach ($devices as $device) {
 					$t = time();
-					plugin_routerconfigs_log(__('INFO: Attempting download for %s', $device['hostname'], 'routerconfigs'));
+					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
 					$found = plugin_routerconfigs_download_config($device);
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
@@ -652,12 +652,12 @@ function plugin_routerconfigs_retrieve_account ($device) {
 }
 
 function plugin_routerconfigs_decode($info) {
-	plugin_routerconfigs_log("Info passed to decode: $info");
+	plugin_routerconfigs_log("DEBUG: passed to decode: $info");
 	$info = base64_decode($info);
-	plugin_routerconfigs_log("Info Base64 decoded: $info");
+	plugin_routerconfigs_log("DEBUG: Base64 decoded: $info");
 
 	$info = unserialize($info);
-	plugin_routerconfigs_log("Info Unserialized");
+	plugin_routerconfigs_log("DEBUG: Unserialized");
 
 	return $info['password'];
 }
