@@ -277,12 +277,6 @@ function show_devices () {
 			'sort' => 'ASC',
 			'tip' => __('The internal database ID for this Device.  Useful when performing automation or debugging.', 'routerconfigs')
 		),
-		'ipaddress' => array(
-			'display' => __('IP Address','routerconfigs'),
-			'align' => 'left',
-			'sort' => 'ASC',
-			'tip' => __('Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file.','routerconfigs')
-		),
 		'functions' => array(
 			'display' => __('Functions', 'routerconfigs'),
 			'align' => 'center',
@@ -294,12 +288,6 @@ function show_devices () {
 			'align' => 'left',
 			'sort' => 'ASC',
 			'tip' => __('The directory of the stored device backups', 'routerconfigs')
-		),
-		'filename' => array(
-			'display' => __('Filename'),
-			'align' => 'left',
-			'sort' => 'ASC',
-			'tip' => __('The filename of the stored device backups')
 		),
 		'backup' => array(
 			'display' => __('Backup Time'),
@@ -319,6 +307,12 @@ function show_devices () {
 			'sort' => 'ASC',
 			'tip' => __('The last person to change the configuration of the device')
 		),
+		'filename' => array(
+			'display' => __('Filename'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('The filename of the stored device backups')
+		),
 	);
 
 	form_start('router-backups.php', 'chk');
@@ -328,7 +322,7 @@ function show_devices () {
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
+	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	if (sizeof($result)) {
 		$r = db_fetch_assoc('SELECT device, id FROM plugin_routerconfigs_backups ORDER BY btime ASC');
@@ -353,7 +347,6 @@ function show_devices () {
 
 			form_selectable_cell(filter_value($row['hostname'], get_request_var('filter'), 'router-devices.php?action=edit&id=' . $row['device']), $row['device']);
 			form_selectable_cell($row['id'], $row['id'], null, 'text-align: right');
-			form_selectable_cell(filter_value($row['ipaddress'], get_request_var('filter'), 'router-devices.php?action=edit&id=' . $row['device']), $row['device']);
 
 			form_selectable_cell(
 				"<a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config', 'routerconfigs') . 
@@ -361,10 +354,10 @@ function show_devices () {
  				"<a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>" . __('Compare', 'routerconfigs') . "</a></td>", $row['device']);
 
 			form_selectable_cell(filter_value($row['directory'], get_request_var('filter')),$row['device']);
-			form_selectable_cell(filter_value($row['filename'], get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($lastbackup, get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($lastchange, get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($row['username'], get_request_var('filter')),$row['device']);
+			form_selectable_cell(filter_value($row['filename'], get_request_var('filter')),$row['device']);
 
 			form_end_row();
 		}
