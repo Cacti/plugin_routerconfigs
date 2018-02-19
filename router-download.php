@@ -46,7 +46,7 @@ array_shift($parms);
 $retryMode = false;
 $debug = false;
 $force = false;
-$devices = array();
+$devices = null;
 
 if (sizeof($parms)) {
 
@@ -64,7 +64,7 @@ if (sizeof($parms)) {
 			$debug = true;
 			break;
 		case '--devices':
-			$devices = explode(",",$value);
+			$devices = $value;
 			break;
 		case '--force':
 			$force = true;
@@ -77,10 +77,6 @@ if (sizeof($parms)) {
 			exit(1);
 		}
 	}
-}
-
-if (!is_array($devices)) {
-	$devices = array($devices);
 }
 
 plugin_routerconfigs_download($retryMode, $force, $devices);
