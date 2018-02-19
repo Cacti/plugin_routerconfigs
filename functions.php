@@ -37,11 +37,21 @@ function display_tabs() {
 		'compare'  => __('Compare', 'routerconfigs')
 	);
 
-   /* set the default tab */
-    load_current_session_value('tab', 'sess_rc_tabs', 'devices');
-    $current_tab = get_nfilter_request_var('tab');
-
-    $header_label = __('Technical Support [ %s ]', $tabs[get_request_var('tab')], 'routerconfigs');
+	/* set the default tab */
+ 	$current_tab = get_nfilter_request_var('tab');
+	if (!isset($current_tab) || !strlen($current_tab)) {
+		$back_trace = debug_backtrace();
+		$file_info = pathinfo($back_trace[0]['file']);
+		$file_tab = preg_replace('~router-([a-zA-Z]+).php~','\\1',$file_info['basename']);
+		if (array_key_exists($file_tab,$tabs)) {
+			$current_tab = $file_tab;
+		}
+	}
+	if (!isset($current_tab) || !strlen($current_tab)) {
+		load_current_session_value('tab', 'sess_rc_tabs', 'devices');
+		$current_tab = get_nfilter_request_var('tab');
+	}
+	$header_label = __('Technical Support [ %s ]', $tabs[$current_tab], 'routerconfigs');
 
 	if (sizeof($tabs)) {
 		/* draw the tabs */
@@ -55,7 +65,7 @@ function display_tabs() {
 				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
 		}
 
-		api_plugin_hook('user_admin_tab');
+		api_plugin_hook('routerconfigs_tab');
 
 		print "</ul></nav></div>\n";
 	}
