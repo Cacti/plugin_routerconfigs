@@ -130,7 +130,7 @@ if (!empty($file1) && !empty($file2)) {
 		$diff = new Horde_Text_Diff('auto', array($lines1, $lines2));
 
 		/* Output the diff in unified format. */
-		$renderer = new Horde_Text_Diff_Renderer_table(new array('auto'));
+		$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
 
 		$text = $renderer->render($diff);
 
