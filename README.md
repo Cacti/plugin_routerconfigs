@@ -40,6 +40,18 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
+--- 1.2 ---
+* issue: Correct most config comparision code
+* issue: Added in missing Horde library functions and created common include file 
+* issue: Fixed the poller spawn issue that was preventing automatic backups
+* feature: Backups - Now all use same code
+* feature: Backups - Manual now work the same way as automatic ones
+* feature: Backups - Manual can be done regardless of last attempt state
+* feature: Backups - Success state should work with more devices
+* feature: Backups - Devices can be specified on command line to run individual backups
+* feature: Debug - Notifications are better formatted and consistent
+* feature: Debug - Passwords are now hidden from debug for the most part.
+* note: router-redownload.php no longer exists, any code relying on this should use router-download.php
 
 --- 1.1 ---
 * issue#9: Constructurs missing on the Horde class library
