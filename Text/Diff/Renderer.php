@@ -35,6 +35,10 @@ class Horde_Text_Diff_Renderer
      */
     public function __construct($params = array())
     {
+       if (!is_array($params)) {
+               throw new exception();
+       }
+
         foreach ($params as $param => $value) {
             $v = '_' . $param;
             if (isset($this->$v)) {

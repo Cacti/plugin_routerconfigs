@@ -91,6 +91,12 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
+		if ($old < '1.2') {
+			if (!db_column_exists('connect_type','plugin_routerconfigs_devices')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `connect_type` varchar(10) DEFAULT \'both\'');
+			}
+		}
 		db_execute("UPDATE plugin_config
 			SET version='$current'
 			WHERE directory='routerconfigs'");
@@ -104,76 +110,89 @@ function routerconfigs_check_dependencies() {
 
 function routerconfigs_setup_table_new() {
 	$data = array();
+	$data['primary'] = 'id';
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Router Config Accounts';
+
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-    $data['columns'][] = array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true);
-    $data['primary'] = 'id';
-    $data['type'] = 'InnoDB';
-    $data['comment'] = 'Router Config Accounts';
-    api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_accounts', $data);
+	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
+
+	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_accounts', $data);
 
 	$data = array();
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Router Config Backups';
+	$data['primary'] = 'id';
+
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-    $data['columns'][] = array('name' => 'btime', 'type' => 'int(18)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'config', 'type' => 'longblob', 'NULL' => true);
-    $data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['primary'] = 'id';
-    $data['keys'][] = array('name' => 'btime', 'columns' => 'btime');
-    $data['keys'][] = array('name' => 'device', 'columns' => 'device');
-    $data['keys'][] = array('name' => 'directory', 'columns' => 'directory');
-    $data['keys'][] = array('name' => 'lastchange', 'columns' => 'lastchange');
-    $data['type'] = 'InnoDB';
-    $data['comment'] = 'Router Config Backups';
-    api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_backups', $data);
+	$data['columns'][] = array('name' => 'btime', 'type' => 'int(18)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'config', 'type' => 'longblob', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
+
+	$data['keys'][] = array('name' => 'btime', 'columns' => 'btime');
+	$data['keys'][] = array('name' => 'device', 'columns' => 'device');
+	$data['keys'][] = array('name' => 'directory', 'columns' => 'directory');
+	$data['keys'][] = array('name' => 'lastchange', 'columns' => 'lastchange');
+
+	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_backups', $data);
 
 	$data = array();
+
+	$data['primary'] = 'id';
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Router Config Devices';
+
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-    $data['columns'][] = array('name' => 'enabled', 'type' => 'varchar(2)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'ipaddress', 'type' => 'varchar(128)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(255)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'account', 'type' => 'int(11)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'schedule', 'type' => 'int(11)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
-    $data['primary'] = 'id';
-    $data['keys'][] = array('name' => 'enabled', 'columns' => 'enabled');
-    $data['keys'][] = array('name' => 'schedule', 'columns' => 'schedule');
-    $data['keys'][] = array('name' => 'ipaddress', 'columns' => 'ipaddress');
-    $data['keys'][] = array('name' => 'account', 'columns' => 'account');
-    $data['keys'][] = array('name' => 'lastbackup', 'columns' => 'lastbackup');
-    $data['keys'][] = array('name' => 'lastattempt', 'columns' => 'lastattempt');
-    $data['keys'][] = array('name' => 'devicetype', 'columns' => 'devicetype');
-    $data['type'] = 'InnoDB';
-    $data['comment'] = 'Router Config Devices';
-    api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devices', $data);
+	$data['columns'][] = array('name' => 'enabled', 'type' => 'varchar(2)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'ipaddress', 'type' => 'varchar(128)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'account', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'schedule', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
+
+	$data['keys'][] = array('name' => 'enabled', 'columns' => 'enabled');
+	$data['keys'][] = array('name' => 'schedule', 'columns' => 'schedule');
+	$data['keys'][] = array('name' => 'ipaddress', 'columns' => 'ipaddress');
+	$data['keys'][] = array('name' => 'account', 'columns' => 'account');
+	$data['keys'][] = array('name' => 'lastbackup', 'columns' => 'lastbackup');
+	$data['keys'][] = array('name' => 'lastattempt', 'columns' => 'lastattempt');
+	$data['keys'][] = array('name' => 'devicetype', 'columns' => 'devicetype');
+
+	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devices', $data);
 
 	$data = array();
+
+	$data['primary'] = 'id';
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Router Config Device Types';
+
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-    $data['columns'][] = array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
-    $data['columns'][] = array('name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
-    $data['columns'][] = array('name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
-    $data['primary'] = 'id';
-    $data['type'] = 'InnoDB';
-    $data['comment'] = 'Router Config Device Types';
-    api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
+	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
+	$data['columns'][] = array('name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
+
+	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
 
 	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes
 		(id, name, username, password, copytftp, version, confirm, forceconfirm, checkendinconfig)
@@ -190,11 +209,12 @@ function routerconfigs_page_head () {
 	}
 }
 
-function routerconfigs_poller_bottom () {
+function routerconfigs_poller_bottom ($force = 0) {
 	global $config;
 
 	$running = read_config_option('plugin_routerconfigs_running');
-	if ($running == 1) {
+	if ($running > 0 && (is_array($force) || $force == 0)) {
+		cacti_log(__('NOTICE: Found backup started at %s',date('Y-m-d H:i:s', $running),'routerconfigs'), true, 'RCONFIG', POLLER_VERBOSITY_MEDIUM);
 		return;
 	}
 
@@ -207,7 +227,7 @@ function routerconfigs_poller_bottom () {
 	$h = date('G', time());
 	$s = date('i', time()) * 60;
 
-	if ($h == 0 && $s < $poller_interval) {
+	if ($force == 1 || $force == 2 || $s < $poller_interval) {
 		$command_string = trim(read_config_option('path_php_binary'));
 
 		if (trim($command_string) == '') {
@@ -216,27 +236,17 @@ function routerconfigs_poller_bottom () {
 
 		$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php';
 
-		exec_background($command_string, $extra_args);
-	} else if ($s < $poller_interval){
-		$t = time();
-
-		$devices = db_fetch_assoc("SELECT *
-			FROM plugin_routerconfigs_devices
-			WHERE enabled = 'on'
-			AND ($t - (schedule * 86400)) - 3600 > lastbackup
-			AND $t - lastattempt > 1800", false);
-
-		if (!empty($devices)) {
-			$command_string = trim(read_config_option('path_php_binary'));
-
-			if (trim($command_string) == '') {
-				$command_string = 'php';
-			}
-
-			$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-redownload.php';
-
-			exec_background($command_string, $extra_args);
+		if ($h != 0 || $force == 2)
+		{
+			$extra_args .= ' --retry';
 		}
+
+		if ($force == 1 || $force == 2) {
+			$extra_args .= ' --force';
+		}
+
+		cacti_log(__("DEBUG: Executing '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'),true,'RCONFIG', POLLER_VERBOSITY_DEBUG);
+		exec_background($command_string, $extra_args);
 	}
 }
 
@@ -312,6 +322,8 @@ function routerconfigs_config_settings () {
 
 function routerconfigs_config_arrays () {
 	global $menu;
+
+	plugin_routerconfigs_upgrade();
 
 	$menu[__('Utilities', 'routerconfigs')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs', 'routerconfigs');
 }
@@ -410,4 +422,5 @@ function routerconfigs_draw_navigation_text ($nav) {
 
 	return $nav;
 }
+
 

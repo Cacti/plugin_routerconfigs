@@ -28,10 +28,7 @@ chdir('../../');
 include('./include/auth.php');
 
 include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
-
-include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Renderer.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/Text/Diff/Renderer/table.php');
+include_once($config['base_path'] . '/plugins/routerconfigs/HordeTextInclude.php');
 
 top_header();
 
@@ -44,11 +41,11 @@ $file2   = get_filter_request_var('file2');
 $files1  = array();
 $files2  = array();
 
-if (empty($device1) || empty($device2)) {
-	$devices = db_fetch_assoc('SELECT id, directory, hostname
-		FROM plugin_routerconfigs_devices
-		ORDER BY hostname');
+$devices = db_fetch_assoc('SELECT id, directory, hostname
+	FROM plugin_routerconfigs_devices
+	ORDER BY hostname');
 
+if (empty($device1) || empty($device2)) {
 	if (sizeof($devices)) {
 		$default = $devices[0]['id'];
 
@@ -133,7 +130,7 @@ if (!empty($file1) && !empty($file2)) {
 		$diff = new Horde_Text_Diff('auto', array($lines1, $lines2));
 
 		/* Output the diff in unified format. */
-		$renderer = new Horde_Text_Diff_Renderer_table();
+		$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
 
 		$text = $renderer->render($diff);
 

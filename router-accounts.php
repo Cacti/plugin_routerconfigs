@@ -74,7 +74,7 @@ $account_edit = array(
 		'method' => 'textbox_password',
 		'friendly_name' => __('Enable Password', 'routerconfigs'),
 		'description' => __('Your Enable Password, if required.', 'routerconfigs'),
-		'value' => '|arg1:enable_pw|',
+		'value' => '|arg1:enablepw|',
 		'default' => '',
 		'max_length' => '64',
 		'size' => '30'
@@ -208,6 +208,8 @@ function save_accounts () {
 	if (get_nfilter_request_var('enablepw') == get_nfilter_request_var('enablepw_confirm')) {
 		if (!isempty_request_var('enablepw')) {
 			$save['enablepw'] = plugin_routerconfigs_encode(get_nfilter_request_var('enablepw'));
+		} else {
+			$save['enablepw'] = '';
 		}
 	} else {
 		raise_message(4);
