@@ -58,7 +58,7 @@ function routerconfigs_check_upgrade() {
 	include_once($config['library_path'] . '/functions.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('plugins.php');
+	$files = array('plugins.php','router-devices.php');
 	if (!in_array(get_current_page(), $files)) {
 		return;
 	}
@@ -69,7 +69,7 @@ function routerconfigs_check_upgrade() {
 
 	if ($current != $old) {
 		/* update realms for old versions */
-		if ($old < '0.2') {
+		if (cacti_version_compare($old,'0.2','<')) {
 			api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php', 'Plugin -> Router Configs', 1);
 
 			/* get the realm id's and change from old to new */
@@ -91,7 +91,7 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
-		if ($old < '1.2') {
+		if (cacti_version_compare($old, '1.2', '<')) {
 			if (!db_column_exists('connect_type','plugin_routerconfigs_devices')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devices
 					ADD COLUMN `connect_type` varchar(10) DEFAULT \'both\'');
@@ -252,6 +252,8 @@ function routerconfigs_poller_bottom ($force = 0) {
 
 function routerconfigs_config_settings () {
 	global $tabs, $settings, $config;
+
+	routerconfigs_check_upgrade();
 
 	if (function_exists('gethostname')) {
 		$hostname = gethostname();
