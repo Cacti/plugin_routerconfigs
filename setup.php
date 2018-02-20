@@ -119,7 +119,6 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
 
 	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_accounts', $data);
 
@@ -164,6 +163,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
 
 	$data['keys'][] = array('name' => 'enabled', 'columns' => 'enabled');
