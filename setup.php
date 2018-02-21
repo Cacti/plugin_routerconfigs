@@ -215,6 +215,13 @@ function routerconfigs_poller_bottom () {
 	$h = date('G', time());
 	$s = date('i', time()) * 60;
 
+	/* Check for the polling interval, only valid with the Multipoller patch */
+	$poller_interval = read_config_option('poller_interval');
+	if (!isset($poller_interval)) {
+		$poller_interval = 300;
+       
+	}
+
 	if ($s < $poller_interval) {
 		$command_string = trim(read_config_option('path_php_binary'));
 
