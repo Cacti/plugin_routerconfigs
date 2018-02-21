@@ -126,11 +126,13 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				$lastbackup = 'AND ($stime - (schedule * 86400)) - 3600 > lastbackup';
 			}
 
-			$devices = db_fetch_assoc("SELECT *
+			$sql = "SELECT *
 				FROM plugin_routerconfigs_devices
 				WHERE enabled = 'on'
 				$lastbackup
-				$lastattempt", false);
+				$lastattempt";
+			plugin_routerconfigs_log(__('DEBUG: ', 'routerconfigs') . str_replace("\n","",$sql));
+			$devices = db_fetch_assoc($sql, false);
 
 			$failed = array();
 			$passed = array();
