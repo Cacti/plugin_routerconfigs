@@ -99,7 +99,6 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 		plugin_routerconfigs_start($force);
 	}
 	$start  = microtime(true);
-
 	$stime  = time();
 	$passed = array();
 	$success = 0;
@@ -122,7 +121,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 			if (sizeof($filter_devices)) {
 				$lastbackup =  'AND id IN (' . implode(',',$filter_devices) .')';
 			} elseif (!$force) {
-				$lastattempt = $retry ? "AND $t - lastattempt > 18000" : '';
+				$lastattempt = $retry ? "AND $stime - lastattempt > 18000" : '';
 				$lastbackup = "AND ($stime - (schedule * 86400)) - 3600 > lastbackup";
 			}
 
