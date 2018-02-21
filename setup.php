@@ -209,25 +209,13 @@ function routerconfigs_page_head () {
 	}
 }
 
-function routerconfigs_poller_bottom ($force = 0) {
+function routerconfigs_poller_bottom () {
 	global $config;
-
-	$running = read_config_option('plugin_routerconfigs_running');
-	if ($running > 0 && (is_array($force) || $force == 0)) {
-		cacti_log(__('NOTICE: Found backup started at %s',date('Y-m-d H:i:s', $running),'routerconfigs'), true, 'RCONFIG', POLLER_VERBOSITY_MEDIUM);
-		return;
-	}
-
-	/* Check for the polling interval, only valid with the Multipoller patch */
-	$poller_interval = read_config_option('poller_interval');
-	if (!isset($poller_interval)) {
-		$poller_interval = 300;
-	}
 
 	$h = date('G', time());
 	$s = date('i', time()) * 60;
 
-	if ($force == 1 || $force == 2 || $s < $poller_interval) {
+	if ($s < $poller_interval) {
 		$command_string = trim(read_config_option('path_php_binary'));
 
 		if (trim($command_string) == '') {
@@ -236,16 +224,12 @@ function routerconfigs_poller_bottom ($force = 0) {
 
 		$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php';
 
-		if ($h != 0 || $force == 2)
+		if ($h != 0)
 		{
 			$extra_args .= ' --retry';
 		}
 
-		if ($force == 1 || $force == 2) {
-			$extra_args .= ' --force';
-		}
-
-		cacti_log(__("DEBUG: Executing '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'),true,'RCONFIG', POLLER_VERBOSITY_DEBUG);
+		cacti_log(__("DEBUG: Executing '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'),true,'RCONFIG', POLLER_VERBOSITY_NONE);
 		exec_background($command_string, $extra_args);
 	}
 }
