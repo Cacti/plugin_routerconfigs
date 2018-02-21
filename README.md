@@ -44,6 +44,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: Correct most config comparision code
 * issue: Added in missing Horde library functions and created common include file 
 * issue: Fixed the poller spawn issue that was preventing automatic backups
+* issue: Fixed comparison device/file selection code
 * feature: Backups - Now all use same code
 * feature: Backups - Manual now work the same way as automatic ones
 * feature: Backups - Manual can be done regardless of last attempt state
