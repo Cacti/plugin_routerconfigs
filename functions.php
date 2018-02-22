@@ -387,7 +387,7 @@ function plugin_routerconfigs_download_config($device) {
 			if ($matches === false || sizeof($matches) < 2 || $x == 30)
 				break;
 
-			if (stristr($debug, 'address') && !stristr($debug, "[$ip]")) {
+			if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
 				//send tftpserver if necessary
 				$try_command=$tftpserver;
 				$try_prompt='Server:';
