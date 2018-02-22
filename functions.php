@@ -380,25 +380,30 @@ function plugin_routerconfigs_download_config($device) {
 		//i.e: in ASA it ask for confirmation of the source file
 		//but this also confirm in case that all command is executed
 		//in one line
-		while (preg_match('/[\d\w]\]\?[^\w]*$/',$result)) {
-			$connection->DoCommand('', $result); //Just send an enter to confirm a question
-			$debug .= $result;
-			plugin_routerconfigs_log($ip . " -> DEBUG: confirm data result=$result");
-		}
+		$x = 0;
+		while ($try_loop) {
+			$x++;
+			$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$result);
+			if ($matches === false || sizeof($matches) < 2 || $x == 30)
+				break;
 
-		//send tftpserver if necessary
-		if (stristr($debug, 'address') && !stristr($debug, "[$ip]")) {
-			plugin_routerconfigs_log($ip . " -> DEBUG: Send Server IP: $tftpserver");
-			$connection->DoCommand($tftpserver, $result);
-			$debug .= $result;
-			$connection->GetResponse($result);
-		}
+			if (stristr($debug, 'address') && !stristr($debug, "[$ip]")) {
+				//send tftpserver if necessary
+				$try_command=$tftpserver;
+				$try_prompt='Server:';
+			} else if (stristr($result, 'filename') && !stristr($result, "[$filename]")) {
+				//send filename if necessary
+				$try_command=$filename;
+				$try_prompt='Filename:';
+			} else {
+				$try_command='';
+				$try_prompt='a return';
+			}
 
-		//send filename if necessary
-		if (stristr($debug, 'filename') && !stristr($debug, "[$filename]")) {
-			plugin_routerconfigs_log($ip . " -> DEBUG: Send Filename: $filename");
-			$connection->DoCommand($filename, $result);
+			plugin_routerconfigs_log($ip . " -> DEBUG: Sending $try_prompt $try_command");
+			$connection->DoCommand($try_command, $result);
 			$debug .= $result;
+			plugin_routerconfigs_log($ip . " -> DEBUG: Result: $result");
 		}
 
 		if (strpos($result, 'confirm') !== FALSE || strpos($result, 'to tftp:') !== FALSE || $devicetype['forceconfirm']) {
