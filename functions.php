@@ -384,7 +384,8 @@ function plugin_routerconfigs_download_config($device) {
 		while ($x < 30) {
 			$x++;
 			$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$result);
-			if ($matches === false || sizeof($matches) < 2 || $x == 30)
+			plugin_routerconfigs_log("$ip -> DEBUG: Prompt match ($x) returnd ".sizeof($matches));
+			if ($matches === false || !sizeof($matches) || $x == 30)
 				break;
 
 			if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
@@ -678,14 +679,11 @@ function plugin_routerconfigs_retrieve_account ($device) {
 }
 
 function plugin_routerconfigs_decode($info) {
-	plugin_routerconfigs_log("DEBUG: passed to decode: $info");
 	$info = base64_decode($info);
 	$debug_info = preg_replace('~(;s:\d+:"password";s:(\d+:))"(.*)\"~','\\1"(\\2 chars)"', $info);
 	plugin_routerconfigs_log("DEBUG: Base64 decoded: $debug_info");
 
 	$info = unserialize($info);
-	plugin_routerconfigs_log("DEBUG: Unserialized");
-
 	return $info['password'];
 }
 
