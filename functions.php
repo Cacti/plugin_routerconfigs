@@ -381,7 +381,7 @@ function plugin_routerconfigs_download_config($device) {
 		//but this also confirm in case that all command is executed
 		//in one line
 		$x = 0;
-		while ($try_loop) {
+		while ($x < 30) {
 			$x++;
 			$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$result);
 			if ($matches === false || sizeof($matches) < 2 || $x == 30)
