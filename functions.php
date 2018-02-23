@@ -122,7 +122,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				$lastbackup =  'AND id IN (' . implode(',',$filter_devices) .')';
 			} elseif (!$force) {
 				$lastattempt = $retry ? "AND $stime - lastattempt > 18000" : '';
-				$lastbackup = "AND ($stime - (schedule * 86400)) - 3600 > lastbackup";
+				$lastbackup = "AND ($stime - ($schedule * 86400)) - 3600 > lastbackup";
 			}
 
 			$sql = "SELECT *
@@ -1265,3 +1265,12 @@ class PHPTelnet {
 		return '';
 	}
 }
+
+function plugin_routerconfigs_date_from_time_with_na($time) {
+	return ($time > 0) ? date(CACTI_DATE_TIME_FORMAT, $time) : 'N/A';
+}
+
+function plugin_routerconfigs_date_from_time($time) {
+	return ($time > 0) ? date(CACTI_DATE_TIME_FORMAT, $time) : '';
+}
+

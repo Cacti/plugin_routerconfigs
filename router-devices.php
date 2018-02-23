@@ -229,7 +229,7 @@ function view_device_config() {
 
 		form_alternate_row();
 		print '<td><h2>' . __('Router Config for %s (%s)<br><br>', $device['hostname'], $device['ipaddress'], 'routerconfigs');
-		print __('Backup from %s', date('M j Y H:i:s', $device['btime']), 'routerconfigs') . '<br>';
+		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '<br>';
 		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
 		print $device['config'];
@@ -456,16 +456,63 @@ function edit_devices () {
 	form_save_button('router-devices.php');
 }
 
+function devices_validate_vars() {
+	/* ================= input validation and session storage ================= */
+	$filters = array(
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+			),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'description',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'device_type' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+		'account' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+	);
+
+	validate_store_request_vars($filters, 'sess_routerconfigs_devices_current_page');
+	/* ================= input validation ================= */
+}
+
 function show_devices() {
 	global $host, $username, $password, $command;
-	global $config, $device_actions, $acc;
+	global $config, $device_actions, $acc, $item_rows;
+
+	devices_validate_vars();
 
 	get_filter_request_var('account');
 	get_filter_request_var('page');
 
-	$account = '';
-	if (isset_request_var('account')) {
-		$account = get_request_var('account');
+	if (get_request_var('rows') == -1) {
+		$num_rows = read_config_option('num_rows_tables');
+	} else {
+		$num_rows = get_request_var('rows');
 	}
 
 	if (isset_request_var('page')) {
@@ -477,41 +524,273 @@ function show_devices() {
 	load_current_session_value('page', 'sess_routerconfigs_devices_current_page', '1');
 	$num_rows = 30;
 
-	$sql = 'SELECT * FROM plugin_routerconfigs_devices ';
-	if ($account != '') {
-		$sql .= ' WHERE account = ' . $account;
+	$device_type = '';
+	if (isset_request_var('device_type')) {
+		$device_type = get_filter_request_var('device_type');
+
+		if (isset($_SESSION['routerconfigs_devices_device_type']) && $_SESSION['routerconfigs_devices_device_type'] != $device_type) {
+			$page = 1;
+			set_request_var('page','1');
+		}
+
+		$_SESSION['routerconfigs_devices_device_type'] = $device_type;
+	} else if (isset($_SESSION['routerconfigs_devices_device_type']) && $_SESSION['routerconfigs_devices_device_type'] != '') {
+		$device = $_SESSION['routerconfigs_devices_device_type'];
 	}
-	$sql   .= 'ORDER BY hostname LIMIT ' . ($num_rows*($page-1)) . ', ' . $num_rows;
-	$result = db_fetch_assoc($sql);
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices' . ($account != '' ? ' WHERE account = ' . $account:''));
+	$account = '';
+	if (isset_request_var('account')) {
+		$account = get_filter_request_var('account');
 
-	$url_page_select = get_page_list(get_request_var('page'), MAX_DISPLAY_PAGES, $num_rows, $total_rows, 'router-devices.php?' . ($account != '' ? 'account=' . $account:''));
+		if (isset($_SESSION['routerconfigs_devices_account']) && $_SESSION['routerconfigs_devices_account'] != $account) {
+			$page = 1;
+			set_request_var('page','1');
+		}
 
-	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), '20', $total_rows, 10, 'Devices', 'page', 'main');
+		$_SESSION['routerconfigs_devices_account'] = $account;
+	} else if (isset($_SESSION['routerconfigs_devices_account']) && $_SESSION['routerconfigs_devices_account'] != '') {
+		$device = $_SESSION['routerconfigs_devices_account'];
+	}
 
-	form_start('router-devices.php', 'chk');
+	$sqlwhere = '';
+	$sqlwherevar = array();
+
+	if ($account > 0) {
+		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' account = ?';
+		array_push($sqlwherevar, $account);
+	}
+
+	if ($device_type > 0) {
+		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' device_type = ?';
+		array_push($sqlwherevar, $device_type);
+	}
+
+	$total_rows = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices ' . $sqlwhere, $sqlwherevar);
+
+	$sql = 'SELECT * FROM plugin_routerconfigs_devices '. $sqlwhere . ' ORDER BY ? ? LIMIT ' . ($num_rows*($page-1)) . ', ' . $num_rows;
+	$sqlvar = array();
+	if ($sqlwhere > '') {
+		array_merge($sqlvar, $sqlwherevar);
+	}
+	array_push($sqlvar, get_request_var('sort_column'),  get_request_var('sort_direction'));
+	$result = db_fetch_assoc_prepared($sql, $sqlvar);
+
+	?>
+	<script type='text/javascript'>
+
+	function applyFilter() {
+		strURL  = 'router-devices.php?header=false'
+		strURL += '&device_type=' + $('#device_type').val();
+		strURL += '&account=' + $('#account').val();
+		strURL += '&rows=' + $('#rows').val();
+		strURL += '&filter=' + $('#filter').val();
+		loadPageNoHeader(strURL);
+	}
+
+	function clearFilter() {
+		strURL = 'router-backups.php?clear=1&header=false';
+		loadPageNoHeader(strURL);
+	}
+
+	$(function() {
+		$('#rows, #device_type, #account, #filter').change(function() {
+			applyFilter();
+		});
+
+		$('#refresh').click(function() {
+			applyFilter();
+		});
+
+		$('#clear').click(function() {
+			clearFilter();
+		});
+
+		$('#form_devices').submit(function(event) {
+			event.preventDefault();
+			applyFilter();
+		});
+	});
+
+	</script>
+	<?php
 
 	html_start_box(__('Router Device Management', 'routerconfigs'), '100%', '', '4', 'center', 'router-devices.php?action=edit');
 
-	print $nav;
 
-	html_header_checkbox(
-		array(
-			__('Actions', 'routerconfigs'),
-			__('Hostname', 'routerconfigs'),
-			__('Device Type', 'routerconfigs'),
-			__('Configs', 'routerconfigs'),
-			__('IP Address', 'routerconfigs'),
-			__('Directory', 'routerconfigs'),
-			__('Last Backup', 'routerconfigs'),
-			__('Last Change', 'routerconfigs'),
-			__('Changed By', 'routerconfigs'),
-			__('Enabled', 'routerconfigs')
-		)
+	?>
+	<tr class='even noprint'>
+		<td>
+		<form id='form_devices' action='router-devicess.php'>
+			<table class='filterTable'>
+				<tr>
+					<td>
+						<?php print __('Device Type','routerconfigs');?>
+					</td>
+					<td>
+						<select id='device_type'>
+							<option value='-1'<?php if (get_request_var('device_type') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs');?></option>
+							<?php
+							$device_types = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name');
+
+							if (sizeof($device_types)) {
+								foreach ($device_types as $device_type) {
+									print "<option value='" . $device_type['id'] . "'"; if (get_request_var('device_type') == $device_type['id']) { print ' selected'; } print '>' . htmlspecialchars($device_type['name']) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Account','routerconfigs');?>
+					</td>
+					<td>
+						<select id='account'>
+							<option value='-1'<?php if (get_request_var('account') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs');?></option>
+							<?php
+							$accounts = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name');
+
+							if (sizeof($accounts)) {
+								foreach ($accounts as $account) {
+									print "<option value='" . $account['id'] . "'"; if (get_request_var('account') == $account['id']) { print ' selected'; } print '>' . htmlspecialchars($account['name']) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Search','routerconfigs');?>
+					</td>
+					<td>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
+					</td>
+					<td>
+						<select id='rows'>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
+							<?php
+							if (sizeof($item_rows)) {
+								foreach ($item_rows as $key => $value) {
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<span>
+							<input type='button' id='refresh' value='<?php print __('Go','routerconfigs');?>' title='<?php print __esc('Set/Refresh Filters','routerconfigs');?>'>
+							<input type='button' id='clear' value='<?php print __('Clear','routerconfigs');?>' title='<?php print __esc('Clear Filters','routerconfigs');?>'>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</form>
+		</td>
+	</tr>
+	<?php
+
+	html_end_box();
+
+
+	$display_text = array(
+		'hostname' => array(
+			'display' => __('Hostname', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file.', 'routerconfigs')
+		),
+		'id' => array(
+			'display' => __('ID','routerconfigs'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The internal database ID for this Device.  Useful when performing automation or debugging.', 'routerconfigs')
+		),
+		'enabled' => array(
+			'display' => __('Enabled', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+		),
+		'nosort_lastbackup' => array(
+			'display' => __('Last Backup', 'routerconfigs'),
+			'align' => 'center',
+			'sort' => 'ASC',
+			'tip' => __('The last Backup time of the device', 'routerconfigs')
+		),
+		'device_type' => array(
+			'display' => __('Device Type', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('The device type of the device', 'routerconfigs')
+		),
+		'nosort_configs' => array(
+			'display' => __('Configs', 'routerconfigs'),
+			'align' => 'left',
+			'tip' => __('The number of configurations for this device', 'routerconfigs')
+		),
+		'ipaddress' => array(
+			'display' => __('IP Address', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('The IP address of this device', 'routerconfigs')
+		),
+		'lastbackup' => array(
+			'display' => __('Date Backup', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'DESC',
+		),
+		'lastchange' => array(
+			'display' => __('Date Change', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+		),
+		'changedby' => array(
+			'display' => __('Changed By', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+		),
+		'directory' => array(
+			'display' => __('Directory', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('The directory of the stored device backups', 'routerconfigs')
+		),
 	);
 
+	$url_page_select = get_page_list(get_request_var('page'), MAX_DISPLAY_PAGES, $num_rows, $total_rows, 'router-devices.php?' . ($account != '' ? 'account=' . $account:''));
+
+	form_start('router-devices.php', 'chk');
+
+	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), '20', $total_rows, 10, 'Devices', 'page', 'main');
+	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
+
 	if (sizeof($result)) {
+		$do_today = new DateTime();
+		$date_today = $do_today->format('Y-m-d \0\0:\0\0:\0\0');
+		$do_yesterday = clone $do_today;
+		$do_yesterday->modify('-1 day');
+		$date_yesterday = $do_yesterday->format('Y-m-d \0\0:\0\0:\0\0');
+
+		$day_of_week = $do_today->format("w");
+
+		$do_week = new DateTime();
+		$do_week->modify("-$day_of_week days");
+		$date_week = $do_week->format('Y-m-d \0\0:\0\0:\0\0');
+
+		$date_month = $do_today->format('Y-m-01 \0\0:\0\0:\0\0');
+		$date_year = $do_today->modify('-1 year')->format('Y-m-d \0\0:\0\0:\0\0');
+
+		$date_array = array(
+			$date_today => __('Today', 'routerconfigs'),
+			$date_yesterday => __('Yesterday', 'routerconfigs'),
+			$date_week => '<i>'.__('This Week', 'routerconfigs').'</i>',
+			$date_month => '<u>'.__('This Month', 'routerconfigs').'</i>',
+			$date_year => '<u><i>'.__('Within a Year', 'routerconfigs').'</i></u>',
+			'2000-01-01 00:00:00' => '<b><i>'.__('Long, Long Ago', 'routerconfigs').'</b></i>',
+			'' => '<b><u>Never</u></b>'
+		);
+
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
@@ -525,24 +804,47 @@ function show_devices() {
 				WHERE id = ?',
 				array($row['devicetype']));
 
+			$state = $date_array[''];
+			if ($row['lastbackup'] > 0) {
+				$do_backup = new DateTime();
+				$do_backup->setTimestamp($row['lastbackup']);
+				$date_backup = $do_backup->format('Y-m-d H:i:s');
+
+				foreach ($date_array as $date_value=>$date_state) {
+					if ($date_backup >= $date_value) {
+						$state = $date_state;
+						break;
+					}
+				}
+			}
+
 			if (empty($dtype)) $dtype = __('Auto-Detect', 'routerconfigs');
 
+			$enabled = ($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>');
+
+
+			/* --- Move device actions to drop down  MJV
 			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __esc('Telnet', 'routerconfigs') . '"></a>';
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
 				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
 			}
 			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></a>';
-
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
-			form_selectable_cell('<a class="linkEditMain" href="router-devices.php?&action=edit&id=' . $row['id'] . '">' . $row['hostname'] . '</a>', $row['id']);
-			form_selectable_cell('<a class="linkEditMain" href="router-devtypes.php?&action=edit&id=' . $row['devicetype'] . '">' . $dtype . '</a>', $row['id']);
-			form_selectable_cell("<a class='linkEditMain' href='router-devices.php?action=viewconfig&id=" . $row['id'] . "'>" . __('Current', 'routerconfigs') . "</a> - <a class='linkEditMain' href='router-backups.php?device=" . $row['id'] . "'>" . __('Backups (%s)', $total) . "</a>", $row['id'], 'routerconfigs');
-			form_selectable_cell($row['ipaddress'], $row['id']);
-			form_selectable_cell($row['directory'], $row['id']);
-			form_selectable_cell(($row['lastbackup'] < 1 ? '' : date('M j Y H:i:s', $row['lastbackup'])), $row['id']);
-			form_selectable_cell(($row['lastchange'] < 1 ? '' : date('M j Y H:i:s', $row['lastchange'])), $row['id']);
-			form_selectable_cell($row['username'], $row['id']);
-			form_selectable_cell(($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
+			*/
+
+			form_selectable_cell(filter_value($row['hostname'], get_request_var('filter'), 'router-devices.php?&action=edit&id=' . $row['id']), $row['id'],'10%');
+			form_selectable_cell(filter_value($row['id'], get_request_var('filter'), 'router-devices.php?&action=edit&id=' . $row['id']), $row['id'], '1%', 'text-align:right');
+			form_selectable_cell($enabled, $row['id'], '5%', 'text-align:center');
+			form_selectable_cell($state, $row['id'], '10%', 'text-align:center');
+			form_selectable_cell(filter_value($dtype, get_request_var('filter'), 'router-devtypes.php?&action=edit&id=' . $row['devicetype']), $row['id'], '10%');
+
+			form_selectable_cell(filter_value(__('Current', 'routerconfig'), get_request_var('filter'), 'router-devices.php?action=viewconfig&id=' . $row['id']).' - '.filter_value(__('Backups (%s)', $total, 'routerconfigs'), get_request_var('filter'), 'router-backups.php?device=' . $row['id']), $row['id'], '14%');
+
+			form_selectable_cell(filter_value($row['ipaddress'], get_request_var('filter')), $row['id'], '5%');
+			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastbackup']), get_request_var('filter')), $row['id'], '10%');
+			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastchange']), get_request_var('filter')), $row['id'], '10%');
+			form_selectable_cell(filter_value($row['username'], get_request_var('filter')), $row['id'], '10%');
+			form_selectable_cell(filter_value($row['directory'], get_request_var('filter')), $row['id']);
 			form_checkbox_cell($row['hostname'], $row['id']);
 			form_end_row();
 		}
