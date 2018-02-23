@@ -691,6 +691,9 @@ function show_devices() {
 
 
 	$display_text = array(
+		'nosort_actions' => array(
+			'display' => __('Actions', 'routerconfigs'),
+		),
 		'hostname' => array(
 			'display' => __('Hostname', 'routerconfigs'),
 			'align' => 'left',
@@ -820,14 +823,12 @@ function show_devices() {
 			$enabled = ($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>');
 
 
-			/* --- Move device actions to drop down  MJV
 			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __esc('Telnet', 'routerconfigs') . '"></a>';
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
-				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=10 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
+				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=14 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
 			}
-			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 alt="" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></a>';
+			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=14 alt="" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></a>';
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
-			*/
 
 			form_selectable_cell(filter_value($row['hostname'], get_request_var('filter'), 'router-devices.php?&action=edit&id=' . $row['id']), $row['id'],'10%');
 			form_selectable_cell(filter_value($row['id'], get_request_var('filter'), 'router-devices.php?&action=edit&id=' . $row['id']), $row['id'], '1%', 'text-align:right');
@@ -846,7 +847,7 @@ function show_devices() {
 			form_end_row();
 		}
 	}else{
-		print "<tr class='even'><td colspan='12'>" . __('No Router Devices Found', 'routerconfigs') . "</td></tr>\n";
+		print "<tr class='even'><td colspan='13'>" . __('No Router Devices Found', 'routerconfigs') . "</td></tr>\n";
 	}
 
 	html_end_box(false);
