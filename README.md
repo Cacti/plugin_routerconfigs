@@ -46,6 +46,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: Fixed the poller spawn issue that was preventing automatic backups
 * issue: Fixed comparison device/file selection code
 * issue: Don't send email if nothing changed and checking for failures
+* feature: Filtering - Added to both Devices and Backups tab
 * feature: Backups - Now all use same code
 * feature: Backups - Manual now work the same way as automatic ones
 * feature: Backups - Manual can be done regardless of last attempt state
