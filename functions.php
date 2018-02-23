@@ -380,25 +380,31 @@ function plugin_routerconfigs_download_config($device) {
 		//i.e: in ASA it ask for confirmation of the source file
 		//but this also confirm in case that all command is executed
 		//in one line
-		while (preg_match('/[\d\w]\]\?[^\w]*$/',$result)) {
-			$connection->DoCommand('', $result); //Just send an enter to confirm a question
-			$debug .= $result;
-			plugin_routerconfigs_log($ip . " -> DEBUG: confirm data result=$result");
-		}
+		$x = 0;
+		while ($x < 30) {
+			$x++;
+			$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$result);
+			plugin_routerconfigs_log("$ip -> DEBUG: Prompt match ($x) returnd ".sizeof($matches));
+			if ($matches === false || !sizeof($matches) || $x == 30)
+				break;
 
-		//send tftpserver if necessary
-		if (stristr($debug, 'address') && !stristr($debug, "[$ip]")) {
-			plugin_routerconfigs_log($ip . " -> DEBUG: Send Server IP: $tftpserver");
-			$connection->DoCommand($tftpserver, $result);
-			$debug .= $result;
-			$connection->GetResponse($result);
-		}
+			if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
+				//send tftpserver if necessary
+				$try_command=$tftpserver;
+				$try_prompt='Server:';
+			} else if (stristr($result, 'filename') && !stristr($result, "[$filename]")) {
+				//send filename if necessary
+				$try_command=$filename;
+				$try_prompt='Filename:';
+			} else {
+				$try_command='';
+				$try_prompt='a return';
+			}
 
-		//send filename if necessary
-		if (stristr($debug, 'filename') && !stristr($debug, "[$filename]")) {
-			plugin_routerconfigs_log($ip . " -> DEBUG: Send Filename: $filename");
-			$connection->DoCommand($filename, $result);
+			plugin_routerconfigs_log($ip . " -> DEBUG: Sending $try_prompt $try_command");
+			$connection->DoCommand($try_command, $result);
 			$debug .= $result;
+			plugin_routerconfigs_log($ip . " -> DEBUG: Result: $result");
 		}
 
 		if (strpos($result, 'confirm') !== FALSE || strpos($result, 'to tftp:') !== FALSE || $devicetype['forceconfirm']) {
@@ -673,14 +679,11 @@ function plugin_routerconfigs_retrieve_account ($device) {
 }
 
 function plugin_routerconfigs_decode($info) {
-	plugin_routerconfigs_log("DEBUG: passed to decode: $info");
 	$info = base64_decode($info);
 	$debug_info = preg_replace('~(;s:\d+:"password";s:(\d+:))"(.*)\"~','\\1"(\\2 chars)"', $info);
 	plugin_routerconfigs_log("DEBUG: Base64 decoded: $debug_info");
 
 	$info = unserialize($info);
-	plugin_routerconfigs_log("DEBUG: Unserialized");
-
 	return $info['password'];
 }
 
