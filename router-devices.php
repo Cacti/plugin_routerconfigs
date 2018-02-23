@@ -846,7 +846,7 @@ function show_devices() {
 			form_end_row();
 		}
 	}else{
-		print "<tr class='even'><td colspan='10'>" . __('No Router Devices Found', 'routerconfigs') . "</td></tr>\n";
+		print "<tr class='even'><td colspan='12'>" . __('No Router Devices Found', 'routerconfigs') . "</td></tr>\n";
 	}
 
 	html_end_box(false);
