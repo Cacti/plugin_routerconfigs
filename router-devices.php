@@ -484,7 +484,7 @@ function devices_validate_vars() {
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
-		'device_type' => array(
+		'devicetype' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
@@ -524,18 +524,18 @@ function show_devices() {
 	load_current_session_value('page', 'sess_routerconfigs_devices_current_page', '1');
 	$num_rows = 30;
 
-	$device_type = '';
-	if (isset_request_var('device_type')) {
-		$device_type = get_filter_request_var('device_type');
+	$devicetype = '';
+	if (isset_request_var('devicetype')) {
+		$devicetype = get_filter_request_var('devicetype');
 
-		if (isset($_SESSION['routerconfigs_devices_device_type']) && $_SESSION['routerconfigs_devices_device_type'] != $device_type) {
+		if (isset($_SESSION['routerconfigs_devices_devicetype']) && $_SESSION['routerconfigs_devices_devicetype'] != $devicetype) {
 			$page = 1;
 			set_request_var('page','1');
 		}
 
-		$_SESSION['routerconfigs_devices_device_type'] = $device_type;
-	} else if (isset($_SESSION['routerconfigs_devices_device_type']) && $_SESSION['routerconfigs_devices_device_type'] != '') {
-		$device = $_SESSION['routerconfigs_devices_device_type'];
+		$_SESSION['routerconfigs_devices_devicetype'] = $devicetype;
+	} else if (isset($_SESSION['routerconfigs_devices_devicetype']) && $_SESSION['routerconfigs_devices_devicetype'] != '') {
+		$devicetype = $_SESSION['routerconfigs_devices_devicetype'];
 	}
 
 	$account = '';
@@ -549,38 +549,37 @@ function show_devices() {
 
 		$_SESSION['routerconfigs_devices_account'] = $account;
 	} else if (isset($_SESSION['routerconfigs_devices_account']) && $_SESSION['routerconfigs_devices_account'] != '') {
-		$device = $_SESSION['routerconfigs_devices_account'];
+		$account = $_SESSION['routerconfigs_devices_account'];
 	}
 
 	$sqlwhere = '';
-	$sqlwherevar = array();
-
 	if ($account > 0) {
-		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' account = ?';
-		array_push($sqlwherevar, $account);
+		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' account = ' . $account;
 	}
 
-	if ($device_type > 0) {
-		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' device_type = ?';
-		array_push($sqlwherevar, $device_type);
+	if ($devicetype > 0) {
+		$sqlwhere .= ($sqlwhere == ''?'WHERE':'AND') . ' devicetype = ' . $devicetype;
 	}
 
-	$total_rows = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices ' . $sqlwhere, $sqlwherevar);
+	$total_rows = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices ' . $sqlwhere);
 
-	$sql = 'SELECT * FROM plugin_routerconfigs_devices '. $sqlwhere . ' ORDER BY ? ? LIMIT ' . ($num_rows*($page-1)) . ', ' . $num_rows;
-	$sqlvar = array();
-	if ($sqlwhere > '') {
-		array_merge($sqlvar, $sqlwherevar);
-	}
-	array_push($sqlvar, get_request_var('sort_column'),  get_request_var('sort_direction'));
-	$result = db_fetch_assoc_prepared($sql, $sqlvar);
+	$sort_column = get_request_var('sort_column');
+	$sort_direction = get_request_var('sort_direction');
+	$sort_limit = $num_rows*($page-1);
+
+	$sql = "SELECT * FROM plugin_routerconfigs_devices
+		$sqlwhere
+		ORDER BY $sort_column $sort_direction
+		LIMIT $sort_limit, $num_rows";
+
+	$result = db_fetch_assoc($sql);
 
 	?>
 	<script type='text/javascript'>
 
 	function applyFilter() {
 		strURL  = 'router-devices.php?header=false'
-		strURL += '&device_type=' + $('#device_type').val();
+		strURL += '&devicetype=' + $('#devicetype').val();
 		strURL += '&account=' + $('#account').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&filter=' + $('#filter').val();
@@ -593,7 +592,7 @@ function show_devices() {
 	}
 
 	$(function() {
-		$('#rows, #device_type, #account, #filter').change(function() {
+		$('#rows, #devicetype, #account, #filter').change(function() {
 			applyFilter();
 		});
 
@@ -627,14 +626,14 @@ function show_devices() {
 						<?php print __('Device Type','routerconfigs');?>
 					</td>
 					<td>
-						<select id='device_type'>
-							<option value='-1'<?php if (get_request_var('device_type') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs');?></option>
+						<select id='devicetype'>
+							<option value='-1'<?php if (get_request_var('devicetype') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs');?></option>
 							<?php
-							$device_types = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name');
+							$devicetypes = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name');
 
-							if (sizeof($device_types)) {
-								foreach ($device_types as $device_type) {
-									print "<option value='" . $device_type['id'] . "'"; if (get_request_var('device_type') == $device_type['id']) { print ' selected'; } print '>' . htmlspecialchars($device_type['name']) . "</option>\n";
+							if (sizeof($devicetypes)) {
+								foreach ($devicetypes as $devicetype) {
+									print "<option value='" . $devicetype['id'] . "'"; if (get_request_var('devicetype') == $devicetype['id']) { print ' selected'; } print '>' . htmlspecialchars($devicetype['name']) . "</option>\n";
 								}
 							}
 							?>
@@ -715,7 +714,7 @@ function show_devices() {
 			'sort' => 'ASC',
 			'tip' => __('The last Backup time of the device', 'routerconfigs')
 		),
-		'device_type' => array(
+		'devicetype' => array(
 			'display' => __('Device Type', 'routerconfigs'),
 			'align' => 'left',
 			'sort' => 'ASC',
@@ -754,8 +753,6 @@ function show_devices() {
 			'tip' => __('The directory of the stored device backups', 'routerconfigs')
 		),
 	);
-
-	$url_page_select = get_page_list(get_request_var('page'), MAX_DISPLAY_PAGES, $num_rows, $total_rows, 'router-devices.php?' . ($account != '' ? 'account=' . $account:''));
 
 	form_start('router-devices.php', 'chk');
 
