@@ -70,7 +70,7 @@ function view_device_config() {
 		form_alternate_row();
 
 		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs');
-		print __('Backup from %s', date('M j Y H:i:s', $device['btime']), 'routerconfigs') . '<br>';
+		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '<br>';
 		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
 		print $device['config'];
@@ -134,11 +134,13 @@ function show_devices () {
 		$num_rows = get_request_var('rows');
 	}
 
-	get_filter_request_var('page');
+	if (get_filter_request_var('page') > 0) {
+		$page = get_request_var('page');
+	} else {
+		$page = 1;
+	}
 
 	load_current_session_value('page', 'sess_routerconfigs_backups_current_page', '1');
-
-	input_validate_input_number(get_request_var('page'));
 
 	$device = '';
 	if (isset_request_var('device')) {
@@ -335,14 +337,9 @@ function show_devices () {
 
 		$c = 0;
 		foreach ($result as $row) {
-			$lastchange = 'N/A';
-			if ($row['lastchange'] > 0) {
-				$lastchange = date('M j Y H:i:s', $row['lastchange']);
-			}
-			$lastbackup = 'N/A';
-			if ($row['btime'] > 1519049969) {
-				$lastbackup = date('M j Y H:i:s', $row['btime']);
-			}
+			$lastchange = plugin_routerconfigs_date_from_time_with_na($row['lastchange']);;
+			$lastbackup = plugin_routerconfigs_date_from_time_with_na($row['lastbackup']);;
+
 			form_alternate_row('line' . $row['id'], true);
 
 			form_selectable_cell(filter_value($row['hostname'], get_request_var('filter'), 'router-devices.php?action=edit&id=' . $row['device']), $row['device']);
