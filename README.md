@@ -48,6 +48,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: SSH and Telnet would not operate the same after initial connection
 * issue: TFTP bytes copied would not be picked up as a transfer completion
 * issue: Midnight full download would not trigger without --retry cause no full downloads
+* issue: Default sort column was not a valid field
 
 --- 1.2 ---
 * issue: Correct most config comparision code
