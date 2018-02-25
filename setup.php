@@ -219,7 +219,6 @@ function routerconfigs_poller_bottom () {
 	$poller_interval = read_config_option('poller_interval');
 	if (!isset($poller_interval)) {
 		$poller_interval = 300;
-       
 	}
 
 	if ($s < $poller_interval) {
@@ -231,7 +230,7 @@ function routerconfigs_poller_bottom () {
 
 		$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php';
 
-		if ($h != 0)
+		if ($h > 0)
 		{
 			$extra_args .= ' --retry';
 		}
@@ -251,10 +250,34 @@ function routerconfigs_config_settings () {
 	}else{
 		$hostname = php_uname('n');
 	}
+	$tabs['routerconfigs'] = __('Router Configs', 'routerconfigs');
 
 	$temp = array(
 		'routerconfigs_header' => array(
 			'friendly_name' => __('Router Configs', 'routerconfigs'),
+			'method' => 'spacer',
+		),
+		'routerconfigs_debug_buffer' => array(
+			'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
+			'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
+			'method' => 'checkbox'
+		),
+		'routerconfigs_retention' => array(
+			'friendly_name' => __('Retention Period', 'routerconfigs'),
+			'description' => __('The number of days to retain old backups.', 'routerconfigs'),
+			'method' => 'drop_array',
+			'default' => '30',
+			'array' => array(
+				'30'  => __('%d Month', 1, 'routerconfigs'),
+				'60'  => __('%d Months', 2, 'routerconfigs'),
+				'90'  => __('%d Months', 3, 'routerconfigs'),
+				'120' => __('%d Months', 4, 'routerconfigs'),
+				'180' => __('%d Months', 6, 'routerconfigs'),
+				'365' => __('%d Year', 1, 'routerconfigs')
+			)
+		),
+		'routerconfigs_header_tftp' => array(
+			'friendly_name' => __('Router Configs - TFTP', 'routerconfigs'),
 			'method' => 'spacer',
 		),
 		'routerconfigs_tftpserver' => array(
@@ -272,6 +295,10 @@ function routerconfigs_config_settings () {
 			'size' => '50',
 			'default' => $config['base_path'] . '/backups/'
 		),
+		'routerconfigs_header_email' => array(
+			'friendly_name' => __('Router Configs - Email', 'routerconfigs'),
+			'method' => 'spacer',
+		),
 		'routerconfigs_email' => array(
 			'friendly_name' => __('Email Address', 'routerconfigs'),
 			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
@@ -287,29 +314,13 @@ function routerconfigs_config_settings () {
 			'size' => 40,
 			'max_length' => 255,
 			'default' => ''
-		),
-		'routerconfigs_retention' => array(
-			'friendly_name' => __('Retention Period', 'routerconfigs'),
-			'description' => __('The number of days to retain old backups.', 'routerconfigs'),
-			'method' => 'drop_array',
-			'default' => '30',
-			'array' => array(
-				'30'  => __('%d Month', 1, 'routerconfigs'),
-				'60'  => __('%d Months', 2, 'routerconfigs'),
-				'90'  => __('%d Months', 3, 'routerconfigs'),
-				'120' => __('%d Months', 4, 'routerconfigs'),
-				'180' => __('%d Months', 6, 'routerconfigs'),
-				'365' => __('%d Year', 1, 'routerconfigs')
-			)
 		)
 	);
 
-	$tabs['misc'] = __('Misc', 'routerconfigs');
-
-	if (isset($settings['misc'])) {
-		$settings['misc'] = array_merge($settings['misc'], $temp);
+	if (isset($settings['routerconfigs'])) {
+		$settings['routerconfigs'] = array_merge($settings['routerconfigs'], $temp);
 	} else {
-		$settings['misc'] = $temp;
+		$settings['routerconfigs'] = $temp;
 	}
 }
 

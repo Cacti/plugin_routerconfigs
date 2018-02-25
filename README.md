@@ -40,6 +40,16 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
+--- 1.3 ---
+* feature: Completely rejigged PHPSsh/PHPTelnet to use base PHPConnection class
+* feature: Moved RouterConfig settings to their own tab as more have been added
+* feature: Added debug flag to suppress log output of debug buffer (does not affect adding to debug buffer to db)
+* issue: A return was being sent to early in Telnet mode
+* issue: SSH and Telnet would not operate the same after initial connection
+* issue: TFTP bytes copied would not be picked up as a transfer completion
+* issue: Midnight full download would not trigger without --retry cause no full downloads
+* issue: Default sort column was not a valid field
+
 --- 1.2 ---
 * issue: Correct most config comparision code
 * issue: Added in missing Horde library functions and created common include file 

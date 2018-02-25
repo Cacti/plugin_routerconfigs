@@ -476,7 +476,7 @@ function devices_validate_vars() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'description',
+			'default' => 'hostname',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
