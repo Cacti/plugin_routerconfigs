@@ -176,9 +176,9 @@ function plugin_routerconfigs_download(bool $retry = false, bool $force = false,
 				plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
 				plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
-				if (!empty($passed) && $retry) {
-					plugin_routerconfigs_message($message, __('These devices have now backuped', 'routerconfigs'));
-					plugin_routerconfigs_message($message, __('-------------------------------', 'routerconfigs'));
+				if (!empty($passed) && ($retry || $force)) {
+					plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
+					plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
 					foreach ($passed as $f) {
 						plugin_routerconfigs_message($message, $f['hostname']);
 					}

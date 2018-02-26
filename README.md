@@ -46,6 +46,9 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: Number of devices display in manual mode was always 0
 * issue: Echo'd tftp command would sometimes cause premature termination
 * issue: Only send destination filename and server once
+* issue: Device inclusion could be duplicated causing more than one download
+* issue: Correct spelling of 'socked'
+* issue: Include successful devices in email if using --force option.
 
 --- 1.3 ---
 * feature: Completely rejigged PHPSsh/PHPTelnet to use base PHPConnection class
@@ -56,8 +59,6 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: TFTP bytes copied would not be picked up as a transfer completion
 * issue: Midnight full download would not trigger without --retry cause no full downloads
 * issue: Default sort column was not a valid field
-* issue: Device inclusion could be duplicated causing more than one download
-* issue: Correct spelling of 'socked'
 
 --- 1.2 ---
 * issue: Correct most config comparision code
