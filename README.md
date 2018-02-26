@@ -50,6 +50,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: Correct spelling of 'socked'
 * issue: Include successful devices in email if using --force option.
 * issue: Correct wording during object creation, it's not connecting and needs classType
+* issue: Suppress PHP warning when SSH connection fails
 
 --- 1.3 ---
 * feature: Completely rejigged PHPSsh/PHPTelnet to use base PHPConnection class
@@ -60,7 +61,6 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: TFTP bytes copied would not be picked up as a transfer completion
 * issue: Midnight full download would not trigger without --retry cause no full downloads
 * issue: Default sort column was not a valid field
-* issue: Suppress PHP warning when SSH connection fails
 
 --- 1.2 ---
 * issue: Correct most config comparision code
