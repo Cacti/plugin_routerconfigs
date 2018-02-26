@@ -860,7 +860,7 @@ abstract class PHPConnection {
 		$this->isEnabeld = false;
 		$this->setServerDetails();
 
-		$this->Log("DEBUG: SSH->Connect(Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Devicetype: ".json_encode($this->devicetype));
+		$this->Log("DEBUG: Creating $classType(Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Devicetype: ".json_encode($this->devicetype));
 	}
 
 	protected function setServerDetails() {
