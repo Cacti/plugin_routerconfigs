@@ -118,6 +118,7 @@ foreach($options as $arg => $value) {
 	}
 }
 
+$devices = array_unique($devices);
 plugin_routerconfigs_download($retryMode, $force, $devices, $debugBuffer);
 exit(EXIT_NORMAL);
 

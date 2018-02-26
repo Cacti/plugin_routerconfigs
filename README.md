@@ -56,6 +56,8 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: TFTP bytes copied would not be picked up as a transfer completion
 * issue: Midnight full download would not trigger without --retry cause no full downloads
 * issue: Default sort column was not a valid field
+* issue: Device inclusion could be duplicated causing more than one download
+* issue: Correct spelling of 'socked'
 
 --- 1.2 ---
 * issue: Correct most config comparision code

@@ -1223,7 +1223,7 @@ class PHPTelnet extends PHPConnection {
 		$this->Disconnect();
 
 		if (strlen($this->ip)) {
-			$this->Log("Attempting to open socked to $this->ip:23");
+			$this->Log("Attempting to open socket to $this->ip:23");
 			if (@$this->stream = fsockopen($this->ip, 23)) {
 				@fputs($this->stream, $this->conn1);
 				$this->Sleep();
