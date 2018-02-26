@@ -86,7 +86,7 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 	}
 }
 
-function plugin_routerconfigs_download(bool $retry = false, bool $force = false, array $devices = array(), bool $buffer_debug = false) {
+function plugin_routerconfigs_download($retry = false, $force = false, $devices = array(), $buffer_debug = false) {
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
@@ -297,7 +297,7 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
-function plugin_routerconfigs_download_config(array $device, bool $buffer_debug = false) {
+function plugin_routerconfigs_download_config($device, $buffer_debug = false) {
 	$info = plugin_routerconfigs_retrieve_account($device['id']);
 	$dir  = $device['directory'];
 	$ip   = $device['ipaddress'];
