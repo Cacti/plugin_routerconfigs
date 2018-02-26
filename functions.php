@@ -957,7 +957,7 @@ abstract class PHPConnection {
 		}
 
 		$this->Log('Process is now ' . ( $this->IsEnabled() ? '' : 'NOT ') . 'enabled');
-		return $this->IsEnabled;
+		return $this->IsEnabled();
 	}
 
 
