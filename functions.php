@@ -86,14 +86,18 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 	}
 }
 
-function plugin_routerconfigs_download($retry = false, $force = false, $devices = null) {
+function plugin_routerconfigs_download(bool $retry = false, bool $force = false, array $devices = array(), bool $buffer_debug = false) {
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
+	if (!$buffer_debug) {
+		$buffer_debug = (read_config_option('routerconfigs_debug_buffer') == 'on');
+	}
+
 	$filter_devices = array();
-	if ($devices != null && strlen($devices)) {
+	if ($devices != null && sizeof($devices)) {
 		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
-		$filter_devices = explode(',',$devices);
+		$filter_devices = $devices;
 	} else {
 		plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
 		plugin_routerconfigs_start($force);
@@ -130,7 +134,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				WHERE enabled = 'on'
 				$lastbackup
 				$lastattempt";
-			plugin_routerconfigs_log('DEBUG: SQL: ' . str_replace("\n","",$sql));
+			plugin_routerconfigs_log('DEBUG: SQL: ' . preg_replace('/[\r\n]+\s*/m',' ',$sql));
 			$devices = db_fetch_assoc($sql, false);
 
 			$failed = array();
@@ -140,7 +144,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				foreach ($devices as $device) {
 					$t = time();
 					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
-					$found = plugin_routerconfigs_download_config($device);
+					$found = plugin_routerconfigs_download_config($device, $buffer_debug);
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
 						$passed[] = array ('hostname' => $device['hostname']);
@@ -292,7 +296,7 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
-function plugin_routerconfigs_download_config($device) {
+function plugin_routerconfigs_download_config(array $device, bool $buffer_debug = false) {
 	$info = plugin_routerconfigs_retrieve_account($device['id']);
 	$dir  = $device['directory'];
 	$ip   = $device['ipaddress'];
@@ -336,7 +340,7 @@ function plugin_routerconfigs_download_config($device) {
 	if (in_array($type_dev,$types_ssh)) {
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via SSH");
 
-		$connection = new PHPSsh($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype);
+		$connection = new PHPSsh($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
 
 		$result = $connection->Connect();
 		if (!$result) {
@@ -349,7 +353,7 @@ function plugin_routerconfigs_download_config($device) {
 	if ($result && in_array($type_dev,$types_tel)) {
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via Telnet");
 
-		$connection = new PHPTelnet($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype);
+		$connection = new PHPTelnet($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
 
 		$result = $connection->Connect();
 		if (!$result) {
@@ -406,6 +410,7 @@ function plugin_routerconfigs_download_config($device) {
 		while (($ret == 0 || $ret == 8) && $x<30) {
 			$x++;
 
+			$try_level='DEBUG:';
 			$try_command='';
 			$try_prompt='';
 
@@ -423,6 +428,7 @@ function plugin_routerconfigs_download_config($device) {
 				$connection->log("DEBUG: Prompt match ($x) returned ".sizeof($matches) . " matches");
 
 				if (sizeof($matches) > 0) {
+					$try_level='NOTICE:';
 					if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
 						//send tftpserver if necessary
 						$try_command=$tftpserver;
@@ -443,17 +449,18 @@ function plugin_routerconfigs_download_config($device) {
 				}
 			}
 
-			$connection->log("DEBUG: Sending $try_prompt $try_command");
+			$connection->log("$try_level Sending $try_prompt $try_command");
 			if ($try_prompt == '') {
 				$try_prompt = 'a return';
 			}
 
 			$ret = $connection->DoCommand($try_command, $result);
 			$debug .= $result;
-			$lines = explode("\r\n", $result);
+			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$result));
 			foreach ($lines as $line) {
-				$connection->log("DEBUG: Result: ($ret), Line: $line");
+				$connection->log("DEBUG: Line: $line");
 			}
+			$connection->log("DEBUG: Result: ($ret)");
 		}
 
 		$data = '';
@@ -787,7 +794,7 @@ function plugin_routerconfigs_messagetype($message) {
 //This function is the same as thold plugin with a litle changes
 //to respect cacti log level settings
 */
-function plugin_routerconfigs_log($message, $log_level = POLLER_VERBOSITY_NONE) {
+function plugin_routerconfigs_log(string $message, $log_level = POLLER_VERBOSITY_NONE) {
 	global $config, $debug;
 
 	$environ = 'RCONFIG';
@@ -824,8 +831,9 @@ abstract class PHPConnection {
 	var $errorcode   = 0;
 	var $error = 0;
 	var $ip='';
+	private $isEnabled = false;
 
-	function __construct($classType, $server, $user, $pass, $enablepw, $devicetype) {
+	function __construct($classType, $server, $user, $pass, $enablepw, $devicetype, $bufferDebug = false) {
 		$this->classType = $classType;
 
 		$this->pw1_text = plugin_routerconfigs_maskpw($pass);
@@ -838,8 +846,8 @@ abstract class PHPConnection {
 		$this->devicetype = $devicetype;
 
 		$this->debug = '';
-		$this->debugbuffer = read_config_option('routerconfigs_debug_buffer') == 'on';
-
+		$this->debugbuffer = $bufferDebug;
+		$this->isEnabeld = false;
 		$this->setServerDetails();
 
 		$this->Log("DEBUG: SSH->Connect(Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Devicetype: ".json_encode($this->devicetype));
@@ -873,12 +881,21 @@ abstract class PHPConnection {
 		}
 	}
 
+	function IsEnabled() {
+		return $this->isEnabled;
+	}
+
 	function EnsureEnabled() {
 		# Get > to show we are at the command prompt and ready to input the en command
 		# Get # to show we are already enabled so we don't need to enable
-		$is_enabled = false;
+		$is_enabled = $this->IsEnabled();
 
-		$this->Log('NOTICE: Ensuring process is enabled');
+		if ($is_enabled) {
+			$this->Log('NOTICE: Already enabled, continuing');
+			return true;
+		} else {
+			$this->Log('NOTICE: Ensuring process is enabled');
+		}
 
 		$res = '';
 		$x = 0;
@@ -887,7 +904,7 @@ abstract class PHPConnection {
 			$this->DoCommand('', $r, $this->pass);
 			$res .= $r;
 
-			$this->Log("DEBUG: Attempt $x of 10 to find enabled prompt");
+			$this->Log("DEBUG: Attempt $x of 10 to find prompt");
 			if (preg_match("|[a-zA-Z0-9\-_]>[ ]*$|", $r) === 1) {
 				break;
 			} else if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $r) === 1) {
@@ -919,9 +936,8 @@ abstract class PHPConnection {
 							break;
 						}
 
-						if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $r) === 1) {
+						if ($this->IsEnabled()) {
 							$this->Log('DEBUG: Ok we are in enabled mode');
-							$is_enabled = true;
 						}
 					}
 				}
@@ -930,8 +946,8 @@ abstract class PHPConnection {
 			}
 		}
 
-		$this->Log('Process is ' . ($is_enabled ? '' : 'NOT ') . ' enabled');
-		return $is_enabled;
+		$this->Log('Process is now ' . ( $this->IsEnabled() ? '' : 'NOT ') . 'enabled');
+		return $this->IsEnabled;
 	}
 
 
@@ -982,7 +998,7 @@ abstract class PHPConnection {
 		$time_start = time();
 		$data = '';
 
-		stream_set_timeout($this->stream, 1);
+		stream_set_timeout($this->stream, 0, 500000);
 		while (true && isset($this->stream)) {
 			$buf = @fgets($this->stream);
 			if ($buf !== false) {
@@ -1012,9 +1028,11 @@ abstract class PHPConnection {
 				$trim_buf = trim($buf);
 				if (preg_match("|[a-zA-Z0-9\-_]>[ ]*$|", $buf) === 1) {
 					$this->Log("DEBUG: Found Prompt (Normal)");
+					$this->isEnabled = false;
 					return 0;
 				} else if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $buf) === 1) {
 					$this->Log("DEBUG: Found Prompt (Enabled)");
+					$this->isEnabled = true;
 					return 0;
 				} else if (stristr($buf, $this->devicetype['password'])) {
 					$this->Log("DEBUG: Found Prompt (Password)");
@@ -1059,8 +1077,8 @@ class PHPSsh extends PHPConnection {
 	4 = No ssh2 extension
 	5 = Error enabling device
 	*/
-	function __construct($server, $user, $pass, $enablepw, $devicetype) {
-		parent::__construct('SSH', $server, $user, $pass, $enablepw, $devicetype);
+	function __construct($server, $user, $pass, $enablepw, $devicetype, $buffer_debug = false) {
+		parent::__construct('SSH', $server, $user, $pass, $enablepw, $devicetype, $buffer_debug);
 	}
 
 	function Connect() {
@@ -1154,8 +1172,8 @@ class PHPTelnet extends PHPConnection {
 	3 = login failed
 	4 = PHP version too low
 	*/
-	function __construct($server, $user, $pass, $enablepw, $devicetype) {
-		parent::__construct('Telnet',$server, $user, $pass, $enablepw, $devicetype);
+	function __construct($server, $user, $pass, $enablepw, $devicetype, $buffer_debug = false) {
+		parent::__construct('Telnet',$server, $user, $pass, $enablepw, $devicetype, $buffer_debug);
 
 		$this->conn1=chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
 			chr(0x20).chr(0xFF).chr(0xFB).chr(0x18).chr(0xFF).chr(0xFB).
