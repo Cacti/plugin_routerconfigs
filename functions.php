@@ -96,12 +96,13 @@ function plugin_routerconfigs_download(bool $retry = false, bool $force = false,
 
 	$filter_devices = array();
 	if ($devices != null && sizeof($devices)) {
-		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
 		$filter_devices = $devices;
+		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
 	} else {
 		plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
 		plugin_routerconfigs_start($force);
 	}
+
 	$start  = microtime(true);
 	$stime  = time();
 	$passed = array();
@@ -406,7 +407,8 @@ function plugin_routerconfigs_download_config(array $device, bool $buffer_debug 
 		$x = 0;
 		$ret = 0;
 		$confirmed = false;
-
+		$sent_srv = false;
+		$sent_dst = false;
 		while (($ret == 0 || $ret == 8) && $x<30) {
 			$x++;
 
@@ -414,9 +416,7 @@ function plugin_routerconfigs_download_config(array $device, bool $buffer_debug 
 			$try_command='';
 			$try_prompt='';
 
-			if (stristr($result, $command)) {
-				continue;
-			} else if (stristr($result, 'bytes copied') ||
+			if (stristr($result, 'bytes copied') ||
 				stristr($result,'successful')) {
 				$connection->Log("DEBUG: TFP TRANSFER SUCCESSFUL");
 				break;
@@ -428,17 +428,27 @@ function plugin_routerconfigs_download_config(array $device, bool $buffer_debug 
 				$connection->log("DEBUG: Prompt match ($x) returned ".sizeof($matches) . " matches");
 
 				if (sizeof($matches) > 0) {
-					$try_level='NOTICE:';
 					if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
-						//send tftpserver if necessary
-						$try_command=$tftpserver;
-						$try_prompt='Server:';
+						if (!$sent_srv) {
+							//send tftpserver if necessary
+							$try_level='NOTICE:';
+							$try_command=$tftpserver;
+							$try_prompt='Server:';
+							$sent_srv=true;
+						}
 					} else if (stristr($result, 'filename')) {
 						if (!stristr($result, 'source') && !stristr($result, "[$filename]")) {
-							//send filename if necessary
-							$try_command=$filename;
+							if (!$sent_dst) {
+								$try_level='NOTICE:';
+								//send filename if necessary
+								$try_prompt='Filename (Destination):';
+								$try_command=$filename;
+								$sent_dst=true;
+							}
+						} else {
+							$try_level='NOTICE:';
+							$try_prompt='Filename (Source):';
 						}
-						$try_prompt='Filename:';
 					}
 				}
 
@@ -449,10 +459,10 @@ function plugin_routerconfigs_download_config(array $device, bool $buffer_debug 
 				}
 			}
 
-			$connection->log("$try_level Sending $try_prompt $try_command");
 			if ($try_prompt == '') {
 				$try_prompt = 'a return';
 			}
+			$connection->log("$try_level Sending $try_prompt $try_command");
 
 			$ret = $connection->DoCommand($try_command, $result);
 			$debug .= $result;

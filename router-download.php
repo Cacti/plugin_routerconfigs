@@ -85,6 +85,7 @@ foreach($options as $arg => $value) {
 					if (!is_numeric($deviceId)) {
 						routerconfigs_fail(EXIT_NONNUM, $deviceId);
 					}
+					//echo "Adding device $deviceId\n";
 					$devices[] = $deviceId;
 				}
 			}
@@ -271,16 +272,23 @@ function routerconfigs_getopts_find(string $arg, array $options) {
 				unset($found['result']);
 			}
 
-			if (strlen($arg) >= strlen($option['text']) &&
-			    substr($option['text'],0,strlen($arg)) == $arg) {
-				$separator_pos = strlen($option['text']) - 1;
+			$length_arg = strlen($arg);
+			$length_txt = strlen($option['text']);
+			$substr_txt = substr($arg,0,$length_txt);
+			//echo sprintf("%3d arg, %3d txt, %15s = %s\n", $length_arg, $length_txt, $option['text'], $substr_txt);
+			if ($length_arg > $length_txt && $substr_txt == $option['text']) {
+				$separator_pos = strlen($option['text']);
 				$separator = $arg[$separator_pos];
+				//echo "$arg $separator found\n";
 				if ($separator == '=') {
 					$found = $option;
 					$separator_pos++;
-					if ($separator_pos < strlen($arg) - 1) {
-						$found['result'] = substr($separator, $separator_pos);
+					if ($separator_pos < strlen($arg)) {
+						$substr_txt = substr($arg, $separator_pos);
+						//echo "Setting $substr_txt\n";
+						$found['result'] = $substr_txt;
 					} else {
+						//echo "Unsetting result\n";
 						unset($found['result']);
 					}
 				}
