@@ -1102,7 +1102,7 @@ class PHPSsh extends PHPConnection {
 		}
 
 		if (strlen($this->ip)) {
-			if(!($this->connection = ssh2_connect($this->server, 22))){
+			if(!($this->connection = @ssh2_connect($this->server, 22))){
 				$rv=1;
 			} else {
 				// try to authenticate
