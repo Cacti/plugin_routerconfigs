@@ -230,8 +230,13 @@ function routerconfigs_poller_bottom () {
 
 		$extra_args = ' -q ' . $config['base_path'] . '/plugins/routerconfigs/router-download.php';
 
-		if ($h > 0)
-		{
+		$daily = read_config_option('routerconfigs_hour');
+		if ($daily === false || $daily < 0 || $daily > 23) {
+			$daily = 0;
+		}
+		$daily = (int)$daily;
+
+		if ($h != $daily) {
 			$extra_args .= ' --retry';
 		}
 
@@ -261,6 +266,38 @@ function routerconfigs_config_settings () {
 			'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
 			'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
 			'method' => 'checkbox'
+		),
+		'routerconfigs_hour' => array(
+			'friendly_name' => __('Download Hour', 'routerconfigs'),
+			'description' => __('The hour of the day to perform the full downloads.', 'routerconfigs'),
+			'method' => 'drop_array',
+			'default' => '0',
+			'array' => array(
+				'0'  => __('00:00 (12am)', 1, 'routerconfigs'),
+				'1'  => __('01:00 (1am)', 1, 'routerconfigs'),
+				'2'  => __('02:00 (2am)', 1, 'routerconfigs'),
+				'3'  => __('03:00 (3am)', 1, 'routerconfigs'),
+				'4'  => __('04:00 (4am)', 1, 'routerconfigs'),
+				'5'  => __('05:00 (5am)', 1, 'routerconfigs'),
+				'6'  => __('06:00 (6am)', 1, 'routerconfigs'),
+				'7'  => __('07:00 (7am)', 1, 'routerconfigs'),
+				'8'  => __('08:00 (8am)', 1, 'routerconfigs'),
+				'9'  => __('09:00 (9am)', 1, 'routerconfigs'),
+				'10'  => __('10:00 (12am)', 1, 'routerconfigs'),
+				'11'  => __('11:00 (11am)', 1, 'routerconfigs'),
+				'12'  => __('12:00 (12pm)', 1, 'routerconfigs'),
+				'13'  => __('13:00 (1pm)', 1, 'routerconfigs'),
+				'14'  => __('14:00 (2pm)', 1, 'routerconfigs'),
+				'15'  => __('15:00 (3pm)', 1, 'routerconfigs'),
+				'16'  => __('16:00 (4pm)', 1, 'routerconfigs'),
+				'17'  => __('17:00 (5pm)', 1, 'routerconfigs'),
+				'18'  => __('18:00 (6pm)', 1, 'routerconfigs'),
+				'19'  => __('19:00 (7pm)', 1, 'routerconfigs'),
+				'20'  => __('20:00 (8pm)', 1, 'routerconfigs'),
+				'21'  => __('21:00 (9pm)', 1, 'routerconfigs'),
+				'22'  => __('22:00 (10pm)', 1, 'routerconfigs'),
+				'23'  => __('23:00 (11pm)', 1, 'routerconfigs'),
+			)
 		),
 		'routerconfigs_retention' => array(
 			'friendly_name' => __('Retention Period', 'routerconfigs'),
@@ -299,14 +336,6 @@ function routerconfigs_config_settings () {
 			'friendly_name' => __('Router Configs - Email', 'routerconfigs'),
 			'method' => 'spacer',
 		),
-		'routerconfigs_email' => array(
-			'friendly_name' => __('Email Address', 'routerconfigs'),
-			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
-			'method' => 'textbox',
-			'size' => 40,
-			'max_length' => 255,
-			'default' => ''
-		),
 		'routerconfigs_from' => array(
 			'friendly_name' => __('From Address', 'routerconfigs'),
 			'description' => __('Email address the nightly backup will be sent from.', 'routerconfigs'),
@@ -314,7 +343,26 @@ function routerconfigs_config_settings () {
 			'size' => 40,
 			'max_length' => 255,
 			'default' => ''
-		)
+		),
+		'routerconfigs_name' => array(
+			'friendly_name' => __('From Name', 'routerconfigs'),
+			'description' => __('Name the nightly backup will be sent from.', 'routerconfigs'),
+			'method' => 'textbox',
+			'size' => 40,
+			'max_length' => 255,
+			'default' => ''
+		),
+		'routerconfigs_email' => array(
+			'friendly_name' => __('Email Address', 'routerconfigs'),
+			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
+			'method' => 'textarea',
+			'class' => 'textAreaNotes',
+			'textarea_rows' => '5',
+			'textarea_cols' => '40',
+			'size' => 40,
+			'max_length' => 255,
+			'default' => ''
+		),
 	);
 
 	if (isset($settings['routerconfigs'])) {

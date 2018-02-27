@@ -40,7 +40,13 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
---- 1.3.1 --
+--- 1.3.2 ---
+* feature: Add two new options, email name and download hour
+* feature: Expanded editing area of email to, so email addreses can be seen
+* issue: Another attempt to correct automatic vs mnaual backups
+* issue: Prevent 0/0 emails from being generated
+
+--- 1.3.1 ---
 * feature: Parameters can now be specified with values separated by space ( ) or equals sign (=)
 * feature: Debug Buffer can be turned on via command line
 * issue: Number of devices display in manual mode was always 0
