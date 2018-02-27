@@ -1,0 +1,658 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: routerconfigs on cacti 1.1.34\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-07 07:56-0400\n"
+"PO-Revision-Date: 2018-02-22 14:01+0800\n"
+"Last-Translator: \n"
+"Language-Team: sfqas <sfqas@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+
+#: ../router-devices.php:33
+msgid "Backup"
+msgstr "备用"
+
+#: ../router-devices.php:34
+#: ../router-accounts.php:32
+#: ../router-devtypes.php:31
+msgid "Delete"
+msgstr "删除"
+
+#: ../router-devices.php:35
+msgid "Enable"
+msgstr "启用"
+
+#: ../router-devices.php:36
+msgid "Disable"
+msgstr "禁用"
+
+#: ../router-devices.php:64
+msgid "Enable Device"
+msgstr "启用设备"
+
+#: ../router-devices.php:65
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "取消选中此框可禁用此设备的备份。"
+
+#: ../router-devices.php:72
+#: ../router-accounts.php:282
+msgid "Description"
+msgstr "描述"
+
+#: ../router-devices.php:73
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "此设备的名称（如果配置中没有主机名，将用于配置保存和SVN）。"
+
+#: ../router-devices.php:79
+#: ../router-devices.php:488
+msgid "IP Address"
+msgstr "IP地址"
+
+#: ../router-devices.php:80
+msgid "This is the IP Address used to communicate with the device."
+msgstr "这是用于与设备通信的IP地址。"
+
+#: ../router-devices.php:86
+#: ../router-devices.php:489
+#: ../router-backups.php:139
+msgid "Directory"
+msgstr "目录"
+
+#: ../router-devices.php:87
+msgid "This is the relative directory structure used to store the configs."
+msgstr "这是用于存储配置的相对目录结构。"
+
+#: ../router-devices.php:93
+msgid "Schedule"
+msgstr "时间表"
+
+#: ../router-devices.php:94
+msgid "How often to Backup this device."
+msgstr "多久备份一次该设备。"
+
+#: ../router-devices.php:97
+msgid "Daily"
+msgstr "每日"
+
+#: ../router-devices.php:97
+msgid "Weekly"
+msgstr "每周"
+
+#: ../router-devices.php:97
+msgid "Monthly"
+msgstr "每月"
+
+#: ../router-devices.php:101
+#: ../router-devices.php:486
+msgid "Device Type"
+msgstr "设备类型"
+
+#: ../router-devices.php:102
+msgid "Choose the type of device that the router is."
+msgstr "选择路由器的设备类型。"
+
+#: ../router-devices.php:109
+msgid "Authentication Account"
+msgstr "认证帐户"
+
+#: ../router-devices.php:110
+msgid "Choose an account to use to Login to the router"
+msgstr "选择一个帐户用于登录到路由器"
+
+#: ../router-devices.php:179
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "调试 %s (%s)<br><br>"
+
+#: ../router-devices.php:215
+#, php-format
+msgid "Router Config for %s (%s)<br><br>"
+msgstr "路由器配置Router Config for %s (%s)<br><br>"
+
+#: ../router-devices.php:216
+#: ../router-backups.php:73
+#, php-format
+msgid "Backup from %s"
+msgstr "从%s备份"
+
+#: ../router-devices.php:217
+#: ../router-backups.php:74
+#, php-format
+msgid "File: %s/%s"
+msgstr "文件: %s/%s"
+
+#: ../router-devices.php:324
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "点击“继续”删除下列设备。"
+
+#: ../router-devices.php:328
+#: ../router-devices.php:337
+#: ../router-devices.php:346
+#: ../router-accounts.php:167
+#: ../router-devtypes.php:212
+msgid "Cancel"
+msgstr "取消"
+
+#: ../router-devices.php:328
+#: ../router-devices.php:337
+#: ../router-devices.php:346
+#: ../router-accounts.php:167
+#: ../router-devtypes.php:212
+msgid "Continue"
+msgstr "继续"
+
+#: ../router-devices.php:328
+#: ../router-accounts.php:167
+#: ../router-devtypes.php:212
+msgid "Delete Device(s)"
+msgstr "删除设备"
+
+#: ../router-devices.php:333
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "D点击'继续'以启用以下设备。"
+
+#: ../router-devices.php:337
+msgid "Enable Device(s)"
+msgstr "启用设备"
+
+#: ../router-devices.php:342
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "点击“继续”以禁用以下设备"
+
+#: ../router-devices.php:346
+msgid "Disable Device(s)"
+msgstr "禁用设备"
+
+#: ../router-devices.php:350
+msgid "You must select at least Router Device."
+msgstr "您必须至少选择路由器设备。"
+
+#: ../router-devices.php:352
+#: ../router-accounts.php:170
+msgid "Return"
+msgstr "返回"
+
+#: ../router-devices.php:421
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "路由器：[编辑：%s]"
+
+#: ../router-devices.php:423
+msgid "Router: [new]"
+msgstr "路由器：[新建]"
+
+#: ../router-devices.php:478
+msgid "Router Device Management"
+msgstr "路由器设备管理"
+
+#: ../router-devices.php:484
+#: ../router-devtypes.php:337
+msgid "Actions"
+msgstr "操作"
+
+#: ../router-devices.php:485
+#: ../router-backups.php:137
+msgid "Hostname"
+msgstr "主机名"
+
+#: ../router-devices.php:487
+msgid "Configs"
+msgstr "配置"
+
+#: ../router-devices.php:490
+msgid "Last Backup"
+msgstr "上次备份"
+
+#: ../router-devices.php:491
+#: ../router-backups.php:142
+msgid "Last Change"
+msgstr "最后一次变更"
+
+#: ../router-devices.php:492
+#: ../router-backups.php:143
+msgid "Changed By"
+msgstr "更改被"
+
+#: ../router-devices.php:493
+msgid "Enabled"
+msgstr "启用"
+
+#: ../router-devices.php:511
+#: ../router-devtypes.php:49
+msgid "Auto-Detect"
+msgstr "自动侦测"
+
+#: ../router-devices.php:513
+msgid "Telnet"
+msgstr "Telnet"
+
+#: ../router-devices.php:515
+msgid "Trace Route"
+msgstr "跟踪路由"
+
+#: ../router-devices.php:517
+msgid "Router Debug Info"
+msgstr "路由器调试信息"
+
+#: ../router-devices.php:522
+msgid "Current"
+msgstr "当前"
+
+#: ../router-devices.php:522
+#, php-format
+msgid "Backups (%s)"
+msgstr "备份 (%s)"
+
+#: ../router-devices.php:528
+#: ../router-devtypes.php:362
+#: ../router-devtypes.php:363
+#: ../router-devtypes.php:364
+msgid "Yes"
+msgstr "是"
+
+#: ../router-devices.php:528
+#: ../router-devtypes.php:362
+#: ../router-devtypes.php:363
+#: ../router-devtypes.php:364
+msgid "No"
+msgstr "不"
+
+#: ../router-devices.php:533
+msgid "No Router Devices Found"
+msgstr "未找到路由器设备"
+
+#: ../router-download.php:98
+#, php-format
+msgid "%s devices backed up successfully.<br>"
+msgstr "%s 个设备已成功备份。<br>"
+
+#: ../router-download.php:99
+#, php-format
+msgid "%s devices failed to backup.<br>"
+msgstr "%s 个设备已备份失败。<br>"
+
+#: ../router-download.php:102
+msgid "These devices failed to backup<br>"
+msgstr "这些设备无法备份<br>"
+
+#: ../router-download.php:103
+msgid "--------------------------------<br>"
+msgstr "--------------------------------<br>"
+
+#: ../router-download.php:122
+msgid "Network Device Configuration Backups"
+msgstr "网络设备配置备份"
+
+#: ../functions.php:33
+#: ../router-accounts.php:282
+msgid "Devices"
+msgstr "设备"
+
+#: ../functions.php:34
+#: ../router-devtypes.php:327
+msgid "Device Types"
+msgstr "设备类型"
+
+#: ../functions.php:35
+msgid "Authentication"
+msgstr "认证"
+
+#: ../functions.php:36
+msgid "Backups"
+msgstr "备份"
+
+#: ../functions.php:37
+#: ../router-backups.php:138
+#: ../router-backups.php:162
+msgid "Compare"
+msgstr "比较"
+
+#: ../functions.php:44
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "技术支持 [%s ]"
+
+#: ../functions.php:100
+msgid ""
+"A successful backup has now been completed on these devices\n"
+"--------------------------------\n"
+msgstr ""
+"这些设备上已成功完成备份\n"
+"--------------------------------\n"
+
+#: ../functions.php:113
+msgid "Network Device Configuration Backups - Reattempt"
+msgstr "网络设备配置备份 - 重新尝试"
+
+#: ../functions.php:113
+msgid "Config Backups"
+msgstr "配置备份"
+
+#: ../functions.php:120
+msgid "Backup Path is not set or is not a directory"
+msgstr "备份路径未设置或不是目录"
+
+#: ../functions.php:160
+msgid "FATAL: Backup Path is not set or is not a directory"
+msgstr "致命错误：备份路径未设置或不是目录"
+
+#: ../functions.php:166
+msgid "FATAL: TFTP Server is not set"
+msgstr "FATAL：未设置TFTP服务器"
+
+#: ../router-compare.php:121
+msgid "Compare Output"
+msgstr "比较输出"
+
+#: ../router-compare.php:146
+msgid "There are no Changes"
+msgstr "没有变化"
+
+#: ../router-compare.php:156
+#: ../router-compare.php:159
+msgid "Error, you must have backups for each device."
+msgstr "错误，您必须为每个设备备份。"
+
+#: ../router-accounts.php:52
+#: ../router-devtypes.php:65
+#: ../router-devtypes.php:339
+msgid "Name"
+msgstr "名称"
+
+#: ../router-accounts.php:53
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "为此帐户提供一个有意义的名称，以便显示。"
+
+#: ../router-accounts.php:59
+#: ../router-accounts.php:282
+#: ../router-devtypes.php:340
+msgid "Username"
+msgstr "用户名"
+
+#: ../router-accounts.php:60
+msgid "The username that will be used for authentication."
+msgstr "将用于身份验证的用户名。"
+
+#: ../router-accounts.php:66
+#: ../router-devtypes.php:341
+msgid "Password"
+msgstr "密码"
+
+#: ../router-accounts.php:67
+msgid "The password used for authentication."
+msgstr "用于身份验证的密码。"
+
+#: ../router-accounts.php:75
+msgid "Enable Password"
+msgstr "Enable密码"
+
+#: ../router-accounts.php:76
+msgid "Your Enable Password, if required."
+msgstr "您的Enable密码，如果需要。"
+
+#: ../router-accounts.php:161
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "点击“继续”删除以下帐户。"
+
+#: ../router-accounts.php:169
+msgid "You must select at least one device."
+msgstr "您必须至少选择一个设备。"
+
+#: ../router-accounts.php:238
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "帐号：[编辑：%s]"
+
+#: ../router-accounts.php:240
+msgid "Account: [new]"
+msgstr "帐户：[新建]"
+
+#: ../router-accounts.php:274
+msgid "Accounts"
+msgstr "帐户"
+
+#: ../router-accounts.php:278
+msgid "Account Management"
+msgstr "帐户管理"
+
+#: ../router-accounts.php:298
+msgid "No Router Accounts Found"
+msgstr "未找到路由器帐户"
+
+#: ../router-backups.php:72
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "路由器配置 %s (%s)"
+
+#: ../router-backups.php:129
+#: ../setup.php:356
+msgid "Router Backups"
+msgstr "路由器备份"
+
+#: ../router-backups.php:140
+msgid "Filename"
+msgstr "文件名"
+
+#: ../router-backups.php:141
+msgid "Backup Time"
+msgstr "备份时间"
+
+#: ../router-backups.php:162
+#: ../setup.php:342
+#: ../setup.php:377
+msgid "View Config"
+msgstr "查看配置"
+
+#: ../router-backups.php:181
+msgid "No Router Backups Found"
+msgstr "找不到路由器备份"
+
+#: ../router-devtypes.php:66
+msgid "Name of this device type."
+msgstr "此设备类型的名称。"
+
+#: ../router-devtypes.php:73
+msgid "Username Prompt"
+msgstr "用户名提示"
+
+#: ../router-devtypes.php:74
+msgid "This is the username prompt to match on login."
+msgstr "这是在登录时匹配的用户名提示。"
+
+#: ../router-devtypes.php:81
+msgid "Password Prompt"
+msgstr "密码提示"
+
+#: ../router-devtypes.php:82
+msgid "This is the password prompt to match on login."
+msgstr "这是在登录时匹配的密码提示。"
+
+#: ../router-devtypes.php:89
+#: ../router-devtypes.php:342
+msgid "Copy TFTP"
+msgstr "复制TFTP"
+
+#: ../router-devtypes.php:90
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "这是用于将备份发送到tftp服务器的CLI文本。"
+
+#: ../router-devtypes.php:97
+msgid "Show Version"
+msgstr "显示版本"
+
+#: ../router-devtypes.php:98
+msgid "This is the CLI text used to display the current version."
+msgstr "这是用于显示当前版本的CLI文本。"
+
+#: ../router-devtypes.php:105
+#: ../router-devtypes.php:344
+msgid "Confirm"
+msgstr "确认"
+
+#: ../router-devtypes.php:106
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "是否有复制配置的确认提示？"
+
+#: ../router-devtypes.php:113
+#: ../router-devtypes.php:345
+msgid "Force Confirm"
+msgstr "强制确认"
+
+#: ../router-devtypes.php:114
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "是否有强制确认提示复制配置？"
+
+#: ../router-devtypes.php:120
+msgid "Check End in Config"
+msgstr "在配置中检查结束"
+
+#: ../router-devtypes.php:121
+msgid "Check end in config?"
+msgstr "检查配置结束？"
+
+#: ../router-devtypes.php:206
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "当您点击“继续”时，以下设备将被删除。"
+
+#: ../router-devtypes.php:280
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "查询[编辑： %s]"
+
+#: ../router-devtypes.php:282
+msgid "Query [new]"
+msgstr "查询[新建]"
+
+#: ../router-devtypes.php:333
+msgid "View Router Device Types"
+msgstr "查看路由器设备类型"
+
+#: ../router-devtypes.php:338
+msgid "ID"
+msgstr "ID"
+
+#: ../router-devtypes.php:343
+msgid "Version"
+msgstr "版本"
+
+#: ../router-devtypes.php:346
+msgid "Check End In Config"
+msgstr "在配置中检查结束"
+
+#: ../router-devtypes.php:354
+msgid "Edit Device Type"
+msgstr "编辑设备类型"
+
+#: ../router-devtypes.php:369
+msgid "No Router Device Types Found"
+msgstr "未找到路由器设备类型"
+
+#: ../setup.php:38
+#: ../setup.php:254
+#: ../setup.php:316
+msgid "Router Configs"
+msgstr "路由器配置"
+
+#: ../setup.php:258
+msgid "TFTP Server IP"
+msgstr "TFTP服务器IP"
+
+#: ../setup.php:259
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "必须是指向您的Cacti服务器的IP。"
+
+#: ../setup.php:265
+msgid "Backup Directory Path"
+msgstr "备份目录路径"
+
+#: ../setup.php:266
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "备份Configs的路径必须是本地TFTP服务器写入的路径。"
+
+#: ../setup.php:273
+msgid "Email Address"
+msgstr "电子邮件地址"
+
+#: ../setup.php:274
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "以逗号分隔的电子邮件地址列表，用于将夜间备份电子邮件发送至。"
+
+#: ../setup.php:281
+msgid "From Address"
+msgstr "来自地址"
+
+#: ../setup.php:282
+msgid "Email address the nightly backup will be sent from."
+msgstr "电子邮件地址，夜间备份将从中发送。"
+
+#: ../setup.php:289
+msgid "Retention Period"
+msgstr "保留期"
+
+#: ../setup.php:290
+msgid "The number of days to retain old backups."
+msgstr "保留旧备份的天数。"
+
+#: ../setup.php:294
+#, php-format
+msgid "%d Month"
+msgstr "%d 月"
+
+#: ../setup.php:295
+#: ../setup.php:296
+#: ../setup.php:297
+#: ../setup.php:298
+#, php-format
+msgid "%d Months"
+msgstr "%d 月"
+
+#: ../setup.php:299
+#, php-format
+msgid "%d Year"
+msgstr "%d 年"
+
+#: ../setup.php:304
+msgid "Misc"
+msgstr "杂项"
+
+#: ../setup.php:316
+msgid "Utilities"
+msgstr "实用程序"
+
+#: ../setup.php:321
+msgid "Router Devices"
+msgstr "路由器设备"
+
+#: ../setup.php:328
+#: ../setup.php:363
+#: ../setup.php:391
+msgid "(edit)"
+msgstr "（编辑）"
+
+#: ../setup.php:335
+#: ../setup.php:370
+#: ../setup.php:398
+msgid "(actions)"
+msgstr "（动作）"
+
+#: ../setup.php:349
+msgid "View Debug"
+msgstr "查看调试"
+
+#: ../setup.php:384
+msgid "Router Accounts"
+msgstr "路由器帐户"
+
+#: ../setup.php:405
+msgid "Router Compare"
+msgstr "路由器比较"
+
