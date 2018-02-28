@@ -161,7 +161,7 @@ function show_devices () {
 		$sqlwhere = 'WHERE prb.device = ' . $device;
 	}
 	$sql = 'SELECT prd.hostname, prd.ipaddress, prb.id, prb.username, prb.lastchange,
-		prb.btime, prb.device, prb.directory, prb.filename
+		prb.btime, prb.device, prb.directory, prb.filename, prd.lastbackup,
 		FROM plugin_routerconfigs_devices AS prd
 		INNER JOIN plugin_routerconfigs_backups AS prb
 		ON prd.id = prb.device
