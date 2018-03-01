@@ -954,9 +954,9 @@ abstract class PHPConnection {
 							$this->Log('DEBUG: Ok we are in enabled mode');
 						}
 					}
-				}
 
-				$x++;
+					$x++;
+				}
 			}
 		}
 

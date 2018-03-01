@@ -45,6 +45,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * feature: Expanded editing area of email to, so email addreses can be seen
 * issue: Another attempt to correct automatic vs mnaual backups
 * issue: Prevent 0/0 emails from being generated
+* issue: Prevent endless loop when connecting via telnet and not enabled
 
 --- 1.3.1 ---
 * feature: Parameters can now be specified with values separated by space ( ) or equals sign (=)
