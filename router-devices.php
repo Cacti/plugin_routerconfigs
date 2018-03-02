@@ -520,10 +520,6 @@ function show_devices() {
 		$num_rows = get_request_var('rows');
 	}
 
-	if (!($num_rows > 0)) {
-		$num_rows = 30;
-	}
-
 	if (isset_request_var('page')) {
 		$page = get_request_var('page');
 	}else{
