@@ -521,7 +521,7 @@ function show_devices() {
 	}
 
 	load_current_session_value('page', 'sess_routerconfigs_devices_current_page', '1');
-	$num_rows = 30;
+	$num_rows = 20;
 
 	$devicetype = '';
 	if (isset_request_var('devicetype')) {
