@@ -45,6 +45,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * feature: Added field to clearly identify next automated retry time
 * feature: Added setting for retry schedule
 * feature: Rejigged device selection queries to use new fields
+* feature: Move failed backups to beginning of email as you are more worried about those!
 * issue: Fixed issue where number of rows for filter pages didn't match displayed rows
 * issue: Fixed issue where --retry option would not actually activate
 
