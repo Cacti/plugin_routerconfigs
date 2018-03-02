@@ -199,6 +199,7 @@ function routerconfigs_setup_table_new() {
 		VALUES
 		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
 		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '')");
+		(3, 'Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', ''),
 }
 
 function routerconfigs_page_head () {
