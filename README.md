@@ -48,6 +48,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * feature: Move failed backups to beginning of email as you are more worried about those!
 * issue: Fixed issue where number of rows for filter pages didn't match displayed rows
 * issue: Fixed issue where --retry option would not actually activate
+* issue: Fixed issue where device was not marked for retry until after a connection was made
 
 --- 1.3.2 ---
 * feature: Add two new options, email name and download hour
