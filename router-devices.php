@@ -316,8 +316,7 @@ function actions_devices() {
 				' --devices=' . implode(',',$device_array);
 
 			plugin_routerconfigs_log(__("DEBUG: Executing manual backup using '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'));
-			exec_background($command_string, $extra_args);
-			sleep(1);
+			exec_background($command_string, $extra_args, true);
 			header('Location: router-devices.php?header=false');
 			exit;
 		}

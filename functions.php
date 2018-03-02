@@ -99,7 +99,11 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 		$filter_devices = $devices;
 		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
 	} else {
-		plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
+		if ($retry) {
+			plugin_routerconfigs_log(__('NOTICE: Starting automatic retry','routerconfigs'));
+		} else {
+			plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
+		}
 		plugin_routerconfigs_start($force);
 	}
 
@@ -158,54 +162,54 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 						$failed[] = array('hostname' => $device['hostname'], 'lasterror' => $fmsg);
 					}
 				}
-			}
 
-			$success = count($devices) - count($failed);
-			$cfailed = count($failed);
-			$totalsecs = time() - $stime;
+				$success = count($devices) - count($failed);
+				$cfailed = count($failed);
+				$totalsecs = time() - $stime;
 
-			$notice_level = 'NOTICE:';
-			if ($cfailed > 0) {
-				$notice_level = 'WARNING:';
-			}
-
-			plugin_routerconfigs_log("$notice_level $success Devices Backed Up and $cfailed Devices Failed in $totalsecs seconds");
-
-			if ($success != 0 || $cfailed != 0 || $retry != true) {
-				/* print out failures */
-				plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
-				plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
-
-				if (!empty($passed) && ($retry || $force)) {
-					plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
-					plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
-					foreach ($passed as $f) {
-						plugin_routerconfigs_message($message, $f['hostname']);
-					}
+				$notice_level = 'NOTICE:';
+				if ($cfailed > 0) {
+					$notice_level = 'WARNING:';
 				}
 
-				if (!empty($failed)) {
-					plugin_routerconfigs_message($message, __('These devices failed to backup', 'routerconfigs'));
-					plugin_routerconfigs_message($message, __('------------------------------', 'routerconfigs'));
-					foreach ($failed as $f) {
-						plugin_routerconfigs_message($message, $f['hostname'] . ' - ' . $f['lasterror']);
-					}
-				}
+				plugin_routerconfigs_log("$notice_level $success Devices Backed Up and $cfailed Devices Failed in $totalsecs seconds");
 
-				$from_email = read_config_option('settings_from_email');
-				$from_name  = read_config_option('settings_from_name');
-				$to         = read_config_option('routerconfigs_email');
+				if ($success != 0 || $cfailed != 0 || $retry != true) {
+					/* print out failures */
+					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
+					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
-				if ($to != '' && $from_email != '') {
-					if ($from_name == '') {
-						$from_name = __('Config Backups', 'routerconfigs');
+					if (!empty($passed) && ($retry || $force)) {
+						plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
+						plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
+						foreach ($passed as $f) {
+							plugin_routerconfigs_message($message, $f['hostname']);
+						}
 					}
 
-					$from[0] = $from_email;
-					$from[1] = $from_name;
-					$subject = __('Network Device Configuration Backups%s', ($retry?__(' - Reattempt','routerconfigs') : ''), 'routerconfigs');
+					if (!empty($failed)) {
+						plugin_routerconfigs_message($message, __('These devices failed to backup', 'routerconfigs'));
+						plugin_routerconfigs_message($message, __('------------------------------', 'routerconfigs'));
+						foreach ($failed as $f) {
+							plugin_routerconfigs_message($message, $f['hostname'] . ' - ' . $f['lasterror']);
+						}
+					}
 
-					send_mail($to, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $html = true);
+					$from_email = read_config_option('routerconfigs_from');
+					$from_name  = read_config_option('routerconfigs_name');
+					$to         = read_config_option('routerconfigs_email');
+
+					if ($to != '' && $from_email != '') {
+						if ($from_name == '') {
+							$from_name = __('Config Backups', 'routerconfigs');
+						}
+
+						$from[0] = $from_email;
+						$from[1] = $from_name;
+						$subject = __('Network Device Configuration Backups%s', ($retry?__(' - Reattempt','routerconfigs') : ''), 'routerconfigs');
+
+						send_mail($to, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $html = true);
+					}
 				}
 			}
 			/* remove old backups */
@@ -950,9 +954,9 @@ abstract class PHPConnection {
 							$this->Log('DEBUG: Ok we are in enabled mode');
 						}
 					}
-				}
 
-				$x++;
+					$x++;
+				}
 			}
 		}
 
