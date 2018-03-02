@@ -118,7 +118,6 @@ foreach($options as $arg => $value) {
 			break;
 		case 'r':
 		case 'retry':
-			echo "Retrying";
 			$retryMode = true;
 			break;
 		default:
