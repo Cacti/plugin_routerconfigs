@@ -86,7 +86,7 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 	}
 }
 
-function plugin_routerconfigs_download($retry = false, $force = false, $devices = array(), $buffer_debug = false) {
+function plugin_routerconfigs_download($retry = false, $force = false, $devices = array(), $buffer_debug = false, $simulate = false) {
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
@@ -121,24 +121,24 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 		if (strlen($tftpserver) < 2) {
 			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
 		} else {
-
-			// Get device that have not backed up in 24 hours + 30 minutes and that haven't been tried in the last 30 minutes
-			$lastattempt = '';
-			$lastbackup = '';
-
+			$sqlwhere = "";
 			// If we aren't forcing all backups...
+			$scheduled = false;
 			if (sizeof($filter_devices)) {
-				$lastbackup =  'AND id IN (' . implode(',',$filter_devices) .')';
+				$sqlwhere = 'AND id IN (' . implode(',',$filter_devices) .')';
 			} elseif (!$force) {
-				$lastattempt = $retry ? "AND $stime - lastattempt > 7200" : '';
-				$lastbackup = "AND ($stime - (schedule * 86400)) - 3600 > lastbackup";
+				$scheduled == !$force || $simulate;
+				if ($retry) {
+					$sqlwhere = "AND nextattempt > lastbackup AND nextattempt <= $stime";
+				} else {
+					$sqlwhere = "AND nextbackup <= $stime";
+				}
 			}
 
 			$sql = "SELECT *
 				FROM plugin_routerconfigs_devices
 				WHERE enabled = 'on'
-				$lastbackup
-				$lastattempt";
+				$sqlwhere";
 			plugin_routerconfigs_log('DEBUG: SQL: ' . preg_replace('/[\r\n]+\s*/m',' ',$sql));
 			$devices = db_fetch_assoc($sql, false);
 
@@ -149,7 +149,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				foreach ($devices as $device) {
 					$t = time();
 					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
-					$found = plugin_routerconfigs_download_config($device, $buffer_debug);
+					$found = plugin_routerconfigs_download_config($device, $stime, $buffer_debug, $scheduled);
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
 						$passed[] = array ('hostname' => $device['hostname']);
@@ -179,19 +179,19 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
 					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
-					if (!empty($passed) && ($retry || $force)) {
-						plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
-						plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
-						foreach ($passed as $f) {
-							plugin_routerconfigs_message($message, $f['hostname']);
-						}
-					}
-
 					if (!empty($failed)) {
 						plugin_routerconfigs_message($message, __('These devices failed to backup', 'routerconfigs'));
 						plugin_routerconfigs_message($message, __('------------------------------', 'routerconfigs'));
 						foreach ($failed as $f) {
 							plugin_routerconfigs_message($message, $f['hostname'] . ' - ' . $f['lasterror']);
+						}
+					}
+
+					if (!empty($passed) && ($retry || $force)) {
+						plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
+						plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
+						foreach ($passed as $f) {
+							plugin_routerconfigs_message($message, $f['hostname']);
 						}
 					}
 
@@ -301,7 +301,16 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
-function plugin_routerconfigs_download_config($device, $buffer_debug = false) {
+function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debug = false, $scheduled = false) {
+	$t_last = time();
+	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
+
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET lastattempt = ?,
+		nextattempt = ?
+		WHERE id = ?',
+		array($t_last, $t_next, $device['id']));
+
 	$info = plugin_routerconfigs_retrieve_account($device['id']);
 	$dir  = $device['directory'];
 	$ip   = $device['ipaddress'];
@@ -378,10 +387,6 @@ function plugin_routerconfigs_download_config($device, $buffer_debug = false) {
 	$debug = $connection->debug;
 	$ip    = $connection->ip;
 	$file  = false;
-
-	db_execute_prepared('UPDATE plugin_routerconfigs_devices
-		SET lastattempt = ? WHERE id = ?',
-		array(time(), $device['id']));
 
 	if ($result == 0) {
 		$command = $devicetype['copytftp'];
@@ -692,21 +697,28 @@ function plugin_routerconfigs_download_config($device, $buffer_debug = false) {
 						$file = false;
 					} else {
 						$data2 = $data;
-						$t     = time();
+						$t_back = time();
+						if ($scheduled) {
+							$t_next = plugin_routerconfigs_nexttime($backuptime, $device['schedule'], 86400, read_config_option('routerconfigs_hour'));
+						} else {
+							$t_next = db_fetch_cell_prepared('SELECT nextbackup FROM plugin_routerconfigs_devices WHERE id = ?', array($device['id']));
+						}
 
 						if ($lastchange == '') {
 							 $lastchange = 0;
 						}
 
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET lastbackup = ?
+							SET lastbackup = ?,
+							nextbackup = ?,
+							nextattempt = 0
 							WHERE id = ?',
-							array(time(), $device['id']));
+							array($t_back, $t_next, $device['id']));
 
 						db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
 							(device, btime, directory, filename, config, lastchange, username)
 						VALUES (?, ?, ?, ?, ?, ?, ?)',
-						array($device['id'], $t, $dir, "$filename-$date", $data2, $lastchange, $lastuser));
+						array($device['id'], $t_back, $dir, "$filename-$date", $data2, $lastchange, $lastuser));
 					}
 				}
 			}
@@ -1075,10 +1087,14 @@ abstract class PHPConnection {
 }
 
 /*
-PHPSsh
-by Abdul Pallares: abdul(at)riereta.net
-following the PHPTelnet structure
-and looking arround on Internet
+The following PHPSsh class is based loosely on code by Abdul Pallares
+adapted from code found on the PHP website in the public domain but
+has been heavily modified to work with this plugin and the cacti base
+system.
+
+PHPTelnet now relies on the above PHPConnection class which must be
+included to have proper functionality.  Most common connection code is
+now within PHPConnection with only SSH specific code in this class
 */
 class PHPSsh extends PHPConnection {
 	var $show_connect_error = 1;
@@ -1164,10 +1180,15 @@ class PHPSsh extends PHPConnection {
 }
 
 /*
-PHPTelnet 1.1
-by Antone Roundy
-adapted from code found on the PHP website
-public domain
+The following PHPTelnet is based loosely on code by Antone Roundy
+adapted from code found on the PHP website in the public domain
+but has been heavily modified to work with this plugin and the
+cacti base system.
+
+PHPTelnet now relies on the above PHPConnection class which must
+be included to have proper functionality.  Most common connection
+code is now within PHPConnection with only Telnet specific code
+in this class
 */
 class PHPTelnet extends PHPConnection {
 	var $show_connect_error=1;
@@ -1285,7 +1306,7 @@ class PHPTelnet extends PHPConnection {
 					$this->Sleep();
 					$this->GetResponse($r);
 					$res .= $r;
-					if (strpos($res, $this->devicetype['password']) !== FALSE) {
+					if (stripos($res, $this->devicetype['password']) !== FALSE) {
 						break;
 					}
 					$x++;
@@ -1361,3 +1382,16 @@ function plugin_routerconfigs_date_from_time($time) {
 	return ($time > 0) ? date(CACTI_DATE_TIME_FORMAT, $time) : '';
 }
 
+function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) {
+	if ($schedule == 0 || $multipler == 0) {
+		return 0;
+	} else {
+		$next = $time - ($time % 3600) + ($schedule * $multipler) + ($hour * 3600);
+/*
+		printf("\n%10d - %4d + %5d (%2d * %5d) + %6d = %10d (%10d)\n\n", $time, ($time % 3600),
+			($schedule * $multipler), $schedule, $multipler,
+			($hour * 3600), $time - ($time % 3600) + ($schedule * $multipler) + ($hour * 3600), $next);
+*/
+		return $next;
+	}
+}

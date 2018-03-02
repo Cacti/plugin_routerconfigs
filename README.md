@@ -40,12 +40,21 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
+--- 1.3.3 ---
+* feature: Added field to clearly identify next automated backup time
+* feature: Added field to clearly identify next automated retry time
+* feature: Added setting for retry schedule
+* feature: Rejigged device selection queries to use new fields
+* issue: Fixed issue where number of rows for filter pages didn't match displayed rows
+* issue: Fixed issue where --retry option would not actually activate
+
 --- 1.3.2 ---
 * feature: Add two new options, email name and download hour
 * feature: Expanded editing area of email to, so email addresses can be seen
 * issue: Another attempt to correct automatic vs manual backups
 * issue: Prevent 0/0 emails from being generated
 * issue: Prevent endless loop when connecting via telnet and not enabled
+* issue: Correct string requirement error for command line options
 
 --- 1.3.1 ---
 * feature: Parameters can now be specified with values separated by space ( ) or equals sign (=)

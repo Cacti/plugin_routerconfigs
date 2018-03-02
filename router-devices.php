@@ -499,6 +499,12 @@ function devices_validate_vars() {
 	/* ================= input validation ================= */
 }
 
+function addDateToArray(&$date_array, $date, $text) {
+	if (!array_key_exists($date, $date_array)) {
+		$date_array[$date] = $text;
+	}
+}
+
 function show_devices() {
 	global $host, $username, $password, $command;
 	global $config, $device_actions, $acc, $item_rows;
@@ -514,6 +520,10 @@ function show_devices() {
 		$num_rows = get_request_var('rows');
 	}
 
+	if (!($num_rows > 0)) {
+		$num_rows = 30;
+	}
+
 	if (isset_request_var('page')) {
 		$page = get_request_var('page');
 	}else{
@@ -521,7 +531,6 @@ function show_devices() {
 	}
 
 	load_current_session_value('page', 'sess_routerconfigs_devices_current_page', '1');
-	$num_rows = 30;
 
 	$devicetype = '';
 	if (isset_request_var('devicetype')) {
@@ -733,8 +742,23 @@ function show_devices() {
 			'sort' => 'ASC',
 			'tip' => __('The IP address of this device', 'routerconfigs')
 		),
+		'nextbackup' => array(
+			'display' => __('Next Backup', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'DESC',
+		),
 		'lastbackup' => array(
 			'display' => __('Date Backup', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'DESC',
+		),
+		'nextattempt' => array(
+			'display' => __('Next Attempt', 'routerconfigs'),
+			'align' => 'left',
+			'sort' => 'DESC',
+		),
+		'lastattempt' => array(
+			'display' => __('Last Attempt', 'routerconfigs'),
 			'align' => 'left',
 			'sort' => 'DESC',
 		),
@@ -780,15 +804,14 @@ function show_devices() {
 		$date_month = $do_today->format('Y-m-01 \0\0:\0\0:\0\0');
 		$date_year = $do_today->modify('-1 year')->format('Y-m-d \0\0:\0\0:\0\0');
 
-		$date_array = array(
-			$date_today => __('Today', 'routerconfigs'),
-			$date_yesterday => __('Yesterday', 'routerconfigs'),
-			$date_week => '<i>'.__('This Week', 'routerconfigs').'</i>',
-			$date_month => '<u>'.__('This Month', 'routerconfigs').'</i>',
-			$date_year => '<u><i>'.__('Within a Year', 'routerconfigs').'</i></u>',
-			'2000-01-01 00:00:00' => '<b><i>'.__('Long, Long Ago', 'routerconfigs').'</b></i>',
-			'' => '<b><u>Never</u></b>'
-		);
+		$date_array = array();
+		addDateToArray($date_array, $date_today, __('Today', 'routerconfigs'));
+		addDateToArray($date_array, $date_yesterday, __('Yesterday', 'routerconfigs'));
+		addDateToArray($date_array, $date_week, '<i>'.__('This Week', 'routerconfigs').'</i>');
+		addDateToArray($date_array, $date_month, '<u>'.__('This Month', 'routerconfigs').'</i>');
+		addDateToArray($date_array, $date_year, '<u><i>'.__('Within a Year', 'routerconfigs').'</i></u>');
+		addDateToArray($date_array, '2000-01-01 00:00:00', '<b><i>'.__('Long, Long Ago', 'routerconfigs').'</b></i>');
+		addDateToArray($date_array, '', '<b><u>Never</u></b>');
 
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
@@ -838,7 +861,10 @@ function show_devices() {
 			form_selectable_cell(filter_value(__('Current', 'routerconfig'), get_request_var('filter'), 'router-devices.php?action=viewconfig&id=' . $row['id']).' - '.filter_value(__('Backups (%s)', $total, 'routerconfigs'), get_request_var('filter'), 'router-backups.php?device=' . $row['id']), $row['id'], '14%');
 
 			form_selectable_cell(filter_value($row['ipaddress'], get_request_var('filter')), $row['id'], '5%');
+			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['nextbackup']), get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastbackup']), get_request_var('filter')), $row['id'], '10%');
+			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['nextattempt']), get_request_var('filter')), $row['id'], '10%');
+			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastattempt']), get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastchange']), get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value($row['username'], get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value($row['directory'], get_request_var('filter')), $row['id']);

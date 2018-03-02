@@ -97,6 +97,21 @@ function routerconfigs_check_upgrade() {
 					ADD COLUMN `connect_type` varchar(10) DEFAULT \'both\'');
 			}
 		}
+
+		if (cacti_version_compare($old, '1.3.3', '<')) {
+			if (!db_column_exists('nextbackup','plugin_routerconfigs_devices')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `nextbackup` int(18)');
+			}
+
+			if (!db_column_exists('connect_type','plugin_routerconfigs_devices')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `nextattempt` int(18)');
+			}
+			db_execute('UPDATE plugin_routerconfigs_devices SET
+				nextbackup = 0,
+				nextattempt = 0');
+		}
 		db_execute("UPDATE plugin_config
 			SET version='$current'
 			WHERE directory='routerconfigs'");
@@ -161,7 +176,9 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'schedule', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'nextbackup', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
@@ -297,6 +314,22 @@ function routerconfigs_config_settings () {
 				'21'  => __('21:00 (9pm)', 1, 'routerconfigs'),
 				'22'  => __('22:00 (10pm)', 1, 'routerconfigs'),
 				'23'  => __('23:00 (11pm)', 1, 'routerconfigs'),
+			)
+		),
+		'routerconfigs_retry' => array(
+			'friendly_name' => __('Retry Schedule', 'routerconfigs'),
+			'description' => __('The time to wait before attempting to perform an additional download when scheduled download fails', 'routerconfigs'),
+			'method' => 'drop_array',
+			'default' => '4',
+			'array' => array(
+				'0'  => __('Never', 1, 'routerconfigs'),
+				'1'  => __('1 hour', 2, 'routerconfigs'),
+				'2'  => __('2 hours', 1, 'routerconfigs'),
+				'3'  => __('3 hours', 1, 'routerconfigs'),
+				'4'  => __('4 hours', 1, 'routerconfigs'),
+				'6'  => __('6 hours', 1, 'routerconfigs'),
+				'8'  => __('8 hours', 1, 'routerconfigs'),
+				'12'  => __('12 hours', 1, 'routerconfigs'),
 			)
 		),
 		'routerconfigs_retention' => array(
