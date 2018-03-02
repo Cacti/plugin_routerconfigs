@@ -559,19 +559,9 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 					}
 				}
 
-				if (substr($d, 0, 9) == 'hostname ') {
-					$filename = trim(substr($d, 9));
-					if ($device['hostname'] != $filename) {
-						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET hostname = ?
-							WHERE id = ?',
-							array($filename, $device['id']));
-					}
-				}
-
-				if (substr($d, 0, 17) == 'set system name ') {
-					$filename = trim(substr($d, 17));
-					if ($device['hostname'] != $filename) {
+				if (preg_match('~(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
+					$filename = trim($matches[2]);
+					if ($device['hostname'] != $filename && strlen($filename)) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
 							SET hostname = ?
 							WHERE id = ?',
