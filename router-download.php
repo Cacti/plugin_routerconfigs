@@ -49,11 +49,14 @@ $longOpts  = array(
 	'devices:',
 	'debug',
 	'debug-buffer',
+	'retry',
 	'force',
 	'version',
-	'help'
+	'help',
+	'simulate-schedule'
 );
 
+$remaing = '';
 $options = routerconfigs_getopts($shortOpts, $longOpts, $remaining);
 
 include('./include/global.php');
@@ -67,6 +70,7 @@ $debugBuffer = false;
 $debug = false;
 $force = false;
 $devices = array();
+$simulate = false;
 
 foreach($options as $arg => $value) {
 	switch ($arg) {
@@ -99,6 +103,9 @@ foreach($options as $arg => $value) {
 			$debug = true;
 			$debugBuffer = true;
 			break;
+		case 'simulate-schedule':
+			$simulate = true;
+			break;
 		case 'f':
 		case 'force':
 			$force = true;
@@ -118,8 +125,12 @@ foreach($options as $arg => $value) {
 	}
 }
 
+if (strlen($remaining)) {
+	routerconfigs_fail(EXIT_ARGERR, $remaining, true);
+}
+
 $devices = array_unique($devices);
-plugin_routerconfigs_download($retryMode, $force, $devices, $debugBuffer);
+plugin_routerconfigs_download($retryMode, $force, $devices, $debugBuffer, $simulate);
 exit(EXIT_NORMAL);
 
 function routerconfigs_fail($exit_value,$args = array(),$display_help = 0) {
