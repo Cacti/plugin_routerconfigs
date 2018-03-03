@@ -179,7 +179,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
 					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
-					if (!empty($failed)) {
+					if (sizeof($failed)) {
 						plugin_routerconfigs_message($message, __('These devices failed to backup', 'routerconfigs'));
 						plugin_routerconfigs_message($message, __('------------------------------', 'routerconfigs'));
 						foreach ($failed as $f) {
@@ -187,7 +187,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 						}
 					}
 
-					if (!empty($passed) && ($retry || $force)) {
+					if (sizeof($passed)) {
 						plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
 						plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
 						foreach ($passed as $f) {
@@ -206,9 +206,20 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 						$from[0] = $from_email;
 						$from[1] = $from_name;
-						$subject = __('Network Device Configuration Backups%s', ($retry?__(' - Reattempt','routerconfigs') : ''), 'routerconfigs');
+						if ($schedule) {
+							$subject = __('Configuration Backups - Schedule', 'routerconfigs');
+						} elseif ($retry) {
+							$subject = __('Configuration Backups - Reattempt', 'routerconfigs');
+						} else {
+							$subject = __('Configuration Backups - Manual', 'routerconfigs');
+						}
 
-						send_mail($to, $from, __('Network Device Configuration Backups - Reattempt', 'routerconfigs'), $message, $filename = '', $headers = '', $html = true);
+						if ($cfailed && $success) {
+							$subject .= __(': Partial', 'routerconfigs');
+						} else if ($cfailed) {
+							$subject .= __(': FAILED', 'routerconfigs');
+						}
+						send_mail($to, $from, $subject, $message, $filename = '', $headers = '', $html = true);
 					}
 				}
 			}
