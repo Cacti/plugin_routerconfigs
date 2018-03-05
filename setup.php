@@ -311,12 +311,14 @@ function routerconfigs_config_settings () {
 			'friendly_name' => __('Default timeout', 'routerconfigs'),
 			'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
 			'method' => 'textbox',
+			'max_length' => '3',
 			'default' => '1'
 		),
 		'routerconfigs_sleep' => array(
 			'friendly_name' => __('Default sleep time', 'routerconfigs'),
 			'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
 			'method' => 'textbox',
+			'max_length' => '10',
 			'default' => '125000'
 		),
 		'routerconfigs_debug_buffer' => array(

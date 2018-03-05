@@ -644,11 +644,11 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 				if (preg_match('~^(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
 					$filename = trim($matches[2]);
-					if ($device['hostname'] != $filename && strlen($filename)) {
+					if (strlen($filename)) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET hostname = ?
+							SET hostname = ?, ipaddress = ?
 							WHERE id = ?',
-							array($filename, $device['id']));
+							array($filename, $connection->ip(), $device['id']));
 					}
 				}
 			}
