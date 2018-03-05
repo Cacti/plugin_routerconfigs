@@ -40,6 +40,20 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
+--- 1.3.4 ---
+* feature: Added field to set timeout and sleep
+* feature: Added suffix to allow filtering in email systems on failure
+* feature: Added Scheduled, Manual, Reattempt, Forced tags to subject line when applicable
+* feature: Apply some styling to the backup email
+* feature: Backup file now displayed in email
+* issue: Fixed issue where subject was being hard coded
+* issue: Fixed issue where confirmation command always sent as 'y'
+* issue: Fixed issue where number of rows when listing devices was blank
+* issue: Fixed issue where telnet username prompt was only looked for once
+* issue: Fixed issue where subject always thought it was manual
+* issue: Fixed issue where stats cache may believe a file existed when it did not
+* issue: Fixed issue where connection errors may be returned as blank
+
 --- 1.3.3 ---
 * feature: Added field to clearly identify next automated backup time
 * feature: Added field to clearly identify next automated retry time

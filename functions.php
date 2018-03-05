@@ -104,7 +104,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 		} else {
 			plugin_routerconfigs_log(__('NOTICE: Starting automatic backup','routerconfigs'));
 		}
-		plugin_routerconfigs_start($force);
+		plugin_routerconfigs_start($force, $simulate);
 	}
 
 	$start  = microtime(true);
@@ -122,12 +122,14 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
 		} else {
 			$sqlwhere = "";
+
 			// If we aren't forcing all backups...
 			$scheduled = false;
-			if (sizeof($filter_devices)) {
+			$manual = sizeof($filter_devices) > 0;
+			if ($manual) {
 				$sqlwhere = 'AND id IN (' . implode(',',$filter_devices) .')';
-			} elseif (!$force) {
-				$scheduled == !$force || $simulate;
+			} else if (!$force) {
+				$scheduled = (!$force) || $simulate;
 				if ($retry) {
 					$sqlwhere = "AND nextattempt > lastbackup AND nextattempt <= $stime";
 				} else {
@@ -152,7 +154,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					$found = plugin_routerconfigs_download_config($device, $stime, $buffer_debug, $scheduled);
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
-						$passed[] = array ('hostname' => $device['hostname']);
+						$passed[] = array ('hostname' => $device['hostname'], 'lastfile' => $device['lastfile']);
 					} else {
 						plugin_routerconfigs_log('NOTICE: Failed to download for ' . $device['hostname']);
 						$fmsg = db_fetch_cell_prepared('SELECT lasterror
@@ -176,23 +178,26 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 				if ($success != 0 || $cfailed != 0 || $retry != true) {
 					/* print out failures */
+					$message = '<html><head><style>
+h3 { border-bottom: 1px solid black; padding-bottom: 5px; }
+table { border-style: collapse: border: none; }
+th { border-bottom: 1px solid gray; }
+tr { border-bottom: 1px solid gray; }
+td { margin: 5 10 5 10; }
+.red { color: #821509; }
+.row0 { background-color: #eee; }
+.row1 { background-color: #ddd; }
+</style></head><body>';
+					plugin_routerconfigs_message_title($message, 'Summary');
 					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
 					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
 					if (sizeof($failed)) {
-						plugin_routerconfigs_message($message, __('These devices failed to backup', 'routerconfigs'));
-						plugin_routerconfigs_message($message, __('------------------------------', 'routerconfigs'));
-						foreach ($failed as $f) {
-							plugin_routerconfigs_message($message, $f['hostname'] . ' - ' . $f['lasterror']);
-						}
+						plugin_routerconfigs_message_devicetable($message, $failed, true);
 					}
 
 					if (sizeof($passed)) {
-						plugin_routerconfigs_message($message, __('These devices have been backed up', 'routerconfigs'));
-						plugin_routerconfigs_message($message, __('---------------------------------', 'routerconfigs'));
-						foreach ($passed as $f) {
-							plugin_routerconfigs_message($message, $f['hostname']);
-						}
+						plugin_routerconfigs_message_devicetable($message, $passed, false);
 					}
 
 					$from_email = read_config_option('routerconfigs_from');
@@ -206,12 +211,26 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 						$from[0] = $from_email;
 						$from[1] = $from_name;
-						if ($schedule) {
-							$subject = __('Configuration Backups - Schedule', 'routerconfigs');
-						} elseif ($retry) {
-							$subject = __('Configuration Backups - Reattempt', 'routerconfigs');
-						} else {
-							$subject = __('Configuration Backups - Manual', 'routerconfigs');
+						$subject = __('Configuration Backups', 'routerconfigs');
+
+						if ($force) {
+							$subject .= __(' - Forced', 'routerconfigs');
+						}
+
+						if ($manual) {
+							$subject .= __(' - Manual', 'routerconfigs');
+						}
+
+						if ($simulate) {
+							$subject .= __(' - Simulated', 'routerconfigs');
+						}
+
+						if ($scheduled) {
+							$subject .= __(' - Scheduled', 'routerconfigs');
+						}
+
+						if ($retry) {
+							$subject .= __(' - Reattempt', 'routerconfigs');
 						}
 
 						if ($cfailed && $success) {
@@ -219,6 +238,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 						} else if ($cfailed) {
 							$subject .= __(': FAILED', 'routerconfigs');
 						}
+						$message .= '</body></html>';
 						send_mail($to, $from, $subject, $message, $filename = '', $headers = '', $html = true);
 					}
 				}
@@ -238,7 +258,35 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 function plugin_routerconfigs_message(&$message, $text) {
 	plugin_routerconfigs_log("DEBUG: $text");
-	$message .= $text .'<br>';
+	$message .= "<div>$text</div>";
+}
+
+function plugin_routerconfigs_message_title(&$message, $title, $class = '') {
+	if ($class > '') {
+		$class = " class='$class'";
+	}
+	$message .= "<h3$class>$title</h3>";
+}
+
+function plugin_routerconfigs_message_devicetable(&$message, $devices, $failed) {
+	$title = 'Devices that ' . ($failed ? 'failed to backup' : 'backed up');
+	plugin_routerconfigs_message_title($message, $title, ($failed ? 'red' : ''));
+	if ($failed) {
+		$message .= "<table><thead><th>Device</th><th>Reason</th></thead>\n";
+	} else {
+		$message .= "<table><thead><th>Device</th><th>Filename</th></thead>\n";
+	}
+
+	$row = 0;
+	foreach ($devices as $device) {
+		$message .= '<tr class=\'row'.$row.'\'><td>' . $device['hostname'] . '</td>';
+		$message .= '<td>' . ($failed ? $device['lasterror'] : $device['lastfile']) .'</td>';
+		$message .= "</tr>\n";
+
+		$row = ($row + 1) % 2;
+	}
+
+	$message .= '</table>';
 }
 
 function plugin_routerconfigs_retention() {
@@ -277,7 +325,7 @@ function plugin_routerconfigs_check_config($data) {
 	return false;
 }
 
-function plugin_routerconfigs_start($force = false) {
+function plugin_routerconfigs_start($force = false, $simulate = false) {
 	global $config;
 
 	$running = db_fetch_cell('SELECT value FROM settings WHERE name = \'plugin_routerconfigs_running\'');
@@ -287,7 +335,7 @@ function plugin_routerconfigs_start($force = false) {
 			VALUES (\'plugin_routerconfigs_running\', ' . $running .')');
 	}
 
-	if ($running < time() - 7200 || $force) {
+	if ($running < time() - 7200 || $force || $simulate) {
 		$running = time();
 
 		db_execute('REPLACE INTO settings (name, value)
@@ -312,7 +360,7 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
-function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debug = false, $scheduled = false) {
+function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
 	$t_last = time();
 	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
 
@@ -322,9 +370,9 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 		WHERE id = ?',
 		array($t_last, $t_next, $device['id']));
 
-	$info = plugin_routerconfigs_retrieve_account($device['id']);
-	$dir  = $device['directory'];
-	$ip   = $device['ipaddress'];
+	$info    = plugin_routerconfigs_retrieve_account($device['id']);
+	$dir     = trim($device['directory']);
+	$ip      = $device['ipaddress'];
 
 	$backuppath = trim(read_config_option('routerconfigs_backup_path'));
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
@@ -334,6 +382,10 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 
 	if (strlen($backuppath) && $backuppath[strlen($backuppath) - 1] != '/') {
 		$backuppath .= '/';
+	}
+
+	if (strlen($dir) && $dir[0] == '/') {
+		$dir = substr($dir,1);
 	}
 
 	$backupdir = $backuppath  . $dir;
@@ -352,10 +404,30 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 			'password' => 'password:',
 			'copytftp' => 'copy start tftp',
 			'version' => 'show version',
+			'sleep' => '125000',
+			'timeout' => '1',
 			'forceconfirm' => '',
 			'checkendinconfig' => 'on'
 		);
 	}
+
+	$readname = "$backuppath$tftpfilename";
+	clearstatcache();
+	if (file_exists($readname)) {
+		$connection->Log("DEBUG: Attempting to remove pre-existing incoming file: $readname");
+		@unlink($readname);
+
+		clearstatcache();
+		if (file_exists($readname)) {
+			$fail_msg = "ERROR: Failed to remove pre-existing incoming file: $readname";
+			plugin_routerconfigs_save_error($device['id'],null,$fail_msg);
+			plugin_routerconfigs_log($fail_msg);
+			return false;
+		}
+	}
+
+	$timeout = plugin_routerconfigs_getfirst(array($device['timeout'], $devicetype['timeout'], read_config_option('timeout'), 1));
+	$sleep = plugin_routerconfigs_getfirst(array($device['sleep'], $devicetype['sleep'], read_config_option('sleep'), 125000));
 
 	$result = 1;
 	$type_dev = isset($device['connect_type']) ? $device['connect_type'] : 'both';
@@ -395,8 +467,7 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 		return false;
 	}
 
-	$debug = $connection->debug;
-	$ip    = $connection->ip;
+	$ip    = $connection->ip();
 	$file  = false;
 
 	if ($result == 0) {
@@ -410,15 +481,15 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 		}
 
 		if (!$connection->EnsureEnabled()) {
-			$connection->error = 9;
+			$connection->error(9);
 			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $debug);
+			plugin_routerconfigs_save_debug($device);
 			$connection->Disconnect();
 			return false;
 		}
 
-		$connection->DoCommand($command, $result);
-		$debug .= $result;
+		$response = '';
+		$result = $connection->DoCommand($command, $response);
 
 		//check if there is questions to confirm
 		//i.e: in ASA it ask for confirmation of the source file
@@ -429,26 +500,28 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 		$confirmed = false;
 		$sent_srv = false;
 		$sent_dst = false;
-		while (($ret == 0 || $ret == 8) && $x<30) {
+		while (($ret == 0 || $ret == 8) && $x<30 &&
+			$connection->prompt() != LinePrompt::Enabled &&
+			$connection->prompt() != LinePrompt::Normal) {
 			$x++;
 
 			$try_level='DEBUG:';
 			$try_command='';
 			$try_prompt='';
 
-			if (stristr($result, 'bytes copied') ||
-				stristr($result,'successful')) {
+			if (stristr($response, 'bytes copied') ||
+				stristr($response,'successful')) {
 				$connection->Log("DEBUG: TFP TRANSFER SUCCESSFUL");
 				break;
-			} else if (stristr($result, 'error')) {
+			} else if (stristr($response, 'error')) {
 				$connection->Log("DEBUG: TFTP TRANSFER ERRORED");
 				break;
 			} else {
-				$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$result);
+				$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$response);
 				$connection->log("DEBUG: Prompt match ($x) returned ".sizeof($matches) . " matches");
 
 				if (sizeof($matches) > 0) {
-					if (stristr($result, 'address') && !stristr($result, "[$ip]")) {
+					if (stristr($response, 'address') && !stristr($response, "[$ip]")) {
 						if (!$sent_srv) {
 							//send tftpserver if necessary
 							$try_level='NOTICE:';
@@ -456,8 +529,8 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 							$try_prompt='Server:';
 							$sent_srv=true;
 						}
-					} else if (stristr($result, 'filename')) {
-						if (!stristr($result, 'source') && !stristr($result, "[$filename]")) {
+					} else if (stristr($response, 'filename')) {
+						if (!stristr($response, 'source') && !stristr($response, "[$filename]")) {
 							if (!$sent_dst) {
 								$try_level='NOTICE:';
 								//send filename if necessary
@@ -472,8 +545,8 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 					}
 				}
 
-				if ($try_prompt == '' && !$confirmed && (strpos($result, 'confirm') !== FALSE || strpos($result, 'to tftp:') !== FALSE || $devicetype['forceconfirm'])) {
-					$try_command='y';
+				if ($try_prompt == '' && !$confirmed && (strpos($response, 'confirm') !== FALSE || strpos($response, 'to tftp:') !== FALSE || $devicetype['forceconfirm'])) {
+					$try_command=$devicetype['confirm'];
 					$try_prompt='confirmation:';
 					$confirmed = true;
 				}
@@ -484,20 +557,18 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 			}
 			$connection->log("$try_level Sending $try_prompt $try_command");
 
-			$ret = $connection->DoCommand($try_command, $result);
-			$debug .= $result;
-			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$result));
+			$response = '';
+			$result = $connection->DoCommand($try_command, $response);
+			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
 			foreach ($lines as $line) {
 				$connection->log("DEBUG: Line: $line");
 			}
-			$connection->log("DEBUG: Result: ($ret)");
+			$connection->log("DEBUG: Result: ($result)");
 		}
 
 		$data = '';
 
-		$readname = "$backuppath$tftpfilename";
-		$connection->Log("DEBUG: CHECKING FOR valid file at $readname");
-
+		$connection->Log("DEBUG: Checking for valid incoming file at $readname");
 		clearstatcache();
 
 		$file = false;
@@ -523,22 +594,23 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 		}
 
 		if ($data === false) {
-			$connection->error = 7;
+			$connection->error(7);
 			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $debug);
+			plugin_routerconfigs_save_debug($device, $connection);
 			$connection->Disconnect();
 			return false;
 		}
 
 		@unlink("$readname");
+		clearstatcache();
 		if (file_exists("$readname")) {
 			$connection->Log("WARNING: Failed to remove file at $readname");
 		}
 
 		if ($devicetype['checkendinconfig'] == 'on' && !plugin_routerconfigs_check_config($data)) {
-			$connection->error = 5;
+			$connection->error(5);
 			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $debug);
+			plugin_routerconfigs_save_debug($device, $connection);
 			$connection->Log("DEBUG: checking end in config");
 			$connection->Disconnect();
 			return false;
@@ -570,7 +642,7 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 					}
 				}
 
-				if (preg_match('~(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
+				if (preg_match('~^(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
 					$filename = trim($matches[2]);
 					if ($device['hostname'] != $filename && strlen($filename)) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
@@ -588,12 +660,14 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 				WHERE id = ?',
 				array($lastchange, $lastuser, $device['id']));
 		} elseif ($lastchange == '' && $devicetype['version'] != '') {
-			$connection->DoCommand('terminal length 0', $version);
-			$connection->DoCommand('terminal pager 0', $version);
+			$length='';
+			$connection->DoCommand('terminal length 0', $length);
+			$connection->DoCommand('terminal pager 0', $length);
+
+			$version='';
 			$connection->DoCommand($devicetype['version'], $version);
 
 			$t       = time();
-			$debug  .= $version;
 			$version = explode("\n", $version);
 
 			if (sizeof($version)) {
@@ -709,6 +783,7 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 							 $lastchange = 0;
 						}
 
+						$device['lastfile'] = $savename;
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
 							SET lastbackup = ?,
 							nextbackup = ?,
@@ -719,7 +794,7 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 						db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
 							(device, btime, directory, filename, config, lastchange, username)
 						VALUES (?, ?, ?, ?, ?, ?, ?)',
-						array($device['id'], $t_back, $dir, "$filename-$date", $data2, $lastchange, $lastuser));
+						array($device['id'], $t_back, $dir, $savename, $data2, $lastchange, $lastuser));
 					}
 				}
 			}
@@ -728,31 +803,31 @@ function plugin_routerconfigs_download_config($device, $backuptime, $buffer_debu
 
 	if ($file === false) {
 		plugin_routerconfigs_save_error($device['id'], $connection);
-		plugin_routerconfigs_save_debug($device, $debug);
+		plugin_routerconfigs_save_debug($device, $connection);
 
 		$connection->Log("DEBUG: Exiting download as failed");
 		return false;
 	}
 
 	plugin_routerconfigs_save_error($device['id'], $connection);
-	plugin_routerconfigs_save_debug($device, $debug);
+	plugin_routerconfigs_save_debug($device, $connection);
 	$connection->Log("DEBUG: Backed up");
 
 	return true;
 }
 
-function plugin_routerconfigs_save_debug($device, $debug) {
-	$debug = base64_encode($debug);
+function plugin_routerconfigs_save_debug($device, $connection) {
+	$base64 = base64_encode($connection->getDebug());
 	//echo "Saving Debug\n";
 	db_execute_prepared('UPDATE plugin_routerconfigs_devices
 		SET debug = ?
 		WHERE id = ?',
-		array($debug, $device['id']));
+		array($base64, $device['id']));
 }
 
-function plugin_routerconfigs_save_error($id, $telnet, $error='') {
-	if ($telnet != null) {
-		$error = $telnet->ConnectError($telnet->error);
+function plugin_routerconfigs_save_error($id, $connection, $error='') {
+	if ($connection != null && $error = '') {
+		$error = $connection->ConnectError($connection->error());
 	}
 
 	db_execute_prepared('UPDATE plugin_routerconfigs_devices
@@ -845,19 +920,31 @@ function plugin_routerconfigs_log(string $message, $log_level = POLLER_VERBOSITY
 	cacti_log($message,!$config['is_web'],$environ, $log_level);
 }
 
-abstract class PHPConnection {
-	var $debugbuffer = false;
-	var $use_usleep  = 1;	// change to 1 for faster execution
-				// don't change to 1 on Windows servers unless you have PHP 5
-	var $sleeptime=125000;
-	var $debug = '';
-	var $timeout     = 1; //Seconds to avoid buggies connections
+abstract class LinePrompt {
+	const None = 0;
+	const Normal = 1;
+	const Enabled = 2;
+	const Username = 3;
+	const Password = 4;
+	const AccessDenied = 5;
+}
 
-	var $connection  = NULL; //stores the ssh connection pointer
-	var $stream      = NULL; //points to the ssh session stream
-	var $errorcode   = 0;
-	var $error = 0;
-	var $ip='';
+abstract class PHPConnection {
+	protected $debugbuffer = false;
+	protected $use_usleep  = 1;	// change to 1 for faster execution
+				// don't change to 1 on Windows servers unless you have PHP 5
+	protected $sleeptime   = 125000;
+	protected $timeout     = 1; //Seconds to avoid buggies connections
+
+	protected $connection  = NULL; //stores the ssh connection pointer
+	protected $stream      = NULL; //points to the ssh session stream
+	protected $errorcode   = 0;
+	protected $error       = 0;
+
+	protected $debug       = '';
+	protected $ip          = '';
+
+	private $lastPrompt = 0;
 	private $isEnabled = false;
 
 	function __construct($classType, $server, $user, $pass, $enablepw, $devicetype, $bufferDebug = false) {
@@ -880,6 +967,15 @@ abstract class PHPConnection {
 		$this->Log("DEBUG: Creating $classType(Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Devicetype: ".json_encode($this->devicetype));
 	}
 
+	function Log($message) {
+		$lines = explode("\r\n", $message);
+		if (sizeof($lines)) {
+			foreach ($lines as $line) {
+				plugin_routerconfigs_log("$this->ip ($this->classType) -> $line");
+			}
+		}
+	}
+
 	protected function setServerDetails() {
 		$server = $this->server;
 
@@ -899,13 +995,32 @@ abstract class PHPConnection {
 		$this->ip = $ip;
 	}
 
-	function Log($message) {
-		$lines = explode("\r\n", $message);
-		if (sizeof($lines)) {
-			foreach ($lines as $line) {
-				plugin_routerconfigs_log("$this->ip ($this->classType) -> $line");
-			}
+	function setTimeout($timeout) {
+		$this->timeout = $timeout;
+	}
+
+	function setSleep($sleep) {
+		$this->use_usleep = $sleep < 10;
+		$this->sleeptime = $sleep;
+	}
+
+	function getDebug() {
+		return $this->debug;
+	}
+
+	function ip() {
+		return $this->ip;
+	}
+
+	function error($value = null) {
+		if ($value !== null) {
+			$this->error = $value;
 		}
+		return $this->error;
+	}
+
+	function prompt() {
+		return $this->lastPrompt;
 	}
 
 	function IsEnabled() {
@@ -926,37 +1041,33 @@ abstract class PHPConnection {
 
 		$res = '';
 		$x = 0;
-		while ($x < 10) {
+		while ($x < 10 && $this->prompt() != LinePrompt::Enabled && $this->prompt() != LinePrompt::Normal) {
 			$r = '';
 			$this->DoCommand('', $r, $this->pass);
 			$res .= $r;
 
-			$this->Log("DEBUG: Attempt $x of 10 to find prompt");
-			if (preg_match("|[a-zA-Z0-9\-_]>[ ]*$|", $r) === 1) {
-				break;
-			} else if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $r) === 1) {
-				$is_enabled = true;
-				break;
-			}
 			$x++;
+			$this->Log("DEBUG: Attempt $x of 10 to find prompt");
 		}
 
 		if ($x < 10) {
-			if ($this->enablepw != '' && !$is_enabled) {
+			if ($this->enablepw != '' && !$this->IsEnabled()) {
 				$this->Log("DEBUG: Sending enable command");
 				@fputs($this->stream, "en\r");
 
 				# Get the password prompt again to input the enable password
-				$res = '';
 				$x = 0;
-				while ($x < 10) {
+				while ($x < 10 && $this->Prompt() != LoginPrompt::Enabled) {
+					$response = '';
 					$this->Sleep();
 					$this->GetResponse($response);
-					if (strstr($response,'>')) {
+
+					if ($this->prompt() == LoginPrompt::Normal) {
 						$this->DoCommand('en',$response);
 					}
 
-					if (stristr($response,$this->devicetype['password'])) {
+					if ($this->prompt() == LoginPrompt::Password) {
+						$response = '';
 						if($this->DoCommand($this->enablepw, $response, $this->enablepw)){
 							$this->Log('DEBUG: Enable login failed');
 							$this->Disconnect();
@@ -1026,6 +1137,7 @@ abstract class PHPConnection {
 		$data = '';
 
 		stream_set_timeout($this->stream, 0, 500000);
+		$this->lastPrompt = LinePrompt::None;
 		while (true && isset($this->stream)) {
 			$buf = @fgets($this->stream);
 			if ($buf !== false) {
@@ -1034,6 +1146,7 @@ abstract class PHPConnection {
 				}
 				$data .= $buf;
 				$response .= $buf;
+				$this->debug .= $buf;
 				$line_buf = explode("\n",str_replace("\r", "", $buf));
 
 				if ($this->debugbuffer) {
@@ -1045,7 +1158,7 @@ abstract class PHPConnection {
 							$this->Log($buf_line);
 						}
 					} else {
-						$line = str_replace("`\r","",str_replace("\n","",$line));
+						$line = str_replace("`\r","",str_replace("\n","",$line_buff));
 						$buf_line = "DEBUG: Buffer: ";
 						$buf_line .= $line;
 						$this->Log($buf_line);
@@ -1056,16 +1169,28 @@ abstract class PHPConnection {
 				if (preg_match("|[a-zA-Z0-9\-_]>[ ]*$|", $buf) === 1) {
 					$this->Log("DEBUG: Found Prompt (Normal)");
 					$this->isEnabled = false;
+					$this->lastPrompt = LinePrompt::Normal;
 					return 0;
 				} else if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $buf) === 1) {
 					$this->Log("DEBUG: Found Prompt (Enabled)");
 					$this->isEnabled = true;
+					$this->lastPrompt = LinePrompt::Enabled;
 					return 0;
 				} else if (stristr($buf, $this->devicetype['password'])) {
 					$this->Log("DEBUG: Found Prompt (Password)");
+					$this->lastPrompt = LinePrompt::Password;
+					return 0;
+				} else if (stristr($buf, $this->devicetype['username'])) {
+					$this->Log("DEBUG: Found Prompt (Username)");
+					$this->lastPrompt = LinePrompt::Username;
+					return 0;
+				} else if (stripos($buf, 'Access not permitted.') !== FALSE) {
+					$this->Log("DEBUG: Found Prompt (Access Denied)");
+					$this->lastPrompt = LinePrompt::AccessDenied;
 					return 0;
 				} else if (preg_match("|[a-zA-Z0-9\-_]:[ ]*$|", $buf) === 1) {
 					$this->Log("DEBUG: Found Prompt (Colon)");
+					$this->lastPrompt = LinePrompt::Colon;
 					return 0;
 				}
 			}
@@ -1255,61 +1380,55 @@ class PHPTelnet extends PHPConnection {
 				$this->Sleep();
 
 				@fputs($this->stream, $this->conn2);
-				$this->Sleep();
-
-				$this->GetResponse($r);
 
 				$this->Log("Looking for ".$this->devicetype['username']);
 
-				$failed_username = stripos($r, $this->devicetype['username']) === FALSE;
-				$failed_access = stripos($r, 'Access not permitted.') !== FALSE;
-
-				if (!$this->stream || $failed_username || $failed_access) {
-					if ($failed_username) {
-						$this->Log("ERROR: Failed to find username prompt");
-					}
-					if ($failed_access) {
-						$this->Log("ERROR: Access not permitted");
-					}
-					return 6;
-				}
-
 				// Get Username Prompt
-				$res = $r;
+				$r = '';
+
+				$this->Sleep();
+				$this->GetResponse($r);
 
 				$x = 0;
-				while ($x < 10) {
-					$this->GetResponse($r);
-					$res .= $r;
-
-					if (stripos($res, $this->devicetype['username']) !== FALSE) {
-						break;
-					} else {
-						$this->Log("DEBUG: No Prompt received");
-						@fputs($this->stream, "\r");
-					}
+				while ($x < 10 &&
+					$this->prompt() != LinePrompt::Username &&
+					$this->prompt() != LinePrompt::AccessDenied) {
 
 					$x++;
+
+					$this->Log("DEBUG: No Prompt received (" . $this->prompt() . ": $x : " . LinePrompt::Username. ")");
+					@fputs($this->stream, "\r");
+
 					$this->Sleep();
+					$this->GetResponse($r);
 				}
 
 				if ($x == 10) {
 					return 8;
 				}
 
+				if (!$this->stream ||
+					$this->prompt() != LinePrompt::Username ||
+					$this->prompt() == LinePrompt::AccessDenied) {
+
+					if ($this->prompt() != LinePrompt::Username) {
+						$this->Log("ERROR: Failed to find username prompt");
+					}
+					if ($this->prompt() == LinePrompt::AccessDenied) {
+						$this->Log("ERROR: Access not permitted");
+					}
+					return 6;
+				}
+
 				// Send Username, wait for Password Prompt
 				$this->Log("DEBUG: Sending username: $this->user");
 				@fputs($this->stream, "$this->user\r");
 
-				$res = '';
 				$x = 0;
-				while ($x < 10) {
+				while ($x < 10 && $this->prompt() !== LinePrompt::Password) {
 					$this->Sleep();
 					$this->GetResponse($r);
-					$res .= $r;
-					if (stripos($res, $this->devicetype['password']) !== FALSE) {
-						break;
-					}
+
 					$x++;
 				}
 
@@ -1317,17 +1436,15 @@ class PHPTelnet extends PHPConnection {
 					return 3;
 				}
 
-				$r=explode("\n", $r);
-				$loginprompt = trim(substr($r[count($r) - 1], 0, strpos($r[count($r) - 1], ' ')));
-
-				$this->Log("DEBUG: Found prompt '$loginprompt', Sending password: $this->pw1_text");
+				$this->Log("DEBUG: Sending password: $this->pw1_text");
 				@fputs($this->stream, "$this->pass\r");
 
 				$r='';
+
 				$this->Sleep();
 				$this->GetResponse($r);
-				$r=explode("\n", $r);
-				if (($r[count($r) - 1] == '') || ($loginprompt == trim($r[count($r) - 1]))) {
+
+				if ($this->prompt() != LinePrompt::Normal && $this->Prompt() != LinePrompt::Enabled) {
 					$this->Log('DEBUG: Failed, disconnecting');
 					$rv = 3;
 					$this->Disconnect();
@@ -1342,33 +1459,31 @@ class PHPTelnet extends PHPConnection {
 	}
 
 	function ConnectError($num) {
-		if ($this->show_connect_error) {
-			$this->error = $num;
-			switch ($num) {
-				case 1:
-					return 'ERROR: Unable to open telnet network connection';
-					break;
-				case 2:
-					return 'ERROR: Unknown host';
-					break;
-				case 3:
-					return 'ERROR: TELNET login failed';
-					break;
-				case 4:
-					return 'ERROR: Connect failed: Your servers PHP version is too low for PHP Telnet';
-					break;
-				case 5:
-					return 'ERROR: Bad download of config';
-					break;
-				case 6:
-					return 'ERROR: TELNET access not Permitted';
-					break;
-				case 7:
-					return 'ERROR: TELNET no Config uploaded from Router';
-					break;
-				case 9:
-					return 'ERROR: TELNET Enable login failed';
-			}
+		$this->error = $num;
+		switch ($num) {
+			case 1:
+				return 'ERROR: Unable to open telnet network connection';
+				break;
+			case 2:
+				return 'ERROR: Unknown host';
+				break;
+			case 3:
+				return 'ERROR: TELNET login failed';
+				break;
+			case 4:
+				return 'ERROR: Connect failed: Your servers PHP version is too low for PHP Telnet';
+				break;
+			case 5:
+				return 'ERROR: Bad download of config';
+				break;
+			case 6:
+				return 'ERROR: TELNET access not Permitted';
+				break;
+			case 7:
+				return 'ERROR: TELNET no Config uploaded from Router';
+				break;
+			case 9:
+				return 'ERROR: TELNET Enable login failed';
 		}
 
 		return '';
@@ -1395,4 +1510,12 @@ function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) 
 */
 		return $next;
 	}
+}
+
+function plugin_routerconfigs_getfirst($array) {
+	foreach ($array as $item) {
+		if ($item > 0)
+			return $item;
+	}
+	return false;
 }

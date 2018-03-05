@@ -112,6 +112,29 @@ function routerconfigs_check_upgrade() {
 				nextbackup = 0,
 				nextattempt = 0');
 		}
+
+		if (cacti_version_compare($old, '1.3.4', '<')) {
+			if (!db_column_exists('timeout','plugin_routerconfigs_devices')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `timeout` int(18)');
+			}
+
+			if (!db_column_exists('sleep','plugin_routerconfigs_devices')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `sleep` int(18)');
+			}
+
+			if (!db_column_exists('timeout','plugin_routerconfigs_devicetypes')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `timeout` int(18)');
+			}
+
+			if (!db_column_exists('sleep','plugin_routerconfigs_devicetypes')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `sleep` int(18)');
+			}
+		}
+
 		db_execute("UPDATE plugin_config
 			SET version='$current'
 			WHERE directory='routerconfigs'");
@@ -181,6 +204,8 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
+	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
 
 	$data['keys'][] = array('name' => 'enabled', 'columns' => 'enabled');
@@ -206,6 +231,8 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
 	$data['columns'][] = array('name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
 
@@ -279,6 +306,18 @@ function routerconfigs_config_settings () {
 		'routerconfigs_header' => array(
 			'friendly_name' => __('Router Configs', 'routerconfigs'),
 			'method' => 'spacer',
+		),
+		'routerconfigs_timeout' => array(
+			'friendly_name' => __('Default timeout', 'routerconfigs'),
+			'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
+			'method' => 'textbox',
+			'default' => '1'
+		),
+		'routerconfigs_sleep' => array(
+			'friendly_name' => __('Default sleep time', 'routerconfigs'),
+			'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
+			'method' => 'textbox',
+			'default' => '125000'
 		),
 		'routerconfigs_debug_buffer' => array(
 			'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
