@@ -209,8 +209,7 @@ td { margin: 5 10 5 10; }
 							$from_name = __('Config Backups', 'routerconfigs');
 						}
 
-						$from[0] = $from_email;
-						$from[1] = $from_name;
+						$from = array(0 => $from_email, 1 => $from_name);
 						$subject = __('Configuration Backups', 'routerconfigs');
 
 						if ($force) {
@@ -826,7 +825,7 @@ function plugin_routerconfigs_save_debug($device, $connection) {
 }
 
 function plugin_routerconfigs_save_error($id, $connection, $error='') {
-	if ($connection != null && $error = '') {
+	if ($connection != null && $error == '') {
 		$error = $connection->ConnectError($connection->error());
 	}
 
