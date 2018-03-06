@@ -487,7 +487,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		if (!$connection->EnsureEnabled()) {
 			$connection->error(9);
 			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device);
+			plugin_routerconfigs_save_debug($device, $connection);
 			$connection->Disconnect();
 			return false;
 		}
