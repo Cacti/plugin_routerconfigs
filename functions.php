@@ -133,7 +133,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				if ($retry) {
 					$sqlwhere = "AND nextattempt > lastbackup AND nextattempt <= $stime";
 				} else {
-					$sqlwhere = "AND nextbackup <= $stime";
+					$sqlwhere = "AND (nextbackup <= $stime OR nextbackup IS NULL)";
 				}
 			}
 
