@@ -167,7 +167,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 				$success = count($devices) - count($failed);
 				$cfailed = count($failed);
-				$disabled = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\')
+				$disabled = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'');
 				$totalsecs = time() - $stime;
 
 				$notice_level = 'NOTICE:';
