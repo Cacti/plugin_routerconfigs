@@ -46,6 +46,8 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * feature: Added Scheduled, Manual, Reattempt, Forced tags to subject line when applicable
 * feature: Apply some styling to the backup email
 * feature: Backup file now displayed in email
+* feature: Added number of disabled devices to email
+* issue: Fixed issue where nextbackup being null cause device to be ignored
 * issue: Fixed issue where subject was being hard coded
 * issue: Fixed issue where confirmation command always sent as 'y'
 * issue: Fixed issue where number of rows when listing devices was blank

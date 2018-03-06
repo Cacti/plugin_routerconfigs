@@ -133,7 +133,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				if ($retry) {
 					$sqlwhere = "AND nextattempt > lastbackup AND nextattempt <= $stime";
 				} else {
-					$sqlwhere = "AND nextbackup <= $stime";
+					$sqlwhere = "AND (nextbackup <= $stime OR nextbackup IS NULL)";
 				}
 			}
 
@@ -167,6 +167,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 				$success = count($devices) - count($failed);
 				$cfailed = count($failed);
+				$disabled = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\')
 				$totalsecs = time() - $stime;
 
 				$notice_level = 'NOTICE:';
@@ -174,7 +175,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					$notice_level = 'WARNING:';
 				}
 
-				plugin_routerconfigs_log("$notice_level $success Devices Backed Up and $cfailed Devices Failed in $totalsecs seconds");
+				plugin_routerconfigs_log("$notice_level $success Devices Backed Up, $cfailed Devices Failed, $disabled Disabled (ignored) in $totalsecs seconds");
 
 				if ($success != 0 || $cfailed != 0 || $retry != true) {
 					/* print out failures */
@@ -191,6 +192,10 @@ td { margin: 5 10 5 10; }
 					plugin_routerconfigs_message_title($message, 'Summary');
 					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
 					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
+					if ($disabled > 0) {
+						plugin_routerconfigs_message($message, __('%s devices disabled from backup.', $disabled, 'routerconfigs'));
+					}
+
 
 					if (sizeof($failed)) {
 						plugin_routerconfigs_message_devicetable($message, $failed, true);
