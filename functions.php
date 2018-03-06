@@ -1061,16 +1061,16 @@ abstract class PHPConnection {
 
 				# Get the password prompt again to input the enable password
 				$x = 0;
-				while ($x < 10 && $this->Prompt() != LoginPrompt::Enabled) {
+				while ($x < 10 && $this->Prompt() != LinePrompt::Enabled) {
 					$response = '';
 					$this->Sleep();
 					$this->GetResponse($response);
 
-					if ($this->prompt() == LoginPrompt::Normal) {
+					if ($this->prompt() == LinePrompt::Normal) {
 						$this->DoCommand('en',$response);
 					}
 
-					if ($this->prompt() == LoginPrompt::Password) {
+					if ($this->prompt() == LinePrompt::Password) {
 						$response = '';
 						if($this->DoCommand($this->enablepw, $response, $this->enablepw)){
 							$this->Log('DEBUG: Enable login failed');
@@ -1324,8 +1324,6 @@ class PHPTelnet extends PHPConnection {
 	var $show_connect_error=1;
 
 	var $loginsleeptime=1000000;
-
-	var $loginprompt;
 
 	var $conn1;
 	var $conn2;
