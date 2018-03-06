@@ -797,7 +797,7 @@ function show_devices() {
 
 	form_start('router-devices.php', 'chk');
 
-	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), '20', $total_rows, 10, 'Devices', 'page', 'main');
+	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 10, 'Devices', 'page', 'main');
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
