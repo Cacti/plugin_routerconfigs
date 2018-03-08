@@ -1128,6 +1128,16 @@ abstract class PHPConnection {
 	function DoCommand($cmd, &$response, $pass = null) {
 		$result = 0;
 		if ($this->stream) {
+			$lines = $cmd;
+			if ($pass != null) {
+				$pass_text = plugin_routerconfigs_maskpw($pass);
+				$lines = str_replace($pass,$pass_text,$lines);
+			}
+			$lines = explode("\n",$lines);
+			foreach ($lines as $line) {
+				$this->Log("DEBUG: --> $line");
+			}
+
 			@fwrite($this->stream,$cmd.PHP_EOL);
 			$this->Sleep();
 			$result = $this->GetResponse($response, $pass);
@@ -1155,16 +1165,12 @@ abstract class PHPConnection {
 				$line_buf = explode("\n",str_replace("\r", "", $buf));
 
 				if ($this->debugbuffer) {
-					if (is_array($line_buf)) {
-						foreach ($line_buf as $line) {
-							$line = str_replace("`\r","",str_replace("\n","",$line));
-							$buf_line = "DEBUG: Buffer: ";
-							$buf_line .= $line;
-							$this->Log($buf_line);
-						}
-					} else {
-						$line = str_replace("`\r","",str_replace("\n","",$line_buff));
-						$buf_line = "DEBUG: Buffer: ";
+					if (!is_array($line_buf)) {
+						$line_buf = array($line_buff);
+					}
+					foreach ($line_buf as $line) {
+						$line = str_replace("`\r","",str_replace("\n","",$line));
+						$buf_line = "DEBUG: <-- ";
 						$buf_line .= $line;
 						$this->Log($buf_line);
 					}
