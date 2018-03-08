@@ -418,7 +418,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$readname = "$backuppath$tftpfilename";
 	clearstatcache();
 	if (file_exists($readname)) {
-		$connection->Log("DEBUG: Attempting to remove pre-existing incoming file: $readname");
+		plugin_routerconfigs_log("DEBUG: Attempting to remove pre-existing incoming file: $readname");
 		@unlink($readname);
 
 		clearstatcache();
@@ -515,37 +515,34 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 			if (stristr($response, 'bytes copied') ||
 				stristr($response,'successful')) {
-				$connection->Log("DEBUG: TFP TRANSFER SUCCESSFUL");
+				$connection->Log("DEBUG: TFP Transfer successful");
 				break;
 			} else if (stristr($response, 'error')) {
-				$connection->Log("DEBUG: TFTP TRANSFER ERRORED");
+				$connection->Log("DEBUG: TFTP Transfer ERRORED");
 				break;
-			} else {
-				$matches = preg_match('/[\d\w\[]\]\?[^\w]*$/',$response);
-				$connection->log("DEBUG: Prompt match ($x) returned ".sizeof($matches) . " matches");
+			} else if ($connection->prompt() == LinePrompt::Question) {
+				$connection->Log("DEBUG: Question found");
 
-				if (sizeof($matches) > 0) {
-					if (stristr($response, 'address') && !stristr($response, "[$ip]")) {
-						if (!$sent_srv) {
-							//send tftpserver if necessary
+				if (stristr($response, 'address') && !stristr($response, "[$ip]")) {
+					if (!$sent_srv) {
+						//send tftpserver if necessary
+						$try_level='NOTICE:';
+						$try_command=$tftpserver;
+						$try_prompt='Server:';
+						$sent_srv=true;
+					}
+				} else if (stristr($response, 'filename')) {
+					if (!stristr($response, 'source') && !stristr($response, "[$filename]")) {
+						if (!$sent_dst) {
 							$try_level='NOTICE:';
-							$try_command=$tftpserver;
-							$try_prompt='Server:';
-							$sent_srv=true;
+							//send filename if necessary
+							$try_prompt='Filename (Destination):';
+							$try_command=$filename;
+							$sent_dst=true;
 						}
-					} else if (stristr($response, 'filename')) {
-						if (!stristr($response, 'source') && !stristr($response, "[$filename]")) {
-							if (!$sent_dst) {
-								$try_level='NOTICE:';
-								//send filename if necessary
-								$try_prompt='Filename (Destination):';
-								$try_command=$filename;
-								$sent_dst=true;
-							}
-						} else {
-							$try_level='NOTICE:';
-							$try_prompt='Filename (Source):';
-						}
+					} else {
+						$try_level='NOTICE:';
+						$try_prompt='Filename (Source):';
 					}
 				}
 
@@ -931,6 +928,7 @@ abstract class LinePrompt {
 	const Username = 3;
 	const Password = 4;
 	const AccessDenied = 5;
+	const Question = 6;
 }
 
 abstract class PHPConnection {
@@ -1178,29 +1176,33 @@ abstract class PHPConnection {
 
 				$trim_buf = trim($buf);
 				if (preg_match("|[a-zA-Z0-9\-_]>[ ]*$|", $buf) === 1) {
-					$this->Log("DEBUG: Found Prompt (Normal)");
+					$this->Log('DEBUG: Found Prompt (Normal)');
 					$this->isEnabled = false;
 					$this->lastPrompt = LinePrompt::Normal;
 					return 0;
 				} else if (preg_match("|[a-zA-Z0-9\-_]#[ ]*$|", $buf) === 1) {
-					$this->Log("DEBUG: Found Prompt (Enabled)");
+					$this->Log('DEBUG: Found Prompt (Enabled)');
 					$this->isEnabled = true;
 					$this->lastPrompt = LinePrompt::Enabled;
 					return 0;
 				} else if (stristr($buf, $this->devicetype['password'])) {
-					$this->Log("DEBUG: Found Prompt (Password)");
+					$this->Log('DEBUG: Found Prompt (Password)');
 					$this->lastPrompt = LinePrompt::Password;
 					return 0;
 				} else if (stristr($buf, $this->devicetype['username'])) {
-					$this->Log("DEBUG: Found Prompt (Username)");
+					$this->Log('DEBUG: Found Prompt (Username)');
 					$this->lastPrompt = LinePrompt::Username;
 					return 0;
 				} else if (stripos($buf, 'Access not permitted.') !== FALSE) {
-					$this->Log("DEBUG: Found Prompt (Access Denied)");
+					$this->Log('DEBUG: Found Prompt (Access Denied)');
 					$this->lastPrompt = LinePrompt::AccessDenied;
 					return 0;
+				} else if (preg_match('/[\d\w\[]\]\?[^\w]*$/',$buf) === 1) {
+					$this->Log('DEBUG: Found Prompt (Question)');
+					$this->lastPrompt = LinePrompt::Question;
+					return 0;
 				} else if (preg_match("|[a-zA-Z0-9\-_]:[ ]*$|", $buf) === 1) {
-					$this->Log("DEBUG: Found Prompt (Colon)");
+					$this->Log('DEBUG: Found Prompt (Colon)');
 					$this->lastPrompt = LinePrompt::Colon;
 					return 0;
 				}
