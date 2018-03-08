@@ -1,4 +1,4 @@
-<?php
+w<?php
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2007-2017 The Cacti Group                                 |
@@ -443,7 +443,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 		$connection = new PHPSsh($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
 		$connection->setTimeout($timeout);
-		$connection->setSleep($timeout);
+		$connection->setSleep($sleep);
 
 		$result = $connection->Connect();
 		if (!$result) {
@@ -458,7 +458,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 		$connection = new PHPTelnet($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
 		$connection->setTimeout($timeout);
-		$connection->setSleep($timeout);
+		$connection->setSleep($sleep);
 
 		$result = $connection->Connect();
 		if (!$result) {
@@ -1002,11 +1002,23 @@ abstract class PHPConnection {
 	}
 
 	function setTimeout($timeout) {
+		if (!is_numeric($timeout) || $timeout <= 0) {
+			$timeout = 1;
+		}
+
+		$this->Log("DEBUG: Setting timeout to $timeout second(s)");
 		$this->timeout = $timeout;
 	}
 
 	function setSleep($sleep) {
-		$this->use_usleep = $sleep < 10;
+		if (!is_numeric($sleep) || $sleep <= 0) {
+			$sleep = 125000;
+		}
+
+		$u_sleep = $sleep > 10;
+
+		$this->Log("DEBUG: Setting sleep time to $sleep " . ($u_sleep ? 'micro' : '') . 'second(s)');
+		$this->use_usleep = $u_sleep;
 		$this->sleeptime = $sleep;
 	}
 
