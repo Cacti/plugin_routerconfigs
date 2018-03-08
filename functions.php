@@ -442,6 +442,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via SSH");
 
 		$connection = new PHPSsh($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
+		$connection->setTimeout($timeout);
+		$connection->setSleep($timeout);
 
 		$result = $connection->Connect();
 		if (!$result) {
@@ -455,6 +457,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via Telnet");
 
 		$connection = new PHPTelnet($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
+		$connection->setTimeout($timeout);
+		$connection->setSleep($timeout);
 
 		$result = $connection->Connect();
 		if (!$result) {
