@@ -1150,7 +1150,7 @@ abstract class PHPConnection {
 	}
 
 	function GetResponse(&$response, $pass = null) {
-		$time_start = time();
+		$time_start = microtime(true);
 		$data = '';
 
 		stream_set_timeout($this->stream, 0, 500000);
@@ -1217,7 +1217,7 @@ abstract class PHPConnection {
 				return 0;
 			}
 
-			if ((time()-$time_start) > $this->timeout) {
+			if ((microtime(true)-$time_start) > $this->timeout) {
 				$this->Log("DEBUG: Timeout of {$this->timeout} seconds has been reached");
 				return 8;
 			}
