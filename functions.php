@@ -499,6 +499,12 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$response = '';
 		$result = $connection->DoCommand($command, $response);
 
+		$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+		foreach ($lines as $line) {
+			$connection->log("DEBUG: Line: $line");
+		}
+		$connection->log("DEBUG: Result: ($result)");
+
 		//check if there is questions to confirm
 		//i.e: in ASA it ask for confirmation of the source file
 		//but this also confirm in case that all command is executed
@@ -1225,10 +1231,6 @@ abstract class PHPConnection {
 			}
 
 			$s = socket_get_status($this->stream);
-			if (!$s['unread_bytes'] && strlen($data)) {
-				return 0;
-			}
-
 			if ((microtime(true)-$time_start) > $this->timeout) {
 				$this->Log("DEBUG: Timeout of {$this->timeout} seconds has been reached");
 				return 8;
