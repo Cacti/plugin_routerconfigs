@@ -124,7 +124,7 @@ $devicetype_edit = array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
 		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
 		'method' => 'textbox',
-		'value' => '|arg1:sleep|',
+		'value' => '|arg1:timeout|',
 		'default' => '1'
 	),
 	'sleep' => array(
