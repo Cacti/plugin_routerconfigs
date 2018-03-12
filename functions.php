@@ -481,11 +481,11 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	if ($result == 0) {
 		$command = $devicetype['copytftp'];
 		if (stristr($command, '%SERVER%')) {
-			$command = str_replace('%SERVER%', $tftpserver, $command);
+			$command = str_ireplace('%SERVER%', $tftpserver, $command);
 		}
 
 		if (stristr($command, '%FILE%')) {
-			$command=str_replace('%FILE%', $filename, $command);
+			$command=str_ireplace('%FILE%', $filename, $command);
 		}
 
 		if (!$connection->EnsureEnabled()) {

@@ -55,6 +55,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue: Fixed issue where subject always thought it was manual
 * issue: Fixed issue where stats cache may believe a file existed when it did not
 * issue: Fixed issue where connection errors may be returned as blank
+* issue: Fixed issue where %file% and %server% where not always replaced properly
 
 --- 1.3.3 ---
 * feature: Added field to clearly identify next automated backup time
