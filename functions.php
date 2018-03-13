@@ -939,6 +939,7 @@ abstract class LinePrompt {
 	const Password = 4;
 	const AccessDenied = 5;
 	const Question = 6;
+	const Colon = 7;
 }
 
 abstract class PHPConnection {
