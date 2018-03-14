@@ -128,6 +128,22 @@ $device_edit = array(
 		'default' => 0,
 		'array' => $acc,
 	),
+	'timeout' => array(
+		'friendly_name' => __('Default timeout', 'routerconfigs'),
+		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
+		'method' => 'textbox',
+		'value' => '|arg1:timeout|',
+		'max_length' => '3',
+		'default' => '1'
+	),
+	'sleep' => array(
+		'friendly_name' => __('Default sleep time', 'routerconfigs'),
+		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
+		'method' => 'textbox',
+		'max_length' => '10',
+		'value' => '|arg1:sleep|',
+		'default' => '125000'
+	),
 	'id' => array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:id|'
@@ -404,13 +420,16 @@ function save_devices () {
 		$save['enabled'] = '';
 	}
 
-	$save['hostname']   = get_nfilter_request_var('hostname');
-	$save['ipaddress']  = get_nfilter_request_var('ipaddress');
-	$save['directory']  = get_nfilter_request_var('directory');
-	$save['account']    = get_nfilter_request_var('account');
-	$save['devicetype'] = get_nfilter_request_var('devicetype');
-	$save['schedule']   = get_nfilter_request_var('schedule');
+	$save['hostname']     = get_nfilter_request_var('hostname');
+	$save['ipaddress']    = get_nfilter_request_var('ipaddress');
+	$save['directory']    = get_nfilter_request_var('directory');
+	$save['account']      = get_nfilter_request_var('account');
+	$save['devicetype']   = get_nfilter_request_var('devicetype');
+	$save['schedule']     = get_nfilter_request_var('schedule');
 	$save['connect_type'] = get_nfilter_request_var('connect_type');
+	$save['timeout']      = get_nfilter_request_var('timeout');
+	$save['sleep']        = get_nfilter_request_var('sleep');
+
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
 	if (is_error_message()) {
@@ -495,7 +514,7 @@ function devices_validate_vars() {
 			),
 	);
 
-	validate_store_request_vars($filters, 'sess_routerconfigs_devices_current_page');
+	validate_store_request_vars($filters, 'sess_routerconfigs_devices');
 	/* ================= input validation ================= */
 }
 
@@ -515,7 +534,7 @@ function show_devices() {
 	get_filter_request_var('page');
 
 	if (get_request_var('rows') == -1) {
-		$num_rows = read_config_option('num_rows_tables');
+		$num_rows = read_config_option('num_rows_table');
 	} else {
 		$num_rows = get_request_var('rows');
 	}
@@ -778,7 +797,7 @@ function show_devices() {
 
 	form_start('router-devices.php', 'chk');
 
-	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), '20', $total_rows, 10, 'Devices', 'page', 'main');
+	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 10, 'Devices', 'page', 'main');
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
