@@ -907,7 +907,7 @@ function plugin_routerconfigs_messagetype($message) {
 //This function is the same as thold plugin with a litle changes
 //to respect cacti log level settings
 */
-function plugin_routerconfigs_log(string $message, $log_level = POLLER_VERBOSITY_NONE) {
+function plugin_routerconfigs_log($message, $log_level = POLLER_VERBOSITY_NONE) {
 	global $config, $debug;
 
 	$environ = 'RCONFIG';

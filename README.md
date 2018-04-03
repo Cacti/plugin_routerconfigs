@@ -40,6 +40,9 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
+--- 1.3.5 ---
+* issue#60: PHP 5.4 generates runtime errors
+
 --- 1.3.4 ---
 * feature: Added field to set timeout and sleep
 * feature: Added suffix to allow filtering in email systems on failure

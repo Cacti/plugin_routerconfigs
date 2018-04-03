@@ -270,7 +270,7 @@ function routerconfigs_getopts_short(array &$options, $short) {
 	}
 }
 
-function routerconfigs_getopts_find(string $arg, array $options) {
+function routerconfigs_getopts_find($arg, array $options) {
 	$found = null;
 
 	if (strlen($arg) && $arg[0] == '-') {
@@ -325,7 +325,7 @@ function routerconfigs_addopt(array &$options, $index, $text, $val, $opt) {
 	$options[] = $option;
 }
 
-function routerconfigs_checkopt(string $label, string $short, &$index) {
+function routerconfigs_checkopt($label, $short, &$index) {
 	$result = false;
 	$colon = '<unset>';
 
@@ -340,7 +340,7 @@ function routerconfigs_checkopt(string $label, string $short, &$index) {
 	return $result;
 }
 
-function routerconfigs_checkopt_string($label, string &$text) {
+function routerconfigs_checkopt_string($label, &$text) {
 	$result = false;
 	$output = $text;
 	$colon = '<unset>';
