@@ -42,6 +42,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 ## ChangeLog
 --- 1.3.5 ---
 * issue#60: PHP 5.4 generates runtime errors
+* issue#61: Login Password being used when elevating via Enable
 
 --- 1.3.4 ---
 * feature: Added field to set timeout and sleep

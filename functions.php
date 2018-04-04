@@ -969,7 +969,7 @@ abstract class PHPConnection {
 		$this->server = $server;
 		$this->user = $user;
 		$this->pass = $pass;
-		$this->enablepw = $pass;
+		$this->enablepw = $enablepw;
 		$this->devicetype = $devicetype;
 
 		$this->debug = '';
