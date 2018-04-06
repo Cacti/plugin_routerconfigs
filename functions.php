@@ -1094,7 +1094,7 @@ abstract class PHPConnection {
 					if ($this->prompt() == LinePrompt::Password) {
 						$response = '';
 						$result = $this->DoCommand($this->enablepw, $response, $this->enablepw);
-						if (result != 0) {
+						if ($result != 0) {
 							$this->Log('DEBUG: Enable login failed ('.$result.')');
 							$this->Disconnect();
 							break;
