@@ -137,6 +137,10 @@ function routerconfigs_check_upgrade() {
 
 		if (cacti_version_compare($old, '1.4.0', '<')) {
 			plugin_routerconfigs_fix_backups_pre14();
+			if (db_column_exists('config','plugin_routerconfigs_backups')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_backups
+					REMOVE COLUMN `config`');
+			}
 		}
 
 		db_execute("UPDATE plugin_config
