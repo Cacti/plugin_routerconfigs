@@ -400,7 +400,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
 		$archivepath = $archivepath  . $dir;
 
-		if (strlen($archivepath) && $backuppath[strlen($archivepath) - 1] != '/') {
+		if (strlen($archivepath) && $archivepath[strlen($archivepath) - 1] != '/') {
 			$archivepath .= '/';
 		}
 	}
