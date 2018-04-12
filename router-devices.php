@@ -865,7 +865,7 @@ function show_devices() {
 			$cell = '';
 
 			if (in_array($type_dev,$types_ssh)) {
-				$cell .= '<a class="hyperLink" href="ssh://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/ssh.jpeg" style="height:14px;" alt="" title="' . __esc('Connect via SSH', 'routerconfigs') . '"></a>';
+				$cell .= '<a class="hyperLink" href="ssh://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/ssh.jpg" style="height:14px;" alt="" title="' . __esc('Connect via SSH', 'routerconfigs') . '"></a>';
 			}
 
 			if (in_array($type_dev,$types_tel)) {
