@@ -869,7 +869,7 @@ function show_devices() {
 			}
 
 			if (in_array($type_dev,$types_tel)) {
-				$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpg" style="height:14px;" alt="" title="' . __esc('Connect via Telnet', 'routerconfigs') . '"></a>';
+				$cell .= '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpg" style="height:14px;" alt="" title="' . __esc('Connect via Telnet', 'routerconfigs') . '"></a>';
 			}
 
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
