@@ -859,8 +859,19 @@ function show_devices() {
 
 			$enabled = ($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>');
 
+			$type_dev = isset($device['connect_type']) ? $device['connect_type'] : 'both';
+			$types_ssh = array('','both','ssh');
+			$types_tel = array('','both','telnet');
+			$cell = '';
 
-			$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpeg" style="height:14px;" alt="" title="' . __esc('Telnet', 'routerconfigs') . '"></a>';
+			if (in_array($type_dev,$types_ssh)) {
+				$cell .= '<a class="hyperLink" href="ssh://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/ssh.jpeg" style="height:14px;" alt="" title="' . __esc('Connect via SSH', 'routerconfigs') . '"></a>';
+			}
+
+			if (in_array($type_dev,$types_tel)) {
+				$cell = '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpg" style="height:14px;" alt="" title="' . __esc('Connect via Telnet', 'routerconfigs') . '"></a>';
+			}
+
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
 				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=14 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
 			}

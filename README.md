@@ -44,6 +44,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue#60: PHP 5.4 generates runtime errors
 * issue#61: Login Password being used when elevating via Enable
 * issue#62: Undefined variable 'result' when attempting to elevate during backup
+* issue#63: Ensure correct action icons are displayed
 * issue#64: Comparison between devices is not working as expected
 * feature#27: Improve Backup Directory Structure
 
