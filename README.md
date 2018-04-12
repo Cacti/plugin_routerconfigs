@@ -40,10 +40,11 @@ On other operating systems, or for CentOS 7, you will have to find equivalent in
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## ChangeLog
---- 1.3.5 ---
+--- 1.4.0 ---
 * issue#60: PHP 5.4 generates runtime errors
 * issue#61: Login Password being used when elevating via Enable
 * issue#62: Undefined variable 'result' when attempting to elevate during backup
+* feature#27: Improve Backup Directory Structure
 
 --- 1.3.4 ---
 * feature: Added field to set timeout and sleep

@@ -135,6 +135,10 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
+		if (cacti_version_compare($old, '1.4.0', '<')) {
+			plugin_routerconfigs_fix_backups_pre14();
+		}
+
 		db_execute("UPDATE plugin_config
 			SET version='$current'
 			WHERE directory='routerconfigs'");
@@ -392,6 +396,12 @@ function routerconfigs_config_settings () {
 			'friendly_name' => __('Router Configs - TFTP', 'routerconfigs'),
 			'method' => 'spacer',
 		),
+		'routerconfigs_archive_separate' => array(
+			'friendly_name' => __('Separate By Device', 'routerconfigs'),
+			'description' => __('Separate archived Configs into a folder per device', 'routerconfigs'),
+			'method' => 'checkbox',
+			'default' => 'on'
+		),
 		'routerconfigs_tftpserver' => array(
 			'friendly_name' => __('TFTP Server IP', 'routerconfigs'),
 			'description' => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
@@ -400,12 +410,20 @@ function routerconfigs_config_settings () {
 			'default' => gethostbyname($hostname)
 		),
 		'routerconfigs_backup_path' => array(
-			'friendly_name' => __('Backup Directory Path', 'routerconfigs'),
+			'friendly_name' => __('TFTP Backup Directory Path', 'routerconfigs'),
 			'description' => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.', 'routerconfigs'),
 			'method' => 'dirpath',
 			'max_length' => 255,
 			'size' => '50',
 			'default' => $config['base_path'] . '/backups/'
+		),
+		'routerconfigs_archive_path' => array(
+			'friendly_name' => __('Archive Directory Path', 'routerconfigs'),
+			'description' => __('The path to where your Configs will be archived (moved from TFTP directory)', 'routerconfigs'),
+			'method' => 'dirpath',
+			'max_length' => 255,
+			'size' => '50',
+			'default' => $config['base_path'] . '/plugins/routerconfigs/backups/'
 		),
 		'routerconfigs_header_email' => array(
 			'friendly_name' => __('Router Configs - Email', 'routerconfigs'),
@@ -550,4 +568,48 @@ function routerconfigs_draw_navigation_text ($nav) {
 	return $nav;
 }
 
+function plugin_routerconfigs_combinepaths($path1, $path2) {
+	if (strlen($path2) < 1 || $path2[0] != '/') {
+		if (strlen($path1) && $path1[strlen($path1)- 1] != '/') {
+			$path1 = $path1 . '/';
+		}
+	} else {
+		$path1 = '';
+	}
 
+	if (strlen($path2) && $path2[strlen($path2)- 1] != '/') {
+		$path2 = $path2 . '/';
+	}
+
+	return $path1 . $path2;
+}
+
+function plugin_routerconfigs_fix_backups_pre14() {
+	$backups = db_fetch_assoc('SELECT id, directory, filename FROM plugin_routerconfigs_backups');
+
+	foreach ($backups as $backup) {
+		$filename = trim($backup['filename']);
+		$path = $backup['directory'];
+		if (strlen($path) && $path[strlen($path) - 1] != '/') {
+			$path = $path . '/';
+		}
+
+		if (strlen($path) < 1 || $path[0] != '/') {
+			$path = plugin_routerconfigs_combinepaths(read_config_option('routerconfigs_backup_path'), $path);
+		}
+
+		if (basename($filename) != $filename || $path != $backup['directory']) {
+			$dir = trim(dirname($filename));
+			if ($dir == '.') {
+				$dir = '';
+			}
+
+			$dir = plugin_routerconfigs_combinepaths($path, $dir);
+
+			db_execute_prepared('UPDATE plugin_routerconfigs_backups
+				SET directory = ?, filename = ?
+				WHERE id = ?',
+				array($dir, basename(filename), $backup['id']));
+		}
+	}
+}

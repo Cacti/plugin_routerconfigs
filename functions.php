@@ -115,7 +115,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
-		plugin_routerconfigs_log(__('FATAL: Backup Path is not set or is not a directory', 'routerconfigs'));
+		plugin_routerconfigs_log(__('FATAL: TFTP Backup Path is not set or is not a directory', 'routerconfigs'));
 	} else {
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		if (strlen($tftpserver) < 2) {
@@ -379,6 +379,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$ip      = $device['ipaddress'];
 
 	$backuppath = trim(read_config_option('routerconfigs_backup_path'));
+	$archivepth = trim(read_config_option('routerconfigs_archive_path'));
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 
 	$tftpfilename = $device['hostname'];
@@ -388,14 +389,20 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$backuppath .= '/';
 	}
 
+	if (strlen($archivepath) && $archivepath[strlen($archivepath) - 1] != '/') {
+		$archivepath .= '/';
+	}
+
 	if (strlen($dir) && $dir[0] == '/') {
 		$dir = substr($dir,1);
 	}
 
-	$backupdir = $backuppath  . $dir;
+	if (read_config_option('routerconfigs_archive_separate') == 'on') {
+		$archivedir = $archivepath  . $dir;
 
-	if (strlen($backupdir) && $backupdir[strlen($backupdir) - 1] != '/') {
-		$backupdir .= '/';
+		if (strlen($archivedir) && $backupdir[strlen($archivedir) - 1] != '/') {
+			$archivedir .= '/';
+		}
 	}
 
 	$devicetype = db_fetch_row_prepared('SELECT *
@@ -749,18 +756,18 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$connection->Log("DEBUG: Configuration Data Length " . strlen($data));
 
 		if (strlen($data) > 100) {
-			$connection->Log("DEBUG: Checking backup directory exists: $backupdir");
-			if (!is_dir("$backupdir")) {
-				$connection->Log("DEBUG: Creating backup directory: $backupdir");
-				@mkdir("$backupdir", 0777, true);
+			$connection->Log("DEBUG: Checking backup directory exists: $archivedir");
+			if (!is_dir("$archivedir")) {
+				$connection->Log("DEBUG: Creating backup directory: $archivedir");
+				@mkdir("$archivedir", 0770, true);
 			}
 
 			$file = false;
-			if (!is_dir("$backupdir")) {
-				$connection->Log("ERROR: Failed to create backup directory: $backupdir");
+			if (!is_dir("$archivedir")) {
+				$connection->Log("ERROR: Failed to create backup directory: $archivedir");
 			} else {
 				$date = date('Y-m-d-Hi');
-				$savename = "$backupdir$filename-$date";
+				$savename = "$archivedir$filename-$date";
 				$connection->Log("DEBUG: Attempting to backup to filename '$savename'");
 
 				clearstatcache();
@@ -802,10 +809,12 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 							WHERE id = ?',
 							array($t_back, $t_next, $device['id']));
 
+						$backup_dir = dirname($savename);
+						$backup_file = basename($savename);
 						db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
 							(device, btime, directory, filename, config, lastchange, username)
 						VALUES (?, ?, ?, ?, ?, ?, ?)',
-						array($device['id'], $t_back, $dir, $savename, $data2, $lastchange, $lastuser));
+						array($device['id'], $t_back, $backup_dir, $backup_file, $data2, $lastchange, $lastuser));
 					}
 				}
 			}
