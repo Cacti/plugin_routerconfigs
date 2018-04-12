@@ -613,7 +613,7 @@ function plugin_routerconfigs_fix_backups_pre14() {
 			db_execute_prepared('UPDATE plugin_routerconfigs_backups
 				SET directory = ?, filename = ?
 				WHERE id = ?',
-				array($dir, basename(filename), $backup['id']));
+				array($dir, basename($filename), $backup['id']));
 		}
 	}
 }

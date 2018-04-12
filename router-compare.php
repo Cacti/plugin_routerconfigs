@@ -45,17 +45,18 @@ $devices = db_fetch_assoc('SELECT id, directory, hostname
 	FROM plugin_routerconfigs_devices
 	ORDER BY hostname');
 
-if (!is_numeric($device1) || !is_numeric($device2)) {
-	if (sizeof($devices)) {
-		$default = $devices[0]['id'];
+if (sizeof($devices)) {
+	foreach ($devices as $d) {
+		$default = $d['id'];
+		break;
+	}
 
-		if (!is_numeric($device1)) {
-			$device1 == $default;
-		}
+	if (!is_numeric($device1)) {
+		$device1 == $default;
+	}
 
-		if (!is_numeric($device2)) {
-			$device1 = $default;
-		}
+	if (!is_numeric($device2)) {
+		$device1 = $default;
 	}
 }
 
