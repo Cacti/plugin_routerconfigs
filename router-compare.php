@@ -123,7 +123,10 @@ if (!empty($file1) && !empty($file2)) {
 	if (isset($device1['id'])) {
 		$filepath1 = $device1['directory'] . $device1['filename'];
 		if (file_exists($filepath1)) {
-			$lines1 = file($file1, FILE_IGNORE_NEW_LINES);
+			$lines1 = @file($filepath1, FILE_IGNORE_NEW_LINES);
+			if ($lines1 === false) {
+				$lines1 = array('File \'' . $filepath1 .'\' (' . $file1 .' ) failed to load');
+			}
 		} else {
 			$lines1 = array('File \'' . $filepath1 .'\' (' . $file1 .' ) missing');
 		}
@@ -134,15 +137,16 @@ if (!empty($file1) && !empty($file2)) {
 	if (isset($device2['id'])) {
 		$filepath2 = $device2['directory'] . $device2['filename'];
 		if (file_exists($filepath2)) {
-			$lines2 = file($file2, FILE_IGNORE_NEW_LINES);
+			$lines2 = @file($file2, FILE_IGNORE_NEW_LINES);
+			if ($lines2 === false) {
+				$lines2 = array('File \'' . $filepath2 .'\' (' . $file2 .' ) failed to load');
+			}
 		} else {
 			$lines2 = array('File \'' . $filepath2 .'\' (' . $file2 .' ) missing');
 		}
 	} else {
 		$lines2 = array('Unable to find backup id ' . $file1);
 	}
-
-	$lines2 = file($file2, FILE_IGNORE_NEW_LINES);
 
 	/* Create the Diff object. */
 	$diff = new Horde_Text_Diff('auto', array($lines1, $lines2));
