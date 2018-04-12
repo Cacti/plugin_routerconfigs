@@ -314,7 +314,7 @@ function plugin_routerconfigs_retention() {
 		foreach ($backups as $backup) {
 			$dir = $backup['directory'];
 			$filename = $backup['filename'];
-			@unlink("$backupdir/$filename");
+			@unlink("$dir/$filename");
 		}
 	}
 
@@ -379,7 +379,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$ip      = $device['ipaddress'];
 
 	$backuppath = trim(read_config_option('routerconfigs_backup_path'));
-	$archivepth = trim(read_config_option('routerconfigs_archive_path'));
+	$archivepath = trim(read_config_option('routerconfigs_archive_path'));
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 
 	$tftpfilename = $device['hostname'];
@@ -400,7 +400,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
 		$archivedir = $archivepath  . $dir;
 
-		if (strlen($archivedir) && $backupdir[strlen($archivedir) - 1] != '/') {
+		if (strlen($archivedir) && $backuppath[strlen($archivedir) - 1] != '/') {
 			$archivedir .= '/';
 		}
 	}
