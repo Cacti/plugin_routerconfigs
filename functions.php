@@ -398,10 +398,10 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	}
 
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
-		$archivedir = $archivepath  . $dir;
+		$archivepath = $archivepath  . $dir;
 
-		if (strlen($archivedir) && $backuppath[strlen($archivedir) - 1] != '/') {
-			$archivedir .= '/';
+		if (strlen($archivepath) && $backuppath[strlen($archivepath) - 1] != '/') {
+			$archivepath .= '/';
 		}
 	}
 
@@ -756,18 +756,18 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$connection->Log("DEBUG: Configuration Data Length " . strlen($data));
 
 		if (strlen($data) > 100) {
-			$connection->Log("DEBUG: Checking backup directory exists: $archivedir");
-			if (!is_dir("$archivedir")) {
-				$connection->Log("DEBUG: Creating backup directory: $archivedir");
-				@mkdir("$archivedir", 0770, true);
+			$connection->Log("DEBUG: Checking backup directory exists: $archivepath");
+			if (!is_dir("$archivepath")) {
+				$connection->Log("DEBUG: Creating backup directory: $archivepath");
+				@mkdir("$archivepath", 0770, true);
 			}
 
 			$file = false;
-			if (!is_dir("$archivedir")) {
-				$connection->Log("ERROR: Failed to create backup directory: $archivedir");
+			if (!is_dir("$archivepath")) {
+				$connection->Log("ERROR: Failed to create backup directory: $archivepath");
 			} else {
 				$date = date('Y-m-d-Hi');
-				$savename = "$archivedir$filename-$date";
+				$savename = "$archivepath$filename-$date";
 				$connection->Log("DEBUG: Attempting to backup to filename '$savename'");
 
 				clearstatcache();
