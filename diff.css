@@ -1,11 +1,9 @@
-tr.noc {background:#FFF;}
+tr.noc {background:#FFF; color: #AAA; }
 tr.chg {background:#FFFF00;}
 
-td.del {background:#FF0000;}
-td.noc {background:#FFF;}
-td.add {background:#FFC864;}
+td.del {background:#FFF; color: #FF0; }
+td.noc {background:#FFF; color: #AAA; }
+td.add {background:#FFF; color: #00F; }
 
-td.mid {background:#6d88ad;}
-
-ins {background:#FFC864;}
-del {background:#FF0000;}
+ins, .add {color:#0000FF; text-decoration-line: none; }
+del, .del {color:#FF0000; text-decoration-line: none; }

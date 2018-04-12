@@ -31,6 +31,7 @@ include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
 include_once($config['base_path'] . '/plugins/routerconfigs/HordeTextInclude.php');
 
 top_header();
+print get_md5_include_css('plugins/routerconfigs/diff.css');
 
 $device1 = get_filter_request_var('device1');
 $device2 = get_filter_request_var('device2');

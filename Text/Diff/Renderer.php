@@ -213,7 +213,7 @@ class Horde_Text_Diff_Renderer
 
     protected function _lines($lines, $prefix = ' ')
     {
-        return $prefix . implode("\n$prefix", $lines) . "\n";
+        return implode($lines) . "\n";
     }
 
     protected function _context($lines)
