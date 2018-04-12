@@ -364,6 +364,13 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
+function plugin_routerconfigs_dir($dir) {
+	if (strlen($dir) && $backuppath[strlen($dir) - 1] != '/') {
+		$dir .= '/';
+	}
+	return $dir;
+}
+
 function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
 	$t_last = time();
 	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
@@ -378,31 +385,19 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$dir     = trim($device['directory']);
 	$ip      = $device['ipaddress'];
 
-	$backuppath = trim(read_config_option('routerconfigs_backup_path'));
-	$archivepath = trim(read_config_option('routerconfigs_archive_path'));
+	$backuppath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
+	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 
 	$tftpfilename = $device['hostname'];
 	$filename     = $tftpfilename;
-
-	if (strlen($backuppath) && $backuppath[strlen($backuppath) - 1] != '/') {
-		$backuppath .= '/';
-	}
-
-	if (strlen($archivepath) && $archivepath[strlen($archivepath) - 1] != '/') {
-		$archivepath .= '/';
-	}
 
 	if (strlen($dir) && $dir[0] == '/') {
 		$dir = substr($dir,1);
 	}
 
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
-		$archivepath = $archivepath  . $dir;
-
-		if (strlen($archivepath) && $archivepath[strlen($archivepath) - 1] != '/') {
-			$archivepath .= '/';
-		}
+		$archivepath = plugin_routerconfigs_dir($archivepath  . $dir);
 	}
 
 	$devicetype = db_fetch_row_prepared('SELECT *

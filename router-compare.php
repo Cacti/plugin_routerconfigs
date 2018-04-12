@@ -122,7 +122,7 @@ if (!empty($file1) && !empty($file2)) {
 	$device2 = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_backups WHERE id = ?', array($file2));
 
 	if (isset($device1['id'])) {
-		$filepath1 = $device1['directory'] . $device1['filename'];
+		$filepath1 = plugin_routerconfigs_dir($device1['directory']) . $device1['filename'];
 		if (file_exists($filepath1)) {
 			$lines1 = @file($filepath1, FILE_IGNORE_NEW_LINES);
 			if ($lines1 === false) {
@@ -136,7 +136,7 @@ if (!empty($file1) && !empty($file2)) {
 	}
 
 	if (isset($device2['id'])) {
-		$filepath2 = $device2['directory'] . $device2['filename'];
+		$filepath2 = plugin_routerconfigs_dir($device2['directory']) . $device2['filename'];
 		if (file_exists($filepath2)) {
 			$lines2 = @file($filepath2, FILE_IGNORE_NEW_LINES);
 			if ($lines2 === false) {
