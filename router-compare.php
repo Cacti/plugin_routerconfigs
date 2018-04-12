@@ -138,7 +138,7 @@ if (!empty($file1) && !empty($file2)) {
 	if (isset($device2['id'])) {
 		$filepath2 = $device2['directory'] . $device2['filename'];
 		if (file_exists($filepath2)) {
-			$lines2 = @file($file2, FILE_IGNORE_NEW_LINES);
+			$lines2 = @file($filepath2, FILE_IGNORE_NEW_LINES);
 			if ($lines2 === false) {
 				$lines2 = array('File \'' . $filepath2 .'\' (' . $file2 .' ) failed to load');
 			}
@@ -150,7 +150,7 @@ if (!empty($file1) && !empty($file2)) {
 	}
 
 	/* Create the Diff object. */
-	$diff = new Horde_Text_Diff('auto', array($lines1, $lines2));
+	$diff = new Horde_Text_Diff('Native', array($lines1, $lines2));
 
 	/* Output the diff in unified format. */
 	$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
