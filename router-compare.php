@@ -65,7 +65,7 @@ if (is_numeric($device1)) {
 	$files1 = db_fetch_assoc_prepared('SELECT id, directory, filename
 		FROM plugin_routerconfigs_backups
 		WHERE device = ?
-		ORDER BY directory, filename DESC', array($device1));
+		ORDER BY filename DESC', array($device1));
 }else{
 	$files1 = array();
 }
@@ -73,7 +73,7 @@ if (is_numeric($device1)) {
 if (is_numeric($device2)) {
 	$files2 = db_fetch_assoc_prepared('SELECT id, directory, filename
 		FROM plugin_routerconfigs_backups
-		WHERE device = ? ORDER BY directory, filename DESC', array($device2));
+		WHERE device = ? ORDER BY filename DESC', array($device2));
 }else{
 	$files2 = array();
 }

@@ -365,7 +365,7 @@ function plugin_routerconfigs_stop($force_stop) {
 }
 
 function plugin_routerconfigs_dir($dir) {
-	if (strlen($dir) && $backuppath[strlen($dir) - 1] != '/') {
+	if (strlen($dir) && $dir[strlen($dir) - 1] != '/') {
 		$dir .= '/';
 	}
 	return $dir;
