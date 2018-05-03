@@ -1119,8 +1119,9 @@ abstract class PHPConnection {
 	}
 
 
-	function Disconnect($exit=1) {
+	function Disconnect() {
 		if ($this->stream) {
+			$exit = read_config_option('routerconfigs_exit') != 'on';
 			if ($exit) {
 				$this->DoCommand('exit', $junk);
 			}

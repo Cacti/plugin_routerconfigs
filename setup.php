@@ -329,6 +329,11 @@ function routerconfigs_config_settings () {
 			'max_length' => '10',
 			'default' => '125000'
 		),
+		'routerconfigs_exit' => array(
+			'friendly_name' => __('Close without exit', 'routerconfigs'),
+			'description' => __('If ticked, when closing down the device connection, no \'exit\' command is issued', 'routerconfigs'),
+			'method' => 'checkbox'
+		),
 		'routerconfigs_debug_buffer' => array(
 			'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
 			'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
