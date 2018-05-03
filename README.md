@@ -42,6 +42,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue#62: Undefined variable 'result' when attempting to elevate during backup
 * issue#63: Ensure correct action icons are displayed
 * issue#64: Comparison between devices is not working as expected
+* issue#69: View Configuration is broken with recent file-based changes
 * feature#27: Improve Backup Directory Structure
 
 --- 1.3.4 ---

@@ -227,7 +227,7 @@ function view_device_config() {
 
 	$device = array();
 	if (!empty($_GET['id'])) {
-		$device = db_fetch_row_prepared('SELECT prb.*, prd.hostname, prd.ipaddress
+		$device = db_fetch_row_prepared('SELECT prb.*, prd.hostname, prd.ipaddress, prd.directory
 			FROM plugin_routerconfigs_devices AS prd
 			INNER JOIN plugin_routerconfigs_backups AS prb
 			ON prb.device = prd.id
@@ -237,6 +237,16 @@ function view_device_config() {
 	}
 
 	if (isset($device['id'])) {
+		$filepath = plugin_routerconfigs_dir($device['directory']) . $device['filename'];
+		if (file_exists($filepath)) {
+			$lines = @file($filepath, FILE_IGNORE_NEW_LINES);
+			if ($lines === false) {
+				$lines = array('File \'' . $filepath .'\' (' . $file .' ) failed to load');
+			}
+		} else {
+			$lines = array('File \'' . $filepath .'\' (' . $file .' ) missing');
+		}
+
 		top_header();
 
 		display_tabs ();
@@ -246,9 +256,9 @@ function view_device_config() {
 		form_alternate_row();
 		print '<td><h2>' . __('Router Config for %s (%s)<br><br>', $device['hostname'], $device['ipaddress'], 'routerconfigs');
 		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '<br>';
-		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
+		print __('File: %s', $filepath, 'routerconfigs');
 		print '</h1><textarea rows=36 cols=120>';
-		print $device['config'];
+		print implode('\n', $lines);
 		print '</textarea></td></tr>';
 
 		html_end_box(false);
