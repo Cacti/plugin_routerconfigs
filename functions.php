@@ -373,6 +373,7 @@ function plugin_routerconfigs_dir($dir) {
 
 function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
 	$t_last = time();
+
 	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
 
 	db_execute_prepared('UPDATE plugin_routerconfigs_devices
@@ -1537,7 +1538,7 @@ function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) 
 	if ($schedule == 0 || $multipler == 0) {
 		return 0;
 	} else {
-		$next = $time - ($time % 3600) + ($schedule * $multipler) + ($hour * 3600);
+		$next = $time - ($time % $multipler) + ($schedule * $multipler) + ($hour * 3600);
 /*
 		printf("\n%10d - %4d + %5d (%2d * %5d) + %6d = %10d (%10d)\n\n", $time, ($time % 3600),
 			($schedule * $multipler), $schedule, $multipler,
