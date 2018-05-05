@@ -44,6 +44,7 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 * issue#64: Comparison between devices is not working as expected
 * issue#69: View Configuration is broken with recent file-based changes
 * issue#70: Allow close without issuing an exit command
+* issue#72: Backup time showing only latest backup time
 * feature#27: Improve Backup Directory Structure
 
 --- 1.3.4 ---

@@ -338,7 +338,7 @@ function show_devices () {
 		$c = 0;
 		foreach ($result as $row) {
 			$lastchange = plugin_routerconfigs_date_from_time_with_na($row['lastchange']);;
-			$lastbackup = plugin_routerconfigs_date_from_time_with_na($row['lastbackup']);;
+			$lastbackup = plugin_routerconfigs_date_from_time_with_na($row['btime']);;
 
 			form_alternate_row('line' . $row['id'], true);
 
