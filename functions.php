@@ -1554,3 +1554,56 @@ function plugin_routerconfigs_getfirst($array) {
 	}
 	return false;
 }
+
+function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0, $failure_url = '') {
+	$device = array();
+	if (!empty($backup_id)) {
+		$device = db_fetch_row_prepared('SELECT prb.*, prd.hostname, prd.ipaddress
+			FROM plugin_routerconfigs_devices AS prd
+			INNER JOIN plugin_routerconfigs_backups AS prb
+			ON prb.device=prd.id
+			WHERE prb.id=?',
+			array(get_request_var('id')));
+	} else if (!empty($device_id)) {
+		$device = db_fetch_row_prepared('SELECT prb.*, prd.hostname, prd.ipaddress
+			FROM plugin_routerconfigs_devices AS prd
+			INNER JOIN plugin_routerconfigs_backups AS prb
+			ON prb.device=prd.id
+			WHERE prd.id=?',
+ 			array(get_request_var('id')));
+	}
+
+	if (isset($device['id'])) {
+		$filepath = plugin_routerconfigs_dir($device['directory']) . $device['filename'];
+		if (file_exists($filepath)) {
+			$lines = @file($filepath);
+			if ($lines === false) {
+				$lines = array(__("File '%s' failed to load", $filepath, 'routerconfigs'));
+			}
+		} else {
+			$lines = array(__("File '%s' was not found", $filepath, 'routerconfigs'));
+		}
+
+		top_header();
+
+		display_tabs ();
+
+		html_start_box('', '100%', '', '4', 'center', '');
+
+		form_alternate_row();
+
+		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs') . '<br>';
+		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '<br>';
+		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
+		print '</h2><br><textarea style="height: auto;" rows=36 cols=120>';
+		print $device['config'];
+		print '</textarea></td></tr>';
+
+		html_end_box(false);
+		bottom_footer();
+
+	} else if (!empty($failure_url)) {
+		header('Location: ' . $failure_url);
+		exit;
+	}
+}

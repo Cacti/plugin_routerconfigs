@@ -51,36 +51,7 @@ function view_device_config() {
 	get_filter_request_var('device');
 	/* ==================================================== */
 
-	$device = array();
-	if (!isempty_request_var('id')) {
-		$device = db_fetch_row('SELECT prb.*, prd.hostname, prd.ipaddress
-			FROM plugin_routerconfigs_devices AS prd
-			INNER JOIN plugin_routerconfigs_backups AS prb
-			ON prb.device=prd.id
-			WHERE prb.id=' . get_request_var('id'), FALSE);
-	}
-
-	if (isset($device['id'])) {
-		top_header();
-
-		display_tabs ();
-
-		html_start_box('', '100%', '', '4', 'center', '');
-
-		form_alternate_row();
-
-		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs');
-		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '<br>';
-		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
-		print '</h1><textarea rows=36 cols=120>';
-		print $device['config'];
-		print '</textarea></td></tr>';
-
-		html_end_box(false);
-	} else {
-		header('Location: router-backups.php');
-		exit;
-	}
+	view_device_config(get_filter_request_var('id'), get_filter_request_var('device'), 'router-backups.php');
 }
 
 function backups_validate_vars() {
