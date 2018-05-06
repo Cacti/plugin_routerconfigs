@@ -1576,6 +1576,8 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 	}
 
 	if (isset($device['id'])) {
+		ini_set('memory_limit', '256M');
+
 		$filepath = plugin_routerconfigs_dir($device['directory']) . $device['filename'];
 		if (file_exists($filepath)) {
 			$lines = @file($filepath);
