@@ -1570,7 +1570,8 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 			FROM plugin_routerconfigs_devices AS prd
 			INNER JOIN plugin_routerconfigs_backups AS prb
 			ON prb.device=prd.id
-			WHERE prd.id=?',
+			WHERE prd.id=?
+			ORDER BY btime DESC',
  			array(get_request_var('id')));
 	}
 
