@@ -51,7 +51,7 @@ function view_device_config() {
 	get_filter_request_var('device');
 	/* ==================================================== */
 
-	view_device_config(get_filter_request_var('id'), get_filter_request_var('device'), 'router-backups.php');
+	plugin_routerconfigs_view_device_config(get_filter_request_var('id'), get_filter_request_var('device'), 'router-backups.php');
 }
 
 function backups_validate_vars() {
