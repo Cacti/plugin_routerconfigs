@@ -1599,7 +1599,7 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs') . '<br>';
 		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '</h2>';
 		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
-		print '<br><textarea style="background: white; width=100%; height: auto;" rows=36 cols=120>';
+		print '<br><textarea style="background: white; width:100%; height: auto;" rows=36 cols=120>';
 		print implode($lines);
 		print '</textarea></td></tr>';
 
