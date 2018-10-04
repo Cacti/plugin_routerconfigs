@@ -125,14 +125,16 @@ $devicetype_edit = array(
 		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
 		'method' => 'textbox',
 		'value' => '|arg1:timeout|',
-		'default' => '1'
+		'default' => '1',
+		'max_length' => '3'
 	),
 	'sleep' => array(
 		'friendly_name' => __('Default sleep time', 'routerconfigs'),
 		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
 		'method' => 'textbox',
 		'value' => '|arg1:sleep|',
-		'default' => '125000'
+		'default' => '125000',
+		'max_length' => '7'
 	),
 	'id' => array(
 		'method' => 'hidden_zero',
