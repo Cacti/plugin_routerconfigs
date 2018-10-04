@@ -58,8 +58,6 @@ issue in GitHub.
 
 --- 1.4.0 ---
 
-* issue#82: Field definitions for Device Type are missing max_length
-
 * issue#57: Fixed issue with schedule time not being 100% right
 
 * issue#60: PHP 5.4 generates runtime errors
@@ -77,6 +75,10 @@ issue in GitHub.
 * issue#70: Allow close without issuing an exit command
 
 * issue#72: Backup time showing only latest backup time
+
+* issue#82: Field definitions for Device Type are missing max_length
+
+* issue#84: Manual backup was not working from web interface
 
 * feature#27: Improve Backup Directory Structure
 
