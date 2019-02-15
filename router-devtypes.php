@@ -136,6 +136,14 @@ $devicetype_edit = array(
 		'default' => '125000',
 		'max_length' => '7'
 	),
+	'anykey' => array(
+		'friendly_name' => __('Any Key prompt', 'routerconfigs'),
+		'description' => __('Text to match a \'Press Any Key To Continue\' styled prompt', 'routerconfigs'),
+		'method' => 'textbox',
+		'value' => '|arg1:anykey|',
+		'default' => '',
+		'max_length' => '50'
+	),
 	'id' => array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:id|'
@@ -267,6 +275,7 @@ function save_devicetypes () {
 	$save['checkendinconfig'] = get_nfilter_request_var('checkendinconfig');
 	$save['timeout']          = get_nfilter_request_var('timeout');
 	$save['sleep']            = get_nfilter_request_var('sleep');
+	$save['anykey']           = get_nfilter_request_var('anykey');
 
 	$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');
 

@@ -127,7 +127,12 @@ abstract class PHPConnection {
 		$x = 0;
 		while ($x < 10 && $this->prompt() != LinePrompt::Enabled && $this->prompt() != LinePrompt::Normal) {
 			$r = '';
-			$this->DoCommand('', $r, $this->pass);
+			if ($this->prompt() == LinePrompt::AnyKey) {
+				$this->Log("DEBUG: AnyKey prompt detected, sending space");
+				$this->DoCommand(' ', $r, $this->pass);
+			} else {
+				$this->DoCommand('', $r, $this->pass);
+			}
 			$res .= $r;
 
 			$x++;
@@ -275,6 +280,10 @@ abstract class PHPConnection {
 				} else if (stristr($buf, $this->devicetype['username'])) {
 					$this->Log('DEBUG: Found Prompt (Username)');
 					$this->lastPrompt = LinePrompt::Username;
+					return 0;
+				} else if (stristr($buf, $this->devicetype['anykey'])) {
+					$this->Log('DEBUG: Found Prompt (AnyKey)');
+					$this->lastPrompt = LinePrompt::AnyKey;
 					return 0;
 				} else if (stripos($buf, 'Access not permitted.') !== FALSE) {
 					$this->Log('DEBUG: Found Prompt (Access Denied)');

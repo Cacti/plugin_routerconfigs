@@ -8,4 +8,5 @@ abstract class LinePrompt {
 	const AccessDenied = 5;
 	const Question = 6;
 	const Colon = 7;
+	const AnyKey = 8;
 }

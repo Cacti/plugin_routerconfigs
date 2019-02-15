@@ -143,6 +143,13 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
+		if (cacti_version_compare($old, '1.4.1', '<')) {
+			if (!db_column_exists('anykey','plugin_routerconfigs_devicetypes')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `anykey` varchar(50) DEFAULT \'\'');
+			}
+		}
+
 		db_execute("UPDATE plugin_config
 			SET version='$current'
 			WHERE directory='routerconfigs'");
@@ -215,6 +222,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
+	$data['columns'][] = array('name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true);
 
 	$data['keys'][] = array('name' => 'enabled', 'columns' => 'enabled');
 	$data['keys'][] = array('name' => 'schedule', 'columns' => 'schedule');
