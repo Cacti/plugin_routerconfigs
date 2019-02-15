@@ -1,5 +1,5 @@
 <?php
-include('PHPConnection.php');
+include_once('PHPConnection.php');
 
 /*
 The following PHPTelnet is based loosely on code by Antone Roundy

@@ -1,5 +1,5 @@
 <?php
-include('LinePrompt.php');
+include_once('LinePrompt.php');
 
 abstract class PHPConnection {
 	protected $debugbuffer = false;
