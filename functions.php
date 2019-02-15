@@ -585,6 +585,80 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			$connection->Log("DEBUG: Result: ($result)");
 		}
 
+		$ver_lastuser   = '';
+		$ver_lastchange = '';
+
+		if ($devicetype['version'] != '') {
+			$length='';
+			$connection->DoCommand('terminal length 0', $length);
+			$connection->DoCommand('terminal pager 0', $length);
+
+			$version='';
+			$connection->DoCommand($devicetype['version'], $version);
+
+			$t       = time();
+			$version = explode("\n", $version);
+
+			if (sizeof($version)) {
+				foreach ($version as $v) {
+					if (strpos($v, ' uptime is ') !== FALSE) {
+						$uptime = 0;
+						$up     = trim(substr($v, strpos($v, ' uptime is ') + 11));
+						$up     = explode(',', $up);
+						$x      = 0;
+
+						foreach ($up as $u) {
+							$s = explode(' ', trim($u));
+							switch (trim($s[1])) {
+								case 'years':
+								case 'year':
+									$uptime += ($s[0] * 31449600);
+									break;
+								case 'months':
+								case 'month':
+									$uptime += ($s[0] * 2419200);
+									break;
+								case 'weeks':
+								case 'week':
+									$uptime += ($s[0] * 604800);
+									break;
+								case 'days':
+								case 'day':
+									$uptime += ($s[0] * 86400);
+									break;
+								case 'hours':
+								case 'hour':
+									$uptime += ($s[0] * 3600);
+									break;
+								case 'minutes':
+								case 'minute':
+									$uptime += ($s[0] * 60);
+									break;
+								case 'seconds':
+								case 'second':
+									$uptime += $s[0];
+									break;
+							}
+						}
+
+						$ver_lastuser   = '-- Reboot --';
+						$ver_lastchange = $t - $uptime;
+						$ver_diff       = $lastchange - $device['lastchange'];
+
+						if ($ver_diff < 0) {
+							$diff = $diff * -1;
+						}
+
+						if ($ver_diff > 60) {
+							$ver_lastchange = $device['lastchange'];
+						}
+					}
+				}
+			}
+		}
+
+		$connection->Disconnect();
+		$connection->Sleep();
 		$data = '';
 
 		$connection->Log("DEBUG: Checking for valid incoming file at $readname");
@@ -673,86 +747,17 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			}
 		}
 
+		if ($lastchange == '') {
+			$lastchange = $ver_lastchange;
+			$lastuser   = $ver_lastuser;
+		}
+
 		if ($lastchange != '' && $lastchange != $device['lastchange']) {
 			db_execute_prepared('UPDATE plugin_routerconfigs_devices
 				SET lastchange = ?, username = ?
 				WHERE id = ?',
 				array($lastchange, $lastuser, $device['id']));
-		} elseif ($lastchange == '' && $devicetype['version'] != '') {
-			$length='';
-			$connection->DoCommand('terminal length 0', $length);
-			$connection->DoCommand('terminal pager 0', $length);
-
-			$version='';
-			$connection->DoCommand($devicetype['version'], $version);
-
-			$t       = time();
-			$version = explode("\n", $version);
-
-			if (sizeof($version)) {
-				foreach ($version as $v) {
-					if (strpos($v, ' uptime is ') !== FALSE) {
-						$uptime = 0;
-						$up     = trim(substr($v, strpos($v, ' uptime is ') + 11));
-						$up     = explode(',', $up);
-						$x      = 0;
-
-						foreach ($up as $u) {
-							$s = explode(' ', trim($u));
-							switch (trim($s[1])) {
-								case 'years':
-								case 'year':
-									$uptime += ($s[0] * 31449600);
-									break;
-								case 'months':
-								case 'month':
-									$uptime += ($s[0] * 2419200);
-									break;
-								case 'weeks':
-								case 'week':
-									$uptime += ($s[0] * 604800);
-									break;
-								case 'days':
-								case 'day':
-									$uptime += ($s[0] * 86400);
-									break;
-								case 'hours':
-								case 'hour':
-									$uptime += ($s[0] * 3600);
-									break;
-								case 'minutes':
-								case 'minute':
-									$uptime += ($s[0] * 60);
-									break;
-								case 'seconds':
-								case 'second':
-									$uptime += $s[0];
-									break;
-							}
-						}
-
-						$lastuser   = '-- Reboot --';
-						$lastchange = $t - $uptime;
-						$diff       = $lastchange - $device['lastchange'];
-
-						if ($diff < 0) {
-							$diff = $diff * -1;
-						}
-
-						if ($diff > 60) {
-							db_execute_prepared('UPDATE plugin_routerconfigs_devices
-								SET lastchange = ?, username = ?
-								WHERE id = ?',
-								array($lastchange, $lastuser, $device['id']));
-						} else {
-							$lastchange = $device['lastchange'];
-						}
-					}
-				}
-			}
 		}
-
-		$connection->Disconnect();
 
 		$connection->Log("DEBUG: Configuration Data Length " . strlen($data));
 
