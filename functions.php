@@ -504,9 +504,9 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 		$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
 		foreach ($lines as $line) {
-			$connection->log("DEBUG: Line: $line");
+			$connection->Log("DEBUG: Line: $line");
 		}
-		$connection->log("DEBUG: Result: ($result)");
+		$connection->Log("DEBUG: Result: ($result)");
 
 		//check if there is questions to confirm
 		//i.e: in ASA it ask for confirmation of the source file
@@ -569,15 +569,15 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			if ($try_prompt == '') {
 				$try_prompt = 'a return';
 			}
-			$connection->log("$try_level Sending $try_prompt $try_command");
+			$connection->Log("$try_level Sending $try_prompt $try_command");
 
 			$response = '';
 			$result = $connection->DoCommand($try_command, $response);
 			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
 			foreach ($lines as $line) {
-				$connection->log("DEBUG: Line: $line");
+				$connection->Log("DEBUG: Line: $line");
 			}
-			$connection->log("DEBUG: Result: ($result)");
+			$connection->Log("DEBUG: Result: ($result)");
 		}
 
 		$data = '';
