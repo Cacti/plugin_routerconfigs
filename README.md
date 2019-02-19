@@ -56,6 +56,18 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- 1.4.2 ---
+
+* issue#90: Undefined column 'AnyKey'
+
+--- 1.4.1 ---
+
+* issue#87: Login stalls due to "Press Any Key" styled prompt
+
+* issue#88: Configuration files are not always completely downloaded
+
+* feature#65: Make routerconfigs able to backup HP devices
+
 --- 1.4.0 ---
 
 * issue#57: Fixed issue with schedule time not being 100% right
