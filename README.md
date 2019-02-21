@@ -59,6 +59,7 @@ issue in GitHub.
 --- 1.4.2 ---
 
 * issue#90: Undefined column 'AnyKey'
+* issue#91: Empty settings against device type can cause runtime errors
 
 --- 1.4.1 ---
 

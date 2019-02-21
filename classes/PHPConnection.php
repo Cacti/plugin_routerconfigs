@@ -273,15 +273,18 @@ abstract class PHPConnection {
 					$this->isEnabled = true;
 					$this->lastPrompt = LinePrompt::Enabled;
 					return 0;
-				} else if (stristr($buf, $this->devicetype['password'])) {
+				} else if (!empty($this->devicetype['password']) &&
+					stristr($buf, $this->devicetype['password'])) {
 					$this->Log('DEBUG: Found Prompt (Password)');
 					$this->lastPrompt = LinePrompt::Password;
 					return 0;
-				} else if (stristr($buf, $this->devicetype['username'])) {
+				} else if (!empty($this->devicetype['username']) &&
+					stristr($buf, $this->devicetype['username'])) {
 					$this->Log('DEBUG: Found Prompt (Username)');
 					$this->lastPrompt = LinePrompt::Username;
 					return 0;
-				} else if (stristr($buf, $this->devicetype['anykey'])) {
+				} else if (!empty($this->devicetype['anykey']) &&
+					stristr($buf, $this->devicetype['anykey'])) {
 					$this->Log('DEBUG: Found Prompt (AnyKey)');
 					$this->lastPrompt = LinePrompt::AnyKey;
 					return 0;
