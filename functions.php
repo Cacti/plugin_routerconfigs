@@ -643,7 +643,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 						$ver_lastuser   = '-- Reboot --';
 						$ver_lastchange = $t - $uptime;
-						$ver_diff       = $lastchange - $device['lastchange'];
+						$ver_diff       = $ver_lastchange - $device['lastchange'];
 
 						if ($ver_diff < 0) {
 							$diff = $diff * -1;
