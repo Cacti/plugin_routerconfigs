@@ -1,12 +1,3 @@
----
-name: Enhancement
-about: Create a pull request to help us make the project better
-title: 'Enhancement: '
-labels: 'enhancement'
-assignees: ''
-
----
-
 <!--- Provide a general summary of your changes in the Title above -->
 
 ## Description

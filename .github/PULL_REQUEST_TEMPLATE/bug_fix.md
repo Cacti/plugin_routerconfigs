@@ -1,12 +1,3 @@
----
-name: Bug Fix
-about: Create a pull request to help us fix an existing issue
-title: 'Bug Fix: '
-labels: 'bug'
-assignees: ''
-
----
-
 <!--- Provide a general summary of your changes in the Title above -->
 
 ## Description
