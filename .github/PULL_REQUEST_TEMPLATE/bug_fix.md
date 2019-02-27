@@ -1,6 +1,6 @@
 ---
-name: Enhancement
-about: Create a report to help us improve
+name: Bug Fix
+about: Create a pull request to help us fix an existing issue
 title: 'Bug Fix: '
 labels: 'bug'
 assignees: ''
@@ -41,4 +41,3 @@ assignees: ''
 - [ ] My code follows the code style of this project.
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation repository accordingly.
-- [ ] I have read the **CONTRIBUTING** document.
