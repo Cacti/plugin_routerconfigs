@@ -1,6 +1,7 @@
 When upgrading the Horde libraries, please remember to upgrade from
-	Text Diff
-	Exception
-	Translation
+	Text Diff    - https://github.com/horde/Text_Diff/
+	Exception    - https://github.com/horde/Exception/
+	Translation  - https://github.com/horde/Translation/
+	Util         - https://github.com/horde/Util
 
 Horde no longer self contains a repo and stores all classes used in separate libraries
