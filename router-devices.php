@@ -751,20 +751,14 @@ function show_devices() {
 				$row['devicetype'] = __('Auto-Detect', 'routerconfigs');
 			}
 
-			if (empty($row['connecttype'])) {
-				$row['connecttype'] = __('Default', 'routerconfigs');
-			}
-
 			$enabled = ($row['enabled'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>');
-
-			$type_dev = plugin_routerconfigs_getfirst(array($device['connecttype'], $devicetype['connecttype'], read_config_option('routerconfigs_connecttype'), 'both'), true);
-			$classes = PHPConnection::GetTypes($type_dev);
 
 			$cell = '';
 
 			// Loop through all the classes to find the interfaces used by all of them
 			// using the '+=' to merge/de-dupe
 			$interfaces = array();
+			$classes = PHPConnection::GetTypes($row['connecttype']);
 			foreach ($classes as $className) {
 				$interfaces += class_implements("$className");
 			}
