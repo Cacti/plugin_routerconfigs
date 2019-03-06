@@ -1,5 +1,6 @@
 <?php
-include_once('LinePrompt.php');
+require_once(__DIR__ . '/LinePrompt.php');
+require_once(__DIR__ . '/Interfaces.php');
 
 abstract class PHPConnection {
 	protected $debugbuffer = false;
@@ -19,24 +20,43 @@ abstract class PHPConnection {
 	private $lastPrompt = 0;
 	private $isEnabled = false;
 
-	function __construct($classType, $server, $user, $pass, $enablepw, $devicetype, $bufferDebug = false) {
-		$this->classType = $classType;
+	private static $knownTypes = array();
+
+	public static function AddType($classType, $groupName) {
+		if (!array_key_exists($groupName, PHPConnection::$knownTypes)) {
+			PHPConnection::$knownTypes[$groupName] = array();
+		}
+
+		PHPConnection::$knownTypes[$groupName][] = $classType;
+	}
+
+	public static function GetTypes($wantedGroup = '') {
+		$wantedGroup = "$wantedGroup";
+		$result = (array_key_exists($wantedGroup, PHPConnection::$knownTypes)) ?
+			PHPConnection::$knownTypes[$wantedGroup] :
+			array();
+		return $result;
+	}
+
+	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $bufferDebug = false) {
+		$this->classType = $classtype;
 
 		$this->pw1_text = plugin_routerconfigs_maskpw($pass);
 		$this->pw2_text = plugin_routerconfigs_maskpw($enablepw);
 
-		$this->server = $server;
+		$this->device = $device;
 		$this->user = $user;
 		$this->pass = $pass;
 		$this->enablepw = $enablepw;
-		$this->devicetype = $devicetype;
+		$this->deviceType = $devicetype;
 
 		$this->debug = '';
 		$this->debugbuffer = $bufferDebug;
-		$this->isEnabeld = false;
+		$this->isEnabled = false;
 		$this->setServerDetails();
 
-		$this->Log("DEBUG: Creating $classType(Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Devicetype: ".json_encode($this->devicetype));
+		$this->Log("DEBUG: Creating $classtype Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text");
+		$this->Log("DEBUG: deviceType: ".json_encode($this->deviceType));
 	}
 
 	function Log($message) {
@@ -49,16 +69,16 @@ abstract class PHPConnection {
 	}
 
 	protected function setServerDetails() {
-		$server = $this->server;
+		$this->server = $this->device['ipaddress'];
 
-		if (strlen($server)) {
-			if (preg_match('/[^0-9.]/', $server)) {
-				$ip = gethostbyname($server);
-				if ($ip == $server) {
+		if (strlen($this->server)) {
+			if (preg_match('/[^0-9.]/', $this->server)) {
+				$ip = gethostbyname($this->server);
+				if ($ip == $this->server) {
 					$ip = '';
 				}
 			} else {
-				$ip = $server;
+				$ip = $this->server;
 			}
 		} else {
 			$ip = '127.0.0.1';
@@ -273,18 +293,18 @@ abstract class PHPConnection {
 					$this->isEnabled = true;
 					$this->lastPrompt = LinePrompt::Enabled;
 					return 0;
-				} else if (!empty($this->devicetype['password']) &&
-					stristr($buf, $this->devicetype['password'])) {
+				} else if (!empty($this->deviceType['promptpass']) &&
+					stristr($buf, $this->deviceType['promptpass'])) {
 					$this->Log('DEBUG: Found Prompt (Password)');
 					$this->lastPrompt = LinePrompt::Password;
 					return 0;
-				} else if (!empty($this->devicetype['username']) &&
-					stristr($buf, $this->devicetype['username'])) {
+				} else if (!empty($this->deviceType['promptuser']) &&
+					stristr($buf, $this->deviceType['promptuser'])) {
 					$this->Log('DEBUG: Found Prompt (Username)');
 					$this->lastPrompt = LinePrompt::Username;
 					return 0;
-				} else if (!empty($this->devicetype['anykey']) &&
-					stristr($buf, $this->devicetype['anykey'])) {
+				} else if (!empty($this->deviceType['anykey']) &&
+					stristr($buf, $this->deviceType['anykey'])) {
 					$this->Log('DEBUG: Found Prompt (AnyKey)');
 					$this->lastPrompt = LinePrompt::AnyKey;
 					return 0;

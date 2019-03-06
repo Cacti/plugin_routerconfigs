@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2017 The Cacti Group                                 |
+ | Copyright (C) 2008-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -60,7 +60,7 @@ $remaing = '';
 $options = routerconfigs_getopts($shortOpts, $longOpts, $remaining);
 
 include('./include/global.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
+include_once(__DIR__ . '/include/functions.php');
 
 error_reporting(E_ALL ^ E_DEPRECATED);
 

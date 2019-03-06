@@ -22,10 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
-include_once('classes/LinePrompt.php');
-include_once('classes/PHPConnection.php');
-include_once('classes/PHPSsh.php');
-include_once('classes/PHPTelnet.php');
+require_once(__DIR__ . '/constants.php');
+require_once(__DIR__ . '/arrays.php');
+require_once(__DIR__ . '/../classes/LinePrompt.php');
+require_once(__DIR__ . '/../classes/PHPConnection.php');
+require_once(__DIR__ . '/../classes/PHPShellConnection.php');
+require_once(__DIR__ . '/../classes/PHPScp.php');
+require_once(__DIR__ . '/../classes/PHPSftp.php');
+require_once(__DIR__ . '/../classes/PHPSsh.php');
+require_once(__DIR__ . '/../classes/PHPTelnet.php');
 
 function display_tabs() {
 	global $config;
@@ -43,7 +48,7 @@ function display_tabs() {
 	);
 
 	/* set the default tab */
- 	$current_tab = get_nfilter_request_var('tab');
+	$current_tab = get_nfilter_request_var('tab');
 	if (!isset($current_tab) || !strlen($current_tab)) {
 		$back_trace = debug_backtrace();
 		$file_info = pathinfo($back_trace[0]['file']);
@@ -119,10 +124,11 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 	$cfailed = 0;
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
+	$tftpserver = read_config_option('routerconfigs_tftpserver');
+
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
 		plugin_routerconfigs_log(__('FATAL: TFTP Backup Path is not set or is not a directory', 'routerconfigs'));
 	} else {
-		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		if (strlen($tftpserver) < 2) {
 			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
 		} else {
@@ -395,8 +401,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
 	$tftpserver = read_config_option('routerconfigs_tftpserver');
 
-	$tftpfilename = $device['hostname'];
-	$filename     = $tftpfilename;
+	$filename = $device['hostname'];
 
 	if (strlen($dir) && $dir[0] == '/') {
 		$dir = substr($dir,1);
@@ -412,8 +417,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		array($device['devicetype']));
 
 	if (empty($devicetype)){
-		$devicetype = array('username' => 'username:',
-			'password' => 'password:',
+		$devicetype = array('promptuser' => 'username:',
+			'promptpass' => 'password:',
 			'copytftp' => 'copy start tftp',
 			'version' => 'show version',
 			'sleep' => '125000',
@@ -423,14 +428,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		);
 	}
 
-	$readname = "$backuppath$tftpfilename";
+	$readname = "$backuppath$filename";
 	clearstatcache();
-	if (file_exists($readname)) {
+	if (file_exists("$readname")) {
 		plugin_routerconfigs_log("DEBUG: Attempting to remove pre-existing incoming file: $readname");
-		@unlink($readname);
+		@unlink("$readname");
 
 		clearstatcache();
-		if (file_exists($readname)) {
+		if (file_exists("$readname")) {
 			$fail_msg = "ERROR: Failed to remove pre-existing incoming file: $readname";
 			plugin_routerconfigs_save_error($device['id'],null,$fail_msg);
 			plugin_routerconfigs_log($fail_msg);
@@ -438,46 +443,37 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		}
 	}
 
-	$timeout = plugin_routerconfigs_getfirst(array($device['timeout'], $devicetype['timeout'], read_config_option('timeout'), 1));
-	$sleep = plugin_routerconfigs_getfirst(array($device['sleep'], $devicetype['sleep'], read_config_option('sleep'), 125000));
+	$timeout  = plugin_routerconfigs_getfirst(array($device['timeout'], $devicetype['timeout'], read_config_option('timeout'), 1));
+	$sleep    = plugin_routerconfigs_getfirst(array($device['sleep'], $devicetype['sleep'], read_config_option('sleep'), 125000));
+	$type_dev = plugin_routerconfigs_getfirst(array($device['connecttype'], $devicetype['connecttype'], read_config_option('routerconfigs_connecttype'), 'both'), true);
+
+	$classes = PHPConnection::GetTypes($type_dev);
+	plugin_routerconfigs_log("$ip -> DEBUG: $type_dev has '" . implode('\', \'', $classes) . "'");
 
 	$result = 1;
-	$type_dev = isset($device['connect_type']) ? $device['connect_type'] : 'both';
-	$types_ssh = array('','both','ssh');
-	$types_tel = array('','both','telnet');
-
-	if (in_array($type_dev,$types_ssh)) {
-		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via SSH");
-
-		$connection = new PHPSsh($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
-		$connection->setTimeout($timeout);
-		$connection->setSleep($sleep);
-
-		$result = $connection->Connect();
-		if (!$result) {
-			$connection->Log("DEBUG: Connected via ssh");
-		} else {
-			$connection = NULL;
+	foreach ($classes as $classname) {
+		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to use '$classname'");
+		if (!class_exists($classname)) {
+			plugin_routerconfigs_log("$ip -> DEBUG: Skipped creating '$classname' as classType was not found");
+			continue;
 		}
-	}
 
-	if ($result && in_array($type_dev,$types_tel)) {
-		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to connect via Telnet");
+		$connection = new $classname($devicetype, $device, $info['username'], $info['password'], $info['enablepw'], $buffer_debug);
 
-		$connection = new PHPTelnet($device['ipaddress'], $info['username'], $info['password'], $info['enablepw'], $devicetype, $buffer_debug);
 		$connection->setTimeout($timeout);
 		$connection->setSleep($sleep);
 
 		$result = $connection->Connect();
 		if (!$result) {
-			$connection->Log("NOTICE: Connected via telnet");
+			$connection->Log("DEBUG: Connected via " . $connection->classType);
+			break;
 		} else {
 			$connection = NULL;
 		}
 	}
 
 	if ($result) {
-		$fail_msg = __("ERROR: Failed to Connect to Device '%s' using connection type: %s",$device['hostname'],$type_dev,'routerconfigs');
+		$fail_msg = __("ERROR: Failed to connect to Device '%s' using connection type: %s",$device['hostname'],$type_dev,'routerconfigs');
 		plugin_routerconfigs_save_error($device['id'],null,$fail_msg);
 		plugin_routerconfigs_log($fail_msg);
 		return false;
@@ -486,342 +482,174 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$ip    = $connection->ip();
 	$file  = false;
 
-	if ($result == 0) {
-		$command = $devicetype['copytftp'];
-		if (stristr($command, '%SERVER%')) {
-			$command = str_ireplace('%SERVER%', $tftpserver, $command);
+	if (!$connection->Download($filename, $backuppath)) {
+		$fail_msg = __("ERROR: Failed to download '%s' to '%s' via '%s'", $filename, $backuppath . $filename, $type_dev,'routerconfigs');
+		plugin_routerconfigs_save_error($device['id'],null,$fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+	}
+	$connection->Disconnect();
+	$connection->Sleep();
+	$data = '';
+
+	$connection->Log("DEBUG: Checking for valid incoming file at $readname");
+	clearstatcache();
+
+	$file = false;
+	$data = false;
+	if (!file_exists("$readname")) {
+		$connection->Log("ERROR: Failed to find file at $readname");
+	} else {
+		if (filesize("$readname") > 0) {
+			$connection->Log("DEBUG: Attempting to open file at $readname");
+			$file = @fopen("$readname", 'r');
 		}
 
-		if (stristr($command, '%FILE%')) {
-			$command=str_ireplace('%FILE%', $filename, $command);
-		}
+		if ($file === false) {
+			$connection->Log("ERROR: Failed to open file at $readname");
+		} else {
+			$data = @fread($file, filesize("$readname"));
+			@fclose($file);
 
-		if (!$connection->EnsureEnabled()) {
-			$connection->error(9);
-			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $connection);
-			$connection->Disconnect();
-			return false;
-		}
-
-		$response = '';
-		$result = $connection->DoCommand($command, $response);
-
-		$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
-		foreach ($lines as $line) {
-			$connection->Log("DEBUG: Line: $line");
-		}
-		$connection->Log("DEBUG: Result: ($result)");
-
-		//check if there is questions to confirm
-		//i.e: in ASA it ask for confirmation of the source file
-		//but this also confirm in case that all command is executed
-		//in one line
-		$x = 0;
-		$ret = 0;
-		$confirmed = false;
-		$sent_srv = false;
-		$sent_dst = false;
-		while (($ret == 0 || $ret == 8) && $x<30 &&
-			$connection->prompt() != LinePrompt::Enabled &&
-			$connection->prompt() != LinePrompt::Normal) {
-			$x++;
-
-			$try_level='DEBUG:';
-			$try_command='';
-			$try_prompt='';
-
-			if (stristr($response, 'bytes copied') ||
-				stristr($response,'successful')) {
-				$connection->Log("DEBUG: TFP Transfer successful");
-				break;
-			} else if (stristr($response, 'error')) {
-				$connection->Log("DEBUG: TFTP Transfer ERRORED");
-				break;
-			} else if ($connection->prompt() == LinePrompt::Question) {
-				$connection->Log("DEBUG: Question found");
-
-				if (stristr($response, 'address') && !stristr($response, "[$ip]")) {
-					if (!$sent_srv) {
-						//send tftpserver if necessary
-						$try_level='NOTICE:';
-						$try_command=$tftpserver;
-						$try_prompt='Server:';
-						$sent_srv=true;
-					}
-				} else if (stristr($response, 'filename')) {
-					if (!stristr($response, 'source') && !stristr($response, "[$filename]")) {
-						if (!$sent_dst) {
-							$try_level='NOTICE:';
-							//send filename if necessary
-							$try_prompt='Filename (Destination):';
-							$try_command=$filename;
-							$sent_dst=true;
-						}
-					} else {
-						$try_level='NOTICE:';
-						$try_prompt='Filename (Source):';
-					}
-				}
-
-				if ($try_prompt == '' && !$confirmed && (strpos($response, 'confirm') !== FALSE || strpos($response, 'to tftp:') !== FALSE || $devicetype['forceconfirm'])) {
-					$try_command=$devicetype['confirm'];
-					$try_prompt='confirmation:';
-					$confirmed = true;
-				}
+			if ($data === false) {
+				$connection->Log("ERROR: Failed to read file at $readname");
 			}
-
-			if ($try_prompt == '') {
-				$try_prompt = 'a return';
-			}
-			$connection->Log("$try_level Sending $try_prompt $try_command");
-
-			$response = '';
-			$result = $connection->DoCommand($try_command, $response);
-			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
-			foreach ($lines as $line) {
-				$connection->Log("DEBUG: Line: $line");
-			}
-			$connection->Log("DEBUG: Result: ($result)");
 		}
+	}
 
-		$ver_lastuser   = '';
-		$ver_lastchange = '';
+	if ($data === false) {
+		$connection->error(7);
+		plugin_routerconfigs_save_error($device['id'], $connection);
+		plugin_routerconfigs_save_debug($device, $connection);
+		return false;
+	}
 
-		if ($devicetype['version'] != '') {
-			$length='';
-			$connection->DoCommand('terminal length 0', $length);
-			$connection->DoCommand('terminal pager 0', $length);
+	@unlink("$readname");
+	clearstatcache();
+	if (file_exists("$readname")) {
+		$connection->Log("WARNING: Failed to remove file at $readname");
+	}
 
-			$version='';
-			$connection->DoCommand($devicetype['version'], $version);
+	if ($devicetype['checkendinconfig'] == 'on' && !plugin_routerconfigs_check_config($data)) {
+		$connection->error(5);
+		plugin_routerconfigs_save_error($device['id'], $connection);
+		plugin_routerconfigs_save_debug($device, $connection);
+		$connection->Log("DEBUG: checking end in config");
+		return false;
+	}
 
-			$t       = time();
-			$version = explode("\n", $version);
+	if ($devicetype['checkendinconfig'] == 'on') {
+		$connection->Log("DEBUG: Configuration end check successful");
+	} else {
+		$connection->Log("DEBUG: Configuration end check was not performed");
+	}
 
-			if (sizeof($version)) {
-				foreach ($version as $v) {
-					if (strpos($v, ' uptime is ') !== FALSE) {
-						$uptime = 0;
-						$up     = trim(substr($v, strpos($v, ' uptime is ') + 11));
-						$up     = explode(',', $up);
-						$x      = 0;
+	$data       = str_replace ("\n", "\r\n", $data);
+	$data2      = explode("\r\n", $data);
+	$lastchange = '';
+	$lastuser   = '';
+	if (sizeof($data2)) {
+		foreach ($data2 as $d) {
+			if (strpos($d, 'Last configuration change at') !== FALSE) {
+				$lastchange = substr($d, strpos($d, 'change at') + 10, strpos($d, ' by ') - (strpos($d, 'change at') + 10));
 
-						foreach ($up as $u) {
-							$s = explode(' ', trim($u));
-							switch (trim($s[1])) {
-								case 'years':
-								case 'year':
-									$uptime += ($s[0] * 31449600);
-									break;
-								case 'months':
-								case 'month':
-									$uptime += ($s[0] * 2419200);
-									break;
-								case 'weeks':
-								case 'week':
-									$uptime += ($s[0] * 604800);
-									break;
-								case 'days':
-								case 'day':
-									$uptime += ($s[0] * 86400);
-									break;
-								case 'hours':
-								case 'hour':
-									$uptime += ($s[0] * 3600);
-									break;
-								case 'minutes':
-								case 'minute':
-									$uptime += ($s[0] * 60);
-									break;
-								case 'seconds':
-								case 'second':
-									$uptime += $s[0];
-									break;
-							}
-						}
+				$t = explode(' ', $lastchange);
+				if (isset($t[5])) {
+					$t = array($t[3], $t[4], $t[5], $t[0], $t[1]);
+					$t = implode(' ', $t);
+					$lastchange = strtotime($t);
 
-						$ver_lastuser   = '-- Reboot --';
-						$ver_lastchange = $t - $uptime;
-						$ver_diff       = $ver_lastchange - $device['lastchange'];
-
-						if ($ver_diff < 0) {
-							$diff = $diff * -1;
-						}
-
-						if ($ver_diff > 60) {
-							$ver_lastchange = $device['lastchange'];
-						}
+					if (substr($d, strpos($d, ' by ')) !== FALSE) {
+						$lastuser = substr($d, strpos($d, ' by ') + 4);
 					}
 				}
 			}
+
+			if (preg_match('~^(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
+				$filename = trim($matches[2]);
+				if (strlen($filename)) {
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices
+						SET hostname = ?, ipaddress = ?
+						WHERE id = ?',
+						array($filename, $connection->ip(), $device['id']));
+				}
+			}
 		}
+	}
 
-		$connection->Disconnect();
-		$connection->Sleep();
-		$data = '';
+	if ($lastchange == '') {
+		$lastchange = $connection->lastchange;
+		$lastuser   = $connection->lastuser;
+	}
 
-		$connection->Log("DEBUG: Checking for valid incoming file at $readname");
-		clearstatcache();
+	if ($lastchange != '' && $lastchange != $device['lastchange']) {
+		db_execute_prepared('UPDATE plugin_routerconfigs_devices
+			SET lastchange = ?, lastuser = ?
+			WHERE id = ?',
+			array($lastchange, $lastuser, $device['id']));
+	}
+
+	$connection->Log("DEBUG: Configuration Data Length " . strlen($data));
+	if (strlen($data) > 100) {
+		$connection->Log("DEBUG: Checking backup directory exists: $archivepath");
+		if (!is_dir("$archivepath")) {
+			$connection->Log("DEBUG: Creating backup directory: $archivepath");
+			@mkdir("$archivepath", 0770, true);
+		}
 
 		$file = false;
-		$data = false;
-		if (!file_exists("$readname")) {
-			$connection->Log("ERROR: Failed to find file at $readname");
+		if (!is_dir("$archivepath")) {
+			$connection->Log("ERROR: Failed to create backup directory: $archivepath");
 		} else {
-			if (filesize("$readname") > 0) {
-				$connection->Log("DEBUG: Attempting to open file at $readname");
-				$file = @fopen("$readname", 'r');
+			$date = date('Y-m-d-Hi');
+			$savename = "$archivepath$filename-$date";
+			$connection->Log("DEBUG: Attempting to backup to filename '$savename'");
+
+			clearstatcache();
+			if (file_exists($savename)) {
+				$connection->Log("WARNING: Overwritting existing file '$savename'");
 			}
+
+			$file = @fopen($savename, 'w');
 
 			if ($file === false) {
-				$connection->Log("ERROR: Failed to open file at $readname");
+				$connection->Log("ERROR: Failed to open file '$savename' for writing");
 			} else {
-				$data = @fread($file, filesize("$readname"));
+				@fwrite($file, $data);
 				@fclose($file);
 
-				if ($data === false) {
-					$connection->Log("ERROR: Failed to read file at $readname");
-				}
-			}
-		}
-
-		if ($data === false) {
-			$connection->error(7);
-			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $connection);
-			$connection->Disconnect();
-			return false;
-		}
-
-		@unlink("$readname");
-		clearstatcache();
-		if (file_exists("$readname")) {
-			$connection->Log("WARNING: Failed to remove file at $readname");
-		}
-
-		if ($devicetype['checkendinconfig'] == 'on' && !plugin_routerconfigs_check_config($data)) {
-			$connection->error(5);
-			plugin_routerconfigs_save_error($device['id'], $connection);
-			plugin_routerconfigs_save_debug($device, $connection);
-			$connection->Log("DEBUG: checking end in config");
-			$connection->Disconnect();
-			return false;
-		}
-
-		if ($devicetype['checkendinconfig'] == 'on') {
-			$connection->Log("DEBUG: Configuration end check successful");
-		} else {
-			$connection->Log("DEBUG: Configuration end check was not performed");
-		}
-
-		$data       = str_replace ("\n", "\r\n", $data);
-		$data2      = explode("\r\n", $data);
-		$lastchange = '';
-		$lastuser   = '';
-		if (sizeof($data2)) {
-			foreach ($data2 as $d) {
-				if (strpos($d, 'Last configuration change at') !== FALSE) {
-					$lastchange = substr($d, strpos($d, 'change at') + 10, strpos($d, ' by ') - (strpos($d, 'change at') + 10));
-
-					$t = explode(' ', $lastchange);
-					if (isset($t[5])) {
-						$t = array($t[3], $t[4], $t[5], $t[0], $t[1]);
-						$t = implode(' ', $t);
-						$lastchange = strtotime($t);
-						if (substr($d, strpos($d, ' by ')) !== FALSE) {
-							$lastuser = substr($d, strpos($d, ' by ') + 4);
-						}
-					}
-				}
-
-				if (preg_match('~^(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
-					$filename = trim($matches[2]);
-					if (strlen($filename)) {
-						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET hostname = ?, ipaddress = ?
-							WHERE id = ?',
-							array($filename, $connection->ip(), $device['id']));
-					}
-				}
-			}
-		}
-
-		if ($lastchange == '') {
-			$lastchange = $ver_lastchange;
-			$lastuser   = $ver_lastuser;
-		}
-
-		if ($lastchange != '' && $lastchange != $device['lastchange']) {
-			db_execute_prepared('UPDATE plugin_routerconfigs_devices
-				SET lastchange = ?, username = ?
-				WHERE id = ?',
-				array($lastchange, $lastuser, $device['id']));
-		}
-
-		$connection->Log("DEBUG: Configuration Data Length " . strlen($data));
-
-		if (strlen($data) > 100) {
-			$connection->Log("DEBUG: Checking backup directory exists: $archivepath");
-			if (!is_dir("$archivepath")) {
-				$connection->Log("DEBUG: Creating backup directory: $archivepath");
-				@mkdir("$archivepath", 0770, true);
-			}
-
-			$file = false;
-			if (!is_dir("$archivepath")) {
-				$connection->Log("ERROR: Failed to create backup directory: $archivepath");
-			} else {
-				$date = date('Y-m-d-Hi');
-				$savename = "$archivepath$filename-$date";
-				$connection->Log("DEBUG: Attempting to backup to filename '$savename'");
-
 				clearstatcache();
-				if (file_exists($savename)) {
-					$connection->Log("WARNING: Overwritting existing file '$savename'");
-				}
-
-				$file = @fopen($savename, 'w');
-
-				if ($file === false) {
-					$connection->Log("ERROR: Failed to open file '$savename' for writing");
+				$filesize = @filesize("$savename");
+				if ($filesize < strlen($data)) {
+					$connection->Log("WARNING: File '$savename' has size $filesize, expected ".strlen($data));
+					$file = false;
 				} else {
-					@fwrite($file, $data);
-					@fclose($file);
-
-					clearstatcache();
-					$filesize = @filesize("$savename");
-					if ($filesize < strlen($data)) {
-						$connection->Log("WARNING: File '$savename' has size $filesize, expected ".strlen($data));
-						$file = false;
+					$data2 = $data;
+					$t_back = time();
+					if ($scheduled) {
+						$t_next = plugin_routerconfigs_nexttime($backuptime, $device['schedule'], 86400, read_config_option('routerconfigs_hour'));
 					} else {
-						$data2 = $data;
-						$t_back = time();
-						if ($scheduled) {
-							$t_next = plugin_routerconfigs_nexttime($backuptime, $device['schedule'], 86400, read_config_option('routerconfigs_hour'));
-						} else {
-							$t_next = db_fetch_cell_prepared('SELECT nextbackup FROM plugin_routerconfigs_devices WHERE id = ?', array($device['id']));
-						}
+						$t_next = db_fetch_cell_prepared('SELECT nextbackup FROM plugin_routerconfigs_devices WHERE id = ?', array($device['id']));
+					}
 
-						if ($lastchange == '') {
-							 $lastchange = 0;
-						}
+					if ($lastchange == '') {
+						 $lastchange = 0;
+					}
 
-						$device['lastfile'] = $savename;
-						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET lastbackup = ?,
-							nextbackup = ?,
-							nextattempt = 0
-							WHERE id = ?',
-							array($t_back, $t_next, $device['id']));
+					$device['lastfile'] = $savename;
+					db_execute_prepared('UPDATE plugin_routerconfigs_devices
+						SET lastbackup = ?,
+						nextbackup = ?,
+						nextattempt = 0
+						WHERE id = ?',
+						array($t_back, $t_next, $device['id']));
 
-						$backup_dir = dirname($savename);
-						$backup_file = basename($savename);
-						db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
-							(device, btime, directory, filename, lastchange, username)
+					$backup_dir = dirname($savename);
+					$backup_file = basename($savename);
+
+					db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
+						(device, btime, directory, filename, lastchange, username)
 						VALUES (?, ?, ?, ?, ?, ?)',
 						array($device['id'], $t_back, $backup_dir, $backup_file, $lastchange, $lastuser));
-					}
 				}
 			}
 		}
@@ -968,9 +796,11 @@ function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) 
 	}
 }
 
-function plugin_routerconfigs_getfirst($array) {
+function plugin_routerconfigs_getfirst($array, $debug = false) {
+	$count = 0;
 	foreach ($array as $item) {
-		if ($item > 0)
+		$count++;
+		if (!empty($item))
 			return $item;
 	}
 	return false;
@@ -992,7 +822,7 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 			ON prb.device=prd.id
 			WHERE prd.id=?
 			ORDER BY btime DESC',
- 			array(get_request_var('id')));
+			array(get_request_var('id')));
 	}
 
 	if (isset($device['id'])) {

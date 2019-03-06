@@ -1,5 +1,5 @@
 <?php
-include_once('PHPConnection.php');
+require_once(__DIR__ . '/PHPConnection.php');
 
 /*
 The following PHPTelnet is based loosely on code by Antone Roundy
@@ -12,7 +12,7 @@ be included to have proper functionality.  Most common connection
 code is now within PHPConnection with only Telnet specific code
 in this class
 */
-class PHPTelnet extends PHPConnection {
+class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	var $show_connect_error=1;
 
 	var $loginsleeptime=1000000;
@@ -27,8 +27,8 @@ class PHPTelnet extends PHPConnection {
 	3 = login failed
 	4 = PHP version too low
 	*/
-	function __construct($server, $user, $pass, $enablepw, $devicetype, $buffer_debug = false) {
-		parent::__construct('Telnet',$server, $user, $pass, $enablepw, $devicetype, $buffer_debug);
+	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
+		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
 
 		$this->conn1=chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
 			chr(0x20).chr(0xFF).chr(0xFB).chr(0x18).chr(0xFF).chr(0xFB).
@@ -75,7 +75,7 @@ class PHPTelnet extends PHPConnection {
 
 				@fputs($this->stream, $this->conn2);
 
-				$this->Log("Looking for ".$this->devicetype['username']);
+				$this->Log("Looking for ".$this->devicetype['prompuser']);
 
 				// Get Username Prompt
 				$r = '';
@@ -183,3 +183,6 @@ class PHPTelnet extends PHPConnection {
 		return '';
 	}
 }
+
+PHPConnection::AddType('PHPTelnet', 'telnet');
+PHPConnection::AddType('PHPTelnet', 'both');

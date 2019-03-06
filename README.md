@@ -56,9 +56,20 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- 1.5.0 --
+
+* issue#95: Upgrade does not function as expected
+
+* issue#96: i18n is not being properly utilised
+
+* feature#74: Feature Request: Enable SCP/SFTP method of backup
+
+* feature#97: Allow connection type to be inherited
+
 --- 1.4.2 ---
 
 * issue#90: Undefined column 'AnyKey'
+
 * issue#91: Empty settings against device type can cause runtime errors
 
 --- 1.4.1 ---

@@ -21,3 +21,6 @@
  | http://www.cacti.net/                                                   |
  +-------------------------------------------------------------------------+
 */
+
+interface ShellTelnet {}
+interface ShellSsh {}

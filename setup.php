@@ -22,6 +22,8 @@
  +-------------------------------------------------------------------------+
 */
 
+include_once(__DIR__ . '/include/arrays.php');
+
 function plugin_routerconfigs_version () {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/routerconfigs/INFO', true);
@@ -91,63 +93,112 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
-		if (cacti_version_compare($old, '1.2', '<')) {
-			if (!db_column_exists('connect_type','plugin_routerconfigs_devices')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_devices
-					ADD COLUMN `connect_type` varchar(10) DEFAULT \'both\'');
-			}
+		if (cacti_version_compare($old, '1.4.0', '<')) {
+			plugin_routerconfigs_fix_backups_pre14();
 		}
 
-		if (cacti_version_compare($old, '1.3.3', '<')) {
-			if (!db_column_exists('nextbackup','plugin_routerconfigs_devices')) {
+		if (cacti_version_compare($old, '1.5', '<')) {
+
+			// Remove old columns of backups
+			if (db_column_exists('plugin_routerconfigs_backups', 'config')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_backups
+					DROP COLUMN `config`');
+			}
+
+			if (db_column_exists('plugin_routerconfigs_devices','password')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					DROP COLUMN `password`');
+			}
+
+			if (db_column_exists('plugin_routerconfigs_devices', 'anykey')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					DROP COLUMN `anykey`');
+			}
+
+			// Rename existing columns of devices
+			if (db_column_exists('plugin_routerconfigs_devices','connect_type')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					CHANGE COLUMN `connect_type` `connecttype` varchar(10) DEFAULT \'\'');
+			}
+
+			if (db_column_exists('plugin_routerconfigs_devices','username')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					CHANGE COLUMN `username` `lastuser` varchar(64)');
+			}
+
+			// Add new/missing columns of devices
+			if (!db_column_exists('plugin_routerconfigs_devices','connecttype')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `connecttype` varchar(10) DEFAULT \'\'');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devices','nextbackup')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devices
 					ADD COLUMN `nextbackup` int(18)');
 			}
 
-			if (!db_column_exists('connect_type','plugin_routerconfigs_devices')) {
+			if (!db_column_exists('plugin_routerconfigs_devices','nextattempt')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devices
 					ADD COLUMN `nextattempt` int(18)');
 			}
+
+			if (!db_column_exists('plugin_routerconfigs_devices', 'timeout')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `timeout` int(18)');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devices', 'sleep')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `sleep` int(18)');
+			}
+
+			// Perform tidy up of devices
 			db_execute('UPDATE plugin_routerconfigs_devices SET
-				nextbackup = 0,
-				nextattempt = 0');
-		}
+				nextbackup = IFNULL(nextbackup,0),
+				nextattempt = IFNULL(nextattempt,0)');
 
-		if (cacti_version_compare($old, '1.3.4', '<')) {
-			if (!db_column_exists('timeout','plugin_routerconfigs_devices')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_devices
-					ADD COLUMN `timeout` int(18)');
-			}
-
-			if (!db_column_exists('sleep','plugin_routerconfigs_devices')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_devices
-					ADD COLUMN `sleep` int(18)');
-			}
-
-			if (!db_column_exists('timeout','plugin_routerconfigs_devicetypes')) {
+			// Rename existing columns of device types
+			if (db_column_exists('plugin_routerconfigs_devicetypes','connect_type')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
-					ADD COLUMN `timeout` int(18)');
+					CHANGE COLUMN `connect_type` `connecttype` varchar(10) DEFAULT \'\'');
 			}
 
-			if (!db_column_exists('sleep','plugin_routerconfigs_devicetypes')) {
+			if (db_column_exists('plugin_routerconfigs_devicetypes','username')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
-					ADD COLUMN `sleep` int(18)');
+					CHANGE COLUMN `username` `promptuser` varchar(64)');
 			}
-		}
 
-		if (cacti_version_compare($old, '1.4.0', '<')) {
-			plugin_routerconfigs_fix_backups_pre14();
-			if (db_column_exists('config','plugin_routerconfigs_backups')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_backups
-					REMOVE COLUMN `config`');
+			if (db_column_exists('plugin_routerconfigs_devicetypes','password')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					CHANGE COLUMN `password` `promptpass` varchar(256)');
 			}
-		}
 
-		if (cacti_version_compare($old, '1.4.2', '<')) {
-			if (!db_column_exists('anykey','plugin_routerconfigs_devicetypes')) {
+			// Add new/missing columns of device types
+			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'anykey')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
 					ADD COLUMN `anykey` varchar(50) DEFAULT \'\'');
 			}
+
+			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'configfile')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `configfile` varchar(50) DEFAULT \'\' AFTER `password`');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devicetypes','connecttype')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `connecttype` varchar(10) DEFAULT \'both\'');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'sleep')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `sleep` int(18)');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'timeout')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `timeout` int(18)');
+			}
+
 		}
 
 		db_execute("UPDATE plugin_config
@@ -185,7 +236,6 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'config', 'type' => 'longblob', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
 
@@ -210,7 +260,6 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'account', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'schedule', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true);
@@ -218,7 +267,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'connect_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => 'both');
+	$data['columns'][] = array('name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
@@ -241,8 +290,10 @@ function routerconfigs_setup_table_new() {
 
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'promptuser', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'promptpass', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'configfile', 'type' => 'varchar(256)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
@@ -307,178 +358,16 @@ function routerconfigs_poller_bottom () {
 }
 
 function routerconfigs_config_settings () {
-	global $tabs, $settings, $config;
+	global $tabs, $settings, $config, $rc_settings;
 
 	routerconfigs_check_upgrade();
 
-	if (function_exists('gethostname')) {
-		$hostname = gethostname();
-	}else{
-		$hostname = php_uname('n');
-	}
 	$tabs['routerconfigs'] = __('Router Configs', 'routerconfigs');
 
-	$temp = array(
-		'routerconfigs_header' => array(
-			'friendly_name' => __('Router Configs', 'routerconfigs'),
-			'method' => 'spacer',
-		),
-		'routerconfigs_timeout' => array(
-			'friendly_name' => __('Default timeout', 'routerconfigs'),
-			'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
-			'method' => 'textbox',
-			'max_length' => '3',
-			'default' => '1'
-		),
-		'routerconfigs_sleep' => array(
-			'friendly_name' => __('Default sleep time', 'routerconfigs'),
-			'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
-			'method' => 'textbox',
-			'max_length' => '10',
-			'default' => '125000'
-		),
-		'routerconfigs_exit' => array(
-			'friendly_name' => __('Close without exit', 'routerconfigs'),
-			'description' => __('If ticked, when closing down the device connection, no \'exit\' command is issued', 'routerconfigs'),
-			'method' => 'checkbox'
-		),
-		'routerconfigs_debug_buffer' => array(
-			'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
-			'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
-			'method' => 'checkbox'
-		),
-		'routerconfigs_hour' => array(
-			'friendly_name' => __('Download Hour', 'routerconfigs'),
-			'description' => __('The hour of the day to perform the full downloads.', 'routerconfigs'),
-			'method' => 'drop_array',
-			'default' => '0',
-			'array' => array(
-				'0'  => __('00:00 (12am)', 1, 'routerconfigs'),
-				'1'  => __('01:00 (1am)', 1, 'routerconfigs'),
-				'2'  => __('02:00 (2am)', 1, 'routerconfigs'),
-				'3'  => __('03:00 (3am)', 1, 'routerconfigs'),
-				'4'  => __('04:00 (4am)', 1, 'routerconfigs'),
-				'5'  => __('05:00 (5am)', 1, 'routerconfigs'),
-				'6'  => __('06:00 (6am)', 1, 'routerconfigs'),
-				'7'  => __('07:00 (7am)', 1, 'routerconfigs'),
-				'8'  => __('08:00 (8am)', 1, 'routerconfigs'),
-				'9'  => __('09:00 (9am)', 1, 'routerconfigs'),
-				'10'  => __('10:00 (12am)', 1, 'routerconfigs'),
-				'11'  => __('11:00 (11am)', 1, 'routerconfigs'),
-				'12'  => __('12:00 (12pm)', 1, 'routerconfigs'),
-				'13'  => __('13:00 (1pm)', 1, 'routerconfigs'),
-				'14'  => __('14:00 (2pm)', 1, 'routerconfigs'),
-				'15'  => __('15:00 (3pm)', 1, 'routerconfigs'),
-				'16'  => __('16:00 (4pm)', 1, 'routerconfigs'),
-				'17'  => __('17:00 (5pm)', 1, 'routerconfigs'),
-				'18'  => __('18:00 (6pm)', 1, 'routerconfigs'),
-				'19'  => __('19:00 (7pm)', 1, 'routerconfigs'),
-				'20'  => __('20:00 (8pm)', 1, 'routerconfigs'),
-				'21'  => __('21:00 (9pm)', 1, 'routerconfigs'),
-				'22'  => __('22:00 (10pm)', 1, 'routerconfigs'),
-				'23'  => __('23:00 (11pm)', 1, 'routerconfigs'),
-			)
-		),
-		'routerconfigs_retry' => array(
-			'friendly_name' => __('Retry Schedule', 'routerconfigs'),
-			'description' => __('The time to wait before attempting to perform an additional download when scheduled download fails', 'routerconfigs'),
-			'method' => 'drop_array',
-			'default' => '4',
-			'array' => array(
-				'0'  => __('Never', 1, 'routerconfigs'),
-				'1'  => __('1 hour', 2, 'routerconfigs'),
-				'2'  => __('2 hours', 1, 'routerconfigs'),
-				'3'  => __('3 hours', 1, 'routerconfigs'),
-				'4'  => __('4 hours', 1, 'routerconfigs'),
-				'6'  => __('6 hours', 1, 'routerconfigs'),
-				'8'  => __('8 hours', 1, 'routerconfigs'),
-				'12'  => __('12 hours', 1, 'routerconfigs'),
-			)
-		),
-		'routerconfigs_retention' => array(
-			'friendly_name' => __('Retention Period', 'routerconfigs'),
-			'description' => __('The number of days to retain old backups.', 'routerconfigs'),
-			'method' => 'drop_array',
-			'default' => '30',
-			'array' => array(
-				'30'  => __('%d Month', 1, 'routerconfigs'),
-				'60'  => __('%d Months', 2, 'routerconfigs'),
-				'90'  => __('%d Months', 3, 'routerconfigs'),
-				'120' => __('%d Months', 4, 'routerconfigs'),
-				'180' => __('%d Months', 6, 'routerconfigs'),
-				'365' => __('%d Year', 1, 'routerconfigs')
-			)
-		),
-		'routerconfigs_header_tftp' => array(
-			'friendly_name' => __('Router Configs - TFTP', 'routerconfigs'),
-			'method' => 'spacer',
-		),
-		'routerconfigs_archive_separate' => array(
-			'friendly_name' => __('Separate By Device', 'routerconfigs'),
-			'description' => __('Separate archived Configs into a folder per device', 'routerconfigs'),
-			'method' => 'checkbox',
-			'default' => 'on'
-		),
-		'routerconfigs_tftpserver' => array(
-			'friendly_name' => __('TFTP Server IP', 'routerconfigs'),
-			'description' => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
-			'method' => 'textbox',
-			'max_length' => 255,
-			'default' => gethostbyname($hostname)
-		),
-		'routerconfigs_backup_path' => array(
-			'friendly_name' => __('TFTP Backup Directory Path', 'routerconfigs'),
-			'description' => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.', 'routerconfigs'),
-			'method' => 'dirpath',
-			'max_length' => 255,
-			'size' => '50',
-			'default' => $config['base_path'] . '/backups/'
-		),
-		'routerconfigs_archive_path' => array(
-			'friendly_name' => __('Archive Directory Path', 'routerconfigs'),
-			'description' => __('The path to where your Configs will be archived (moved from TFTP directory)', 'routerconfigs'),
-			'method' => 'dirpath',
-			'max_length' => 255,
-			'size' => '50',
-			'default' => $config['base_path'] . '/plugins/routerconfigs/backups/'
-		),
-		'routerconfigs_header_email' => array(
-			'friendly_name' => __('Router Configs - Email', 'routerconfigs'),
-			'method' => 'spacer',
-		),
-		'routerconfigs_from' => array(
-			'friendly_name' => __('From Address', 'routerconfigs'),
-			'description' => __('Email address the nightly backup will be sent from.', 'routerconfigs'),
-			'method' => 'textbox',
-			'size' => 40,
-			'max_length' => 255,
-			'default' => ''
-		),
-		'routerconfigs_name' => array(
-			'friendly_name' => __('From Name', 'routerconfigs'),
-			'description' => __('Name the nightly backup will be sent from.', 'routerconfigs'),
-			'method' => 'textbox',
-			'size' => 40,
-			'max_length' => 255,
-			'default' => ''
-		),
-		'routerconfigs_email' => array(
-			'friendly_name' => __('Email Address', 'routerconfigs'),
-			'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
-			'method' => 'textarea',
-			'class' => 'textAreaNotes',
-			'textarea_rows' => '5',
-			'textarea_cols' => '40',
-			'size' => 40,
-			'max_length' => 255,
-			'default' => ''
-		),
-	);
-
 	if (isset($settings['routerconfigs'])) {
-		$settings['routerconfigs'] = array_merge($settings['routerconfigs'], $temp);
+		$settings['routerconfigs'] = array_merge($settings['routerconfigs'], $rc_settings);
 	} else {
-		$settings['routerconfigs'] = $temp;
+		$settings['routerconfigs'] = $rc_settings;
 	}
 }
 

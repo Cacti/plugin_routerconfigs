@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2007-2017 The Cacti Group                                 |
+ | Copyright (C) 2007-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -26,11 +26,7 @@
 chdir('../../');
 
 include('./include/auth.php');
-include_once('./plugins/routerconfigs/functions.php');
-
-$ds_actions = array(
-	1 => __('Delete', 'routerconfigs')
-);
+include_once(__DIR__ . '/include/functions.php');
 
 set_default_action();
 
@@ -45,45 +41,6 @@ if (isset_request_var('username')) {
 }else{
 	$username = '';
 }
-
-$account_edit = array(
-	'name' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Name', 'routerconfigs'),
-		'description' => __('Give this account a meaningful name that will be displayed.', 'routerconfigs'),
-		'value' => '|arg1:name|',
-		'max_length' => '64',
-		),
-	'username' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Username', 'routerconfigs'),
-		'description' => __('The username that will be used for authentication.', 'routerconfigs'),
-		'value' => '|arg1:username|',
-		'max_length' => '64',
-		),
-	'password' => array(
-		'method' => 'textbox_password',
-		'friendly_name' => __('Password', 'routerconfigs'),
-		'description' => __('The password used for authentication.', 'routerconfigs'),
-		'value' => '|arg1:password|',
-		'default' => '',
-		'max_length' => '64',
-		'size' => '30'
-		),
-	'enablepw' => array(
-		'method' => 'textbox_password',
-		'friendly_name' => __('Enable Password', 'routerconfigs'),
-		'description' => __('Your Enable Password, if required.', 'routerconfigs'),
-		'value' => '|arg1:enablepw|',
-		'default' => '',
-		'max_length' => '64',
-		'size' => '30'
-		),
-	'id' => array(
-		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-		)
-);
 
 switch (get_request_var('action')) {
 	case 'actions':
@@ -111,13 +68,13 @@ switch (get_request_var('action')) {
 }
 
 function actions_accounts () {
-	global $ds_actions, $config;
+	global $rc_account_actions, $config;
 
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			if (get_nfilter_request_var('drp_action') == '1') {
+			if (get_nfilter_request_var('drp_action') == RCONFIG_ACCOUNT_DELETE) {
 				for ($i=0; $i<count($selected_items); $i++) {
 					db_execute('DELETE FROM plugin_routerconfigs_accounts WHERE id = ' . $selected_items[$i]);
 				}
@@ -149,13 +106,13 @@ function actions_accounts () {
 	form_start('router-accounts.php');
 
 	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+		html_start_box($rc_account_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
 	}else{
 		html_start_box('', '60%', '', '3', 'center', '');
 	}
 
 	if (sizeof($account_array)) {
-		if (get_nfilter_request_var('drp_action') == '1') { /* Delete */
+		if (get_nfilter_request_var('drp_action') == RCONFIG_ACCOUNT_DELETE) { /* Delete */
 			print "<tr>
 				<td colspan='2' class='textArea'>
 					<p>" . __('Click \'Continue\' to delete the following account(s).', 'routerconfigs') . "</p>
@@ -227,7 +184,7 @@ function save_accounts () {
 }
 
 function edit_accounts () {
-	global $account_edit;
+	global $rc_account_edit_fields;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -249,7 +206,7 @@ function edit_accounts () {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($account_edit, $account)
+			'fields' => inject_form_variables($rc_account_edit_fields, $account)
 		)
 	);
 
@@ -260,7 +217,7 @@ function edit_accounts () {
 
 function show_accounts () {
 	global $host, $username, $password, $command;
-	global $config, $ds_actions;
+	global $config, $rc_account_actions;
 
 	get_filter_request_var('page');
 	load_current_session_value('page', 'sess_wmi_accounts_current_page', '1');
@@ -303,7 +260,7 @@ function show_accounts () {
 
 	html_end_box(false);
 
-	draw_actions_dropdown($ds_actions);
+	draw_actions_dropdown($rc_account_actions);
 
 	form_end();
 }

@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2007-2017 The Cacti Group                                 |
+ | Copyright (C) 2007-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -25,130 +25,11 @@
 
 chdir('../../');
 include_once('./include/auth.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
-
-$ds_actions = array(
-	1 => __('Delete', 'routerconfigs'),
-);
+include_once(__DIR__ . '/include/functions.php');
 
 set_default_action();
 
 set_request_var('tab', 'devtypes');
-
-$acc = array('None');
-$accounts = db_fetch_assoc('SELECT id, name
-	FROM plugin_routerconfigs_accounts
-	ORDER BY name');
-
-if (!empty($accounts)) {
-	foreach ($accounts as $a) {
-		$acc[$a['id']] = $a['name'];
-	}
-}
-
-$dtypes = array(__('Auto-Detect', 'routerconfigs'));
-$dtypesarr = db_fetch_assoc('SELECT id, name
-	FROM plugin_routerconfigs_devicetypes
-	ORDER BY name');
-
-if (!empty($dtypes)) {
-	if (sizeof($dtypesarr)) {
-		foreach ($dtypesarr as $a) {
-			$dtypes[$a['id']] = $a['name'];
-		}
-	}
-}
-
-$devicetype_edit = array(
-	'name' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Name', 'routerconfigs'),
-		'description' => __('Name of this device type.', 'routerconfigs'),
-		'value' => '|arg1:name|',
-		'size' => '30',
-		'max_length' => '64',
-	),
-	'username' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Username Prompt', 'routerconfigs'),
-		'description' => __('This is the username prompt to match on login.', 'routerconfigs'),
-		'value' => '|arg1:username|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'password' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Password Prompt', 'routerconfigs'),
-		'description' => __('This is the password prompt to match on login.', 'routerconfigs'),
-		'value' => '|arg1:password|',
-		'size' => '20',
-		'max_length' => '255',
-	),
-	'copytftp' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Copy TFTP', 'routerconfigs'),
-		'description' => __('This is the CLI text used to send the backup to tftp server.', 'routerconfigs'),
-		'value' => '|arg1:copytftp|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'version' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Show Version', 'routerconfigs'),
-		'description' => __('This is the CLI text used to display the current version.', 'routerconfigs'),
-		'value' => '|arg1:version|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'confirm' => array(
-		'method' => 'textbox',
-		'friendly_name' => __('Confirm', 'routerconfigs'),
-		'description' => __('Is there a confirmation prompt for copying the config?', 'routerconfigs'),
-		'value' => '|arg1:confirm|',
-		'size' => '10',
-		'max_length' => '64',
-	),
-	'forceconfirm' => array(
-		'method' => 'checkbox',
-		'friendly_name' => __('Force Confirm', 'routerconfigs'),
-		'description' => __('Is there a force confirmation prompt for copying the config?', 'routerconfigs'),
-		'value' => '|arg1:forceconfirm|',
-	),
-	'checkendinconfig' => array(
-		'method' => 'checkbox',
-		'friendly_name' => __('Check End in Config', 'routerconfigs'),
-		'description' => __('Check end in config?', 'routerconfigs'),
-		'value' => '|arg1:checkendinconfig|',
-	),
-	'timeout' => array(
-		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:timeout|',
-		'default' => '1',
-		'max_length' => '3'
-	),
-	'sleep' => array(
-		'friendly_name' => __('Default sleep time', 'routerconfigs'),
-		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:sleep|',
-		'default' => '125000',
-		'max_length' => '7'
-	),
-	'anykey' => array(
-		'friendly_name' => __('Any Key prompt', 'routerconfigs'),
-		'description' => __('Text to match a \'Press Any Key To Continue\' styled prompt', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:anykey|',
-		'default' => '',
-		'max_length' => '50'
-	),
-	'id' => array(
-		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-	)
-);
 
 switch (get_request_var('action')) {
 	case 'actions':
@@ -176,7 +57,7 @@ switch (get_request_var('action')) {
 }
 
 function actions_devicetypes () {
-	global $ds_actions, $config;
+	global $rc_devtype_actions, $config;
 
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -216,13 +97,13 @@ function actions_devicetypes () {
 	form_start('router-devtypes.php');
 
 	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($ds_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+		html_start_box($rc_devtype_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
 	}else{
 		html_start_box('', '60%', '', '3', 'center', '');
 	}
 
 	if (sizeof($devtype_array)) {
-		if (get_nfilter_request_var('drp_action') == '1') { /* Delete */
+		if (get_nfilter_request_var('drp_action') == RCONFIG_DEVTYPE_DELETE) { /* Delete */
 			print "<tr>
 				<td colspan='2' class='textArea'>
 					<p>" . __('When you click \'Continue\', the following device(s) will be deleted.', 'routerconfigs') . "</p>
@@ -266,8 +147,10 @@ function save_devicetypes () {
 	}
 
 	$save['name']             = get_nfilter_request_var('name');
-	$save['username']         = get_nfilter_request_var('username');
-	$save['password']         = get_nfilter_request_var('password');
+	$save['promptuser']       = get_nfilter_request_var('promptuser');
+	$save['promptpass']       = get_nfilter_request_var('promptpass');
+	$save['connecttype']      = get_nfilter_request_var('connecttype');
+	$save['configfile']       = get_nfilter_request_var('configfile');
 	$save['copytftp']         = get_nfilter_request_var('copytftp');
 	$save['version']          = get_nfilter_request_var('version');
 	$save['confirm']          = get_nfilter_request_var('confirm');
@@ -277,19 +160,22 @@ function save_devicetypes () {
 	$save['sleep']            = get_nfilter_request_var('sleep');
 	$save['anykey']           = get_nfilter_request_var('anykey');
 
-	$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');
 
-	if (is_error_message()) {
-		header('Location: router-devtypes.php?action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
-		exit;
+	if (!is_error_message()) {
+		$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');
+		if ($id) {
+			raise_message(1);
+		} else {
+			raise_message(2);
+		}
 	}
 
-	header('Location: router-devtypes.php?header=true');
+	header('Location: router-devtypes.php?action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
 	exit;
 }
 
 function edit_devicetypes () {
-	global $devicetype_edit; global $config; global $form_id;
+	global $config, $form_id, $rc_devtype_edit_fields;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -314,7 +200,7 @@ function edit_devicetypes () {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($devicetype_edit, $devicetype)
+			'fields' => inject_form_variables($rc_devtype_edit_fields, $devicetype)
 		)
 	);
 
@@ -325,7 +211,7 @@ function edit_devicetypes () {
 
 function show_devicetypes() {
 	global $host, $username, $password, $command;
-	global $config, $ds_actions, $acc, $form_id;
+	global $config, $rc_devtype_actions, $acc, $form_id;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('account');
@@ -362,8 +248,9 @@ function show_devicetypes() {
 			__('Actions', 'routerconfigs'),
 			__('ID', 'routerconfigs'),
 			__('Name', 'routerconfigs'),
-			__('Username', 'routerconfigs'),
-			__('Password', 'routerconfigs'),
+			__('Type', 'routerconfigs'),
+			__('User Prompt', 'routerconfigs'),
+			__('Pass Prompt', 'routerconfigs'),
 			__('Copy TFTP', 'routerconfigs'),
 			__('Version', 'routerconfigs'),
 			__('Confirm', 'routerconfigs'),
@@ -380,8 +267,9 @@ function show_devicetypes() {
 			form_selectable_cell($cell, $row['id'], '1%', 'left');
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . $row['name'] . '</a>', $row['id']);
-			form_selectable_cell($row['username'], $row['id']);
-			form_selectable_cell($row['password'], $row['id']);
+			form_Selectable_cell($row['connecttype'], $row['id']);
+			form_selectable_cell($row['promptuser'], $row['id']);
+			form_selectable_cell($row['promptpass'], $row['id']);
 			form_selectable_cell($row['copytftp'], $row['id']);
 			form_selectable_cell($row['version'], $row['id']);
 			form_selectable_cell(($row['confirm'] == 'y' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
@@ -396,6 +284,6 @@ function show_devicetypes() {
 
 	html_end_box(false);
 
-	draw_actions_dropdown($ds_actions);
+	draw_actions_dropdown($rc_devtype_actions);
 }
 

@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/PHPShellConnection.php');
+require_once(__DIR__ . '/PHPConnection.php');
 
 /*
 The following PHPSsh class is based loosely on code by Abdul Pallares
@@ -11,7 +11,7 @@ PHPTelnet now relies on the above PHPConnection class which must be
 included to have proper functionality.  Most common connection code is
 now within PHPConnection with only SSH specific code in this class
 */
-class PHPSsh extends PHPShellConnection implements ShellSsh {
+class PHPScp extends PHPConnection implements ShellSsh {
 	var $show_connect_error = 1;
 
 	/*
@@ -23,7 +23,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	5 = Error enabling device
 	*/
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
-		parent::__construct('SSH', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
+		parent::__construct('SCP', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
 	}
 
 	function Connect() {
@@ -44,9 +44,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
 					$rv=3;
 				} else {
-					if ($this->stream = @ssh2_shell($this->connection,'xterm')) {
-						$this->Log('DEBUG: okay: logged in...');
-					}
+					$this->Log('DEBUG: okay: logged in...');
 				}
 			}
 		}
@@ -57,6 +55,22 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		return $rv; //everything goes well ;)
+	}
+
+	function Download($filename, $backuppath) {
+		$scp_path = read_config_option('routerconfigs_scp_path');
+		$scp_source = $this->deviceType['configfile'];
+		$scp_dest = $backuppath . $filename;
+		if (empty($scp_path)) {
+			$this->Log("DEBUG: Using PHP Internal 'ssh2_scp_recv' command");
+			$this->Log("DEBUG: Attempting to download '$scp_source' to '$scp_dest'");
+			return ssh2_scp_recv($this->connection, $scp_source, $scp_dest);
+		} else {
+			$this->Log("DEBUG: Using external '$scp_path' command");
+			$scp_args = "'" . $this->user . "'@'" . $this->server . "':'$scp_source' '$scp_dest'";
+			$this->Log("DEBUG: Using external '$scp_path' command with \"$scp_args\"");
+			exec_background($scp_path, $extra_args);
+		}
 	}
 
 	function ConnectError($num) {
@@ -94,5 +108,4 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	}
 }
 
-PHPConnection::AddType('PHPSsh', 'ssh');
-PHPConnection::AddType('PHPSsh', 'both');
+PHPConnection::AddType('PHPScp','scp');

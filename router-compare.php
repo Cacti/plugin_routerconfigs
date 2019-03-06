@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2007-2017 The Cacti Group                                 |
+ | Copyright (C) 2007-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -27,8 +27,8 @@ chdir('../../');
 
 include('./include/auth.php');
 
-include_once($config['base_path'] . '/plugins/routerconfigs/functions.php');
-include_once($config['base_path'] . '/plugins/routerconfigs/HordeTextInclude.php');
+include_once(__DIR__ . '/include/functions.php');
+include_once(__DIR__ . '/HordeTextInclude.php');
 
 top_header();
 print get_md5_include_css('plugins/routerconfigs/diff.css');

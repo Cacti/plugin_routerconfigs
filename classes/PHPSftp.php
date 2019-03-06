@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/PHPShellConnection.php');
+require_once(__DIR__ . '/PHPConnection.php');
 
 /*
 The following PHPSsh class is based loosely on code by Abdul Pallares
@@ -11,7 +11,7 @@ PHPTelnet now relies on the above PHPConnection class which must be
 included to have proper functionality.  Most common connection code is
 now within PHPConnection with only SSH specific code in this class
 */
-class PHPSsh extends PHPShellConnection implements ShellSsh {
+class PHPSftp extends PHPConnection implements ShellSsh {
 	var $show_connect_error = 1;
 
 	/*
@@ -23,7 +23,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	5 = Error enabling device
 	*/
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
-		parent::__construct('SSH', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
+		parent::__construct('SFTP', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
 	}
 
 	function Connect() {
@@ -44,9 +44,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
 					$rv=3;
 				} else {
-					if ($this->stream = @ssh2_shell($this->connection,'xterm')) {
-						$this->Log('DEBUG: okay: logged in...');
-					}
+					$this->Log('DEBUG: okay: logged in...');
 				}
 			}
 		}
@@ -57,6 +55,36 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		return $rv; //everything goes well ;)
+	}
+
+	function Download($filename, $backuppath) {
+		$sftp_source = $this->deviceType['configfile'];
+		$sftp_dest = "$backuppath$filename";
+		$this->Log("DEBUG: Attempting to download '$sftp_source' to '$sftp_dest'");
+		$sftp = @ssh2_sftp($this->connection);
+		if (!$sftp) {
+			$this->Log('DEBUG: Failed to initialise SFTP subsystem');
+			return false;
+		}
+
+		$sftpfile = "ssh.sftp://$sftp$sftp_source";
+		$stream = @fopen($sftpfile, 'r');
+		if (!$stream) {
+			$this->Log("DEBUG: Failed to open stream to file '$sftpfile'");
+			return false;
+		}
+
+		$contents = fread($stream, filesize($sftpfile));
+		if (!$contents) {
+			$this->Log("DEBUG: Failed to download file '$sftpfile'");
+			return false;
+		}
+
+		if (!@file_put_contents($scp_dest, $contents)) {
+			$this->Log("DEBUG: Failed to write to file '$sftp_dest'");
+			return false;
+		}
+		return true;
 	}
 
 	function ConnectError($num) {
@@ -94,5 +122,4 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	}
 }
 
-PHPConnection::AddType('PHPSsh', 'ssh');
-PHPConnection::AddType('PHPSsh', 'both');
+PHPConnection::AddType('PHPSftp','sftp');
