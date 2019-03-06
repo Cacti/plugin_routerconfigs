@@ -181,7 +181,7 @@ function routerconfigs_check_upgrade() {
 
 			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'configfile')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
-					ADD COLUMN `configfile` varchar(50) DEFAULT \'\' AFTER `password`');
+					ADD COLUMN `configfile` varchar(256) DEFAULT \'\'');
 			}
 
 			if (!db_column_exists('plugin_routerconfigs_devicetypes','connecttype')) {
