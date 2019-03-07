@@ -66,7 +66,8 @@ abstract class PHPShellConnection extends PHPConnection {
 				break;
 			} else if (stristr($response, 'error')) {
 				$this->Log("DEBUG: TFTP Transfer ERRORED");
-				break;
+				$this->error(5);
+				return false;
 			} else if ($this->prompt() == LinePrompt::Question) {
 				$this->Log("DEBUG: Question found");
 
@@ -185,5 +186,6 @@ abstract class PHPShellConnection extends PHPConnection {
 				}
 			}
 		}
+		return true;
 	}
 }
