@@ -15,7 +15,7 @@ abstract class PHPShellConnection extends PHPConnection {
 	}
 
 	function Download($filename, $backuppath) {
-		$tftpserver = read_config_option('routerconfig_tftpserver');
+		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		$command = $this->deviceType['copytftp'];
 
 		if (stristr($command, '%SERVER%')) {
