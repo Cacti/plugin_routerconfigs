@@ -83,13 +83,13 @@ $rc_schedules_retention = array(
 
 $rc_schedules_retry = array(
 	'0'  => __('Never', 'routerconfigs'),
-	'1'  => __('% hour', 1, 'routerconfigs'),
-	'2'  => __('% hours', 2, 'routerconfigs'),
-	'3'  => __('% hours', 3, 'routerconfigs'),
-	'4'  => __('% hours', 4, 'routerconfigs'),
-	'6'  => __('% hours', 6, 'routerconfigs'),
-	'8'  => __('% hours', 8, 'routerconfigs'),
-	'12'  => __('% hours', 12, 'routerconfigs'),
+	'1'  => __('%d hour', 1, 'routerconfigs'),
+	'2'  => __('%d hours', 2, 'routerconfigs'),
+	'3'  => __('%d hours', 3, 'routerconfigs'),
+	'4'  => __('%d hours', 4, 'routerconfigs'),
+	'6'  => __('%d hours', 6, 'routerconfigs'),
+	'8'  => __('%d hours', 8, 'routerconfigs'),
+	'12'  => __('%d hours', 12, 'routerconfigs'),
 );
 
 $rc_schedules_download = array(

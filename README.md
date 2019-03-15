@@ -62,6 +62,8 @@ issue in GitHub.
 
 * issue#96: i18n is not being properly utilised
 
+* issue#101: Hours do not display properly for retry schedule
+
 * feature#74: Feature Request: Enable SCP/SFTP method of backup
 
 * feature#97: Allow connection type to be inherited
