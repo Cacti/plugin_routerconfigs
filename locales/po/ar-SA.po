@@ -5,611 +5,746 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-07 07:56-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ar-SA\n"
+"PO-Revision-Date: 2019-03-18 16:36-0400\n"
+"Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../router-devices.php:33
+#, fuzzy
 msgid "Backup"
-msgstr ""
+msgstr "دعم"
 
 #: ../router-devices.php:34 ../router-accounts.php:32
 #: ../router-devtypes.php:31
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: ../router-devices.php:35
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "تفعيل"
 
 #: ../router-devices.php:36
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "تعطيل"
 
 #: ../router-devices.php:64
+#, fuzzy
 msgid "Enable Device"
-msgstr ""
+msgstr "تمكين الجهاز"
 
 #: ../router-devices.php:65
+#, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
-msgstr ""
+msgstr "ألغ تحديد هذا المربع لتعطيل هذا الجهاز من النسخ الاحتياطي."
 
 #: ../router-devices.php:72 ../router-accounts.php:282
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: ../router-devices.php:73
+#, fuzzy
 msgid ""
 "Name of this device (will be used for config saving and SVN if no hostname "
 "is present in config)."
 msgstr ""
+"اسم هذا الجهاز (سيتم استخدامه لحفظ التهيئة و SVN في حالة عدم وجود اسم مضيف "
+"في التهيئة)."
 
 #: ../router-devices.php:79 ../router-devices.php:488
+#, fuzzy
 msgid "IP Address"
-msgstr ""
+msgstr "عنوان IP"
 
 #: ../router-devices.php:80
+#, fuzzy
 msgid "This is the IP Address used to communicate with the device."
-msgstr ""
+msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
 
 #: ../router-devices.php:86 ../router-devices.php:489
 #: ../router-backups.php:139
+#, fuzzy
 msgid "Directory"
-msgstr ""
+msgstr "الدليل"
 
 #: ../router-devices.php:87
+#, fuzzy
 msgid "This is the relative directory structure used to store the configs."
-msgstr ""
+msgstr "هذا هو هيكل الدليل النسبي المستخدم لتخزين التكوينات."
 
 #: ../router-devices.php:93
+#, fuzzy
 msgid "Schedule"
-msgstr ""
+msgstr "الجدول"
 
 #: ../router-devices.php:94
+#, fuzzy
 msgid "How often to Backup this device."
-msgstr ""
+msgstr "عدد مرات النسخ الاحتياطي لهذا الجهاز."
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Daily"
-msgstr ""
+msgstr "يومي"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Weekly"
-msgstr ""
+msgstr "أسبوعي"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Monthly"
-msgstr ""
+msgstr "شهري"
 
 #: ../router-devices.php:101 ../router-devices.php:486
+#, fuzzy
 msgid "Device Type"
-msgstr ""
+msgstr "نوع الجهاز"
 
 #: ../router-devices.php:102
+#, fuzzy
 msgid "Choose the type of device that the router is."
-msgstr ""
+msgstr "اختر نوع الجهاز الذي يوجد به جهاز التوجيه."
 
 #: ../router-devices.php:109
+#, fuzzy
 msgid "Authentication Account"
-msgstr ""
+msgstr "حساب المصادقة"
 
 #: ../router-devices.php:110
+#, fuzzy
 msgid "Choose an account to use to Login to the router"
-msgstr ""
+msgstr "اختر حسابًا لاستخدامه لتسجيل الدخول إلى جهاز التوجيه"
 
 #: ../router-devices.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
-msgstr ""
+msgstr "تصحيح لـ٪ s (٪ s) <br><br>"
 
 #: ../router-devices.php:215
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)<br><br>"
-msgstr ""
+msgstr "تكوين جهاز التوجيه لـ٪ s (٪ s) <br><br>"
 
 #: ../router-devices.php:216 ../router-backups.php:73
-#, php-format
+#, fuzzy, php-format
 msgid "Backup from %s"
-msgstr ""
+msgstr "النسخ الاحتياطي من٪ s"
 
 #: ../router-devices.php:217 ../router-backups.php:74
-#, php-format
+#, fuzzy, php-format
 msgid "File: %s/%s"
-msgstr ""
+msgstr "الملف:٪ s /٪ s"
 
 #: ../router-devices.php:324
+#, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr ""
+msgstr "انقر فوق \"متابعة\" لحذف الجهاز (الأجهزة) التالية."
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Continue"
-msgstr ""
+msgstr "إستمرار"
 
 #: ../router-devices.php:328 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Delete Device(s)"
-msgstr ""
+msgstr "حذف الجهاز (الأجهزة)"
 
 #: ../router-devices.php:333
+#, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr ""
+msgstr "انقر فوق \"متابعة\" لتمكين الجهاز (الأجهزة) التالية."
 
 #: ../router-devices.php:337
+#, fuzzy
 msgid "Enable Device(s)"
-msgstr ""
+msgstr "تمكين الجهاز (الأجهزة)"
 
 #: ../router-devices.php:342
+#, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr ""
+msgstr "انقر فوق \"متابعة\" لتعطيل الجهاز (الأجهزة) التالية."
 
 #: ../router-devices.php:346
+#, fuzzy
 msgid "Disable Device(s)"
-msgstr ""
+msgstr "تعطيل الجهاز (الأجهزة)"
 
 #: ../router-devices.php:350
+#, fuzzy
 msgid "You must select at least Router Device."
-msgstr ""
+msgstr "يجب عليك تحديد جهاز التوجيه على الأقل."
 
 #: ../router-devices.php:352 ../router-accounts.php:170
+#, fuzzy
 msgid "Return"
-msgstr ""
+msgstr "عودة"
 
 #: ../router-devices.php:421
-#, php-format
+#, fuzzy, php-format
 msgid "Router: [edit: %s]"
-msgstr ""
+msgstr "جهاز التوجيه: [تحرير:٪ s]"
 
 #: ../router-devices.php:423
+#, fuzzy
 msgid "Router: [new]"
-msgstr ""
+msgstr "جهاز التوجيه: [جديد]"
 
 #: ../router-devices.php:478
+#, fuzzy
 msgid "Router Device Management"
-msgstr ""
+msgstr "إدارة جهاز التوجيه"
 
 #: ../router-devices.php:484 ../router-devtypes.php:337
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "أفعال"
 
 #: ../router-devices.php:485 ../router-backups.php:137
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "اسم الخادم"
 
 #: ../router-devices.php:487
+#, fuzzy
 msgid "Configs"
-msgstr ""
+msgstr "التكوينات"
 
 #: ../router-devices.php:490
+#, fuzzy
 msgid "Last Backup"
-msgstr ""
+msgstr "النسخة الاحتياطية الاخيرة"
 
 #: ../router-devices.php:491 ../router-backups.php:142
+#, fuzzy
 msgid "Last Change"
-msgstr ""
+msgstr "اخر تغير"
 
 #: ../router-devices.php:492 ../router-backups.php:143
+#, fuzzy
 msgid "Changed By"
-msgstr ""
+msgstr "تغيير من قبل"
 
 #: ../router-devices.php:493
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "مفعل"
 
 #: ../router-devices.php:511 ../router-devtypes.php:49
+#, fuzzy
 msgid "Auto-Detect"
-msgstr ""
+msgstr "اكتشاف تلقائي"
 
 #: ../router-devices.php:513
+#, fuzzy
 msgid "Telnet"
-msgstr ""
+msgstr "تلنت"
 
 #: ../router-devices.php:515
+#, fuzzy
 msgid "Trace Route"
-msgstr ""
+msgstr "تتبع الطريق"
 
 #: ../router-devices.php:517
+#, fuzzy
 msgid "Router Debug Info"
-msgstr ""
+msgstr "جهاز التوجيه تصحيح المعلومات"
 
 #: ../router-devices.php:522
+#, fuzzy
 msgid "Current"
-msgstr ""
+msgstr "بريدك الإلكتروني الحالي غير مسموح"
 
 #: ../router-devices.php:522
-#, php-format
+#, fuzzy, php-format
 msgid "Backups (%s)"
-msgstr ""
+msgstr "النسخ الاحتياطية (٪ s)"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: ../router-devices.php:533
+#, fuzzy
 msgid "No Router Devices Found"
-msgstr ""
+msgstr "لم يتم العثور على أجهزة التوجيه"
 
 #: ../router-download.php:98
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices backed up successfully.<br>"
-msgstr ""
+msgstr "تم إجراء نسخ احتياطي لأجهزة٪ s بنجاح. <br>"
 
 #: ../router-download.php:99
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices failed to backup.<br>"
-msgstr ""
+msgstr "فشلت الأجهزة٪ s في النسخ الاحتياطي. <br>"
 
 #: ../router-download.php:102
+#, fuzzy
 msgid "These devices failed to backup<br>"
-msgstr ""
+msgstr "فشلت هذه الأجهزة في النسخ الاحتياطي <br>"
 
 #: ../router-download.php:103
+#, fuzzy
 msgid "--------------------------------<br>"
-msgstr ""
+msgstr "-------------------------------- <br>"
 
 #: ../router-download.php:122
+#, fuzzy
 msgid "Network Device Configuration Backups"
-msgstr ""
+msgstr "النسخ الاحتياطي لتكوين جهاز الشبكة"
 
 #: ../functions.php:33 ../router-accounts.php:282
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "الأجهزة"
 
 #: ../functions.php:34 ../router-devtypes.php:327
+#, fuzzy
 msgid "Device Types"
-msgstr ""
+msgstr "أنواع الأجهزة"
 
 #: ../functions.php:35
+#, fuzzy
 msgid "Authentication"
-msgstr ""
+msgstr "المصادقة"
 
 #: ../functions.php:36
+#, fuzzy
 msgid "Backups"
-msgstr ""
+msgstr "النسخ الاحتياطي"
 
 #: ../functions.php:37 ../router-backups.php:138 ../router-backups.php:162
+#, fuzzy
 msgid "Compare"
-msgstr ""
+msgstr "قارن"
 
 #: ../functions.php:44
-#, php-format
+#, fuzzy, php-format
 msgid "Technical Support [ %s ]"
-msgstr ""
+msgstr "الدعم الفني [٪ s]"
 
 #: ../functions.php:100
+#, fuzzy
 msgid ""
 "A successful backup has now been completed on these devices\n"
 "--------------------------------\n"
 msgstr ""
+"تم الآن إكمال نسخة احتياطية ناجحة على هذه الأجهزة "
+"--------------------------------"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Network Device Configuration Backups - Reattempt"
-msgstr ""
+msgstr "نسخ احتياطي لتكوين جهاز الشبكة - إعادة محاولة"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Config Backups"
-msgstr ""
+msgstr "النسخ الاحتياطي التكوين"
 
 #: ../functions.php:120
+#, fuzzy
 msgid "Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "لم يتم تعيين مسار النسخ الاحتياطي أو ليس دليلًا"
 
 #: ../functions.php:160
+#, fuzzy
 msgid "FATAL: Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "FATAL: لم يتم تعيين مسار النسخ الاحتياطي أو ليس دليلًا"
 
 #: ../functions.php:166
+#, fuzzy
 msgid "FATAL: TFTP Server is not set"
-msgstr ""
+msgstr "فادح: لم يتم تعيين خادم TFTP"
 
 #: ../router-compare.php:121
+#, fuzzy
 msgid "Compare Output"
-msgstr ""
+msgstr "مقارنة الإخراج"
 
 #: ../router-compare.php:146
+#, fuzzy
 msgid "There are no Changes"
-msgstr ""
+msgstr "لا توجد تغييرات"
 
 #: ../router-compare.php:156 ../router-compare.php:159
+#, fuzzy
 msgid "Error, you must have backups for each device."
-msgstr ""
+msgstr "خطأ ، يجب أن يكون لديك نسخ احتياطية لكل جهاز."
 
 #: ../router-accounts.php:52 ../router-devtypes.php:65
 #: ../router-devtypes.php:339
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: ../router-accounts.php:53
+#, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
-msgstr ""
+msgstr "امنح هذا الحساب اسمًا ذا معنى سيتم عرضه."
 
 #: ../router-accounts.php:59 ../router-accounts.php:282
 #: ../router-devtypes.php:340
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "اسم المستخدم"
 
 #: ../router-accounts.php:60
+#, fuzzy
 msgid "The username that will be used for authentication."
-msgstr ""
+msgstr "اسم المستخدم الذي سيتم استخدامه للمصادقة."
 
 #: ../router-accounts.php:66 ../router-devtypes.php:341
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 #: ../router-accounts.php:67
+#, fuzzy
 msgid "The password used for authentication."
-msgstr ""
+msgstr "كلمة المرور المستخدمة للمصادقة."
 
 #: ../router-accounts.php:75
+#, fuzzy
 msgid "Enable Password"
-msgstr ""
+msgstr "تمكين كلمة المرور"
 
 #: ../router-accounts.php:76
+#, fuzzy
 msgid "Your Enable Password, if required."
-msgstr ""
+msgstr "تمكين كلمة المرور الخاصة بك ، إذا لزم الأمر."
 
 #: ../router-accounts.php:161
+#, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
-msgstr ""
+msgstr "انقر فوق \"متابعة\" لحذف الحساب (الحسابات) التالي."
 
 #: ../router-accounts.php:169
+#, fuzzy
 msgid "You must select at least one device."
-msgstr ""
+msgstr "يجب عليك اختيار جهاز واحد على الأقل."
 
 #: ../router-accounts.php:238
-#, php-format
+#, fuzzy, php-format
 msgid "Account: [edit: %s]"
-msgstr ""
+msgstr "الحساب: [عدل:٪ s]"
 
 #: ../router-accounts.php:240
+#, fuzzy
 msgid "Account: [new]"
-msgstr ""
+msgstr "الحساب: [جديد]"
 
 #: ../router-accounts.php:274
+#, fuzzy
 msgid "Accounts"
-msgstr ""
+msgstr "حسابات"
 
 #: ../router-accounts.php:278
+#, fuzzy
 msgid "Account Management"
-msgstr ""
+msgstr "إدارة الحساب"
 
 #: ../router-accounts.php:298
+#, fuzzy
 msgid "No Router Accounts Found"
-msgstr ""
+msgstr "لم يتم العثور على حسابات جهاز التوجيه"
 
 #: ../router-backups.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)"
-msgstr ""
+msgstr "تكوين جهاز التوجيه لـ٪ s (٪ s)"
 
 #: ../router-backups.php:129 ../setup.php:356
+#, fuzzy
 msgid "Router Backups"
-msgstr ""
+msgstr "النسخ الاحتياطي لجهاز التوجيه"
 
 #: ../router-backups.php:140
+#, fuzzy
 msgid "Filename"
-msgstr ""
+msgstr "اسم الملف"
 
 #: ../router-backups.php:141
+#, fuzzy
 msgid "Backup Time"
-msgstr ""
+msgstr "وقت النسخ الاحتياطي"
 
 #: ../router-backups.php:162 ../setup.php:342 ../setup.php:377
+#, fuzzy
 msgid "View Config"
-msgstr ""
+msgstr "عرض التكوين"
 
 #: ../router-backups.php:181
+#, fuzzy
 msgid "No Router Backups Found"
-msgstr ""
+msgstr "لم يتم العثور على نسخ احتياطي لجهاز التوجيه"
 
 #: ../router-devtypes.php:66
+#, fuzzy
 msgid "Name of this device type."
-msgstr ""
+msgstr "اسم هذا النوع من الأجهزة."
 
 #: ../router-devtypes.php:73
+#, fuzzy
 msgid "Username Prompt"
-msgstr ""
+msgstr "اسم المستخدم موجه"
 
 #: ../router-devtypes.php:74
+#, fuzzy
 msgid "This is the username prompt to match on login."
-msgstr ""
+msgstr "هذا هو موجه اسم المستخدم للمطابقة عند تسجيل الدخول."
 
 #: ../router-devtypes.php:81
+#, fuzzy
 msgid "Password Prompt"
-msgstr ""
+msgstr "كلمة المرور موجه"
 
 #: ../router-devtypes.php:82
+#, fuzzy
 msgid "This is the password prompt to match on login."
-msgstr ""
+msgstr "هذا هو موجه كلمة المرور للمطابقة عند تسجيل الدخول."
 
 #: ../router-devtypes.php:89 ../router-devtypes.php:342
+#, fuzzy
 msgid "Copy TFTP"
-msgstr ""
+msgstr "نسخ TFTP"
 
 #: ../router-devtypes.php:90
+#, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
-msgstr ""
+msgstr "هذا هو نص CLI المستخدم لإرسال النسخة الاحتياطية إلى خادم tftp."
 
 #: ../router-devtypes.php:97
+#, fuzzy
 msgid "Show Version"
-msgstr ""
+msgstr "عرض الإصدار"
 
 #: ../router-devtypes.php:98
+#, fuzzy
 msgid "This is the CLI text used to display the current version."
-msgstr ""
+msgstr "هذا هو نص CLI المستخدم لعرض الإصدار الحالي."
 
 #: ../router-devtypes.php:105 ../router-devtypes.php:344
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "تؤكد"
 
 #: ../router-devtypes.php:106
+#, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr ""
+msgstr "هل هناك مطالبة تأكيد لنسخ التكوين؟"
 
 #: ../router-devtypes.php:113 ../router-devtypes.php:345
+#, fuzzy
 msgid "Force Confirm"
-msgstr ""
+msgstr "تأكيد القوة"
 
 #: ../router-devtypes.php:114
+#, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
-msgstr ""
+msgstr "هل هناك مطالبة تأكيد قوة لنسخ التكوين؟"
 
 #: ../router-devtypes.php:120
+#, fuzzy
 msgid "Check End in Config"
-msgstr ""
+msgstr "تحقق نهاية في التكوين"
 
 #: ../router-devtypes.php:121
+#, fuzzy
 msgid "Check end in config?"
-msgstr ""
+msgstr "تحقق نهاية في التكوين؟"
 
 #: ../router-devtypes.php:206
+#, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
-msgstr ""
+msgstr "عند النقر فوق \"متابعة\" ، سيتم حذف الجهاز (الأجهزة) التالية."
 
 #: ../router-devtypes.php:280
-#, php-format
+#, fuzzy, php-format
 msgid "Query [edit: %s]"
-msgstr ""
+msgstr "الاستعلام [عدل:٪ s]"
 
 #: ../router-devtypes.php:282
+#, fuzzy
 msgid "Query [new]"
-msgstr ""
+msgstr "استعلام [جديد]"
 
 #: ../router-devtypes.php:333
+#, fuzzy
 msgid "View Router Device Types"
-msgstr ""
+msgstr "عرض أنواع جهاز التوجيه"
 
 #: ../router-devtypes.php:338
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 #: ../router-devtypes.php:343
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "الإصدار"
 
 #: ../router-devtypes.php:346
+#, fuzzy
 msgid "Check End In Config"
-msgstr ""
+msgstr "تحقق نهاية في التكوين"
 
 #: ../router-devtypes.php:354
+#, fuzzy
 msgid "Edit Device Type"
-msgstr ""
+msgstr "تحرير نوع الجهاز"
 
 #: ../router-devtypes.php:369
+#, fuzzy
 msgid "No Router Device Types Found"
-msgstr ""
+msgstr "لم يتم العثور على أنواع جهاز التوجيه"
 
 #: ../setup.php:38 ../setup.php:254 ../setup.php:316
+#, fuzzy
 msgid "Router Configs"
-msgstr ""
+msgstr "التوجيهات Configs"
 
 #: ../setup.php:258
+#, fuzzy
 msgid "TFTP Server IP"
-msgstr ""
+msgstr "TFTP خادم IP"
 
 #: ../setup.php:259
+#, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
-msgstr ""
+msgstr "يجب أن يكون عنوان IP يشير إلى خادم Cacti."
 
 #: ../setup.php:265
+#, fuzzy
 msgid "Backup Directory Path"
-msgstr ""
+msgstr "مسار دليل النسخ الاحتياطي"
 
 #: ../setup.php:266
+#, fuzzy
 msgid ""
 "The path to where your Configs will be backed up, it must be the path that "
 "the local TFTP Server writes to."
 msgstr ""
+"المسار إلى حيث سيتم نسخ نسخة احتياطية من Configs الخاص بك ، يجب أن يكون "
+"المسار الذي يكتب عليه خادم TFTP المحلي."
 
 #: ../setup.php:273
+#, fuzzy
 msgid "Email Address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 #: ../setup.php:274
+#, fuzzy
 msgid ""
 "A comma delimited list of Email addresses to send the nightly backup Email "
 "to."
 msgstr ""
+"قائمة محددة بعناوين البريد الإلكتروني لإرسال رسالة بريد إلكتروني احتياطية "
+"ليلا إلى."
 
 #: ../setup.php:281
+#, fuzzy
 msgid "From Address"
-msgstr ""
+msgstr "كعنوان للبريد"
 
 #: ../setup.php:282
+#, fuzzy
 msgid "Email address the nightly backup will be sent from."
-msgstr ""
+msgstr "عنوان البريد الإلكتروني سيتم إرسال النسخ الاحتياطي ليلا من."
 
 #: ../setup.php:289
+#, fuzzy
 msgid "Retention Period"
-msgstr ""
+msgstr "فترة الاحتفاظ"
 
 #: ../setup.php:290
+#, fuzzy
 msgid "The number of days to retain old backups."
-msgstr ""
+msgstr "عدد الأيام للاحتفاظ بالنسخ الاحتياطية القديمة."
 
 #: ../setup.php:294
-#, php-format
+#, fuzzy, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "٪ د الشهر"
 
 #: ../setup.php:295 ../setup.php:296 ../setup.php:297 ../setup.php:298
-#, php-format
+#, fuzzy, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "٪ د أشهر"
 
 #: ../setup.php:299
-#, php-format
+#, fuzzy, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "٪ د السنة"
 
 #: ../setup.php:304
+#, fuzzy
 msgid "Misc"
-msgstr ""
+msgstr "متفرقات"
 
 #: ../setup.php:316
+#, fuzzy
 msgid "Utilities"
-msgstr ""
+msgstr "خدمات"
 
 #: ../setup.php:321
+#, fuzzy
 msgid "Router Devices"
-msgstr ""
+msgstr "أجهزة التوجيه"
 
 #: ../setup.php:328 ../setup.php:363 ../setup.php:391
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(تعديل)"
 
 #: ../setup.php:335 ../setup.php:370 ../setup.php:398
+#, fuzzy
 msgid "(actions)"
-msgstr ""
+msgstr "أفعال"
 
 #: ../setup.php:349
+#, fuzzy
 msgid "View Debug"
-msgstr ""
+msgstr "عرض Debug"
 
 #: ../setup.php:384
+#, fuzzy
 msgid "Router Accounts"
-msgstr ""
+msgstr "حسابات التوجيه"
 
 #: ../setup.php:405
+#, fuzzy
 msgid "Router Compare"
-msgstr ""
+msgstr "راوتر قارن"

@@ -5,611 +5,749 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-07 07:56-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ja-JP\n"
+"PO-Revision-Date: 2019-03-18 18:08-0400\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../router-devices.php:33
+#, fuzzy
 msgid "Backup"
-msgstr ""
+msgstr "バックアップ"
 
 #: ../router-devices.php:34 ../router-accounts.php:32
 #: ../router-devtypes.php:31
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: ../router-devices.php:35
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 #: ../router-devices.php:36
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "無効"
 
 #: ../router-devices.php:64
+#, fuzzy
 msgid "Enable Device"
-msgstr ""
+msgstr "デバイスを有効にする"
 
 #: ../router-devices.php:65
+#, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr ""
+"このチェックボックスをオフにすると、このデバイスのバックアップは無効になり"
+"ます。"
 
 #: ../router-devices.php:72 ../router-accounts.php:282
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../router-devices.php:73
+#, fuzzy
 msgid ""
 "Name of this device (will be used for config saving and SVN if no hostname "
 "is present in config)."
 msgstr ""
+"このデバイスの名前（設定にホスト名が存在しない場合は、設定の保存とSVNに使用"
+"されます）。"
 
 #: ../router-devices.php:79 ../router-devices.php:488
+#, fuzzy
 msgid "IP Address"
-msgstr ""
+msgstr "IPアドレス"
 
 #: ../router-devices.php:80
+#, fuzzy
 msgid "This is the IP Address used to communicate with the device."
-msgstr ""
+msgstr "これは、デバイスと通信するために使用されるIPアドレスです。"
 
 #: ../router-devices.php:86 ../router-devices.php:489
 #: ../router-backups.php:139
+#, fuzzy
 msgid "Directory"
-msgstr ""
+msgstr "ディレクトリ"
 
 #: ../router-devices.php:87
+#, fuzzy
 msgid "This is the relative directory structure used to store the configs."
-msgstr ""
+msgstr "これは設定を格納するために使用される相対ディレクトリ構造です。"
 
 #: ../router-devices.php:93
+#, fuzzy
 msgid "Schedule"
-msgstr ""
+msgstr "スケジュール"
 
 #: ../router-devices.php:94
+#, fuzzy
 msgid "How often to Backup this device."
-msgstr ""
+msgstr "このデバイスをバックアップする頻度。"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Daily"
-msgstr ""
+msgstr "毎日"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Weekly"
-msgstr ""
+msgstr "毎週"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Monthly"
-msgstr ""
+msgstr "毎月"
 
 #: ../router-devices.php:101 ../router-devices.php:486
+#, fuzzy
 msgid "Device Type"
-msgstr ""
+msgstr "デバイスタイプ"
 
 #: ../router-devices.php:102
+#, fuzzy
 msgid "Choose the type of device that the router is."
-msgstr ""
+msgstr "ルーターがあるデバイスの種類を選択します。"
 
 #: ../router-devices.php:109
+#, fuzzy
 msgid "Authentication Account"
-msgstr ""
+msgstr "認証アカウント"
 
 #: ../router-devices.php:110
+#, fuzzy
 msgid "Choose an account to use to Login to the router"
-msgstr ""
+msgstr "ルータへのログインに使用するアカウントを選択してください"
 
 #: ../router-devices.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
-msgstr ""
+msgstr "％sをデバッグします（％s） <br><br>"
 
 #: ../router-devices.php:215
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)<br><br>"
-msgstr ""
+msgstr "％sのルータ設定（％s） <br><br>"
 
 #: ../router-devices.php:216 ../router-backups.php:73
-#, php-format
+#, fuzzy, php-format
 msgid "Backup from %s"
-msgstr ""
+msgstr "％sからのバックアップ"
 
 #: ../router-devices.php:217 ../router-backups.php:74
-#, php-format
+#, fuzzy, php-format
 msgid "File: %s/%s"
-msgstr ""
+msgstr "ファイル：％s /％s"
 
 #: ../router-devices.php:324
+#, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr ""
+msgstr "次のデバイスを削除するには、[続行]をクリックしてください。"
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "取り消し"
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Continue"
-msgstr ""
+msgstr "続ける"
 
 #: ../router-devices.php:328 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Delete Device(s)"
-msgstr ""
+msgstr "デバイスを削除"
 
 #: ../router-devices.php:333
+#, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr ""
+msgstr "次のデバイスを有効にするには、[続行]をクリックします。"
 
 #: ../router-devices.php:337
+#, fuzzy
 msgid "Enable Device(s)"
-msgstr ""
+msgstr "デバイスを有効にする"
 
 #: ../router-devices.php:342
+#, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr ""
+msgstr "次のデバイスを無効にするには、[続行]をクリックします。"
 
 #: ../router-devices.php:346
+#, fuzzy
 msgid "Disable Device(s)"
-msgstr ""
+msgstr "デバイスを無効にする"
 
 #: ../router-devices.php:350
+#, fuzzy
 msgid "You must select at least Router Device."
-msgstr ""
+msgstr "少なくともルーターデバイスを選択する必要があります。"
 
 #: ../router-devices.php:352 ../router-accounts.php:170
+#, fuzzy
 msgid "Return"
-msgstr ""
+msgstr "帰還"
 
 #: ../router-devices.php:421
-#, php-format
+#, fuzzy, php-format
 msgid "Router: [edit: %s]"
-msgstr ""
+msgstr "ルーター：[編集：％s]"
 
 #: ../router-devices.php:423
+#, fuzzy
 msgid "Router: [new]"
-msgstr ""
+msgstr "ルーター：[new]"
 
 #: ../router-devices.php:478
+#, fuzzy
 msgid "Router Device Management"
-msgstr ""
+msgstr "ルータデバイス管理"
 
 #: ../router-devices.php:484 ../router-devtypes.php:337
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: ../router-devices.php:485 ../router-backups.php:137
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "ホスト名"
 
 #: ../router-devices.php:487
+#, fuzzy
 msgid "Configs"
-msgstr ""
+msgstr "設定"
 
 #: ../router-devices.php:490
+#, fuzzy
 msgid "Last Backup"
-msgstr ""
+msgstr "最後のバックアップ"
 
 #: ../router-devices.php:491 ../router-backups.php:142
+#, fuzzy
 msgid "Last Change"
-msgstr ""
+msgstr "最後の変更"
 
 #: ../router-devices.php:492 ../router-backups.php:143
+#, fuzzy
 msgid "Changed By"
-msgstr ""
+msgstr "変更者"
 
 #: ../router-devices.php:493
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "有効"
 
 #: ../router-devices.php:511 ../router-devtypes.php:49
+#, fuzzy
 msgid "Auto-Detect"
-msgstr ""
+msgstr "自動検知"
 
 #: ../router-devices.php:513
+#, fuzzy
 msgid "Telnet"
-msgstr ""
+msgstr "Telnet"
 
 #: ../router-devices.php:515
+#, fuzzy
 msgid "Trace Route"
-msgstr ""
+msgstr "トレースルート"
 
 #: ../router-devices.php:517
+#, fuzzy
 msgid "Router Debug Info"
-msgstr ""
+msgstr "ルータデバッグ情報"
 
 #: ../router-devices.php:522
+#, fuzzy
 msgid "Current"
-msgstr ""
+msgstr "現在"
 
 #: ../router-devices.php:522
-#, php-format
+#, fuzzy, php-format
 msgid "Backups (%s)"
-msgstr ""
+msgstr "バックアップ（％s）"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "はい"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 #: ../router-devices.php:533
+#, fuzzy
 msgid "No Router Devices Found"
-msgstr ""
+msgstr "ルーターデバイスが見つかりません"
 
 #: ../router-download.php:98
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices backed up successfully.<br>"
-msgstr ""
+msgstr "％sデバイスは正常にバックアップされました。 <br>"
 
 #: ../router-download.php:99
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices failed to backup.<br>"
-msgstr ""
+msgstr "％sデバイスはバックアップに失敗しました。 <br>"
 
 #: ../router-download.php:102
+#, fuzzy
 msgid "These devices failed to backup<br>"
-msgstr ""
+msgstr "これらのデバイスはバックアップに失敗しました<br>"
 
 #: ../router-download.php:103
+#, fuzzy
 msgid "--------------------------------<br>"
-msgstr ""
+msgstr "-------------------------------- <br>"
 
 #: ../router-download.php:122
+#, fuzzy
 msgid "Network Device Configuration Backups"
-msgstr ""
+msgstr "ネットワークデバイス設定のバックアップ"
 
 #: ../functions.php:33 ../router-accounts.php:282
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 #: ../functions.php:34 ../router-devtypes.php:327
+#, fuzzy
 msgid "Device Types"
-msgstr ""
+msgstr "装置タイプ"
 
 #: ../functions.php:35
+#, fuzzy
 msgid "Authentication"
-msgstr ""
+msgstr "認証"
 
 #: ../functions.php:36
+#, fuzzy
 msgid "Backups"
-msgstr ""
+msgstr "バックアップ一覧"
 
 #: ../functions.php:37 ../router-backups.php:138 ../router-backups.php:162
+#, fuzzy
 msgid "Compare"
-msgstr ""
+msgstr "比較"
 
 #: ../functions.php:44
-#, php-format
+#, fuzzy, php-format
 msgid "Technical Support [ %s ]"
-msgstr ""
+msgstr "技術サポート[％s]"
 
 #: ../functions.php:100
+#, fuzzy
 msgid ""
 "A successful backup has now been completed on these devices\n"
 "--------------------------------\n"
 msgstr ""
+"これらのデバイスで正常なバックアップが完了しまし"
+"た--------------------------------"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Network Device Configuration Backups - Reattempt"
-msgstr ""
+msgstr "ネットワークデバイス設定のバックアップ - 再試行"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Config Backups"
-msgstr ""
+msgstr "設定バックアップ"
 
 #: ../functions.php:120
+#, fuzzy
 msgid "Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "バックアップパスが設定されていないか、ディレクトリではありません"
 
 #: ../functions.php:160
+#, fuzzy
 msgid "FATAL: Backup Path is not set or is not a directory"
 msgstr ""
+"FATAL：バックアップパスが設定されていないか、ディレクトリではありません"
 
 #: ../functions.php:166
+#, fuzzy
 msgid "FATAL: TFTP Server is not set"
-msgstr ""
+msgstr "FATAL：TFTPサーバが設定されていません"
 
 #: ../router-compare.php:121
+#, fuzzy
 msgid "Compare Output"
-msgstr ""
+msgstr "比較出力"
 
 #: ../router-compare.php:146
+#, fuzzy
 msgid "There are no Changes"
-msgstr ""
+msgstr "変更はありません"
 
 #: ../router-compare.php:156 ../router-compare.php:159
+#, fuzzy
 msgid "Error, you must have backups for each device."
-msgstr ""
+msgstr "エラー、各デバイスのバックアップが必要です。"
 
 #: ../router-accounts.php:52 ../router-devtypes.php:65
 #: ../router-devtypes.php:339
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: ../router-accounts.php:53
+#, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
-msgstr ""
+msgstr "このアカウントに、表示されるわかりやすい名前を付けます。"
 
 #: ../router-accounts.php:59 ../router-accounts.php:282
 #: ../router-devtypes.php:340
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 #: ../router-accounts.php:60
+#, fuzzy
 msgid "The username that will be used for authentication."
-msgstr ""
+msgstr "認証に使用されるユーザー名。"
 
 #: ../router-accounts.php:66 ../router-devtypes.php:341
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 #: ../router-accounts.php:67
+#, fuzzy
 msgid "The password used for authentication."
-msgstr ""
+msgstr "認証に使用されるパスワード。"
 
 #: ../router-accounts.php:75
+#, fuzzy
 msgid "Enable Password"
-msgstr ""
+msgstr "パスワードを有効にする"
 
 #: ../router-accounts.php:76
+#, fuzzy
 msgid "Your Enable Password, if required."
-msgstr ""
+msgstr "必要に応じてパスワードを有効にします。"
 
 #: ../router-accounts.php:161
+#, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
-msgstr ""
+msgstr "次のアカウントを削除するには、[続行]をクリックしてください。"
 
 #: ../router-accounts.php:169
+#, fuzzy
 msgid "You must select at least one device."
-msgstr ""
+msgstr "少なくとも1つのデバイスを選択する必要があります。"
 
 #: ../router-accounts.php:238
-#, php-format
+#, fuzzy, php-format
 msgid "Account: [edit: %s]"
-msgstr ""
+msgstr "アカウント：[編集：％s]"
 
 #: ../router-accounts.php:240
+#, fuzzy
 msgid "Account: [new]"
-msgstr ""
+msgstr "アカウント：[新規]"
 
 #: ../router-accounts.php:274
+#, fuzzy
 msgid "Accounts"
-msgstr ""
+msgstr "アカウント"
 
 #: ../router-accounts.php:278
+#, fuzzy
 msgid "Account Management"
-msgstr ""
+msgstr "アカウント管理"
 
 #: ../router-accounts.php:298
+#, fuzzy
 msgid "No Router Accounts Found"
-msgstr ""
+msgstr "ルーターアカウントが見つかりません"
 
 #: ../router-backups.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)"
-msgstr ""
+msgstr "％sのルータ設定（％s）"
 
 #: ../router-backups.php:129 ../setup.php:356
+#, fuzzy
 msgid "Router Backups"
-msgstr ""
+msgstr "ルータのバックアップ"
 
 #: ../router-backups.php:140
+#, fuzzy
 msgid "Filename"
-msgstr ""
+msgstr "ファイル名"
 
 #: ../router-backups.php:141
+#, fuzzy
 msgid "Backup Time"
-msgstr ""
+msgstr "バックアップ時間"
 
 #: ../router-backups.php:162 ../setup.php:342 ../setup.php:377
+#, fuzzy
 msgid "View Config"
-msgstr ""
+msgstr "構成を見る"
 
 #: ../router-backups.php:181
+#, fuzzy
 msgid "No Router Backups Found"
-msgstr ""
+msgstr "ルータバックアップが見つかりません"
 
 #: ../router-devtypes.php:66
+#, fuzzy
 msgid "Name of this device type."
-msgstr ""
+msgstr "この装置タイプの名前。"
 
 #: ../router-devtypes.php:73
+#, fuzzy
 msgid "Username Prompt"
-msgstr ""
+msgstr "ユーザー名プロンプト"
 
 #: ../router-devtypes.php:74
+#, fuzzy
 msgid "This is the username prompt to match on login."
-msgstr ""
+msgstr "これはログイン時に照合するためのユーザー名プロンプトです。"
 
 #: ../router-devtypes.php:81
+#, fuzzy
 msgid "Password Prompt"
-msgstr ""
+msgstr "パスワードプロンプト"
 
 #: ../router-devtypes.php:82
+#, fuzzy
 msgid "This is the password prompt to match on login."
-msgstr ""
+msgstr "これはログイン時に照合するためのパスワードプロンプトです。"
 
 #: ../router-devtypes.php:89 ../router-devtypes.php:342
+#, fuzzy
 msgid "Copy TFTP"
-msgstr ""
+msgstr "TFTPのコピー"
 
 #: ../router-devtypes.php:90
+#, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr ""
+"これはバックアップをTFTPサーバに送信するのに使用されるCLIテキストです。"
 
 #: ../router-devtypes.php:97
+#, fuzzy
 msgid "Show Version"
-msgstr ""
+msgstr "バージョンを表示"
 
 #: ../router-devtypes.php:98
+#, fuzzy
 msgid "This is the CLI text used to display the current version."
-msgstr ""
+msgstr "これは現在のバージョンを表示するのに使用されるCLIテキストです。"
 
 #: ../router-devtypes.php:105 ../router-devtypes.php:344
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "新しいパスワードを確認"
 
 #: ../router-devtypes.php:106
+#, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr ""
+msgstr "設定をコピーするための確認プロンプトはありますか？"
 
 #: ../router-devtypes.php:113 ../router-devtypes.php:345
+#, fuzzy
 msgid "Force Confirm"
-msgstr ""
+msgstr "確認を強制する"
 
 #: ../router-devtypes.php:114
+#, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
-msgstr ""
+msgstr "設定をコピーするための強制確認プロンプトはありますか？"
 
 #: ../router-devtypes.php:120
+#, fuzzy
 msgid "Check End in Config"
-msgstr ""
+msgstr "設定の終了チェック"
 
 #: ../router-devtypes.php:121
+#, fuzzy
 msgid "Check end in config?"
-msgstr ""
+msgstr "設定で終了を確認しますか？"
 
 #: ../router-devtypes.php:206
+#, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
-msgstr ""
+msgstr "[続行]をクリックすると、次のデバイスが削除されます。"
 
 #: ../router-devtypes.php:280
-#, php-format
+#, fuzzy, php-format
 msgid "Query [edit: %s]"
-msgstr ""
+msgstr "クエリ[編集：％s]"
 
 #: ../router-devtypes.php:282
+#, fuzzy
 msgid "Query [new]"
-msgstr ""
+msgstr "クエリ[新規]"
 
 #: ../router-devtypes.php:333
+#, fuzzy
 msgid "View Router Device Types"
-msgstr ""
+msgstr "ルータのデバイスタイプの表示"
 
 #: ../router-devtypes.php:338
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../router-devtypes.php:343
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: ../router-devtypes.php:346
+#, fuzzy
 msgid "Check End In Config"
-msgstr ""
+msgstr "設定で終了をチェック"
 
 #: ../router-devtypes.php:354
+#, fuzzy
 msgid "Edit Device Type"
-msgstr ""
+msgstr "デバイスタイプを編集"
 
 #: ../router-devtypes.php:369
+#, fuzzy
 msgid "No Router Device Types Found"
-msgstr ""
+msgstr "ルータのデバイスタイプが見つかりません"
 
 #: ../setup.php:38 ../setup.php:254 ../setup.php:316
+#, fuzzy
 msgid "Router Configs"
-msgstr ""
+msgstr "ルータ設定"
 
 #: ../setup.php:258
+#, fuzzy
 msgid "TFTP Server IP"
-msgstr ""
+msgstr "TFTPサーバIP"
 
 #: ../setup.php:259
+#, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
-msgstr ""
+msgstr "あなたのCactiサーバを指すIPでなければなりません。"
 
 #: ../setup.php:265
+#, fuzzy
 msgid "Backup Directory Path"
-msgstr ""
+msgstr "バックアップディレクトリパス"
 
 #: ../setup.php:266
+#, fuzzy
 msgid ""
 "The path to where your Configs will be backed up, it must be the path that "
 "the local TFTP Server writes to."
 msgstr ""
+"あなたの設定がバックアップされる場所へのパスは、ローカルTFTPサーバが書き込"
+"むパスでなければなりません。"
 
 #: ../setup.php:273
+#, fuzzy
 msgid "Email Address"
-msgstr ""
+msgstr "メールアドレス"
 
 #: ../setup.php:274
+#, fuzzy
 msgid ""
 "A comma delimited list of Email addresses to send the nightly backup Email "
 "to."
 msgstr ""
+"夜間のバックアップEメールの送信先Eメールアドレスのコンマ区切りリスト。"
 
 #: ../setup.php:281
+#, fuzzy
 msgid "From Address"
-msgstr ""
+msgstr "送信元アドレス"
 
 #: ../setup.php:282
+#, fuzzy
 msgid "Email address the nightly backup will be sent from."
-msgstr ""
+msgstr "夜間バックアップの送信元のメールアドレス。"
 
 #: ../setup.php:289
+#, fuzzy
 msgid "Retention Period"
-msgstr ""
+msgstr "保存期間"
 
 #: ../setup.php:290
+#, fuzzy
 msgid "The number of days to retain old backups."
-msgstr ""
+msgstr "古いバックアップを保存する日数。"
 
 #: ../setup.php:294
-#, php-format
+#, fuzzy, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "％d月"
 
 #: ../setup.php:295 ../setup.php:296 ../setup.php:297 ../setup.php:298
-#, php-format
+#, fuzzy, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "％d月"
 
 #: ../setup.php:299
-#, php-format
+#, fuzzy, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "％d年"
 
 #: ../setup.php:304
+#, fuzzy
 msgid "Misc"
-msgstr ""
+msgstr "その他"
 
 #: ../setup.php:316
+#, fuzzy
 msgid "Utilities"
-msgstr ""
+msgstr "ユーティリティ"
 
 #: ../setup.php:321
+#, fuzzy
 msgid "Router Devices"
-msgstr ""
+msgstr "ルーターデバイス"
 
 #: ../setup.php:328 ../setup.php:363 ../setup.php:391
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(編集)"
 
 #: ../setup.php:335 ../setup.php:370 ../setup.php:398
+#, fuzzy
 msgid "(actions)"
-msgstr ""
+msgstr "操作"
 
 #: ../setup.php:349
+#, fuzzy
 msgid "View Debug"
-msgstr ""
+msgstr "デバッグを表示"
 
 #: ../setup.php:384
+#, fuzzy
 msgid "Router Accounts"
-msgstr ""
+msgstr "ルーターアカウント"
 
 #: ../setup.php:405
+#, fuzzy
 msgid "Router Compare"
-msgstr ""
+msgstr "ルーター比較"

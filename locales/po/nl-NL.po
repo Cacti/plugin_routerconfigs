@@ -5,611 +5,755 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-07 07:56-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nl-NL\n"
+"PO-Revision-Date: 2019-03-18 18:16-0400\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../router-devices.php:33
+#, fuzzy
 msgid "Backup"
-msgstr ""
+msgstr "Backup"
 
 #: ../router-devices.php:34 ../router-accounts.php:32
 #: ../router-devtypes.php:31
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Verwijder"
 
 #: ../router-devices.php:35
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
 #: ../router-devices.php:36
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: ../router-devices.php:64
+#, fuzzy
 msgid "Enable Device"
-msgstr ""
+msgstr "Appara(a)t(en) inschakelen"
 
 #: ../router-devices.php:65
+#, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr ""
+"Schakel dit vakje uit om de back-up van dit apparaat uit te schakelen."
 
 #: ../router-devices.php:72 ../router-accounts.php:282
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #: ../router-devices.php:73
+#, fuzzy
 msgid ""
 "Name of this device (will be used for config saving and SVN if no hostname "
 "is present in config)."
 msgstr ""
+"Naam van dit apparaat (wordt gebruikt voor het opslaan van de configuratie "
+"en SVN als er geen hostnaam in de configuratie aanwezig is)."
 
 #: ../router-devices.php:79 ../router-devices.php:488
+#, fuzzy
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adres"
 
 #: ../router-devices.php:80
+#, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr ""
+"Dit is het IP-adres dat wordt gebruikt om met het apparaat te communiceren."
 
 #: ../router-devices.php:86 ../router-devices.php:489
 #: ../router-backups.php:139
+#, fuzzy
 msgid "Directory"
-msgstr ""
+msgstr "Het pad is een directorie en geen bestand"
 
 #: ../router-devices.php:87
+#, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr ""
+"Dit is de relatieve mappenstructuur die gebruikt wordt om de configuraties "
+"op te slaan."
 
 #: ../router-devices.php:93
+#, fuzzy
 msgid "Schedule"
-msgstr ""
+msgstr "Schema"
 
 #: ../router-devices.php:94
+#, fuzzy
 msgid "How often to Backup this device."
-msgstr ""
+msgstr "Hoe vaak maakt u een back-up van dit apparaat."
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Daily"
-msgstr ""
+msgstr "Dagelijks"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Weekly"
-msgstr ""
+msgstr "Wekelijks"
 
 #: ../router-devices.php:97
+#, fuzzy
 msgid "Monthly"
-msgstr ""
+msgstr "Maandelijks"
 
 #: ../router-devices.php:101 ../router-devices.php:486
+#, fuzzy
 msgid "Device Type"
-msgstr ""
+msgstr "Type apparaat"
 
 #: ../router-devices.php:102
+#, fuzzy
 msgid "Choose the type of device that the router is."
-msgstr ""
+msgstr "Kies het type apparaat dat de router is."
 
 #: ../router-devices.php:109
+#, fuzzy
 msgid "Authentication Account"
-msgstr ""
+msgstr "Authenticatie account"
 
 #: ../router-devices.php:110
+#, fuzzy
 msgid "Choose an account to use to Login to the router"
-msgstr ""
+msgstr "Kies een account om in te loggen op de router"
 
 #: ../router-devices.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
-msgstr ""
+msgstr "Debug voor %s (%s)<br><br><br>"
 
 #: ../router-devices.php:215
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)<br><br>"
-msgstr ""
+msgstr "Router configureren voor %s (%s)<br><br><br>"
 
 #: ../router-devices.php:216 ../router-backups.php:73
-#, php-format
+#, fuzzy, php-format
 msgid "Backup from %s"
-msgstr ""
+msgstr "Backup van %s"
 
 #: ../router-devices.php:217 ../router-backups.php:74
-#, php-format
+#, fuzzy, php-format
 msgid "File: %s/%s"
-msgstr ""
+msgstr "Dossier: %s/%s"
 
 #: ../router-devices.php:324
+#, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr ""
+msgstr "Klik op 'Volgende' om de volgende appara(a)t(en) te verwijderen."
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 #: ../router-devices.php:328 ../router-devices.php:337
 #: ../router-devices.php:346 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Continue"
-msgstr ""
+msgstr "Volgende"
 
 #: ../router-devices.php:328 ../router-accounts.php:167
 #: ../router-devtypes.php:212
+#, fuzzy
 msgid "Delete Device(s)"
-msgstr ""
+msgstr "Verwijder appara(a)t(en)"
 
 #: ../router-devices.php:333
+#, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr ""
+msgstr "Klik op 'Volgende' om de volgende appara(a)t(en) in te schakelen."
 
 #: ../router-devices.php:337
+#, fuzzy
 msgid "Enable Device(s)"
-msgstr ""
+msgstr "Appara(a)t(en) inschakelen"
 
 #: ../router-devices.php:342
+#, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr ""
+msgstr "Klik op 'Volgende' om de volgende appara(a)t(en) uit te schakelen."
 
 #: ../router-devices.php:346
+#, fuzzy
 msgid "Disable Device(s)"
-msgstr ""
+msgstr "Appara(a)t(en) uitschakelen"
 
 #: ../router-devices.php:350
+#, fuzzy
 msgid "You must select at least Router Device."
-msgstr ""
+msgstr "U moet ten minste een routerapparaat selecteren."
 
 #: ../router-devices.php:352 ../router-accounts.php:170
+#, fuzzy
 msgid "Return"
-msgstr ""
+msgstr "Terug"
 
 #: ../router-devices.php:421
-#, php-format
+#, fuzzy, php-format
 msgid "Router: [edit: %s]"
-msgstr ""
+msgstr "Router: bewerken: %s]"
 
 #: ../router-devices.php:423
+#, fuzzy
 msgid "Router: [new]"
-msgstr ""
+msgstr "Router: nieuw"
 
 #: ../router-devices.php:478
+#, fuzzy
 msgid "Router Device Management"
-msgstr ""
+msgstr "Beheer van het routerapparaat"
 
 #: ../router-devices.php:484 ../router-devtypes.php:337
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Acties"
 
 #: ../router-devices.php:485 ../router-backups.php:137
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: ../router-devices.php:487
+#, fuzzy
 msgid "Configs"
-msgstr ""
+msgstr "Configureert"
 
 #: ../router-devices.php:490
+#, fuzzy
 msgid "Last Backup"
-msgstr ""
+msgstr "Laatste back-up"
 
 #: ../router-devices.php:491 ../router-backups.php:142
+#, fuzzy
 msgid "Last Change"
-msgstr ""
+msgstr "Laatste wijziging"
 
 #: ../router-devices.php:492 ../router-backups.php:143
+#, fuzzy
 msgid "Changed By"
-msgstr ""
+msgstr "Gewijzigd door"
 
 #: ../router-devices.php:493
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 #: ../router-devices.php:511 ../router-devtypes.php:49
+#, fuzzy
 msgid "Auto-Detect"
-msgstr ""
+msgstr "Auto-Detecteer"
 
 #: ../router-devices.php:513
+#, fuzzy
 msgid "Telnet"
-msgstr ""
+msgstr "Telnet"
 
 #: ../router-devices.php:515
+#, fuzzy
 msgid "Trace Route"
-msgstr ""
+msgstr "Traceer route"
 
 #: ../router-devices.php:517
+#, fuzzy
 msgid "Router Debug Info"
-msgstr ""
+msgstr "Router Debug Info"
 
 #: ../router-devices.php:522
+#, fuzzy
 msgid "Current"
-msgstr ""
+msgstr "Huidig"
 
 #: ../router-devices.php:522
-#, php-format
+#, fuzzy, php-format
 msgid "Backups (%s)"
-msgstr ""
+msgstr "Back-ups (%s)"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ../router-devices.php:528 ../router-devtypes.php:362
 #: ../router-devtypes.php:363 ../router-devtypes.php:364
+#, fuzzy
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: ../router-devices.php:533
+#, fuzzy
 msgid "No Router Devices Found"
-msgstr ""
+msgstr "Geen routerapparaten gevonden"
 
 #: ../router-download.php:98
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices backed up successfully.<br>"
-msgstr ""
+msgstr "%s apparaten waarvan met succes een back-up is gemaakt.<br>"
 
 #: ../router-download.php:99
-#, php-format
+#, fuzzy, php-format
 msgid "%s devices failed to backup.<br>"
-msgstr ""
+msgstr "%s apparaten zijn er niet in geslaagd een back-up te maken.<br>"
 
 #: ../router-download.php:102
+#, fuzzy
 msgid "These devices failed to backup<br>"
-msgstr ""
+msgstr "Deze apparaten zijn er niet in geslaagd een back-up te maken<br>"
 
 #: ../router-download.php:103
+#, fuzzy
 msgid "--------------------------------<br>"
-msgstr ""
+msgstr "Configuratie controleren…<br>"
 
 #: ../router-download.php:122
+#, fuzzy
 msgid "Network Device Configuration Backups"
-msgstr ""
+msgstr "Back-ups van netwerkapparaten configureren"
 
 #: ../functions.php:33 ../router-accounts.php:282
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "Apparaten"
 
 #: ../functions.php:34 ../router-devtypes.php:327
+#, fuzzy
 msgid "Device Types"
-msgstr ""
+msgstr "Apparaattypen"
 
 #: ../functions.php:35
+#, fuzzy
 msgid "Authentication"
-msgstr ""
+msgstr "Authenticatie"
 
 #: ../functions.php:36
+#, fuzzy
 msgid "Backups"
-msgstr ""
+msgstr "Back-ups"
 
 #: ../functions.php:37 ../router-backups.php:138 ../router-backups.php:162
+#, fuzzy
 msgid "Compare"
-msgstr ""
+msgstr "Vergelijken"
 
 #: ../functions.php:44
-#, php-format
+#, fuzzy, php-format
 msgid "Technical Support [ %s ]"
-msgstr ""
+msgstr "Technische ondersteuning [%s]"
 
 #: ../functions.php:100
+#, fuzzy
 msgid ""
 "A successful backup has now been completed on these devices\n"
 "--------------------------------\n"
 msgstr ""
+"Een succesvolle back-up is nu voltooid op deze apparaten\n"
+"\n"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Network Device Configuration Backups - Reattempt"
-msgstr ""
+msgstr "Back-ups van netwerkapparaten configureren - Opnieuw opmaken"
 
 #: ../functions.php:113
+#, fuzzy
 msgid "Config Backups"
-msgstr ""
+msgstr "Back-ups configureren"
 
 #: ../functions.php:120
+#, fuzzy
 msgid "Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "Back-up pad is niet ingesteld of is geen directory"
 
 #: ../functions.php:160
+#, fuzzy
 msgid "FATAL: Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "FATAL: Backup Path is niet ingesteld of is geen directory"
 
 #: ../functions.php:166
+#, fuzzy
 msgid "FATAL: TFTP Server is not set"
-msgstr ""
+msgstr "FATAL: TFTP-server is niet ingesteld"
 
 #: ../router-compare.php:121
+#, fuzzy
 msgid "Compare Output"
-msgstr ""
+msgstr "Uitgang vergelijken"
 
 #: ../router-compare.php:146
+#, fuzzy
 msgid "There are no Changes"
-msgstr ""
+msgstr "Er zijn geen wijzigingen"
 
 #: ../router-compare.php:156 ../router-compare.php:159
+#, fuzzy
 msgid "Error, you must have backups for each device."
-msgstr ""
+msgstr "Fout, u moet voor elk apparaat een back-up hebben."
 
 #: ../router-accounts.php:52 ../router-devtypes.php:65
 #: ../router-devtypes.php:339
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: ../router-accounts.php:53
+#, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
-msgstr ""
+msgstr "Geef dit account een betekenisvolle naam die wordt weergegeven."
 
 #: ../router-accounts.php:59 ../router-accounts.php:282
 #: ../router-devtypes.php:340
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: ../router-accounts.php:60
+#, fuzzy
 msgid "The username that will be used for authentication."
-msgstr ""
+msgstr "De gebruikersnaam die gebruikt zal worden voor authenticatie."
 
 #: ../router-accounts.php:66 ../router-devtypes.php:341
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: ../router-accounts.php:67
+#, fuzzy
 msgid "The password used for authentication."
-msgstr ""
+msgstr "Het wachtwoord dat wordt gebruikt voor authenticatie."
 
 #: ../router-accounts.php:75
+#, fuzzy
 msgid "Enable Password"
-msgstr ""
+msgstr "Wachtwoord inschakelen"
 
 #: ../router-accounts.php:76
+#, fuzzy
 msgid "Your Enable Password, if required."
-msgstr ""
+msgstr "Uw Enable Password, indien nodig."
 
 #: ../router-accounts.php:161
+#, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
-msgstr ""
+msgstr "Klik op 'Doorgaan' om de volgende account(s) te verwijderen."
 
 #: ../router-accounts.php:169
+#, fuzzy
 msgid "You must select at least one device."
-msgstr ""
+msgstr "U moet ten minste één apparaat selecteren."
 
 #: ../router-accounts.php:238
-#, php-format
+#, fuzzy, php-format
 msgid "Account: [edit: %s]"
-msgstr ""
+msgstr "Account: bewerken: %s]"
 
 #: ../router-accounts.php:240
+#, fuzzy
 msgid "Account: [new]"
-msgstr ""
+msgstr "Account: nieuw"
 
 #: ../router-accounts.php:274
+#, fuzzy
 msgid "Accounts"
-msgstr ""
+msgstr "Laat inactieve accounts vervallen"
 
 #: ../router-accounts.php:278
+#, fuzzy
 msgid "Account Management"
-msgstr ""
+msgstr "Uw account"
 
 #: ../router-accounts.php:298
+#, fuzzy
 msgid "No Router Accounts Found"
-msgstr ""
+msgstr "Geen routeraccounts gevonden"
 
 #: ../router-backups.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "Router Config for %s (%s)"
-msgstr ""
+msgstr "Router configureren voor %s (%s)"
 
 #: ../router-backups.php:129 ../setup.php:356
+#, fuzzy
 msgid "Router Backups"
-msgstr ""
+msgstr "Router back-ups"
 
 #: ../router-backups.php:140
+#, fuzzy
 msgid "Filename"
-msgstr ""
+msgstr "Bestandsnaam"
 
 #: ../router-backups.php:141
+#, fuzzy
 msgid "Backup Time"
-msgstr ""
+msgstr "Back-uptijd"
 
 #: ../router-backups.php:162 ../setup.php:342 ../setup.php:377
+#, fuzzy
 msgid "View Config"
-msgstr ""
+msgstr "Bekijk configuratie"
 
 #: ../router-backups.php:181
+#, fuzzy
 msgid "No Router Backups Found"
-msgstr ""
+msgstr "Geen Routerback-ups gevonden"
 
 #: ../router-devtypes.php:66
+#, fuzzy
 msgid "Name of this device type."
-msgstr ""
+msgstr "Naam van dit apparaattype."
 
 #: ../router-devtypes.php:73
+#, fuzzy
 msgid "Username Prompt"
-msgstr ""
+msgstr "Gebruikersnaam Prompt"
 
 #: ../router-devtypes.php:74
+#, fuzzy
 msgid "This is the username prompt to match on login."
-msgstr ""
+msgstr "Dit is de gebruikersnaam die bij het inloggen moet overeenkomen."
 
 #: ../router-devtypes.php:81
+#, fuzzy
 msgid "Password Prompt"
-msgstr ""
+msgstr "Wachtwoord vragen"
 
 #: ../router-devtypes.php:82
+#, fuzzy
 msgid "This is the password prompt to match on login."
-msgstr ""
+msgstr "Dit is de wachtwoordprompt om aan te passen bij het inloggen."
 
 #: ../router-devtypes.php:89 ../router-devtypes.php:342
+#, fuzzy
 msgid "Copy TFTP"
-msgstr ""
+msgstr "TFTP kopiëren"
 
 #: ../router-devtypes.php:90
+#, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr ""
+"Dit is de CLI-tekst die gebruikt wordt om de back-up naar de tftp server "
+"te sturen."
 
 #: ../router-devtypes.php:97
+#, fuzzy
 msgid "Show Version"
-msgstr ""
+msgstr "Toon versie"
 
 #: ../router-devtypes.php:98
+#, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr ""
+"Dit is de CLI-tekst die wordt gebruikt om de huidige versie weer te geven."
 
 #: ../router-devtypes.php:105 ../router-devtypes.php:344
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestig nieuw wachtwoord"
 
 #: ../router-devtypes.php:106
+#, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr ""
+msgstr "Is er een bevestigingsvraag voor het kopiëren van de configuratie?"
 
 #: ../router-devtypes.php:113 ../router-devtypes.php:345
+#, fuzzy
 msgid "Force Confirm"
-msgstr ""
+msgstr "Kracht Bevestigen"
 
 #: ../router-devtypes.php:114
+#, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr ""
+"Is er een force confirmation prompt voor het kopiëren van de configuratie?"
 
 #: ../router-devtypes.php:120
+#, fuzzy
 msgid "Check End in Config"
-msgstr ""
+msgstr "Controleer Einde in Config."
 
 #: ../router-devtypes.php:121
+#, fuzzy
 msgid "Check end in config?"
-msgstr ""
+msgstr "Einde van de configuratie controleren?"
 
 #: ../router-devtypes.php:206
+#, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr ""
+"Wanneer u op 'Doorgaan' klikt, worden de volgende apparaten verwijderd."
 
 #: ../router-devtypes.php:280
-#, php-format
+#, fuzzy, php-format
 msgid "Query [edit: %s]"
-msgstr ""
+msgstr "Query [bewerken: %s]"
 
 #: ../router-devtypes.php:282
+#, fuzzy
 msgid "Query [new]"
-msgstr ""
+msgstr "Vraag [nieuw]"
 
 #: ../router-devtypes.php:333
+#, fuzzy
 msgid "View Router Device Types"
-msgstr ""
+msgstr "Bekijk typen routertoestellen"
 
 #: ../router-devtypes.php:338
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../router-devtypes.php:343
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: ../router-devtypes.php:346
+#, fuzzy
 msgid "Check End In Config"
-msgstr ""
+msgstr "Check End In Config"
 
 #: ../router-devtypes.php:354
+#, fuzzy
 msgid "Edit Device Type"
-msgstr ""
+msgstr "Apparaattype bewerken"
 
 #: ../router-devtypes.php:369
+#, fuzzy
 msgid "No Router Device Types Found"
-msgstr ""
+msgstr "Geen typen routers gevonden"
 
 #: ../setup.php:38 ../setup.php:254 ../setup.php:316
+#, fuzzy
 msgid "Router Configs"
-msgstr ""
+msgstr "Router configuraties"
 
 #: ../setup.php:258
+#, fuzzy
 msgid "TFTP Server IP"
-msgstr ""
+msgstr "TFTP-server IP"
 
 #: ../setup.php:259
+#, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
-msgstr ""
+msgstr "Moet een IP zijn die naar uw Cactus server wijst."
 
 #: ../setup.php:265
+#, fuzzy
 msgid "Backup Directory Path"
-msgstr ""
+msgstr "Back-up directory pad"
 
 #: ../setup.php:266
+#, fuzzy
 msgid ""
 "The path to where your Configs will be backed up, it must be the path that "
 "the local TFTP Server writes to."
 msgstr ""
+"Het pad naar waar uw configuraties worden geback-upt, moet het pad zijn "
+"waar de lokale TFTP-server naartoe schrijft."
 
 #: ../setup.php:273
+#, fuzzy
 msgid "Email Address"
-msgstr ""
+msgstr "E-mailadres"
 
 #: ../setup.php:274
+#, fuzzy
 msgid ""
 "A comma delimited list of Email addresses to send the nightly backup Email "
 "to."
 msgstr ""
+"Een door komma's afgebakende lijst met e-mailadressen om 's nachts een "
+"back-up e-mail naartoe te sturen."
 
 #: ../setup.php:281
+#, fuzzy
 msgid "From Address"
-msgstr ""
+msgstr "Van adres"
 
 #: ../setup.php:282
+#, fuzzy
 msgid "Email address the nightly backup will be sent from."
-msgstr ""
+msgstr "E-mailadres van waaruit de nachtelijke back-up wordt verzonden."
 
 #: ../setup.php:289
+#, fuzzy
 msgid "Retention Period"
-msgstr ""
+msgstr "Bewaarperiode"
 
 #: ../setup.php:290
+#, fuzzy
 msgid "The number of days to retain old backups."
-msgstr ""
+msgstr "Het aantal dagen om oude back-ups te behouden."
 
 #: ../setup.php:294
-#, php-format
+#, fuzzy, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "%d Maand"
 
 #: ../setup.php:295 ../setup.php:296 ../setup.php:297 ../setup.php:298
-#, php-format
+#, fuzzy, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "%d Maanden"
 
 #: ../setup.php:299
-#, php-format
+#, fuzzy, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d Jaar"
 
 #: ../setup.php:304
+#, fuzzy
 msgid "Misc"
-msgstr ""
+msgstr "Diversen"
 
 #: ../setup.php:316
+#, fuzzy
 msgid "Utilities"
-msgstr ""
+msgstr "Gereedschappen"
 
 #: ../setup.php:321
+#, fuzzy
 msgid "Router Devices"
-msgstr ""
+msgstr "Routerapparaten"
 
 #: ../setup.php:328 ../setup.php:363 ../setup.php:391
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(Wijzig)"
 
 #: ../setup.php:335 ../setup.php:370 ../setup.php:398
+#, fuzzy
 msgid "(actions)"
-msgstr ""
+msgstr "Acties"
 
 #: ../setup.php:349
+#, fuzzy
 msgid "View Debug"
-msgstr ""
+msgstr "Bekijk Debug"
 
 #: ../setup.php:384
+#, fuzzy
 msgid "Router Accounts"
-msgstr ""
+msgstr "Router Rekeningen"
 
 #: ../setup.php:405
+#, fuzzy
 msgid "Router Compare"
-msgstr ""
+msgstr "Router vergelijken"
