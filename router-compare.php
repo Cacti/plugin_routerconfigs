@@ -81,7 +81,7 @@ if (is_numeric($device2)) {
 display_tabs();
 
 /* show a filter form */
-form_start('router-compare.php', 'form1');
+form_start('router-compare.php', 'chk');
 
 html_start_box('', '100%', '', '1', 'center', '');
 html_header(array('File', 'File'));

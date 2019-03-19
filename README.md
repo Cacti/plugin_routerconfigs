@@ -64,6 +64,9 @@ issue in GitHub.
 
 * issue#101: Hours do not display properly for retry schedule
 
+* issue#100: When attempting to compare device backups, warning is issued about
+  unsaved changes
+
 * feature#74: Feature Request: Enable SCP/SFTP method of backup
 
 * feature#97: Allow connection type to be inherited
