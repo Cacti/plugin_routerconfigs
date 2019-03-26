@@ -237,7 +237,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true);
 
 	$data['keys'][] = array('name' => 'btime', 'columns' => 'btime');
 	$data['keys'][] = array('name' => 'device', 'columns' => 'device');
@@ -306,7 +306,7 @@ function routerconfigs_setup_table_new() {
 	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
 
 	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes
-		(id, name, username, password, copytftp, version, confirm, forceconfirm, checkendinconfig)
+		(id, name, promptuser, promptpass, copytftp, version, confirm, forceconfirm, checkendinconfig)
 		VALUES
 		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
 		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', ''),

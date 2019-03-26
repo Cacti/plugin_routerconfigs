@@ -67,6 +67,8 @@ issue in GitHub.
 * issue#100: When attempting to compare device backups, warning is issued about
   unsaved changes
 
+* issue#104: Device types do not populate when installing from scratch
+
 * feature#74: Feature Request: Enable SCP/SFTP method of backup
 
 * feature#97: Allow connection type to be inherited

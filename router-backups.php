@@ -130,7 +130,7 @@ function show_devices () {
 	if ($device > '0') {
 		$sqlwhere = 'WHERE prb.device = ' . $device;
 	}
-	$sql = 'SELECT prd.hostname, prd.ipaddress, prb.id, prb.username, prb.lastchange,
+	$sql = 'SELECT prd.hostname, prd.ipaddress, prb.id, prb.lastuser, prb.lastchange,
 		prb.btime, prb.device, prb.directory, prb.filename, prd.lastbackup
 		FROM plugin_routerconfigs_devices AS prd
 		INNER JOIN plugin_routerconfigs_backups AS prb
@@ -323,7 +323,7 @@ function show_devices () {
 			form_selectable_cell(filter_value($row['directory'], get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($lastbackup, get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($lastchange, get_request_var('filter')),$row['device']);
-			form_selectable_cell(filter_value($row['username'], get_request_var('filter')),$row['device']);
+			form_selectable_cell(filter_value($row['lastuser'], get_request_var('filter')),$row['device']);
 			form_selectable_cell(filter_value($row['filename'], get_request_var('filter')),$row['device']);
 
 			form_end_row();
