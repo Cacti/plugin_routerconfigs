@@ -259,6 +259,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'account', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'device', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'schedule', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true);
