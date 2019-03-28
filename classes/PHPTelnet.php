@@ -75,7 +75,7 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 
 				@fputs($this->stream, $this->conn2);
 
-				$this->Log("Looking for ".$this->deviceType['prompuser']);
+				$this->Log("Looking for ".$this->deviceType['promptuser']);
 
 				// Get Username Prompt
 				$r = '';
