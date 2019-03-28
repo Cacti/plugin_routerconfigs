@@ -647,7 +647,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 					$backup_file = basename($savename);
 
 					db_execute_prepared('INSERT INTO plugin_routerconfigs_backups
-						(device, btime, directory, filename, lastchange, username)
+						(device, btime, directory, filename, lastchange, lastuser)
 						VALUES (?, ?, ?, ?, ?, ?)',
 						array($device['id'], $t_back, $backup_dir, $backup_file, $lastchange, $lastuser));
 				}
