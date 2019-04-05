@@ -56,7 +56,12 @@ issue in GitHub.
 
 ## ChangeLog
 
---- 1.5.0 --
+--- 1.5.1 ---
+
+* issue#105: New backups created actually backup but do not show up in user
+  interface
+
+--- 1.5.0 ---
 
 * issue#95: Upgrade does not function as expected
 

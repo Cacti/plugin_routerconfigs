@@ -97,12 +97,17 @@ function routerconfigs_check_upgrade() {
 			plugin_routerconfigs_fix_backups_pre14();
 		}
 
-		if (cacti_version_compare($old, '1.5', '<')) {
+		if (cacti_version_compare($old, '1.5.1', '<')) {
 
 			// Remove old columns of backups
 			if (db_column_exists('plugin_routerconfigs_backups', 'config')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_backups
 					DROP COLUMN `config`');
+			}
+
+			if (db_column_exists('plugin_routerconfigs_backups','username')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_backups
+					CHANGE COLUMN `username` `lastuser` varchar(64)');
 			}
 
 			if (db_column_exists('plugin_routerconfigs_devices','password')) {
