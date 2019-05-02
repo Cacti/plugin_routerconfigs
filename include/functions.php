@@ -424,6 +424,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			'sleep' => '125000',
 			'timeout' => '1',
 			'forceconfirm' => '',
+			'connecttype' => 'both',
 			'checkendinconfig' => 'on'
 		);
 	}

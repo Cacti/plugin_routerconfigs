@@ -61,6 +61,8 @@ issue in GitHub.
 * issue#105: New backups created actually backup but do not show up in user
   interface
 
+* issue#106: Devices with no devicetype set cause runtime errors
+
 --- 1.5.0 ---
 
 * issue#95: Upgrade does not function as expected
