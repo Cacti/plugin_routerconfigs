@@ -1,3 +1,4 @@
 backups/*
 archive/*
 *.swp
+locales/po/*.mo
