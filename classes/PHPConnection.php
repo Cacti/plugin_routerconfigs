@@ -191,6 +191,8 @@ abstract class PHPConnection {
 
 					$x++;
 				}
+			} elseif (empty($this->enablepw)) {
+				$this->Log('DEBUG: No enable command set, unable to elevate');
 			}
 		}
 
