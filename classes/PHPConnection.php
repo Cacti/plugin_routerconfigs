@@ -38,7 +38,7 @@ abstract class PHPConnection {
 		return $result;
 	}
 
-	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $bufferDebug = false) {
+	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $bufferDebug = false, $elevated = false) {
 		$this->classType = $classtype;
 
 		$this->pw1_text = plugin_routerconfigs_maskpw($pass);
@@ -53,9 +53,10 @@ abstract class PHPConnection {
 		$this->debug = '';
 		$this->debugbuffer = $bufferDebug;
 		$this->isEnabled = false;
+		$this->isAlwaysEnabled = $elevated;
 		$this->setServerDetails();
 
-		$this->Log("DEBUG: Creating $classtype Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text");
+		$this->Log("DEBUG: Creating $classtype Server: $this->server, User: $this->user, Password: $this->pw1_text, Enablepw: $this->pw2_text, Elevated: $this->isAlwaysEnabled");
 		$this->Log("DEBUG: deviceType: ".json_encode($this->deviceType));
 	}
 
@@ -128,7 +129,7 @@ abstract class PHPConnection {
 	}
 
 	function IsEnabled() {
-		return $this->isEnabled;
+		return $this->isEnabled || $this->isAlwaysEnabled;
 	}
 
 	function EnsureEnabled() {

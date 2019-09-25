@@ -281,6 +281,7 @@ function save_devices () {
 	$save['connecttype'] = get_nfilter_request_var('connecttype');
 	$save['timeout']     = get_nfilter_request_var('timeout');
 	$save['sleep']       = get_nfilter_request_var('sleep');
+	$save['elevated']    = get_nfilter_request_var('elevated');
 
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
@@ -358,6 +359,11 @@ function devices_validate_vars() {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
+			),
+		'elevated' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
 			),
 		'account' => array(
 			'filter' => FILTER_VALIDATE_INT,

@@ -157,6 +157,11 @@ function routerconfigs_check_upgrade() {
 					ADD COLUMN `sleep` int(18)');
 			}
 
+			if (!db_column_exists('plugin_routerconfigs_devices', 'elevated')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `elevated` char(3)');
+			}
+
 			// Perform tidy up of devices
 			db_execute('UPDATE plugin_routerconfigs_devices SET
 				nextbackup = IFNULL(nextbackup,0),
@@ -204,6 +209,12 @@ function routerconfigs_check_upgrade() {
 					ADD COLUMN `timeout` int(18)');
 			}
 
+			if (!db_column_exists('plugin_routerconfigs_devicetypes', 'elevated')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `elevated` char(3)');
+			}
+
+			AddDeviceTypes();
 		}
 
 		db_execute("UPDATE plugin_config
@@ -228,6 +239,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'username', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'password', 'type' => 'varchar(256)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true);
 
 	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_accounts', $data);
 
@@ -274,6 +286,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'debug', 'type' => 'longblob', 'NULL' => true);
@@ -308,15 +321,31 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
 	$data['columns'][] = array('name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on');
 	$data['columns'][] = array('name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true);
 
 	api_plugin_db_table_create ('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
 
-	db_execute("REPLACE INTO plugin_routerconfigs_devicetypes
-		(id, name, promptuser, promptpass, copytftp, version, confirm, forceconfirm, checkendinconfig)
-		VALUES
-		(1, 'Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on'),
-		(2, 'Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', ''),
-                (3, 'Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', '')");
+	AddDeviceTypes();
+}
+
+
+function AddDeviceTypes() {
+	AddDeviceType('Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on','');
+	AddDeviceType('Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '', '');
+	AddDeviceType('Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', '', '');
+	AddDeviceType('HP Comware', 'usernmae:', 'passowrd:', 'startup-configuration to %SERVER% %FILE%', '', '', '', '', 'on');
+}
+
+function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated) {
+	$params = array( $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $name );
+	db_execute_prepared("INSERT INTO plugin_routerconfigs_devicetypes
+		(name, promptuser, promptpass, copytftp, version,
+		confirm, forceconfirm, checkendinconfig, elevated)
+		SELECT
+			? AS name, ? AS promptuser, ? AS promptpass, ? AS copytftp, ? AS version,
+			? AS confirm, ? AS forceconfirm, ? AS checkendinconfig, ? AS elevated FROM DUAL
+		WHERE NOT EXISTS(SELECT * FROM plugin_routerconfigs_devicetypes
+			WHERE name = ? LIMIT 1)", $params);
 }
 
 function routerconfigs_page_head () {

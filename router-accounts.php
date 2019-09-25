@@ -151,6 +151,7 @@ function save_accounts () {
 	$save['id']       = get_request_var('id');
 	$save['name']     = get_nfilter_request_var('name');
 	$save['username'] = get_nfilter_request_var('username');
+	$save['elevated'] = get_nfilter_request_var('elevated');
 
 	if (get_nfilter_request_var('password') == get_nfilter_request_var('password_confirm')) {
 		if (!isempty_request_var('password')) {

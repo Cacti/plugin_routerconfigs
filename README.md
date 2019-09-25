@@ -63,6 +63,9 @@ issue in GitHub.
 
 * issue#106: Devices with no devicetype set cause runtime errors
 
+* feature#111: Enable backup to assume elevation for devices/types that do
+  not offer elevation
+
 --- 1.5.0 ---
 
 * issue#95: Upgrade does not function as expected

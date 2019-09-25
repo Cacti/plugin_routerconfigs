@@ -27,8 +27,8 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	3 = login failed
 	4 = PHP version too low
 	*/
-	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
-		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
+	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
+		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 
 		$this->conn1=chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
 			chr(0x20).chr(0xFF).chr(0xFB).chr(0x18).chr(0xFF).chr(0xFB).

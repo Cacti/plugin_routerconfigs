@@ -22,8 +22,8 @@ class PHPScp extends PHPConnection implements ShellSsh {
 	4 = No ssh2 extension
 	5 = Error enabling device
 	*/
-	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
-		parent::__construct('SCP', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
+	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
+		parent::__construct('SCP', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 	}
 
 	function Connect() {

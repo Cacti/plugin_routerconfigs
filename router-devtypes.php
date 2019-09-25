@@ -159,7 +159,7 @@ function save_devicetypes () {
 	$save['timeout']          = get_nfilter_request_var('timeout');
 	$save['sleep']            = get_nfilter_request_var('sleep');
 	$save['anykey']           = get_nfilter_request_var('anykey');
-
+	$save['elevated']         = get_nfilter_request_var('elevated');
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');

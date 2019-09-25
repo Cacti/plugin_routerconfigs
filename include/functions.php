@@ -425,7 +425,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			'timeout' => '1',
 			'forceconfirm' => '',
 			'connecttype' => 'both',
-			'checkendinconfig' => 'on'
+			'checkendinconfig' => 'on',
+			'elevated' => '',
 		);
 	}
 
@@ -447,6 +448,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$timeout  = plugin_routerconfigs_getfirst(array($device['timeout'], $devicetype['timeout'], read_config_option('timeout'), 1));
 	$sleep    = plugin_routerconfigs_getfirst(array($device['sleep'], $devicetype['sleep'], read_config_option('sleep'), 125000));
 	$type_dev = plugin_routerconfigs_getfirst(array($device['connecttype'], $devicetype['connecttype'], read_config_option('routerconfigs_connecttype'), 'both'), true);
+	$elevated = plugin_routerconfigs_getfirst(array($device['elevated'], $devicetype['elevated'], read_config_option('routerconfigs_elevated'), ''), true);
 
 	$classes = PHPConnection::GetTypes($type_dev);
 	plugin_routerconfigs_log("$ip -> DEBUG: $type_dev has '" . implode('\', \'', $classes) . "'");
@@ -459,7 +461,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			continue;
 		}
 
-		$connection = new $classname($devicetype, $device, $info['username'], $info['password'], $info['enablepw'], $buffer_debug);
+		$connection = new $classname($devicetype, $device, $info['username'], $info['password'], $info['enablepw'], $buffer_debug, $elevated);
 
 		$connection->setTimeout($timeout);
 		$connection->setSleep($sleep);

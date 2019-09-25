@@ -10,8 +10,8 @@ abstract class PHPShellConnection extends PHPConnection {
 	4 = No ssh2 extension
 	5 = Error enabling device
 	*/
-	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false) {
-		parent::__construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug);
+	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
+		parent::__construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 	}
 
 	function Download($filename, $backuppath) {

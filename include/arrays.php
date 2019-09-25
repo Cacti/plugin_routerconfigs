@@ -238,6 +238,14 @@ $rc_device_edit_fields = array(
 		'value' => '|arg1:sleep|',
 		'default' => '125000'
 	),
+	'elevated' => array(
+		'method' => 'checkbox',
+		'friendly_name' => __('Assume elevated', 'routerconfigs'),
+		'description' => __('Check this box to assume this device is always elevated', 'routerconfigs'),
+		'value' => '|arg1:elevated|',
+		'default' => '',
+		'form_id' => false
+	),
 	'id' => array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:id|'
@@ -321,6 +329,14 @@ $rc_devtype_edit_fields = array(
 		'description' => __('Check end in config?', 'routerconfigs'),
 		'value' => '|arg1:checkendinconfig|',
 	),
+	'elevated' => array(
+		'method' => 'checkbox',
+		'friendly_name' => __('Assume elevated', 'routerconfigs'),
+		'description' => __('Check this box to assume this device is always elevated', 'routerconfigs'),
+		'value' => '|arg1:elevated|',
+		'default' => '',
+		'form_id' => false
+	),
 	'timeout' => array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
 		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
@@ -378,6 +394,11 @@ $rc_settings = array(
 	'routerconfigs_debug_buffer' => array(
 		'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
 		'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
+		'method' => 'checkbox'
+	),
+	'routerconfigs_elevated' => array(
+		'friendly_name' => __('Assume all devices elevated', 'routerconfigs'),
+		'description' => __('Whether to assume all devices are elevated', 'routerconfigs'),
 		'method' => 'checkbox'
 	),
 	'routerconfigs_hour' => array(
