@@ -153,6 +153,7 @@ function save_devicetypes () {
 	$save['configfile']       = get_nfilter_request_var('configfile');
 	$save['copytftp']         = get_nfilter_request_var('copytftp');
 	$save['version']          = get_nfilter_request_var('version');
+	$save['promptconfirm']    = get_nfilter_request_var('promptconfirm');
 	$save['confirm']          = get_nfilter_request_var('confirm');
 	$save['forceconfirm']     = get_nfilter_request_var('forceconfirm');
 	$save['checkendinconfig'] = get_nfilter_request_var('checkendinconfig');
@@ -255,6 +256,7 @@ function show_devicetypes() {
 			__('Version', 'routerconfigs'),
 			__('Confirm', 'routerconfigs'),
 			__('Force Confirm', 'routerconfigs'),
+			__('Confirm Prompt', 'routerconfigs'),
 			__('Check End In Config', 'routerconfigs')
 		)
 	);
@@ -274,6 +276,7 @@ function show_devicetypes() {
 			form_selectable_cell($row['version'], $row['id']);
 			form_selectable_cell(($row['confirm'] == 'y' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_selectable_cell(($row['forceconfirm'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
+			form_selectable_cell($row['promptconfirm'], $row['id']);
 			form_selectable_cell(($row['checkendinconfig'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();

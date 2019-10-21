@@ -309,6 +309,14 @@ $rc_devtype_edit_fields = array(
 		'size' => '20',
 		'max_length' => '64',
 	),
+	'promptconfirm' => array(
+		'method' => 'textbox',
+		'friendly_name' => __('Confirmation Prompt', 'routerconfigs'),
+		'description' => __('This is the confirmation prompt to match before transmission.', 'routerconfigs'),
+		'value' => '|arg1:promptconfirm|',
+		'size' => '20',
+		'max_length' => '64',
+	),
 	'confirm' => array(
 		'method' => 'textbox',
 		'friendly_name' => __('Confirm', 'routerconfigs'),

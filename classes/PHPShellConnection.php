@@ -68,6 +68,14 @@ abstract class PHPShellConnection extends PHPConnection {
 				$this->Log("DEBUG: TFTP Transfer ERRORED");
 				$this->error(5);
 				return false;
+			} else if ($this->prompt() == LinePrompt::Confirm) {
+				$this->Log("DEBUG: Confirmation prompt found");
+
+				if ($try_prompt == '' && !$confirmed) {
+					$try_command=$this->deviceType['confirm'];
+					$try_prompt='confirmation:';
+					$confirmed = true;
+				}
 			} else if ($this->prompt() == LinePrompt::Question) {
 				$this->Log("DEBUG: Question found");
 
@@ -94,7 +102,7 @@ abstract class PHPShellConnection extends PHPConnection {
 					}
 				}
 
-				if ($try_prompt == '' && !$confirmed && (strpos($response, 'confirm') !== FALSE || strpos($response, 'to tftp:') !== FALSE || $this->deviceType['forceconfirm'])) {
+				if ($try_prompt == '' && !$confirmed && (preg_match('/' . $this->deviceType['promptconfirm'] . '/i', $response) || $this->deviceType['forceconfirm'])) {
 					$try_command=$this->deviceType['confirm'];
 					$try_prompt='confirmation:';
 					$confirmed = true;

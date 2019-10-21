@@ -9,4 +9,5 @@ abstract class LinePrompt {
 	const Question = 6;
 	const Colon = 7;
 	const AnyKey = 8;
+	const Confirm = 9;
 }

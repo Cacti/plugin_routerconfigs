@@ -213,9 +213,16 @@ function routerconfigs_check_upgrade() {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
 					ADD COLUMN `elevated` char(3)');
 			}
-
-			AddDeviceTypes();
 		}
+
+		if (cacti_version_compare($old, '1.5.2', '<')) {
+			if (!db_column_exists('plugin_routerconfigs_devicetypes','promptconfirm')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					ADD COLUMN `promptconfirm` varchar(10) DEFAULT \'confirm|to tftp:\'');
+			}
+		}
+
+		AddDeviceTypes();
 
 		db_execute("UPDATE plugin_config
 			SET version='$current'
@@ -315,6 +322,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = array('name' => 'configfile', 'type' => 'varchar(256)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'version', 'type' => 'varchar(64)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'promptconfirm', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'sleep', 'type' => 'int(11)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'timeout', 'type' => 'int(11)', 'NULL' => true);
@@ -334,16 +342,19 @@ function AddDeviceTypes() {
 	AddDeviceType('Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '', '');
 	AddDeviceType('Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', '', '');
 	AddDeviceType('HP Comware', 'usernmae:', 'passowrd:', 'startup-configuration to %SERVER% %FILE%', '', '', '', '', 'on');
+	AddDeviceType('Dell Switch', 'User', 'Password', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', 'y', '', '', '', 'Are you sure you want to start');
 }
 
-function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated) {
-	$params = array( $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $name );
+function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm = 'confirm|to tftp:') {
+	$params = array( $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm, $name );
 	db_execute_prepared("INSERT INTO plugin_routerconfigs_devicetypes
 		(name, promptuser, promptpass, copytftp, version,
-		confirm, forceconfirm, checkendinconfig, elevated)
+		confirm, forceconfirm, checkendinconfig, elevated,
+		promptconfirm)
 		SELECT
 			? AS name, ? AS promptuser, ? AS promptpass, ? AS copytftp, ? AS version,
-			? AS confirm, ? AS forceconfirm, ? AS checkendinconfig, ? AS elevated FROM DUAL
+			? AS confirm, ? AS forceconfirm, ? AS checkendinconfig, ? AS elevated,
+			? AS promptconfirm FROM DUAL
 		WHERE NOT EXISTS(SELECT * FROM plugin_routerconfigs_devicetypes
 			WHERE name = ? LIMIT 1)", $params);
 }

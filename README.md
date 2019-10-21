@@ -56,6 +56,10 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- 1.5.2 ---
+
+* feature#110: Allow confirmation prompt to be dynamically defined
+
 --- 1.5.1 ---
 
 * issue#105: New backups created actually backup but do not show up in user

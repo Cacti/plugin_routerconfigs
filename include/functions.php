@@ -419,10 +419,12 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	if (empty($devicetype)){
 		$devicetype = array('promptuser' => 'username:',
 			'promptpass' => 'password:',
+			'promptconfirm' => 'confirm|to tftp:',
 			'copytftp' => 'copy start tftp',
 			'version' => 'show version',
 			'sleep' => '125000',
 			'timeout' => '1',
+			'confirm' => '',
 			'forceconfirm' => '',
 			'connecttype' => 'both',
 			'checkendinconfig' => 'on',
