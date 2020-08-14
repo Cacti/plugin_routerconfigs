@@ -218,7 +218,14 @@ function routerconfigs_check_upgrade() {
 		if (cacti_version_compare($old, '1.5.2', '<')) {
 			if (!db_column_exists('plugin_routerconfigs_devicetypes','promptconfirm')) {
 				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
-					ADD COLUMN `promptconfirm` varchar(10) DEFAULT \'confirm|to tftp:\'');
+					ADD COLUMN `promptconfirm` varchar(64) DEFAULT \'confirm|to tftp:\'');
+			}
+		}
+
+		if (cacti_version_compare($old, '1.5.3', '<')) {
+			if (!db_column_exists('plugin_routerconfigs_devicetypes','promptconfirm')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+					MODIFY COLUMN `promptconfirm` `promptconfirm` varchar(64) DEFAULT \'confirm|to tftp:\'');
 			}
 		}
 

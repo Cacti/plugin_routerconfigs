@@ -56,6 +56,10 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- 1.5.3 ---
+
+* issue#113: Prompt confirmation db field wrong size
+
 --- 1.5.2 ---
 
 * feature#110: Allow confirmation prompt to be dynamically defined
