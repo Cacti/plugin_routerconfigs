@@ -8,32 +8,28 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-03-18 18:45-0400\n"
+"PO-Revision-Date: 2020-12-13 10:34-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
-#, fuzzy
 msgid "Delete"
 msgstr "Sil"
 
 #: include/arrays.php:43
-#, fuzzy
 msgid "Backup"
 msgstr "Yedek"
 
 #: include/arrays.php:45
-#, fuzzy
 msgid "Enable"
 msgstr "Etkinleştir"
 
 #: include/arrays.php:46
-#, fuzzy
 msgid "Disable"
 msgstr "Devre Dışı"
 
@@ -43,8 +39,9 @@ msgid "SSH/Telnet"
 msgstr "Telnet"
 
 #: include/arrays.php:55
+#, fuzzy
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: include/arrays.php:56
 #, fuzzy
@@ -52,29 +49,28 @@ msgid "Telnet"
 msgstr "Telnet"
 
 #: include/arrays.php:57
+#, fuzzy
 msgid "SCP"
-msgstr ""
+msgstr "SCP"
 
 #: include/arrays.php:58
+#, fuzzy
 msgid "SFTP"
-msgstr ""
+msgstr "SFTP"
 
 #: include/arrays.php:62
 msgid "Inherit"
-msgstr ""
+msgstr "Devralma"
 
 #: include/arrays.php:66
-#, fuzzy
 msgid "Daily"
 msgstr "Günlük"
 
 #: include/arrays.php:67
-#, fuzzy
 msgid "Weekly"
 msgstr "Haftalık"
 
 #: include/arrays.php:68
-#, fuzzy
 msgid "Monthly"
 msgstr "Aylık"
 
@@ -90,129 +86,152 @@ msgid "%d Months"
 msgstr "% d Ay"
 
 #: include/arrays.php:77
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d Yıl"
+msgstr "%d yıl"
 
 #: include/arrays.php:78 include/arrays.php:79 include/arrays.php:80
 #: include/arrays.php:81
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "% d Yıl"
+msgstr "%d Yıllar"
 
 #: include/arrays.php:85
 msgid "Never"
-msgstr ""
+msgstr "Asla"
 
 #: include/arrays.php:86
 #, php-format
 msgid "%d hour"
-msgstr ""
+msgstr "%d saat"
 
 #: include/arrays.php:87 include/arrays.php:88 include/arrays.php:89
 #: include/arrays.php:90 include/arrays.php:91 include/arrays.php:92
 #, php-format
 msgid "%d hours"
-msgstr ""
+msgstr "%d saat"
 
 #: include/arrays.php:96
+#, fuzzy
 msgid "00:00 (12am)"
-msgstr ""
+msgstr "00:00 (12:00)"
 
 #: include/arrays.php:97
+#, fuzzy
 msgid "01:00 (1am)"
-msgstr ""
+msgstr "01:00 (01:00)"
 
 #: include/arrays.php:98
+#, fuzzy
 msgid "02:00 (2am)"
-msgstr ""
+msgstr "02:00 (2am)"
 
 #: include/arrays.php:99
+#, fuzzy
 msgid "03:00 (3am)"
-msgstr ""
+msgstr "03:00 (03:00)"
 
 #: include/arrays.php:100
+#, fuzzy
 msgid "04:00 (4am)"
-msgstr ""
+msgstr "04:00 (04:00)"
 
 #: include/arrays.php:101
+#, fuzzy
 msgid "05:00 (5am)"
-msgstr ""
+msgstr "05:00 (05:00)"
 
 #: include/arrays.php:102
+#, fuzzy
 msgid "06:00 (6am)"
-msgstr ""
+msgstr "06:00 (06:00)"
 
 #: include/arrays.php:103
+#, fuzzy
 msgid "07:00 (7am)"
-msgstr ""
+msgstr "07:00 (07:00)"
 
 #: include/arrays.php:104
+#, fuzzy
 msgid "08:00 (8am)"
-msgstr ""
+msgstr "08:00 (08:00)"
 
 #: include/arrays.php:105
+#, fuzzy
 msgid "09:00 (9am)"
-msgstr ""
+msgstr "09:00 (09:00)"
 
 #: include/arrays.php:106
+#, fuzzy
 msgid "10:00 (12am)"
-msgstr ""
+msgstr "10:00 (00:00)"
 
 #: include/arrays.php:107
+#, fuzzy
 msgid "11:00 (11am)"
-msgstr ""
+msgstr "11:00 (11:00)"
 
 #: include/arrays.php:108
+#, fuzzy
 msgid "12:00 (12pm)"
-msgstr ""
+msgstr "12:00 (12:00)"
 
 #: include/arrays.php:109
+#, fuzzy
 msgid "13:00 (1pm)"
-msgstr ""
+msgstr "13:00 (13:00)"
 
 #: include/arrays.php:110
+#, fuzzy
 msgid "14:00 (2pm)"
-msgstr ""
+msgstr "14:00 (14:00)"
 
 #: include/arrays.php:111
+#, fuzzy
 msgid "15:00 (3pm)"
-msgstr ""
+msgstr "15:00 (15:00)"
 
 #: include/arrays.php:112
+#, fuzzy
 msgid "16:00 (4pm)"
-msgstr ""
+msgstr "16:00 (16:00)"
 
 #: include/arrays.php:113
+#, fuzzy
 msgid "17:00 (5pm)"
-msgstr ""
+msgstr "17:00 (17:00)"
 
 #: include/arrays.php:114
+#, fuzzy
 msgid "18:00 (6pm)"
-msgstr ""
+msgstr "18:00 (18:00)"
 
 #: include/arrays.php:115
+#, fuzzy
 msgid "19:00 (7pm)"
-msgstr ""
+msgstr "19:00 (19:00)"
 
 #: include/arrays.php:116
+#, fuzzy
 msgid "20:00 (8pm)"
-msgstr ""
+msgstr "20:00 (20:00)"
 
 #: include/arrays.php:117
+#, fuzzy
 msgid "21:00 (9pm)"
-msgstr ""
+msgstr "21:00 (21:00)"
 
 #: include/arrays.php:118
+#, fuzzy
 msgid "22:00 (10pm)"
-msgstr ""
+msgstr "22:00 (22:00)"
 
 #: include/arrays.php:119
+#, fuzzy
 msgid "23:00 (11pm)"
-msgstr ""
+msgstr "23:00 (23:00)"
 
 #: include/arrays.php:125 include/arrays.php:258 router-devtypes.php:251
-#, fuzzy
 msgid "Name"
 msgstr "İsim"
 
@@ -222,7 +241,6 @@ msgid "Give this account a meaningful name that will be displayed."
 msgstr "Bu hesaba görüntülenecek anlamlı bir ad verin."
 
 #: include/arrays.php:132 router-accounts.php:242
-#, fuzzy
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
@@ -232,7 +250,6 @@ msgid "The username that will be used for authentication."
 msgstr "Kimlik doğrulama için kullanılacak kullanıcı adı."
 
 #: include/arrays.php:139
-#, fuzzy
 msgid "Password"
 msgstr "Şifre"
 
@@ -262,7 +279,6 @@ msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Bu cihazın yedeklenmesini devre dışı bırakmak için bu kutunun işaretini kaldırın."
 
 #: include/arrays.php:172 router-accounts.php:242
-#, fuzzy
 msgid "Description"
 msgstr "Açıklama"
 
@@ -272,7 +288,6 @@ msgid "Name of this device (will be used for config saving and SVN if no hostnam
 msgstr "Bu cihazın adı (config kaydetme için kullanılacak ve config içinde herhangi bir ana bilgisayar adı yoksa SVN kullanılacaktır)."
 
 #: include/arrays.php:179 router-devices.php:658
-#, fuzzy
 msgid "IP Address"
 msgstr "IP Adresi"
 
@@ -282,7 +297,6 @@ msgid "This is the IP Address used to communicate with the device."
 msgstr "Bu, cihazla iletişim kurmak için kullanılan IP adresidir."
 
 #: include/arrays.php:186 router-backups.php:259 router-devices.php:694
-#, fuzzy
 msgid "Directory"
 msgstr "Rehber"
 
@@ -292,7 +306,6 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "Bu yapılandırmaları depolamak için kullanılan göreceli dizin yapısıdır."
 
 #: include/arrays.php:193
-#, fuzzy
 msgid "Schedule"
 msgstr "Program"
 
@@ -312,13 +325,13 @@ msgid "Choose the type of device that the router is."
 msgstr "Yönlendiricinin olduğu aygıt türünü seçin."
 
 #: include/arrays.php:206 router-devices.php:757
-#, fuzzy
 msgid "Auto-Detect"
 msgstr "Otomatik algılama"
 
 #: include/arrays.php:210 include/arrays.php:266
+#, fuzzy
 msgid "Connection Type"
-msgstr ""
+msgstr "Bağlantı türü"
 
 #: include/arrays.php:211 include/arrays.php:267
 #, fuzzy
@@ -337,27 +350,32 @@ msgstr "Yönlendiriciye giriş yapmak için kullanılacak bir hesap seçin"
 
 #: include/arrays.php:223
 msgid "None"
-msgstr ""
+msgstr "Yok"
 
 #: include/arrays.php:226 include/arrays.php:349 include/arrays.php:384
+#, fuzzy
 msgid "Default timeout"
-msgstr ""
+msgstr "Varsayılan zaman aşımı"
 
 #: include/arrays.php:227 include/arrays.php:350 include/arrays.php:385
+#, fuzzy
 msgid "Default time to wait in seconds for a resposne"
-msgstr ""
+msgstr "Bir yanıt için saniye cinsinden bekleme süresi"
 
 #: include/arrays.php:234 include/arrays.php:357 include/arrays.php:391
+#, fuzzy
 msgid "Default sleep time"
-msgstr ""
+msgstr "Varsayılan uyku süresi"
 
 #: include/arrays.php:235 include/arrays.php:358 include/arrays.php:392
+#, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr ""
+msgstr "Mikrosaniye cinsinden uyku için varsayılan süre (saniyenin 1 / 1.000.000'u)"
 
 #: include/arrays.php:243 include/arrays.php:342
+#, fuzzy
 msgid "Assume elevated"
-msgstr ""
+msgstr "Yükseltilmiş varsayın"
 
 #: include/arrays.php:244 include/arrays.php:343
 #, fuzzy
@@ -390,12 +408,14 @@ msgid "This is the password prompt to match on login."
 msgstr "Bu, giriş sırasında eşleştirilecek şifre istemidir."
 
 #: include/arrays.php:290
+#, fuzzy
 msgid "Configuration file"
-msgstr ""
+msgstr "Yapılandırma dosyası"
 
 #: include/arrays.php:291
+#, fuzzy
 msgid "This is the standard location of the configuration file on the remote device."
-msgstr ""
+msgstr "Bu, uzak cihazdaki konfigürasyon dosyasının standart konumudur."
 
 #: include/arrays.php:298 router-devtypes.php:255
 #, fuzzy
@@ -428,9 +448,8 @@ msgid "This is the confirmation prompt to match before transmission."
 msgstr "Bu, oturum açma sırasında eşleşecek kullanıcı adı istemidir."
 
 #: include/arrays.php:322 router-devtypes.php:257
-#, fuzzy
 msgid "Confirm"
-msgstr "Yeni şifreyi onayla"
+msgstr "Onayla"
 
 #: include/arrays.php:323
 #, fuzzy
@@ -458,12 +477,14 @@ msgid "Check end in config?"
 msgstr "Config içindeki kontrol sonu?"
 
 #: include/arrays.php:365
+#, fuzzy
 msgid "Any Key prompt"
-msgstr ""
+msgstr "Herhangi bir Anahtar istemi"
 
 #: include/arrays.php:366
+#, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr ""
+msgstr "'Devam Etmek İçin Herhangi Bir Tuşa Basın' stilindeki istemle eşleşecek metin"
 
 #: include/arrays.php:380 setup.php:40 setup.php:418 setup.php:432
 #, fuzzy
@@ -471,36 +492,44 @@ msgid "Router Configs"
 msgstr "Router Yapılandırmaları"
 
 #: include/arrays.php:398
+#, fuzzy
 msgid "Close without exit"
-msgstr ""
+msgstr "Çıkış yapmadan kapat"
 
 #: include/arrays.php:399
+#, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
-msgstr ""
+msgstr "İşaretliyse, cihaz bağlantısını kapatırken hiçbir 'çıkış' komutu verilmez"
 
 #: include/arrays.php:403
+#, fuzzy
 msgid "Debug Connection Buffer"
-msgstr ""
+msgstr "Bağlantı Arabelleğinde Hata Ayıklama"
 
 #: include/arrays.php:404
+#, fuzzy
 msgid "Whether to log direct output of device connection"
-msgstr ""
+msgstr "Cihaz bağlantısının doğrudan çıktısının günlüğe kaydedilip kaydedilmeyeceği"
 
 #: include/arrays.php:408
+#, fuzzy
 msgid "Assume all devices elevated"
-msgstr ""
+msgstr "Tüm cihazların yükseltildiğini varsayın"
 
 #: include/arrays.php:409
+#, fuzzy
 msgid "Whether to assume all devices are elevated"
-msgstr ""
+msgstr "Tüm cihazların yükseltilip yükseltilmeyeceği"
 
 #: include/arrays.php:413
+#, fuzzy
 msgid "Download Hour"
-msgstr ""
+msgstr "İndirme Saati"
 
 #: include/arrays.php:414
+#, fuzzy
 msgid "The hour of the day to perform the full downloads."
-msgstr ""
+msgstr "Günün tam indirme işlemlerinin gerçekleştirileceği saat."
 
 #: include/arrays.php:420
 #, fuzzy
@@ -508,8 +537,9 @@ msgid "Retry Schedule"
 msgstr "Program"
 
 #: include/arrays.php:421
+#, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr ""
+msgstr "Programlanmış indirme başarısız olduğunda ek bir indirme gerçekleştirmeyi denemeden önce beklenecek süre"
 
 #: include/arrays.php:427
 #, fuzzy
@@ -522,12 +552,14 @@ msgid "The number of days to retain old backups."
 msgstr "Eski yedeklerin saklanacağı gün sayısı."
 
 #: include/arrays.php:434
+#, fuzzy
 msgid "Transfer Options"
-msgstr ""
+msgstr "Transfer Seçenekleri"
 
 #: include/arrays.php:438
+#, fuzzy
 msgid "Default connection type"
-msgstr ""
+msgstr "Varsayılan bağlantı türü"
 
 #: include/arrays.php:439
 #, fuzzy
@@ -535,20 +567,24 @@ msgid "Default type of connection used to communicate with the device."
 msgstr "Bu, cihazla iletişim kurmak için kullanılan IP adresidir."
 
 #: include/arrays.php:445
+#, fuzzy
 msgid "Separate By Device"
-msgstr ""
+msgstr "Cihaza Göre Ayır"
 
 #: include/arrays.php:446
+#, fuzzy
 msgid "Separate archived Configs into a folder per device"
-msgstr ""
+msgstr "Arşivlenmiş Yapılandırmaları cihaz başına bir klasöre ayırın"
 
 #: include/arrays.php:451
+#, fuzzy
 msgid "SCP Path"
-msgstr ""
+msgstr "SCP Yolu"
 
 #: include/arrays.php:452
+#, fuzzy
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work"
-msgstr ""
+msgstr "SCP kullanırken, bu alanı boş bırakmak her zaman çalışmayan PHP'nin SCP modülünü kullanacaktır."
 
 #: include/arrays.php:458
 #, fuzzy
@@ -582,10 +618,9 @@ msgstr "Yapılandırmanızın yedekleneceği yol, yerel TFTP Sunucusunun yazdı�
 
 #: include/arrays.php:481
 msgid "Email Options"
-msgstr ""
+msgstr "E-posta Seçenekleri"
 
 #: include/arrays.php:485
-#, fuzzy
 msgid "From Address"
 msgstr "Adresinden"
 
@@ -595,9 +630,8 @@ msgid "Email address the nightly backup will be sent from."
 msgstr "Gecelik yedekleme gönderilecek olan e-posta adresi."
 
 #: include/arrays.php:493
-#, fuzzy
 msgid "From Name"
-msgstr "İsim"
+msgstr "İsimden"
 
 #: include/arrays.php:494
 #, fuzzy
@@ -605,7 +639,6 @@ msgid "Name the nightly backup will be sent from."
 msgstr "Gecelik yedekleme gönderilecek olan e-posta adresi."
 
 #: include/arrays.php:501
-#, fuzzy
 msgid "Email Address"
 msgstr "E-posta Adresi"
 
@@ -615,7 +648,6 @@ msgid "A comma delimited list of Email addresses to send the nightly backup Emai
 msgstr "Her gece yedek E-postayı göndermek için virgülle ayrılmış bir E-posta adresi listesi."
 
 #: include/functions.php:43 router-accounts.php:242
-#, fuzzy
 msgid "Devices"
 msgstr "Cihazlar"
 
@@ -625,17 +657,14 @@ msgid "Device Types"
 msgstr "Cihaz türleri"
 
 #: include/functions.php:45
-#, fuzzy
 msgid "Authentication"
 msgstr "Doğrulama"
 
 #: include/functions.php:46
-#, fuzzy
 msgid "Backups"
 msgstr "Yedekler"
 
 #: include/functions.php:47 router-backups.php:321
-#, fuzzy
 msgid "Compare"
 msgstr "Karşılaştır"
 
@@ -645,26 +674,29 @@ msgid "Technical Support [ %s ]"
 msgstr "Teknik Destek [ %s]"
 
 #: include/functions.php:85
-#, php-format
+#, fuzzy, php-format
 msgid "(%s chars)"
-msgstr ""
+msgstr "(%s karakter)"
 
 #: include/functions.php:85
+#, fuzzy
 msgid "(Not Set)"
-msgstr ""
+msgstr "Varsayılana ayarla"
 
 #: include/functions.php:110
-#, php-format
+#, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
-msgstr ""
+msgstr "DİKKAT: %s cihazı manuel olarak yedeklemeye başlama"
 
 #: include/functions.php:113
+#, fuzzy
 msgid "NOTICE: Starting automatic retry"
-msgstr ""
+msgstr "DİKKAT: Otomatik yeniden denemeyi başlatma"
 
 #: include/functions.php:115
+#, fuzzy
 msgid "NOTICE: Starting automatic backup"
-msgstr ""
+msgstr "DİKKAT: Otomatik yedeklemeyi başlatma"
 
 #: include/functions.php:130
 #, fuzzy
@@ -677,9 +709,9 @@ msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: TFTP Sunucusu ayarlanmadı"
 
 #: include/functions.php:164
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
-msgstr ""
+msgstr "HATA AYIKLAMA: %s için indirilmeye çalışılıyor"
 
 #: include/functions.php:204
 #, fuzzy, php-format
@@ -707,37 +739,44 @@ msgid "Configuration Backups"
 msgstr "Yapılandırma Yedekleri"
 
 #: include/functions.php:232
+#, fuzzy
 msgid " - Forced"
-msgstr ""
+msgstr " - Zorla"
 
 #: include/functions.php:236
+#, fuzzy
 msgid " - Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: include/functions.php:240
+#, fuzzy
 msgid " - Simulated"
-msgstr ""
+msgstr " - Simüle edilmiş"
 
 #: include/functions.php:244
 #, fuzzy
 msgid " - Scheduled"
-msgstr "Program"
+msgstr "Tarifeli"
 
 #: include/functions.php:248
+#, fuzzy
 msgid " - Reattempt"
-msgstr ""
+msgstr " - Yeniden dene"
 
 #: include/functions.php:252
+#, fuzzy
 msgid ": Partial"
-msgstr ""
+msgstr ": Kısmi"
 
 #: include/functions.php:254
+#, fuzzy
 msgid ": FAILED"
-msgstr ""
+msgstr "BAŞARISIZ"
 
 #: include/functions.php:269
+#, fuzzy
 msgid "STATS: "
-msgstr ""
+msgstr "İstatistikler"
 
 #: include/functions.php:310
 #, fuzzy
@@ -745,34 +784,34 @@ msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "Yedekleme Yolu ayarlanmamış veya bir dizin değil"
 
 #: include/functions.php:361
-#, php-format
+#, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
-msgstr ""
+msgstr "İSTATİSTİKLER: Yedekleme şu anda %s tarihinden beri çalışıyor"
 
 #: include/functions.php:365
-#, php-format
+#, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
-msgstr ""
+msgstr "UYARI: Yedekleme %s tarihinden beri zaten çalışıyor"
 
 #: include/functions.php:481
-#, php-format
+#, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
-msgstr ""
+msgstr "HATA: Bağlantı türü kullanılarak '%s' Cihazına bağlanılamadı: %s"
 
 #: include/functions.php:491
-#, php-format
+#, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
-msgstr ""
+msgstr "HATA: \"%s\", \"%s\" üzerinden \"%s\" klasörüne indirilemedi"
 
 #: include/functions.php:840
-#, php-format
+#, fuzzy, php-format
 msgid "File '%s' failed to load"
-msgstr ""
+msgstr "'%s' dosyası yüklenemedi"
 
 #: include/functions.php:843
-#, php-format
+#, fuzzy, php-format
 msgid "File '%s' was not found"
-msgstr ""
+msgstr "'%s' dosyası bulunamadı"
 
 #: include/functions.php:854
 #, fuzzy, php-format
@@ -796,13 +835,11 @@ msgstr "Aşağıdaki hesapları silmek için 'Devam Et'i tıklayın."
 
 #: router-accounts.php:124 router-devices.php:212 router-devices.php:221
 #: router-devices.php:230 router-devtypes.php:115
-#, fuzzy
 msgid "Cancel"
 msgstr "İptal"
 
 #: router-accounts.php:124 router-devices.php:212 router-devices.php:221
 #: router-devices.php:230 router-devtypes.php:115
-#, fuzzy
 msgid "Continue"
 msgstr "Devam et"
 
@@ -817,7 +854,6 @@ msgid "You must select at least one device."
 msgstr "En az bir cihaz seçmelisiniz."
 
 #: router-accounts.php:127 router-devices.php:236
-#, fuzzy
 msgid "Return"
 msgstr "Dönüş"
 
@@ -832,12 +868,10 @@ msgid "Account: [new]"
 msgstr "Hesap: [yeni]"
 
 #: router-accounts.php:234
-#, fuzzy
 msgid "Accounts"
 msgstr "Hesaplar"
 
 #: router-accounts.php:238
-#, fuzzy
 msgid "Account Management"
 msgstr "Hesap Yönetimi"
 
@@ -853,58 +887,59 @@ msgstr "Router Yedekleri"
 
 #: router-backups.php:194 router-devices.php:550 router-devices.php:567
 msgid "Any"
-msgstr ""
+msgstr "Herhangi"
 
 #: router-backups.php:207 router-devices.php:580
 msgid "Search"
-msgstr ""
+msgstr "Arama"
 
 #: router-backups.php:214 router-devices.php:587
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
 #: router-backups.php:226 router-devices.php:599
 msgid "Go"
-msgstr ""
+msgstr "Git"
 
 #: router-backups.php:226 router-devices.php:599
+#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "Filtreleri Ayarla / Yenile"
 
 #: router-backups.php:227 router-devices.php:600
 msgid "Clear"
-msgstr ""
+msgstr "Temizle"
 
 #: router-backups.php:227 router-devices.php:600
 msgid "Clear Filters"
-msgstr ""
+msgstr "Filtreleri Temizle"
 
 #: router-backups.php:241 router-devices.php:618
-#, fuzzy
 msgid "Hostname"
 msgstr "Sunucu Adı"
 
 #: router-backups.php:244 router-devices.php:621
+#, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr ""
+msgstr "Bir IP adresi veya ana bilgisayar adı. Bir ana bilgisayar adı ise, ya DNS ile ya da ana bilgisayar dosyanızdan çözümlenebilir olmalıdır."
 
 #: router-backups.php:247 router-devices.php:624 router-devtypes.php:250
-#, fuzzy
 msgid "ID"
 msgstr "ID"
 
 #: router-backups.php:250 router-devices.php:627
+#, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr ""
+msgstr "Bu Cihaz için dahili veritabanı kimliği. Otomasyon veya hata ayıklama yaparken kullanışlıdır."
 
 #: router-backups.php:253
-#, fuzzy
 msgid "Functions"
-msgstr "Eylemler"
+msgstr "Fonksiyonlar"
 
 #: router-backups.php:256
+#, fuzzy
 msgid "Perform functions against this backup"
-msgstr ""
+msgstr "Bu yedeklemeye karşı işlevler gerçekleştirin"
 
 #: router-backups.php:262 router-devices.php:697
 #, fuzzy
@@ -912,7 +947,6 @@ msgid "The directory of the stored device backups"
 msgstr "Eski yedeklerin saklanacağı gün sayısı."
 
 #: router-backups.php:265
-#, fuzzy
 msgid "Backup Time"
 msgstr "Yedekleme Zamanı"
 
@@ -927,20 +961,21 @@ msgid "Last Change"
 msgstr "Son değişiklik"
 
 #: router-backups.php:274
+#, fuzzy
 msgid "The last Change time of the device"
-msgstr ""
+msgstr "Cihazın son değişim zamanı"
 
 #: router-backups.php:277 router-devices.php:689
 #, fuzzy
 msgid "Changed By"
-msgstr "Tarafından değiştirildi"
+msgstr "Değiştirildi"
 
 #: router-backups.php:280
+#, fuzzy
 msgid "The last person to change the configuration of the device"
-msgstr ""
+msgstr "Cihazın konfigürasyonunu değiştiren son kişi"
 
 #: router-backups.php:283
-#, fuzzy
 msgid "Filename"
 msgstr "Dosya Adı"
 
@@ -980,9 +1015,9 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "%s için hata ayıklama ( %s) <br><br>"
 
 #: router-devices.php:186
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr ""
+msgstr "HATA AYIKLAMA: '%s' ve '%s' bağımsız değişkenlerini kullanarak manuel yedekleme gerçekleştiriliyor"
 
 #: router-devices.php:208
 #, fuzzy
@@ -1030,17 +1065,14 @@ msgid "Router Device Management"
 msgstr "Router Cihaz Yönetimi"
 
 #: router-devices.php:563
-#, fuzzy
 msgid "Account"
-msgstr "Hesaplar"
+msgstr "Hesap"
 
 #: router-devices.php:615 router-devtypes.php:249
-#, fuzzy
 msgid "Actions"
 msgstr "Eylemler"
 
 #: router-devices.php:630
-#, fuzzy
 msgid "Enabled"
 msgstr "Etkin"
 
@@ -1050,8 +1082,9 @@ msgid "Last Backup"
 msgstr "Son yedekleme"
 
 #: router-devices.php:644
+#, fuzzy
 msgid "The device type of the device"
-msgstr ""
+msgstr "Cihazın cihaz türü"
 
 #: router-devices.php:647
 #, fuzzy
@@ -1059,8 +1092,9 @@ msgid "Connect Type"
 msgstr "Cihaz tipi"
 
 #: router-devices.php:650
+#, fuzzy
 msgid "The connection type for this device"
-msgstr ""
+msgstr "Bu cihaz için bağlantı türü"
 
 #: router-devices.php:653
 #, fuzzy
@@ -1068,8 +1102,9 @@ msgid "Configs"
 msgstr "yapılandırmaları"
 
 #: router-devices.php:655
+#, fuzzy
 msgid "The number of configurations for this device"
-msgstr ""
+msgstr "Bu cihaz için konfigürasyon sayısı"
 
 #: router-devices.php:661
 #, fuzzy
@@ -1087,12 +1122,14 @@ msgid "Date Backup"
 msgstr "Son yedekleme"
 
 #: router-devices.php:674
+#, fuzzy
 msgid "Next Attempt"
-msgstr ""
+msgstr "Sonraki Deneme"
 
 #: router-devices.php:679
+#, fuzzy
 msgid "Last Attempt"
-msgstr ""
+msgstr "Son deneme"
 
 #: router-devices.php:684
 #, fuzzy
@@ -1101,48 +1138,49 @@ msgstr "Son değişiklik"
 
 #: router-devices.php:726
 msgid "Today"
-msgstr ""
+msgstr "Bugün"
 
 #: router-devices.php:727
 msgid "Yesterday"
-msgstr ""
+msgstr "Dün"
 
 #: router-devices.php:728
 msgid "This Week"
-msgstr ""
+msgstr "Bu Hafta"
 
 #: router-devices.php:729
-#, fuzzy
 msgid "This Month"
-msgstr "% d Ay"
+msgstr "Bu Ay"
 
 #: router-devices.php:730
+#, fuzzy
 msgid "Within a Year"
-msgstr ""
+msgstr "Bir yıl içerisinde"
 
 #: router-devices.php:731
+#, fuzzy
 msgid "Long, Long Ago"
-msgstr ""
+msgstr "Uzun, Uzun Önce"
 
 #: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
 #: router-devtypes.php:280
-#, fuzzy
 msgid "No"
 msgstr "Hayır"
 
 #: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
 #: router-devtypes.php:280
-#, fuzzy
 msgid "Yes"
 msgstr "Evet"
 
 #: router-devices.php:775
+#, fuzzy
 msgid "Connect via SSH"
-msgstr ""
+msgstr "SSH ile bağlanın"
 
 #: router-devices.php:779
+#, fuzzy
 msgid "Connect via Telnet"
-msgstr ""
+msgstr "Telnet ile bağlanın"
 
 #: router-devices.php:785
 #, fuzzy
@@ -1160,7 +1198,6 @@ msgid "Backups (%s)"
 msgstr "Yedeklemeler ( %s)"
 
 #: router-devices.php:797
-#, fuzzy
 msgid "Current"
 msgstr "Şimdiki"
 
@@ -1191,7 +1228,7 @@ msgstr "Yönlendirici Cihaz Türlerini Görüntüleyin"
 
 #: router-devtypes.php:252
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: router-devtypes.php:253
 #, fuzzy
@@ -1204,7 +1241,6 @@ msgid "Pass Prompt"
 msgstr "Şifre İstemi"
 
 #: router-devtypes.php:256
-#, fuzzy
 msgid "Version"
 msgstr "Versiyon"
 
@@ -1229,12 +1265,11 @@ msgid "No Router Device Types Found"
 msgstr "Hiçbir Router Cihazı Tipi Bulunamadı"
 
 #: setup.php:408
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
-msgstr ""
+msgstr "HATA AYIKLAMA: '%s' '%s' bağımsız değişkenleriyle yürütülüyor"
 
 #: setup.php:432
-#, fuzzy
 msgid "Utilities"
 msgstr "Araçlar"
 
@@ -1244,7 +1279,6 @@ msgid "Router Devices"
 msgstr "Router Cihazları"
 
 #: setup.php:444 setup.php:479 setup.php:507
-#, fuzzy
 msgid "(edit)"
 msgstr "(Düzenle)"
 

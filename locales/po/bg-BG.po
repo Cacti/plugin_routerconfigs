@@ -8,32 +8,28 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-03-18 16:38-0400\n"
+"PO-Revision-Date: 2020-12-13 10:21-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
-#, fuzzy
 msgid "Delete"
 msgstr "Изтрий"
 
 #: include/arrays.php:43
-#, fuzzy
 msgid "Backup"
 msgstr "Архивиране"
 
 #: include/arrays.php:45
-#, fuzzy
 msgid "Enable"
 msgstr "Включи"
 
 #: include/arrays.php:46
-#, fuzzy
 msgid "Disable"
 msgstr "Изключи"
 
@@ -44,7 +40,7 @@ msgstr "Telnet"
 
 #: include/arrays.php:55
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: include/arrays.php:56
 #, fuzzy
@@ -52,29 +48,27 @@ msgid "Telnet"
 msgstr "Telnet"
 
 #: include/arrays.php:57
+#, fuzzy
 msgid "SCP"
-msgstr ""
+msgstr "SCP"
 
 #: include/arrays.php:58
 msgid "SFTP"
-msgstr ""
+msgstr "SFTP"
 
 #: include/arrays.php:62
 msgid "Inherit"
-msgstr ""
+msgstr "Наследи"
 
 #: include/arrays.php:66
-#, fuzzy
 msgid "Daily"
 msgstr "Ежедневно"
 
 #: include/arrays.php:67
-#, fuzzy
 msgid "Weekly"
 msgstr "Седмично"
 
 #: include/arrays.php:68
-#, fuzzy
 msgid "Monthly"
 msgstr "Месечно"
 
@@ -102,117 +96,140 @@ msgstr "% d Година"
 
 #: include/arrays.php:85
 msgid "Never"
-msgstr ""
+msgstr "Никога"
 
 #: include/arrays.php:86
-#, php-format
+#, fuzzy, php-format
 msgid "%d hour"
-msgstr ""
+msgstr "%d час"
 
 #: include/arrays.php:87 include/arrays.php:88 include/arrays.php:89
 #: include/arrays.php:90 include/arrays.php:91 include/arrays.php:92
 #, php-format
 msgid "%d hours"
-msgstr ""
+msgstr "%d часа"
 
 #: include/arrays.php:96
+#, fuzzy
 msgid "00:00 (12am)"
-msgstr ""
+msgstr "00:00 (12:00)"
 
 #: include/arrays.php:97
+#, fuzzy
 msgid "01:00 (1am)"
-msgstr ""
+msgstr "01:00 (1:00)"
 
 #: include/arrays.php:98
+#, fuzzy
 msgid "02:00 (2am)"
-msgstr ""
+msgstr "02:00 (2:00)"
 
 #: include/arrays.php:99
+#, fuzzy
 msgid "03:00 (3am)"
-msgstr ""
+msgstr "03:00 (3:00)"
 
 #: include/arrays.php:100
+#, fuzzy
 msgid "04:00 (4am)"
-msgstr ""
+msgstr "04:00 (4:00)"
 
 #: include/arrays.php:101
+#, fuzzy
 msgid "05:00 (5am)"
-msgstr ""
+msgstr "05:00 (5:00)"
 
 #: include/arrays.php:102
+#, fuzzy
 msgid "06:00 (6am)"
-msgstr ""
+msgstr "06:00 (6:00)"
 
 #: include/arrays.php:103
+#, fuzzy
 msgid "07:00 (7am)"
-msgstr ""
+msgstr "07:00 (7:00)"
 
 #: include/arrays.php:104
+#, fuzzy
 msgid "08:00 (8am)"
-msgstr ""
+msgstr "08:00 (8:00)"
 
 #: include/arrays.php:105
+#, fuzzy
 msgid "09:00 (9am)"
-msgstr ""
+msgstr "09:00 (9:00)"
 
 #: include/arrays.php:106
+#, fuzzy
 msgid "10:00 (12am)"
-msgstr ""
+msgstr "10:00 (12:00)"
 
 #: include/arrays.php:107
+#, fuzzy
 msgid "11:00 (11am)"
-msgstr ""
+msgstr "11:00 (11:00)"
 
 #: include/arrays.php:108
+#, fuzzy
 msgid "12:00 (12pm)"
-msgstr ""
+msgstr "12:00 (12:00)"
 
 #: include/arrays.php:109
+#, fuzzy
 msgid "13:00 (1pm)"
-msgstr ""
+msgstr "13:00 (13:00)"
 
 #: include/arrays.php:110
+#, fuzzy
 msgid "14:00 (2pm)"
-msgstr ""
+msgstr "14:00 (14:00)"
 
 #: include/arrays.php:111
+#, fuzzy
 msgid "15:00 (3pm)"
-msgstr ""
+msgstr "15:00 (15:00)"
 
 #: include/arrays.php:112
+#, fuzzy
 msgid "16:00 (4pm)"
-msgstr ""
+msgstr "16:00 (16:00)"
 
 #: include/arrays.php:113
+#, fuzzy
 msgid "17:00 (5pm)"
-msgstr ""
+msgstr "17:00 (17:00)"
 
 #: include/arrays.php:114
+#, fuzzy
 msgid "18:00 (6pm)"
-msgstr ""
+msgstr "18:00 (18:00)"
 
 #: include/arrays.php:115
+#, fuzzy
 msgid "19:00 (7pm)"
-msgstr ""
+msgstr "19:00 (19:00)"
 
 #: include/arrays.php:116
+#, fuzzy
 msgid "20:00 (8pm)"
-msgstr ""
+msgstr "20:00 (20:00)"
 
 #: include/arrays.php:117
+#, fuzzy
 msgid "21:00 (9pm)"
-msgstr ""
+msgstr "21:00 (21:00)"
 
 #: include/arrays.php:118
+#, fuzzy
 msgid "22:00 (10pm)"
-msgstr ""
+msgstr "22:00 (22:00)"
 
 #: include/arrays.php:119
+#, fuzzy
 msgid "23:00 (11pm)"
-msgstr ""
+msgstr "23:00 (23:00)"
 
 #: include/arrays.php:125 include/arrays.php:258 router-devtypes.php:251
-#, fuzzy
 msgid "Name"
 msgstr "Име"
 
@@ -222,7 +239,6 @@ msgid "Give this account a meaningful name that will be displayed."
 msgstr "Дайте на този акаунт смислено име, което ще се покаже."
 
 #: include/arrays.php:132 router-accounts.php:242
-#, fuzzy
 msgid "Username"
 msgstr "Потребител"
 
@@ -232,7 +248,6 @@ msgid "The username that will be used for authentication."
 msgstr "Потребителското име, което ще се използва за удостоверяване."
 
 #: include/arrays.php:139
-#, fuzzy
 msgid "Password"
 msgstr "Парола"
 
@@ -262,7 +277,6 @@ msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Махнете отметката от това квадратче, за да деактивирате това устройство да не е архивирано."
 
 #: include/arrays.php:172 router-accounts.php:242
-#, fuzzy
 msgid "Description"
 msgstr "Описание"
 
@@ -272,7 +286,6 @@ msgid "Name of this device (will be used for config saving and SVN if no hostnam
 msgstr "Името на това устройство (ще се използва за конфигуриране и SVN, ако в config няма име на хост)."
 
 #: include/arrays.php:179 router-devices.php:658
-#, fuzzy
 msgid "IP Address"
 msgstr "IP Адрес"
 
@@ -282,7 +295,6 @@ msgid "This is the IP Address used to communicate with the device."
 msgstr "Това е IP адресът, използван за комуникация с устройството."
 
 #: include/arrays.php:186 router-backups.php:259 router-devices.php:694
-#, fuzzy
 msgid "Directory"
 msgstr "Папка"
 
@@ -292,7 +304,6 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "Това е относителната структура на директории, използвана за съхраняване на конфиг."
 
 #: include/arrays.php:193
-#, fuzzy
 msgid "Schedule"
 msgstr "Планиране"
 
@@ -317,8 +328,9 @@ msgid "Auto-Detect"
 msgstr "Автоматично откриване"
 
 #: include/arrays.php:210 include/arrays.php:266
+#, fuzzy
 msgid "Connection Type"
-msgstr ""
+msgstr "Вид на връзката"
 
 #: include/arrays.php:211 include/arrays.php:267
 #, fuzzy
@@ -337,27 +349,32 @@ msgstr "Изберете акаунт, който да се използва з�
 
 #: include/arrays.php:223
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: include/arrays.php:226 include/arrays.php:349 include/arrays.php:384
+#, fuzzy
 msgid "Default timeout"
-msgstr ""
+msgstr "Време за изчакване по подразбиране"
 
 #: include/arrays.php:227 include/arrays.php:350 include/arrays.php:385
+#, fuzzy
 msgid "Default time to wait in seconds for a resposne"
-msgstr ""
+msgstr "Време по подразбиране за изчакване в секунди за отговор"
 
 #: include/arrays.php:234 include/arrays.php:357 include/arrays.php:391
+#, fuzzy
 msgid "Default sleep time"
-msgstr ""
+msgstr "Време за заспиване по подразбиране"
 
 #: include/arrays.php:235 include/arrays.php:358 include/arrays.php:392
+#, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr ""
+msgstr "Време по подразбиране за заспиване в микросекунди (1/1 000 000 от секундата)"
 
 #: include/arrays.php:243 include/arrays.php:342
+#, fuzzy
 msgid "Assume elevated"
-msgstr ""
+msgstr "Да приемем повишено"
 
 #: include/arrays.php:244 include/arrays.php:343
 #, fuzzy
@@ -390,12 +407,14 @@ msgid "This is the password prompt to match on login."
 msgstr "Това е подканата за парола, която съответства на данните за вход."
 
 #: include/arrays.php:290
+#, fuzzy
 msgid "Configuration file"
-msgstr ""
+msgstr "Конфигурационен файл"
 
 #: include/arrays.php:291
+#, fuzzy
 msgid "This is the standard location of the configuration file on the remote device."
-msgstr ""
+msgstr "Това е стандартното местоположение на конфигурационния файл на отдалеченото устройство."
 
 #: include/arrays.php:298 router-devtypes.php:255
 #, fuzzy
@@ -428,9 +447,8 @@ msgid "This is the confirmation prompt to match before transmission."
 msgstr "Това е подканата за потребителско име, която съответства при влизане."
 
 #: include/arrays.php:322 router-devtypes.php:257
-#, fuzzy
 msgid "Confirm"
-msgstr "Потвърди новата парола"
+msgstr "Потвърждаване"
 
 #: include/arrays.php:323
 #, fuzzy
@@ -458,12 +476,14 @@ msgid "Check end in config?"
 msgstr "Проверете края в config?"
 
 #: include/arrays.php:365
+#, fuzzy
 msgid "Any Key prompt"
-msgstr ""
+msgstr "Подсказка за всеки ключ"
 
 #: include/arrays.php:366
+#, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr ""
+msgstr "Текст, за да съответства на подкана „Натиснете произволен клавиш, за да продължите“"
 
 #: include/arrays.php:380 setup.php:40 setup.php:418 setup.php:432
 #, fuzzy
@@ -471,36 +491,44 @@ msgid "Router Configs"
 msgstr "Рутер Конфиг"
 
 #: include/arrays.php:398
+#, fuzzy
 msgid "Close without exit"
-msgstr ""
+msgstr "Затворете без изход"
 
 #: include/arrays.php:399
+#, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
-msgstr ""
+msgstr "Ако е отметнато, при прекъсване на връзката на устройството не се издава команда „изход“"
 
 #: include/arrays.php:403
+#, fuzzy
 msgid "Debug Connection Buffer"
-msgstr ""
+msgstr "Буфер за отстраняване на грешки"
 
 #: include/arrays.php:404
+#, fuzzy
 msgid "Whether to log direct output of device connection"
-msgstr ""
+msgstr "Дали да регистрирате директен изход на връзката на устройството"
 
 #: include/arrays.php:408
+#, fuzzy
 msgid "Assume all devices elevated"
-msgstr ""
+msgstr "Да приемем, че всички устройства са повишени"
 
 #: include/arrays.php:409
+#, fuzzy
 msgid "Whether to assume all devices are elevated"
-msgstr ""
+msgstr "Дали да приемем, че всички устройства са повишени"
 
 #: include/arrays.php:413
+#, fuzzy
 msgid "Download Hour"
-msgstr ""
+msgstr "Изтеглете Час"
 
 #: include/arrays.php:414
+#, fuzzy
 msgid "The hour of the day to perform the full downloads."
-msgstr ""
+msgstr "Часът на деня за извършване на пълните изтегляния."
 
 #: include/arrays.php:420
 #, fuzzy
@@ -508,8 +536,9 @@ msgid "Retry Schedule"
 msgstr "Планиране"
 
 #: include/arrays.php:421
+#, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr ""
+msgstr "Времето за изчакване, преди да се опитате да извършите допълнително изтегляне, когато планираното изтегляне е неуспешно"
 
 #: include/arrays.php:427
 #, fuzzy
@@ -522,12 +551,14 @@ msgid "The number of days to retain old backups."
 msgstr "Броят дни за запазване на старите архиви."
 
 #: include/arrays.php:434
+#, fuzzy
 msgid "Transfer Options"
-msgstr ""
+msgstr "Опции за трансфер"
 
 #: include/arrays.php:438
+#, fuzzy
 msgid "Default connection type"
-msgstr ""
+msgstr "Тип връзка по подразбиране"
 
 #: include/arrays.php:439
 #, fuzzy
@@ -535,20 +566,24 @@ msgid "Default type of connection used to communicate with the device."
 msgstr "Това е IP адресът, използван за комуникация с устройството."
 
 #: include/arrays.php:445
+#, fuzzy
 msgid "Separate By Device"
-msgstr ""
+msgstr "Отделно по устройство"
 
 #: include/arrays.php:446
+#, fuzzy
 msgid "Separate archived Configs into a folder per device"
-msgstr ""
+msgstr "Отделни архивирани конфигурации в папка на устройство"
 
 #: include/arrays.php:451
+#, fuzzy
 msgid "SCP Path"
-msgstr ""
+msgstr "Път на SCP"
 
 #: include/arrays.php:452
+#, fuzzy
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work"
-msgstr ""
+msgstr "Когато използвате SCP, ако оставите това празно, ще се използва SCP модулът на PHP, който не винаги работи"
 
 #: include/arrays.php:458
 #, fuzzy
@@ -582,12 +617,11 @@ msgstr "Пътят до мястото, където ще бъдат архив�
 
 #: include/arrays.php:481
 msgid "Email Options"
-msgstr ""
+msgstr "Параметри за е-Поща"
 
 #: include/arrays.php:485
-#, fuzzy
 msgid "From Address"
-msgstr "От адрес"
+msgstr "Адрес на подателя"
 
 #: include/arrays.php:486
 #, fuzzy
@@ -595,9 +629,8 @@ msgid "Email address the nightly backup will be sent from."
 msgstr "Имейл адресът, който ще бъде изпратен през нощта."
 
 #: include/arrays.php:493
-#, fuzzy
 msgid "From Name"
-msgstr "Име"
+msgstr "Име на формата"
 
 #: include/arrays.php:494
 #, fuzzy
@@ -605,7 +638,6 @@ msgid "Name the nightly backup will be sent from."
 msgstr "Имейл адресът, който ще бъде изпратен през нощта."
 
 #: include/arrays.php:501
-#, fuzzy
 msgid "Email Address"
 msgstr "Имейл адрес"
 
@@ -615,7 +647,6 @@ msgid "A comma delimited list of Email addresses to send the nightly backup Emai
 msgstr "Списък с имейл адреси, разделени със запетая, за изпращане на нощния резервен имейл до."
 
 #: include/functions.php:43 router-accounts.php:242
-#, fuzzy
 msgid "Devices"
 msgstr "Устройства"
 
@@ -625,17 +656,14 @@ msgid "Device Types"
 msgstr "Типове устройства"
 
 #: include/functions.php:45
-#, fuzzy
 msgid "Authentication"
 msgstr "Идентификация"
 
 #: include/functions.php:46
-#, fuzzy
 msgid "Backups"
-msgstr "Архивите"
+msgstr "Архивиране"
 
 #: include/functions.php:47 router-backups.php:321
-#, fuzzy
 msgid "Compare"
 msgstr "Сравни"
 
@@ -645,26 +673,29 @@ msgid "Technical Support [ %s ]"
 msgstr "Техническа поддръжка [ %s]"
 
 #: include/functions.php:85
-#, php-format
+#, fuzzy, php-format
 msgid "(%s chars)"
-msgstr ""
+msgstr "(%s символа)"
 
 #: include/functions.php:85
+#, fuzzy
 msgid "(Not Set)"
-msgstr ""
+msgstr "Настройки по подразбиране"
 
 #: include/functions.php:110
-#, php-format
+#, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
-msgstr ""
+msgstr "ЗАБЕЛЕЖКА: Стартиране на ръчно архивиране на %s устройства"
 
 #: include/functions.php:113
+#, fuzzy
 msgid "NOTICE: Starting automatic retry"
-msgstr ""
+msgstr "ЗАБЕЛЕЖКА: Стартиране на автоматичен нов опит"
 
 #: include/functions.php:115
+#, fuzzy
 msgid "NOTICE: Starting automatic backup"
-msgstr ""
+msgstr "ЗАБЕЛЕЖКА: Стартиране на автоматично архивиране"
 
 #: include/functions.php:130
 #, fuzzy
@@ -677,9 +708,9 @@ msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: TFTP сървърът не е настроен"
 
 #: include/functions.php:164
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
-msgstr ""
+msgstr "ОТЛАГАНЕ: Опит за изтегляне за %s"
 
 #: include/functions.php:204
 #, fuzzy, php-format
@@ -707,37 +738,44 @@ msgid "Configuration Backups"
 msgstr "Конфигурационни резервни копия"
 
 #: include/functions.php:232
+#, fuzzy
 msgid " - Forced"
-msgstr ""
+msgstr " - Принуден"
 
 #: include/functions.php:236
+#, fuzzy
 msgid " - Manual"
-msgstr ""
+msgstr "Ръчна"
 
 #: include/functions.php:240
+#, fuzzy
 msgid " - Simulated"
-msgstr ""
+msgstr " - Симулирана"
 
 #: include/functions.php:244
 #, fuzzy
 msgid " - Scheduled"
-msgstr "Планиране"
+msgstr "Планирана"
 
 #: include/functions.php:248
+#, fuzzy
 msgid " - Reattempt"
-msgstr ""
+msgstr " - Повторен опит"
 
 #: include/functions.php:252
+#, fuzzy
 msgid ": Partial"
-msgstr ""
+msgstr ": Частично"
 
 #: include/functions.php:254
+#, fuzzy
 msgid ": FAILED"
-msgstr ""
+msgstr "Провалена"
 
 #: include/functions.php:269
+#, fuzzy
 msgid "STATS: "
-msgstr ""
+msgstr "Статистика"
 
 #: include/functions.php:310
 #, fuzzy
@@ -745,34 +783,34 @@ msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "Пътят за архивиране не е зададен или не е директория"
 
 #: include/functions.php:361
-#, php-format
+#, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
-msgstr ""
+msgstr "СТАТИСТИКА: Архивирането вече се изпълнява от %s"
 
 #: include/functions.php:365
-#, php-format
+#, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
-msgstr ""
+msgstr "ПРЕДУПРЕЖДЕНИЕ: Архивирането вече работи от %s"
 
 #: include/functions.php:481
-#, php-format
+#, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
-msgstr ""
+msgstr "ГРЕШКА: Неуспешно свързване с устройство „%s“ с помощта на тип връзка: %s"
 
 #: include/functions.php:491
-#, php-format
+#, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
-msgstr ""
+msgstr "ГРЕШКА: Неуспешно изтегляне на „%s“ на „%s“ чрез „%s“"
 
 #: include/functions.php:840
-#, php-format
+#, fuzzy, php-format
 msgid "File '%s' failed to load"
-msgstr ""
+msgstr "Файлът „%s“ не можа да се зареди"
 
 #: include/functions.php:843
-#, php-format
+#, fuzzy, php-format
 msgid "File '%s' was not found"
-msgstr ""
+msgstr "Файлът „%s“ не бе намерен"
 
 #: include/functions.php:854
 #, fuzzy, php-format
@@ -796,13 +834,11 @@ msgstr "Кликнете върху „Напред“, за да изтриет
 
 #: router-accounts.php:124 router-devices.php:212 router-devices.php:221
 #: router-devices.php:230 router-devtypes.php:115
-#, fuzzy
 msgid "Cancel"
 msgstr "Отказ"
 
 #: router-accounts.php:124 router-devices.php:212 router-devices.php:221
 #: router-devices.php:230 router-devtypes.php:115
-#, fuzzy
 msgid "Continue"
 msgstr "Продължи"
 
@@ -817,9 +853,8 @@ msgid "You must select at least one device."
 msgstr "Трябва да изберете поне едно устройство."
 
 #: router-accounts.php:127 router-devices.php:236
-#, fuzzy
 msgid "Return"
-msgstr "връщане"
+msgstr "Връщане"
 
 #: router-accounts.php:198
 #, fuzzy, php-format
@@ -832,14 +867,12 @@ msgid "Account: [new]"
 msgstr "Профил: [нов]"
 
 #: router-accounts.php:234
-#, fuzzy
 msgid "Accounts"
 msgstr "Профили"
 
 #: router-accounts.php:238
-#, fuzzy
 msgid "Account Management"
-msgstr "Управление на профила"
+msgstr "Акаунти - Управление"
 
 #: router-accounts.php:258
 #, fuzzy
@@ -853,49 +886,51 @@ msgstr "Резервни копия на рутера"
 
 #: router-backups.php:194 router-devices.php:550 router-devices.php:567
 msgid "Any"
-msgstr ""
+msgstr "Всички"
 
 #: router-backups.php:207 router-devices.php:580
 msgid "Search"
-msgstr ""
+msgstr "Търсене"
 
 #: router-backups.php:214 router-devices.php:587
 msgid "Default"
-msgstr ""
+msgstr "По подразбиране"
 
 #: router-backups.php:226 router-devices.php:599
 msgid "Go"
-msgstr ""
+msgstr "Търси"
 
 #: router-backups.php:226 router-devices.php:599
+#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "Задаване / обновяване на филтри"
 
 #: router-backups.php:227 router-devices.php:600
 msgid "Clear"
-msgstr ""
+msgstr "Изчисти"
 
 #: router-backups.php:227 router-devices.php:600
+#, fuzzy
 msgid "Clear Filters"
-msgstr ""
+msgstr "Изчистване на филтрите"
 
 #: router-backups.php:241 router-devices.php:618
-#, fuzzy
 msgid "Hostname"
-msgstr "SMTP Hostname"
+msgstr "Име на хост"
 
 #: router-backups.php:244 router-devices.php:621
+#, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr ""
+msgstr "Или IP адрес, или име на хост. Ако име на хост, то трябва да бъде разрешимо или от DNS, или от вашия файл с хостове."
 
 #: router-backups.php:247 router-devices.php:624 router-devtypes.php:250
-#, fuzzy
 msgid "ID"
 msgstr "ID"
 
 #: router-backups.php:250 router-devices.php:627
+#, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr ""
+msgstr "Вътрешният идентификационен номер на базата данни за това устройство. Полезно при извършване на автоматизация или отстраняване на грешки."
 
 #: router-backups.php:253
 #, fuzzy
@@ -903,8 +938,9 @@ msgid "Functions"
 msgstr "Действия"
 
 #: router-backups.php:256
+#, fuzzy
 msgid "Perform functions against this backup"
-msgstr ""
+msgstr "Изпълнявайте функции срещу това архивиране"
 
 #: router-backups.php:262 router-devices.php:697
 #, fuzzy
@@ -927,20 +963,21 @@ msgid "Last Change"
 msgstr "Последна промяна"
 
 #: router-backups.php:274
+#, fuzzy
 msgid "The last Change time of the device"
-msgstr ""
+msgstr "Времето на последната промяна на устройството"
 
 #: router-backups.php:277 router-devices.php:689
 #, fuzzy
 msgid "Changed By"
-msgstr "Променено от"
+msgstr "Променено"
 
 #: router-backups.php:280
+#, fuzzy
 msgid "The last person to change the configuration of the device"
-msgstr ""
+msgstr "Последният човек, който променя конфигурацията на устройството"
 
 #: router-backups.php:283
-#, fuzzy
 msgid "Filename"
 msgstr "Име на файла"
 
@@ -980,9 +1017,9 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Отстраняване на грешки за %s ( %s) <br><br>"
 
 #: router-devices.php:186
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr ""
+msgstr "ОТЛАГАНЕ: Изпълнение на ръчно архивиране с помощта на „%s“ с аргументи „%s“"
 
 #: router-devices.php:208
 #, fuzzy
@@ -1030,17 +1067,14 @@ msgid "Router Device Management"
 msgstr "Управление на устройства с рутер"
 
 #: router-devices.php:563
-#, fuzzy
 msgid "Account"
-msgstr "Профили"
+msgstr "Профил"
 
 #: router-devices.php:615 router-devtypes.php:249
-#, fuzzy
 msgid "Actions"
 msgstr "Действия"
 
 #: router-devices.php:630
-#, fuzzy
 msgid "Enabled"
 msgstr "Разрешен"
 
@@ -1050,8 +1084,9 @@ msgid "Last Backup"
 msgstr "Последно архивиране"
 
 #: router-devices.php:644
+#, fuzzy
 msgid "The device type of the device"
-msgstr ""
+msgstr "Типът на устройството"
 
 #: router-devices.php:647
 #, fuzzy
@@ -1059,8 +1094,9 @@ msgid "Connect Type"
 msgstr "Тип на устройството"
 
 #: router-devices.php:650
+#, fuzzy
 msgid "The connection type for this device"
-msgstr ""
+msgstr "Типът на връзката за това устройство"
 
 #: router-devices.php:653
 #, fuzzy
@@ -1068,8 +1104,9 @@ msgid "Configs"
 msgstr "Configs"
 
 #: router-devices.php:655
+#, fuzzy
 msgid "The number of configurations for this device"
-msgstr ""
+msgstr "Броят на конфигурациите за това устройство"
 
 #: router-devices.php:661
 #, fuzzy
@@ -1087,12 +1124,14 @@ msgid "Date Backup"
 msgstr "Последно архивиране"
 
 #: router-devices.php:674
+#, fuzzy
 msgid "Next Attempt"
-msgstr ""
+msgstr "Следващ опит"
 
 #: router-devices.php:679
+#, fuzzy
 msgid "Last Attempt"
-msgstr ""
+msgstr "Последен опит"
 
 #: router-devices.php:684
 #, fuzzy
@@ -1101,48 +1140,49 @@ msgstr "Последна промяна"
 
 #: router-devices.php:726
 msgid "Today"
-msgstr ""
+msgstr "Днес"
 
 #: router-devices.php:727
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 #: router-devices.php:728
 msgid "This Week"
-msgstr ""
+msgstr "Тази Седмица"
 
 #: router-devices.php:729
-#, fuzzy
 msgid "This Month"
-msgstr "% d Месец"
+msgstr "Този месец"
 
 #: router-devices.php:730
+#, fuzzy
 msgid "Within a Year"
-msgstr ""
+msgstr "В рамките на една година"
 
 #: router-devices.php:731
+#, fuzzy
 msgid "Long, Long Ago"
-msgstr ""
+msgstr "Много много отдавна"
 
 #: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
 #: router-devtypes.php:280
-#, fuzzy
 msgid "No"
 msgstr "Не"
 
 #: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
 #: router-devtypes.php:280
-#, fuzzy
 msgid "Yes"
 msgstr "Да"
 
 #: router-devices.php:775
+#, fuzzy
 msgid "Connect via SSH"
-msgstr ""
+msgstr "Свържете се чрез SSH"
 
 #: router-devices.php:779
+#, fuzzy
 msgid "Connect via Telnet"
-msgstr ""
+msgstr "Свържете се чрез Telnet"
 
 #: router-devices.php:785
 #, fuzzy
@@ -1160,7 +1200,6 @@ msgid "Backups (%s)"
 msgstr "Резервни копия ( %s)"
 
 #: router-devices.php:797
-#, fuzzy
 msgid "Current"
 msgstr "Текущ"
 
@@ -1191,7 +1230,7 @@ msgstr "Преглед на типа устройства на рутера"
 
 #: router-devtypes.php:252
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: router-devtypes.php:253
 #, fuzzy
@@ -1204,7 +1243,6 @@ msgid "Pass Prompt"
 msgstr "Запитване за парола"
 
 #: router-devtypes.php:256
-#, fuzzy
 msgid "Version"
 msgstr "Версия"
 
@@ -1229,12 +1267,11 @@ msgid "No Router Device Types Found"
 msgstr "Няма намерени типове устройства за маршрутизатор"
 
 #: setup.php:408
-#, php-format
+#, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
-msgstr ""
+msgstr "ОТЛАГАНЕ: Изпълнение на „%s“ с аргументи „%s“"
 
 #: setup.php:432
-#, fuzzy
 msgid "Utilities"
 msgstr "Приложения"
 
@@ -1244,9 +1281,8 @@ msgid "Router Devices"
 msgstr "Устройства за рутери"
 
 #: setup.php:444 setup.php:479 setup.php:507
-#, fuzzy
 msgid "(edit)"
-msgstr "(Редактирай)"
+msgstr "Редактиране..."
 
 #: setup.php:451 setup.php:486 setup.php:514
 #, fuzzy
