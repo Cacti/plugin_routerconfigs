@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 09:51+0000\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2020-12-12 22:16-0500\n"
 "PO-Revision-Date: 2019-03-18 18:14-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "23:00 (11pm)"
 msgstr ""
 
-#: include/arrays.php:125 include/arrays.php:250 router-devtypes.php:250
+#: include/arrays.php:125 include/arrays.php:258 router-devtypes.php:251
 #, fuzzy
 msgid "Name"
 msgstr "이름"
@@ -221,7 +221,7 @@ msgstr "이름"
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "이 계정에 의미있는 이름을 지정하십시오."
 
-#: include/arrays.php:132 router-accounts.php:241
+#: include/arrays.php:132 router-accounts.php:242
 #, fuzzy
 msgid "Username"
 msgstr "아이디"
@@ -261,21 +261,17 @@ msgstr "장치 사용"
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "이 장치의 백업을 비활성화하려면이 상자의 선택을 취소하십시오."
 
-#: include/arrays.php:172 router-accounts.php:241
+#: include/arrays.php:172 router-accounts.php:242
 #, fuzzy
 msgid "Description"
 msgstr "설명"
 
 #: include/arrays.php:173
 #, fuzzy
-msgid ""
-"Name of this device (will be used for config saving and SVN if no hostname "
-"is present in config)."
-msgstr ""
-"이 장치의 이름입니다 (구성 저장에 사용되며 구성에 호스트 이름이없는 경우 "
-"SVN)."
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "이 장치의 이름입니다 (구성 저장에 사용되며 구성에 호스트 이름이없는 경우 SVN)."
 
-#: include/arrays.php:179 router-devices.php:652
+#: include/arrays.php:179 router-devices.php:658
 #, fuzzy
 msgid "IP Address"
 msgstr "IP 주소"
@@ -285,7 +281,7 @@ msgstr "IP 주소"
 msgid "This is the IP Address used to communicate with the device."
 msgstr "이것은 장치와 통신하는 데 사용되는 IP 주소입니다."
 
-#: include/arrays.php:186 router-backups.php:259 router-devices.php:688
+#: include/arrays.php:186 router-backups.php:259 router-devices.php:694
 #, fuzzy
 msgid "Directory"
 msgstr "디렉토리"
@@ -305,7 +301,7 @@ msgstr "일정"
 msgid "How often to Backup this device."
 msgstr "이 장치의 백업주기."
 
-#: include/arrays.php:201 router-devices.php:540 router-devices.php:635
+#: include/arrays.php:201 router-devices.php:546 router-devices.php:641
 #, fuzzy
 msgid "Device Type"
 msgstr "장치 유형"
@@ -315,16 +311,16 @@ msgstr "장치 유형"
 msgid "Choose the type of device that the router is."
 msgstr "라우터가있는 장치 유형을 선택하십시오."
 
-#: include/arrays.php:206 router-devices.php:751
+#: include/arrays.php:206 router-devices.php:757
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "자동 감지"
 
-#: include/arrays.php:210 include/arrays.php:258
+#: include/arrays.php:210 include/arrays.php:266
 msgid "Connection Type"
 msgstr ""
 
-#: include/arrays.php:211 include/arrays.php:259
+#: include/arrays.php:211 include/arrays.php:267
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "이것은 장치와 통신하는 데 사용되는 IP 주소입니다."
@@ -343,272 +339,287 @@ msgstr "라우터에 로그인 할 때 사용할 계정 선택"
 msgid "None"
 msgstr ""
 
-#: include/arrays.php:226 include/arrays.php:325 include/arrays.php:360
+#: include/arrays.php:226 include/arrays.php:349 include/arrays.php:384
 msgid "Default timeout"
 msgstr ""
 
-#: include/arrays.php:227 include/arrays.php:326 include/arrays.php:361
+#: include/arrays.php:227 include/arrays.php:350 include/arrays.php:385
 msgid "Default time to wait in seconds for a resposne"
 msgstr ""
 
-#: include/arrays.php:234 include/arrays.php:333 include/arrays.php:367
+#: include/arrays.php:234 include/arrays.php:357 include/arrays.php:391
 msgid "Default sleep time"
 msgstr ""
 
-#: include/arrays.php:235 include/arrays.php:334 include/arrays.php:368
+#: include/arrays.php:235 include/arrays.php:358 include/arrays.php:392
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr ""
 
-#: include/arrays.php:251
+#: include/arrays.php:243 include/arrays.php:342
+msgid "Assume elevated"
+msgstr ""
+
+#: include/arrays.php:244 include/arrays.php:343
+#, fuzzy
+msgid "Check this box to assume this device is always elevated"
+msgstr "이 장치의 백업을 비활성화하려면이 상자의 선택을 취소하십시오."
+
+#: include/arrays.php:259
 #, fuzzy
 msgid "Name of this device type."
 msgstr "이 장치 유형의 이름입니다."
 
-#: include/arrays.php:266
+#: include/arrays.php:274
 #, fuzzy
 msgid "Username Prompt"
 msgstr "사용자 이름 프롬프트"
 
-#: include/arrays.php:267
+#: include/arrays.php:275
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "로그인시 일치시킬 사용자 이름 프롬프트입니다."
 
-#: include/arrays.php:274
+#: include/arrays.php:282
 #, fuzzy
 msgid "Password Prompt"
 msgstr "암호 프롬프트"
 
-#: include/arrays.php:275
+#: include/arrays.php:283
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "로그인시 일치시킬 비밀번호 프롬프트입니다."
 
-#: include/arrays.php:282
+#: include/arrays.php:290
 msgid "Configuration file"
 msgstr ""
 
-#: include/arrays.php:283
-msgid ""
-"This is the standard location of the configuration file on the remote device."
+#: include/arrays.php:291
+msgid "This is the standard location of the configuration file on the remote device."
 msgstr ""
 
-#: include/arrays.php:290 router-devtypes.php:254
+#: include/arrays.php:298 router-devtypes.php:255
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "TFTP 복사"
 
-#: include/arrays.php:291
+#: include/arrays.php:299
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "이것은 tftp 서버로 백업을 보내는 CLI 텍스트입니다."
 
-#: include/arrays.php:298
+#: include/arrays.php:306
 #, fuzzy
 msgid "Show Version"
 msgstr "버전 표시"
 
-#: include/arrays.php:299
+#: include/arrays.php:307
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "현재 버전을 표시하는 데 사용되는 CLI 텍스트입니다."
 
-#: include/arrays.php:306 router-devtypes.php:256
+#: include/arrays.php:314
+#, fuzzy
+msgid "Confirmation Prompt"
+msgstr "구성 백업"
+
+#: include/arrays.php:315
+#, fuzzy
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "로그인시 일치시킬 사용자 이름 프롬프트입니다."
+
+#: include/arrays.php:322 router-devtypes.php:257
 #, fuzzy
 msgid "Confirm"
 msgstr "새 비밀번호 확인"
 
-#: include/arrays.php:307
+#: include/arrays.php:323
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "구성을 복사 할 것인지 묻는 확인 메시지가 있습니까?"
 
-#: include/arrays.php:314 router-devtypes.php:257
+#: include/arrays.php:330 router-devtypes.php:258
 #, fuzzy
 msgid "Force Confirm"
 msgstr "강제 확인"
 
-#: include/arrays.php:315
+#: include/arrays.php:331
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "config 복사를 강제로 확인하는 프롬프트가 있습니까?"
 
-#: include/arrays.php:320
+#: include/arrays.php:336
 #, fuzzy
 msgid "Check End in Config"
 msgstr "구성에서 끝 확인"
 
-#: include/arrays.php:321
+#: include/arrays.php:337
 #, fuzzy
 msgid "Check end in config?"
 msgstr "구성에서 끝을 확인 하시겠습니까?"
 
-#: include/arrays.php:341
+#: include/arrays.php:365
 msgid "Any Key prompt"
 msgstr ""
 
-#: include/arrays.php:342
+#: include/arrays.php:366
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr ""
 
-#: include/arrays.php:356 setup.php:40 setup.php:365 setup.php:379
+#: include/arrays.php:380 setup.php:40 setup.php:418 setup.php:432
 #, fuzzy
 msgid "Router Configs"
 msgstr "라우터 구성"
 
-#: include/arrays.php:374
+#: include/arrays.php:398
 msgid "Close without exit"
 msgstr ""
 
-#: include/arrays.php:375
-msgid ""
-"If ticked, when closing down the device connection, no 'exit' command is "
-"issued"
+#: include/arrays.php:399
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr ""
 
-#: include/arrays.php:379
+#: include/arrays.php:403
 msgid "Debug Connection Buffer"
 msgstr ""
 
-#: include/arrays.php:380
+#: include/arrays.php:404
 msgid "Whether to log direct output of device connection"
 msgstr ""
 
-#: include/arrays.php:384
+#: include/arrays.php:408
+msgid "Assume all devices elevated"
+msgstr ""
+
+#: include/arrays.php:409
+msgid "Whether to assume all devices are elevated"
+msgstr ""
+
+#: include/arrays.php:413
 msgid "Download Hour"
 msgstr ""
 
-#: include/arrays.php:385
+#: include/arrays.php:414
 msgid "The hour of the day to perform the full downloads."
 msgstr ""
 
-#: include/arrays.php:391
+#: include/arrays.php:420
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "일정"
 
-#: include/arrays.php:392
-msgid ""
-"The time to wait before attempting to perform an additional download when "
-"scheduled download fails"
+#: include/arrays.php:421
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr ""
 
-#: include/arrays.php:398
+#: include/arrays.php:427
 #, fuzzy
 msgid "Retention Period"
 msgstr "보유 기간"
 
-#: include/arrays.php:399
+#: include/arrays.php:428
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "오래된 백업을 유지하는 기간 (일)입니다."
 
-#: include/arrays.php:405
+#: include/arrays.php:434
 msgid "Transfer Options"
 msgstr ""
 
-#: include/arrays.php:409
+#: include/arrays.php:438
 msgid "Default connection type"
 msgstr ""
 
-#: include/arrays.php:410
+#: include/arrays.php:439
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "이것은 장치와 통신하는 데 사용되는 IP 주소입니다."
 
-#: include/arrays.php:416
+#: include/arrays.php:445
 msgid "Separate By Device"
 msgstr ""
 
-#: include/arrays.php:417
+#: include/arrays.php:446
 msgid "Separate archived Configs into a folder per device"
 msgstr ""
 
-#: include/arrays.php:422
+#: include/arrays.php:451
 msgid "SCP Path"
 msgstr ""
 
-#: include/arrays.php:423
-msgid ""
-"When using SCP, leaving this blank will use PHP's SCP module which does not "
-"always work"
+#: include/arrays.php:452
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work"
 msgstr ""
 
-#: include/arrays.php:429
+#: include/arrays.php:458
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "TFTP 서버 IP"
 
-#: include/arrays.php:430
+#: include/arrays.php:459
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Cacti 서버를 가리키는 IP 여야합니다."
 
-#: include/arrays.php:436
+#: include/arrays.php:465
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "백업 디렉토리 경로"
 
-#: include/arrays.php:437
+#: include/arrays.php:466
 #, fuzzy
-msgid ""
-"The path to where your Configs will be backed up, it must be the path that "
-"the local TFTP Server writes to."
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "Configs가 백업 될 경로는 로컬 TFTP 서버가 기록하는 경로 여야합니다."
 
-#: include/arrays.php:444
+#: include/arrays.php:473
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "백업 디렉토리 경로"
 
-#: include/arrays.php:445
+#: include/arrays.php:474
 #, fuzzy
-msgid ""
-"The path to where your Configs will be archived (moved from TFTP directory)"
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "Configs가 백업 될 경로는 로컬 TFTP 서버가 기록하는 경로 여야합니다."
 
-#: include/arrays.php:452
+#: include/arrays.php:481
 msgid "Email Options"
 msgstr ""
 
-#: include/arrays.php:456
+#: include/arrays.php:485
 #, fuzzy
 msgid "From Address"
 msgstr "발신자 이메일"
 
-#: include/arrays.php:457
+#: include/arrays.php:486
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "야간 백업이 전송 될 이메일 주소."
 
-#: include/arrays.php:464
+#: include/arrays.php:493
 #, fuzzy
 msgid "From Name"
 msgstr "이름"
 
-#: include/arrays.php:465
+#: include/arrays.php:494
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "야간 백업이 전송 될 이메일 주소."
 
-#: include/arrays.php:472
+#: include/arrays.php:501
 #, fuzzy
 msgid "Email Address"
 msgstr "이메일 주소"
 
-#: include/arrays.php:473
+#: include/arrays.php:502
 #, fuzzy
-msgid ""
-"A comma delimited list of Email addresses to send the nightly backup Email "
-"to."
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "야간 백업 이메일을 보낼 전자 메일 주소의 쉼표로 구분 된 목록입니다."
 
-#: include/functions.php:43 router-accounts.php:241
+#: include/functions.php:43 router-accounts.php:242
 #, fuzzy
 msgid "Devices"
 msgstr "장치"
 
-#: include/functions.php:44 router-devtypes.php:238
+#: include/functions.php:44 router-devtypes.php:239
 #, fuzzy
 msgid "Device Types"
 msgstr "장치 유형"
@@ -743,37 +754,37 @@ msgstr ""
 msgid "WARN: Backup already running since %s"
 msgstr ""
 
-#: include/functions.php:476
+#: include/functions.php:481
 #, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr ""
 
-#: include/functions.php:486
+#: include/functions.php:491
 #, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr ""
 
-#: include/functions.php:835
+#: include/functions.php:840
 #, php-format
 msgid "File '%s' failed to load"
 msgstr ""
 
-#: include/functions.php:838
+#: include/functions.php:843
 #, php-format
 msgid "File '%s' was not found"
 msgstr ""
 
-#: include/functions.php:849
+#: include/functions.php:854
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "%s의 라우터 구성 ( %s)"
 
-#: include/functions.php:850
+#: include/functions.php:855
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "%s에서 백업"
 
-#: include/functions.php:851
+#: include/functions.php:856
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "파일 :  %s /  %s"
@@ -810,84 +821,80 @@ msgstr "하나 이상의 장치를 선택해야합니다."
 msgid "Return"
 msgstr "반환"
 
-#: router-accounts.php:197
+#: router-accounts.php:198
 #, fuzzy, php-format
 msgid "Account: [edit: %s]"
 msgstr "계정 : [편집 :  %s]"
 
-#: router-accounts.php:199
+#: router-accounts.php:200
 #, fuzzy
 msgid "Account: [new]"
 msgstr "계정 : [new]"
 
-#: router-accounts.php:233
+#: router-accounts.php:234
 #, fuzzy
 msgid "Accounts"
 msgstr "계정"
 
-#: router-accounts.php:237
+#: router-accounts.php:238
 #, fuzzy
 msgid "Account Management"
 msgstr "계정 관리"
 
-#: router-accounts.php:257
+#: router-accounts.php:258
 #, fuzzy
 msgid "No Router Accounts Found"
 msgstr "라우터 계정 없음"
 
-#: router-backups.php:184 setup.php:419
+#: router-backups.php:184 setup.php:472
 #, fuzzy
 msgid "Router Backups"
 msgstr "라우터 백업"
 
-#: router-backups.php:194 router-devices.php:544 router-devices.php:561
+#: router-backups.php:194 router-devices.php:550 router-devices.php:567
 msgid "Any"
 msgstr ""
 
-#: router-backups.php:207 router-devices.php:574
+#: router-backups.php:207 router-devices.php:580
 msgid "Search"
 msgstr ""
 
-#: router-backups.php:214 router-devices.php:581
+#: router-backups.php:214 router-devices.php:587
 msgid "Default"
 msgstr ""
 
-#: router-backups.php:226 router-devices.php:593
+#: router-backups.php:226 router-devices.php:599
 msgid "Go"
 msgstr ""
 
-#: router-backups.php:226 router-devices.php:593
+#: router-backups.php:226 router-devices.php:599
 msgid "Set/Refresh Filters"
 msgstr ""
 
-#: router-backups.php:227 router-devices.php:594
+#: router-backups.php:227 router-devices.php:600
 msgid "Clear"
 msgstr ""
 
-#: router-backups.php:227 router-devices.php:594
+#: router-backups.php:227 router-devices.php:600
 msgid "Clear Filters"
 msgstr ""
 
-#: router-backups.php:241 router-devices.php:612
+#: router-backups.php:241 router-devices.php:618
 #, fuzzy
 msgid "Hostname"
 msgstr "호스트이름:"
 
-#: router-backups.php:244 router-devices.php:615
-msgid ""
-"Either an IP address, or hostname.  If a hostname, it must be resolvable by "
-"either DNS, or from your hosts file."
+#: router-backups.php:244 router-devices.php:621
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr ""
 
-#: router-backups.php:247 router-devices.php:618 router-devtypes.php:249
+#: router-backups.php:247 router-devices.php:624 router-devtypes.php:250
 #, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: router-backups.php:250 router-devices.php:621
-msgid ""
-"The internal database ID for this Device.  Useful when performing automation "
-"or debugging."
+#: router-backups.php:250 router-devices.php:627
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr ""
 
 #: router-backups.php:253
@@ -899,7 +906,7 @@ msgstr "작업"
 msgid "Perform functions against this backup"
 msgstr ""
 
-#: router-backups.php:262 router-devices.php:691
+#: router-backups.php:262 router-devices.php:697
 #, fuzzy
 msgid "The directory of the stored device backups"
 msgstr "오래된 백업을 유지하는 기간 (일)입니다."
@@ -909,7 +916,7 @@ msgstr "오래된 백업을 유지하는 기간 (일)입니다."
 msgid "Backup Time"
 msgstr "백업 시간"
 
-#: router-backups.php:268 router-devices.php:632
+#: router-backups.php:268 router-devices.php:638
 #, fuzzy
 msgid "The last Backup time of the device"
 msgstr "이 장치의 백업주기."
@@ -923,7 +930,7 @@ msgstr "마지막 변경"
 msgid "The last Change time of the device"
 msgstr ""
 
-#: router-backups.php:277 router-devices.php:683
+#: router-backups.php:277 router-devices.php:689
 #, fuzzy
 msgid "Changed By"
 msgstr "변경자"
@@ -942,7 +949,7 @@ msgstr "파일이름"
 msgid "The filename of the stored device backups"
 msgstr "오래된 백업을 유지하는 기간 (일)입니다."
 
-#: router-backups.php:319 setup.php:405 setup.php:440
+#: router-backups.php:319 setup.php:458 setup.php:493
 #, fuzzy
 msgid "View Config"
 msgstr "설정 보기"
@@ -1007,157 +1014,157 @@ msgstr "기기 사용 중지"
 msgid "You must select at least Router Device."
 msgstr "최소한 라우터 장치를 선택해야합니다."
 
-#: router-devices.php:308
+#: router-devices.php:309
 #, fuzzy, php-format
 msgid "Router: [edit: %s]"
 msgstr "라우터 : [편집 :  %s]"
 
-#: router-devices.php:310
+#: router-devices.php:311
 #, fuzzy
 msgid "Router: [new]"
 msgstr "라우터 : [new]"
 
-#: router-devices.php:530
+#: router-devices.php:536
 #, fuzzy
 msgid "Router Device Management"
 msgstr "라우터 장치 관리"
 
-#: router-devices.php:557
+#: router-devices.php:563
 #, fuzzy
 msgid "Account"
 msgstr "계정"
 
-#: router-devices.php:609 router-devtypes.php:248
+#: router-devices.php:615 router-devtypes.php:249
 #, fuzzy
 msgid "Actions"
 msgstr "작업"
 
-#: router-devices.php:624
+#: router-devices.php:630
 #, fuzzy
 msgid "Enabled"
 msgstr "활성화"
 
-#: router-devices.php:629
+#: router-devices.php:635
 #, fuzzy
 msgid "Last Backup"
 msgstr "마지막 백업"
 
-#: router-devices.php:638
-msgid "The device type of the device"
-msgstr ""
-
-#: router-devices.php:641
-#, fuzzy
-msgid "Connect Type"
-msgstr "장치 유형"
-
 #: router-devices.php:644
-msgid "The connection type for this device"
+msgid "The device type of the device"
 msgstr ""
 
 #: router-devices.php:647
 #, fuzzy
+msgid "Connect Type"
+msgstr "장치 유형"
+
+#: router-devices.php:650
+msgid "The connection type for this device"
+msgstr ""
+
+#: router-devices.php:653
+#, fuzzy
 msgid "Configs"
 msgstr "구성"
 
-#: router-devices.php:649
+#: router-devices.php:655
 msgid "The number of configurations for this device"
 msgstr ""
 
-#: router-devices.php:655
+#: router-devices.php:661
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "이 장치 유형의 이름입니다."
 
-#: router-devices.php:658
+#: router-devices.php:664
 #, fuzzy
 msgid "Next Backup"
 msgstr "마지막 백업"
 
-#: router-devices.php:663
+#: router-devices.php:669
 #, fuzzy
 msgid "Date Backup"
 msgstr "마지막 백업"
 
-#: router-devices.php:668
+#: router-devices.php:674
 msgid "Next Attempt"
 msgstr ""
 
-#: router-devices.php:673
+#: router-devices.php:679
 msgid "Last Attempt"
 msgstr ""
 
-#: router-devices.php:678
+#: router-devices.php:684
 #, fuzzy
 msgid "Date Change"
 msgstr "마지막 변경"
 
-#: router-devices.php:720
+#: router-devices.php:726
 msgid "Today"
 msgstr ""
 
-#: router-devices.php:721
+#: router-devices.php:727
 msgid "Yesterday"
 msgstr ""
 
-#: router-devices.php:722
+#: router-devices.php:728
 msgid "This Week"
 msgstr ""
 
-#: router-devices.php:723
+#: router-devices.php:729
 #, fuzzy
 msgid "This Month"
 msgstr "% d 개월"
 
-#: router-devices.php:724
+#: router-devices.php:730
 msgid "Within a Year"
 msgstr ""
 
-#: router-devices.php:725
+#: router-devices.php:731
 msgid "Long, Long Ago"
 msgstr ""
 
-#: router-devices.php:754 router-devtypes.php:275 router-devtypes.php:276
-#: router-devtypes.php:277
+#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
+#: router-devtypes.php:280
 #, fuzzy
 msgid "No"
 msgstr "아니오"
 
-#: router-devices.php:754 router-devtypes.php:275 router-devtypes.php:276
-#: router-devtypes.php:277
+#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
+#: router-devtypes.php:280
 #, fuzzy
 msgid "Yes"
 msgstr "예"
 
-#: router-devices.php:769
+#: router-devices.php:775
 msgid "Connect via SSH"
 msgstr ""
 
-#: router-devices.php:773
+#: router-devices.php:779
 msgid "Connect via Telnet"
 msgstr ""
 
-#: router-devices.php:779
+#: router-devices.php:785
 #, fuzzy
 msgid "Trace Route"
 msgstr "추적 경로"
 
-#: router-devices.php:781
+#: router-devices.php:787
 #, fuzzy
 msgid "Router Debug Info"
 msgstr "라우터 디버그 정보"
 
-#: router-devices.php:791
+#: router-devices.php:797
 #, fuzzy, php-format
 msgid "Backups (%s)"
 msgstr "백업 ( %s)"
 
-#: router-devices.php:791
+#: router-devices.php:797
 #, fuzzy
 msgid "Current"
 msgstr "현재 비번"
 
-#: router-devices.php:805
+#: router-devices.php:811
 #, fuzzy
 msgid "No Router Devices Found"
 msgstr "라우터 장치가 없습니다."
@@ -1167,94 +1174,121 @@ msgstr "라우터 장치가 없습니다."
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "'계속'을 클릭하면 다음 장치가 삭제됩니다."
 
-#: router-devtypes.php:191
+#: router-devtypes.php:192
 #, fuzzy, php-format
 msgid "Query [edit: %s]"
 msgstr "쿼리 [편집 :  %s]"
 
-#: router-devtypes.php:193
+#: router-devtypes.php:194
 #, fuzzy
 msgid "Query [new]"
 msgstr "검색어 [신규]"
 
-#: router-devtypes.php:242
+#: router-devtypes.php:243
 #, fuzzy
 msgid "View Router Device Types"
 msgstr "라우터 장치 유형보기"
 
-#: router-devtypes.php:251
+#: router-devtypes.php:252
 msgid "Type"
 msgstr ""
 
-#: router-devtypes.php:252
+#: router-devtypes.php:253
 #, fuzzy
 msgid "User Prompt"
 msgstr "사용자 이름 프롬프트"
 
-#: router-devtypes.php:253
+#: router-devtypes.php:254
 #, fuzzy
 msgid "Pass Prompt"
 msgstr "암호 프롬프트"
 
-#: router-devtypes.php:255
+#: router-devtypes.php:256
 #, fuzzy
 msgid "Version"
 msgstr "버전"
 
-#: router-devtypes.php:258
+#: router-devtypes.php:259
+#, fuzzy
+msgid "Confirm Prompt"
+msgstr "새 비밀번호 확인"
+
+#: router-devtypes.php:260
 #, fuzzy
 msgid "Check End In Config"
 msgstr "구성에서 끝 확인"
 
-#: router-devtypes.php:266
+#: router-devtypes.php:268
 #, fuzzy
 msgid "Edit Device Type"
 msgstr "장치 유형 편집"
 
-#: router-devtypes.php:282
+#: router-devtypes.php:285
 #, fuzzy
 msgid "No Router Device Types Found"
 msgstr "라우터 장치 유형을 찾을 수 없음"
 
-#: setup.php:355
+#: setup.php:408
 #, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr ""
 
-#: setup.php:379
+#: setup.php:432
 #, fuzzy
 msgid "Utilities"
 msgstr "도구 "
 
-#: setup.php:384
+#: setup.php:437
 #, fuzzy
 msgid "Router Devices"
 msgstr "라우터 장치"
 
-#: setup.php:391 setup.php:426 setup.php:454
+#: setup.php:444 setup.php:479 setup.php:507
 #, fuzzy
 msgid "(edit)"
 msgstr "(편집)"
 
-#: setup.php:398 setup.php:433 setup.php:461
+#: setup.php:451 setup.php:486 setup.php:514
 #, fuzzy
 msgid "(actions)"
 msgstr "작업"
 
-#: setup.php:412
+#: setup.php:465
 #, fuzzy
 msgid "View Debug"
 msgstr "디버그보기"
 
-#: setup.php:447
+#: setup.php:500
 #, fuzzy
 msgid "Router Accounts"
 msgstr "라우터 계정"
 
-#: setup.php:468
+#: setup.php:521
 #, fuzzy
 msgid "Router Compare"
 msgstr "라우터 비교"
+
+#, fuzzy
+#~ msgid "Misc"
+#~ msgstr "기타"
+
+#, fuzzy
+#~ msgid "Network Device Configuration Backups - Reattempt"
+#~ msgstr "네트워크 장치 구성 백업 - 다시 시도하십시오."
+
+#, fuzzy
+#~ msgid ""
+#~ "A successful backup has now been completed on these devices\n"
+#~ "--------------------------------\n"
+#~ msgstr "이 장치에서 성공적인 백업이 완료되었습니다. --------------------------------"
+
+#, fuzzy
+#~ msgid "Network Device Configuration Backups"
+#~ msgstr "네트워크 장치 구성 백업"
+
+#, fuzzy
+#~ msgid "--------------------------------<br>"
+#~ msgstr "-------------------------------- <br>"
 
 #, fuzzy
 #~ msgid "Router Config for %s (%s)<br><br>"
@@ -1263,27 +1297,3 @@ msgstr "라우터 비교"
 #, fuzzy
 #~ msgid "These devices failed to backup<br>"
 #~ msgstr "이 기기는 백업에 실패했습니다. <br>"
-
-#, fuzzy
-#~ msgid "--------------------------------<br>"
-#~ msgstr "-------------------------------- <br>"
-
-#, fuzzy
-#~ msgid "Network Device Configuration Backups"
-#~ msgstr "네트워크 장치 구성 백업"
-
-#, fuzzy
-#~ msgid ""
-#~ "A successful backup has now been completed on these devices\n"
-#~ "--------------------------------\n"
-#~ msgstr ""
-#~ "이 장치에서 성공적인 백업이 완료되었습니다. "
-#~ "--------------------------------"
-
-#, fuzzy
-#~ msgid "Network Device Configuration Backups - Reattempt"
-#~ msgstr "네트워크 장치 구성 백업 - 다시 시도하십시오."
-
-#, fuzzy
-#~ msgid "Misc"
-#~ msgstr "기타"
