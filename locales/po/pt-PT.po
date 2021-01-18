@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2020-12-13 10:28-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt_PT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-01-18 18:17+0000\nLast-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\nLanguage-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/routerconfigs/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.3.2\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -843,9 +832,8 @@ msgid "Continue"
 msgstr "Continuar"
 
 #: router-accounts.php:124 router-devices.php:212 router-devtypes.php:115
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "Eliminar dispositivo(s)"
+msgstr "Eliminar Dispositivo(s)"
 
 #: router-accounts.php:126
 #, fuzzy
