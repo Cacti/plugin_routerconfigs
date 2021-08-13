@@ -685,7 +685,7 @@ function show_devices() {
 			'align' => 'left',
 			'sort' => 'ASC',
 		),
-		'changedby' => array(
+		'lastuser' => array(
 			'display' => __('Changed By', 'routerconfigs'),
 			'align' => 'left',
 			'sort' => 'ASC',

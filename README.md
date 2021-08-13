@@ -60,6 +60,8 @@ issue in GitHub.
 
 * issue#113: Prompt confirmation db field wrong size
 
+* issue#119: Changed By column uses wrong backing field on Devices screen
+
 --- 1.5.2 ---
 
 * feature#110: Allow confirmation prompt to be dynamically defined
