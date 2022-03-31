@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-03-25 04:14+0000\nLast-Translator: Anatoliy <hamrad99h2@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/routerconfigs/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-03-31 15:49+0000\nLast-Translator: Anatoliy <hamrad99h2@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/routerconfigs/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -831,7 +831,6 @@ msgid "Delete Device(s)"
 msgstr "Удалить устройство(ы)"
 
 #: router-accounts.php:126
-#, fuzzy
 msgid "You must select at least one device."
 msgstr "Вы должны выбрать хотя бы одно устройство."
 
@@ -873,7 +872,7 @@ msgstr "Любой"
 
 #: router-backups.php:207 router-devices.php:580
 msgid "Search"
-msgstr "Найти"
+msgstr "Поиск"
 
 #: router-backups.php:214 router-devices.php:587
 msgid "Default"
@@ -885,7 +884,7 @@ msgstr "Перейти"
 
 #: router-backups.php:226 router-devices.php:599
 msgid "Set/Refresh Filters"
-msgstr "Установить/Обновить фильтры"
+msgstr "Выбрать/Обновить фильтры"
 
 #: router-backups.php:227 router-devices.php:600
 msgid "Clear"
@@ -1260,9 +1259,8 @@ msgid "(edit)"
 msgstr "(редактировать)"
 
 #: setup.php:451 setup.php:486 setup.php:514
-#, fuzzy
 msgid "(actions)"
-msgstr "Действия"
+msgstr "(действия)"
 
 #: setup.php:465
 #, fuzzy
