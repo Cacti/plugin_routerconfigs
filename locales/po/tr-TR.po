@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2020-12-13 10:34-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: tr_TR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-21 05:25+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/routerconfigs/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -75,26 +64,26 @@ msgid "Monthly"
 msgstr "Aylık"
 
 #: include/arrays.php:72
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d Ay"
+msgstr "%d Ay"
 
 #: include/arrays.php:73 include/arrays.php:74 include/arrays.php:75
 #: include/arrays.php:76
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d Ay"
+msgstr "%d Ay"
 
 #: include/arrays.php:77
 #, php-format
 msgid "%d Year"
-msgstr "%d yıl"
+msgstr "%d Yıl"
 
 #: include/arrays.php:78 include/arrays.php:79 include/arrays.php:80
 #: include/arrays.php:81
 #, php-format
 msgid "%d Years"
-msgstr "%d Yıllar"
+msgstr "%d Yıl"
 
 #: include/arrays.php:85
 msgid "Never"
@@ -891,7 +880,7 @@ msgstr "Herhangi"
 
 #: router-backups.php:207 router-devices.php:580
 msgid "Search"
-msgstr "Arama"
+msgstr "Ara"
 
 #: router-backups.php:214 router-devices.php:587
 msgid "Default"
@@ -902,7 +891,6 @@ msgid "Go"
 msgstr "Git"
 
 #: router-backups.php:226 router-devices.php:599
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "Filtreleri Ayarla / Yenile"
 
