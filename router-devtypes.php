@@ -97,7 +97,7 @@ function actions_devicetypes () {
 	form_start('router-devtypes.php');
 
 	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($rc_devtype_actions{get_nfilter_request_var('drp_action')}, '60%', '', '3', 'center', '');
+		html_start_box($rc_devtype_actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
 	}else{
 		html_start_box('', '60%', '', '3', 'center', '');
 	}
