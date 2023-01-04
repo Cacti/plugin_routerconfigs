@@ -413,7 +413,7 @@ class Horde_Util
      * automatically at the end of the request.
      *
      * Contains code from gpg_functions.php.
-     * Copyright 2002-2003 Braverock Ventures
+     * Copyright 2004-2023 Braverock Ventures
      */
     public static function shutdown()
     {

@@ -32,3 +32,9 @@
 - [ ] My code follows the code style of this project.
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation repository accordingly.
+
+<!--
+ #
+ # Copyright (C) 2004-2023 The Cacti Group
+ #
+-->

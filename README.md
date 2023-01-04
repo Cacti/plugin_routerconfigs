@@ -20,8 +20,8 @@ not work with Router Configs.
 
 To verify this, use the debug buffer option to capture all input/output used by
 routerconfigs. If the output does not look as you would see when running these
-commands manually, the chances are the device is experiencing this issue.
-Please feel free to post an issue on the GitHub site for verification should you
+commands manually, the chances are the device is experiencing this issue. Please
+feel free to post an issue on the GitHub site for verification should you
 require assistance.
 
 ## Installation
@@ -64,9 +64,11 @@ issue in GitHub.
 
 * issue#119: Changed By column uses wrong backing field on Devices screen
 
+
 --- 1.5.2 ---
 
 * feature#110: Allow confirmation prompt to be dynamically defined
+
 
 --- 1.5.1 ---
 
@@ -75,8 +77,9 @@ issue in GitHub.
 
 * issue#106: Devices with no devicetype set cause runtime errors
 
-* feature#111: Enable backup to assume elevation for devices/types that do
-  not offer elevation
+* feature#111: Enable backup to assume elevation for devices/types that do not
+  offer elevation
+
 
 --- 1.5.0 ---
 
@@ -95,11 +98,13 @@ issue in GitHub.
 
 * feature#97: Allow connection type to be inherited
 
+
 --- 1.4.2 ---
 
 * issue#90: Undefined column 'AnyKey'
 
 * issue#91: Empty settings against device type can cause runtime errors
+
 
 --- 1.4.1 ---
 
@@ -108,6 +113,7 @@ issue in GitHub.
 * issue#88: Configuration files are not always completely downloaded
 
 * feature#65: Make routerconfigs able to backup HP devices
+
 
 --- 1.4.0 ---
 
@@ -134,6 +140,7 @@ issue in GitHub.
 * issue#84: Manual backup was not working from web interface
 
 * feature#27: Improve Backup Directory Structure
+
 
 --- 1.3.4 ---
 
@@ -170,6 +177,7 @@ issue in GitHub.
 * issue: Fixed issue where %file% and %server% where not always replaced
   properly
 
+
 --- 1.3.3 ---
 
 * feature: Added field to clearly identify next automated backup time
@@ -186,8 +194,8 @@ issue in GitHub.
 * issue: Fixed issue where hostname was incorrectly picked up and prevents wipe
   of hostname
 
-* issue: Fixed issue where number of rows for filter pages didn't
-  match displayed rows
+* issue: Fixed issue where number of rows for filter pages didn't match
+  displayed rows
 
 * issue: Fixed issue where --retry option would not actually activate
 
@@ -196,6 +204,7 @@ issue in GitHub.
 
 * issue: Fixed issue where if date matched week, month or year, backup date
   would not show 'Today' even if it was today
+
 
 --- 1.3.2 ---
 
@@ -210,6 +219,7 @@ issue in GitHub.
 * issue: Prevent endless loop when connecting via telnet and not enabled
 
 * issue: Correct string requirement error for command line options
+
 
 --- 1.3.1 ---
 
@@ -235,6 +245,7 @@ issue in GitHub.
 
 * issue: Suppress PHP warning when SSH connection fails
 
+
 --- 1.3 ---
 
 * feature: Completely rejigged PHPSsh/PHPTelnet to use base PHPConnection class
@@ -254,6 +265,7 @@ issue in GitHub.
   downloads
 
 * issue: Default sort column was not a valid field
+
 
 --- 1.2 ---
 
@@ -288,6 +300,7 @@ issue in GitHub.
 * note: router-redownload.php no longer exists, any code relying on this should
   use router-download.php
 
+
 --- 1.1 ---
 
 * issue#9: Constructurs missing on the Horde class library
@@ -295,6 +308,7 @@ issue in GitHub.
 * issue#16: HTML style issues during enable/disable operations
 
 * issue: Updating text domain for i18n
+
 
 --- 0.3 ---
 
@@ -304,11 +318,13 @@ issue in GitHub.
 
 * compat: 0.8.7g
 
+
 --- 0.2 ---
 
 * feature: Allow the use of enable passwords
 
 * feature: Add support for SSH Connections (thanks to Abdul Pallarés)
+
 
 --- 0.1 ---
 
@@ -321,6 +337,7 @@ issue in GitHub.
 * Compare Configs
 
 * Automatically update Hostname from config file
+
 
 ## TFTP Server setup example (CentOS 6)
 
@@ -348,3 +365,5 @@ chkconfig xinetd on
 service xinetd start
 ```
 
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.

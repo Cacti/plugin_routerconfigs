@@ -6,6 +6,11 @@ labels: 'enhancement'
 assignees: ''
 
 ---
+<!--
+ #
+ # Copyright (C) 2004-2023 The Cacti Group
+ #
+-->
 
 # Feature Request
 

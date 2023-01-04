@@ -6,6 +6,11 @@ labels: 'bug'
 assignees: ''
 
 ---
+<!--
+ #
+ # Copyright (C) 2004-2023 The Cacti Group
+ #
+-->
 
 # Describe the bug
 

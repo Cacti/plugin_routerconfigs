@@ -33,3 +33,9 @@
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation accordingly.
 - [ ] I have read the **CONTRIBUTING** document.
+
+<!--
+ #
+ # Copyright (C) 2004-2023 The Cacti Group
+ #
+-->
