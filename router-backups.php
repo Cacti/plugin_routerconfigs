@@ -225,7 +225,7 @@ function show_devices () {
 
 							if (cacti_sizeof($devices)) {
 								foreach ($devices as $device) {
-									print "<option value='" . $device['id'] . "'"; if (get_request_var('device') == $device['id']) { print ' selected'; } print '>' . htmlspecialchars($device['hostname']) . "</option>\n";
+									print "<option value='" . $device['id'] . "'"; if (get_request_var('device') == $device['id']) { print ' selected'; } print '>' . html_escape($device['hostname']) . "</option>\n";
 								}
 							}
 							?>
@@ -243,7 +243,7 @@ function show_devices () {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>
