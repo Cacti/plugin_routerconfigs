@@ -66,6 +66,8 @@ issue in GitHub.
 
 * feature#125: Allow both SideBySide and Inline File Diff
 
+* feature: Leverage Cacti's internal Diff API vs. Horde
+
 --- 1.5.3 ---
 
 * issue#113: Prompt confirmation db field wrong size
