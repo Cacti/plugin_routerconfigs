@@ -28,11 +28,12 @@ chdir('../../');
 include('./include/auth.php');
 
 include_once(__DIR__ . '/include/functions.php');
-include_once(__DIR__ . '/HordeTextInclude.php');
+
+if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
+	print get_md5_include_css('plugins/routerconfigs/diff.css');
+}
 
 top_header();
-
-//print get_md5_include_css('plugins/routerconfigs/diff.css');
 
 $device1 = get_filter_request_var('device1');
 $device2 = get_filter_request_var('device2');
@@ -150,13 +151,31 @@ if (!empty($file1) && !empty($file2)) {
 		$lines2 = array('Unable to find backup id ' . $file1);
 	}
 
-	/* Create the Diff object. */
-	$diff = new Horde_Text_Diff('Native', array($lines1, $lines2));
+	if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
+		/* Create the Diff object. */
+		include_once(__DIR__ . '/HordeTextInclude.php');
 
-	/* Output the diff in unified format. */
-	$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
+		$diff = new Horde_Text_Diff('Native', array($lines1, $lines2));
 
-	$text = $renderer->render($diff);
+		/* Output the diff in unified format. */
+		$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
+
+		$text = $renderer->render($diff);
+	} else {
+		include_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
+		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
+
+		$options = array(
+			'ignoreWhitespace' => true,
+			'ignoreCase' => false
+		);
+
+		$diff = new Diff($lines1, $lines2, $options);
+
+		$renderer = new Diff_Renderer_Html_Inline;
+
+		$text = $diff->render($renderer);
+	}
 
 	html_start_box('', '100%', '', '1', 'center', '');
 	html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
