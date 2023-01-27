@@ -158,16 +158,18 @@ function show_devices () {
 	<script type='text/javascript'>
 
 	function applyFilter() {
-		strURL  = urlPath + 'plugins/routerconfigs/router-backups.php';
+		var strURL  = urlPath + 'plugins/routerconfigs/router-backups.php';
 		strURL += '?device=' + $('#device').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&filter=' + $('#filter').val();
 		strURL += '&header=false';
+
 		loadPageNoHeader(strURL);
 	}
 
 	function clearFilter() {
-		strURL = 'router-backups.php?clear=1&header=false';
+		var strURL = 'router-backups.php?clear=1&header=false';
+
 		loadPageNoHeader(strURL);
 	}
 

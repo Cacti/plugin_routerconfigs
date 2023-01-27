@@ -497,7 +497,7 @@ function show_devices() {
 	}
 
 	function clearFilter() {
-		var strURL = urlPath + 'plugins/routerconfigs/router-backups.php?clear=1&header=false';
+		var strURL = urlPath + 'plugins/routerconfigs/router-devices.php?clear=1&header=false';
 
 		loadPageNoHeader(strURL);
 	}
