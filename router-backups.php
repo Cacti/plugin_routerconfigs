@@ -168,7 +168,7 @@ function show_devices () {
 		INNER JOIN plugin_routerconfigs_backups AS prb
 		ON prd.id = prb.device
 		$sql_where",
-		array($sql_params));
+		$sql_params);
 
 	?>
 	<script type='text/javascript'>
