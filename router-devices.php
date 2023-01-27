@@ -486,17 +486,19 @@ function show_devices() {
 	<script type='text/javascript'>
 
 	function applyFilter() {
-		strURL  = strURL + 'plugins/routerconfigs/router-devices.php';
-		strURL += '?header=false'
-		strURL += '&devicetype=' + $('#devicetype').val();
-		strURL += '&account=' + $('#account').val();
-		strURL += '&rows=' + $('#rows').val();
-		strURL += '&filter=' + $('#filter').val();
+		var strURL = urlPath + 'plugins/routerconfigs/router-devices.php';
+		strURL    += '?header=false'
+		strURL    += '&devicetype=' + $('#devicetype').val();
+		strURL    += '&account=' + $('#account').val();
+		strURL    += '&rows=' + $('#rows').val();
+		strURL    += '&filter=' + $('#filter').val();
+
 		loadPageNoHeader(strURL);
 	}
 
 	function clearFilter() {
-		strURL = 'router-backups.php?clear=1&header=false';
+		var strURL = urlPath + 'plugins/routerconfigs/router-backups.php?clear=1&header=false';
+
 		loadPageNoHeader(strURL);
 	}
 
