@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2007-2023 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -31,13 +31,14 @@ include_once(__DIR__ . '/include/functions.php');
 include_once(__DIR__ . '/HordeTextInclude.php');
 
 top_header();
-print get_md5_include_css('plugins/routerconfigs/diff.css');
+
+//print get_md5_include_css('plugins/routerconfigs/diff.css');
 
 $device1 = get_filter_request_var('device1');
 $device2 = get_filter_request_var('device2');
 
-$file1   = get_filter_request_var('file1');
-$file2   = get_filter_request_var('file2');
+$file1   = get_filter_request_var('file1', FILTER_CALLBACK, array('options' => 'sanitize_search_string'));
+$file2   = get_filter_request_var('file2', FILTER_CALLBACK, array('options' => 'sanitize_search_string'));
 
 $files1  = array();
 $files2  = array();

@@ -115,7 +115,7 @@ function show_devices () {
 	$sql_order  = get_order_string();
 	$sql_limit  = 'LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
 
-	if ($get_request_var('device') != '-1') {
+	if (get_request_var('device') != '-1') {
 		$sql_where = 'WHERE prb.device = ?';
 		$sql_params[] = $device;
 	}
