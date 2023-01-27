@@ -318,7 +318,11 @@ abstract class PHPConnection {
 		$this->lastPrompt = LinePrompt::None;
 
 		while (true) {
-			$buf = fgets($this->stream);
+			if (!feof($this->stream)) {
+				$buf = fgets($this->stream);
+			} else {
+				$buf = false;
+			}
 
 			if ($buf !== false) {
 				if ($pass != null) {
