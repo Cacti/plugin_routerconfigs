@@ -33,22 +33,28 @@ if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
 	print get_md5_include_css('plugins/routerconfigs/diff.css');
 }
 
-top_header();
+if (read_config_option('routerconfigs_presentation') == 'console') {
+	top_header();
+} else {
+	general_header();
+}
 
-$device1 = get_filter_request_var('device1');
-$device2 = get_filter_request_var('device2');
+compare_validate_vars();
 
-$file1   = get_filter_request_var('file1', FILTER_CALLBACK, array('options' => 'sanitize_search_string'));
-$file2   = get_filter_request_var('file2', FILTER_CALLBACK, array('options' => 'sanitize_search_string'));
+$device1  = get_request_var('device1');
+$device2  = get_request_var('device2');
+$file1    = get_request_var('file1');
+$file2    = get_request_var('file2');
+$diffmode = get_request_var('diffmode');
 
-$files1  = array();
-$files2  = array();
+$files1   = array();
+$files2   = array();
 
 $devices = db_fetch_assoc('SELECT id, directory, hostname
 	FROM plugin_routerconfigs_devices
 	ORDER BY hostname');
 
-if (sizeof($devices)) {
+if (cacti_sizeof($devices)) {
 	foreach ($devices as $d) {
 		$default = $d['id'];
 		break;
@@ -68,7 +74,7 @@ if (is_numeric($device1)) {
 		FROM plugin_routerconfigs_backups
 		WHERE device = ?
 		ORDER BY filename DESC', array($device1));
-}else{
+} else {
 	$files1 = array();
 }
 
@@ -76,11 +82,49 @@ if (is_numeric($device2)) {
 	$files2 = db_fetch_assoc_prepared('SELECT id, directory, filename
 		FROM plugin_routerconfigs_backups
 		WHERE device = ? ORDER BY filename DESC', array($device2));
-}else{
+} else {
 	$files2 = array();
 }
 
 display_tabs();
+
+html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', '', '4', 'center', '');
+
+?>
+<tr class='even noprint'>
+	<td>
+	<form id='form_devices' action='router-devicess.php'>
+		<table class='filterTable'>
+			<tr>
+				<td>
+					<?php print __('Diff Mode', 'routerconfigs');?>
+				</td>
+				<td>
+					<select id='diffmode'>
+						<option value='inline'<?php if (get_request_var('diffmode') == 'inline') {?> selected<?php }?>><?php print __('Inline','routerconfigs');?></option>
+						<option value='sdiff'<?php if (get_request_var('diffmode') == 'sdiff') {?> selected<?php }?>><?php print __('Side by Side','routerconfigs');?></option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script type='text/javascript'>
+	$(function() {
+		$('#diffmode').change(function() {
+			var strURL = urlPath + 'plugins/routerconfigs/router-compare.php';
+			strURL += '?header=false';
+			strURL += '&diffmode=' + $('#diffmode').val();
+			strURL += '&file1=' + $('#file1').val();
+			strURL += '&file2=' + $('#file2').val();
+
+			loadPageNoHeader(strURL);
+		});
+	});
+	</script>
+</tr>
+<?php
+
+html_end_box();
 
 /* show a filter form */
 form_start('router-compare.php', 'chk');
@@ -158,7 +202,11 @@ if (!empty($file1) && !empty($file2)) {
 		$diff = new Horde_Text_Diff('Native', array($lines1, $lines2));
 
 		/* Output the diff in unified format. */
-		$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
+		if (get_request_var('diffmode') == 'sdiff') {
+			$renderer = new Horde_Text_Diff_Renderer_table(array('auto'));
+		} else {
+			$renderer = new Horde_Text_Diff_Renderer_unified();
+		}
 
 		$text = $renderer->render($diff);
 	} else {
@@ -172,27 +220,41 @@ if (!empty($file1) && !empty($file2)) {
 
 		$diff = new Diff($lines1, $lines2, $options);
 
-		$renderer = new Diff_Renderer_Html_Inline;
+		if (get_request_var('diffmode') == 'sdiff') {
+			$renderer = new Diff_Renderer_Html_SideBySide;
+		} else {
+			$renderer = new Diff_Renderer_Html_Inline;
+		}
 
 		$text = $diff->render($renderer);
 	}
 
 	html_start_box('', '100%', '', '1', 'center', '');
-	html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
 
-	print "<tr bgcolor='#6d88ad' height='1'><td width='50%'></td><td width='1'></td><td width='50%'></td></tr>";
+	if (get_request_var('diffmode') == 'sdiff') {
+		html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
 
-	if (trim($text) == '') {
+		print "<tr height='1'><td width='50%'></td><td width='1'></td><td width='50%'></td></tr>";
+
+		if (trim($text) == '') {
+			print '<tr><td colspan=3><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
+		} else {
+			$text = str_replace("\n", '<br>', $text);
+			$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
+
+			print $text;
+		}
+	} elseif (trim($text) == '') {
 		print '<tr><td colspan=3><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
 	} else {
 		$text = str_replace("\n", '<br>', $text);
 		$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
 
-		echo $text;
+		print $text;
 	}
 
 	html_end_box(false);
-}else{
+} else {
 	print '<tr><td><h3>' . __('Error, you must have backups for each device.', 'routerconfigs') . '</h3></td></tr>';
 }
 
@@ -227,4 +289,36 @@ html_end_box();
 <?php
 
 bottom_footer();
+
+function compare_validate_vars() {
+	/* ================= input validation and session storage ================= */
+	$filters = array(
+		'diffmode' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'inline',
+			'options' => array('options' => 'sanitize_search_string')
+		),
+		'device1' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '',
+		),
+		'device2' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '',
+		),
+		'file1' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+		),
+		'file2' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+		),
+	);
+
+	validate_store_request_vars($filters, 'sess_rc_compare');
+	/* ================= input validation ================= */
+}
 

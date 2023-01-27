@@ -31,11 +31,13 @@ function plugin_routerconfigs_version () {
 }
 
 function plugin_routerconfigs_install () {
-	api_plugin_register_hook('routerconfigs', 'config_arrays',        'routerconfigs_config_arrays',        'setup.php');
-	api_plugin_register_hook('routerconfigs', 'draw_navigation_text', 'routerconfigs_draw_navigation_text', 'setup.php');
-	api_plugin_register_hook('routerconfigs', 'config_settings',      'routerconfigs_config_settings',      'setup.php');
-	api_plugin_register_hook('routerconfigs', 'poller_bottom',        'routerconfigs_poller_bottom',        'setup.php');
-	api_plugin_register_hook('routerconfigs', 'page_head',            'routerconfigs_page_head',            'setup.php');
+	api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php');
+	api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php');
+	api_plugin_register_hook('routerconfigs', 'config_arrays',         'routerconfigs_config_arrays',        'setup.php');
+	api_plugin_register_hook('routerconfigs', 'draw_navigation_text',  'routerconfigs_draw_navigation_text', 'setup.php');
+	api_plugin_register_hook('routerconfigs', 'config_settings',       'routerconfigs_config_settings',      'setup.php');
+	api_plugin_register_hook('routerconfigs', 'poller_bottom',         'routerconfigs_poller_bottom',        'setup.php');
+	api_plugin_register_hook('routerconfigs', 'page_head',             'routerconfigs_page_head',            'setup.php');
 
 	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
 
@@ -70,6 +72,9 @@ function routerconfigs_check_upgrade() {
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
 
 	if ($current != $old) {
+		api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php', 1);
+		api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php', 1);
+
 		/* update realms for old versions */
 		if (cacti_version_compare($old,'0.2','<')) {
 			api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php', 'Plugin -> Router Configs', 1);
@@ -429,7 +434,9 @@ function routerconfigs_config_arrays () {
 
 	plugin_routerconfigs_upgrade();
 
-	$menu[__('Utilities', 'routerconfigs')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs', 'routerconfigs');
+	if (read_config_option('routerconfigs_presentation') == 'console') {
+		$menu[__('Utilities', 'routerconfigs')]['plugins/routerconfigs/router-devices.php'] = __('Router Configs', 'routerconfigs');
+	}
 }
 
 function routerconfigs_draw_navigation_text ($nav) {
@@ -570,5 +577,21 @@ function plugin_routerconfigs_fix_backups_pre14() {
 				WHERE id = ?',
 				array($dir, basename($filename), $backup['id']));
 		}
+	}
+}
+
+function routerconfigs_show_tab() {
+	global $config;
+
+	$tabstyle = read_config_option('routerconfigs_presentation');
+
+	if (api_plugin_user_realm_auth('router-devices.php') && $tabstyle == 'toptab') {
+		if (preg_match('/router-devices.php/', $_SERVER['REQUEST_URI'], $matches)) {
+			$down = true;
+		} else {
+			$down = false;
+		}
+
+		print '<a id="routerconfigs" href="' . $config['url_path'] . 'plugins/routerconfigs/router-devices.php"><img src="' . get_classic_tabimage(__('Routers', 'routerconfig'), $down) . '" alt="' . __esc('Router Configs', 'routerconfigs') . '"></a>';
 	}
 }

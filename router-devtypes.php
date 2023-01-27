@@ -92,7 +92,11 @@ function actions_devicetypes () {
 		}
 	}
 
-	top_header();
+	if (read_config_option('routerconfigs_presentation') == 'console') {
+		top_header();
+	} else {
+		general_header();
+	}
 
 	form_start('router-devtypes.php');
 

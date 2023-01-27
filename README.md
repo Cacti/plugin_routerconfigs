@@ -56,11 +56,15 @@ issue in GitHub.
 
 ## ChangeLog
 
---- develop --
+--- 1.6 ---
 
 * issue#122: Backtrace and Deprecation with PHP 8.1
 
 * issue#123: Search should be like Cacti devices search
+
+* feature#124: Allow RouterConfigs to be both a Top tab and Console item
+
+* feature#125: Allow both SideBySide and Inline File Diff
 
 --- 1.5.3 ---
 

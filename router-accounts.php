@@ -50,7 +50,11 @@ switch (get_request_var('action')) {
 		save_accounts ();
 		break;
 	case 'edit':
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs ();
 		edit_accounts();
@@ -58,7 +62,11 @@ switch (get_request_var('action')) {
 		bottom_footer();
 		break;
 	default:
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs ();
 		show_accounts ();
@@ -101,7 +109,11 @@ function actions_accounts () {
 		}
 	}
 
-	top_header();
+	if (read_config_option('routerconfigs_presentation') == 'console') {
+		top_header();
+	} else {
+		general_header();
+	}
 
 	form_start('router-accounts.php');
 

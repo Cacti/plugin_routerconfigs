@@ -51,7 +51,11 @@ switch (get_request_var('action')) {
 
 		break;
 	case 'edit':
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs ();
 		edit_devices();
@@ -60,7 +64,11 @@ switch (get_request_var('action')) {
 
 		break;
 	default:
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs ();
 		show_devices ();
@@ -84,7 +92,11 @@ function plugin_routerconfigs_view_device_debug () {
 	}
 
 	if (isset($device['id'])) {
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs ();
 
@@ -190,7 +202,11 @@ function actions_devices() {
 		}
 	}
 
-	top_header();
+	if (read_config_option('routerconfigs_presentation') == 'console') {
+		top_header();
+	} else {
+		general_header();
+	}
 
 	form_start('router-devices.php');
 

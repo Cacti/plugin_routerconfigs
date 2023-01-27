@@ -35,7 +35,11 @@ switch (get_nfilter_request_var('action')) {
 		view_device_config();
 		break;
 	default:
-		top_header();
+		if (read_config_option('routerconfigs_presentation') == 'console') {
+			top_header();
+		} else {
+			general_header();
+		}
 
 		display_tabs();
 		show_devices();
