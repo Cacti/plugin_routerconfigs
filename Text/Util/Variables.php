@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright 2004-2023 Horde LLC (http://www.horde.org/)
+ * Copyright 2009-2017 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2004-2023 Horde LLC
+ * @copyright 2009-2017 Horde LLC
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Util
  */
@@ -25,12 +25,13 @@
  * @author    Chuck Hagenbuch <chuck@horde.org>
  * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2004-2023 Horde LLC
+ * @copyright 2009-2017 Horde LLC
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Util
  */
-class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
-{
+class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
+    #[\ReturnTypeWillChange]
+
     /**
      * The list of expected variables.
      *
@@ -399,5 +400,4 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
     {
         return new ArrayIterator($this->_vars);
     }
-
 }

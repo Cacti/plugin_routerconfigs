@@ -2,7 +2,7 @@
 /**
  * The Horde_Array:: class provides various methods for array manipulation.
  *
- * Copyright 2004-2023 Horde LLC (http://www.horde.org/)
+ * Copyright 2003-2017 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -14,8 +14,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Util
  */
-class Horde_Array
-{
+class Horde_Array {
+    #[\ReturnTypeWillChange]
+
     /**
      * Sorts an array on a specified key. If the key does not exist,
      * defaults to the first key of the array.

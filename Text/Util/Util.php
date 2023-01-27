@@ -13,8 +13,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Util
  */
-class Horde_Util
-{
+class Horde_Util {
+    #[\ReturnTypeWillChange]
+
     /**
      * A list of random patterns to use for overwriting purposes.
      * See http://www.cs.auckland.ac.nz/~pgut001/pubs/secure_del.html.
@@ -413,7 +414,7 @@ class Horde_Util
      * automatically at the end of the request.
      *
      * Contains code from gpg_functions.php.
-     * Copyright 2004-2023 Braverock Ventures
+     * Copyright 2002-2003 Braverock Ventures
      */
     public static function shutdown()
     {
