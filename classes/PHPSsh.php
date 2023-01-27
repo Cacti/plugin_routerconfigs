@@ -67,7 +67,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
 					$rv=3;
 				} else {
-					if ($this->stream = @ssh2_shell($this->connection,'xterm')) {
+					if ($this->stream = ssh2_shell($this->connection,'xterm')) {
 						$this->Log('DEBUG: okay: logged in...');
 					}
 				}

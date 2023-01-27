@@ -51,27 +51,32 @@ abstract class PHPShellConnection extends PHPConnection {
 
 		if (!$this->EnsureEnabled()) {
 			$this->error(9);
+
 			return false;
 		}
 
 		$response = '';
-		$result = $this->DoCommand($command, $response);
+		$result   = $this->DoCommand($command, $response);
 
 		$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+
 		foreach ($lines as $line) {
 			$this->Log("DEBUG: Line: $line");
 		}
+
 		$this->Log("DEBUG: Result: ($result)");
 
 		//check if there is questions to confirm
 		//i.e: in ASA it ask for confirmation of the source file
 		//but this also confirm in case that all command is executed
 		//in one line
-		$x = 0;
+		$x   = 0;
 		$ret = 0;
-		$confirmed = false;
-		$sent_srv = false;
-		$sent_dst = false;
+
+		$confirmed  = false;
+		$sent_srv   = false;
+		$sent_dst   = false;
+
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 
 		while (($ret == 0 || $ret == 8) && $x<30 &&
@@ -85,64 +90,70 @@ abstract class PHPShellConnection extends PHPConnection {
 
 			if (stristr($response, 'bytes copied') ||
 				stristr($response,'successful')) {
+
 				$this->Log("DEBUG: TFTP Transfer successful");
+
 				break;
-			} else if (stristr($response, 'error')) {
+			} elseif (stristr($response, 'error')) {
 				$this->Log("DEBUG: TFTP Transfer ERRORED");
 				$this->error(5);
+
 				return false;
-			} else if ($this->prompt() == LinePrompt::Confirm) {
+			} elseif ($this->prompt() == LinePrompt::Confirm) {
 				$this->Log("DEBUG: Confirmation prompt found");
 
 				if ($try_prompt == '' && !$confirmed) {
-					$try_command=$this->deviceType['confirm'];
-					$try_prompt='confirmation:';
-					$confirmed = true;
+					$try_command = $this->deviceType['confirm'];
+					$try_prompt  = 'confirmation:';
+					$confirmed   = true;
 				}
-			} else if ($this->prompt() == LinePrompt::Question) {
+			} elseif ($this->prompt() == LinePrompt::Question) {
 				$this->Log("DEBUG: Question found");
 
 				if (stristr($response, 'address') && !stristr($response, '[' . $this->ip . ']')) {
 					if (!$sent_srv) {
 						//send tftpserver if necessary
-						$try_level='NOTICE:';
-						$try_command=$tftpserver;
-						$try_prompt='Server:';
-						$sent_srv=true;
+						$try_level   = 'NOTICE:';
+						$try_command = $tftpserver;
+						$try_prompt  = 'Server:';
+						$sent_srv    = true;
 					}
-				} else if (stristr($response, 'filename')) {
+				} elseif (stristr($response, 'filename')) {
 					if (!stristr($response, 'source') && !stristr($response, "[$filename]")) {
 						if (!$sent_dst) {
-							$try_level='NOTICE:';
-							//send filename if necessary
-							$try_prompt='Filename (Destination):';
-							$try_command=$filename;
-							$sent_dst=true;
+							$try_level   = 'NOTICE:';
+							$try_prompt  = 'Filename (Destination):';
+							$try_command = $filename;
+							$sent_dst    = true;
 						}
 					} else {
-						$try_level='NOTICE:';
-						$try_prompt='Filename (Source):';
+						$try_level  = 'NOTICE:';
+						$try_prompt = 'Filename (Source):';
 					}
 				}
 
-				if ($try_prompt == '' && !$confirmed && (preg_match('/' . $this->deviceType['promptconfirm'] . '/i', $response) || $this->deviceType['forceconfirm'])) {
-					$try_command=$this->deviceType['confirm'];
-					$try_prompt='confirmation:';
-					$confirmed = true;
+				if ($try_prompt == '' && !$confirmed &&
+					(preg_match('/' . $this->deviceType['promptconfirm'] . '/i', $response) || $this->deviceType['forceconfirm'])) {
+					$try_command = $this->deviceType['confirm'];
+					$try_prompt  = 'confirmation:';
+					$confirmed   = true;
 				}
 			}
 
 			if ($try_prompt == '') {
 				$try_prompt = 'a return';
 			}
+
 			$this->Log("$try_level Sending $try_prompt $try_command");
 
 			$response = '';
-			$result = $this->DoCommand($try_command, $response);
-			$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+			$result   = $this->DoCommand($try_command, $response);
+			$lines    = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+
 			foreach ($lines as $line) {
 				$this->Log("DEBUG: Line: $line");
 			}
+
 			$this->Log("DEBUG: Result: ($result)");
 		}
 
@@ -150,19 +161,20 @@ abstract class PHPShellConnection extends PHPConnection {
 		$this->lastchange = '';
 
 		if ($this->deviceType['version'] != '') {
-			$length='';
+			$length = '';
+
 			$this->DoCommand('terminal length 0', $length);
 			$this->DoCommand('terminal pager 0', $length);
 
-			$version='';
+			$version = '';
 			$this->DoCommand($this->deviceType['version'], $version);
 
 			$t       = time();
 			$version = explode("\n", $version);
 
-			if (sizeof($version)) {
+			if (cacti_sizeof($version)) {
 				foreach ($version as $v) {
-					if (strpos($v, ' uptime is ') !== FALSE) {
+					if (strpos($v, ' uptime is ') !== false) {
 						$uptime = 0;
 						$up     = trim(substr($v, strpos($v, ' uptime is ') + 11));
 						$up     = explode(',', $up);
@@ -170,6 +182,7 @@ abstract class PHPShellConnection extends PHPConnection {
 
 						foreach ($up as $u) {
 							$s = explode(' ', trim($u));
+
 							switch (trim($s[1])) {
 								case 'years':
 								case 'year':
@@ -204,7 +217,8 @@ abstract class PHPShellConnection extends PHPConnection {
 
 						$this->lastuser   = '-- Reboot --';
 						$this->lastchange = $t - $uptime;
-						$ver_diff       = $this->lastchange - $this->device['lastchange'];
+
+						$ver_diff = $this->lastchange - $this->device['lastchange'];
 
 						if ($ver_diff < 0) {
 							$ver_diff = $ver_diff * -1;
@@ -217,6 +231,7 @@ abstract class PHPShellConnection extends PHPConnection {
 				}
 			}
 		}
+
 		return true;
 	}
 }

@@ -53,7 +53,7 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
 		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 
-		$this->conn1=chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
+		$this->conn1 = chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
 			chr(0x20).chr(0xFF).chr(0xFB).chr(0x18).chr(0xFF).chr(0xFB).
 			chr(0x27).chr(0xFF).chr(0xFD).chr(0x01).chr(0xFF).chr(0xFB).
 			chr(0x03).chr(0xFF).chr(0xFD).chr(0x03).chr(0xFF).chr(0xFC).
@@ -66,23 +66,34 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 			chr(0xFF).chr(0xFA).chr(0x18).chr(0x00).chr(0x58).chr(0x54).
 			chr(0x45).chr(0x52).chr(0x4D).chr(0xFF).chr(0xF0);
 
-		$this->conn2=chr(0xFF).chr(0xFC).chr(0x01).chr(0xFF).chr(0xFC).
+		$this->conn2 = chr(0xFF).chr(0xFC).chr(0x01).chr(0xFF).chr(0xFC).
 			chr(0x22).chr(0xFF).chr(0xFE).chr(0x05).chr(0xFF).chr(0xFC).chr(0x21);
 	}
 
 	function Connect() {
-		$rv=0;
-		$vers=explode('.',PHP_VERSION);
+		$rv   = 0;
+		$vers = explode('.',PHP_VERSION);
+
 		$needvers=array(4,3,0);
-		$j=count($vers);
-		$k=count($needvers);
-		if ($k<$j) $j=$k;
+
+		$j = count($vers);
+		$k = count($needvers);
+
+		if ($k<$j) {
+			$j=$k;
+		}
+
 		for ($i=0;$i<$j;$i++) {
-			if (($vers[$i]+0)>$needvers[$i]) break;
+			if (($vers[$i]+0)>$needvers[$i]) {
+				break;
+			}
+
 			if (($vers[$i]+0)<$needvers[$i]) {
 				$error = $this->ConnectError(4);
+
 				$this->Log("Connect 4 error");
 				$this->Log($error);
+
 				return 4;
 			}
 		}
@@ -92,13 +103,14 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 
 		if (strlen($this->ip)) {
 			$this->Log("Attempting to open socket to $this->ip:23");
-			if (@$this->stream = fsockopen($this->ip, 23)) {
-				@fputs($this->stream, $this->conn1);
+
+			if ($this->stream = fsockopen($this->ip, 23)) {
+				fputs($this->stream, $this->conn1);
 				$this->Sleep();
 
-				@fputs($this->stream, $this->conn2);
+				fputs($this->stream, $this->conn2);
 
-				$this->Log("Looking for ".$this->deviceType['promptuser']);
+				$this->Log("Looking for " . $this->deviceType['promptuser']);
 
 				// Get Username Prompt
 				$r = '';
@@ -107,6 +119,7 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				$this->GetResponse($r);
 
 				$x = 0;
+
 				while ($x < 10 &&
 					$this->prompt() != LinePrompt::Username &&
 					$this->prompt() != LinePrompt::AccessDenied) {
@@ -114,7 +127,8 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 					$x++;
 
 					$this->Log("DEBUG: No Prompt received (" . $this->prompt() . ": $x : " . LinePrompt::Username. ")");
-					@fputs($this->stream, "\r");
+
+					fputs($this->stream, "\r");
 
 					$this->Sleep();
 					$this->GetResponse($r);
@@ -131,17 +145,21 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 					if ($this->prompt() != LinePrompt::Username) {
 						$this->Log("ERROR: Failed to find username prompt");
 					}
+
 					if ($this->prompt() == LinePrompt::AccessDenied) {
 						$this->Log("ERROR: Access not permitted");
 					}
+
 					return 6;
 				}
 
 				// Send Username, wait for Password Prompt
 				$this->Log("DEBUG: Sending username: $this->user");
-				@fputs($this->stream, "$this->user\r");
+
+				fputs($this->stream, "$this->user\r");
 
 				$x = 0;
+
 				while ($x < 10 && $this->prompt() !== LinePrompt::Password) {
 					$this->Sleep();
 					$this->GetResponse($r);
@@ -154,29 +172,36 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				}
 
 				$this->Log("DEBUG: Sending password: $this->pw1_text");
-				@fputs($this->stream, "$this->pass\r");
 
-				$r='';
+				fputs($this->stream, "$this->pass\r");
+
+				$r = '';
 
 				$this->Sleep();
 				$this->GetResponse($r);
 
 				if ($this->prompt() != LinePrompt::Normal && $this->Prompt() != LinePrompt::Enabled) {
 					$this->Log('DEBUG: Failed, disconnecting');
+
 					$rv = 3;
+
 					$this->Disconnect();
 				}
-			} else $rv = 1;
+			} else {
+				$rv = 1;
+			}
 		}
 
 		if ($rv) {
 			$this->Log($this->ConnectError($rv));
 		}
+
 		return $rv;
 	}
 
 	function ConnectError($num) {
 		$this->error = $num;
+
 		switch ($num) {
 			case 1:
 				return 'ERROR: Unable to open telnet network connection';

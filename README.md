@@ -58,6 +58,8 @@ issue in GitHub.
 
 --- develop --
 
+* issue#122: Backtrace and Deprecation with PHP 8.1
+
 * issue#123: Search should be like Cacti devices search
 
 --- 1.5.3 ---

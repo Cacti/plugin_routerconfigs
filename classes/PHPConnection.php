@@ -32,8 +32,8 @@ abstract class PHPConnection {
 	protected $sleeptime   = 125000;
 	protected $timeout     = 1; //Seconds to avoid buggies connections
 
-	protected $connection  = NULL; //stores the ssh connection pointer
-	protected $stream      = NULL; //points to the ssh session stream
+	protected $connection  = null; //stores the ssh connection pointer
+	protected $stream      = null; //points to the ssh session stream
 	protected $errorcode   = 0;
 	protected $error       = 0;
 
@@ -55,9 +55,11 @@ abstract class PHPConnection {
 
 	public static function GetTypes($wantedGroup = '') {
 		$wantedGroup = "$wantedGroup";
+
 		$result = (array_key_exists($wantedGroup, PHPConnection::$knownTypes)) ?
 			PHPConnection::$knownTypes[$wantedGroup] :
 			array();
+
 		return $result;
 	}
 
@@ -85,7 +87,7 @@ abstract class PHPConnection {
 
 	function Log($message) {
 		$lines = explode("\r\n", $message);
-		if (sizeof($lines)) {
+		if (cacti_sizeof($lines)) {
 			foreach ($lines as $line) {
 				plugin_routerconfigs_log("$this->ip ($this->classType) -> $line");
 			}
@@ -144,6 +146,7 @@ abstract class PHPConnection {
 		if ($value !== null) {
 			$this->error = $value;
 		}
+
 		return $this->error;
 	}
 
@@ -168,30 +171,37 @@ abstract class PHPConnection {
 		}
 
 		$res = '';
-		$x = 0;
+		$x   = 0;
+
 		while ($x < 10 && $this->prompt() != LinePrompt::Enabled && $this->prompt() != LinePrompt::Normal) {
 			$r = '';
+
 			if ($this->prompt() == LinePrompt::AnyKey) {
 				$this->Log("DEBUG: AnyKey prompt detected, sending space");
 				$this->DoCommand(' ', $r, $this->pass);
 			} else {
 				$this->DoCommand('', $r, $this->pass);
 			}
+
 			$res .= $r;
 
 			$x++;
+
 			$this->Log("DEBUG: Attempt $x of 10 to find prompt");
 		}
 
 		if ($x < 10) {
-			if ($this->enablepw != '' && !$this->IsEnabled()) {
+			if ($this->enablepw != '' && !$this->IsEnabled() && is_resource($this->stream)) {
 				$this->Log("DEBUG: Sending enable command");
-				@fputs($this->stream, "en\r");
+
+				fputs($this->stream, "en\r");
 
 				# Get the password prompt again to input the enable password
 				$x = 0;
+
 				while ($x < 10 && $this->Prompt() != LinePrompt::Enabled) {
 					$response = '';
+
 					$this->Sleep();
 					$this->GetResponse($response);
 
@@ -201,10 +211,13 @@ abstract class PHPConnection {
 
 					if ($this->prompt() == LinePrompt::Password) {
 						$response = '';
+
 						$result = $this->DoCommand($this->enablepw, $response, $this->enablepw);
+
 						if ($result != 0) {
 							$this->Log('DEBUG: Enable login failed ('.$result.')');
 							$this->Disconnect();
+
 							break;
 						}
 
@@ -221,31 +234,34 @@ abstract class PHPConnection {
 		}
 
 		$this->Log('Process is now ' . ( $this->IsEnabled() ? '' : 'NOT ') . 'enabled');
+
 		return $this->IsEnabled();
 	}
 
 
 	function Disconnect() {
-		if ($this->stream) {
+		if (is_resource($this->stream)) {
 			$exit = read_config_option('routerconfigs_exit') != 'on';
+
 			if ($exit) {
 				$this->DoCommand('exit', $junk);
 			}
 
 			fclose($this->stream);
-			$this->stream = NULL;
+
+			$this->stream = null;
 		}
 	}
 
-	function startsWith($haystack, $needle)
-	{
+	function startsWith($haystack, $needle) {
 		$length = strlen($needle);
+
 		return (substr($haystack, 0, $length) === $needle);
 	}
 
-	function endsWith($haystack, $needle)
-	{
+	function endsWith($haystack, $needle) {
 		$length = strlen($needle);
+
 		return $length === 0 || (substr($haystack, -$length) === $needle);
 	}
 
@@ -259,21 +275,30 @@ abstract class PHPConnection {
 
 	function DoCommand($cmd, &$response, $pass = null) {
 		$result = 0;
-		if ($this->stream) {
+
+		if (is_resource($this->stream)) {
 			$lines = $cmd;
+
 			if ($pass != null) {
 				$pass_text = plugin_routerconfigs_maskpw($pass);
 				$lines = str_replace($pass,$pass_text,$lines);
 			}
+
 			$lines = explode("\n",$lines);
+
 			foreach ($lines as $line) {
 				$this->Log("DEBUG: --> $line");
 			}
 
-			@fwrite($this->stream,$cmd.PHP_EOL);
+			fwrite($this->stream, $cmd . PHP_EOL);
+
 			$this->Sleep();
+
 			$result = $this->GetResponse($response, $pass);
-			$response = preg_replace("/^.*?\n(.*)\n([^\n]*)$/", "$2", $response);
+
+			if ($response != '') {
+				$response = preg_replace("/^.*?\n(.*)\n([^\n]*)$/", "$2", $response);
+			}
 		}
 
 		return $result;
@@ -281,88 +306,114 @@ abstract class PHPConnection {
 
 	function GetResponse(&$response, $pass = null) {
 		$time_start = microtime(true);
+
 		$data = '';
 
+		if (!is_resource($this->stream)) {
+			return 0;
+		}
+
 		stream_set_timeout($this->stream, 0, 500000);
+
 		$this->lastPrompt = LinePrompt::None;
-		while (true && isset($this->stream)) {
-			$buf = @fgets($this->stream);
+
+		while (true) {
+			$buf = fgets($this->stream);
+
 			if ($buf !== false) {
 				if ($pass != null) {
 					$buf = str_replace($pass,'__password__',$buf);
 				}
-				$data .= $buf;
+
+				$data     .= $buf;
 				$response .= $buf;
+
 				$this->debug .= $buf;
-				$line_buf = explode("\n",str_replace("\r", "", $buf));
+
+				$line_buf = explode("\n", str_replace("\r", "", $buf));
 
 				if ($this->debugbuffer) {
 					if (!is_array($line_buf)) {
 						$line_buf = array($line_buff);
 					}
+
 					foreach ($line_buf as $line) {
-						$line = str_replace("`\r","",str_replace("\n","",$line));
-						$buf_line = "DEBUG: <-- ";
+						$line      = str_replace("`\r","",str_replace("\n","",$line));
+						$buf_line  = "DEBUG: <-- ";
 						$buf_line .= $line;
+
 						$this->Log($buf_line);
 					}
 				}
 
 				$trim_buf = trim($buf);
+
 				if (preg_match("|[a-z0-9\-_]>[ ]*$|i", $buf) === 1) {
 					$this->Log('DEBUG: Found Prompt (Normal)');
 					$this->isEnabled = false;
 					$this->lastPrompt = LinePrompt::Normal;
+
 					return 0;
-				} else if (preg_match("|[a-z0-9\-_]#[ ]*$|i", $buf) === 1) {
+				} elseif (preg_match("|[a-z0-9\-_]#[ ]*$|i", $buf) === 1) {
 					$this->Log('DEBUG: Found Prompt (Enabled)');
 					$this->isEnabled = true;
 					$this->lastPrompt = LinePrompt::Enabled;
+
 					return 0;
-				} else if (!empty($this->deviceType['promptpass']) &&
+				} elseif (!empty($this->deviceType['promptpass']) &&
 					preg_match('/' . $this->deviceType['promptpass'] . '/i', $buf) === 1) {
+
 					$this->Log('DEBUG: Found Prompt (Password)');
 					$this->lastPrompt = LinePrompt::Password;
+
 					return 0;
-				} else if (!empty($this->deviceType['promptuser']) &&
+				} elseif (!empty($this->deviceType['promptuser']) &&
 					preg_match('/' . $this->deviceType['promptuser'] . '/i', $buf) === 1) {
+
 					$this->Log('DEBUG: Found Prompt (Username)');
 					$this->lastPrompt = LinePrompt::Username;
+
 					return 0;
-				} else if (!empty($this->deviceType['promptconfirm']) &&
+				} elseif (!empty($this->deviceType['promptconfirm']) &&
 					preg_match('/' . $this->deviceType['promptconfirm'] . '/i', $buf) === 1) {
+
 					$this->Log('DEBUG: Found Prompt (Confirm)');
 					$this->lastPrompt = LinePrompt::Confirm;
+
 					return 0;
-				} else if (!empty($this->deviceType['anykey']) &&
+				} elseif (!empty($this->deviceType['anykey']) &&
 					preg_match('/' . $this->deviceType['anykey'] . '/i', $buf) === 1) {
+
 					$this->Log('DEBUG: Found Prompt (AnyKey)');
 					$this->lastPrompt = LinePrompt::AnyKey;
+
 					return 0;
-				} else if (stripos($buf, 'Access not permitted.') !== FALSE) {
+				} elseif (stripos($buf, 'Access not permitted.') !== false) {
 					$this->Log('DEBUG: Found Prompt (Access Denied)');
 					$this->lastPrompt = LinePrompt::AccessDenied;
+
 					return 0;
-				} else if (preg_match('/[\d\w\[]\]\?[^\w]*$/i',$buf) === 1) {
+				} elseif (preg_match('/[\d\w\[]\]\?[^\w]*$/i',$buf) === 1) {
 					$this->Log('DEBUG: Found Prompt (Question)');
 					$this->lastPrompt = LinePrompt::Question;
+
 					return 0;
-				} else if (preg_match("|[a-z0-9\-_]:[ ]*$|i", $buf) === 1) {
+				} elseif (preg_match("|[a-z0-9\-_]:[ ]*$|i", $buf) === 1) {
 					$this->Log('DEBUG: Found Prompt (Colon)');
 					$this->lastPrompt = LinePrompt::Colon;
+
 					return 0;
 				}
 			}
 
 			$s = socket_get_status($this->stream);
+
 			if ((microtime(true)-$time_start) > $this->timeout) {
 				$this->Log("DEBUG: Timeout of {$this->timeout} seconds has been reached");
 				return 8;
 			}
-
 		}
 
 		return 0;
 	}
-
 }
