@@ -110,28 +110,12 @@ function show_devices () {
 		$page = 1;
 	}
 
-	load_current_session_value('page', 'sess_routerconfigs_backups_current_page', '1');
-
-	$device = '';
-	if (isset_request_var('device')) {
-		$device = get_filter_request_var('device');
-
-		if (isset($_SESSION['routerconfigs_backups_device']) && $_SESSION['routerconfigs_backups_device'] != $device) {
-			$page = 1;
-			set_request_var('page', '1');
-		}
-
-		$_SESSION['routerconfigs_backups_device'] = $device;
-	} else if (isset($_SESSION['routerconfigs_backups_device']) && $_SESSION['routerconfigs_backups_device'] != '') {
-		$device = $_SESSION['routerconfigs_backups_device'];
-	}
-
 	$sql_where  = '';
 	$sql_params = array();
 	$sql_order  = get_order_string();
 	$sql_limit  = 'LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
 
-	if ($device > 0) {
+	if ($get_request_var('device') != '-1') {
 		$sql_where = 'WHERE prb.device = ?';
 		$sql_params[] = $device;
 	}

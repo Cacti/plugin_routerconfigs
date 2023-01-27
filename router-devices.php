@@ -388,9 +388,6 @@ function show_devices() {
 
 	devices_validate_vars();
 
-	get_filter_request_var('account');
-	get_filter_request_var('page');
-
 	if (get_request_var('rows') == -1) {
 		$num_rows = read_config_option('num_rows_table');
 	} else {
@@ -403,19 +400,17 @@ function show_devices() {
 		$page = 1;
 	}
 
-	load_current_session_value('page', 'sess_routerconfigs_devices_current_page', '1');
-
 	$sql_where  = '';
 	$sql_params = array();
 	$sql_limit  = 'LIMIT ' . $num_rows * ($page-1) . ', ' . $num_rows;
 	$sql_order  = get_order_string();
 
-	if (get_request_var('account') != '') {
+	if (get_request_var('account') != '-1') {
 		$sql_where   .= ($sql_where == '' ? 'WHERE':'AND') . ' account = ?';
 		$sql_params[] = get_request_var('account');
 	}
 
-	if (get_request_var('devicetype') != '') {
+	if (get_request_var('devicetype') != '-1') {
 		$sql_where   .= ($sql_where == '' ? 'WHERE':'AND') . ' devicetype = ?';
 		$sql_params[] = get_request_var('devicetype');
 	}
@@ -439,47 +434,49 @@ function show_devices() {
 		$sql_where",
 		$sql_params);
 
-	$result = db_fetch_assoc_prepared("SELECT * FROM (SELECT
-		rc_d.id, rc_d.enabled, rc_d.ipaddress, rc_d.hostname, rc_d.directory,
-		rc_d.account, rc_d.lastchange, rc_d.device,
-		rc_d.lastuser, rc_d.schedule, rc_d.lasterror,
-		rc_d.lastbackup, rc_d.nextbackup, rc_d.lastattempt,
-		rc_d.nextattempt, IFNULL(rc_dt.name,'') as devicetype,
-		rc_dt.id as devicetypeid,
-		IF(IFNULL(rc_d.connecttype,'')='',
-			IF(IFNULL(rc_dt.connecttype,'')='',
-				rc_sc.value,
-				rc_dt.connecttype
-			),
-			rc_d.connecttype
-		) AS connecttype,
-		IF(IFNULL(rc_d.sleep,'')='',
-			IF(IFNULL(rc_dt.sleep,'')='',
-				rc_ss.value,
-				rc_dt.sleep
-			),
-			rc_d.sleep
-		) AS sleep,
-		IF(IFNULL(rc_d.timeout,'')='',
-			IF(IFNULL(rc_dt.timeout,'')='',
-				rc_sc.value,
-				rc_dt.timeout
-			),
-			rc_d.timeout
-		) AS timeout,
-		debug
-		FROM plugin_routerconfigs_devices rc_d
-		LEFT JOIN plugin_routerconfigs_devicetypes rc_dt
-		ON rc_dt.id = rc_d.devicetype
-		LEFT JOIN plugin_routerconfigs_accounts rc_da
-		ON rc_da.id = rc_d.account
-		LEFT JOIN settings rc_ss
-		ON rc_ss.name = 'routerconfigs_sleep'
-		LEFT JOIN settings rc_st
-		ON rc_st.name = 'routerconfigs_timeout'
-		LEFT JOIN settings rc_sc
-		ON rc_sc.name = 'routerconfigs_connecttype'
-		$sql_where
+	$result = db_fetch_assoc_prepared("SELECT *
+		FROM (
+			SELECT
+			rc_d.id, rc_d.enabled, rc_d.ipaddress, rc_d.hostname, rc_d.directory,
+			rc_d.account, rc_d.lastchange, rc_d.device,
+			rc_d.lastuser, rc_d.schedule, rc_d.lasterror,
+			rc_d.lastbackup, rc_d.nextbackup, rc_d.lastattempt,
+			rc_d.nextattempt, IFNULL(rc_dt.name,'') as devicetype,
+			rc_dt.id as devicetypeid,
+			IF(IFNULL(rc_d.connecttype,'')='',
+				IF(IFNULL(rc_dt.connecttype,'')='',
+					rc_sc.value,
+					rc_dt.connecttype
+				),
+				rc_d.connecttype
+			) AS connecttype,
+			IF(IFNULL(rc_d.sleep,'')='',
+				IF(IFNULL(rc_dt.sleep,'')='',
+					rc_ss.value,
+					rc_dt.sleep
+				),
+				rc_d.sleep
+			) AS sleep,
+			IF(IFNULL(rc_d.timeout,'')='',
+				IF(IFNULL(rc_dt.timeout,'')='',
+					rc_sc.value,
+					rc_dt.timeout
+				),
+				rc_d.timeout
+			) AS timeout,
+			debug
+			FROM plugin_routerconfigs_devices rc_d
+			LEFT JOIN plugin_routerconfigs_devicetypes rc_dt
+			ON rc_dt.id = rc_d.devicetype
+			LEFT JOIN plugin_routerconfigs_accounts rc_da
+			ON rc_da.id = rc_d.account
+			LEFT JOIN settings rc_ss
+			ON rc_ss.name = 'routerconfigs_sleep'
+			LEFT JOIN settings rc_st
+			ON rc_st.name = 'routerconfigs_timeout'
+			LEFT JOIN settings rc_sc
+			ON rc_sc.name = 'routerconfigs_connecttype'
+			$sql_where
 		) AS t
 		$sql_order
 		$sql_limit",
