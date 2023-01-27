@@ -223,7 +223,7 @@ function show_devices () {
 							<?php
 							$devices = db_fetch_assoc('SELECT id, hostname FROM plugin_routerconfigs_devices ORDER BY hostname');
 
-							if (sizeof($devices)) {
+							if (cacti_sizeof($devices)) {
 								foreach ($devices as $device) {
 									print "<option value='" . $device['id'] . "'"; if (get_request_var('device') == $device['id']) { print ' selected'; } print '>' . htmlspecialchars($device['hostname']) . "</option>\n";
 								}
@@ -241,7 +241,7 @@ function show_devices () {
 						<select id='rows'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -318,13 +318,14 @@ function show_devices () {
 	form_start('router-backups.php', 'chk');
 
 	$nav = html_nav_bar('router-backups.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 7, 'Backups', 'page', 'main');
+
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		$r = db_fetch_assoc('SELECT device, id FROM plugin_routerconfigs_backups ORDER BY btime ASC');
 		$latest = array();
 		if (count($r)) {
