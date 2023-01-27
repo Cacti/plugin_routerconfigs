@@ -161,7 +161,7 @@ function show_devices () {
 		$sql_where
 		$sql_order
 		$sql_limit",
-		array($sql_params));
+		$sql_params);
 
 	$total_rows = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM plugin_routerconfigs_devices AS prd
