@@ -22,8 +22,6 @@
  */
 class Horde_Domhtml implements Iterator
 {
-    #[\ReturnTypeWillChange]
-
     /**
      * DOM object.
      *
@@ -267,6 +265,7 @@ class Horde_Domhtml implements Iterator
 
     /**
      */
+   	#[\ReturnTypeWillChange]
     public function current()
     {
         if ($this->_iterator instanceof DOMDocument) {
@@ -279,6 +278,7 @@ class Horde_Domhtml implements Iterator
 
     /**
      */
+   	#[\ReturnTypeWillChange]
     public function key()
     {
         return 0;
@@ -286,6 +286,7 @@ class Horde_Domhtml implements Iterator
 
     /**
      */
+   	#[\ReturnTypeWillChange]
     public function next()
     {
         /* Iterate in the reverse direction through the node list. This allows
@@ -323,6 +324,7 @@ class Horde_Domhtml implements Iterator
 
     /**
      */
+   	#[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->_iterator = $this->dom;
@@ -330,6 +332,7 @@ class Horde_Domhtml implements Iterator
 
     /**
      */
+   	#[\ReturnTypeWillChange]
     public function valid()
     {
         return !is_null($this->_iterator);

@@ -22,9 +22,8 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Translation
  */
-abstract class Horde_Translation {
-    #[\ReturnTypeWillChange]
-
+abstract class Horde_Translation
+{
     /**
      * The translation domain, e.g. the library name, for the default gettext
      * handler.

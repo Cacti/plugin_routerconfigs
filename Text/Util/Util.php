@@ -13,8 +13,8 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Util
  */
-class Horde_Util {
-    #[\ReturnTypeWillChange]
+class Horde_Util
+{
 
     /**
      * A list of random patterns to use for overwriting purposes.

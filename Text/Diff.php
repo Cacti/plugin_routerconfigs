@@ -15,9 +15,8 @@
  * @package Text_Diff
  * @author  Geoffrey T. Dairiki <dairiki@dairiki.org>
  */
-class Horde_Text_Diff {
-    #[\ReturnTypeWillChange]
-
+class Horde_Text_Diff
+{
     /**
      * Array of changes.
      *

@@ -15,9 +15,8 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Util
  */
-class Horde_String {
-    #[\ReturnTypeWillChange]
-
+class Horde_String
+{
     /**
      * lower() cache.
      *

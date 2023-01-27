@@ -29,9 +29,8 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Util
  */
-class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
-    #[\ReturnTypeWillChange]
-
+class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
+{
     /**
      * The list of expected variables.
      *
@@ -135,6 +134,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @see __isset()
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($field)
     {
         return $this->__isset($field);
@@ -173,6 +173,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @see __get()
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($field)
     {
         return $this->__get($field);
@@ -285,6 +286,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @see __unset()
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($field)
     {
         $this->__unset($field);
@@ -295,6 +297,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @param array $vars  Form variables.
      */
+    #[\ReturnTypeWillChange]
     public function merge($vars)
     {
         foreach ($vars as $varname => $value) {
@@ -310,6 +313,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @return boolean  True if the value was altered.
      */
+    #[\ReturnTypeWillChange]
     public function add($varname, $value)
     {
         if ($this->exists($varname)) {
@@ -327,6 +331,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
      *
      * @return mixed  The filtered variable, or null if it doesn't exist.
      */
+    #[\ReturnTypeWillChange]
     public function filter($varname)
     {
         $val = $this->$varname;
@@ -389,6 +394,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate {
 
     /**
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->_vars);

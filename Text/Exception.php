@@ -20,9 +20,8 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL-2.1
  * @package   Exception
  */
-class Horde_Exception extends Exception {
-    #[\ReturnTypeWillChange]
-
+class Horde_Exception extends Exception
+{
     /**
      * Error details that should not be part of the main exception message,
      * e.g. any additional debugging information.

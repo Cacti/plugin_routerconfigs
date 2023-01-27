@@ -14,9 +14,8 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Util
  */
-class Horde_Array {
-    #[\ReturnTypeWillChange]
-
+class Horde_Array
+{
     /**
      * Sorts an array on a specified key. If the key does not exist,
      * defaults to the first key of the array.
