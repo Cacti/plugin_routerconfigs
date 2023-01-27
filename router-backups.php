@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2007-2023 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -126,28 +126,56 @@ function show_devices () {
 		$device = $_SESSION['routerconfigs_backups_device'];
 	}
 
-	$sqlwhere = '';
-	if ($device > '0') {
-		$sqlwhere = 'WHERE prb.device = ' . $device;
+	$sql_where  = '';
+	$sql_params = array();
+	$sql_order  = get_order_string();
+	$sql_limit  = 'LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
+
+	if ($device > 0) {
+		$sql_where = 'WHERE prb.device = ?';
+		$sql_params[] = $device;
 	}
-	$sql = 'SELECT prd.hostname, prd.ipaddress, prb.id, prb.lastuser, prb.lastchange,
-		prb.btime, prb.device, prb.directory, prb.filename, prd.lastbackup
+
+	if (get_request_var('filter') != '') {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') .
+			' (prd.hostname LIKE ? OR prd.ipaddress LIKE ? OR
+				prb.id LIKE ? OR prb.lastuser LIKE ? OR
+				prb.directory LIKE ? OR prb.filename LIKE ? OR
+				prb.device LIKE ?)';
+
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
+	}
+
+	$result = db_fetch_assoc_prepared("SELECT prd.hostname, prd.ipaddress, prb.id,
+		prb.lastuser, prb.lastchange, prb.btime, prb.device, prb.directory,
+		prb.filename, prd.lastbackup
 		FROM plugin_routerconfigs_devices AS prd
 		INNER JOIN plugin_routerconfigs_backups AS prb
 		ON prd.id = prb.device
-		'.$sqlwhere.'
-		ORDER BY prb.btime DESC
-		LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
+		$sql_where
+		$sql_order
+		$sql_limit",
+		array($sql_params));
 
-	$result = db_fetch_assoc($sql);
-
-	$total_rows = sizeof($result);
+	$total_rows = db_fetch_cell_prepared("SELECT COUNT(*)
+		FROM plugin_routerconfigs_devices AS prd
+		INNER JOIN plugin_routerconfigs_backups AS prb
+		ON prd.id = prb.device
+		$sql_where",
+		array($sql_params));
 
 	?>
 	<script type='text/javascript'>
 
 	function applyFilter() {
-		strURL  = 'router-backups.php?device=' + $('#device').val();
+		strURL  = urlPath + 'plugins/routerconfigs/router-backups.php';
+		strURL += '?device=' + $('#device').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&filter=' + $('#filter').val();
 		strURL += '&header=false';
@@ -316,7 +344,7 @@ function show_devices () {
 			form_selectable_cell($row['id'], $row['id'], null, 'text-align: right');
 
 			form_selectable_cell(
-				"<a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config', 'routerconfigs') . 
+				"<a class='hyperLink' href='router-backups.php?action=viewconfig&id=" . $row['id'] . "'>" . __('View Config', 'routerconfigs') .
 				"</a> - " .
  				"<a class='hyperLink' href='router-compare.php?device1=" . $row['device'] . '&device2=' . $row['device'] . '&file1=' . $row['id'] . '&file2=' . $latest[$row['device']] . "'>" . __('Compare', 'routerconfigs') . "</a></td>", $row['device']);
 

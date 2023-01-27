@@ -56,6 +56,10 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- develop --
+
+* issue#123: Search should be like Cacti devices search
+
 --- 1.5.3 ---
 
 * issue#113: Prompt confirmation db field wrong size
