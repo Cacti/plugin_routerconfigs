@@ -73,7 +73,7 @@ function backups_validate_vars() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'description',
+			'default' => 'hostname',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
@@ -88,7 +88,7 @@ function backups_validate_vars() {
 			),
 	);
 
-	validate_store_request_vars($filters, 'sess_routerconfigs_backups');
+	validate_store_request_vars($filters, 'sess_rc_backup');
 	/* ================= input validation ================= */
 }
 

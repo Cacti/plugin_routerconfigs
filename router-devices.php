@@ -372,7 +372,7 @@ function devices_validate_vars() {
 		),
 	);
 
-	validate_store_request_vars($filters, 'sess_routerconfigs_devices');
+	validate_store_request_vars($filters, 'sess_rc_dev');
 	/* ================= input validation ================= */
 }
 
@@ -422,7 +422,7 @@ function show_devices() {
 
 	if (get_request_var('filter') != '') {
 		$sql_where .= ($sql_where == '' ? 'WHERE':'AND') . ' (rc_d.id LIKE ? OR rc_d.ipaddress LIKE ? OR
-			rc_d.hostname LIKE ? OR rc_d.directory LIKE ? OR rc_d.account LIKE ?
+			rc_d.hostname LIKE ? OR rc_d.directory LIKE ? OR rc_d.account LIKE ? OR
 			rc_d.device LIKE ? OR rc_d.lastuser LIKE ?)';
 
 		$sql_params[] = '%' . get_request_var('filter') . '%';

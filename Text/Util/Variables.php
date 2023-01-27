@@ -148,6 +148,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return mixed  The form variable, or $default if it doesn't exist.
      */
+    #[\ReturnTypeWillChange]
     public function get($varname, $default = null)
     {
         return $this->_getExists($this->_vars, $varname, $value)
@@ -162,6 +163,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return mixed  The form variable, or null if it doesn't exist.
      */
+    #[\ReturnTypeWillChange]
     public function __get($varname)
     {
         $this->_getExists($this->_vars, $varname, $value);
@@ -189,6 +191,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return mixed  The form variable, or null if it doesn't exist.
      */
+    #[\ReturnTypeWillChange]
     public function getExists($varname, &$exists)
     {
         $exists = $this->_getExists($this->_vars, $varname, $value);
@@ -200,6 +203,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @see __set()
      */
+    #[\ReturnTypeWillChange]
     public function set($varname, $value)
     {
         $this->$varname = $value;
@@ -239,6 +243,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @see __set()
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($field, $value)
     {
         $this->__set($field, $value);
@@ -249,6 +254,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @see __unset()
      */
+    #[\ReturnTypeWillChange]
     public function remove($varname)
     {
         unset($this->$varname);
@@ -259,6 +265,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      *
      * @param string $varname  The form variable name.
      */
+    #[\ReturnTypeWillChange]
     public function __unset($varname)
     {
         Horde_Array::getArrayParts($varname, $base, $keys);
@@ -359,6 +366,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
      * @return boolean  Whether or not the variable was set (or, if we've
      *                  checked $this->_expected, should have been set).
      */
+    #[\ReturnTypeWillChange]
     protected function _getExists($array, $varname, &$value)
     {
         if (Horde_Array::getArrayParts($varname, $base, $keys)) {
@@ -402,6 +410,7 @@ class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
 
     /* IteratorAggregate method. */
 
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->_vars);
