@@ -228,6 +228,7 @@ $rc_device_edit_fields = array(
 		'method' => 'textbox',
 		'value' => '|arg1:timeout|',
 		'max_length' => '3',
+		'size' => '3',
 		'default' => '1'
 	),
 	'sleep' => array(
@@ -235,6 +236,7 @@ $rc_device_edit_fields = array(
 		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
 		'method' => 'textbox',
 		'max_length' => '10',
+		'size' => '8',
 		'value' => '|arg1:sleep|',
 		'default' => '125000'
 	),
@@ -351,6 +353,7 @@ $rc_devtype_edit_fields = array(
 		'method' => 'textbox',
 		'value' => '|arg1:timeout|',
 		'default' => '1',
+		'size' => '3',
 		'max_length' => '3'
 	),
 	'sleep' => array(
@@ -359,6 +362,7 @@ $rc_devtype_edit_fields = array(
 		'method' => 'textbox',
 		'value' => '|arg1:sleep|',
 		'default' => '125000',
+		'size' => '8',
 		'max_length' => '7'
 	),
 	'anykey' => array(
@@ -377,14 +381,22 @@ $rc_devtype_edit_fields = array(
 
 $rc_settings = array(
 	'routerconfigs_header' => array(
-		'friendly_name' => __('Router Configs', 'routerconfigs'),
+		'friendly_name' => __('General Settings', 'routerconfigs'),
 		'method' => 'spacer',
+	),
+	'routerconfigs_presentation' => array(
+		'friendly_name' => __('Presentation Mode', 'routerconfigs'),
+		'description' => __('Should Router Configs be presented on the Console or a Top Tab.', 'routerconfigs'),
+		'method' => 'drop_array',
+		'default' => 'console',
+		'array' => array('console' => __('Console', 'routerconfigs'), 'toptab' => __('Top Tab', 'routerconfigs'))
 	),
 	'routerconfigs_timeout' => array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
 		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
 		'method' => 'textbox',
 		'max_length' => '3',
+		'size' => '3',
 		'default' => '1'
 	),
 	'routerconfigs_sleep' => array(
@@ -392,6 +404,7 @@ $rc_settings = array(
 		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
 		'method' => 'textbox',
 		'max_length' => '10',
+		'size' => '8',
 		'default' => '125000'
 	),
 	'routerconfigs_exit' => array(
@@ -459,6 +472,7 @@ $rc_settings = array(
 		'description' => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
 		'method' => 'textbox',
 		'max_length' => 255,
+		'size' => '30',
 		'default' => gethostbyname($rc_hostname)
 	),
 	'routerconfigs_backup_path' => array(
