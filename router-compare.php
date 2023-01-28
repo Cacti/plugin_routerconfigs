@@ -212,6 +212,7 @@ if (!empty($file1) && !empty($file2)) {
 	} else {
 		include_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
 		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
+		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
 
 		$options = array(
 			'ignoreWhitespace' => true,
