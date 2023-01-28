@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-09-22 14:09+0000\nLast-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\nLanguage-Team: Spanish <http://translate.cacti.net/projects/cacti/routerconfigs/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.3.2\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"PO-Revision-Date: 2021-09-22 14:09+0000\n"
+"Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
+"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/routerconfigs/es/>\n"
+"Language: es-ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -217,7 +229,7 @@ msgstr "22:00 (22:00 h)"
 msgid "23:00 (11pm)"
 msgstr "23:00 (11 pm)"
 
-#: include/arrays.php:125 include/arrays.php:258 router-devtypes.php:251
+#: include/arrays.php:125 include/arrays.php:260 router-devtypes.php:255
 msgid "Name"
 msgstr "Nombre"
 
@@ -226,7 +238,7 @@ msgstr "Nombre"
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "Dé a esta cuenta un nombre significativo que se mostrará."
 
-#: include/arrays.php:132 router-accounts.php:242
+#: include/arrays.php:132 router-accounts.php:254
 msgid "Username"
 msgstr "Nombre de Usuario"
 
@@ -264,7 +276,7 @@ msgstr "Habilitar dispositivo(s)"
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Desmarque esta casilla para desactivar este dispositivo de la copia de seguridad."
 
-#: include/arrays.php:172 router-accounts.php:242
+#: include/arrays.php:172 router-accounts.php:254
 msgid "Description"
 msgstr "Descripción"
 
@@ -273,7 +285,7 @@ msgstr "Descripción"
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "Nombre de este dispositivo (se usará para guardar la configuración y SVN si no hay ningún nombre de host presente en config)."
 
-#: include/arrays.php:179 router-devices.php:658
+#: include/arrays.php:179 router-devices.php:667
 msgid "IP Address"
 msgstr "Dirección IP"
 
@@ -282,7 +294,7 @@ msgstr "Dirección IP"
 msgid "This is the IP Address used to communicate with the device."
 msgstr "Esta es la dirección IP utilizada para comunicarse con el dispositivo."
 
-#: include/arrays.php:186 router-backups.php:259 router-devices.php:694
+#: include/arrays.php:186 router-backups.php:277 router-devices.php:703
 msgid "Directory"
 msgstr "Directorio"
 
@@ -300,7 +312,7 @@ msgstr "Tarea programada"
 msgid "How often to Backup this device."
 msgstr "Cuántas veces se debe hacer una copia de seguridad de este dispositivo."
 
-#: include/arrays.php:201 router-devices.php:546 router-devices.php:641
+#: include/arrays.php:201 router-devices.php:555 router-devices.php:650
 msgid "Device Type"
 msgstr "Tipo de dispositivo"
 
@@ -309,15 +321,15 @@ msgstr "Tipo de dispositivo"
 msgid "Choose the type of device that the router is."
 msgstr "Elija el tipo de dispositivo que es el router."
 
-#: include/arrays.php:206 router-devices.php:757
+#: include/arrays.php:206 router-devices.php:770
 msgid "Auto-Detect"
 msgstr "Detección automática"
 
-#: include/arrays.php:210 include/arrays.php:266
+#: include/arrays.php:210 include/arrays.php:268
 msgid "Connection Type"
 msgstr "Tipo de conexión"
 
-#: include/arrays.php:211 include/arrays.php:267
+#: include/arrays.php:211 include/arrays.php:269
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Esta es la dirección IP utilizada para comunicarse con el dispositivo."
@@ -336,303 +348,319 @@ msgstr "Elija una cuenta para iniciar sesión en el enrutador"
 msgid "None"
 msgstr "Ninguno"
 
-#: include/arrays.php:226 include/arrays.php:349 include/arrays.php:384
+#: include/arrays.php:226 include/arrays.php:351 include/arrays.php:395
 #, fuzzy
 msgid "Default timeout"
 msgstr "Tiempo de espera predeterminado"
 
-#: include/arrays.php:227 include/arrays.php:350 include/arrays.php:385
+#: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
 msgid "Default time to wait in seconds for a resposne"
 msgstr "Tiempo predeterminado para esperar en segundos una respuesta"
 
-#: include/arrays.php:234 include/arrays.php:357 include/arrays.php:391
+#: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
 #, fuzzy
 msgid "Default sleep time"
 msgstr "Tiempo de sueño predeterminado"
 
-#: include/arrays.php:235 include/arrays.php:358 include/arrays.php:392
+#: include/arrays.php:236 include/arrays.php:361 include/arrays.php:404
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "Tiempo predeterminado para dormir en microsegundos (1 / 1.000.000 de segundo)"
 
-#: include/arrays.php:243 include/arrays.php:342
+#: include/arrays.php:245 include/arrays.php:344
 #, fuzzy
 msgid "Assume elevated"
 msgstr "Asume elevado"
 
-#: include/arrays.php:244 include/arrays.php:343
+#: include/arrays.php:246 include/arrays.php:345
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "Desmarque esta casilla para desactivar este dispositivo de la copia de seguridad."
 
-#: include/arrays.php:259
+#: include/arrays.php:261
 #, fuzzy
 msgid "Name of this device type."
 msgstr "Nombre de este tipo de dispositivo."
 
-#: include/arrays.php:274
+#: include/arrays.php:276
 #, fuzzy
 msgid "Username Prompt"
 msgstr "Nombre de usuario Solicitar"
 
-#: include/arrays.php:275
+#: include/arrays.php:277
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "Este es el indicador del nombre de usuario que debe coincidir con el inicio de sesión."
 
-#: include/arrays.php:282
+#: include/arrays.php:284
 #, fuzzy
 msgid "Password Prompt"
 msgstr "Solicitar contraseña"
 
-#: include/arrays.php:283
+#: include/arrays.php:285
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "Esta es la solicitud de contraseña para que coincida con el inicio de sesión."
 
-#: include/arrays.php:290
+#: include/arrays.php:292
 msgid "Configuration file"
 msgstr "Archivo de configuración"
 
-#: include/arrays.php:291
+#: include/arrays.php:293
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device."
 msgstr "Esta es la ubicación estándar del archivo de configuración en el dispositivo remoto."
 
-#: include/arrays.php:298 router-devtypes.php:255
+#: include/arrays.php:300 router-devtypes.php:259
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "Copiar TFTP"
 
-#: include/arrays.php:299
+#: include/arrays.php:301
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Este es el texto CLI utilizado para enviar la copia de seguridad al servidor tftp."
 
-#: include/arrays.php:306
+#: include/arrays.php:308
 msgid "Show Version"
 msgstr "Mostrar versión"
 
-#: include/arrays.php:307
+#: include/arrays.php:309
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "Este es el texto CLI utilizado para mostrar la versión actual."
 
-#: include/arrays.php:314
+#: include/arrays.php:316
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "Configurar copias de seguridad"
 
-#: include/arrays.php:315
+#: include/arrays.php:317
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "Este es el indicador del nombre de usuario que debe coincidir con el inicio de sesión."
 
-#: include/arrays.php:322 router-devtypes.php:257
+#: include/arrays.php:324 router-devtypes.php:261
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: include/arrays.php:323
+#: include/arrays.php:325
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "¿Existe una consulta de seguridad para copiar la configuración?"
 
-#: include/arrays.php:330 router-devtypes.php:258
+#: include/arrays.php:332 router-devtypes.php:262
 #, fuzzy
 msgid "Force Confirm"
 msgstr "Confirmación forzada"
 
-#: include/arrays.php:331
+#: include/arrays.php:333
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "¿Existe una consulta de confirmación forzada para copiar la configuración?"
 
-#: include/arrays.php:336
+#: include/arrays.php:338
 #, fuzzy
 msgid "Check End in Config"
 msgstr "Comprobar Fin en Config"
 
-#: include/arrays.php:337
+#: include/arrays.php:339
 #, fuzzy
 msgid "Check end in config?"
 msgstr "Compruebe el final en config?"
 
-#: include/arrays.php:365
+#: include/arrays.php:369
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "Cualquier mensaje clave"
 
-#: include/arrays.php:366
+#: include/arrays.php:370
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Texto para que coincida con un mensaje de estilo 'Presione cualquier tecla para continuar'"
 
-#: include/arrays.php:380 setup.php:40 setup.php:418 setup.php:432
-#, fuzzy
-msgid "Router Configs"
-msgstr "Configuraciones del enrutador"
+#: include/arrays.php:384
+msgid "General Settings"
+msgstr ""
 
-#: include/arrays.php:398
+#: include/arrays.php:388
+#, fuzzy
+msgid "Presentation Mode"
+msgstr "Período de retención"
+
+#: include/arrays.php:389
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr ""
+
+#: include/arrays.php:392
+msgid "Console"
+msgstr ""
+
+#: include/arrays.php:392
+msgid "Top Tab"
+msgstr ""
+
+#: include/arrays.php:411
 #, fuzzy
 msgid "Close without exit"
 msgstr "Cerrar sin salida"
 
-#: include/arrays.php:399
+#: include/arrays.php:412
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "Si está marcado, al cerrar la conexión del dispositivo, no se emite ningún comando de 'salida'"
 
-#: include/arrays.php:403
+#: include/arrays.php:416
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "Búfer de conexión de depuración"
 
-#: include/arrays.php:404
+#: include/arrays.php:417
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "Ya sea para registrar la salida directa de la conexión del dispositivo"
 
-#: include/arrays.php:408
+#: include/arrays.php:421
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "Suponga que todos los dispositivos están elevados"
 
-#: include/arrays.php:409
+#: include/arrays.php:422
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "Ya sea para asumir que todos los dispositivos son elevados"
 
-#: include/arrays.php:413
+#: include/arrays.php:426
 #, fuzzy
 msgid "Download Hour"
 msgstr "Hora de descarga"
 
-#: include/arrays.php:414
+#: include/arrays.php:427
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "La hora del día para realizar las descargas completas."
 
-#: include/arrays.php:420
+#: include/arrays.php:433
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "Tarea Programada"
 
-#: include/arrays.php:421
+#: include/arrays.php:434
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "El tiempo de espera antes de intentar realizar una descarga adicional cuando falla la descarga programada"
 
-#: include/arrays.php:427
+#: include/arrays.php:440
 #, fuzzy
 msgid "Retention Period"
 msgstr "Período de retención"
 
-#: include/arrays.php:428
+#: include/arrays.php:441
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "El número de días para conservar las copias de seguridad antiguas."
 
-#: include/arrays.php:434
+#: include/arrays.php:447
 msgid "Transfer Options"
 msgstr "Opciones de transferencia"
 
-#: include/arrays.php:438
+#: include/arrays.php:451
 #, fuzzy
 msgid "Default connection type"
 msgstr "Tipo de conexión predeterminado"
 
-#: include/arrays.php:439
+#: include/arrays.php:452
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "Esta es la dirección IP utilizada para comunicarse con el dispositivo."
 
-#: include/arrays.php:445
+#: include/arrays.php:458
 #, fuzzy
 msgid "Separate By Device"
 msgstr "Separado por dispositivo"
 
-#: include/arrays.php:446
+#: include/arrays.php:459
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "Separe las configuraciones archivadas en una carpeta por dispositivo"
 
-#: include/arrays.php:451
+#: include/arrays.php:464
 #, fuzzy
 msgid "SCP Path"
 msgstr "Ruta SCP"
 
-#: include/arrays.php:452
+#: include/arrays.php:465
 #, fuzzy
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work"
 msgstr "Al usar SCP, dejar este espacio en blanco usará el módulo SCP de PHP que no siempre funciona"
 
-#: include/arrays.php:458
+#: include/arrays.php:471
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "Servidor TFTP IP"
 
-#: include/arrays.php:459
+#: include/arrays.php:472
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Debe ser una IP apuntando a su servidor Cacti."
 
-#: include/arrays.php:465
+#: include/arrays.php:479
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "Ruta del directorio de copia de seguridad"
 
-#: include/arrays.php:466
+#: include/arrays.php:480
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "La ruta en la que se realizará la copia de seguridad de sus Configs, debe ser la ruta en la que escribe el servidor TFTP local."
 
-#: include/arrays.php:473
+#: include/arrays.php:487
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "Ruta del directorio de copia de seguridad"
 
-#: include/arrays.php:474
+#: include/arrays.php:488
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "La ruta en la que se realizará la copia de seguridad de sus Configs, debe ser la ruta en la que escribe el servidor TFTP local."
 
-#: include/arrays.php:481
+#: include/arrays.php:495
 msgid "Email Options"
 msgstr "Opciones de e-mail"
 
-#: include/arrays.php:485
+#: include/arrays.php:499
 msgid "From Address"
 msgstr "De la Dirección"
 
-#: include/arrays.php:486
+#: include/arrays.php:500
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "La dirección de correo electrónico desde la que se enviará la copia de seguridad nocturna."
 
-#: include/arrays.php:493
+#: include/arrays.php:507
 msgid "From Name"
 msgstr "Nombre del remitente"
 
-#: include/arrays.php:494
+#: include/arrays.php:508
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "La dirección de correo electrónico desde la que se enviará la copia de seguridad nocturna."
 
-#: include/arrays.php:501
+#: include/arrays.php:515
 msgid "Email Address"
 msgstr "Direcciones de correo"
 
-#: include/arrays.php:502
+#: include/arrays.php:516
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Una lista delimitada por comas de direcciones de correo electrónico a las que enviar el correo electrónico de copia de seguridad cada noche."
 
-#: include/functions.php:43 router-accounts.php:242
+#: include/functions.php:43 router-accounts.php:254
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: include/functions.php:44 router-devtypes.php:239
+#: include/functions.php:44 router-devtypes.php:243
 msgid "Device Types"
 msgstr "Tipos de Dispositivo"
 
@@ -644,7 +672,7 @@ msgstr "Autenticación"
 msgid "Backups"
 msgstr "Respaldos"
 
-#: include/functions.php:47 router-backups.php:321
+#: include/functions.php:47 router-backups.php:340
 msgid "Compare"
 msgstr "Comparar"
 
@@ -808,466 +836,497 @@ msgstr "Copia de seguridad desde %s"
 msgid "File: %s/%s"
 msgstr "Archivo: %s/%s"
 
-#: router-accounts.php:118
+#: router-accounts.php:130
 #, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr "Haga clic en \"Continuar\" para eliminar la(s) siguiente(s) cuenta(s)."
 
-#: router-accounts.php:124 router-devices.php:212 router-devices.php:221
-#: router-devices.php:230 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devices.php:240
+#: router-devices.php:249 router-devtypes.php:119
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: router-accounts.php:124 router-devices.php:212 router-devices.php:221
-#: router-devices.php:230 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devices.php:240
+#: router-devices.php:249 router-devtypes.php:119
 msgid "Continue"
 msgstr "Continuar"
 
-#: router-accounts.php:124 router-devices.php:212 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devtypes.php:119
 msgid "Delete Device(s)"
 msgstr "Eliminar Dispositivo(s)"
 
-#: router-accounts.php:126
+#: router-accounts.php:138
 msgid "You must select at least one device."
 msgstr "Debes seleccionar al menos un dispositivo."
 
-#: router-accounts.php:127 router-devices.php:236
+#: router-accounts.php:139 router-devices.php:255
 msgid "Return"
 msgstr "Regresar"
 
-#: router-accounts.php:198
+#: router-accounts.php:210
 #, fuzzy, php-format
 msgid "Account: [edit: %s]"
 msgstr "Cuenta: [editar: %s]"
 
-#: router-accounts.php:200
+#: router-accounts.php:212
 #, fuzzy
 msgid "Account: [new]"
 msgstr "Cuenta: [nuevo]"
 
-#: router-accounts.php:234
+#: router-accounts.php:246
 msgid "Accounts"
 msgstr "Cuentas"
 
-#: router-accounts.php:238
+#: router-accounts.php:250
 msgid "Account Management"
 msgstr "Administración de la cuenta"
 
-#: router-accounts.php:258
+#: router-accounts.php:270
 #, fuzzy
 msgid "No Router Accounts Found"
 msgstr "No se han encontrado cuentas de enrutador"
 
-#: router-backups.php:184 setup.php:472
+#: router-backups.php:202 setup.php:479
 #, fuzzy
 msgid "Router Backups"
 msgstr "Copias de seguridad del router"
 
-#: router-backups.php:194 router-devices.php:550 router-devices.php:567
+#: router-backups.php:212 router-devices.php:559 router-devices.php:576
 msgid "Any"
 msgstr "Cualquiera"
 
-#: router-backups.php:207 router-devices.php:580
+#: router-backups.php:225 router-devices.php:589
 msgid "Search"
 msgstr "Buscar"
 
-#: router-backups.php:214 router-devices.php:587
+#: router-backups.php:232 router-devices.php:596
 msgid "Default"
 msgstr "Predeterminado"
 
-#: router-backups.php:226 router-devices.php:599
+#: router-backups.php:244 router-devices.php:608
 msgid "Go"
 msgstr "Ir"
 
-#: router-backups.php:226 router-devices.php:599
+#: router-backups.php:244 router-devices.php:608
 msgid "Set/Refresh Filters"
 msgstr "Definir/Refrescar Filtros"
 
-#: router-backups.php:227 router-devices.php:600
+#: router-backups.php:245 router-devices.php:609
 msgid "Clear"
 msgstr "Restablecer"
 
-#: router-backups.php:227 router-devices.php:600
+#: router-backups.php:245 router-devices.php:609
 msgid "Clear Filters"
 msgstr "Restablecer filtros"
 
-#: router-backups.php:241 router-devices.php:618
+#: router-backups.php:259 router-devices.php:627
 msgid "Hostname"
 msgstr "Nombre de equipo"
 
-#: router-backups.php:244 router-devices.php:621
+#: router-backups.php:262 router-devices.php:630
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr "Ingrese una dirección IP o nombre de equipo. Si es nombre de equipo, debe ser posible resolverlo ya sea por DNS o por tu archivo de hosts."
 
-#: router-backups.php:247 router-devices.php:624 router-devtypes.php:250
+#: router-backups.php:265 router-devices.php:633 router-devtypes.php:254
 msgid "ID"
 msgstr "ID"
 
-#: router-backups.php:250 router-devices.php:627
+#: router-backups.php:268 router-devices.php:636
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr "El ID interno de base de datos para este dispositivo. Util cuando se realiza automatización o depuración."
 
-#: router-backups.php:253
+#: router-backups.php:271
 msgid "Functions"
 msgstr "Funciones"
 
-#: router-backups.php:256
+#: router-backups.php:274
 #, fuzzy
 msgid "Perform functions against this backup"
 msgstr "Realizar funciones contra esta copia de seguridad"
 
-#: router-backups.php:262 router-devices.php:697
+#: router-backups.php:280 router-devices.php:706
 #, fuzzy
 msgid "The directory of the stored device backups"
 msgstr "El número de días para conservar las copias de seguridad antiguas."
 
-#: router-backups.php:265
+#: router-backups.php:283
 msgid "Backup Time"
 msgstr "Tiempo de copia de seguridad"
 
-#: router-backups.php:268 router-devices.php:638
+#: router-backups.php:286 router-devices.php:647
 #, fuzzy
 msgid "The last Backup time of the device"
 msgstr "Cuántas veces se debe hacer una copia de seguridad de este dispositivo."
 
-#: router-backups.php:271
+#: router-backups.php:289
 msgid "Last Change"
 msgstr "Ultima modificacion"
 
-#: router-backups.php:274
+#: router-backups.php:292
 #, fuzzy
 msgid "The last Change time of the device"
 msgstr "La última hora de cambio del dispositivo"
 
-#: router-backups.php:277 router-devices.php:689
+#: router-backups.php:295 router-devices.php:698
 #, fuzzy
 msgid "Changed By"
 msgstr "Cambiado"
 
-#: router-backups.php:280
+#: router-backups.php:298
 #, fuzzy
 msgid "The last person to change the configuration of the device"
 msgstr "La última persona en cambiar la configuración del dispositivo."
 
-#: router-backups.php:283
+#: router-backups.php:301
 msgid "Filename"
 msgstr "Nombre del archivo"
 
-#: router-backups.php:286
+#: router-backups.php:304
 #, fuzzy
 msgid "The filename of the stored device backups"
 msgstr "El número de días para conservar las copias de seguridad antiguas."
 
-#: router-backups.php:319 setup.php:458 setup.php:493
+#: router-backups.php:338 setup.php:465 setup.php:500
 #, fuzzy
 msgid "View Config"
 msgstr "Ver Config"
 
-#: router-backups.php:332
+#: router-backups.php:351
 #, fuzzy
 msgid "No Router Backups Found"
 msgstr "No se han encontrado copias de seguridad del router"
 
-#: router-compare.php:118
+#: router-compare.php:91
+#, fuzzy
+msgid "Router Backup Comparison"
+msgstr "Copias de seguridad del router"
+
+#: router-compare.php:100
+msgid "Diff Mode"
+msgstr ""
+
+#: router-compare.php:104
+msgid "Inline"
+msgstr ""
+
+#: router-compare.php:105
+msgid "Side by Side"
+msgstr ""
+
+#: router-compare.php:164
 #, fuzzy
 msgid "Compare Output"
 msgstr "Comparar la producción"
 
-#: router-compare.php:166
+#: router-compare.php:240 router-compare.php:248
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Propagar cambios"
 
-#: router-compare.php:176
+#: router-compare.php:258
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Error, debe tener copias de seguridad para cada dispositivo."
 
-#: router-devices.php:94
+#: router-devices.php:106
 #, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
 msgstr "Depuración para %s (%s)<br><br>>br>."
 
-#: router-devices.php:186
+#: router-devices.php:198
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: Ejecutando una copia de seguridad manual usando '%s' con argumentos '%s'"
 
-#: router-devices.php:208
+#: router-devices.php:201
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr ""
+
+#: router-devices.php:227
 #, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
 msgstr "Haga click en 'Continuar' para eliminar el/los siguiente(s) dispositivo(s)."
 
-#: router-devices.php:217
+#: router-devices.php:236
 #, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
 msgstr "Haga click en 'Continuar' para habilitar el/los siguiente(s) dispositivo(s)."
 
-#: router-devices.php:221
+#: router-devices.php:240
 msgid "Enable Device(s)"
 msgstr "Habilitar dispositivo(s)"
 
-#: router-devices.php:226
+#: router-devices.php:245
 #, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
 msgstr "Haga click en 'Continuar' para deshabilitar el/los siguiente(s) dispositivo(s)."
 
-#: router-devices.php:230
+#: router-devices.php:249
 msgid "Disable Device(s)"
 msgstr "Deshabilitar dispositivo(s)"
 
-#: router-devices.php:234
+#: router-devices.php:253
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Debe seleccionar al menos un dispositivo enrutador."
 
-#: router-devices.php:309
+#: router-devices.php:328
 #, fuzzy, php-format
 msgid "Router: [edit: %s]"
 msgstr "Enrutador: [editar: %s]"
 
-#: router-devices.php:311
+#: router-devices.php:330
 #, fuzzy
 msgid "Router: [new]"
 msgstr "Enrutador: [nuevo]"
 
-#: router-devices.php:536
+#: router-devices.php:546
 #, fuzzy
 msgid "Router Device Management"
 msgstr "Gestión de dispositivos del enrutador"
 
-#: router-devices.php:563
+#: router-devices.php:572
 msgid "Account"
 msgstr "Cuenta"
 
-#: router-devices.php:615 router-devtypes.php:249
+#: router-devices.php:624 router-devtypes.php:253
 msgid "Actions"
 msgstr "Acciones"
 
-#: router-devices.php:630
+#: router-devices.php:639
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: router-devices.php:635
+#: router-devices.php:644
 msgid "Last Backup"
 msgstr "Último Respaldo"
 
-#: router-devices.php:644
+#: router-devices.php:653
 #, fuzzy
 msgid "The device type of the device"
 msgstr "El tipo de dispositivo del dispositivo"
 
-#: router-devices.php:647
+#: router-devices.php:656
 #, fuzzy
 msgid "Connect Type"
 msgstr "Tipo de dispositivo"
 
-#: router-devices.php:650
+#: router-devices.php:659
 #, fuzzy
 msgid "The connection type for this device"
 msgstr "El tipo de conexión para este dispositivo"
 
-#: router-devices.php:653
+#: router-devices.php:662
 msgid "Configs"
 msgstr "Configuraciones"
 
-#: router-devices.php:655
+#: router-devices.php:664
 #, fuzzy
 msgid "The number of configurations for this device"
 msgstr "El número de configuraciones para este dispositivo"
 
-#: router-devices.php:661
+#: router-devices.php:670
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "Nombre de este tipo de dispositivo."
 
-#: router-devices.php:664
+#: router-devices.php:673
 #, fuzzy
 msgid "Next Backup"
 msgstr "Último Respaldo"
 
-#: router-devices.php:669
+#: router-devices.php:678
 #, fuzzy
 msgid "Date Backup"
 msgstr "Último Respaldo"
 
-#: router-devices.php:674
+#: router-devices.php:683
 msgid "Next Attempt"
 msgstr "Próximo intento"
 
-#: router-devices.php:679
+#: router-devices.php:688
 msgid "Last Attempt"
 msgstr "Último intento"
 
-#: router-devices.php:684
+#: router-devices.php:693
 #, fuzzy
 msgid "Date Change"
 msgstr "Ultima modificacion"
 
-#: router-devices.php:726
+#: router-devices.php:738
 msgid "Today"
 msgstr "Hoy"
 
-#: router-devices.php:727
+#: router-devices.php:739
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: router-devices.php:728
+#: router-devices.php:740
 msgid "This Week"
 msgstr "Esta semana"
 
-#: router-devices.php:729
+#: router-devices.php:741
 msgid "This Month"
 msgstr "Este mes"
 
-#: router-devices.php:730
+#: router-devices.php:742
 #, fuzzy
 msgid "Within a Year"
 msgstr "Dentro de un año"
 
-#: router-devices.php:731
+#: router-devices.php:743
 #, fuzzy
 msgid "Long, Long Ago"
 msgstr "Hace mucho, mucho tiempo"
 
-#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
-#: router-devtypes.php:280
+#: router-devices.php:773 router-devtypes.php:281 router-devtypes.php:282
+#: router-devtypes.php:284
 msgid "No"
 msgstr "No"
 
-#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
-#: router-devtypes.php:280
+#: router-devices.php:773 router-devtypes.php:281 router-devtypes.php:282
+#: router-devtypes.php:284
 msgid "Yes"
 msgstr "Sí"
 
-#: router-devices.php:775
+#: router-devices.php:788
 #, fuzzy
 msgid "Connect via SSH"
 msgstr "Conectarse a través de SSH"
 
-#: router-devices.php:779
+#: router-devices.php:792
 #, fuzzy
 msgid "Connect via Telnet"
 msgstr "Conectarse a través de Telnet"
 
-#: router-devices.php:785
+#: router-devices.php:798
 #, fuzzy
 msgid "Trace Route"
 msgstr "Ruta de rastreo"
 
-#: router-devices.php:787
+#: router-devices.php:801
 #, fuzzy
 msgid "Router Debug Info"
 msgstr "Información de depuración del enrutador"
 
-#: router-devices.php:797
+#: router-devices.php:812
 #, fuzzy, php-format
 msgid "Backups (%s)"
 msgstr "Copias de seguridad (%s)"
 
-#: router-devices.php:797
+#: router-devices.php:812
 msgid "Current"
 msgstr "Actual"
 
-#: router-devices.php:811
+#: router-devices.php:827
 #, fuzzy
 msgid "No Router Devices Found"
 msgstr "No se han encontrado dispositivos de enrutador"
 
-#: router-devtypes.php:109
+#: router-devtypes.php:113
 #, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "Cuando haga clic en'Continuar', se eliminarán los siguientes dispositivos."
 
-#: router-devtypes.php:192
+#: router-devtypes.php:196
 #, fuzzy, php-format
 msgid "Query [edit: %s]"
 msgstr "Consulta[editar: %s]"
 
-#: router-devtypes.php:194
+#: router-devtypes.php:198
 #, fuzzy
 msgid "Query [new]"
 msgstr "Consulta[nuevo]"
 
-#: router-devtypes.php:243
+#: router-devtypes.php:247
 #, fuzzy
 msgid "View Router Device Types"
 msgstr "Ver tipos de dispositivos del enrutador"
 
-#: router-devtypes.php:252
+#: router-devtypes.php:256
 msgid "Type"
 msgstr "Tipo"
 
-#: router-devtypes.php:253
+#: router-devtypes.php:257
 #, fuzzy
 msgid "User Prompt"
 msgstr "Nombre de usuario Solicitar"
 
-#: router-devtypes.php:254
+#: router-devtypes.php:258
 #, fuzzy
 msgid "Pass Prompt"
 msgstr "Solicitar contraseña"
 
-#: router-devtypes.php:256
+#: router-devtypes.php:260
 msgid "Version"
 msgstr "Versión"
 
-#: router-devtypes.php:259
+#: router-devtypes.php:263
 #, fuzzy
 msgid "Confirm Prompt"
 msgstr "Confirmar nueva contraseña"
 
-#: router-devtypes.php:260
+#: router-devtypes.php:264
 #, fuzzy
 msgid "Check End In Config"
 msgstr "Check End In Config"
 
-#: router-devtypes.php:268
+#: router-devtypes.php:272
 #, fuzzy
 msgid "Edit Device Type"
 msgstr "Editar tipo de dispositivo"
 
-#: router-devtypes.php:285
+#: router-devtypes.php:289
 #, fuzzy
 msgid "No Router Device Types Found"
 msgstr "No se han encontrado tipos de dispositivos de enrutador"
 
-#: setup.php:408
+#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#, fuzzy
+msgid "Router Configs"
+msgstr "Configuraciones del enrutador"
+
+#: setup.php:413
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Ejecutando '%s' con argumentos '%s'"
 
-#: setup.php:432
+#: setup.php:438
 msgid "Utilities"
 msgstr "Utilidades"
 
-#: setup.php:437
+#: setup.php:444
 #, fuzzy
 msgid "Router Devices"
 msgstr "Dispositivos de enrutador"
 
-#: setup.php:444 setup.php:479 setup.php:507
+#: setup.php:451 setup.php:486 setup.php:514
 msgid "(edit)"
 msgstr "(Editar)"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:458 setup.php:493 setup.php:521
 msgid "(actions)"
 msgstr "(acciones)"
 
-#: setup.php:465
+#: setup.php:472
 #, fuzzy
 msgid "View Debug"
 msgstr "Ver Depuración"
 
-#: setup.php:500
+#: setup.php:507
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Cuentas de enrutador"
 
-#: setup.php:521
+#: setup.php:528
 #, fuzzy
 msgid "Router Compare"
 msgstr "Comparación de enrutadores"
+
+#: setup.php:595
+#, fuzzy
+msgid "Routers"
+msgstr "Configuraciones del enrutador"
 
 #, fuzzy
 #~ msgid "Misc"
