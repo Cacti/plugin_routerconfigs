@@ -584,6 +584,7 @@ function routerconfigs_show_tab() {
 	global $config;
 
 	$tabstyle = read_config_option('routerconfigs_presentation');
+	$selected_theme = get_selected_theme();
 
 	if (api_plugin_user_realm_auth('router-devices.php') && $tabstyle == 'toptab') {
 		if (preg_match('/router-devices.php/', $_SERVER['REQUEST_URI'], $matches)) {
@@ -592,6 +593,8 @@ function routerconfigs_show_tab() {
 			$down = false;
 		}
 
-		print '<a id="routerconfigs" href="' . $config['url_path'] . 'plugins/routerconfigs/router-devices.php"><img src="' . get_classic_tabimage(__('Routers', 'routerconfig'), $down) . '" alt="' . __esc('Router Configs', 'routerconfigs') . '"></a>';
+		print '<a id="routerconfigs"
+			href="' . $config['url_path'] . 'plugins/routerconfigs/router-devices.php">
+			<img src="' . ($selected_theme == 'classic' ? get_classic_tabimage(__('Routers', 'routerconfig'), $down):'#') . '" alt="' . __esc('RouterConfigs', 'routerconfigs') . '"></a>';
 	}
 }
