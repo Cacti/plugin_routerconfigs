@@ -233,7 +233,7 @@ if (!empty($file1) && !empty($file2)) {
 	html_start_box('', '100%', '', '1', 'center', '');
 
 	if (get_request_var('diffmode') == 'sdiff') {
-		html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
+		html_header(array($device1['directory'] . '/' . $device1['filename'], $device2['directory'] . '/' . $device2['filename']));
 
 		print "<tr height='1'><td width='50%'></td><td width='50%'></td></tr>";
 
