@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
+"POT-Creation-Date: 2023-01-28 09:49-0500\n"
 "PO-Revision-Date: 2020-12-13 10:24-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -232,7 +232,7 @@ msgstr "22:00 (रात 10 बजे)"
 msgid "23:00 (11pm)"
 msgstr "23:00 (रात 11 बजे)"
 
-#: include/arrays.php:125 include/arrays.php:258 router-devtypes.php:251
+#: include/arrays.php:125 include/arrays.php:260 router-devtypes.php:255
 msgid "Name"
 msgstr "नाम"
 
@@ -241,7 +241,7 @@ msgstr "नाम"
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "इस खाते को एक सार्थक नाम दें जिसे प्रदर्शित किया जाएगा।"
 
-#: include/arrays.php:132 router-accounts.php:242
+#: include/arrays.php:132 router-accounts.php:254
 msgid "Username"
 msgstr "उपयोगकर्ता नाम"
 
@@ -279,7 +279,7 @@ msgstr "डिवाइस सक्षम करें"
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "इस डिवाइस को बैकअप होने से अक्षम करने के लिए इस बॉक्स को अनचेक करें"
 
-#: include/arrays.php:172 router-accounts.php:242
+#: include/arrays.php:172 router-accounts.php:254
 msgid "Description"
 msgstr "विवरण"
 
@@ -288,7 +288,7 @@ msgstr "विवरण"
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "इस उपकरण का नाम (यदि कोई होस्टनाम विन्यास में मौजूद नहीं है, तो विन्यास बचत और SVN के लिए उपयोग किया जाएगा)"
 
-#: include/arrays.php:179 router-devices.php:658
+#: include/arrays.php:179 router-devices.php:667
 msgid "IP Address"
 msgstr "IP सिरनामा"
 
@@ -297,7 +297,7 @@ msgstr "IP सिरनामा"
 msgid "This is the IP Address used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
 
-#: include/arrays.php:186 router-backups.php:259 router-devices.php:694
+#: include/arrays.php:186 router-backups.php:277 router-devices.php:703
 msgid "Directory"
 msgstr "निर्देशिका"
 
@@ -315,7 +315,7 @@ msgstr "शैड्‌यूल"
 msgid "How often to Backup this device."
 msgstr "इस डिवाइस का बैकअप कितनी बार लेना है।"
 
-#: include/arrays.php:201 router-devices.php:546 router-devices.php:641
+#: include/arrays.php:201 router-devices.php:555 router-devices.php:650
 #, fuzzy
 msgid "Device Type"
 msgstr "उपकरण का प्रकार"
@@ -325,17 +325,17 @@ msgstr "उपकरण का प्रकार"
 msgid "Choose the type of device that the router is."
 msgstr "राउटर के प्रकार का डिवाइस चुनें।"
 
-#: include/arrays.php:206 router-devices.php:757
+#: include/arrays.php:206 router-devices.php:770
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "स्वयंं पता लगाना"
 
-#: include/arrays.php:210 include/arrays.php:266
+#: include/arrays.php:210 include/arrays.php:268
 #, fuzzy
 msgid "Connection Type"
 msgstr "संबंध प्रकार"
 
-#: include/arrays.php:211 include/arrays.php:267
+#: include/arrays.php:211 include/arrays.php:269
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
@@ -354,309 +354,325 @@ msgstr "राउटर में लॉगिन करने के लिए 
 msgid "None"
 msgstr "कोई नहीं"
 
-#: include/arrays.php:226 include/arrays.php:349 include/arrays.php:384
+#: include/arrays.php:226 include/arrays.php:351 include/arrays.php:395
 #, fuzzy
 msgid "Default timeout"
 msgstr "डिफ़ॉल्ट टाइमआउट"
 
-#: include/arrays.php:227 include/arrays.php:350 include/arrays.php:385
+#: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
 msgid "Default time to wait in seconds for a resposne"
 msgstr "एक resposne के लिए सेकंड में प्रतीक्षा करने के लिए डिफ़ॉल्ट समय"
 
-#: include/arrays.php:234 include/arrays.php:357 include/arrays.php:391
+#: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
 #, fuzzy
 msgid "Default sleep time"
 msgstr "सोने का डिफ़ॉल्ट समय"
 
-#: include/arrays.php:235 include/arrays.php:358 include/arrays.php:392
+#: include/arrays.php:236 include/arrays.php:361 include/arrays.php:404
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "माइक्रोसेकंड में सोने का डिफ़ॉल्ट समय (एक सेकंड का 1 / 1,000,000)"
 
-#: include/arrays.php:243 include/arrays.php:342
+#: include/arrays.php:245 include/arrays.php:344
 #, fuzzy
 msgid "Assume elevated"
 msgstr "ऊंचा मान लिया"
 
-#: include/arrays.php:244 include/arrays.php:343
+#: include/arrays.php:246 include/arrays.php:345
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "इस डिवाइस को बैकअप होने से अक्षम करने के लिए इस बॉक्स को अनचेक करें"
 
-#: include/arrays.php:259
+#: include/arrays.php:261
 #, fuzzy
 msgid "Name of this device type."
 msgstr "इस उपकरण के प्रकार का नाम।"
 
-#: include/arrays.php:274
+#: include/arrays.php:276
 #, fuzzy
 msgid "Username Prompt"
 msgstr "उपयोगकर्ता नाम शीघ्र"
 
-#: include/arrays.php:275
+#: include/arrays.php:277
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "यह लॉगिन पर मिलान करने के लिए उपयोगकर्ता नाम संकेत है।"
 
-#: include/arrays.php:282
+#: include/arrays.php:284
 #, fuzzy
 msgid "Password Prompt"
 msgstr "पासवर्ड प्रॉम्प्ट"
 
-#: include/arrays.php:283
+#: include/arrays.php:285
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "यह लॉगिन पर मिलान करने के लिए पासवर्ड प्रॉम्प्ट है।"
 
-#: include/arrays.php:290
+#: include/arrays.php:292
 #, fuzzy
 msgid "Configuration file"
 msgstr "विन्यास फाइल"
 
-#: include/arrays.php:291
+#: include/arrays.php:293
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device."
 msgstr "यह दूरस्थ डिवाइस पर कॉन्फ़िगरेशन फ़ाइल का मानक स्थान है।"
 
-#: include/arrays.php:298 router-devtypes.php:255
+#: include/arrays.php:300 router-devtypes.php:259
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "TFTP कॉपी करें"
 
-#: include/arrays.php:299
+#: include/arrays.php:301
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "यह CLI टेक्स्ट है जिसका उपयोग tftp सर्वर पर बैकअप भेजने के लिए किया जाता है।"
 
-#: include/arrays.php:306
+#: include/arrays.php:308
 #, fuzzy
 msgid "Show Version"
 msgstr "संस्करण दिखाएं"
 
-#: include/arrays.php:307
+#: include/arrays.php:309
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "यह CLI पाठ है जिसका उपयोग वर्तमान संस्करण को प्रदर्शित करने के लिए किया जाता है।"
 
-#: include/arrays.php:314
+#: include/arrays.php:316
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "बैकअप कॉन्फ़िगर करें"
 
-#: include/arrays.php:315
+#: include/arrays.php:317
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "यह लॉगिन पर मिलान करने के लिए उपयोगकर्ता नाम संकेत है।"
 
-#: include/arrays.php:322 router-devtypes.php:257
+#: include/arrays.php:324 router-devtypes.php:261
 msgid "Confirm"
 msgstr "पुष्टि करें"
 
-#: include/arrays.php:323
+#: include/arrays.php:325
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "क्या कॉन्फिग कॉपी करने के लिए कोई पुष्टि प्रॉम्प्ट है?"
 
-#: include/arrays.php:330 router-devtypes.php:258
+#: include/arrays.php:332 router-devtypes.php:262
 #, fuzzy
 msgid "Force Confirm"
 msgstr "बल की पुष्टि"
 
-#: include/arrays.php:331
+#: include/arrays.php:333
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "क्या कॉन्फ़िगरेशन की प्रतिलिपि बनाने के लिए कोई बल पुष्टिकरण संकेत है?"
 
-#: include/arrays.php:336
+#: include/arrays.php:338
 #, fuzzy
 msgid "Check End in Config"
 msgstr "विन्यास में अंत की जाँच करें"
 
-#: include/arrays.php:337
+#: include/arrays.php:339
 #, fuzzy
 msgid "Check end in config?"
 msgstr "कॉन्फ़िगरेशन में अंत की जाँच करें?"
 
-#: include/arrays.php:365
+#: include/arrays.php:369
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "कोई कुंजी संकेत"
 
-#: include/arrays.php:366
+#: include/arrays.php:370
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "टेक्स्ट को 'तत्काल जारी रखने के लिए कोई भी कुंजी दबाएं' स्टाइल से मेल खाने के लिए"
 
-#: include/arrays.php:380 setup.php:40 setup.php:418 setup.php:432
-#, fuzzy
-msgid "Router Configs"
-msgstr "राउटर कन्फिग्स"
+#: include/arrays.php:384
+msgid "General Settings"
+msgstr ""
 
-#: include/arrays.php:398
+#: include/arrays.php:388
+#, fuzzy
+msgid "Presentation Mode"
+msgstr "धारण नीति"
+
+#: include/arrays.php:389
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr ""
+
+#: include/arrays.php:392
+msgid "Console"
+msgstr ""
+
+#: include/arrays.php:392
+msgid "Top Tab"
+msgstr ""
+
+#: include/arrays.php:411
 #, fuzzy
 msgid "Close without exit"
 msgstr "बाहर निकलने के बिना बंद करें"
 
-#: include/arrays.php:399
+#: include/arrays.php:412
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "यदि डिवाइस कनेक्शन को बंद करने पर टिक किया जाता है, तो कोई 'निकास' आदेश जारी नहीं किया जाता है"
 
-#: include/arrays.php:403
+#: include/arrays.php:416
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "डिबग कनेक्शन बफर"
 
-#: include/arrays.php:404
+#: include/arrays.php:417
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "डिवाइस कनेक्शन का सीधा आउटपुट लॉग करना है या नहीं"
 
-#: include/arrays.php:408
+#: include/arrays.php:421
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "सभी उपकरणों को ऊंचा मान लें"
 
-#: include/arrays.php:409
+#: include/arrays.php:422
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "क्या मान लें कि सभी डिवाइस उन्नत हैं"
 
-#: include/arrays.php:413
+#: include/arrays.php:426
 #, fuzzy
 msgid "Download Hour"
 msgstr "डाउनलोड घंटे"
 
-#: include/arrays.php:414
+#: include/arrays.php:427
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "पूरा डाउनलोड करने के लिए दिन का घंटा।"
 
-#: include/arrays.php:420
+#: include/arrays.php:433
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "अनुसूची"
 
-#: include/arrays.php:421
+#: include/arrays.php:434
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "अनुसूचित डाउनलोड विफल होने पर अतिरिक्त डाउनलोड करने का प्रयास करने से पहले प्रतीक्षा करने का समय"
 
-#: include/arrays.php:427
+#: include/arrays.php:440
 #, fuzzy
 msgid "Retention Period"
 msgstr "धारण नीति"
 
-#: include/arrays.php:428
+#: include/arrays.php:441
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "पुराने बैकअप को बनाए रखने के लिए दिनों की संख्या।"
 
-#: include/arrays.php:434
+#: include/arrays.php:447
 #, fuzzy
 msgid "Transfer Options"
 msgstr "स्थानांतरण विकल्प"
 
-#: include/arrays.php:438
+#: include/arrays.php:451
 #, fuzzy
 msgid "Default connection type"
 msgstr "डिफ़ॉल्ट कनेक्शन प्रकार"
 
-#: include/arrays.php:439
+#: include/arrays.php:452
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
 
-#: include/arrays.php:445
+#: include/arrays.php:458
 #, fuzzy
 msgid "Separate By Device"
 msgstr "डिवाइस द्वारा अलग"
 
-#: include/arrays.php:446
+#: include/arrays.php:459
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "प्रति डिवाइस एक फ़ोल्डर में अलग किए गए कन्फिग्स को अलग करें"
 
-#: include/arrays.php:451
+#: include/arrays.php:464
 #, fuzzy
 msgid "SCP Path"
 msgstr "एससीपी पथ"
 
-#: include/arrays.php:452
+#: include/arrays.php:465
 #, fuzzy
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work"
 msgstr "एससीपी का उपयोग करते समय, इस रिक्त को छोड़ने से पीएचपी के एससीपी मॉड्यूल का उपयोग होगा जो हमेशा काम नहीं करता है"
 
-#: include/arrays.php:458
+#: include/arrays.php:471
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "TFTP सर्वर आईपी"
 
-#: include/arrays.php:459
+#: include/arrays.php:472
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "आपके Cacti सर्वर की ओर इशारा करने वाला IP होना चाहिए।"
 
-#: include/arrays.php:465
+#: include/arrays.php:479
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "बैकअप निर्देशिका पथ"
 
-#: include/arrays.php:466
+#: include/arrays.php:480
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "आपके कन्फ़िग्स को वापस लाने के लिए पथ, यह वह रास्ता होना चाहिए जो स्थानीय TFTP सर्वर को लिखता है।"
 
-#: include/arrays.php:473
+#: include/arrays.php:487
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "बैकअप निर्देशिका पथ"
 
-#: include/arrays.php:474
+#: include/arrays.php:488
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "आपके कन्फ़िग्स को वापस लाने के लिए पथ, यह वह रास्ता होना चाहिए जो स्थानीय TFTP सर्वर को लिखता है।"
 
-#: include/arrays.php:481
+#: include/arrays.php:495
 #, fuzzy
 msgid "Email Options"
 msgstr "ईमेल विकल्प"
 
-#: include/arrays.php:485
+#: include/arrays.php:499
 #, fuzzy
 msgid "From Address"
 msgstr "इस पते से"
 
-#: include/arrays.php:486
+#: include/arrays.php:500
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "रात्रिकालीन बैकअप ईमेल से भेजा जाएगा।"
 
-#: include/arrays.php:493
+#: include/arrays.php:507
 #, fuzzy
 msgid "From Name"
 msgstr "नाम"
 
-#: include/arrays.php:494
+#: include/arrays.php:508
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "रात्रिकालीन बैकअप ईमेल से भेजा जाएगा।"
 
-#: include/arrays.php:501
+#: include/arrays.php:515
 msgid "Email Address"
 msgstr "ईमेल पता"
 
-#: include/arrays.php:502
+#: include/arrays.php:516
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "रात्रिकालीन बैकअप भेजने के लिए ईमेल पते की अल्पविराम सीमांकित सूची।"
 
-#: include/functions.php:43 router-accounts.php:242
+#: include/functions.php:43 router-accounts.php:254
 msgid "Devices"
 msgstr "डिवाइस"
 
-#: include/functions.php:44 router-devtypes.php:239
+#: include/functions.php:44 router-devtypes.php:243
 #, fuzzy
 msgid "Device Types"
 msgstr "डिवाइस के प्रकार"
@@ -670,7 +686,7 @@ msgstr "प्रमाणीकरण"
 msgid "Backups"
 msgstr "बैकअप"
 
-#: include/functions.php:47 router-backups.php:321
+#: include/functions.php:47 router-backups.php:340
 msgid "Compare"
 msgstr "तुलना"
 
@@ -834,489 +850,520 @@ msgstr "%s से बैकअप"
 msgid "File: %s/%s"
 msgstr "फ़ाइल: %s / %s"
 
-#: router-accounts.php:118
+#: router-accounts.php:130
 #, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr "निम्नलिखित खाते को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: router-accounts.php:124 router-devices.php:212 router-devices.php:221
-#: router-devices.php:230 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devices.php:240
+#: router-devices.php:249 router-devtypes.php:119
 msgid "Cancel"
 msgstr "कैंसिल करें"
 
-#: router-accounts.php:124 router-devices.php:212 router-devices.php:221
-#: router-devices.php:230 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devices.php:240
+#: router-devices.php:249 router-devtypes.php:119
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: router-accounts.php:124 router-devices.php:212 router-devtypes.php:115
+#: router-accounts.php:136 router-devices.php:231 router-devtypes.php:119
 #, fuzzy
 msgid "Delete Device(s)"
 msgstr "उपकरण हटाएं"
 
-#: router-accounts.php:126
+#: router-accounts.php:138
 #, fuzzy
 msgid "You must select at least one device."
 msgstr "आपके लिए कम से कम एक डिवाइस चुनना ज़रूरी है।"
 
-#: router-accounts.php:127 router-devices.php:236
+#: router-accounts.php:139 router-devices.php:255
 msgid "Return"
 msgstr "वापसी"
 
-#: router-accounts.php:198
+#: router-accounts.php:210
 #, fuzzy, php-format
 msgid "Account: [edit: %s]"
 msgstr "खाता: [संपादित करें: %s]"
 
-#: router-accounts.php:200
+#: router-accounts.php:212
 #, fuzzy
 msgid "Account: [new]"
 msgstr "खाता: [नया]"
 
-#: router-accounts.php:234
+#: router-accounts.php:246
 #, fuzzy
 msgid "Accounts"
 msgstr "हिसाब किताब"
 
-#: router-accounts.php:238
+#: router-accounts.php:250
 #, fuzzy
 msgid "Account Management"
 msgstr "खाता प्रबंधन"
 
-#: router-accounts.php:258
+#: router-accounts.php:270
 #, fuzzy
 msgid "No Router Accounts Found"
 msgstr "कोई राउटर अकाउंट्स नहीं मिला"
 
-#: router-backups.php:184 setup.php:472
+#: router-backups.php:202 setup.php:479
 #, fuzzy
 msgid "Router Backups"
 msgstr "राउटर बैकअप"
 
-#: router-backups.php:194 router-devices.php:550 router-devices.php:567
+#: router-backups.php:212 router-devices.php:559 router-devices.php:576
 msgid "Any"
 msgstr "कोई भी@ label"
 
-#: router-backups.php:207 router-devices.php:580
+#: router-backups.php:225 router-devices.php:589
 msgid "Search"
 msgstr "खोजें"
 
-#: router-backups.php:214 router-devices.php:587
+#: router-backups.php:232 router-devices.php:596
 msgid "Default"
 msgstr "डिफ़ॉल्ट"
 
-#: router-backups.php:226 router-devices.php:599
+#: router-backups.php:244 router-devices.php:608
 msgid "Go"
 msgstr "जाएं"
 
-#: router-backups.php:226 router-devices.php:599
+#: router-backups.php:244 router-devices.php:608
 #, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "फ़िल्टर सेट करें / ताज़ा करें"
 
-#: router-backups.php:227 router-devices.php:600
+#: router-backups.php:245 router-devices.php:609
 msgid "Clear"
 msgstr "明确"
 
-#: router-backups.php:227 router-devices.php:600
+#: router-backups.php:245 router-devices.php:609
 #, fuzzy
 msgid "Clear Filters"
 msgstr "साफ फिल्टर"
 
-#: router-backups.php:241 router-devices.php:618
+#: router-backups.php:259 router-devices.php:627
 msgid "Hostname"
 msgstr "होस्टनांऽ"
 
-#: router-backups.php:244 router-devices.php:621
+#: router-backups.php:262 router-devices.php:630
 #, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr "या तो एक आईपी पता, या hostname। यदि कोई होस्टनाम है, तो इसे DNS या आपके होस्ट फ़ाइल से फिर से शुरू किया जाना चाहिए।"
 
-#: router-backups.php:247 router-devices.php:624 router-devtypes.php:250
+#: router-backups.php:265 router-devices.php:633 router-devtypes.php:254
 msgid "ID"
 msgstr "ID"
 
-#: router-backups.php:250 router-devices.php:627
+#: router-backups.php:268 router-devices.php:636
 #, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr "इस डिवाइस के लिए आंतरिक डेटाबेस आईडी। स्वचालन या डिबगिंग करते समय उपयोगी।"
 
-#: router-backups.php:253
+#: router-backups.php:271
 #, fuzzy
 msgid "Functions"
 msgstr "कार्रवाइयाँ"
 
-#: router-backups.php:256
+#: router-backups.php:274
 #, fuzzy
 msgid "Perform functions against this backup"
 msgstr "इस बैकअप के विरुद्ध कार्य करें"
 
-#: router-backups.php:262 router-devices.php:697
+#: router-backups.php:280 router-devices.php:706
 #, fuzzy
 msgid "The directory of the stored device backups"
 msgstr "पुराने बैकअप को बनाए रखने के लिए दिनों की संख्या।"
 
-#: router-backups.php:265
+#: router-backups.php:283
 #, fuzzy
 msgid "Backup Time"
 msgstr "बैकअप समय"
 
-#: router-backups.php:268 router-devices.php:638
+#: router-backups.php:286 router-devices.php:647
 #, fuzzy
 msgid "The last Backup time of the device"
 msgstr "इस डिवाइस का बैकअप कितनी बार लेना है।"
 
-#: router-backups.php:271
+#: router-backups.php:289
 #, fuzzy
 msgid "Last Change"
 msgstr "अंतिम परिवर्तन"
 
-#: router-backups.php:274
+#: router-backups.php:292
 #, fuzzy
 msgid "The last Change time of the device"
 msgstr "डिवाइस का अंतिम परिवर्तन समय"
 
-#: router-backups.php:277 router-devices.php:689
+#: router-backups.php:295 router-devices.php:698
 #, fuzzy
 msgid "Changed By"
 msgstr "परिवर्तित"
 
-#: router-backups.php:280
+#: router-backups.php:298
 #, fuzzy
 msgid "The last person to change the configuration of the device"
 msgstr "डिवाइस का कॉन्फ़िगरेशन बदलने के लिए अंतिम व्यक्ति"
 
-#: router-backups.php:283
+#: router-backups.php:301
 #, fuzzy
 msgid "Filename"
 msgstr "फ़ाइल का नाम"
 
-#: router-backups.php:286
+#: router-backups.php:304
 #, fuzzy
 msgid "The filename of the stored device backups"
 msgstr "पुराने बैकअप को बनाए रखने के लिए दिनों की संख्या।"
 
-#: router-backups.php:319 setup.php:458 setup.php:493
+#: router-backups.php:338 setup.php:465 setup.php:500
 #, fuzzy
 msgid "View Config"
 msgstr "विन्यास देखें"
 
-#: router-backups.php:332
+#: router-backups.php:351
 #, fuzzy
 msgid "No Router Backups Found"
 msgstr "कोई राउटर बैकअप नहीं मिला"
 
-#: router-compare.php:118
+#: router-compare.php:91
+#, fuzzy
+msgid "Router Backup Comparison"
+msgstr "राउटर बैकअप"
+
+#: router-compare.php:100
+msgid "Diff Mode"
+msgstr ""
+
+#: router-compare.php:104
+msgid "Inline"
+msgstr ""
+
+#: router-compare.php:105
+msgid "Side by Side"
+msgstr ""
+
+#: router-compare.php:164
 #, fuzzy
 msgid "Compare Output"
 msgstr "आउटपुट की तुलना करें"
 
-#: router-compare.php:166
+#: router-compare.php:240 router-compare.php:248
 #, fuzzy
 msgid "There are no Changes"
 msgstr "कोई परिवर्तन नहीं हैं"
 
-#: router-compare.php:176
+#: router-compare.php:258
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "त्रुटि, आपके पास प्रत्येक डिवाइस के लिए बैकअप होना चाहिए।"
 
-#: router-devices.php:94
+#: router-devices.php:106
 #, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
 msgstr "%s के लिए डिबग ( %s) <br><br>"
 
-#: router-devices.php:186
+#: router-devices.php:198
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: तर्कों के साथ '%s' का उपयोग कर मैनुअल बैकअप निष्पादित करना %s"
 
-#: router-devices.php:208
+#: router-devices.php:201
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr ""
+
+#: router-devices.php:227
 #, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
 msgstr "निम्नलिखित डिवाइस को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: router-devices.php:217
+#: router-devices.php:236
 #, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
 msgstr "निम्न डिवाइस को सक्षम करने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: router-devices.php:221
+#: router-devices.php:240
 #, fuzzy
 msgid "Enable Device(s)"
 msgstr "उपकरण सक्षम करें"
 
-#: router-devices.php:226
+#: router-devices.php:245
 #, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
 msgstr "निम्न डिवाइस (ओं) को अक्षम करने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: router-devices.php:230
+#: router-devices.php:249
 #, fuzzy
 msgid "Disable Device(s)"
 msgstr "डिवाइस अक्षम करें"
 
-#: router-devices.php:234
+#: router-devices.php:253
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "आपको कम से कम राउटर डिवाइस का चयन करना होगा।"
 
-#: router-devices.php:309
+#: router-devices.php:328
 #, fuzzy, php-format
 msgid "Router: [edit: %s]"
 msgstr "राउटर: [संपादित करें: %s]"
 
-#: router-devices.php:311
+#: router-devices.php:330
 #, fuzzy
 msgid "Router: [new]"
 msgstr "राउटर: [नया]"
 
-#: router-devices.php:536
+#: router-devices.php:546
 #, fuzzy
 msgid "Router Device Management"
 msgstr "राउटर डिवाइस प्रबंधन"
 
-#: router-devices.php:563
+#: router-devices.php:572
 #, fuzzy
 msgid "Account"
 msgstr "हिसाब किताब"
 
-#: router-devices.php:615 router-devtypes.php:249
+#: router-devices.php:624 router-devtypes.php:253
 msgid "Actions"
 msgstr "कार्रवाइयाँ"
 
-#: router-devices.php:630
+#: router-devices.php:639
 msgid "Enabled"
 msgstr "सक्षम"
 
-#: router-devices.php:635
+#: router-devices.php:644
 #, fuzzy
 msgid "Last Backup"
 msgstr "पिछला बैकअप"
 
-#: router-devices.php:644
+#: router-devices.php:653
 #, fuzzy
 msgid "The device type of the device"
 msgstr "डिवाइस का उपकरण प्रकार"
 
-#: router-devices.php:647
+#: router-devices.php:656
 #, fuzzy
 msgid "Connect Type"
 msgstr "उपकरण का प्रकार"
 
-#: router-devices.php:650
+#: router-devices.php:659
 #, fuzzy
 msgid "The connection type for this device"
 msgstr "इस डिवाइस के लिए कनेक्शन प्रकार"
 
-#: router-devices.php:653
+#: router-devices.php:662
 #, fuzzy
 msgid "Configs"
 msgstr "कॉन्फ़िगरेशन"
 
-#: router-devices.php:655
+#: router-devices.php:664
 #, fuzzy
 msgid "The number of configurations for this device"
 msgstr "इस डिवाइस के लिए कॉन्फ़िगरेशन की संख्या"
 
-#: router-devices.php:661
+#: router-devices.php:670
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "इस उपकरण के प्रकार का नाम।"
 
-#: router-devices.php:664
+#: router-devices.php:673
 #, fuzzy
 msgid "Next Backup"
 msgstr "पिछला बैकअप"
 
-#: router-devices.php:669
+#: router-devices.php:678
 #, fuzzy
 msgid "Date Backup"
 msgstr "पिछला बैकअप"
 
-#: router-devices.php:674
+#: router-devices.php:683
 #, fuzzy
 msgid "Next Attempt"
 msgstr "अगला प्रयास"
 
-#: router-devices.php:679
+#: router-devices.php:688
 #, fuzzy
 msgid "Last Attempt"
 msgstr "अंतिम प्रयास"
 
-#: router-devices.php:684
+#: router-devices.php:693
 #, fuzzy
 msgid "Date Change"
 msgstr "अंतिम परिवर्तन"
 
-#: router-devices.php:726
+#: router-devices.php:738
 #, fuzzy
 msgid "Today"
 msgstr "आज"
 
-#: router-devices.php:727
+#: router-devices.php:739
 #, fuzzy
 msgid "Yesterday"
 msgstr "बिता कल"
 
-#: router-devices.php:728
+#: router-devices.php:740
 msgid "This Week"
 msgstr "इस सप्ताह"
 
-#: router-devices.php:729
+#: router-devices.php:741
 msgid "This Month"
 msgstr "इस महीने@ label"
 
-#: router-devices.php:730
+#: router-devices.php:742
 #, fuzzy
 msgid "Within a Year"
 msgstr "एक वर्ष के भीतर"
 
-#: router-devices.php:731
+#: router-devices.php:743
 #, fuzzy
 msgid "Long, Long Ago"
 msgstr "काफी समय पहले"
 
-#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
-#: router-devtypes.php:280
+#: router-devices.php:773 router-devtypes.php:281 router-devtypes.php:282
+#: router-devtypes.php:284
 msgid "No"
 msgstr "नहीं"
 
-#: router-devices.php:760 router-devtypes.php:277 router-devtypes.php:278
-#: router-devtypes.php:280
+#: router-devices.php:773 router-devtypes.php:281 router-devtypes.php:282
+#: router-devtypes.php:284
 msgid "Yes"
 msgstr "हाँ"
 
-#: router-devices.php:775
+#: router-devices.php:788
 #, fuzzy
 msgid "Connect via SSH"
 msgstr "SSH के माध्यम से कनेक्ट करें"
 
-#: router-devices.php:779
+#: router-devices.php:792
 #, fuzzy
 msgid "Connect via Telnet"
 msgstr "टेलनेट के माध्यम से कनेक्ट करें"
 
-#: router-devices.php:785
+#: router-devices.php:798
 #, fuzzy
 msgid "Trace Route"
 msgstr "ट्रेस रूट"
 
-#: router-devices.php:787
+#: router-devices.php:801
 #, fuzzy
 msgid "Router Debug Info"
 msgstr "राउटर डिबग जानकारी"
 
-#: router-devices.php:797
+#: router-devices.php:812
 #, fuzzy, php-format
 msgid "Backups (%s)"
 msgstr "बैकअप ( %s)"
 
-#: router-devices.php:797
+#: router-devices.php:812
 msgid "Current"
 msgstr "वर्तमान"
 
-#: router-devices.php:811
+#: router-devices.php:827
 #, fuzzy
 msgid "No Router Devices Found"
 msgstr "कोई राउटर डिवाइस नहीं मिला"
 
-#: router-devtypes.php:109
+#: router-devtypes.php:113
 #, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "जब आप 'जारी रखें' पर क्लिक करते हैं, तो निम्न डिवाइस को हटा दिया जाएगा।"
 
-#: router-devtypes.php:192
+#: router-devtypes.php:196
 #, fuzzy, php-format
 msgid "Query [edit: %s]"
 msgstr "क्वेरी [संपादित करें: %s]"
 
-#: router-devtypes.php:194
+#: router-devtypes.php:198
 #, fuzzy
 msgid "Query [new]"
 msgstr "क्वेरी [नया]"
 
-#: router-devtypes.php:243
+#: router-devtypes.php:247
 #, fuzzy
 msgid "View Router Device Types"
 msgstr "राउटर डिवाइस के प्रकार देखें"
 
-#: router-devtypes.php:252
+#: router-devtypes.php:256
 msgid "Type"
 msgstr "प्रकार"
 
-#: router-devtypes.php:253
+#: router-devtypes.php:257
 #, fuzzy
 msgid "User Prompt"
 msgstr "उपयोगकर्ता नाम शीघ्र"
 
-#: router-devtypes.php:254
+#: router-devtypes.php:258
 #, fuzzy
 msgid "Pass Prompt"
 msgstr "पासवर्ड प्रॉम्प्ट"
 
-#: router-devtypes.php:256
+#: router-devtypes.php:260
 msgid "Version"
 msgstr "सरूप"
 
-#: router-devtypes.php:259
+#: router-devtypes.php:263
 #, fuzzy
 msgid "Confirm Prompt"
 msgstr "पुष्टि करें"
 
-#: router-devtypes.php:260
+#: router-devtypes.php:264
 #, fuzzy
 msgid "Check End In Config"
 msgstr "विन्यास में अंत की जाँच करें"
 
-#: router-devtypes.php:268
+#: router-devtypes.php:272
 #, fuzzy
 msgid "Edit Device Type"
 msgstr "डिवाइस प्रकार संपादित करें"
 
-#: router-devtypes.php:285
+#: router-devtypes.php:289
 #, fuzzy
 msgid "No Router Device Types Found"
 msgstr "कोई राउटर डिवाइस प्रकार नहीं मिला"
 
-#: setup.php:408
+#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#, fuzzy
+msgid "Router Configs"
+msgstr "राउटर कन्फिग्स"
+
+#: setup.php:413
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: '%s' तर्कों के साथ '%s' का निष्पादन"
 
-#: setup.php:432
+#: setup.php:438
 msgid "Utilities"
 msgstr "यूटिलिटीज"
 
-#: setup.php:437
+#: setup.php:444
 #, fuzzy
 msgid "Router Devices"
 msgstr "राउटर उपकरण"
 
-#: setup.php:444 setup.php:479 setup.php:507
+#: setup.php:451 setup.php:486 setup.php:514
 #, fuzzy
 msgid "(edit)"
 msgstr "संपादित करें"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:458 setup.php:493 setup.php:521
 #, fuzzy
 msgid "(actions)"
 msgstr "कार्रवाइयाँ"
 
-#: setup.php:465
+#: setup.php:472
 #, fuzzy
 msgid "View Debug"
 msgstr "डिबग देखें"
 
-#: setup.php:500
+#: setup.php:507
 #, fuzzy
 msgid "Router Accounts"
 msgstr "राउटर खाते"
 
-#: setup.php:521
+#: setup.php:528
 #, fuzzy
 msgid "Router Compare"
 msgstr "राउटर तुलना"
+
+#: setup.php:595
+#, fuzzy
+msgid "Routers"
+msgstr "राउटर कन्फिग्स"
 
 #, fuzzy
 #~ msgid "Misc"
