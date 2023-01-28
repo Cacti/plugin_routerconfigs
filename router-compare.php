@@ -235,10 +235,10 @@ if (!empty($file1) && !empty($file2)) {
 	if (get_request_var('diffmode') == 'sdiff') {
 		html_header(array($device1['directory'] . '/' . $device1['filename'], '', $device2['directory'] . '/' . $device2['filename']));
 
-		print "<tr height='1'><td width='50%'></td><td width='1'></td><td width='50%'></td></tr>";
+		print "<tr height='1'><td width='50%'></td><td width='50%'></td></tr>";
 
 		if (trim($text) == '') {
-			print '<tr><td colspan=3><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
+			print '<tr><td colspan="2"><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
 		} else {
 			$text = str_replace("\n", '<br>', $text);
 			$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
@@ -246,7 +246,7 @@ if (!empty($file1) && !empty($file2)) {
 			print $text;
 		}
 	} elseif (trim($text) == '') {
-		print '<tr><td colspan=3><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
+		print '<tr><td colspan="2"><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
 	} else {
 		$text = str_replace("\n", '<br>', $text);
 		$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
