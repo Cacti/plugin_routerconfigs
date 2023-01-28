@@ -68,6 +68,8 @@ issue in GitHub.
 
 * feature: Leverage Cacti's internal Diff API vs. Horde
 
+* feature: Raise message when performing backups from the user interface
+
 --- 1.5.3 ---
 
 * issue#113: Prompt confirmation db field wrong size

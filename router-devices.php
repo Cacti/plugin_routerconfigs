@@ -197,6 +197,9 @@ function actions_devices() {
 
 			plugin_routerconfigs_log(__("DEBUG: Executing manual backup using '%s' with arguments '%s'",$command_string,$extra_args,'routerconfigs'));
 			exec_background($command_string, $extra_args);
+
+			raise_message('backup_started', __('Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing', 'routerconfigs'), MESSAGE_LEVEL_INFO);
+
 			header('Location: router-devices.php?header=false');
 			exit;
 		}
