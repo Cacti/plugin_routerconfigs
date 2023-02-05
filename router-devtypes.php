@@ -87,7 +87,7 @@ function actions_devicetypes () {
 			input_validate_input_number($matches[1]);
 			/* ==================================================== */
 
-			$devtype_list .= '<li>' . db_fetch_cell_prepared('SLECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', array($matches[1])) . '</li>';
+			$devtype_list .= '<li>' . db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', array($matches[1])) . '</li>';
 			$devtype_array[] = $matches[1];
 		}
 	}
