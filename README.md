@@ -56,6 +56,10 @@ issue in GitHub.
 
 ## ChangeLog
 
+--- 1.6.1 ---
+
+* issue#126: Sorting on backups page not working
+
 --- 1.6 ---
 
 * issue#122: Backtrace and Deprecation with PHP 8.1

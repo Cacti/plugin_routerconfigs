@@ -279,19 +279,19 @@ function show_devices () {
 			'sort' => 'ASC',
 			'tip' => __('The directory of the stored device backups', 'routerconfigs')
 		),
-		'backup' => array(
+		'btime' => array(
 			'display' => __('Backup Time'),
 			'align' => 'left',
-			'sort' => 'ASC',
+			'sort' => 'DESC',
 			'tip' => __('The last Backup time of the device')
 		),
-		'change' => array(
+		'lastchange' => array(
 			'display' => __('Last Change'),
 			'align' => 'left',
-			'sort' => 'ASC',
+			'sort' => 'DESC',
 			'tip' => __('The last Change time of the device')
 		),
-		'change_by' => array(
+		'lastuser' => array(
 			'display' => __('Changed By'),
 			'align' => 'left',
 			'sort' => 'ASC',
