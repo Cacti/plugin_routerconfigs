@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-01-28 09:49-0500\nPO-Revision-Date: 2023-06-15 02:28+0000\nLast-Translator: Сергей <zersh@mail.ru>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/routerconfigs/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-01-28 09:49-0500\nPO-Revision-Date: 2023-06-26 11:06+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/routerconfigs/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -23,9 +23,8 @@ msgid "Disable"
 msgstr "Выключить"
 
 #: include/arrays.php:54
-#, fuzzy
 msgid "SSH/Telnet"
-msgstr "Telnet"
+msgstr "SSH/Telnet"
 
 #: include/arrays.php:55
 msgid "SSH"
@@ -36,7 +35,6 @@ msgid "Telnet"
 msgstr "Telnet"
 
 #: include/arrays.php:57
-#, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
@@ -98,124 +96,100 @@ msgid "%d hours"
 msgstr "%d часов"
 
 #: include/arrays.php:96
-#, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12:00)"
 
 #: include/arrays.php:97
-#, fuzzy
 msgid "01:00 (1am)"
-msgstr "01:00 (01:00)"
+msgstr "01:00 (1 час ночи)"
 
 #: include/arrays.php:98
-#, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2 часа ночи)"
 
 #: include/arrays.php:99
-#, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3 часа ночи)"
 
 #: include/arrays.php:100
-#, fuzzy
 msgid "04:00 (4am)"
-msgstr "04:00 (4:00)"
+msgstr "04:00 (4 часа ночи)"
 
 #: include/arrays.php:101
-#, fuzzy
 msgid "05:00 (5am)"
-msgstr "05:00 (5:00)"
+msgstr "05:00 (5 часа ночи)"
 
 #: include/arrays.php:102
-#, fuzzy
 msgid "06:00 (6am)"
-msgstr "06:00 (6:00)"
+msgstr "06:00 (6 часов утра)"
 
 #: include/arrays.php:103
-#, fuzzy
 msgid "07:00 (7am)"
-msgstr "07:00 (7:00)"
+msgstr "07:00 (7 часов утра)"
 
 #: include/arrays.php:104
-#, fuzzy
 msgid "08:00 (8am)"
-msgstr "08:00 (8:00)"
+msgstr "08:00 (8 часов утра)"
 
 #: include/arrays.php:105
-#, fuzzy
 msgid "09:00 (9am)"
-msgstr "09:00 (9:00)"
+msgstr "09:00 (9 часов утра)"
 
 #: include/arrays.php:106
-#, fuzzy
 msgid "10:00 (12am)"
-msgstr "10:00 (12:00)"
+msgstr "10:00 (10 часа дня)"
 
 #: include/arrays.php:107
-#, fuzzy
 msgid "11:00 (11am)"
-msgstr "11:00 (11:00)"
+msgstr "11:00 (11 часа дня)"
 
 #: include/arrays.php:108
-#, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12 вечера)"
 
 #: include/arrays.php:109
-#, fuzzy
 msgid "13:00 (1pm)"
-msgstr "13:00 (13:00)"
+msgstr "13:00 (1 час дня)"
 
 #: include/arrays.php:110
-#, fuzzy
 msgid "14:00 (2pm)"
-msgstr "14:00 (14:00)"
+msgstr "14:00 (2 часа дня)"
 
 #: include/arrays.php:111
-#, fuzzy
 msgid "15:00 (3pm)"
-msgstr "15:00 (15:00)"
+msgstr "15:00 (3 часа дня)"
 
 #: include/arrays.php:112
-#, fuzzy
 msgid "16:00 (4pm)"
-msgstr "16:00 (16:00)"
+msgstr "16:00 (4 часа дня)"
 
 #: include/arrays.php:113
-#, fuzzy
 msgid "17:00 (5pm)"
-msgstr "17:00 (17:00)"
+msgstr "17:00 (5 часов вечера)"
 
 #: include/arrays.php:114
-#, fuzzy
 msgid "18:00 (6pm)"
-msgstr "18:00 (18:00)"
+msgstr "18:00 (6 часов вечера)"
 
 #: include/arrays.php:115
-#, fuzzy
 msgid "19:00 (7pm)"
-msgstr "19:00 (19:00)"
+msgstr "19:00 (7 часов вечера)"
 
 #: include/arrays.php:116
-#, fuzzy
 msgid "20:00 (8pm)"
-msgstr "20:00 (20:00)"
+msgstr "20:00 (8 часов вечера)"
 
 #: include/arrays.php:117
-#, fuzzy
 msgid "21:00 (9pm)"
-msgstr "21:00 (21:00)"
+msgstr "21:00 (9 часов вечера)"
 
 #: include/arrays.php:118
-#, fuzzy
 msgid "22:00 (10pm)"
-msgstr "22:00 (22:00)"
+msgstr "22:00 (10 часов вечера)"
 
 #: include/arrays.php:119
-#, fuzzy
 msgid "23:00 (11pm)"
-msgstr "23:00 (23:00)"
+msgstr "23:00 (11 часов вечера)"
 
 #: include/arrays.php:125 include/arrays.php:260 router-devtypes.php:255
 msgid "Name"
@@ -231,7 +205,6 @@ msgid "Username"
 msgstr "Имя Пользователя"
 
 #: include/arrays.php:133
-#, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "Имя пользователя, которое будет использоваться для аутентификации."
 
@@ -240,12 +213,10 @@ msgid "Password"
 msgstr "Пароль"
 
 #: include/arrays.php:140
-#, fuzzy
 msgid "The password used for authentication."
-msgstr "Пароль, используемый для аутентификации."
+msgstr "Пароль, которое будет использоваться для аутентификации."
 
 #: include/arrays.php:148
-#, fuzzy
 msgid "Enable Password"
 msgstr "Включить пароль"
 
@@ -255,7 +226,6 @@ msgid "Your Enable Password, if required."
 msgstr "Ваш пароль доступа, если требуется."
 
 #: include/arrays.php:164
-#, fuzzy
 msgid "Enable Device"
 msgstr "Включить устройство"
 
@@ -471,7 +441,7 @@ msgstr "Текст, соответствующий запросу в стиле 
 
 #: include/arrays.php:384
 msgid "General Settings"
-msgstr ""
+msgstr "Общие Настройки"
 
 #: include/arrays.php:388
 #, fuzzy
@@ -485,11 +455,12 @@ msgstr ""
 
 #: include/arrays.php:392
 msgid "Console"
-msgstr ""
+msgstr "Консоль"
 
 #: include/arrays.php:392
+#, fuzzy
 msgid "Top Tab"
-msgstr ""
+msgstr "Верхняя Вкладка"
 
 #: include/arrays.php:411
 #, fuzzy
@@ -996,8 +967,9 @@ msgid "Router Backup Comparison"
 msgstr "Резервное копирование маршрутизатора"
 
 #: router-compare.php:100
+#, fuzzy
 msgid "Diff Mode"
-msgstr ""
+msgstr "Режим Diff"
 
 #: router-compare.php:104
 msgid "Inline"
@@ -1005,7 +977,7 @@ msgstr "В очереди"
 
 #: router-compare.php:105
 msgid "Side by Side"
-msgstr ""
+msgstr "Бок рядом"
 
 #: router-compare.php:164
 #, fuzzy
