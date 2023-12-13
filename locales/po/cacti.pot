@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -311,7 +311,7 @@ msgid "Default timeout"
 msgstr ""
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr ""
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -773,7 +773,7 @@ msgstr ""
 msgid "No Router Accounts Found"
 msgstr ""
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 msgid "Router Backups"
 msgstr ""
 
@@ -865,7 +865,7 @@ msgstr ""
 msgid "The filename of the stored device backups"
 msgstr ""
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 msgid "View Config"
 msgstr ""
 
@@ -893,11 +893,11 @@ msgstr ""
 msgid "Compare Output"
 msgstr ""
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 msgid "There are no Changes"
 msgstr ""
 
-#: router-compare.php:258
+#: router-compare.php:259
 msgid "Error, you must have backups for each device."
 msgstr ""
 
@@ -1124,7 +1124,7 @@ msgstr ""
 msgid "No Router Device Types Found"
 msgstr ""
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 msgid "Router Configs"
 msgstr ""
 
@@ -1133,34 +1133,38 @@ msgstr ""
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr ""
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr ""
 
-#: setup.php:444
+#: setup.php:445
 msgid "Router Devices"
 msgstr ""
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr ""
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 msgid "(actions)"
 msgstr ""
 
-#: setup.php:472
+#: setup.php:473
 msgid "View Debug"
 msgstr ""
 
-#: setup.php:507
+#: setup.php:508
 msgid "Router Accounts"
 msgstr ""
 
-#: setup.php:528
+#: setup.php:529
 msgid "Router Compare"
 msgstr ""
 
-#: setup.php:595
+#: setup.php:599
+msgid "RouterConfigs"
+msgstr ""
+
+#: setup.php:599
 msgid "Routers"
 msgstr ""
