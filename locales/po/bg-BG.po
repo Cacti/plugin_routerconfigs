@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2020-12-13 10:21-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -358,7 +358,7 @@ msgstr "Време за изчакване по подразбиране"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "Време по подразбиране за изчакване в секунди за отговор"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -895,7 +895,7 @@ msgstr "Акаунти - Управление"
 msgid "No Router Accounts Found"
 msgstr "Няма намерени профили на рутера"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "Резервни копия на рутера"
@@ -1002,7 +1002,7 @@ msgstr "Име на файла"
 msgid "The filename of the stored device backups"
 msgstr "Броят дни за запазване на старите архиви."
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 #, fuzzy
 msgid "View Config"
 msgstr "Преглед на конфигурацията"
@@ -1034,12 +1034,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "Сравнете изход"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Няма промени"
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Грешка, трябва да имате резервни копия за всяко устройство."
@@ -1303,7 +1303,7 @@ msgstr "Редактиране на тип устройство"
 msgid "No Router Device Types Found"
 msgstr "Няма намерени типове устройства за маршрутизатор"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "Рутер Конфиг"
@@ -1313,40 +1313,45 @@ msgstr "Рутер Конфиг"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "ОТЛАГАНЕ: Изпълнение на „%s“ с аргументи „%s“"
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "Приложения"
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "Устройства за рутери"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr "Редактиране..."
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 #, fuzzy
 msgid "(actions)"
 msgstr "Действия"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "Преглед на отстраняването на грешки"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Профили на рутера"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "Router Сравни"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "Рутер Конфиг"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "Рутер Конфиг"
