@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2021-09-22 14:09+0000\n"
 "Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/routerconfigs/es/>\n"
@@ -355,7 +355,7 @@ msgstr "Tiempo de espera predeterminado"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "Tiempo predeterminado para esperar en segundos una respuesta"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -886,7 +886,7 @@ msgstr "Administración de la cuenta"
 msgid "No Router Accounts Found"
 msgstr "No se han encontrado cuentas de enrutador"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "Copias de seguridad del router"
@@ -986,7 +986,7 @@ msgstr "Nombre del archivo"
 msgid "The filename of the stored device backups"
 msgstr "El número de días para conservar las copias de seguridad antiguas."
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 #, fuzzy
 msgid "View Config"
 msgstr "Ver Config"
@@ -1018,12 +1018,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "Comparar la producción"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Propagar cambios"
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Error, debe tener copias de seguridad para cada dispositivo."
@@ -1281,7 +1281,7 @@ msgstr "Editar tipo de dispositivo"
 msgid "No Router Device Types Found"
 msgstr "No se han encontrado tipos de dispositivos de enrutador"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "Configuraciones del enrutador"
@@ -1291,39 +1291,44 @@ msgstr "Configuraciones del enrutador"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Ejecutando '%s' con argumentos '%s'"
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "Utilidades"
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "Dispositivos de enrutador"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr "(Editar)"
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 msgid "(actions)"
 msgstr "(acciones)"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "Ver Depuración"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Cuentas de enrutador"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "Comparación de enrutadores"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "Configuraciones del enrutador"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "Configuraciones del enrutador"
