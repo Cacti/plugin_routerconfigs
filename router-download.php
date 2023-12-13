@@ -56,7 +56,7 @@ $longOpts  = array(
 	'simulate-schedule'
 );
 
-$remaing = '';
+$remaining = '';
 $options = routerconfigs_getopts($shortOpts, $longOpts, $remaining);
 
 include('./include/global.php');

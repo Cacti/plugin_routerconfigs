@@ -611,7 +611,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 			clearstatcache();
 			if (file_exists($savename)) {
-				$connection->Log("WARNING: Overwritting existing file '$savename'");
+				$connection->Log("WARNING: Overwriting existing file '$savename'");
 			}
 
 			$file = @fopen($savename, 'w');
@@ -752,7 +752,7 @@ function plugin_routerconfigs_messagetype($message) {
 
 /*
 //Log messages to cacti log or syslog
-//This function is the same as thold plugin with a litle changes
+//This function is the same as thold plugin with a little change
 //to respect cacti log level settings
 */
 function plugin_routerconfigs_log($message, $log_level = POLLER_VERBOSITY_NONE) {

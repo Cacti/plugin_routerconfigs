@@ -1,6 +1,6 @@
 # routerconfigs
 
-The routerconfigs plugin is designed to act in conjuction with the Cacti servers
+The routerconfigs plugin is designed to act in conjunction with the Cacti servers
 tftp server to receive backups from your router devices.  It also provides the
 ability to view and diff those router configurations as they change over time.
 It is designed primarily for Cisco device types, but may work with other device
@@ -28,7 +28,7 @@ require assistance.
 
 Just like any other Cacti plugin, untar the package to the Cacti plugins
 directory, rename the directory to 'routerconfigs', and then from Cacti's Plugin
-Management interface, Install and Enable the pluign.
+Management interface, Install and Enable the plugin.
 
 This plugin requires a TFTP server on the Cacti server (see below for an example
 under CentOS 6)
@@ -287,7 +287,7 @@ issue in GitHub.
 
 --- 1.2 ---
 
-* issue: Correct most config comparision code
+* issue: Correct most config comparison code
 
 * issue: Added in missing Horde library functions and created common include
   file
@@ -321,7 +321,7 @@ issue in GitHub.
 
 --- 1.1 ---
 
-* issue#9: Constructurs missing on the Horde class library
+* issue#9: Constructors missing on the Horde class library
 
 * issue#16: HTML style issues during enable/disable operations
 

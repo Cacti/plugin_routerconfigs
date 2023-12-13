@@ -192,7 +192,7 @@ function save_accounts () {
 		exit;
 	}
 
-	header('Location: router-accounts.php?header=fasle');
+	header('Location: router-accounts.php?header=false');
 	exit;
 }
 

@@ -224,7 +224,7 @@ $rc_device_edit_fields = array(
 	),
 	'timeout' => array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
+		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
 		'method' => 'textbox',
 		'value' => '|arg1:timeout|',
 		'max_length' => '3',
@@ -349,7 +349,7 @@ $rc_devtype_edit_fields = array(
 	),
 	'timeout' => array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
+		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
 		'method' => 'textbox',
 		'value' => '|arg1:timeout|',
 		'default' => '1',
@@ -393,7 +393,7 @@ $rc_settings = array(
 	),
 	'routerconfigs_timeout' => array(
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a resposne', 'routerconfigs'),
+		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
 		'method' => 'textbox',
 		'max_length' => '3',
 		'size' => '3',

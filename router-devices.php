@@ -548,7 +548,7 @@ function show_devices() {
 	?>
 	<tr class='even noprint'>
 		<td>
-		<form id='form_devices' action='router-devicess.php'>
+		<form id='form_devices' action='router-devices.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>

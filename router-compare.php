@@ -93,7 +93,7 @@ html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', '', '4',
 ?>
 <tr class='even noprint'>
 	<td>
-	<form id='form_devices' action='router-devicess.php'>
+	<form id='form_devices' action='router-devices.php'>
 		<table class='filterTable'>
 			<tr>
 				<td>
