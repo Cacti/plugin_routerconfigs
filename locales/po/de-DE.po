@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -357,7 +357,7 @@ msgstr "Standardzeitlimit"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "Standardzeit, um in Sekunden auf eine Antwort zu warten"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -890,7 +890,7 @@ msgstr "Kontoverwaltung"
 msgid "No Router Accounts Found"
 msgstr "Keine Router-Konten gefunden"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "Router-Backups"
@@ -992,7 +992,7 @@ msgstr "Dateiname"
 msgid "The filename of the stored device backups"
 msgstr "Die Anzahl der Tage, in denen alte Backups aufbewahrt werden."
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 #, fuzzy
 msgid "View Config"
 msgstr "View Config"
@@ -1024,12 +1024,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "Output vergleichen"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Weitergabe der Änderungen"
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Fehler, Sie müssen für jedes Gerät Backups haben."
@@ -1290,7 +1290,7 @@ msgstr "Gerätetyp bearbeiten"
 msgid "No Router Device Types Found"
 msgstr "Keine Router-Gerätetypen gefunden"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "Router-Konfigurationen"
@@ -1300,40 +1300,45 @@ msgstr "Router-Konfigurationen"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: '%s' mit den Argumenten '%s' ausführen."
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "Werkzeuge"
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "Router-Geräte"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr "(Bearbeiten)"
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 #, fuzzy
 msgid "(actions)"
 msgstr "Aktionen"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "Debug anzeigen"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Router-Konten"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "Router-Vergleich"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "Router-Konfigurationen"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "Router-Konfigurationen"
