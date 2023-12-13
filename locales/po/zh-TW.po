@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2021-05-03 12:13+0000\n"
 "Last-Translator: Linya Huang <linya0405@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <http://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
@@ -354,7 +354,7 @@ msgstr "默認超時"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "等待恢復的默認時間（以秒為單位）"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -890,7 +890,7 @@ msgstr "帳戶管理"
 msgid "No Router Accounts Found"
 msgstr "找不到路由器帳戶"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "路由器備份"
@@ -994,7 +994,7 @@ msgstr "檔案名稱"
 msgid "The filename of the stored device backups"
 msgstr "保留舊備份的天數。"
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 msgid "View Config"
 msgstr "檢視設定配置"
 
@@ -1025,12 +1025,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "比較輸出"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "沒有變化"
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "錯誤，您必須為每個設備備份。"
@@ -1291,7 +1291,7 @@ msgstr "編輯設備類型"
 msgid "No Router Device Types Found"
 msgstr "找不到路由器設備類型"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "路由器配置"
@@ -1301,40 +1301,45 @@ msgstr "路由器配置"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "調試：使用參數“ %s”執行“ %s”"
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "公用程式"
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "路由設備"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr "(編輯)"
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 #, fuzzy
 msgid "(actions)"
 msgstr "動作"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "查看調試"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "路由器帳戶"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "路由器比較"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "路由器配置"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "路由器配置"
