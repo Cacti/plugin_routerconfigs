@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2020-12-13 10:24-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -361,7 +361,7 @@ msgstr "डिफ़ॉल्ट टाइमआउट"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "एक resposne के लिए सेकंड में प्रतीक्षा करने के लिए डिफ़ॉल्ट समय"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -904,7 +904,7 @@ msgstr "खाता प्रबंधन"
 msgid "No Router Accounts Found"
 msgstr "कोई राउटर अकाउंट्स नहीं मिला"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "राउटर बैकअप"
@@ -1012,7 +1012,7 @@ msgstr "फ़ाइल का नाम"
 msgid "The filename of the stored device backups"
 msgstr "पुराने बैकअप को बनाए रखने के लिए दिनों की संख्या।"
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 #, fuzzy
 msgid "View Config"
 msgstr "विन्यास देखें"
@@ -1044,12 +1044,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "आउटपुट की तुलना करें"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "कोई परिवर्तन नहीं हैं"
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "त्रुटि, आपके पास प्रत्येक डिवाइस के लिए बैकअप होना चाहिए।"
@@ -1316,7 +1316,7 @@ msgstr "डिवाइस प्रकार संपादित करें
 msgid "No Router Device Types Found"
 msgstr "कोई राउटर डिवाइस प्रकार नहीं मिला"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "राउटर कन्फिग्स"
@@ -1326,41 +1326,46 @@ msgstr "राउटर कन्फिग्स"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: '%s' तर्कों के साथ '%s' का निष्पादन"
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "यूटिलिटीज"
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "राउटर उपकरण"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 #, fuzzy
 msgid "(edit)"
 msgstr "संपादित करें"
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 #, fuzzy
 msgid "(actions)"
 msgstr "कार्रवाइयाँ"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "डिबग देखें"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "राउटर खाते"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "राउटर तुलना"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "राउटर कन्फिग्स"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "राउटर कन्फिग्स"
