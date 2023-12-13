@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-01-28 09:49-0500\n"
+"POT-Creation-Date: 2023-12-12 22:41-0600\n"
 "PO-Revision-Date: 2020-12-13 10:26-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -359,7 +359,7 @@ msgstr "기본 시간 초과"
 
 #: include/arrays.php:227 include/arrays.php:352 include/arrays.php:396
 #, fuzzy
-msgid "Default time to wait in seconds for a resposne"
+msgid "Default time to wait in seconds for a response"
 msgstr "응답을위한 기본 대기 시간 (초)"
 
 #: include/arrays.php:235 include/arrays.php:360 include/arrays.php:403
@@ -895,7 +895,7 @@ msgstr "계정 관리"
 msgid "No Router Accounts Found"
 msgstr "라우터 계정 없음"
 
-#: router-backups.php:202 setup.php:479
+#: router-backups.php:202 setup.php:480
 #, fuzzy
 msgid "Router Backups"
 msgstr "라우터 백업"
@@ -1000,7 +1000,7 @@ msgstr "파일이름"
 msgid "The filename of the stored device backups"
 msgstr "오래된 백업을 유지하는 기간 (일)입니다."
 
-#: router-backups.php:338 setup.php:465 setup.php:500
+#: router-backups.php:338 setup.php:466 setup.php:501
 msgid "View Config"
 msgstr "설정 보기"
 
@@ -1031,12 +1031,12 @@ msgstr ""
 msgid "Compare Output"
 msgstr "출력 비교"
 
-#: router-compare.php:240 router-compare.php:248
+#: router-compare.php:241 router-compare.php:249
 #, fuzzy
 msgid "There are no Changes"
 msgstr "변경 사항이 없습니다."
 
-#: router-compare.php:258
+#: router-compare.php:259
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "오류가 발생하면 각 장치에 대한 백업이 있어야합니다."
@@ -1301,7 +1301,7 @@ msgstr "장치 유형 편집"
 msgid "No Router Device Types Found"
 msgstr "라우터 장치 유형을 찾을 수 없음"
 
-#: setup.php:42 setup.php:423 setup.php:438 setup.php:595
+#: setup.php:42 setup.php:424 setup.php:439
 #, fuzzy
 msgid "Router Configs"
 msgstr "라우터 구성"
@@ -1311,40 +1311,45 @@ msgstr "라우터 구성"
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "디버그 : '%s'인수로 '%s'실행"
 
-#: setup.php:438
+#: setup.php:439
 msgid "Utilities"
 msgstr "도구 "
 
-#: setup.php:444
+#: setup.php:445
 #, fuzzy
 msgid "Router Devices"
 msgstr "라우터 장치"
 
-#: setup.php:451 setup.php:486 setup.php:514
+#: setup.php:452 setup.php:487 setup.php:515
 msgid "(edit)"
 msgstr "(편집)"
 
-#: setup.php:458 setup.php:493 setup.php:521
+#: setup.php:459 setup.php:494 setup.php:522
 #, fuzzy
 msgid "(actions)"
 msgstr "작업"
 
-#: setup.php:472
+#: setup.php:473
 #, fuzzy
 msgid "View Debug"
 msgstr "디버그보기"
 
-#: setup.php:507
+#: setup.php:508
 #, fuzzy
 msgid "Router Accounts"
 msgstr "라우터 계정"
 
-#: setup.php:528
+#: setup.php:529
 #, fuzzy
 msgid "Router Compare"
 msgstr "라우터 비교"
 
-#: setup.php:595
+#: setup.php:599
+#, fuzzy
+msgid "RouterConfigs"
+msgstr "라우터 구성"
+
+#: setup.php:599
 #, fuzzy
 msgid "Routers"
 msgstr "라우터 구성"
