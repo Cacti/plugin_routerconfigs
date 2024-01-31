@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-12-12 22:41-0600\n"
-"PO-Revision-Date: 2020-12-13 10:26-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-12 22:41-0600\nPO-Revision-Date: 2024-01-31 14:27+0000\nLast-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\nLanguage-Team: Dutch <http://translate.cacti.net/projects/cacti/routerconfigs/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/arrays.php:39 include/arrays.php:44 include/arrays.php:50
 msgid "Delete"
@@ -34,12 +23,10 @@ msgid "Disable"
 msgstr "Uitschakelen"
 
 #: include/arrays.php:54
-#, fuzzy
 msgid "SSH/Telnet"
-msgstr "Telnet"
+msgstr "SSH/Telnet"
 
 #: include/arrays.php:55
-#, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
@@ -48,12 +35,10 @@ msgid "Telnet"
 msgstr "Telnet"
 
 #: include/arrays.php:57
-#, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
 #: include/arrays.php:58
-#, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
@@ -111,122 +96,98 @@ msgid "%d hours"
 msgstr "%d uren"
 
 #: include/arrays.php:96
-#, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12 uur)"
 
 #: include/arrays.php:97
-#, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (01:00 uur)"
 
 #: include/arrays.php:98
-#, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2 uur)"
 
 #: include/arrays.php:99
-#, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3 uur)"
 
 #: include/arrays.php:100
-#, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4 uur)"
 
 #: include/arrays.php:101
-#, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5 uur)"
 
 #: include/arrays.php:102
-#, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6 uur)"
 
 #: include/arrays.php:103
-#, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7 uur)"
 
 #: include/arrays.php:104
-#, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (8 uur)"
 
 #: include/arrays.php:105
-#, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9 uur)"
 
 #: include/arrays.php:106
-#, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12 uur)"
 
 #: include/arrays.php:107
-#, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11:00 uur)"
 
 #: include/arrays.php:108
-#, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12:00 uur)"
 
 #: include/arrays.php:109
-#, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (13:00 uur)"
 
 #: include/arrays.php:110
-#, fuzzy
 msgid "14:00 (2pm)"
-msgstr "14:00 (14:00)"
+msgstr "14:00 (14:00 uur)"
 
 #: include/arrays.php:111
-#, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (15:00 uur)"
 
 #: include/arrays.php:112
-#, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (16:00 uur)"
 
 #: include/arrays.php:113
-#, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (17:00 uur)"
 
 #: include/arrays.php:114
-#, fuzzy
 msgid "18:00 (6pm)"
-msgstr "18:00 (18:00)"
+msgstr "18:00 (18:00 uur)"
 
 #: include/arrays.php:115
-#, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (19:00 uur)"
 
 #: include/arrays.php:116
-#, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (20:00 uur)"
 
 #: include/arrays.php:117
-#, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (21:00 uur)"
 
 #: include/arrays.php:118
-#, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (22:00 uur)"
 
 #: include/arrays.php:119
-#, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (23:00 uur)"
 
@@ -268,9 +229,8 @@ msgid "Your Enable Password, if required."
 msgstr "Uw Enable Password, indien nodig."
 
 #: include/arrays.php:164
-#, fuzzy
 msgid "Enable Device"
-msgstr "Appara(a)t(en) inschakelen"
+msgstr "Apparaat inschakelen"
 
 #: include/arrays.php:165
 #, fuzzy
@@ -328,7 +288,6 @@ msgid "Auto-Detect"
 msgstr "Automatisch detecteren"
 
 #: include/arrays.php:210 include/arrays.php:268
-#, fuzzy
 msgid "Connection Type"
 msgstr "Connectie type"
 
@@ -377,9 +336,8 @@ msgid "Assume elevated"
 msgstr "Veronderstel verheven"
 
 #: include/arrays.php:246 include/arrays.php:345
-#, fuzzy
 msgid "Check this box to assume this device is always elevated"
-msgstr "Schakel dit vakje uit om de back-up van dit apparaat uit te schakelen."
+msgstr "Schakel dit vakje uit om de back-up van dit apparaat uit te schakelen"
 
 #: include/arrays.php:261
 #, fuzzy
@@ -466,9 +424,8 @@ msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "Is er een force confirmation prompt voor het kopiëren van de configuratie?"
 
 #: include/arrays.php:338
-#, fuzzy
 msgid "Check End in Config"
-msgstr "Controleer Einde in Config."
+msgstr "Controleer Einde in Config"
 
 #: include/arrays.php:339
 #, fuzzy
@@ -487,7 +444,7 @@ msgstr "Tekst die overeenkomt met een opgemaakte prompt 'Druk op een toets om do
 
 #: include/arrays.php:384
 msgid "General Settings"
-msgstr ""
+msgstr "Algemene Instellingen"
 
 #: include/arrays.php:388
 #, fuzzy
@@ -495,16 +452,18 @@ msgid "Presentation Mode"
 msgstr "Bewaarperiode"
 
 #: include/arrays.php:389
+#, fuzzy
 msgid "Should Router Configs be presented on the Console or a Top Tab."
-msgstr ""
+msgstr "Moeten routerconfiguraties worden weergegeven op de console of een bovenste tabblad."
 
 #: include/arrays.php:392
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: include/arrays.php:392
+#, fuzzy
 msgid "Top Tab"
-msgstr ""
+msgstr "Bovenste tabblad"
 
 #: include/arrays.php:411
 #, fuzzy
@@ -626,9 +585,8 @@ msgid "Archive Directory Path"
 msgstr "Back-up directory pad"
 
 #: include/arrays.php:488
-#, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
-msgstr "Het pad naar waar uw configuraties worden geback-upt, moet het pad zijn waar de lokale TFTP-server naartoe schrijft."
+msgstr "Het pad naar waar uw configuraties worden gearchiveerd (verplaatst vanuit de TFTP-map)"
 
 #: include/arrays.php:495
 msgid "Email Options"
@@ -729,19 +687,19 @@ msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: poging tot downloaden voor %s"
 
 #: include/functions.php:204
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices backed up successfully."
-msgstr "%s apparaten waarvan met succes een back-up is gemaakt.<br>"
+msgstr "%s apparaten waarvan met succes een back-up is gemaakt."
 
 #: include/functions.php:205
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices failed to backup."
-msgstr "%s apparaten zijn er niet in geslaagd een back-up te maken.<br>"
+msgstr "%s apparaten zijn er niet in geslaagd een back-up te maken."
 
 #: include/functions.php:207
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices disabled from backup."
-msgstr "%s apparaten zijn er niet in geslaagd een back-up te maken.<br>"
+msgstr "%s apparaten zijn er niet in geslaagd een back-up te maken."
 
 #: include/functions.php:225
 #, fuzzy
@@ -759,9 +717,8 @@ msgid " - Forced"
 msgstr " - Gedwongen"
 
 #: include/functions.php:236
-#, fuzzy
 msgid " - Manual"
-msgstr "handmatig"
+msgstr " - Handmatig"
 
 #: include/functions.php:240
 #, fuzzy
@@ -769,9 +726,8 @@ msgid " - Simulated"
 msgstr " - Gesimuleerd"
 
 #: include/functions.php:244
-#, fuzzy
 msgid " - Scheduled"
-msgstr "Ingepland"
+msgstr " - Ingepland"
 
 #: include/functions.php:248
 #, fuzzy
@@ -789,9 +745,8 @@ msgid ": FAILED"
 msgstr "MISLUKT"
 
 #: include/functions.php:269
-#, fuzzy
 msgid "STATS: "
-msgstr "Statistieken"
+msgstr "Statistieken: "
 
 #: include/functions.php:310
 #, fuzzy
@@ -953,9 +908,8 @@ msgid "Perform functions against this backup"
 msgstr "Voer functies uit tegen deze back-up"
 
 #: router-backups.php:280 router-devices.php:706
-#, fuzzy
 msgid "The directory of the stored device backups"
-msgstr "Het aantal dagen om oude back-ups te behouden."
+msgstr "De map met de opgeslagen apparaatback-ups"
 
 #: router-backups.php:283
 #, fuzzy
@@ -963,9 +917,8 @@ msgid "Backup Time"
 msgstr "Back-uptijd"
 
 #: router-backups.php:286 router-devices.php:647
-#, fuzzy
 msgid "The last Backup time of the device"
-msgstr "Hoe vaak maakt u een back-up van dit apparaat."
+msgstr "De laatste back-uptijd van het apparaat"
 
 #: router-backups.php:289
 #, fuzzy
@@ -992,9 +945,8 @@ msgid "Filename"
 msgstr "Bestandsnaam"
 
 #: router-backups.php:304
-#, fuzzy
 msgid "The filename of the stored device backups"
-msgstr "Het aantal dagen om oude back-ups te behouden."
+msgstr "De bestandsnaam van de opgeslagen apparaatback-ups"
 
 #: router-backups.php:338 setup.php:466 setup.php:501
 msgid "View Config"
@@ -1012,15 +964,17 @@ msgstr "Router back-ups"
 
 #: router-compare.php:100
 msgid "Diff Mode"
-msgstr ""
+msgstr "Diff Mode"
 
 #: router-compare.php:104
+#, fuzzy
 msgid "Inline"
-msgstr ""
+msgstr "Inline"
 
 #: router-compare.php:105
+#, fuzzy
 msgid "Side by Side"
-msgstr ""
+msgstr "Naast elkaar"
 
 #: router-compare.php:164
 #, fuzzy
@@ -1045,11 +999,12 @@ msgstr "Debug voor %s (%s)<br><br><br>"
 #: router-devices.php:198
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr "DEBUG: handmatige back-up uitvoeren met '%s' met argumenten '%s'"
+msgstr "DEBUG: Handmatige back-up uitvoeren met '%s' en argumenten '%s'"
 
 #: router-devices.php:201
+#, fuzzy
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
-msgstr ""
+msgstr "Router Backup gestart.  Controleer de kolom Datumback-up of het cactussenlogboek voor de voltooiingsstatus en timing"
 
 #: router-devices.php:227
 #, fuzzy
@@ -1137,9 +1092,8 @@ msgid "The number of configurations for this device"
 msgstr "Het aantal configuraties voor dit apparaat"
 
 #: router-devices.php:670
-#, fuzzy
 msgid "The IP address of this device"
-msgstr "Naam van dit apparaattype."
+msgstr "Het IP-adres van dit apparaat"
 
 #: router-devices.php:673
 #, fuzzy
@@ -1218,7 +1172,6 @@ msgid "Trace Route"
 msgstr "Traceer route"
 
 #: router-devices.php:801
-#, fuzzy
 msgid "Router Debug Info"
 msgstr "Router Debug Info"
 
@@ -1280,9 +1233,8 @@ msgid "Confirm Prompt"
 msgstr "Bevestig nieuw wachtwoord"
 
 #: router-devtypes.php:264
-#, fuzzy
 msgid "Check End In Config"
-msgstr "Check End In Config"
+msgstr "Controleer Einde in Config"
 
 #: router-devtypes.php:272
 #, fuzzy
