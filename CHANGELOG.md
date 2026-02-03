@@ -1,6 +1,6 @@
 # ChangeLog
 
---- devel ---
+--- 1.7 ---
 
 * issue#139: Routerconfigs deprecation warnings
 * issue#141: Backups not showing by device
@@ -10,8 +10,6 @@
 
 * issue#126: Sorting on backups page not working
 * issue#137: Fix PHP8.2 warning messages, fix comware device type 
-* issue#141: Backups are not being displayed when using the dropdown
-* feature: Convert images to fontawesome icons
 
 --- 1.6 ---
 
