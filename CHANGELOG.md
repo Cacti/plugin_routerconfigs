@@ -8,6 +8,8 @@
 
 * issue#126: Sorting on backups page not working
 * issue#137: Fix PHP8.2 warning messages, fix comware device type 
+* issue#141: Backups are not being displayed when using the dropdown
+* feature: Convert images to fontawesome icons
 
 --- 1.6 ---
 

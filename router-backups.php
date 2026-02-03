@@ -64,32 +64,32 @@ function backups_validate_vars() {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'hostname',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'device' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 	);
 
 	validate_store_request_vars($filters, 'sess_rc_backup');
@@ -119,17 +119,15 @@ function show_devices () {
 	$sql_order  = get_order_string();
 	$sql_limit  = 'LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows;
 
-	if (get_request_var('device') != '-1') {
+	if (get_request_var('device') > 0) {
 		$sql_where = 'WHERE prb.device = ?';
-		$sql_params[] = $device;
+		$sql_params[] = get_request_var('device');
 	}
 
 	if (get_request_var('filter') != '') {
 		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') .
-			' (prd.hostname LIKE ? OR prd.ipaddress LIKE ? OR
-				prb.id LIKE ? OR prb.lastuser LIKE ? OR
-				prb.directory LIKE ? OR prb.filename LIKE ? OR
-				prb.device LIKE ?)';
+			' (prd.hostname LIKE ? OR prd.ipaddress LIKE ? OR prb.id LIKE ? OR prb.lastuser LIKE ? OR
+				prb.directory LIKE ? OR prb.filename LIKE ? OR prb.device LIKE ?)';
 
 		$sql_params[] = '%' . get_request_var('filter') . '%';
 		$sql_params[] = '%' . get_request_var('filter') . '%';
@@ -215,7 +213,7 @@ function show_devices () {
 
 							if (cacti_sizeof($devices)) {
 								foreach ($devices as $device) {
-									print "<option value='" . $device['id'] . "'"; if (get_request_var('device') == $device['id']) { print ' selected'; } print '>' . html_escape($device['hostname']) . "</option>\n";
+									print "<option value='" . $device['id'] . "'"; if (get_request_var('device') == $device['id']) { print ' selected'; } print '>' . html_escape($device['hostname']) . "</option>";
 								}
 							}
 							?>
@@ -233,7 +231,7 @@ function show_devices () {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>";
 								}
 							}
 							?>

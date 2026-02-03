@@ -250,7 +250,6 @@ function show_devicetypes() {
 
 	html_header_checkbox(
 		array(
-			__('Actions', 'routerconfigs'),
 			__('ID', 'routerconfigs'),
 			__('Name', 'routerconfigs'),
 			__('Type', 'routerconfigs'),
@@ -269,10 +268,8 @@ function show_devicetypes() {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
-			$cell = '<a class="hyperLink" href="' . htmlspecialchars('router-devtypes.php?action=edit&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=10 title="' . __esc('Edit Device Type', 'routerconfigs') . '"></a>';
-			form_selectable_cell($cell, $row['id'], '1%', 'left');
 			form_selectable_cell($row['id'], $row['id']);
-			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . $row['name'] . '</a>', $row['id']);
+			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . $row['name'] . '</a>', $row['id']);
 			form_Selectable_cell($row['connecttype'], $row['id']);
 			form_selectable_cell($row['promptuser'], $row['id']);
 			form_selectable_cell($row['promptpass'], $row['id']);
@@ -283,6 +280,7 @@ function show_devicetypes() {
 			form_selectable_cell($row['promptconfirm'], $row['id']);
 			form_selectable_cell(($row['checkendinconfig'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
+
 			form_end_row();
 		}
 	} else {

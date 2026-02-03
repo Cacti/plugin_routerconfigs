@@ -562,7 +562,7 @@ function show_devices() {
 
 							if (cacti_sizeof($devicetypes)) {
 								foreach ($devicetypes as $devicetype) {
-									print "<option value='" . $devicetype['id'] . "'"; if (get_request_var('devicetype') == $devicetype['id']) { print ' selected'; } print '>' . htmlspecialchars($devicetype['name']) . "</option>\n";
+									print "<option value='" . $devicetype['id'] . "'"; if (get_request_var('devicetype') == $devicetype['id']) { print ' selected'; } print '>' . html_escape($devicetype['name']) . "</option>\n";
 								}
 							}
 							?>
@@ -579,7 +579,7 @@ function show_devices() {
 
 							if (cacti_sizeof($accounts)) {
 								foreach ($accounts as $account) {
-									print "<option value='" . $account['id'] . "'"; if (get_request_var('account') == $account['id']) { print ' selected'; } print '>' . htmlspecialchars($account['name']) . "</option>\n";
+									print "<option value='" . $account['id'] . "'"; if (get_request_var('account') == $account['id']) { print ' selected'; } print '>' . html_escape($account['name']) . "</option>\n";
 								}
 							}
 							?>
@@ -597,7 +597,7 @@ function show_devices() {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>
@@ -785,20 +785,20 @@ function show_devices() {
 			// Loop through the interfaces left
 			foreach ($interfaces as $interfaceName) {
 				if ($interfaceName == 'ShellSsh') {
-					$cell .= '<a class="hyperLink" href="ssh://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/ssh.jpg" style="height:14px;" alt="" title="' . __esc('Connect via SSH', 'routerconfigs') . '"></a>';
+					$cell .= '<a class="hyperLink" href="ssh://' . $row['ipaddress'] .'"><i class="fa fa-crosshairs" title="' . __esc('Connect via SSH', 'routerconfigs') . '"></i></a>';
 				}
 
 				if ($interfaceName == 'ShellTelnet') {
-					$cell .= '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/telnet.jpg" style="height:14px;" alt="" title="' . __esc('Connect via Telnet', 'routerconfigs') . '"></a>';
+					$cell .= '<a class="hyperLink" href="telnet://' . $row['ipaddress'] .'"><i class="fa fa-cloud deviceRecovering" title="' . __esc('Connect via Telnet', 'routerconfigs') . '"></i></a>';
 				}
 			}
 
 
 			if (file_exists($config['base_path'] . '/plugins/traceroute/tracenow.php')) {
-				$cell .= '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/reddot.png" height=14 alt="" title="' . __esc('Trace Route', 'routerconfigs') . '"></a>';
+				$cell .= '<a class="hyperLink" href="' . html_escape($config['url_path'] . 'plugins/traceroute/tracenow.php?ip=' . $row['ipaddress']) .'"><i class="fa fa-route deviceRecovering" title="' . __esc('Trace Route', 'routerconfigs') . '"></i></a>';
 			}
 
-			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><img src="' . $config['url_path'] . 'plugins/routerconfigs/images/feedback.jpg" height=14 alt="" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></a>';
+			$cell .= '<a class="linkEditMain" href="router-devices.php?action=viewdebug&id=' . $row['id'] . '"><i class="fa fa-bug deviceDown" title="' . __esc('Router Debug Info', 'routerconfigs') . '"></i></a>';
 
 			form_selectable_cell($cell, $row['id'], '', 'width:1%;');
 
