@@ -22,5 +22,7 @@
  +-------------------------------------------------------------------------+
 */
 
-interface ShellTelnet {}
-interface ShellSsh {}
+interface ShellTelnet {
+}
+interface ShellSsh {
+}

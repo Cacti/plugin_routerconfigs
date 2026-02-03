@@ -22,7 +22,6 @@
  +-------------------------------------------------------------------------+
 */
 
-
 chdir('../../');
 include_once('./include/auth.php');
 include_once(__DIR__ . '/include/functions.php');
@@ -42,21 +41,21 @@ switch (get_request_var('action')) {
 		break;
 	case 'edit':
 		general_header();
-		display_tabs ();
+		display_tabs();
 		edit_devicetypes();
 		bottom_footer();
 
 		break;
 	default:
 		general_header();
-		display_tabs ();
-		show_devicetypes ();
+		display_tabs();
+		show_devicetypes();
 		bottom_footer();
 
 		break;
 }
 
-function actions_devicetypes () {
+function actions_devicetypes() {
 	global $rc_devtype_actions, $config;
 
 	if (isset_request_var('selected_items')) {
@@ -67,7 +66,7 @@ function actions_devicetypes () {
 				for ($i = 0; $i < count($selected_items); $i++) {
 					db_execute_prepared('DELETE FROM plugin_routerconfigs_devicetypes
 						WHERE id = ?',
-						array($selected_items[$i]));
+						[$selected_items[$i]]);
 				}
 			}
 		}
@@ -76,18 +75,18 @@ function actions_devicetypes () {
 		exit;
 	}
 
-	/* setup some variables */
-	$devtype_list = '';
-	$devtype_array = array();
+	// setup some variables
+	$devtype_list  = '';
+	$devtype_array = [];
 
-	/* loop through each of the devices selected on the previous page and get more info about them */
+	// loop through each of the devices selected on the previous page and get more info about them
 	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
-			/* ================= input validation ================= */
+			// ================= input validation =================
 			input_validate_input_number($matches[1]);
-			/* ==================================================== */
+			// ====================================================
 
-			$devtype_list .= '<li>' . db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', array($matches[1])) . '</li>';
+			$devtype_list .= '<li>' . db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [$matches[1]]) . '</li>';
 			$devtype_array[] = $matches[1];
 		}
 	}
@@ -102,12 +101,12 @@ function actions_devicetypes () {
 
 	if (get_nfilter_request_var('drp_action') > 0) {
 		html_start_box($rc_devtype_actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
-	}else{
+	} else {
 		html_start_box('', '60%', '', '3', 'center', '');
 	}
 
 	if (sizeof($devtype_array)) {
-		if (get_nfilter_request_var('drp_action') == RCONFIG_DEVTYPE_DELETE) { /* Delete */
+		if (get_nfilter_request_var('drp_action') == RCONFIG_DEVTYPE_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
 					<p>" . __('When you click \'Continue\', the following device(s) will be deleted.', 'routerconfigs') . "</p>
@@ -139,10 +138,10 @@ function actions_devicetypes () {
 	bottom_footer();
 }
 
-function save_devicetypes () {
-	/* ================= input validation ================= */
+function save_devicetypes() {
+	// ================= input validation =================
 	get_filter_request_var('id');
-	/* ==================================================== */
+	// ====================================================
 
 	if (isset_request_var('id')) {
 		$save['id'] = get_request_var('id');
@@ -168,6 +167,7 @@ function save_devicetypes () {
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');
+
 		if ($id) {
 			raise_message(1);
 		} else {
@@ -179,22 +179,23 @@ function save_devicetypes () {
 	exit;
 }
 
-function edit_devicetypes () {
+function edit_devicetypes() {
 	global $config, $form_id, $rc_devtype_edit_fields;
 
-	/* ================= input validation ================= */
+	// ================= input validation =================
 	get_filter_request_var('id');
-	/* ==================================================== */
+	// ====================================================
 
-	$devicetype = array();
+	$devicetype = [];
+
 	if (!isempty_request_var('id')) {
 		$devicetype = db_fetch_row_prepared('SELECT *
 			FROM plugin_routerconfigs_devicetypes
 			WHERE id = ?',
-			array(get_request_var('id')));
+			[get_request_var('id')]);
 
 		$header_label = __('Query [edit: %s]', $devicetype['name'], 'routerconfigs');
-	}else{
+	} else {
 		$header_label = __('Query [new]', 'routerconfigs');
 	}
 
@@ -203,10 +204,10 @@ function edit_devicetypes () {
 	html_start_box($header_label, '100%', '', '3', 'center', '');
 
 	draw_edit_form(
-		array(
-			'config' => array('no_form_tag' => true),
+		[
+			'config' => ['no_form_tag' => true],
 			'fields' => inject_form_variables($rc_devtype_edit_fields, $devicetype)
-		)
+		]
 	);
 
 	html_end_box();
@@ -218,10 +219,10 @@ function show_devicetypes() {
 	global $host, $username, $password, $command;
 	global $config, $rc_devtype_actions, $acc, $form_id;
 
-	/* ================= input validation ================= */
+	// ================= input validation =================
 	get_filter_request_var('account');
 	get_filter_request_var('page');
-	/* ==================================================== */
+	// ====================================================
 
 	$account = '';
 
@@ -235,10 +236,10 @@ function show_devicetypes() {
 	$result = db_fetch_assoc('SELECT *
 		FROM plugin_routerconfigs_devicetypes
 		ORDER BY id
-		LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ', ' . $num_rows);
+		LIMIT ' . ($num_rows * (get_request_var('page') - 1)) . ', ' . $num_rows);
 
 	$total_rows = db_fetch_cell('SELECT COUNT(*)
-		FROM plugin_routerconfigs_devicetypes' . ($account != '' ? ' WHERE account = ' . $account:''));
+		FROM plugin_routerconfigs_devicetypes' . ($account != '' ? ' WHERE account = ' . $account : ''));
 
 	$nav = html_nav_bar('router-devtypes.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 11, __('Device Types', 'routerconfigs'), 'page', 'main');
 
@@ -249,7 +250,7 @@ function show_devicetypes() {
 	print $nav;
 
 	html_header_checkbox(
-		array(
+		[
 			__('ID', 'routerconfigs'),
 			__('Name', 'routerconfigs'),
 			__('Type', 'routerconfigs'),
@@ -261,7 +262,7 @@ function show_devicetypes() {
 			__('Force Confirm', 'routerconfigs'),
 			__('Confirm Prompt', 'routerconfigs'),
 			__('Check End In Config', 'routerconfigs')
-		)
+		]
 	);
 
 	if (sizeof($result)) {
@@ -291,4 +292,3 @@ function show_devicetypes() {
 
 	draw_actions_dropdown($rc_devtype_actions);
 }
-

@@ -20,22 +20,20 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL
  * @package   Exception
  */
-class Horde_Exception_PermissionDenied extends Horde_Exception
-{
-    /**
-     * Constructor.
-     *
-     * @see Horde_Exception::__construct()
-     *
-     * @param mixed $message           The exception message, a PEAR_Error
-     *                                 object, or an Exception object.
-     * @param integer $code            A numeric error code.
-     */
-    public function __construct($message = null, $code = null)
-    {
-        if (is_null($message)) {
-            $message = Horde_Exception_Translation::t("Permission Denied");
-        }
-        parent::__construct($message, $code);
-    }
+class Horde_Exception_PermissionDenied extends Horde_Exception {
+	/**
+	 * Constructor.
+	 *
+	 * @see Horde_Exception::__construct()
+	 *
+	 * @param mixed   $message The exception message, a PEAR_Error
+	 *                         object, or an Exception object.
+	 * @param integer $code    A numeric error code.
+	 */
+	public function __construct($message = null, $code = null) {
+		if (is_null($message)) {
+			$message = Horde_Exception_Translation::t('Permission Denied');
+		}
+		parent::__construct($message, $code);
+	}
 }
