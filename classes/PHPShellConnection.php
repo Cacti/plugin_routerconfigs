@@ -39,14 +39,14 @@ abstract class PHPShellConnection extends PHPConnection {
 
 	function Download($filename, $backuppath) {
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
-		$command = $this->deviceType['copytftp'];
+		$command    = $this->deviceType['copytftp'];
 
 		if (stristr($command, '%SERVER%')) {
 			$command = str_ireplace('%SERVER%', $tftpserver, $command);
 		}
 
 		if (stristr($command, '%FILE%')) {
-			$command=str_ireplace('%FILE%', $filename, $command);
+			$command = str_ireplace('%FILE%', $filename, $command);
 		}
 
 		if (!$this->EnsureEnabled()) {
@@ -66,10 +66,10 @@ abstract class PHPShellConnection extends PHPConnection {
 
 		$this->Log("DEBUG: Result: ($result)");
 
-		//check if there is questions to confirm
-		//i.e: in ASA it ask for confirmation of the source file
-		//but this also confirm in case that all command is executed
-		//in one line
+		// check if there is questions to confirm
+		// i.e: in ASA it ask for confirmation of the source file
+		// but this also confirm in case that all command is executed
+		// in one line
 		$x   = 0;
 		$ret = 0;
 
@@ -79,28 +79,31 @@ abstract class PHPShellConnection extends PHPConnection {
 
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 
-		while (($ret == 0 || $ret == 8) && $x<30 &&
+		while (($ret == 0 || $ret == 8) && $x < 30 &&
 			$this->prompt() != LinePrompt::Enabled &&
 			$this->prompt() != LinePrompt::Normal) {
 			$x++;
 
-			$try_level='DEBUG:';
-			$try_command='';
-			$try_prompt='';
+			$try_level   = 'DEBUG:';
+			$try_command = '';
+			$try_prompt  = '';
 
 			if (stristr($response, 'bytes copied') ||
 				stristr($response,'successful')) {
-
-				$this->Log("DEBUG: TFTP Transfer successful");
+				$this->Log('DEBUG: TFTP Transfer successful');
 
 				break;
-			} elseif (stristr($response, 'error')) {
-				$this->Log("DEBUG: TFTP Transfer ERRORED");
+			}
+
+			if (stristr($response, 'error')) {
+				$this->Log('DEBUG: TFTP Transfer ERRORED');
 				$this->error(5);
 
 				return false;
-			} elseif ($this->prompt() == LinePrompt::Confirm) {
-				$this->Log("DEBUG: Confirmation prompt found");
+			}
+
+			if ($this->prompt() == LinePrompt::Confirm) {
+				$this->Log('DEBUG: Confirmation prompt found');
 
 				if ($try_prompt == '' && !$confirmed) {
 					$try_command = $this->deviceType['confirm'];
@@ -108,11 +111,11 @@ abstract class PHPShellConnection extends PHPConnection {
 					$confirmed   = true;
 				}
 			} elseif ($this->prompt() == LinePrompt::Question) {
-				$this->Log("DEBUG: Question found");
+				$this->Log('DEBUG: Question found');
 
 				if (stristr($response, 'address') && !stristr($response, '[' . $this->ip . ']')) {
 					if (!$sent_srv) {
-						//send tftpserver if necessary
+						// send tftpserver if necessary
 						$try_level   = 'NOTICE:';
 						$try_command = $tftpserver;
 						$try_prompt  = 'Server:';
@@ -187,30 +190,37 @@ abstract class PHPShellConnection extends PHPConnection {
 								case 'years':
 								case 'year':
 									$uptime += ($s[0] * 31449600);
+
 									break;
 								case 'months':
 								case 'month':
 									$uptime += ($s[0] * 2419200);
+
 									break;
 								case 'weeks':
 								case 'week':
 									$uptime += ($s[0] * 604800);
+
 									break;
 								case 'days':
 								case 'day':
 									$uptime += ($s[0] * 86400);
+
 									break;
 								case 'hours':
 								case 'hour':
 									$uptime += ($s[0] * 3600);
+
 									break;
 								case 'minutes':
 								case 'minute':
 									$uptime += ($s[0] * 60);
+
 									break;
 								case 'seconds':
 								case 'second':
 									$uptime += $s[0];
+
 									break;
 							}
 						}

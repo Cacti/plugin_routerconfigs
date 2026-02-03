@@ -12,6 +12,5 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  Text_Diff
  */
-class Horde_Text_Diff_Exception extends Horde_Exception_Wrapped
-{
+class Horde_Text_Diff_Exception extends Horde_Exception_Wrapped {
 }

@@ -36,9 +36,9 @@ code is now within PHPConnection with only Telnet specific code
 in this class
 */
 class PHPTelnet extends PHPShellConnection implements ShellTelnet {
-	var $show_connect_error=1;
+	var $show_connect_error = 1;
 
-	var $loginsleeptime=1000000;
+	var $loginsleeptime = 1000000;
 
 	var $conn1;
 	var $conn2;
@@ -53,52 +53,52 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
 		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 
-		$this->conn1 = chr(0xFF).chr(0xFB).chr(0x1F).chr(0xFF).chr(0xFB).
-			chr(0x20).chr(0xFF).chr(0xFB).chr(0x18).chr(0xFF).chr(0xFB).
-			chr(0x27).chr(0xFF).chr(0xFD).chr(0x01).chr(0xFF).chr(0xFB).
-			chr(0x03).chr(0xFF).chr(0xFD).chr(0x03).chr(0xFF).chr(0xFC).
-			chr(0x23).chr(0xFF).chr(0xFC).chr(0x24).chr(0xFF).chr(0xFA).
-			chr(0x1F).chr(0x00).chr(0x50).chr(0x00).chr(0x18).chr(0xFF).
-			chr(0xF0).chr(0xFF).chr(0xFA).chr(0x20).chr(0x00).chr(0x33).
-			chr(0x38).chr(0x34).chr(0x30).chr(0x30).chr(0x2C).chr(0x33).
-			chr(0x38).chr(0x34).chr(0x30).chr(0x30).chr(0xFF).chr(0xF0).
-			chr(0xFF).chr(0xFA).chr(0x27).chr(0x00).chr(0xFF).chr(0xF0).
-			chr(0xFF).chr(0xFA).chr(0x18).chr(0x00).chr(0x58).chr(0x54).
-			chr(0x45).chr(0x52).chr(0x4D).chr(0xFF).chr(0xF0);
+		$this->conn1 = chr(0xFF) . chr(0xFB) . chr(0x1F) . chr(0xFF) . chr(0xFB) .
+			chr(0x20) . chr(0xFF) . chr(0xFB) . chr(0x18) . chr(0xFF) . chr(0xFB) .
+			chr(0x27) . chr(0xFF) . chr(0xFD) . chr(0x01) . chr(0xFF) . chr(0xFB) .
+			chr(0x03) . chr(0xFF) . chr(0xFD) . chr(0x03) . chr(0xFF) . chr(0xFC) .
+			chr(0x23) . chr(0xFF) . chr(0xFC) . chr(0x24) . chr(0xFF) . chr(0xFA) .
+			chr(0x1F) . chr(0x00) . chr(0x50) . chr(0x00) . chr(0x18) . chr(0xFF) .
+			chr(0xF0) . chr(0xFF) . chr(0xFA) . chr(0x20) . chr(0x00) . chr(0x33) .
+			chr(0x38) . chr(0x34) . chr(0x30) . chr(0x30) . chr(0x2C) . chr(0x33) .
+			chr(0x38) . chr(0x34) . chr(0x30) . chr(0x30) . chr(0xFF) . chr(0xF0) .
+			chr(0xFF) . chr(0xFA) . chr(0x27) . chr(0x00) . chr(0xFF) . chr(0xF0) .
+			chr(0xFF) . chr(0xFA) . chr(0x18) . chr(0x00) . chr(0x58) . chr(0x54) .
+			chr(0x45) . chr(0x52) . chr(0x4D) . chr(0xFF) . chr(0xF0);
 
-		$this->conn2 = chr(0xFF).chr(0xFC).chr(0x01).chr(0xFF).chr(0xFC).
-			chr(0x22).chr(0xFF).chr(0xFE).chr(0x05).chr(0xFF).chr(0xFC).chr(0x21);
+		$this->conn2 = chr(0xFF) . chr(0xFC) . chr(0x01) . chr(0xFF) . chr(0xFC) .
+			chr(0x22) . chr(0xFF) . chr(0xFE) . chr(0x05) . chr(0xFF) . chr(0xFC) . chr(0x21);
 	}
 
 	function Connect() {
 		$rv   = 0;
 		$vers = explode('.',PHP_VERSION);
 
-		$needvers=array(4,3,0);
+		$needvers = [4, 3, 0];
 
 		$j = count($vers);
 		$k = count($needvers);
 
-		if ($k<$j) {
-			$j=$k;
+		if ($k < $j) {
+			$j = $k;
 		}
 
-		for ($i=0;$i<$j;$i++) {
-			if (($vers[$i]+0)>$needvers[$i]) {
+		for ($i = 0; $i < $j; $i++) {
+			if (($vers[$i] + 0) > $needvers[$i]) {
 				break;
 			}
 
-			if (($vers[$i]+0)<$needvers[$i]) {
+			if (($vers[$i] + 0) < $needvers[$i]) {
 				$error = $this->ConnectError(4);
 
-				$this->Log("Connect 4 error");
+				$this->Log('Connect 4 error');
 				$this->Log($error);
 
 				return 4;
 			}
 		}
 
-		$this->Log("Disconnect()");
+		$this->Log('Disconnect()');
 		$this->Disconnect();
 
 		if (strlen($this->ip)) {
@@ -110,7 +110,7 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 
 				fputs($this->stream, $this->conn2);
 
-				$this->Log("Looking for " . $this->deviceType['promptuser']);
+				$this->Log('Looking for ' . $this->deviceType['promptuser']);
 
 				// Get Username Prompt
 				$r = '';
@@ -123,10 +123,9 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				while ($x < 10 &&
 					$this->prompt() != LinePrompt::Username &&
 					$this->prompt() != LinePrompt::AccessDenied) {
-
 					$x++;
 
-					$this->Log("DEBUG: No Prompt received (" . $this->prompt() . ": $x : " . LinePrompt::Username. ")");
+					$this->Log('DEBUG: No Prompt received (' . $this->prompt() . ": $x : " . LinePrompt::Username . ')');
 
 					fputs($this->stream, "\r");
 
@@ -141,13 +140,12 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				if (!$this->stream ||
 					$this->prompt() != LinePrompt::Username ||
 					$this->prompt() == LinePrompt::AccessDenied) {
-
 					if ($this->prompt() != LinePrompt::Username) {
-						$this->Log("ERROR: Failed to find username prompt");
+						$this->Log('ERROR: Failed to find username prompt');
 					}
 
 					if ($this->prompt() == LinePrompt::AccessDenied) {
-						$this->Log("ERROR: Access not permitted");
+						$this->Log('ERROR: Access not permitted');
 					}
 
 					return 6;
@@ -205,25 +203,18 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		switch ($num) {
 			case 1:
 				return 'ERROR: Unable to open telnet network connection';
-				break;
 			case 2:
 				return 'ERROR: Unknown host';
-				break;
 			case 3:
 				return 'ERROR: TELNET login failed';
-				break;
 			case 4:
 				return 'ERROR: Connect failed: Your servers PHP version is too low for PHP Telnet';
-				break;
 			case 5:
 				return 'ERROR: Bad download of config';
-				break;
 			case 6:
 				return 'ERROR: TELNET access not Permitted';
-				break;
 			case 7:
 				return 'ERROR: TELNET no Config uploaded from Router';
-				break;
 			case 9:
 				return 'ERROR: TELNET Enable login failed';
 		}

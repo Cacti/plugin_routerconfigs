@@ -12,20 +12,17 @@
  * @package Text_Diff
  * @author  Geoffrey T. Dairiki <dairiki@dairiki.org>
  */
-abstract class Horde_Text_Diff_Op_Base
-{
-    public $orig;
-    public $final;
+abstract class Horde_Text_Diff_Op_Base {
+	public $orig;
+	public $final;
 
-    abstract public function reverse();
+	abstract public function reverse();
 
-    public function norig()
-    {
-        return $this->orig ? count($this->orig) : 0;
-    }
+	public function norig() {
+		return $this->orig ? count($this->orig) : 0;
+	}
 
-    public function nfinal()
-    {
-        return $this->final ? count($this->final) : 0;
-    }
+	public function nfinal() {
+		return $this->final ? count($this->final) : 0;
+	}
 }

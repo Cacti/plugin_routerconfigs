@@ -24,85 +24,85 @@
 
 require_once(__DIR__ . '/constants.php');
 
-global	$config, $rc_settings, $rc_connection_types,
-	$rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
-	$rc_account_actions, $rc_device_actions, $rc_devtype_actions,
-	$rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
+global $config, $rc_settings, $rc_connection_types,
+$rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
+$rc_account_actions, $rc_device_actions, $rc_devtype_actions,
+$rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
 
 if (function_exists('gethostname')) {
 	$rc_hostname = gethostname();
-}else{
+} else {
 	$rc_hostname = php_uname('n');
 }
 
-$rc_account_actions = array(
+$rc_account_actions = [
 	RCONFIG_ACCOUNT_DELETE => __('Delete', 'routerconfigs'),
-);
+];
 
-$rc_device_actions = array(
+$rc_device_actions = [
 	RCONFIG_DEVICE_BACKUP  => __('Backup', 'routerconfigs'),
 	RCONFIG_DEVICE_DELETE  => __('Delete', 'routerconfigs'),
 	RCONFIG_DEVICE_ENABLE  => __('Enable', 'routerconfigs'),
 	RCONFIG_DEVICE_DISABLE => __('Disable', 'routerconfigs')
-);
+];
 
-$rc_devtype_actions = array(
+$rc_devtype_actions = [
 	RCONFIG_DEVTYPE_DELETE => __('Delete', 'routerconfigs'),
-);
+];
 
-$rc_connection_types_settings = array(
+$rc_connection_types_settings = [
 	RCONFIG_CONNECT_BOTH    => __('SSH/Telnet', 'routerconfigs'),
 	RCONFIG_CONNECT_SSH     => __('SSH', 'routerconfigs'),
 	RCONFIG_CONNECT_TELNET  => __('Telnet', 'routerconfigs'),
 	RCONFIG_CONNECT_SCP     => __('SCP', 'routerconfigs'),
 	RCONFIG_CONNECT_SFTP    => __('SFTP', 'routerconfigs'),
-);
+];
 
-$rc_connection_types = array(
+$rc_connection_types = [
 	RCONFIG_CONNECT_DEFAULT => __('Inherit', 'routerconfigs'),
-) + $rc_connection_types_settings;
+] + $rc_connection_types_settings;
 
-$rc_schedules_backup = array(
+$rc_schedules_backup = [
 	RCONFIG_BACKUP_DAILY   => __('Daily', 'routerconfigs'),
 	RCONFIG_BACKUP_WEEKLY  => __('Weekly', 'routerconfigs'),
 	RCONFIG_BACKUP_MONTHLY => __('Monthly', 'routerconfigs'),
-);
+];
 
-$rc_schedules_retention = array(
+$rc_schedules_retention = [
 	RCONFIG_RETENTION_MONTH_ONE   => __('%d Month', 1, 'routerconfigs'), // * 30
 	RCONFIG_RETENTION_MONTH_TWO   => __('%d Months', 2, 'routerconfigs'),
 	RCONFIG_RETENTION_MONTH_THREE => __('%d Months', 3, 'routerconfigs'),
 	RCONFIG_RETENTION_MONTH_FOUR  => __('%d Months', 4, 'routerconfigs'),
 	RCONFIG_RETENTION_MONTH_SIX   => __('%d Months', 6, 'routerconfigs'),
-	RCONFIG_RETENTION_YEAR_ONE    =>__('%d Year', 1, 'routerconfigs'),
-	RCONFIG_RETENTION_YEAR_TWO    =>__('%d Years', 2, 'routerconfigs'),
-	RCONFIG_RETENTION_YEAR_THREE  =>__('%d Years', 3, 'routerconfigs'),
-	RCONFIG_RETENTION_YEAR_FOUR   =>__('%d Years', 4, 'routerconfigs'),
-	RCONFIG_RETENTION_YEAR_FIVE   =>__('%d Years', 5, 'routerconfigs'),
-);
+	RCONFIG_RETENTION_YEAR_ONE    => __('%d Year', 1, 'routerconfigs'),
+	RCONFIG_RETENTION_YEAR_TWO    => __('%d Years', 2, 'routerconfigs'),
+	RCONFIG_RETENTION_YEAR_THREE  => __('%d Years', 3, 'routerconfigs'),
+	RCONFIG_RETENTION_YEAR_FOUR   => __('%d Years', 4, 'routerconfigs'),
+	RCONFIG_RETENTION_YEAR_FIVE   => __('%d Years', 5, 'routerconfigs'),
+];
 
-$rc_schedules_retry = array(
-	'0'  => __('Never', 'routerconfigs'),
-	'1'  => __('%d hour', 1, 'routerconfigs'),
-	'2'  => __('%d hours', 2, 'routerconfigs'),
-	'3'  => __('%d hours', 3, 'routerconfigs'),
-	'4'  => __('%d hours', 4, 'routerconfigs'),
-	'6'  => __('%d hours', 6, 'routerconfigs'),
-	'8'  => __('%d hours', 8, 'routerconfigs'),
+$rc_schedules_retry = [
+	'0'   => __('Never', 'routerconfigs'),
+	'1'   => __('%d hour', 1, 'routerconfigs'),
+	'2'   => __('%d hours', 2, 'routerconfigs'),
+	'3'   => __('%d hours', 3, 'routerconfigs'),
+	'4'   => __('%d hours', 4, 'routerconfigs'),
+	'6'   => __('%d hours', 6, 'routerconfigs'),
+	'8'   => __('%d hours', 8, 'routerconfigs'),
 	'12'  => __('%d hours', 12, 'routerconfigs'),
-);
+];
 
-$rc_schedules_download = array(
-	'0'  => __('00:00 (12am)', 'routerconfigs'),
-	'1'  => __('01:00 (1am)', 'routerconfigs'),
-	'2'  => __('02:00 (2am)', 'routerconfigs'),
-	'3'  => __('03:00 (3am)', 'routerconfigs'),
-	'4'  => __('04:00 (4am)', 'routerconfigs'),
-	'5'  => __('05:00 (5am)', 'routerconfigs'),
-	'6'  => __('06:00 (6am)', 'routerconfigs'),
-	'7'  => __('07:00 (7am)', 'routerconfigs'),
-	'8'  => __('08:00 (8am)', 'routerconfigs'),
-	'9'  => __('09:00 (9am)', 'routerconfigs'),
+$rc_schedules_download = [
+	'0'   => __('00:00 (12am)', 'routerconfigs'),
+	'1'   => __('01:00 (1am)', 'routerconfigs'),
+	'2'   => __('02:00 (2am)', 'routerconfigs'),
+	'3'   => __('03:00 (3am)', 'routerconfigs'),
+	'4'   => __('04:00 (4am)', 'routerconfigs'),
+	'5'   => __('05:00 (5am)', 'routerconfigs'),
+	'6'   => __('06:00 (6am)', 'routerconfigs'),
+	'7'   => __('07:00 (7am)', 'routerconfigs'),
+	'8'   => __('08:00 (8am)', 'routerconfigs'),
+	'9'   => __('09:00 (9am)', 'routerconfigs'),
 	'10'  => __('10:00 (12am)', 'routerconfigs'),
 	'11'  => __('11:00 (11am)', 'routerconfigs'),
 	'12'  => __('12:00 (12pm)', 'routerconfigs'),
@@ -117,409 +117,409 @@ $rc_schedules_download = array(
 	'21'  => __('21:00 (9pm)', 'routerconfigs'),
 	'22'  => __('22:00 (10pm)', 'routerconfigs'),
 	'23'  => __('23:00 (11pm)', 'routerconfigs'),
-);
+];
 
-$rc_account_edit_fields = array(
-	'name' => array(
-		'method' => 'textbox',
+$rc_account_edit_fields = [
+	'name' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Name', 'routerconfigs'),
-		'description' => __('Give this account a meaningful name that will be displayed.', 'routerconfigs'),
-		'value' => '|arg1:name|',
-		'max_length' => '64',
-		),
-	'username' => array(
-		'method' => 'textbox',
+		'description'   => __('Give this account a meaningful name that will be displayed.', 'routerconfigs'),
+		'value'         => '|arg1:name|',
+		'max_length'    => '64',
+		],
+	'username' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Username', 'routerconfigs'),
-		'description' => __('The username that will be used for authentication.', 'routerconfigs'),
-		'value' => '|arg1:username|',
-		'max_length' => '64',
-		),
-	'password' => array(
-		'method' => 'textbox_password',
+		'description'   => __('The username that will be used for authentication.', 'routerconfigs'),
+		'value'         => '|arg1:username|',
+		'max_length'    => '64',
+		],
+	'password' => [
+		'method'        => 'textbox_password',
 		'friendly_name' => __('Password', 'routerconfigs'),
-		'description' => __('The password used for authentication.', 'routerconfigs'),
-		'value' => '|arg1:password|',
-		'default' => '',
-		'max_length' => '64',
-		'size' => '30'
-		),
-	'enablepw' => array(
-		'method' => 'textbox_password',
+		'description'   => __('The password used for authentication.', 'routerconfigs'),
+		'value'         => '|arg1:password|',
+		'default'       => '',
+		'max_length'    => '64',
+		'size'          => '30'
+		],
+	'enablepw' => [
+		'method'        => 'textbox_password',
 		'friendly_name' => __('Enable Password', 'routerconfigs'),
-		'description' => __('Your Enable Password, if required.', 'routerconfigs'),
-		'value' => '|arg1:enablepw|',
-		'default' => '',
-		'max_length' => '64',
-		'size' => '30'
-		),
-	'id' => array(
+		'description'   => __('Your Enable Password, if required.', 'routerconfigs'),
+		'value'         => '|arg1:enablepw|',
+		'default'       => '',
+		'max_length'    => '64',
+		'size'          => '30'
+		],
+	'id' => [
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-		)
-);
+		'value'  => '|arg1:id|'
+		]
+];
 
-$rc_device_edit_fields = array(
-	'enabled' => array(
-		'method' => 'checkbox',
+$rc_device_edit_fields = [
+	'enabled' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Enable Device', 'routerconfigs'),
-		'description' => __('Uncheck this box to disabled this device from being backed up.', 'routerconfigs'),
-		'value' => '|arg1:enabled|',
-		'default' => '',
-		'form_id' => false
-	),
-	'hostname' => array(
-		'method' => 'textbox',
+		'description'   => __('Uncheck this box to disabled this device from being backed up.', 'routerconfigs'),
+		'value'         => '|arg1:enabled|',
+		'default'       => '',
+		'form_id'       => false
+	],
+	'hostname' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Description', 'routerconfigs'),
-		'description' => __('Name of this device (will be used for config saving and SVN if no hostname is present in config).', 'routerconfigs'),
-		'value' => '|arg1:hostname|',
-		'max_length' => '128',
-	),
-	'ipaddress' => array(
-		'method' => 'textbox',
+		'description'   => __('Name of this device (will be used for config saving and SVN if no hostname is present in config).', 'routerconfigs'),
+		'value'         => '|arg1:hostname|',
+		'max_length'    => '128',
+	],
+	'ipaddress' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('IP Address', 'routerconfigs'),
-		'description' => __('This is the IP Address used to communicate with the device.', 'routerconfigs'),
-		'value' => '|arg1:ipaddress|',
-		'max_length' => '128',
-	),
-	'directory' => array(
-		'method' => 'dirpath',
+		'description'   => __('This is the IP Address used to communicate with the device.', 'routerconfigs'),
+		'value'         => '|arg1:ipaddress|',
+		'max_length'    => '128',
+	],
+	'directory' => [
+		'method'        => 'dirpath',
 		'friendly_name' => __('Directory', 'routerconfigs'),
-		'description' => __('This is the relative directory structure used to store the configs.', 'routerconfigs'),
-		'value' => '|arg1:directory|',
-		'max_length' => '255',
-	),
-	'schedule' => array(
-		'method' => 'drop_array',
+		'description'   => __('This is the relative directory structure used to store the configs.', 'routerconfigs'),
+		'value'         => '|arg1:directory|',
+		'max_length'    => '255',
+	],
+	'schedule' => [
+		'method'        => 'drop_array',
 		'friendly_name' => __('Schedule', 'routerconfigs'),
-		'description' => __('How often to Backup this device.', 'routerconfigs'),
-		'value' => '|arg1:schedule|',
-		'default' => 1,
-		'array' => $rc_schedules_backup,
-	),
-	'devicetype' => array(
-		'method' => 'drop_sql',
+		'description'   => __('How often to Backup this device.', 'routerconfigs'),
+		'value'         => '|arg1:schedule|',
+		'default'       => 1,
+		'array'         => $rc_schedules_backup,
+	],
+	'devicetype' => [
+		'method'        => 'drop_sql',
 		'friendly_name' => __('Device Type', 'routerconfigs'),
-		'description' => __('Choose the type of device that the router is.', 'routerconfigs'),
-		'value' => '|arg1:devicetype|',
-		'sql' => 'SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name',
-		'default' => 0,
-		'none_value' => __('Auto-Detect', 'routerconfigs'),
-	),
-	'connecttype' => array(
-		'method' => 'drop_array',
+		'description'   => __('Choose the type of device that the router is.', 'routerconfigs'),
+		'value'         => '|arg1:devicetype|',
+		'sql'           => 'SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name',
+		'default'       => 0,
+		'none_value'    => __('Auto-Detect', 'routerconfigs'),
+	],
+	'connecttype' => [
+		'method'        => 'drop_array',
 		'friendly_name' => __('Connection Type', 'routerconfigs'),
-		'description' => __('This is the type of connection used to communicate with the device.', 'routerconfigs'),
-		'value' => '|arg1:connecttype|',
-		'default' => RCONFIG_CONNECT_DEFAULT,
-		'array' => $rc_connection_types,
-	),
-	'account' => array(
-		'method' => 'drop_sql',
+		'description'   => __('This is the type of connection used to communicate with the device.', 'routerconfigs'),
+		'value'         => '|arg1:connecttype|',
+		'default'       => RCONFIG_CONNECT_DEFAULT,
+		'array'         => $rc_connection_types,
+	],
+	'account' => [
+		'method'        => 'drop_sql',
 		'friendly_name' => __('Authentication Account', 'routerconfigs'),
-		'description' => __('Choose an account to use to Login to the router', 'routerconfigs'),
-		'value' => '|arg1:account|',
-		'sql' => 'SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name',
-		'default' => 0,
-		'none_value' => __('None', 'routerconfigs'),
-	),
-	'timeout' => array(
+		'description'   => __('Choose an account to use to Login to the router', 'routerconfigs'),
+		'value'         => '|arg1:account|',
+		'sql'           => 'SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name',
+		'default'       => 0,
+		'none_value'    => __('None', 'routerconfigs'),
+	],
+	'timeout' => [
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:timeout|',
-		'max_length' => '3',
-		'size' => '3',
-		'default' => '1'
-	),
-	'sleep' => array(
+		'description'   => __('Default time to wait in seconds for a response', 'routerconfigs'),
+		'method'        => 'textbox',
+		'value'         => '|arg1:timeout|',
+		'max_length'    => '3',
+		'size'          => '3',
+		'default'       => '1'
+	],
+	'sleep' => [
 		'friendly_name' => __('Default sleep time', 'routerconfigs'),
-		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
-		'method' => 'textbox',
-		'max_length' => '10',
-		'size' => '8',
-		'value' => '|arg1:sleep|',
-		'default' => '125000'
-	),
-	'elevated' => array(
-		'method' => 'checkbox',
+		'description'   => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => '10',
+		'size'          => '8',
+		'value'         => '|arg1:sleep|',
+		'default'       => '125000'
+	],
+	'elevated' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Assume elevated', 'routerconfigs'),
-		'description' => __('Check this box to assume this device is always elevated', 'routerconfigs'),
-		'value' => '|arg1:elevated|',
-		'default' => '',
-		'form_id' => false
-	),
-	'id' => array(
+		'description'   => __('Check this box to assume this device is always elevated', 'routerconfigs'),
+		'value'         => '|arg1:elevated|',
+		'default'       => '',
+		'form_id'       => false
+	],
+	'id' => [
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-	)
-);
+		'value'  => '|arg1:id|'
+	]
+];
 
-$rc_devtype_edit_fields = array(
-	'name' => array(
-		'method' => 'textbox',
+$rc_devtype_edit_fields = [
+	'name' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Name', 'routerconfigs'),
-		'description' => __('Name of this device type.', 'routerconfigs'),
-		'value' => '|arg1:name|',
-		'size' => '30',
-		'max_length' => '64',
-	),
-	'connecttype' => array(
-		'method' => 'drop_array',
+		'description'   => __('Name of this device type.', 'routerconfigs'),
+		'value'         => '|arg1:name|',
+		'size'          => '30',
+		'max_length'    => '64',
+	],
+	'connecttype' => [
+		'method'        => 'drop_array',
 		'friendly_name' => __('Connection Type', 'routerconfigs'),
-		'description' => __('This is the type of connection used to communicate with the device.', 'routerconfigs'),
-		'value' => '|arg1:connecttype|',
-		'default' => RCONFIG_CONNECT_DEFAULT,
-		'array' => $rc_connection_types,
-	),
-	'promptuser' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the type of connection used to communicate with the device.', 'routerconfigs'),
+		'value'         => '|arg1:connecttype|',
+		'default'       => RCONFIG_CONNECT_DEFAULT,
+		'array'         => $rc_connection_types,
+	],
+	'promptuser' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Username Prompt', 'routerconfigs'),
-		'description' => __('This is the username prompt to match on login.', 'routerconfigs'),
-		'value' => '|arg1:promptuser|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'promptpass' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the username prompt to match on login.', 'routerconfigs'),
+		'value'         => '|arg1:promptuser|',
+		'size'          => '20',
+		'max_length'    => '64',
+	],
+	'promptpass' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Password Prompt', 'routerconfigs'),
-		'description' => __('This is the password prompt to match on login.', 'routerconfigs'),
-		'value' => '|arg1:promptpass|',
-		'size' => '20',
-		'max_length' => '255',
-	),
-	'configfile' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the password prompt to match on login.', 'routerconfigs'),
+		'value'         => '|arg1:promptpass|',
+		'size'          => '20',
+		'max_length'    => '255',
+	],
+	'configfile' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Configuration file', 'routerconfigs'),
-		'description' => __('This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method', 'routerconfigs'),
-		'value' => '|arg1:configfile|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'copytftp' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method', 'routerconfigs'),
+		'value'         => '|arg1:configfile|',
+		'size'          => '20',
+		'max_length'    => '64',
+	],
+	'copytftp' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Copy TFTP', 'routerconfigs'),
-		'description' => __('This is the CLI text used to send the backup to tftp server.', 'routerconfigs'),
-		'value' => '|arg1:copytftp|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'version' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the CLI text used to send the backup to tftp server.', 'routerconfigs'),
+		'value'         => '|arg1:copytftp|',
+		'size'          => '20',
+		'max_length'    => '64',
+	],
+	'version' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Show Version', 'routerconfigs'),
-		'description' => __('This is the CLI text used to display the current version.', 'routerconfigs'),
-		'value' => '|arg1:version|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'promptconfirm' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the CLI text used to display the current version.', 'routerconfigs'),
+		'value'         => '|arg1:version|',
+		'size'          => '20',
+		'max_length'    => '64',
+	],
+	'promptconfirm' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Confirmation Prompt', 'routerconfigs'),
-		'description' => __('This is the confirmation prompt to match before transmission.', 'routerconfigs'),
-		'value' => '|arg1:promptconfirm|',
-		'size' => '20',
-		'max_length' => '64',
-	),
-	'confirm' => array(
-		'method' => 'textbox',
+		'description'   => __('This is the confirmation prompt to match before transmission.', 'routerconfigs'),
+		'value'         => '|arg1:promptconfirm|',
+		'size'          => '20',
+		'max_length'    => '64',
+	],
+	'confirm' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('Confirm', 'routerconfigs'),
-		'description' => __('Is there a confirmation prompt for copying the config?', 'routerconfigs'),
-		'value' => '|arg1:confirm|',
-		'size' => '10',
-		'max_length' => '64',
-	),
-	'forceconfirm' => array(
-		'method' => 'checkbox',
+		'description'   => __('Is there a confirmation prompt for copying the config?', 'routerconfigs'),
+		'value'         => '|arg1:confirm|',
+		'size'          => '10',
+		'max_length'    => '64',
+	],
+	'forceconfirm' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Force Confirm', 'routerconfigs'),
-		'description' => __('Is there a force confirmation prompt for copying the config?', 'routerconfigs'),
-		'value' => '|arg1:forceconfirm|',
-	),
-	'checkendinconfig' => array(
-		'method' => 'checkbox',
+		'description'   => __('Is there a force confirmation prompt for copying the config?', 'routerconfigs'),
+		'value'         => '|arg1:forceconfirm|',
+	],
+	'checkendinconfig' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Check End in Config', 'routerconfigs'),
-		'description' => __('Check end in config?', 'routerconfigs'),
-		'value' => '|arg1:checkendinconfig|',
-	),
-	'elevated' => array(
-		'method' => 'checkbox',
+		'description'   => __('Check end in config?', 'routerconfigs'),
+		'value'         => '|arg1:checkendinconfig|',
+	],
+	'elevated' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Assume elevated', 'routerconfigs'),
-		'description' => __('Check this box to assume this device is always elevated', 'routerconfigs'),
-		'value' => '|arg1:elevated|',
-		'default' => '',
-		'form_id' => false
-	),
-	'timeout' => array(
+		'description'   => __('Check this box to assume this device is always elevated', 'routerconfigs'),
+		'value'         => '|arg1:elevated|',
+		'default'       => '',
+		'form_id'       => false
+	],
+	'timeout' => [
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:timeout|',
-		'default' => '1',
-		'size' => '3',
-		'max_length' => '3'
-	),
-	'sleep' => array(
+		'description'   => __('Default time to wait in seconds for a response', 'routerconfigs'),
+		'method'        => 'textbox',
+		'value'         => '|arg1:timeout|',
+		'default'       => '1',
+		'size'          => '3',
+		'max_length'    => '3'
+	],
+	'sleep' => [
 		'friendly_name' => __('Default sleep time', 'routerconfigs'),
-		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:sleep|',
-		'default' => '125000',
-		'size' => '8',
-		'max_length' => '7'
-	),
-	'anykey' => array(
+		'description'   => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
+		'method'        => 'textbox',
+		'value'         => '|arg1:sleep|',
+		'default'       => '125000',
+		'size'          => '8',
+		'max_length'    => '7'
+	],
+	'anykey' => [
 		'friendly_name' => __('Any Key prompt', 'routerconfigs'),
-		'description' => __('Text to match a \'Press Any Key To Continue\' styled prompt', 'routerconfigs'),
-		'method' => 'textbox',
-		'value' => '|arg1:anykey|',
-		'default' => '',
-		'max_length' => '50'
-	),
-	'id' => array(
+		'description'   => __('Text to match a \'Press Any Key To Continue\' styled prompt', 'routerconfigs'),
+		'method'        => 'textbox',
+		'value'         => '|arg1:anykey|',
+		'default'       => '',
+		'max_length'    => '50'
+	],
+	'id' => [
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-	)
-);
+		'value'  => '|arg1:id|'
+	]
+];
 
-$rc_settings = array(
-	'routerconfigs_header' => array(
+$rc_settings = [
+	'routerconfigs_header' => [
 		'friendly_name' => __('General Settings', 'routerconfigs'),
-		'method' => 'spacer',
-	),
-	'routerconfigs_presentation' => array(
+		'method'        => 'spacer',
+	],
+	'routerconfigs_presentation' => [
 		'friendly_name' => __('Presentation Mode', 'routerconfigs'),
-		'description' => __('Should Router Configs be presented on the Console or a Top Tab.', 'routerconfigs'),
-		'method' => 'drop_array',
-		'default' => 'console',
-		'array' => array('console' => __('Console', 'routerconfigs'), 'toptab' => __('Top Tab', 'routerconfigs'))
-	),
-	'routerconfigs_timeout' => array(
+		'description'   => __('Should Router Configs be presented on the Console or a Top Tab.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => 'console',
+		'array'         => ['console' => __('Console', 'routerconfigs'), 'toptab' => __('Top Tab', 'routerconfigs')]
+	],
+	'routerconfigs_timeout' => [
 		'friendly_name' => __('Default timeout', 'routerconfigs'),
-		'description' => __('Default time to wait in seconds for a response', 'routerconfigs'),
-		'method' => 'textbox',
-		'max_length' => '3',
-		'size' => '3',
-		'default' => '1'
-	),
-	'routerconfigs_sleep' => array(
+		'description'   => __('Default time to wait in seconds for a response', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => '3',
+		'size'          => '3',
+		'default'       => '1'
+	],
+	'routerconfigs_sleep' => [
 		'friendly_name' => __('Default sleep time', 'routerconfigs'),
-		'description' => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
-		'method' => 'textbox',
-		'max_length' => '10',
-		'size' => '8',
-		'default' => '125000'
-	),
-	'routerconfigs_exit' => array(
+		'description'   => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => '10',
+		'size'          => '8',
+		'default'       => '125000'
+	],
+	'routerconfigs_exit' => [
 		'friendly_name' => __('Close without exit', 'routerconfigs'),
-		'description' => __('If ticked, when closing down the device connection, no \'exit\' command is issued', 'routerconfigs'),
-		'method' => 'checkbox'
-	),
-	'routerconfigs_debug_buffer' => array(
+		'description'   => __('If ticked, when closing down the device connection, no \'exit\' command is issued', 'routerconfigs'),
+		'method'        => 'checkbox'
+	],
+	'routerconfigs_debug_buffer' => [
 		'friendly_name' => __('Debug Connection Buffer', 'routerconfigs'),
-		'description' => __('Whether to log direct output of device connection', 'routerconfigs'),
-		'method' => 'checkbox'
-	),
-	'routerconfigs_elevated' => array(
+		'description'   => __('Whether to log direct output of device connection', 'routerconfigs'),
+		'method'        => 'checkbox'
+	],
+	'routerconfigs_elevated' => [
 		'friendly_name' => __('Assume all devices elevated', 'routerconfigs'),
-		'description' => __('Whether to assume all devices are elevated', 'routerconfigs'),
-		'method' => 'checkbox'
-	),
-	'routerconfigs_hour' => array(
+		'description'   => __('Whether to assume all devices are elevated', 'routerconfigs'),
+		'method'        => 'checkbox'
+	],
+	'routerconfigs_hour' => [
 		'friendly_name' => __('Download Hour', 'routerconfigs'),
-		'description' => __('The hour of the day to perform the full downloads.', 'routerconfigs'),
-		'method' => 'drop_array',
-		'default' => '0',
-		'array' => $rc_schedules_download,
-	),
-	'routerconfigs_retry' => array(
+		'description'   => __('The hour of the day to perform the full downloads.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => '0',
+		'array'         => $rc_schedules_download,
+	],
+	'routerconfigs_retry' => [
 		'friendly_name' => __('Retry Schedule', 'routerconfigs'),
-		'description' => __('The time to wait before attempting to perform an additional download when scheduled download fails', 'routerconfigs'),
-		'method' => 'drop_array',
-		'default' => '4',
-		'array' => $rc_schedules_retry,
-	),
-	'routerconfigs_retention' => array(
+		'description'   => __('The time to wait before attempting to perform an additional download when scheduled download fails', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => '4',
+		'array'         => $rc_schedules_retry,
+	],
+	'routerconfigs_retention' => [
 		'friendly_name' => __('Retention Period', 'routerconfigs'),
-		'description' => __('The number of days to retain old backups.', 'routerconfigs'),
-		'method' => 'drop_array',
-		'default' => '30',
-		'array' => $rc_schedules_retention,
-	),
-	'routerconfigs_header_transfer' => array(
+		'description'   => __('The number of days to retain old backups.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => '30',
+		'array'         => $rc_schedules_retention,
+	],
+	'routerconfigs_header_transfer' => [
 		'friendly_name' => __('Transfer Options', 'routerconfigs'),
-		'method' => 'spacer',
-	),
-	'routerconfigs_connecttype' => array(
+		'method'        => 'spacer',
+	],
+	'routerconfigs_connecttype' => [
 		'friendly_name' => __('Default connection type', 'routerconfigs'),
-		'description' => __('Default type of connection used to communicate with the device.', 'routerconfigs'),
-		'method' => 'drop_array',
-		'default' => RCONFIG_CONNECT_BOTH,
-                'array' => $rc_connection_types_settings,
-	),
-	'routerconfigs_archive_separate' => array(
+		'description'   => __('Default type of connection used to communicate with the device.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => RCONFIG_CONNECT_BOTH,
+				'array'       => $rc_connection_types_settings,
+	],
+	'routerconfigs_archive_separate' => [
 		'friendly_name' => __('Separate By Device', 'routerconfigs'),
-		'description' => __('Separate archived Configs into a folder per device', 'routerconfigs'),
-		'method' => 'checkbox',
-		'default' => 'on'
-	),
-	'routerconfigs_scp_path' => array(
+		'description'   => __('Separate archived Configs into a folder per device', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => 'on'
+	],
+	'routerconfigs_scp_path' => [
 		'friendly_name' => __('SCP Path', 'routerconfigs'),
-		'description' => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work', 'routerconfigs'),
-		'method' => 'textbox',
-		'max_length' => 255,
-		'size' => '50',
-	),
-	'routerconfigs_tftpserver' => array(
+		'description'   => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => 255,
+		'size'          => '50',
+	],
+	'routerconfigs_tftpserver' => [
 		'friendly_name' => __('TFTP Server IP', 'routerconfigs'),
-		'description' => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
-		'method' => 'textbox',
-		'max_length' => 255,
-		'size' => '30',
-		'default' => gethostbyname($rc_hostname)
-	),
-	'routerconfigs_backup_path' => array(
+		'description'   => __('Must be an IP pointing to your Cacti server.', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => 255,
+		'size'          => '30',
+		'default'       => gethostbyname($rc_hostname)
+	],
+	'routerconfigs_backup_path' => [
 		'friendly_name' => __('TFTP Backup Directory Path', 'routerconfigs'),
-		'description' => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.', 'routerconfigs'),
-		'method' => 'dirpath',
-		'max_length' => 255,
-		'size' => '50',
-		'default' => $config['base_path'] . '/backups/'
-	),
-	'routerconfigs_archive_path' => array(
+		'description'   => __('The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to.', 'routerconfigs'),
+		'method'        => 'dirpath',
+		'max_length'    => 255,
+		'size'          => '50',
+		'default'       => $config['base_path'] . '/backups/'
+	],
+	'routerconfigs_archive_path' => [
 		'friendly_name' => __('Archive Directory Path', 'routerconfigs'),
-		'description' => __('The path to where your Configs will be archived (moved from TFTP directory)', 'routerconfigs'),
-		'method' => 'dirpath',
-		'max_length' => 255,
-		'size' => '50',
-		'default' => $config['base_path'] . '/plugins/routerconfigs/backups/'
-	),
-	'routerconfigs_header_email' => array(
+		'description'   => __('The path to where your Configs will be archived (moved from TFTP directory)', 'routerconfigs'),
+		'method'        => 'dirpath',
+		'max_length'    => 255,
+		'size'          => '50',
+		'default'       => $config['base_path'] . '/plugins/routerconfigs/backups/'
+	],
+	'routerconfigs_header_email' => [
 		'friendly_name' => __('Email Options', 'routerconfigs'),
-		'method' => 'spacer',
-	),
-	'routerconfigs_from' => array(
+		'method'        => 'spacer',
+	],
+	'routerconfigs_from' => [
 		'friendly_name' => __('From Address', 'routerconfigs'),
-		'description' => __('Email address the nightly backup will be sent from.', 'routerconfigs'),
-		'method' => 'textbox',
-		'size' => 40,
-		'max_length' => 255,
-		'default' => ''
-	),
-	'routerconfigs_name' => array(
+		'description'   => __('Email address the nightly backup will be sent from.', 'routerconfigs'),
+		'method'        => 'textbox',
+		'size'          => 40,
+		'max_length'    => 255,
+		'default'       => ''
+	],
+	'routerconfigs_name' => [
 		'friendly_name' => __('From Name', 'routerconfigs'),
-		'description' => __('Name the nightly backup will be sent from.', 'routerconfigs'),
-		'method' => 'textbox',
-		'size' => 40,
-		'max_length' => 255,
-		'default' => ''
-	),
-	'routerconfigs_email' => array(
+		'description'   => __('Name the nightly backup will be sent from.', 'routerconfigs'),
+		'method'        => 'textbox',
+		'size'          => 40,
+		'max_length'    => 255,
+		'default'       => ''
+	],
+	'routerconfigs_email' => [
 		'friendly_name' => __('Email Address', 'routerconfigs'),
-		'description' => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
-		'method' => 'textarea',
-		'class' => 'textAreaNotes',
+		'description'   => __('A comma delimited list of Email addresses to send the nightly backup Email to.', 'routerconfigs'),
+		'method'        => 'textarea',
+		'class'         => 'textAreaNotes',
 		'textarea_rows' => '5',
 		'textarea_cols' => '40',
-		'size' => 40,
-		'max_length' => 255,
-		'default' => ''
-	),
-);
+		'size'          => 40,
+		'max_length'    => 255,
+		'default'       => ''
+	],
+];

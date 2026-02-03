@@ -21,47 +21,43 @@
  * @package   Text_Diff
  */
 class Horde_Text_Diff_Renderer_Unified_Colored
-extends Horde_Text_Diff_Renderer_Unified
-{
-    /**
-     * CLI handler.
-     *
-     * Contrary to the name, it supports color highlighting for HTML too.
-     *
-     * @var Horde_Cli
-     */
-    protected $_cli;
+extends Horde_Text_Diff_Renderer_Unified {
+	/**
+	 * CLI handler.
+	 *
+	 * Contrary to the name, it supports color highlighting for HTML too.
+	 *
+	 * @var Horde_Cli
+	 */
+	protected $_cli;
 
-    /**
-     * Constructor.
-     */
-    public function __construct($params = array())
-    {
-        if (!isset($params['cli'])) {
-            throw new BadMethodCallException('CLI handler is missing');
-        }
-        parent::__construct($params);
-        $this->_cli = $params['cli'];
-    }
+	/**
+	 * Constructor.
+	 * @param mixed $params
+	 */
+	public function __construct($params = []) {
+		if (!isset($params['cli'])) {
+			throw new BadMethodCallException('CLI handler is missing');
+		}
+		parent::__construct($params);
+		$this->_cli = $params['cli'];
+	}
 
-    protected function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
-    {
-        return $this->_cli->color(
-            'lightmagenta', parent::_blockHeader($xbeg, $xlen, $ybeg, $ylen)
-        );
-    }
+	protected function _blockHeader($xbeg, $xlen, $ybeg, $ylen) {
+		return $this->_cli->color(
+			'lightmagenta', parent::_blockHeader($xbeg, $xlen, $ybeg, $ylen)
+		);
+	}
 
-    protected function _added($lines)
-    {
-        return $this->_cli->color(
-            'lightgreen', parent::_added($lines)
-        );
-    }
+	protected function _added($lines) {
+		return $this->_cli->color(
+			'lightgreen', parent::_added($lines)
+		);
+	}
 
-    protected function _deleted($lines)
-    {
-        return $this->_cli->color(
-            'lightred', parent::_deleted($lines)
-        );
-    }
+	protected function _deleted($lines) {
+		return $this->_cli->color(
+			'lightred', parent::_deleted($lines)
+		);
+	}
 }

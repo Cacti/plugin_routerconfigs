@@ -54,18 +54,19 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 
 		if (!function_exists('ssh2_auth_password')) {
 			$this->Log("DEBUG: PHP doesn't have the ssh2 module installed");
-			$this->Log("DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php");
-			$rv=4;
+			$this->Log('DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php');
+			$rv = 4;
+
 			return $rv;
 		}
 
 		if (strlen($this->ip)) {
-			if(!($this->connection = @ssh2_connect($this->server, 22))){
-				$rv=1;
+			if (!($this->connection = @ssh2_connect($this->server, 22))) {
+				$rv = 1;
 			} else {
 				// try to authenticate
 				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
-					$rv=3;
+					$rv = 3;
 				} else {
 					if ($this->stream = ssh2_shell($this->connection,'xterm')) {
 						$this->Log('DEBUG: okay: logged in...');
@@ -79,39 +80,32 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 			$this->Log($error);
 		}
 
-		return $rv; //everything goes well ;)
+		return $rv; // everything goes well ;)
 	}
 
 	function ConnectError($num) {
 		if ($this->show_connect_error) {
-			$this->error=$num;
+			$this->error = $num;
+
 			switch ($num) {
-			case 1:
-				return 'WARNING: Unable to open ssh network connection';
-				break;
-			case 2:
-				return 'ERROR: Unknown host';
-				break;
-			case 3:
-				return 'ERROR: SSH login failed';
-				break;
-			case 4:
-				return "ERROR: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual: http://www.php.net/manual/en/ssh2.installation.php";
-				break;
-			case 5:
-				return 'ERROR: Bad download of config';
-				break;
-			case 6:
-				return 'ERROR: SSH access not Permitted';
-				break;
-			case 7:
-				return 'ERROR: SSH no Config uploaded from Router';
-				break;
-			case 8:
-				return "NOTICE: SSH Timeout of {$this->timeout} seconds has been reached";
-				break;
-			case 9:
-				return 'ERROR: SSH Enable login failed';
+				case 1:
+					return 'WARNING: Unable to open ssh network connection';
+				case 2:
+					return 'ERROR: Unknown host';
+				case 3:
+					return 'ERROR: SSH login failed';
+				case 4:
+					return "ERROR: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual: http://www.php.net/manual/en/ssh2.installation.php";
+				case 5:
+					return 'ERROR: Bad download of config';
+				case 6:
+					return 'ERROR: SSH access not Permitted';
+				case 7:
+					return 'ERROR: SSH no Config uploaded from Router';
+				case 8:
+					return "NOTICE: SSH Timeout of {$this->timeout} seconds has been reached";
+				case 9:
+					return 'ERROR: SSH Enable login failed';
 			}
 		}
 	}
