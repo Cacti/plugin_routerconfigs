@@ -13,55 +13,58 @@
  * @author  Jon Parise <jon@horde.org>
  * @package Text_Diff
  */
-class Horde_Text_Diff_Engine_Xdiff
-{
-    /**
-     */
-    public function diff($from_lines, $to_lines)
-    {
-        if (!extension_loaded('xdiff')) {
-            throw new Horde_Text_Diff_Exception('The xdiff extension is required for this diff engine');
-        }
+class Horde_Text_Diff_Engine_Xdiff {
+	/**
+	 * @param mixed $from_lines
+	 * @param mixed $to_lines
+	 */
+	public function diff($from_lines, $to_lines) {
+		if (!extension_loaded('xdiff')) {
+			throw new Horde_Text_Diff_Exception('The xdiff extension is required for this diff engine');
+		}
 
-        array_walk($from_lines, array('Horde_Text_Diff', 'trimNewlines'));
-        array_walk($to_lines, array('Horde_Text_Diff', 'trimNewlines'));
+		array_walk($from_lines, ['Horde_Text_Diff', 'trimNewlines']);
+		array_walk($to_lines, ['Horde_Text_Diff', 'trimNewlines']);
 
-        /* Convert the two input arrays into strings for xdiff processing. */
-        $from_string = implode("\n", $from_lines);
-        $to_string = implode("\n", $to_lines);
+		// Convert the two input arrays into strings for xdiff processing.
+		$from_string = implode("\n", $from_lines);
+		$to_string   = implode("\n", $to_lines);
 
-        /* Diff the two strings and convert the result to an array. */
-        $diff = xdiff_string_diff($from_string, $to_string, count($to_lines));
-        $diff = explode("\n", $diff);
+		// Diff the two strings and convert the result to an array.
+		$diff = xdiff_string_diff($from_string, $to_string, count($to_lines));
+		$diff = explode("\n", $diff);
 
-        /* Walk through the diff one line at a time.  We build the $edits
-         * array of diff operations by reading the first character of the
-         * xdiff output (which is in the "unified diff" format).
-         *
-         * Note that we don't have enough information to detect "changed"
-         * lines using this approach, so we can't add Horde_Text_Diff_Op_Changed
-         * instances to the $edits array.  The result is still perfectly
-         * valid, albeit a little less descriptive and efficient. */
-        $edits = array();
-        foreach ($diff as $line) {
-            if (!strlen($line)) {
-                continue;
-            }
-            switch ($line[0]) {
-            case ' ':
-                $edits[] = new Horde_Text_Diff_Op_Copy(array(substr($line, 1)));
-                break;
+		/* Walk through the diff one line at a time.  We build the $edits
+		 * array of diff operations by reading the first character of the
+		 * xdiff output (which is in the "unified diff" format).
+		 *
+		 * Note that we don't have enough information to detect "changed"
+		 * lines using this approach, so we can't add Horde_Text_Diff_Op_Changed
+		 * instances to the $edits array.  The result is still perfectly
+		 * valid, albeit a little less descriptive and efficient. */
+		$edits = [];
 
-            case '+':
-                $edits[] = new Horde_Text_Diff_Op_Add(array(substr($line, 1)));
-                break;
+		foreach ($diff as $line) {
+			if (!strlen($line)) {
+				continue;
+			}
 
-            case '-':
-                $edits[] = new Horde_Text_Diff_Op_Delete(array(substr($line, 1)));
-                break;
-            }
-        }
+			switch ($line[0]) {
+				case ' ':
+					$edits[] = new Horde_Text_Diff_Op_Copy([substr($line, 1)]);
 
-        return $edits;
-    }
+					break;
+				case '+':
+					$edits[] = new Horde_Text_Diff_Op_Add([substr($line, 1)]);
+
+					break;
+				case '-':
+					$edits[] = new Horde_Text_Diff_Op_Delete([substr($line, 1)]);
+
+					break;
+			}
+		}
+
+		return $edits;
+	}
 }

@@ -12,227 +12,221 @@
  *
  * @package Text_Diff
  */
-class Horde_Text_Diff_Renderer
-{
-    /**
-     * Number of leading context "lines" to preserve.
-     *
-     * This should be left at zero for this class, but subclasses may want to
-     * set this to other values.
-     */
-    protected $_leading_context_lines = 0;
+class Horde_Text_Diff_Renderer {
+	/**
+	 * Number of leading context "lines" to preserve.
+	 *
+	 * This should be left at zero for this class, but subclasses may want to
+	 * set this to other values.
+	 */
+	protected $_leading_context_lines = 0;
 
-    /**
-     * Number of trailing context "lines" to preserve.
-     *
-     * This should be left at zero for this class, but subclasses may want to
-     * set this to other values.
-     */
-    protected $_trailing_context_lines = 0;
+	/**
+	 * Number of trailing context "lines" to preserve.
+	 *
+	 * This should be left at zero for this class, but subclasses may want to
+	 * set this to other values.
+	 */
+	protected $_trailing_context_lines = 0;
 
-    /**
-     * Constructor.
-     */
-    public function __construct($params = array())
-    {
-       if (!is_array($params)) {
-               throw new exception();
-       }
+	/**
+	 * Constructor.
+	 * @param mixed $params
+	 */
+	public function __construct($params = []) {
+		if (!is_array($params)) {
+			throw new exception();
+		}
 
-        foreach ($params as $param => $value) {
-            $v = '_' . $param;
-            if (isset($this->$v)) {
-                $this->$v = $value;
-            }
-        }
-    }
+		foreach ($params as $param => $value) {
+			$v = '_' . $param;
 
-    /**
-     * Get any renderer parameters.
-     *
-     * @return array  All parameters of this renderer object.
-     */
-    public function getParams()
-    {
-        $params = array();
-        foreach (get_object_vars($this) as $k => $v) {
-            if ($k[0] == '_') {
-                $params[substr($k, 1)] = $v;
-            }
-        }
+			if (isset($this->$v)) {
+				$this->$v = $value;
+			}
+		}
+	}
 
-        return $params;
-    }
+	/**
+	 * Get any renderer parameters.
+	 *
+	 * @return array All parameters of this renderer object.
+	 */
+	public function getParams() {
+		$params = [];
 
-    /**
-     * Renders a diff.
-     *
-     * @param Horde_Text_Diff $diff  A Horde_Text_Diff object.
-     *
-     * @return string  The formatted output.
-     */
-    public function render($diff)
-    {
-        $xi = $yi = 1;
-        $block = false;
-        $context = array();
+		foreach (get_object_vars($this) as $k => $v) {
+			if ($k[0] == '_') {
+				$params[substr($k, 1)] = $v;
+			}
+		}
 
-        $nlead = $this->_leading_context_lines;
-        $ntrail = $this->_trailing_context_lines;
+		return $params;
+	}
 
-        $output = $this->_startDiff();
+	/**
+	 * Renders a diff.
+	 *
+	 * @param Horde_Text_Diff $diff A Horde_Text_Diff object.
+	 *
+	 * @return string The formatted output.
+	 */
+	public function render($diff) {
+		$xi      = $yi = 1;
+		$block   = false;
+		$context = [];
 
-        $diffs = $diff->getDiff();
-        foreach ($diffs as $i => $edit) {
-            /* If these are unchanged (copied) lines, and we want to keep
-             * leading or trailing context lines, extract them from the copy
-             * block. */
-            if ($edit instanceof Horde_Text_Diff_Op_Copy) {
-                /* Do we have any diff blocks yet? */
-                if (is_array($block)) {
-                    /* How many lines to keep as context from the copy
-                     * block. */
-                    $keep = $i == count($diffs) - 1 ? $ntrail : $nlead + $ntrail;
-                    if (count($edit->orig) <= $keep) {
-                        /* We have less lines in the block than we want for
-                         * context => keep the whole block. */
-                        $block[] = $edit;
-                    } else {
-                        if ($ntrail) {
-                            /* Create a new block with as many lines as we need
-                             * for the trailing context. */
-                            $context = array_slice($edit->orig, 0, $ntrail);
-                            $block[] = new Horde_Text_Diff_Op_Copy($context);
-                        }
-                        /* @todo */
-                        $output .= $this->_block($x0, $ntrail + $xi - $x0,
-                                                 $y0, $ntrail + $yi - $y0,
-                                                 $block);
-                        $block = false;
-                    }
-                }
-                /* Keep the copy block as the context for the next block. */
-                $context = $edit->orig;
-            } else {
-                /* Don't we have any diff blocks yet? */
-                if (!is_array($block)) {
-                    /* Extract context lines from the preceding copy block. */
-                    $context = array_slice($context, count($context) - $nlead);
-                    $x0 = $xi - count($context);
-                    $y0 = $yi - count($context);
-                    $block = array();
-                    if ($context) {
-                        $block[] = new Horde_Text_Diff_Op_Copy($context);
-                    }
-                }
-                $block[] = $edit;
-            }
+		$nlead  = $this->_leading_context_lines;
+		$ntrail = $this->_trailing_context_lines;
 
-            if ($edit->orig) {
-                $xi += count($edit->orig);
-            }
-            if ($edit->final) {
-                $yi += count($edit->final);
-            }
-        }
+		$output = $this->_startDiff();
 
-        if (is_array($block)) {
-            $output .= $this->_block($x0, $xi - $x0,
-                                     $y0, $yi - $y0,
-                                     $block);
-        }
+		$diffs = $diff->getDiff();
 
-        return $output . $this->_endDiff();
-    }
+		foreach ($diffs as $i => $edit) {
+			/* If these are unchanged (copied) lines, and we want to keep
+			 * leading or trailing context lines, extract them from the copy
+			 * block. */
+			if ($edit instanceof Horde_Text_Diff_Op_Copy) {
+				// Do we have any diff blocks yet?
+				if (is_array($block)) {
+					/* How many lines to keep as context from the copy
+					 * block. */
+					$keep = $i == count($diffs) - 1 ? $ntrail : $nlead + $ntrail;
 
-    protected function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
-    {
-        $output = $this->_startBlock($this->_blockHeader($xbeg, $xlen, $ybeg, $ylen));
+					if (count($edit->orig) <= $keep) {
+						/* We have less lines in the block than we want for
+						 * context => keep the whole block. */
+						$block[] = $edit;
+					} else {
+						if ($ntrail) {
+							/* Create a new block with as many lines as we need
+							 * for the trailing context. */
+							$context = array_slice($edit->orig, 0, $ntrail);
+							$block[] = new Horde_Text_Diff_Op_Copy($context);
+						}
+						/** @todo */
+						$output .= $this->_block($x0, $ntrail + $xi - $x0,
+							$y0, $ntrail + $yi - $y0,
+							$block);
+						$block = false;
+					}
+				}
+				// Keep the copy block as the context for the next block.
+				$context = $edit->orig;
+			} else {
+				// Don't we have any diff blocks yet?
+				if (!is_array($block)) {
+					// Extract context lines from the preceding copy block.
+					$context = array_slice($context, count($context) - $nlead);
+					$x0      = $xi - count($context);
+					$y0      = $yi - count($context);
+					$block   = [];
 
-        foreach ($edits as $edit) {
-            switch (get_class($edit)) {
-            case 'Horde_Text_Diff_Op_Copy':
-                $output .= $this->_context($edit->orig);
-                break;
+					if ($context) {
+						$block[] = new Horde_Text_Diff_Op_Copy($context);
+					}
+				}
+				$block[] = $edit;
+			}
 
-            case 'Horde_Text_Diff_Op_Add':
-                $output .= $this->_added($edit->final);
-                break;
+			if ($edit->orig) {
+				$xi += count($edit->orig);
+			}
 
-            case 'Horde_Text_Diff_Op_Delete':
-                $output .= $this->_deleted($edit->orig);
-                break;
+			if ($edit->final) {
+				$yi += count($edit->final);
+			}
+		}
 
-            case 'Horde_Text_Diff_Op_Change':
-                $output .= $this->_changed($edit->orig, $edit->final);
-                break;
-            }
-        }
+		if (is_array($block)) {
+			$output .= $this->_block($x0, $xi - $x0,
+				$y0, $yi - $y0,
+				$block);
+		}
 
-        return $output . $this->_endBlock();
-    }
+		return $output . $this->_endDiff();
+	}
 
-    protected function _startDiff()
-    {
-        return '';
-    }
+	protected function _block($xbeg, $xlen, $ybeg, $ylen, &$edits) {
+		$output = $this->_startBlock($this->_blockHeader($xbeg, $xlen, $ybeg, $ylen));
 
-    protected function _endDiff()
-    {
-        return '';
-    }
+		foreach ($edits as $edit) {
+			switch (get_class($edit)) {
+				case 'Horde_Text_Diff_Op_Copy':
+					$output .= $this->_context($edit->orig);
 
-    protected function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
-    {
-        if ($xlen > 1) {
-            $xbeg .= ',' . ($xbeg + $xlen - 1);
-        }
-        if ($ylen > 1) {
-            $ybeg .= ',' . ($ybeg + $ylen - 1);
-        }
+					break;
+				case 'Horde_Text_Diff_Op_Add':
+					$output .= $this->_added($edit->final);
 
-        // this matches the GNU Diff behaviour
-        if ($xlen && !$ylen) {
-            $ybeg--;
-        } elseif (!$xlen) {
-            $xbeg--;
-        }
+					break;
+				case 'Horde_Text_Diff_Op_Delete':
+					$output .= $this->_deleted($edit->orig);
 
-        return $xbeg . ($xlen ? ($ylen ? 'c' : 'd') : 'a') . $ybeg;
-    }
+					break;
+				case 'Horde_Text_Diff_Op_Change':
+					$output .= $this->_changed($edit->orig, $edit->final);
 
-    protected function _startBlock($header)
-    {
-        return $header . "\n";
-    }
+					break;
+			}
+		}
 
-    protected function _endBlock()
-    {
-        return '';
-    }
+		return $output . $this->_endBlock();
+	}
 
-    protected function _lines($lines, $prefix = ' ')
-    {
-        return implode($lines) . "\n";
-    }
+	protected function _startDiff() {
+		return '';
+	}
 
-    protected function _context($lines)
-    {
-        return $this->_lines($lines, '  ');
-    }
+	protected function _endDiff() {
+		return '';
+	}
 
-    protected function _added($lines)
-    {
-        return $this->_lines($lines, '> ');
-    }
+	protected function _blockHeader($xbeg, $xlen, $ybeg, $ylen) {
+		if ($xlen > 1) {
+			$xbeg .= ',' . ($xbeg + $xlen - 1);
+		}
 
-    protected function _deleted($lines)
-    {
-        return $this->_lines($lines, '< ');
-    }
+		if ($ylen > 1) {
+			$ybeg .= ',' . ($ybeg + $ylen - 1);
+		}
 
-    protected function _changed($orig, $final)
-    {
-        return $this->_deleted($orig) . $this->_added($final);
-    }
+		// this matches the GNU Diff behaviour
+		if ($xlen && !$ylen) {
+			$ybeg--;
+		} elseif (!$xlen) {
+			$xbeg--;
+		}
+
+		return $xbeg . ($xlen ? ($ylen ? 'c' : 'd') : 'a') . $ybeg;
+	}
+
+	protected function _startBlock($header) {
+		return $header . "\n";
+	}
+
+	protected function _endBlock() {
+		return '';
+	}
+
+	protected function _lines($lines, $prefix = ' ') {
+		return implode($lines) . "\n";
+	}
+
+	protected function _context($lines) {
+		return $this->_lines($lines, '  ');
+	}
+
+	protected function _added($lines) {
+		return $this->_lines($lines, '> ');
+	}
+
+	protected function _deleted($lines) {
+		return $this->_lines($lines, '< ');
+	}
+
+	protected function _changed($orig, $final) {
+		return $this->_deleted($orig) . $this->_added($final);
+	}
 }

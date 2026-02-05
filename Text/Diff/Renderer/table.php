@@ -1,7 +1,7 @@
 <?php
 
-//require_once 'Text/Diff/Renderer.php';
-//require_once 'Text/Diff/Renderer/marker.php';
+// require_once 'Text/Diff/Renderer.php';
+// require_once 'Text/Diff/Renderer/marker.php';
 
 // Marker diff renderer class at bottom of file!
 
@@ -18,223 +18,214 @@
  * @package Horde_Text_Diff
  */
 class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
+	/**
+	 * Number of leading context "lines" to preserve.
+	 */
+	var $_leading_context_lines = 10000;
 
-    /**
-     * Number of leading context "lines" to preserve.
-     */
-    var $_leading_context_lines = 10000;
+	/**
+	 * Number of trailing context "lines" to preserve.
+	 */
+	var $_trailing_context_lines = 10000;
 
-    /**
-     * Number of trailing context "lines" to preserve.
-     */
-    var $_trailing_context_lines = 10000;
+	/**
+	 * Prefix for missed text.
+	 */
+	var $_mis_prefix = '<mis>';
 
-    /**
-     * Prefix for missed text.
-     */
-    var $_mis_prefix = '<mis>';
+	/**
+	 * Suffix for missed text.
+	 */
+	var $_mis_suffix = '</mis>';
 
-    /**
-     * Suffix for missed text.
-     */
-    var $_mis_suffix = '</mis>';
+	/**
+	 * Prefix for inserted text.
+	 */
+	var $_ins_prefix = '<ins>';
 
-    /**
-     * Prefix for inserted text.
-     */
-    var $_ins_prefix = '<ins>';
+	/**
+	 * Suffix for inserted text.
+	 */
+	var $_ins_suffix = '</ins>';
 
-    /**
-     * Suffix for inserted text.
-     */
-    var $_ins_suffix = '</ins>';
+	/**
+	 * Prefix for deleted text.
+	 */
+	var $_del_prefix = '<del>';
 
-    /**
-     * Prefix for deleted text.
-     */
-    var $_del_prefix = '<del>';
+	/**
+	 * Suffix for deleted text.
+	 */
+	var $_del_suffix = '</del>';
 
-    /**
-     * Suffix for deleted text.
-     */
-    var $_del_suffix = '</del>';
+	/**
+	 * Header for each change block.
+	 */
+	var $_block_header = '';
 
-    /**
-     * Header for each change block.
-     */
-    var $_block_header = '';
+	/**
+	 * What are we currently splitting on? Used to recurse to show word-level
+	 * changes.
+	 */
+	var $_split_level = 'lines';
 
-    /**
-     * What are we currently splitting on? Used to recurse to show word-level
-     * changes.
-     */
-    var $_split_level = 'lines';
-
-    function _startDiff() {
-	return '';
-    }
-
-    function _endDiff() {
+	function _startDiff() {
 		return '';
-    }
+	}
 
+	function _endDiff() {
+		return '';
+	}
 
-    function _lines($lines, $prefix = ' ', $encode = true)
-    {
-        if ($encode) {
-            array_walk($lines, array(&$this, '_encode'));
-        }
+	function _lines($lines, $prefix = ' ', $encode = true) {
+		if ($encode) {
+			array_walk($lines, [&$this, '_encode']);
+		}
 
-        if ($this->_split_level == 'words') {
-            return implode('', $lines);
-        } else {
-            return implode("\n", $lines). "\n";
-        }
-    }
+		if ($this->_split_level == 'words') {
+			return implode('', $lines);
+		} else {
+			return implode("\n", $lines) . "\n";
+		}
+	}
 
-    function _added($lines)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_ins_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_ins_suffix;
-        return '<tr><td class=noc></td><td class=mid></td><td class=add>'.$this->_lines($lines, ' ', false).'</td></tr>';
-    }
+	function _added($lines) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_ins_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_ins_suffix;
 
-    function _addedInline($lines)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_ins_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_ins_suffix;
-        return $this->_lines($lines, ' ', false);
-    }
+		return '<tr><td class=noc></td><td class=mid></td><td class=add>' . $this->_lines($lines, ' ', false) . '</td></tr>';
+	}
 
-    function _deleted($lines, $words = false)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_del_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_del_suffix;
-        return '<tr><td class="del">'.$this->_lines($lines, ' ', false).'</td><td class=mid></td><td class=noc></td></tr>';
-    }
+	function _addedInline($lines) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_ins_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_ins_suffix;
 
-   function _deletedInline($lines, $words = false)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_del_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_del_suffix;
-        return $this->_lines($lines, ' ', false);
-    }
+		return $this->_lines($lines, ' ', false);
+	}
 
-    function _splitOnWords($string, $newlineEscape = "\n")
-    {
-        $words = array();
-        $length = strlen($string);
-        $pos = 0;
+	function _deleted($lines, $words = false) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_del_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_del_suffix;
 
-        while ($pos < $length) {
-            // Eat a word with any preceding whitespace.
-            $spaces = strspn(substr($string, $pos), " \n");
-            $nextpos = strcspn(substr($string, $pos + $spaces), " \n");
-            $words[] = str_replace("\n", $newlineEscape, substr($string, $pos, $spaces + $nextpos));
-            $pos += $spaces + $nextpos;
-        }
+		return '<tr><td class="del">' . $this->_lines($lines, ' ', false) . '</td><td class=mid></td><td class=noc></td></tr>';
+	}
 
-        return $words;
-    }
+	function _deletedInline($lines, $words = false) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_del_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_del_suffix;
 
-    function _encode(&$string)
-    {
-        $string = htmlspecialchars($string);
-    }
+		return $this->_lines($lines, ' ', false);
+	}
 
+	function _splitOnWords($string, $newlineEscape = "\n") {
+		$words  = [];
+		$length = strlen($string);
+		$pos    = 0;
 
-    function _changed($orig, $final)
-    {
-        $text1 = implode("\n", $orig);
-        $text2 = implode("\n", $final);
+		while ($pos < $length) {
+			// Eat a word with any preceding whitespace.
+			$spaces  = strspn(substr($string, $pos), " \n");
+			$nextpos = strcspn(substr($string, $pos + $spaces), " \n");
+			$words[] = str_replace("\n", $newlineEscape, substr($string, $pos, $spaces + $nextpos));
+			$pos += $spaces + $nextpos;
+		}
 
-	$count_orig = count($orig);
-	$count_final = count($final);
-	$count_change = min($count_orig, $count_final);
-	$count_max = max($count_orig, $count_final);
+		return $words;
+	}
 
-	$html = '';
+	function _encode(&$string) {
+		$string = htmlspecialchars($string);
+	}
 
-        /* These "if" statments catch conditions where the diff engine seems to return added lines as changes,
-         * this is seen by a difference between the count of the final array and the orig array. Also catch deleted lines (if there are any, not sure?).
-         * it only seems to happen after the line with changes, not before.
-        */
-        for($i = 0; $i < $count_max; $i++){
-            /* Non-printing newline marker. */
-            $nl = "\0";
+	function _changed($orig, $final) {
+		$text1 = implode("\n", $orig);
+		$text2 = implode("\n", $final);
 
-            /* Get original value, if less than array size */
-            $source_orig = ($i < $count_orig ? $orig[$i] : null);
+		$count_orig   = count($orig);
+		$count_final  = count($final);
+		$count_change = min($count_orig, $count_final);
+		$count_max    = max($count_orig, $count_final);
 
-            /* Get final value, if less than array size */
-            $source_final = ($i < $count_final ? $final[$i] : null);
+		$html = '';
 
-            if ($source_orig !== null && $source_final !== null) {
-                /* We want to split on word boundaries, but we need to
-                 * preserve whitespace as well. Therefore we split on words,
-                 * but include all blocks of whitespace in the wordlist. */
+		/* These "if" statments catch conditions where the diff engine seems to return added lines as changes,
+		 * this is seen by a difference between the count of the final array and the orig array. Also catch deleted lines (if there are any, not sure?).
+		 * it only seems to happen after the line with changes, not before.
+		 */
+		for ($i = 0; $i < $count_max; $i++) {
+			// Non-printing newline marker.
+			$nl = "\0";
 
-                $output_source = $source_orig;
-		$output_final = $source_final;
+			// Get original value, if less than array size
+			$source_orig = ($i < $count_orig ? $orig[$i] : null);
 
-                $class_source = 'chg';
-		$class_final = 'chg';
-            } elseif ($source_orig === null) {
-                    $class_source = 'mis';
-                    $class_final = 'add';
-                    $output_source = '';
-                    $output_final =  $final[$i];
-            } elseif ($source_final === null) {
-                    $class_source = 'del';
-                    $class_final = 'mis';
-                    $output_source = $orig[$i];
-                    $output_final = '';
-            }
+			// Get final value, if less than array size
+			$source_final = ($i < $count_final ? $final[$i] : null);
 
-            if ($output_source > '') {
-		$output_source = $this->_del_prefix . $output_source . $this->_del_suffix;
-            //} else {
-            //    $output_source = $this->_mis_prefix . $output_source . $this->_mis_suffix;
-            }
+			if ($source_orig !== null && $source_final !== null) {
+				/* We want to split on word boundaries, but we need to
+				 * preserve whitespace as well. Therefore we split on words,
+				 * but include all blocks of whitespace in the wordlist. */
 
-            if ($output_final > '') {
-                $output_final = $this->_ins_prefix . $output_final . $this->_ins_suffix;
-            //} else {
-            //    $output_final = $this->_mis_prefix . $output_final . $this->_mis_suffix;
-            }
+				$output_source = $source_orig;
+				$output_final  = $source_final;
 
-            $html .= '<tr><td class="'.$class_source.'">'.$output_source.'</td><td class=mid></td>';
-            $html .= '<td class="'.$class_final.'">'.$output_final.'</td></tr>';
-        }
-        return $html;
-    }
+				$class_source = 'chg';
+				$class_final  = 'chg';
+			} elseif ($source_orig === null) {
+				$class_source  = 'mis';
+				$class_final   = 'add';
+				$output_source = '';
+				$output_final  =  $final[$i];
+			} elseif ($source_final === null) {
+				$class_source  = 'del';
+				$class_final   = 'mis';
+				$output_source = $orig[$i];
+				$output_final  = '';
+			}
 
-    function _context($lines)
-    {
-        $linesa = $this->_lines($lines);
-        $output = '';
-        foreach($lines as $key => $value){
-            $output .= '<tr class=noc><td>' . $value .'</td><td class=mid></td><td>'. $value.'</td></tr>';
-        }
-        return $output;
-    }
+			if ($output_source > '') {
+				$output_source = $this->_del_prefix . $output_source . $this->_del_suffix;
+				// } else {
+				//    $output_source = $this->_mis_prefix . $output_source . $this->_mis_suffix;
+			}
 
-    function _startBlock($header)
-    {
-        return '';
-    }
+			if ($output_final > '') {
+				$output_final = $this->_ins_prefix . $output_final . $this->_ins_suffix;
+				// } else {
+				//    $output_final = $this->_mis_prefix . $output_final . $this->_mis_suffix;
+			}
 
-    function _endBlock()
-    {
-        return '';
-    }
+			$html .= '<tr><td class="' . $class_source . '">' . $output_source . '</td><td class=mid></td>';
+			$html .= '<td class="' . $class_final . '">' . $output_final . '</td></tr>';
+		}
 
+		return $html;
+	}
+
+	function _context($lines) {
+		$linesa = $this->_lines($lines);
+		$output = '';
+
+		foreach ($lines as $key => $value) {
+			$output .= '<tr class=noc><td>' . $value . '</td><td class=mid></td><td>' . $value . '</td></tr>';
+		}
+
+		return $output;
+	}
+
+	function _startBlock($header) {
+		return '';
+	}
+
+	function _endBlock() {
+		return '';
+	}
 }
-
 
 /**
  * "Marker" diff renderer.
@@ -251,220 +242,217 @@ class Horde_Text_Diff_Renderer_table extends Horde_Text_Diff_Renderer {
  * @package Text_Diff
  */
 class Horde_Text_Diff_Renderer_marker extends Horde_Text_Diff_Renderer {
+	/**
+	 * Number of leading context "lines" to preserve.
+	 */
+	var $_leading_context_lines = 10000;
 
-    /**
-     * Number of leading context "lines" to preserve.
-     */
-    var $_leading_context_lines = 10000;
+	/**
+	 * Number of trailing context "lines" to preserve.
+	 */
+	var $_trailing_context_lines = 10000;
 
-    /**
-     * Number of trailing context "lines" to preserve.
-     */
-    var $_trailing_context_lines = 10000;
+	/**
+	 * Prefix for inserted text.
+	 */
+	var $_ins_prefix = '<ins>';
 
-    /**
-     * Prefix for inserted text.
-     */
-    var $_ins_prefix = '<ins>';
+	/**
+	 * Suffix for inserted text.
+	 */
+	var $_ins_suffix = '</ins>';
 
-    /**
-     * Suffix for inserted text.
-     */
-    var $_ins_suffix = '</ins>';
+	/**
+	 * Prefix for deleted text.
+	 */
+	var $_del_prefix = '<del>';
 
-    /**
-     * Prefix for deleted text.
-     */
-    var $_del_prefix = '<del>';
+	/**
+	 * Suffix for deleted text.
+	 */
+	var $_del_suffix = '</del>';
 
-    /**
-     * Suffix for deleted text.
-     */
-    var $_del_suffix = '</del>';
+	/**
+	 * Header for each change block.
+	 */
+	var $_block_header = '';
 
-    /**
-     * Header for each change block.
-     */
-    var $_block_header = '';
+	/**
+	 * What are we currently splitting on? Used to recurse to show word-level
+	 * changes.
+	 */
+	var $_split_level = 'words';
 
-    /**
-     * What are we currently splitting on? Used to recurse to show word-level
-     * changes.
-     */
-    var $_split_level = 'words';
+	function _blockHeader($xbeg, $xlen, $ybeg, $ylen) {
+		return $this->_block_header;
+	}
 
-    function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
-    {
-        return $this->_block_header;
-    }
+	function _startBlock($header) {
+		return $header;
+	}
 
-    function _startBlock($header)
-    {
-        return $header;
-    }
+	function _lines($lines, $prefix = ' ', $encode = true) {
+		if ($encode) {
+			array_walk($lines, [&$this, '_encode']);
+		}
 
-    function _lines($lines, $prefix = ' ', $encode = true)
-    {
-        if ($encode) {
-            array_walk($lines, array(&$this, '_encode'));
-        }
+		if ($this->_split_level == 'words') {
+			return implode('', $lines);
+		} else {
+			return implode("\n", $lines) . "\n";
+		}
+	}
 
-        if ($this->_split_level == 'words') {
-            return implode('', $lines);
-        } else {
-            return implode("\n", $lines) . "\n";
-        }
-    }
+	function _added($lines) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_ins_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_ins_suffix;
 
-    function _added($lines)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_ins_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_ins_suffix;
-        return $this->_lines($lines, ' ', false);
-    }
+		return $this->_lines($lines, ' ', false);
+	}
 
-    function _deleted($lines, $words = false)
-    {
-        array_walk($lines, array(&$this, '_encode'));
-        $lines[0] = $this->_del_prefix . $lines[0];
-        $lines[count($lines) - 1] .= $this->_del_suffix;
-        return $this->_lines($lines, ' ', false);
-    }
+	function _deleted($lines, $words = false) {
+		array_walk($lines, [&$this, '_encode']);
+		$lines[0] = $this->_del_prefix . $lines[0];
+		$lines[count($lines) - 1] .= $this->_del_suffix;
 
-    function _changed($orig, $final)
-    {
-        /* If we've already split on words, don't try to do so again - just
-         * display. */
-        //if ($this->_split_level == 'words') {
-            $prefix = '';
-            while ($orig[0] !== false && $final[0] !== false &&
-                   substr($orig[0], 0, 1) == ' ' &&
-                   substr($final[0], 0, 1) == ' ') {
-                $prefix .= substr($orig[0], 0, 1);
-                $orig[0] = substr($orig[0], 1);
-                $final[0] = substr($final[0], 1);
-            }
-            $temp->final = $this->_added($final);
-            $temp->orig = $this->_deleted($orig);
-            return $temp;
-        //}
+		return $this->_lines($lines, ' ', false);
+	}
 
-    }
+	function _changed($orig, $final) {
+		/* If we've already split on words, don't try to do so again - just
+		 * display. */
+		// if ($this->_split_level == 'words') {
+		$prefix = '';
 
-    function _splitOnWords($string, $newlineEscape = "\n")
-    {
-        $words = array();
-        $length = strlen($string);
-        $pos = 0;
+		while ($orig[0] !== false && $final[0] !== false &&
+			   substr($orig[0], 0, 1) == ' ' &&
+			   substr($final[0], 0, 1) == ' ') {
+			$prefix .= substr($orig[0], 0, 1);
+			$orig[0]  = substr($orig[0], 1);
+			$final[0] = substr($final[0], 1);
+		}
+		$temp->final = $this->_added($final);
+		$temp->orig  = $this->_deleted($orig);
 
-        while ($pos < $length) {
-            // Eat a word with any preceding whitespace.
-            $spaces = strspn(substr($string, $pos), " \n");
-            $nextpos = strcspn(substr($string, $pos + $spaces), " \n");
-            $words[] = str_replace("\n", $newlineEscape, substr($string, $pos, $spaces + $nextpos));
-            $pos += $spaces + $nextpos;
-        }
+		return $temp;
+		// }
+	}
 
-        return $words;
-    }
+	function _splitOnWords($string, $newlineEscape = "\n") {
+		$words  = [];
+		$length = strlen($string);
+		$pos    = 0;
 
-    function _encode(&$string)
-    {
-        $string = htmlspecialchars($string);
-    }
+		while ($pos < $length) {
+			// Eat a word with any preceding whitespace.
+			$spaces  = strspn(substr($string, $pos), " \n");
+			$nextpos = strcspn(substr($string, $pos + $spaces), " \n");
+			$words[] = str_replace("\n", $newlineEscape, substr($string, $pos, $spaces + $nextpos));
+			$pos += $spaces + $nextpos;
+		}
 
-    function _block1($xbeg, $xlen, $ybeg, $ylen, &$edits)
-    {
-        //Modified to keep orig and final seperate, but highlight changes
-        $marked['origin'] = array();
-        $marked['final'] = array();
+		return $words;
+	}
 
-        foreach ($edits as $edit) {
-            switch (strtolower(get_class($edit))) {
-            case 'text_diff_op_copy':
-                $marked['origin'][] = implode(' ',$edit->orig);
-                $marked['final'][] = implode(' ',$edit->final);
-                break;
+	function _encode(&$string) {
+		$string = htmlspecialchars($string);
+	}
 
-            case 'text_diff_op_add':
-                $marked['final'][] = $this->_added($edit->final);
-                break;
+	function _block1($xbeg, $xlen, $ybeg, $ylen, &$edits) {
+		// Modified to keep orig and final seperate, but highlight changes
+		$marked['origin'] = [];
+		$marked['final']  = [];
 
-            case 'text_diff_op_delete':
-                $marked['origin'][] = $this->_deleted($edit->orig);
-                break;
+		foreach ($edits as $edit) {
+			switch (strtolower(get_class($edit))) {
+				case 'text_diff_op_copy':
+					$marked['origin'][] = implode(' ',$edit->orig);
+					$marked['final'][]  = implode(' ',$edit->final);
 
-            case 'text_diff_op_change':
-                $temp3 = $this->_changed($edit->orig, $edit->final);
-                $marked['final'][] = $temp3->final;
-                $marked['origin'][] = $temp3->orig;
-                break;
-            }
-        }
-       $output = new stdClass();
-        $output->final = implode(' ', $marked['final']);
-        $output->orig = implode(' ', $marked['origin']);
-        return $output;
-    }
+					break;
+				case 'text_diff_op_add':
+					$marked['final'][] = $this->_added($edit->final);
 
-    function render1($diff)
-    {
-        $xi = $yi = 1;
-        $block = false;
-        $context = array();
+					break;
+				case 'text_diff_op_delete':
+					$marked['origin'][] = $this->_deleted($edit->orig);
 
-        $nlead = $this->_leading_context_lines;
-        $ntrail = $this->_trailing_context_lines;
+					break;
+				case 'text_diff_op_change':
+					$temp3              = $this->_changed($edit->orig, $edit->final);
+					$marked['final'][]  = $temp3->final;
+					$marked['origin'][] = $temp3->orig;
 
-        $output = array();
+					break;
+			}
+		}
+		$output        = new stdClass();
+		$output->final = implode(' ', $marked['final']);
+		$output->orig  = implode(' ', $marked['origin']);
 
-        $diffs = $diff->getDiff();
-        foreach ($diffs as $i => $edit) {
-            if (is_a($edit, 'Text_Diff_Op_copy')) {
-                if (is_array($block)) {
-                    $keep = $i == count($diffs) - 1 ? $ntrail : $nlead + $ntrail;
-                    if (count($edit->orig) <= $keep) {
-                        $block[] = $edit;
-                    } else {
-                        if ($ntrail) {
-                            $context = array_slice($edit->orig, 0, $ntrail);
-                            $block[] = new Text_Diff_Op_copy($context);
-                        }
-                        $output[] = $this->_block($x0, $ntrail + $xi - $x0,
-                                                  $y0, $ntrail + $yi - $y0,
-                                                  $block);
-                    }
-                }
-                $context = $edit->orig;
-            } else {
-                if (!is_array($block)) {
-                    $context = array_slice($context, count($context) - $nlead);
-                    $x0 = $xi - count($context);
-                    $y0 = $yi - count($context);
-                    $block = array();
-                    if ($context) {
-                        $block[] = new Text_Diff_Op_copy($context);
-                    }
-                }
-                $block[] = $edit;
-            }
+		return $output;
+	}
 
-            if ($edit->orig) {
-                $xi += count($edit->orig);
-            }
-            if ($edit->final) {
-                $yi += count($edit->final);
-            }
-        }
+	function render1($diff) {
+		$xi      = $yi = 1;
+		$block   = false;
+		$context = [];
 
-        if (is_array($block)) {
-            $output .= $this->_block($x0, $ntrail + $xi - $x0,
-                $y0, $ntrail + $yi - $y0, $block);
-        }
-        //returns object
-        return $output;
-    }
+		$nlead  = $this->_leading_context_lines;
+		$ntrail = $this->_trailing_context_lines;
 
+		$output = [];
 
+		$diffs = $diff->getDiff();
+
+		foreach ($diffs as $i => $edit) {
+			if (is_a($edit, 'Text_Diff_Op_copy')) {
+				if (is_array($block)) {
+					$keep = $i == count($diffs) - 1 ? $ntrail : $nlead + $ntrail;
+
+					if (count($edit->orig) <= $keep) {
+						$block[] = $edit;
+					} else {
+						if ($ntrail) {
+							$context = array_slice($edit->orig, 0, $ntrail);
+							$block[] = new Text_Diff_Op_copy($context);
+						}
+						$output[] = $this->_block($x0, $ntrail + $xi - $x0,
+							$y0, $ntrail + $yi - $y0,
+							$block);
+					}
+				}
+				$context = $edit->orig;
+			} else {
+				if (!is_array($block)) {
+					$context = array_slice($context, count($context) - $nlead);
+					$x0      = $xi - count($context);
+					$y0      = $yi - count($context);
+					$block   = [];
+
+					if ($context) {
+						$block[] = new Text_Diff_Op_copy($context);
+					}
+				}
+				$block[] = $edit;
+			}
+
+			if ($edit->orig) {
+				$xi += count($edit->orig);
+			}
+
+			if ($edit->final) {
+				$yi += count($edit->final);
+			}
+		}
+
+		if (is_array($block)) {
+			$output .= $this->_block($x0, $ntrail + $xi - $x0,
+				$y0, $ntrail + $yi - $y0, $block);
+		}
+
+		// returns object
+		return $output;
+	}
 }

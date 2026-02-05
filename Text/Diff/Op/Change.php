@@ -12,16 +12,13 @@
  * @package Text_Diff
  * @author  Geoffrey T. Dairiki <dairiki@dairiki.org>
  */
-class Horde_Text_Diff_Op_Change extends Horde_Text_Diff_Op_Base
-{
-    public function __construct($orig, $final)
-    {
-        $this->orig = $orig;
-        $this->final = $final;
-    }
+class Horde_Text_Diff_Op_Change extends Horde_Text_Diff_Op_Base {
+	public function __construct($orig, $final) {
+		$this->orig  = $orig;
+		$this->final = $final;
+	}
 
-    public function reverse()
-    {
-        return new Horde_Text_Diff_Op_Change($this->final, $this->orig);
-    }
+	public function reverse() {
+		return new Horde_Text_Diff_Op_Change($this->final, $this->orig);
+	}
 }
