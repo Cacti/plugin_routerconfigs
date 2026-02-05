@@ -203,32 +203,18 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		switch ($num) {
 			case 1:
 				return 'ERROR: Unable to open telnet network connection';
-
-				break;
 			case 2:
 				return 'ERROR: Unknown host';
-
-				break;
 			case 3:
 				return 'ERROR: TELNET login failed';
-
-				break;
 			case 4:
 				return 'ERROR: Connect failed: Your servers PHP version is too low for PHP Telnet';
-
-				break;
 			case 5:
 				return 'ERROR: Bad download of config';
-
-				break;
 			case 6:
 				return 'ERROR: TELNET access not Permitted';
-
-				break;
 			case 7:
 				return 'ERROR: TELNET no Config uploaded from Router';
-
-				break;
 			case 9:
 				return 'ERROR: TELNET Enable login failed';
 		}

@@ -1,8 +1,10 @@
 # ChangeLog
 
---- devel ---
+--- 1.7 ---
 
 * issue#139: Routerconfigs deprecation warnings
+* issue#141: Backups not showing by device
+* feature: Convert images to Font Awesome icons
 
 --- 1.6.1 ---
 

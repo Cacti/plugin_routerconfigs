@@ -131,36 +131,20 @@ class PHPSftp extends PHPConnection implements ShellSsh {
 			switch ($num) {
 				case 1:
 					return 'WARNING: Unable to open ssh network connection';
-
-					break;
 				case 2:
 					return 'ERROR: Unknown host';
-
-					break;
 				case 3:
 					return 'ERROR: SSH login failed';
-
-					break;
 				case 4:
 					return "ERROR: PHP doesn't have the ssh2 module installed\nFollow the installation instructions in the official manual: http://www.php.net/manual/en/ssh2.installation.php";
-
-					break;
 				case 5:
 					return 'ERROR: Bad download of config';
-
-					break;
 				case 6:
 					return 'ERROR: SSH access not Permitted';
-
-					break;
 				case 7:
 					return 'ERROR: SSH no Config uploaded from Router';
-
-					break;
 				case 8:
 					return "NOTICE: SSH Timeout of {$this->timeout} seconds has been reached";
-
-					break;
 				case 9:
 					return 'ERROR: SSH Enable login failed';
 			}
