@@ -69,7 +69,7 @@ jobs:
     - name: Checkout Routerconfigs Plugin
       uses: actions/checkout@v4
       with:
-        path: cacti/plugins/routerconfig
+        path: cacti/plugins/routerconfigs
     
     - name: Install PHP ${{ matrix.php }}
       uses: shivammathur/setup-php@v2
