@@ -5,7 +5,7 @@
 When generating code for this repository:
 
 1. **Version Compatibility First**: Match only versions and APIs evidenced in this repo.
-2. **Context Files First**: If `.github/copilot/*` files are added later, prioritize them over these defaults.
+2. **Context Files First**: If `.github/agents/*` files are added later, prioritize them over these defaults.
 3. **Codebase Patterns Second**: If no context file applies, copy patterns from neighboring files.
 4. **Architectural Consistency**: Preserve plugin boundaries and Cacti integration points.
 5. **Consistency Over Novelty**: Prefer existing repo patterns over external or newer style guidance.

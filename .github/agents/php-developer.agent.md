@@ -1,7 +1,7 @@
 ---
 description: "This custom agent acts as a PHP developer, assisting with PHP code development, debugging, and optimization."
 name: "PHP Developer"
-tools: ['vscode/extensions', 'execute/testFailure', 'execute/getTerminalOutput', 'execute/getTaskOutput', 'execute/runInTerminal', 'execute/runTests', 'read', 'edit/createFile', 'edit/editFiles', 'search', 'web']
+tools: ['search/codebase', 'edit/editFiles', 'githubRepo', 'extensions', 'web']
 model: "Claude Sonnet 4.5"
 ---
 
