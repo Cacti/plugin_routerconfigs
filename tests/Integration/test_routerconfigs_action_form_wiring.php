@@ -7,16 +7,16 @@
  +-------------------------------------------------------------------------+
 */
 
-$checks = array(
-	__DIR__ . '/../../router-accounts.php' => array(
+$checks = [
+	__DIR__ . '/../../router-accounts.php' => [
 		"html_escape(db_fetch_cell('SELECT name FROM plugin_routerconfigs_accounts WHERE id=' . \$matches[1]))",
 		"html_escape(get_nfilter_request_var('drp_action'))",
-	),
-	__DIR__ . '/../../router-devtypes.php' => array(
+	],
+	__DIR__ . '/../../router-devtypes.php' => [
 		"html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [\$matches[1]]))",
 		"html_escape(get_request_var('drp_action'))",
-	),
-);
+	],
+];
 
 foreach ($checks as $path => $patterns) {
 	$contents = file_get_contents($path);

@@ -777,7 +777,7 @@ function plugin_routerconfigs_decode($info) {
 
 	plugin_routerconfigs_log("DEBUG: Base64 decoded: $debug_info");
 
-	$info = unserialize($info, array('allowed_classes' => false));
+	$info = unserialize($info, ['allowed_classes' => false]);
 
 	return $info['password'];
 }
