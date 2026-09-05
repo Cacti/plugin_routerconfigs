@@ -1,5 +1,9 @@
 # ChangeLog
 
+--- develop ---
+
+* issue#151: Defense-in-depth hardening
+
 --- 1.7 ---
 
 * issue#139: Routerconfigs deprecation warnings
