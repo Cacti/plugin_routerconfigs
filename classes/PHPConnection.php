@@ -355,7 +355,7 @@ abstract class PHPConnection {
 
 				if ($this->debugbuffer) {
 					if (!is_array($line_buf)) {
-						$line_buf = [$line_buff];
+						$line_buf = [$line_buf];
 					}
 
 					foreach ($line_buf as $line) {

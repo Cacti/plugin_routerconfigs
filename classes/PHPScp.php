@@ -98,11 +98,11 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		} else {
 			$this->Log("DEBUG: Using external '$scp_path' command");
 
-			$scp_args = "'" . $this->user . "'@'" . $this->server . "':'$scp_source' '$scp_dest'";
+			$scp_args = cacti_escapeshellarg($this->user . '@' . $this->server . ':' . $scp_source) . ' ' . cacti_escapeshellarg($scp_dest);
 
 			$this->Log("DEBUG: Using external '$scp_path' command with \"$scp_args\"");
 
-			exec_background($scp_path, $extra_args);
+			exec_background($scp_path, $scp_args);
 		}
 	}
 
