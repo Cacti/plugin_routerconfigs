@@ -169,9 +169,7 @@ function routerconfigs_fail($exit_value,$args = [],$display_help = 0) {
 function routerconfigs_define_exit($name, $value, $text) {
 	global $fail_msg;
 
-	if (!isset($fail_msg)) {
-		$fail_msg = [];
-	}
+	$fail_msg ??= [];
 
 	define($name,$value);
 	$fail_msg[$name]  = $text;
@@ -218,7 +216,7 @@ function routerconfigs_getopts($short, $long, &$remaining = null) {
 				}
 
 				$name  = $option['text'];
-				$value = isset($option['result']) ? $option['result'] : '';
+				$value = $option['result'] ?? '';
 
 				if (array_key_exists($name, $result)) {
 					$result_val = $result[$name];

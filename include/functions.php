@@ -144,7 +144,8 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 			$manual    = sizeof($filter_devices) > 0;
 
 			if ($manual) {
-				$sqlwhere = 'AND id IN (' . implode(',',$filter_devices) . ')';
+				$filter_devices = array_map('intval', $filter_devices);
+				$sqlwhere       = 'AND id IN (' . implode(',', $filter_devices) . ')';
 			} elseif (!$force) {
 				$scheduled = (!$force) || $simulate;
 
@@ -772,12 +773,21 @@ function plugin_routerconfigs_retrieve_account($device) {
 }
 
 function plugin_routerconfigs_decode($info) {
-	$info       = base64_decode($info, true);
-	$debug_info = preg_replace('~(;s:\d+:"password";s:(\d+:))"(.*)\"~','\\1"(\\2 chars)"', $info);
+	$info = base64_decode($info, true);
 
-	plugin_routerconfigs_log("DEBUG: Base64 decoded: $debug_info");
+	if ($info === false) {
+		plugin_routerconfigs_log('ERROR: Base64 decode failed for stored credential');
+
+		return '';
+	}
 
 	$info = unserialize($info, ['allowed_classes' => false]);
+
+	if (!is_array($info) || !isset($info['password'])) {
+		plugin_routerconfigs_log('ERROR: Credential decode produced unexpected structure');
+
+		return '';
+	}
 
 	return $info['password'];
 }
@@ -902,10 +912,17 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 	if (isset($device['id'])) {
 		ini_set('memory_limit', '256M');
 
-		$filepath = plugin_routerconfigs_dir($device['directory']) . $device['filename'];
+		$filepath = plugin_routerconfigs_dir($device['directory']) . basename($device['filename']);
+		$resolved = realpath($filepath);
+		$basedir  = realpath(plugin_routerconfigs_dir($device['directory']));
 
-		if (file_exists($filepath)) {
-			$lines = @file($filepath);
+		if ($basedir === false
+			|| ($resolved !== false
+				&& strpos($resolved, rtrim($basedir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR) !== 0)
+		) {
+			$lines = [__('File path validation failed', 'routerconfigs')];
+		} elseif ($resolved !== false && file_exists($resolved)) {
+			$lines = @file($resolved);
 
 			if ($lines === false) {
 				$lines = [__("File '%s' failed to load", $filepath, 'routerconfigs')];
@@ -922,11 +939,11 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 
 		form_alternate_row();
 
-		print '<td><h2>' . __('Router Config for %s (%s)', $device['hostname'], $device['ipaddress'], 'routerconfigs') . '<br>';
+		print '<td><h2>' . __('Router Config for %s (%s)', html_escape($device['hostname']), html_escape($device['ipaddress']), 'routerconfigs') . '<br>';
 		print __('Backup from %s', plugin_routerconfigs_date_from_time($device['btime']), 'routerconfigs') . '</h2>';
-		print __('File: %s/%s', $device['directory'], $device['filename'], 'routerconfigs');
+		print __('File: %s/%s', html_escape($device['directory']), html_escape($device['filename']), 'routerconfigs');
 		print '<br><textarea style="background: white; width:100%; height: auto;" rows=36 cols=120>';
-		print implode($lines);
+		print html_escape(implode($lines));
 		print '</textarea></td></tr>';
 
 		html_end_box(false);

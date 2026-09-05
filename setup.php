@@ -82,20 +82,22 @@ function routerconfigs_check_upgrade() {
 			api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php', 'Plugin -> Router Configs', 1);
 
 			// get the realm id's and change from old to new
-			$user  = db_fetch_cell("SELECT id FROM plugin_realms WHERE file='router-devices.php'");
+			$user  = db_fetch_cell_prepared('SELECT id FROM plugin_realms WHERE file=?', ['router-devices.php']);
 
 			if ($user > 0) {
-				$users = db_fetch_assoc('SELECT user_id FROM user_auth_realm WHERE realm_id=86');
+				$users = db_fetch_assoc_prepared('SELECT user_id FROM user_auth_realm WHERE realm_id = ?', [86]);
 
 				if (sizeof($users)) {
 					foreach ($users as $u) {
-						db_execute("INSERT INTO user_auth_realm
-							(realm_id, user_id) VALUES ($user, " . $u['user_id'] . ')
-							ON DUPLICATE KEY UPDATE realm_id=VALUES(realm_id)');
+						db_execute_prepared('INSERT INTO user_auth_realm
+							(realm_id, user_id) VALUES (?, ?)
+							ON DUPLICATE KEY UPDATE realm_id=VALUES(realm_id)',
+							[(int) $user, (int) $u['user_id']]);
 
-						db_execute('DELETE FROM user_auth_realm
-							WHERE user_id=' . $u['user_id'] . "
-							AND realm_id=$user");
+						db_execute_prepared('DELETE FROM user_auth_realm
+							WHERE user_id = ?
+							AND realm_id = ?',
+							[(int) $u['user_id'], 86]);
 					}
 				}
 			}
@@ -238,9 +240,10 @@ function routerconfigs_check_upgrade() {
 
 		AddDeviceTypes();
 
-		db_execute("UPDATE plugin_config
-			SET version='$current'
-			WHERE directory='routerconfigs'");
+		db_execute_prepared('UPDATE plugin_config
+			SET version = ?
+			WHERE directory = ?',
+			[$current, 'routerconfigs']);
 	}
 }
 
@@ -390,9 +393,7 @@ function routerconfigs_poller_bottom() {
 	// Check for the polling interval, only valid with the Multipoller patch
 	$poller_interval = read_config_option('poller_interval');
 
-	if (!isset($poller_interval)) {
-		$poller_interval = 300;
-	}
+	$poller_interval ??= 300;
 
 	if ($s < $poller_interval) {
 		$command_string = trim(read_config_option('path_php_binary'));

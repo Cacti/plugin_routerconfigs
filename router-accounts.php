@@ -87,7 +87,7 @@ function actions_accounts() {
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == RCONFIG_ACCOUNT_DELETE) {
 				for ($i = 0; $i < count($selected_items); $i++) {
-					db_execute('DELETE FROM plugin_routerconfigs_accounts WHERE id = ' . $selected_items[$i]);
+					db_execute_prepared('DELETE FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) $selected_items[$i]]);
 				}
 			}
 		}
@@ -107,7 +107,7 @@ function actions_accounts() {
 			input_validate_input_number($matches[1]);
 			// ====================================================
 
-			$account_list .= '<li>' . html_escape(db_fetch_cell('SELECT name FROM plugin_routerconfigs_accounts WHERE id=' . $matches[1])) . '</li>';
+			$account_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) $matches[1]])) . '</li>';
 			$account_array[] = $matches[1];
 		}
 	}
@@ -146,7 +146,7 @@ function actions_accounts() {
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
 			<input type='hidden' name='selected_items' value='" . (isset($account_array) ? serialize($account_array) : '') . "'>
-			<input type='hidden' name='drp_action' value='" . html_escape(get_nfilter_request_var('drp_action')) . "'>
+			<input type='hidden' name='drp_action' value='" . get_nfilter_request_var('drp_action') . "'>
 			$save_html
 		</td>
 	</tr>";
@@ -209,7 +209,7 @@ function edit_accounts() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row('SELECT * FROM plugin_routerconfigs_accounts WHERE id=' . get_request_var('id'), false);
+		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) get_request_var('id')]);
 		$account['password'] = '';
 		$header_label        = __('Account: [edit: %s]', $account['name'], 'routerconfigs');
 	} else {
@@ -264,8 +264,8 @@ function show_accounts() {
 			$count = db_fetch_cell_prepared('SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = ?', [$row['id']]);
 
 			form_alternate_row('line' . $row['id'], false);
-			form_selectable_cell('<a class="linkEditMain" href="router-accounts.php?&action=edit&id=' . $row['id'] . '">' . $row['name'] . '</a>', $row['id']);
-			form_selectable_cell($row['username'], $row['id']);
+			form_selectable_cell('<a class="linkEditMain" href="router-accounts.php?&action=edit&id=' . $row['id'] . '">' . html_escape($row['name']) . '</a>', $row['id']);
+			form_selectable_cell(html_escape($row['username']), $row['id']);
 			form_selectable_cell('<a class="hyperLink" href="router-devices.php?account=' . $row['id'] . '">' . $count . '</a>', $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();

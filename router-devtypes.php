@@ -86,7 +86,7 @@ function actions_devicetypes() {
 			input_validate_input_number($matches[1]);
 			// ====================================================
 
-			$devtype_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [$matches[1]])) . '</li>';
+			$devtype_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [(int) $matches[1]])) . '</li>';
 			$devtype_array[] = $matches[1];
 		}
 	}
@@ -126,7 +126,7 @@ function actions_devicetypes() {
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
 			<input type='hidden' name='selected_items' value='" . (isset($devtype_array) ? serialize($devtype_array) : '') . "'>
-			<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
+			<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 			$save_html
 		</td>
 	</tr>";
@@ -233,13 +233,21 @@ function show_devicetypes() {
 	load_current_session_value('page', 'sess_routerconfigs_devtypes_current_page', '1');
 	$num_rows = 30;
 
-	$result = db_fetch_assoc('SELECT *
+	$result = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_routerconfigs_devicetypes
 		ORDER BY id
-		LIMIT ' . ($num_rows * (get_request_var('page') - 1)) . ', ' . $num_rows);
+		LIMIT ?, ?',
+		[(int) ($num_rows * (get_request_var('page') - 1)), (int) $num_rows]);
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*)
-		FROM plugin_routerconfigs_devicetypes' . ($account != '' ? ' WHERE account = ' . $account : ''));
+	if ($account != '') {
+		$total_rows = db_fetch_cell_prepared('SELECT COUNT(*)
+			FROM plugin_routerconfigs_devicetypes
+			WHERE account = ?',
+			[(int) $account]);
+	} else {
+		$total_rows = db_fetch_cell('SELECT COUNT(*)
+			FROM plugin_routerconfigs_devicetypes');
+	}
 
 	$nav = html_nav_bar('router-devtypes.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 11, __('Device Types', 'routerconfigs'), 'page', 'main');
 
@@ -270,15 +278,15 @@ function show_devicetypes() {
 			form_alternate_row('line' . $row['id'], false);
 
 			form_selectable_cell($row['id'], $row['id']);
-			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . $row['name'] . '</a>', $row['id']);
-			form_Selectable_cell($row['connecttype'], $row['id']);
-			form_selectable_cell($row['promptuser'], $row['id']);
-			form_selectable_cell($row['promptpass'], $row['id']);
-			form_selectable_cell($row['copytftp'], $row['id']);
-			form_selectable_cell($row['version'], $row['id']);
+			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('router-devtypes.php?&action=edit&id=' . $row['id']) . '">' . html_escape($row['name']) . '</a>', $row['id']);
+			form_selectable_cell(html_escape($row['connecttype']), $row['id']);
+			form_selectable_cell(html_escape($row['promptuser']), $row['id']);
+			form_selectable_cell(html_escape($row['promptpass']), $row['id']);
+			form_selectable_cell(html_escape($row['copytftp']), $row['id']);
+			form_selectable_cell(html_escape($row['version']), $row['id']);
 			form_selectable_cell(($row['confirm'] == 'y' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_selectable_cell(($row['forceconfirm'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
-			form_selectable_cell($row['promptconfirm'], $row['id']);
+			form_selectable_cell(html_escape($row['promptconfirm']), $row['id']);
 			form_selectable_cell(($row['checkendinconfig'] == 'on' ? '<span class="deviceUp">' . __('Yes', 'routerconfigs') . '</span>' : '<span class="deviceDown">' . __('No', 'routerconfigs') . '</span>'), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 

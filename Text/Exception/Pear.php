@@ -54,11 +54,11 @@ class Horde_Exception_Pear extends Horde_Exception {
 
 			foreach ($backtrace as $frame) {
 				$pear_error .=
-					  (isset($frame['class']) ? $frame['class'] : '')
-					. (isset($frame['type']) ? $frame['type'] : '')
-					. (isset($frame['function']) ? $frame['function'] : 'unkown') . ' '
-					. (isset($frame['file']) ? $frame['file'] : 'unkown') . ':'
-					. (isset($frame['line']) ? $frame['line'] : 'unkown') . "\n";
+					  ($frame['class'] ?? '')
+					. ($frame['type'] ?? '')
+					. ($frame['function'] ?? 'unknown') . ' '
+					. ($frame['file'] ?? 'unknown') . ':'
+					. ($frame['line'] ?? 'unknown') . "\n";
 			}
 		}
 		$userinfo = $error->getUserInfo();
