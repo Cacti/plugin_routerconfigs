@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class used internally by Horde_Text_Diff to actually compute the diffs.
  *

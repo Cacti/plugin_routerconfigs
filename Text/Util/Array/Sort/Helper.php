@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Helper class for sorting arrays on arbitrary criteria for usort/uasort.
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The original PHP version of this code was written by Geoffrey T. Dairiki
  * <dairiki@dairiki.org>, and is used/adapted with his permission.

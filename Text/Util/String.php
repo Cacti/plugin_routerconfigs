@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Provides static methods for charset and locale safe string manipulation.
  *

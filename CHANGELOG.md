@@ -8,6 +8,7 @@
 
 * issue#139: Routerconfigs deprecation warnings
 * issue#141: Backups not showing by device
+* issue#149: Safe PHP 7.4 modernization (short arrays, null coalescing, strict types in first-party code)
 * feature: Convert images to Font Awesome icons
 
 --- 1.6.1 ---
