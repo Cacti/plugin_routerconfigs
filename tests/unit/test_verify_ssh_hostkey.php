@@ -49,15 +49,23 @@ function db_execute_prepared($sql, $params = []) {
 	$GLOBALS['t_updates'][] = $params;
 	$result                 = $GLOBALS['t_update_result'] ?? true;
 
-	if ($result && count($params) === 3) {
+	if ($result && count($params) === 3 && is_array($GLOBALS['t_concurrent_pin'])) {
+		$GLOBALS['t_stored'] = $GLOBALS['t_concurrent_pin'];
+	}
+
+	if ($result && count($params) === 3 &&
+		is_array($GLOBALS['t_stored']) &&
+		empty($GLOBALS['t_stored']['ssh_hostkey_type']) &&
+		empty($GLOBALS['t_stored']['ssh_fingerprint'])) {
 		$GLOBALS['t_stored'] = [
+			'id'               => $params[2],
 			'ssh_hostkey_type' => $params[0],
 			'ssh_fingerprint'  => $params[1],
 		];
 	}
 
 	if ($result && count($params) === 1 && strpos($sql, 'SET ssh_hostkey_type = NULL') !== false) {
-		$GLOBALS['t_stored'] = ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
+		$GLOBALS['t_stored'] = ['id' => $params[0], 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
 	}
 
 	return $result;
@@ -130,6 +138,7 @@ function reset_state() {
 	$GLOBALS['t_auth_calls']    = 0;
 	$GLOBALS['t_logs']          = [];
 	$GLOBALS['t_presented_hostkey'] = ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC'];
+	$GLOBALS['t_concurrent_pin']     = null;
 }
 
 // Option off: always proceed, no storage touched.
@@ -153,7 +162,7 @@ check('absent storage column refuses the connection',
 // Option on, nothing stored: trust on first use, record the fingerprint.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
 $ok                                               = plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === true;
 check('first use records the fingerprint and proceeds',
 	$ok && $GLOBALS['t_updates'] === [['ssh-ed25519', 'AA:BB:CC', 7]]);
@@ -161,43 +170,52 @@ check('first use records the fingerprint and proceeds',
 // First-use storage must be confirmed before authentication can proceed.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
 $GLOBALS['t_update_result']                       = false;
 check('failed first-use write is refused',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === false);
 
+// The guarded first-use update must not replace a pin won by another poller.
+reset_state();
+$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
+$GLOBALS['t_concurrent_pin']                      = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OTHER:KEY'];
+check('concurrent first-use loser refuses without replacing the winning pin',
+	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === false &&
+	$GLOBALS['t_stored']['ssh_fingerprint'] === 'OTHER:KEY');
+
 // A failed lookup is not first use and must never replace trust state.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = false;
+$GLOBALS['t_stored']                              = [];
 check('failed host-key lookup is refused without re-pinning',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === false && count($GLOBALS['t_updates']) === 0);
 
 // Option on, stored matches: proceed, no re-store.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
 check('matching fingerprint proceeds without re-storing',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === true && count($GLOBALS['t_updates']) === 0);
 
 // RSA signature negotiation may change without changing the underlying key.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-rsa', 'ssh_fingerprint' => 'AA:BB:CC'];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-rsa', 'ssh_fingerprint' => 'AA:BB:CC'];
 check('algorithm change with the same fingerprint proceeds',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'rsa-sha2-512', 'fingerprint' => 'AA:BB:CC']) === true);
 
 // Option on, partially stored identity: fail closed rather than replacing it.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => null];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => null];
 check('incomplete stored host key is refused',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === false && count($GLOBALS['t_updates']) === 0);
 
 // Option on, stored differs: refuse (possible MITM).
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
 check('changed fingerprint is refused',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'DD:EE:FF']) === false);
 
@@ -222,7 +240,7 @@ check('legacy SSH-to-Telnet fallback remains when verification is off',
 foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'PHPScp', 'RouterconfigsTestPHPSftp' => 'PHPSftp'] as $transport_class => $transport_label) {
 	reset_state();
 	$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-	$GLOBALS['t_stored'] = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OLD:FINGERPRINT'];
+	$GLOBALS['t_stored'] = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OLD:FINGERPRINT'];
 	$transport = new $transport_class([], ['id' => 7, 'ipaddress' => '127.0.0.1'], 'admin', 'secret', '', false, false);
 	$result    = $transport->Connect();
 
@@ -233,12 +251,19 @@ foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'P
 // Resetting trust is centralized, audited, and tied only to connection target
 // changes rather than cosmetic description edits.
 reset_state();
-$GLOBALS['t_stored'] = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+$GLOBALS['t_stored'] = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
 $cleared = plugin_routerconfigs_clear_ssh_hostkey(7, 'device action');
 check('host-key reset clears both columns and emits an audit log',
 	$cleared === true &&
-	$GLOBALS['t_stored'] === ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null] &&
+	$GLOBALS['t_stored'] === ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null] &&
 	strpos(implode("\n", $GLOBALS['t_logs']), "discarded algorithm 'ssh-ed25519', fingerprint 'AA:BB:CC'") !== false);
+
+reset_state();
+$GLOBALS['t_stored']        = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+$GLOBALS['t_update_result'] = false;
+check('failed host-key reset does not emit a discarded-key audit log',
+	plugin_routerconfigs_clear_ssh_hostkey(7, 'device action') === false &&
+	strpos(implode("\n", $GLOBALS['t_logs']), 'discarded algorithm') === false);
 
 check('description-only edits preserve the host-key pin',
 	plugin_routerconfigs_connection_target_changed(
@@ -248,6 +273,10 @@ check('IP address edits reset the host-key pin',
 	plugin_routerconfigs_connection_target_changed(
 		['hostname' => 'router', 'ipaddress' => '192.0.2.10'],
 		['hostname' => 'router', 'ipaddress' => '192.0.2.11']) === true);
+check('two devices without an IP address do not reset the host-key pin',
+	plugin_routerconfigs_connection_target_changed([], []) === false);
+check('adding an IP address resets the host-key pin',
+	plugin_routerconfigs_connection_target_changed([], ['ipaddress' => '192.0.2.11']) === true);
 
 $setup_source = file_get_contents(__DIR__ . '/../../setup.php');
 check('upgrade schema stores host-key algorithm and fingerprint',

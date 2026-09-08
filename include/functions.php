@@ -849,12 +849,12 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 		return false;
 	}
 
-	$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
+	$stored = db_fetch_row_prepared('SELECT id, ssh_hostkey_type, ssh_fingerprint
 		FROM plugin_routerconfigs_devices
 		WHERE id = ?',
 		[$device_id]);
 
-	if (!is_array($stored)) {
+	if (!is_array($stored) || empty($stored['id'])) {
 		plugin_routerconfigs_log("ERROR: Unable to read the stored SSH host key for device $device_id; refusing to send credentials.");
 
 		return false;
@@ -863,7 +863,9 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 	if (empty($stored['ssh_hostkey_type']) && empty($stored['ssh_fingerprint'])) {
 		$updated = db_execute_prepared('UPDATE plugin_routerconfigs_devices
 			SET ssh_hostkey_type = ?, ssh_fingerprint = ?
-			WHERE id = ?',
+			WHERE id = ?
+			AND COALESCE(ssh_hostkey_type, \'\') = \'\'
+			AND COALESCE(ssh_fingerprint, \'\') = \'\'',
 			[$hostkey['type'], $hostkey['fingerprint'], $device_id]);
 
 		if (!$updated) {
@@ -872,12 +874,12 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 			return false;
 		}
 
-		$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
+		$stored = db_fetch_row_prepared('SELECT id, ssh_hostkey_type, ssh_fingerprint
 			FROM plugin_routerconfigs_devices
 			WHERE id = ?',
 			[$device_id]);
 
-		if (!is_array($stored) ||
+		if (!is_array($stored) || empty($stored['id']) ||
 			!hash_equals((string) ($stored['ssh_hostkey_type'] ?? ''), (string) $hostkey['type']) ||
 			!hash_equals((string) ($stored['ssh_fingerprint'] ?? ''), (string) $hostkey['fingerprint'])) {
 			plugin_routerconfigs_log("ERROR: Unable to confirm the stored SSH host key for device $device_id; refusing to send credentials.");
@@ -911,12 +913,12 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
  * Clear a device's stored host key and record the security-sensitive reset.
  */
 function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
-	$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
+	$stored = db_fetch_row_prepared('SELECT id, ssh_hostkey_type, ssh_fingerprint
 		FROM plugin_routerconfigs_devices
 		WHERE id = ?',
 		[$device_id]);
 
-	if (!is_array($stored)) {
+	if (!is_array($stored) || empty($stored['id'])) {
 		plugin_routerconfigs_log("ERROR: Unable to read SSH host key before reset for device $device_id");
 
 		return false;
