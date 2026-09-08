@@ -358,15 +358,15 @@ function edit_devices() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
-		$account['password'] = '';
+		$account                        = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
+		$account['password']            = '';
 		$account['ssh_hostkey_display'] = empty($account['ssh_fingerprint']) ?
 			'<em>' . __esc('Not recorded', 'routerconfigs') . '</em>' :
 			'<code>' . html_escape($account['ssh_hostkey_type'] . ' ' . $account['ssh_fingerprint']) . '</code>';
 		$header_label        = __('Router: [edit: %s]', $account['hostname'], 'routerconfigs');
 	} else {
 		$account['ssh_hostkey_display'] = '<em>' . __esc('Not recorded', 'routerconfigs') . '</em>';
-		$header_label = __('Router: [new]', 'routerconfigs');
+		$header_label                   = __('Router: [new]', 'routerconfigs');
 	}
 
 	form_start('router-devices.php', 'chk');

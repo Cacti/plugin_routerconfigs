@@ -128,16 +128,16 @@ function check($label, $ok) {
 }
 
 function reset_state() {
-	$GLOBALS['config']    = ['is_web' => false];
-	$GLOBALS['debug']     = false;
-	$GLOBALS['t_opt']     = [];
-	$GLOBALS['t_col']     = true;
-	$GLOBALS['t_stored']  = null;
-	$GLOBALS['t_updates'] = [];
-	$GLOBALS['t_update_result'] = true;
-	$GLOBALS['t_auth_calls']    = 0;
-	$GLOBALS['t_logs']          = [];
-	$GLOBALS['t_presented_hostkey'] = ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC'];
+	$GLOBALS['config']               = ['is_web' => false];
+	$GLOBALS['debug']                = false;
+	$GLOBALS['t_opt']                = [];
+	$GLOBALS['t_col']                = true;
+	$GLOBALS['t_stored']             = null;
+	$GLOBALS['t_updates']            = [];
+	$GLOBALS['t_update_result']      = true;
+	$GLOBALS['t_auth_calls']         = 0;
+	$GLOBALS['t_logs']               = [];
+	$GLOBALS['t_presented_hostkey']  = ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC'];
 	$GLOBALS['t_concurrent_pin']     = null;
 }
 
@@ -182,7 +182,7 @@ $GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_typ
 $GLOBALS['t_concurrent_pin']                      = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OTHER:KEY'];
 check('concurrent first-use loser refuses without replacing the winning pin',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === false &&
-	$GLOBALS['t_stored']['ssh_fingerprint'] === 'OTHER:KEY');
+	$GLOBALS['t_stored']['ssh_fingerprint']                                                            === 'OTHER:KEY');
 
 // A failed lookup is not first use and must never replace trust state.
 reset_state();
@@ -240,9 +240,9 @@ check('legacy SSH-to-Telnet fallback remains when verification is off',
 foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'PHPScp', 'RouterconfigsTestPHPSftp' => 'PHPSftp'] as $transport_class => $transport_label) {
 	reset_state();
 	$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-	$GLOBALS['t_stored'] = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OLD:FINGERPRINT'];
-	$transport = new $transport_class([], ['id' => 7, 'ipaddress' => '127.0.0.1'], 'admin', 'secret', '', false, false);
-	$result    = $transport->Connect();
+	$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OLD:FINGERPRINT'];
+	$transport                                        = new $transport_class([], ['id' => 7, 'ipaddress' => '127.0.0.1'], 'admin', 'secret', '', false, false);
+	$result                                           = $transport->Connect();
 
 	check("$transport_label refuses before password authentication",
 		$result === RCONFIG_CONNECT_HOSTKEY_FAILED && $GLOBALS['t_auth_calls'] === 0);
@@ -252,9 +252,9 @@ foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'P
 // changes rather than cosmetic description edits.
 reset_state();
 $GLOBALS['t_stored'] = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
-$cleared = plugin_routerconfigs_clear_ssh_hostkey(7, 'device action');
+$cleared             = plugin_routerconfigs_clear_ssh_hostkey(7, 'device action');
 check('host-key reset clears both columns and emits an audit log',
-	$cleared === true &&
+	$cleared             === true &&
 	$GLOBALS['t_stored'] === ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null] &&
 	strpos(implode("\n", $GLOBALS['t_logs']), "discarded algorithm 'ssh-ed25519', fingerprint 'AA:BB:CC'") !== false);
 
@@ -262,7 +262,7 @@ reset_state();
 $GLOBALS['t_stored']        = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
 $GLOBALS['t_update_result'] = false;
 check('failed host-key reset does not emit a discarded-key audit log',
-	plugin_routerconfigs_clear_ssh_hostkey(7, 'device action') === false &&
+	plugin_routerconfigs_clear_ssh_hostkey(7, 'device action')       === false &&
 	strpos(implode("\n", $GLOBALS['t_logs']), 'discarded algorithm') === false);
 
 check('description-only edits preserve the host-key pin',

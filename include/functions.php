@@ -911,6 +911,8 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 
 /**
  * Clear a device's stored host key and record the security-sensitive reset.
+ * @param mixed $device_id
+ * @param mixed $reason
  */
 function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
 	$stored = db_fetch_row_prepared('SELECT id, ssh_hostkey_type, ssh_fingerprint
@@ -946,6 +948,8 @@ function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
 
 /**
  * Return whether the network target changed and its host-key pin must reset.
+ * @param mixed $previous_device
+ * @param mixed $new_device
  */
 function plugin_routerconfigs_connection_target_changed($previous_device, $new_device) {
 	return (string) ($previous_device['ipaddress'] ?? '') !== (string) ($new_device['ipaddress'] ?? '');
@@ -953,6 +957,9 @@ function plugin_routerconfigs_connection_target_changed($previous_device, $new_d
 
 /**
  * Decide whether a failed transport may fall through to the next candidate.
+ * @param mixed $connection_type
+ * @param mixed $classname
+ * @param mixed $result
  */
 function plugin_routerconfigs_should_try_next_connection($connection_type, $classname, $result) {
 	if ($result === RCONFIG_CONNECT_HOSTKEY_FAILED) {

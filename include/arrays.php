@@ -42,10 +42,10 @@ $rc_account_actions = [
 ];
 
 $rc_device_actions = [
-	RCONFIG_DEVICE_BACKUP  => __('Backup', 'routerconfigs'),
-	RCONFIG_DEVICE_DELETE  => __('Delete', 'routerconfigs'),
-	RCONFIG_DEVICE_ENABLE  => __('Enable', 'routerconfigs'),
-	RCONFIG_DEVICE_DISABLE => __('Disable', 'routerconfigs'),
+	RCONFIG_DEVICE_BACKUP            => __('Backup', 'routerconfigs'),
+	RCONFIG_DEVICE_DELETE            => __('Delete', 'routerconfigs'),
+	RCONFIG_DEVICE_ENABLE            => __('Enable', 'routerconfigs'),
+	RCONFIG_DEVICE_DISABLE           => __('Disable', 'routerconfigs'),
 	RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY => __('Clear SSH Host Key', 'routerconfigs')
 ];
 
