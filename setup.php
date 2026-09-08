@@ -71,9 +71,10 @@ function routerconfigs_check_upgrade() {
 		return;
 	}
 
-	$current = plugin_routerconfigs_version();
-	$current = $current['version'];
-	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
+	$current              = plugin_routerconfigs_version();
+	$current              = $current['version'];
+	$old                  = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
+	$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
 
 	if ($current != $old) {
 		api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php', 1);
@@ -240,25 +241,34 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
-		if (cacti_version_compare($old, '1.8', '<')) {
-			if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_devices
-					ADD COLUMN `ssh_fingerprint` varchar(255) DEFAULT NULL');
-			}
-
-			if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type')) {
-				db_execute('ALTER TABLE plugin_routerconfigs_devices
-					ADD COLUMN `ssh_hostkey_type` varchar(64) DEFAULT NULL');
-			}
-		}
-
 		AddDeviceTypes();
+
+		if (!$hostkey_schema_ready) {
+			cacti_log('ERROR: Routerconfigs upgrade incomplete: unable to create SSH host-key storage columns', false, 'RCONFIG');
+
+			return;
+		}
 
 		db_execute_prepared('UPDATE plugin_config
 			SET version = ?
 			WHERE directory = ?',
 			[$current, 'routerconfigs']);
 	}
+}
+
+function routerconfigs_ensure_hostkey_schema() {
+	if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint')) {
+		db_execute('ALTER TABLE plugin_routerconfigs_devices
+			ADD COLUMN `ssh_fingerprint` varchar(255) DEFAULT NULL');
+	}
+
+	if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type')) {
+		db_execute('ALTER TABLE plugin_routerconfigs_devices
+			ADD COLUMN `ssh_hostkey_type` varchar(64) DEFAULT NULL');
+	}
+
+	return db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint') &&
+		db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type');
 }
 
 function routerconfigs_check_dependencies() {

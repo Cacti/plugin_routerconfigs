@@ -38,7 +38,25 @@ function cacti_sizeof($value) {
 }
 
 function db_column_exists($table, $column) {
+	if (is_array($GLOBALS['t_columns'] ?? null)) {
+		return $GLOBALS['t_columns'][$column] ?? false;
+	}
+
 	return $GLOBALS['t_col'] ?? true;
+}
+
+function db_execute($sql) {
+	$GLOBALS['t_ddl_calls'][] = $sql;
+
+	if (!($GLOBALS['t_ddl_result'] ?? true)) {
+		return false;
+	}
+
+	if (preg_match('/ADD COLUMN `([^`]+)`/', $sql, $matches)) {
+		$GLOBALS['t_columns'][$matches[1]] = true;
+	}
+
+	return true;
 }
 
 function db_fetch_row_prepared($sql, $params = []) {
@@ -81,6 +99,7 @@ function cacti_log($message, $print = false, $type = '', $verbosity = POLLER_VER
 // expects a full Cacti bootstrap. Suppress only those bootstrap notices.
 $previous_error_reporting = error_reporting(E_ERROR | E_PARSE);
 require __DIR__ . '/../../include/functions.php';
+require __DIR__ . '/../../setup.php';
 error_reporting($previous_error_reporting);
 
 trait RouterconfigsTestSshAdapter {
@@ -132,6 +151,7 @@ function reset_state() {
 	$GLOBALS['debug']                = false;
 	$GLOBALS['t_opt']                = [];
 	$GLOBALS['t_col']                = true;
+	$GLOBALS['t_columns']            = null;
 	$GLOBALS['t_stored']             = null;
 	$GLOBALS['t_updates']            = [];
 	$GLOBALS['t_update_result']      = true;
@@ -139,6 +159,8 @@ function reset_state() {
 	$GLOBALS['t_logs']               = [];
 	$GLOBALS['t_presented_hostkey']  = ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC'];
 	$GLOBALS['t_concurrent_pin']     = null;
+	$GLOBALS['t_ddl_calls']          = [];
+	$GLOBALS['t_ddl_result']         = true;
 }
 
 // Option off: always proceed, no storage touched.
@@ -159,13 +181,21 @@ $GLOBALS['t_col']                                 = false;
 check('absent storage column refuses the connection',
 	plugin_routerconfigs_verify_ssh_hostkey(1, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB']) === false);
 
+reset_state();
+$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+$GLOBALS['t_columns']                             = ['ssh_fingerprint' => true, 'ssh_hostkey_type' => false];
+check('missing host-key type column refuses the connection',
+	plugin_routerconfigs_verify_ssh_hostkey(1, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB']) === false);
+
 // Option on, nothing stored: trust on first use, record the fingerprint.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
 $GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
 $ok                                               = plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === true;
 check('first use records the fingerprint and proceeds',
-	$ok && $GLOBALS['t_updates'] === [['ssh-ed25519', 'AA:BB:CC', 7]]);
+	$ok &&
+	$GLOBALS['t_updates'] === [['ssh-ed25519', 'AA:BB:CC', 7]] &&
+	strpos(implode("\n", $GLOBALS['t_logs']), "Recorded first-use SSH host key for device 7; algorithm 'ssh-ed25519', fingerprint 'AA:BB:CC'") !== false);
 
 // First-use storage must be confirmed before authentication can proceed.
 reset_state();
@@ -278,10 +308,17 @@ check('two devices without an IP address do not reset the host-key pin',
 check('adding an IP address resets the host-key pin',
 	plugin_routerconfigs_connection_target_changed([], ['ipaddress' => '192.0.2.11']) === true);
 
-$setup_source = file_get_contents(__DIR__ . '/../../setup.php');
-check('upgrade schema stores host-key algorithm and fingerprint',
-	strpos($setup_source, 'ADD COLUMN `ssh_hostkey_type`') !== false &&
-	strpos($setup_source, 'ADD COLUMN `ssh_fingerprint`') !== false);
+reset_state();
+$GLOBALS['t_columns']    = ['ssh_fingerprint' => false, 'ssh_hostkey_type' => false];
+$GLOBALS['t_ddl_result'] = false;
+check('failed host-key migration remains incomplete for a later retry',
+	routerconfigs_ensure_hostkey_schema() === false && count($GLOBALS['t_ddl_calls']) === 2);
+
+reset_state();
+$GLOBALS['t_columns'] = ['ssh_fingerprint' => false, 'ssh_hostkey_type' => false];
+check('host-key migration adds and confirms both columns',
+	routerconfigs_ensure_hostkey_schema() === true &&
+	$GLOBALS['t_columns']                 === ['ssh_fingerprint' => true, 'ssh_hostkey_type' => true]);
 
 $device_source = file_get_contents(__DIR__ . '/../../router-devices.php');
 check('device UI can clear stored host keys',

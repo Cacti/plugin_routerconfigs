@@ -887,6 +887,8 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 			return false;
 		}
 
+		plugin_routerconfigs_log("NOTICE: Recorded first-use SSH host key for device $device_id; algorithm '{$hostkey['type']}', fingerprint '{$hostkey['fingerprint']}'");
+
 		return true;
 	}
 
