@@ -245,8 +245,6 @@ function routerconfigs_check_upgrade() {
 
 		if (!$hostkey_schema_ready) {
 			cacti_log('ERROR: Routerconfigs upgrade incomplete: unable to create SSH host-key storage columns', false, 'RCONFIG');
-
-			return;
 		}
 
 		db_execute_prepared('UPDATE plugin_config

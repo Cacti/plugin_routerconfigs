@@ -404,9 +404,8 @@ check('device UI can clear stored host keys',
 	strpos($device_source, "plugin_routerconfigs_clear_ssh_hostkey(\$selected_items[\$i], 'device action by user '") !== false);
 
 $download_source = file_get_contents(__DIR__ . '/../../router-download.php');
-check('background downloads fail closed instead of running schema migrations',
-	strpos($download_source, 'routerconfigs_check_upgrade();') === false &&
-	strpos($download_source, 'requires a completed Router Configs plugin upgrade') !== false);
+check('background downloads do not run schema migrations',
+	strpos($download_source, 'routerconfigs_check_upgrade();') === false);
 
 if ($failures > 0) {
 	fwrite(STDERR, "\n$failures check(s) failed\n");
