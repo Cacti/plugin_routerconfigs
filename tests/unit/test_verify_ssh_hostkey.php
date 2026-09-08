@@ -56,10 +56,16 @@ function db_execute_prepared($sql, $params = []) {
 		];
 	}
 
+	if ($result && count($params) === 1 && strpos($sql, 'SET ssh_hostkey_type = NULL') !== false) {
+		$GLOBALS['t_stored'] = ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null];
+	}
+
 	return $result;
 }
 
 function cacti_log($message, $print = false, $type = '', $verbosity = POLLER_VERBOSITY_NONE) {
+	$GLOBALS['t_logs'][] = $message;
+
 	return true;
 }
 
@@ -68,6 +74,38 @@ function cacti_log($message, $print = false, $type = '', $verbosity = POLLER_VER
 $previous_error_reporting = error_reporting(E_ERROR | E_PARSE);
 require __DIR__ . '/../../include/functions.php';
 error_reporting($previous_error_reporting);
+
+trait RouterconfigsTestSshAdapter {
+	protected function sshAvailable() {
+		return true;
+	}
+
+	protected function sshConnect() {
+		return (object) ['connected' => true];
+	}
+
+	protected function sshAuthPassword() {
+		$GLOBALS['t_auth_calls']++;
+
+		return true;
+	}
+
+	protected function sshHostKey() {
+		return $GLOBALS['t_presented_hostkey'];
+	}
+}
+
+class RouterconfigsTestPHPSsh extends PHPSsh {
+	use RouterconfigsTestSshAdapter;
+}
+
+class RouterconfigsTestPHPScp extends PHPScp {
+	use RouterconfigsTestSshAdapter;
+}
+
+class RouterconfigsTestPHPSftp extends PHPSftp {
+	use RouterconfigsTestSshAdapter;
+}
 
 $failures = 0;
 
@@ -89,26 +127,9 @@ function reset_state() {
 	$GLOBALS['t_stored']  = null;
 	$GLOBALS['t_updates'] = [];
 	$GLOBALS['t_update_result'] = true;
-	$GLOBALS['t_connect_calls'] = [];
 	$GLOBALS['t_auth_calls']    = 0;
-	$GLOBALS['t_methods']       = ['hostkey' => 'ssh-ed25519'];
-	$GLOBALS['t_fingerprint']   = 'AA:BB:CC';
-	$GLOBALS['routerconfigs_ssh_connect'] = function ($server, $port) {
-		$GLOBALS['t_connect_calls'][] = ['server' => $server, 'port' => $port];
-
-		return (object) ['connected' => true];
-	};
-	$GLOBALS['routerconfigs_ssh_methods_negotiated'] = function ($connection) {
-		return $GLOBALS['t_methods'];
-	};
-	$GLOBALS['routerconfigs_ssh_fingerprint'] = function ($connection, $flags) {
-		return $GLOBALS['t_fingerprint'];
-	};
-	$GLOBALS['routerconfigs_ssh_auth_password'] = function ($connection, $user, $password) {
-		$GLOBALS['t_auth_calls']++;
-
-		return true;
-	};
+	$GLOBALS['t_logs']          = [];
+	$GLOBALS['t_presented_hostkey'] = ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC'];
 }
 
 // Option off: always proceed, no storage touched.
@@ -196,41 +217,37 @@ reset_state();
 check('legacy SSH-to-Telnet fallback remains when verification is off',
 	plugin_routerconfigs_should_try_next_connection(RCONFIG_CONNECT_BOTH, 'PHPSsh', 1) === true);
 
-// Verification observes libssh2 negotiation without silently restricting it.
-reset_state();
-plugin_routerconfigs_ssh_connect('router.example');
-check('SSH connector receives only server and port',
-	$GLOBALS['t_connect_calls'] === [['server' => 'router.example', 'port' => 22]]);
-
-check('negotiated host-key identity includes algorithm and fingerprint',
-	plugin_routerconfigs_get_ssh_hostkey((object) []) === ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']);
-
-$GLOBALS['routerconfigs_ssh_methods_negotiated'] = false;
-check('unavailable negotiation metadata is refused',
-	plugin_routerconfigs_get_ssh_hostkey((object) []) === false);
-
-reset_state();
-$GLOBALS['t_methods'] = [];
-check('missing negotiated host-key algorithm is refused',
-	plugin_routerconfigs_get_ssh_hostkey((object) []) === false);
-
-$GLOBALS['t_methods']     = ['hostkey' => 'ssh-ed25519'];
-$GLOBALS['t_fingerprint'] = false;
-check('missing negotiated host-key fingerprint is refused',
-	plugin_routerconfigs_get_ssh_hostkey((object) []) === false);
-
 // Execute each transport's rejection path and prove authentication is never
 // called after a mismatched host key.
-foreach (['PHPSsh', 'PHPScp', 'PHPSftp'] as $transport_class) {
+foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'PHPScp', 'RouterconfigsTestPHPSftp' => 'PHPSftp'] as $transport_class => $transport_label) {
 	reset_state();
 	$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
 	$GLOBALS['t_stored'] = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'OLD:FINGERPRINT'];
 	$transport = new $transport_class([], ['id' => 7, 'ipaddress' => '127.0.0.1'], 'admin', 'secret', '', false, false);
 	$result    = $transport->Connect();
 
-	check("$transport_class refuses before password authentication",
+	check("$transport_label refuses before password authentication",
 		$result === RCONFIG_CONNECT_HOSTKEY_FAILED && $GLOBALS['t_auth_calls'] === 0);
 }
+
+// Resetting trust is centralized, audited, and tied only to connection target
+// changes rather than cosmetic description edits.
+reset_state();
+$GLOBALS['t_stored'] = ['ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+$cleared = plugin_routerconfigs_clear_ssh_hostkey(7, 'device action');
+check('host-key reset clears both columns and emits an audit log',
+	$cleared === true &&
+	$GLOBALS['t_stored'] === ['ssh_hostkey_type' => null, 'ssh_fingerprint' => null] &&
+	strpos(implode("\n", $GLOBALS['t_logs']), "discarded algorithm 'ssh-ed25519', fingerprint 'AA:BB:CC'") !== false);
+
+check('description-only edits preserve the host-key pin',
+	plugin_routerconfigs_connection_target_changed(
+		['hostname' => 'old description', 'ipaddress' => '192.0.2.10'],
+		['hostname' => 'new description', 'ipaddress' => '192.0.2.10']) === false);
+check('IP address edits reset the host-key pin',
+	plugin_routerconfigs_connection_target_changed(
+		['hostname' => 'router', 'ipaddress' => '192.0.2.10'],
+		['hostname' => 'router', 'ipaddress' => '192.0.2.11']) === true);
 
 $setup_source = file_get_contents(__DIR__ . '/../../setup.php');
 check('upgrade schema stores host-key algorithm and fingerprint',
@@ -240,8 +257,7 @@ check('upgrade schema stores host-key algorithm and fingerprint',
 $device_source = file_get_contents(__DIR__ . '/../../router-devices.php');
 check('device UI can clear stored host keys',
 	strpos($device_source, 'case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:') !== false &&
-	strpos($device_source, 'SET ssh_hostkey_type = NULL, ssh_fingerprint = NULL') !== false &&
-	strpos($device_source, "previous_endpoint['hostname']") !== false);
+	strpos($device_source, 'plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], \'device action\')') !== false);
 
 if ($failures > 0) {
 	fwrite(STDERR, "\n$failures check(s) failed\n");

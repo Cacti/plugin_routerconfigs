@@ -162,10 +162,7 @@ function actions_devices() {
 					break;
 				case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
 					for ($i = 0; $i < count($selected_items); $i++) {
-						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-							SET ssh_hostkey_type = NULL, ssh_fingerprint = NULL
-							WHERE id = ?',
-							[$selected_items[$i]]);
+						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action');
 					}
 
 					break;
@@ -309,7 +306,7 @@ function save_devices() {
 		$save['id'] = get_request_var('id');
 
 		if ($save['id'] !== '') {
-			$previous_endpoint = db_fetch_row_prepared('SELECT hostname, ipaddress
+			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress
 				FROM plugin_routerconfigs_devices
 				WHERE id = ?',
 				[$save['id']]);
@@ -338,12 +335,8 @@ function save_devices() {
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
 	if ($id && is_array($previous_endpoint) &&
-		((string) ($previous_endpoint['ipaddress'] ?? '') !== (string) $save['ipaddress'] ||
-		 (string) ($previous_endpoint['hostname'] ?? '') !== (string) $save['hostname'])) {
-		db_execute_prepared('UPDATE plugin_routerconfigs_devices
-			SET ssh_hostkey_type = NULL, ssh_fingerprint = NULL
-			WHERE id = ?',
-			[$id]);
+		plugin_routerconfigs_connection_target_changed($previous_endpoint, $save)) {
+		plugin_routerconfigs_clear_ssh_hostkey($id, 'connection target changed');
 	}
 
 	if (is_error_message()) {

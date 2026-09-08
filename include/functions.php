@@ -908,61 +908,45 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 }
 
 /**
- * Return whether SSH password authentication is available.
+ * Clear a device's stored host key and record the security-sensitive reset.
  */
-function plugin_routerconfigs_ssh_available() {
-	return isset($GLOBALS['routerconfigs_ssh_auth_password']) || function_exists('ssh2_auth_password');
-}
+function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
+	$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
+		FROM plugin_routerconfigs_devices
+		WHERE id = ?',
+		[$device_id]);
 
-/**
- * Open an SSH connection without changing libssh2's negotiation policy.
- */
-function plugin_routerconfigs_ssh_connect($server) {
-	$connect = $GLOBALS['routerconfigs_ssh_connect'] ?? 'ssh2_connect';
+	if (!is_array($stored)) {
+		plugin_routerconfigs_log("ERROR: Unable to read SSH host key before reset for device $device_id");
 
-	return @$connect($server, 22);
-}
-
-/**
- * Authenticate an SSH connection with a testable adapter seam.
- */
-function plugin_routerconfigs_ssh_auth_password($connection, $user, $password) {
-	$authenticate = $GLOBALS['routerconfigs_ssh_auth_password'] ?? 'ssh2_auth_password';
-
-	return @$authenticate($connection, $user, $password);
-}
-
-/**
- * Return the negotiated host-key algorithm and SHA-1 fingerprint.
- */
-function plugin_routerconfigs_get_ssh_hostkey($connection) {
-	$methods_reader = $GLOBALS['routerconfigs_ssh_methods_negotiated'] ?? null;
-	$fingerprinter  = $GLOBALS['routerconfigs_ssh_fingerprint'] ?? null;
-
-	if ($methods_reader === null && function_exists('ssh2_methods_negotiated')) {
-		$methods_reader = 'ssh2_methods_negotiated';
-	}
-
-	if ($fingerprinter === null && function_exists('ssh2_fingerprint')) {
-		$fingerprinter = 'ssh2_fingerprint';
-	}
-
-	if ($methods_reader === null || $methods_reader === false ||
-		$fingerprinter === null || $fingerprinter === false) {
 		return false;
 	}
 
-	$methods     = @$methods_reader($connection);
-	$fingerprint = @$fingerprinter($connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+	$cleared = db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET ssh_hostkey_type = NULL, ssh_fingerprint = NULL
+		WHERE id = ?',
+		[$device_id]);
 
-	if (!is_array($methods) || empty($methods['hostkey']) || empty($fingerprint)) {
+	if (!$cleared) {
+		plugin_routerconfigs_log("ERROR: Unable to clear SSH host key for device $device_id");
+
 		return false;
 	}
 
-	return [
-		'type'        => $methods['hostkey'],
-		'fingerprint' => $fingerprint,
-	];
+	$type        = str_replace(["\r", "\n"], '', (string) ($stored['ssh_hostkey_type'] ?? ''));
+	$fingerprint = str_replace(["\r", "\n"], '', (string) ($stored['ssh_fingerprint'] ?? ''));
+	$reason      = str_replace(["\r", "\n"], '', (string) $reason);
+
+	plugin_routerconfigs_log("NOTICE: Cleared SSH host key for device $device_id ($reason); discarded algorithm '$type', fingerprint '$fingerprint'");
+
+	return true;
+}
+
+/**
+ * Return whether the network target changed and its host-key pin must reset.
+ */
+function plugin_routerconfigs_connection_target_changed($previous_device, $new_device) {
+	return (string) ($previous_device['ipaddress'] ?? '') !== (string) ($new_device['ipaddress'] ?? '');
 }
 
 /**

@@ -175,6 +175,36 @@ abstract class PHPConnection {
 		return $this->isEnabled || $this->isAlwaysEnabled;
 	}
 
+	protected function sshAvailable() {
+		return function_exists('ssh2_auth_password');
+	}
+
+	protected function sshConnect() {
+		return @ssh2_connect($this->server, 22);
+	}
+
+	protected function sshAuthPassword() {
+		return @ssh2_auth_password($this->connection, $this->user, $this->pass);
+	}
+
+	protected function sshHostKey() {
+		if (!function_exists('ssh2_methods_negotiated') || !function_exists('ssh2_fingerprint')) {
+			return false;
+		}
+
+		$methods     = @ssh2_methods_negotiated($this->connection);
+		$fingerprint = @ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+
+		if (!is_array($methods) || empty($methods['hostkey']) || empty($fingerprint)) {
+			return false;
+		}
+
+		return [
+			'type'        => $methods['hostkey'],
+			'fingerprint' => $fingerprint,
+		];
+	}
+
 	function EnsureEnabled() {
 		// Get > to show we are at the command prompt and ready to input the en command
 		// Get # to show we are already enabled so we don't need to enable

@@ -54,7 +54,7 @@ class PHPSftp extends PHPConnection implements ShellSsh {
 	function Connect() {
 		$rv = 0;
 
-		if (!plugin_routerconfigs_ssh_available()) {
+		if (!$this->sshAvailable()) {
 			$this->Log("DEBUG: PHP doesn't have the ssh2 module installed");
 			$this->Log('DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php');
 
@@ -64,15 +64,15 @@ class PHPSftp extends PHPConnection implements ShellSsh {
 		}
 
 		if (strlen($this->ip)) {
-			if (!$this->connection = plugin_routerconfigs_ssh_connect($this->server)) {
+			if (!$this->connection = $this->sshConnect()) {
 				$rv = 1;
-			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], plugin_routerconfigs_get_ssh_hostkey($this->connection))) {
+			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], $this->sshHostKey())) {
 				$this->Log('ERROR: SSH host key verification failed for ' . $this->server);
 
 				return RCONFIG_CONNECT_HOSTKEY_FAILED;
 			} else {
 				// try to authenticate
-				if (!plugin_routerconfigs_ssh_auth_password($this->connection, $this->user, $this->pass)) {
+				if (!$this->sshAuthPassword()) {
 					$rv = 3;
 				} else {
 					$this->Log('DEBUG: okay: logged in...');
