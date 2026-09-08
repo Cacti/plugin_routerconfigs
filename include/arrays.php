@@ -187,7 +187,7 @@ $rc_device_edit_fields = [
 	'ssh_hostkey' => [
 		'method'        => 'custom',
 		'friendly_name' => __('Stored SSH Host Key', 'routerconfigs'),
-		'description'   => __('Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel (for example, ssh-keygen -E sha1 -l). Use the device action to clear it after a legitimate key change.', 'routerconfigs'),
+		'description'   => __('Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk \'{print $2}\' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk \'{print toupper($NF)}\'. Use the device action to clear it after a legitimate key change.', 'routerconfigs'),
 		'value'         => '|arg1:ssh_hostkey_display|',
 	],
 	'directory' => [
