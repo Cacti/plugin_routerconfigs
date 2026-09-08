@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types = 1);
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -103,9 +105,9 @@ function plugin_routerconfigs_view_device_debug() {
 		html_start_box('', '100%', '', '4', 'center', '');
 
 		form_alternate_row();
-		print '<td><h2>' . __('Debug for %s (%s)<br><br>', $device['hostname'], $device['ipaddress'], 'routerconfigs');
-		print '</h1><textarea rows=36 cols=120>';
-		print base64_decode($device['debug'], true);
+		print '<td><h2>' . __('Debug for %s (%s)<br><br>', html_escape($device['hostname']), html_escape($device['ipaddress']), 'routerconfigs');
+		print '</h2><textarea rows=36 cols=120>';
+		print html_escape(base64_decode($device['debug'], true));
 		print '</textarea></td></tr>';
 
 		html_end_box(false);
@@ -326,7 +328,7 @@ function edit_devices() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row('SELECT * FROM plugin_routerconfigs_devices WHERE id=' . get_request_var('id'), false);
+		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
 		$account['password'] = '';
 		$header_label        = __('Router: [edit: %s]', $account['hostname'], 'routerconfigs');
 	} else {

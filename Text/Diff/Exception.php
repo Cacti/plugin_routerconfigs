@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception handler for the Text_Diff package.
  *

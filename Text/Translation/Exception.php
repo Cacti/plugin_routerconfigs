@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception class for Horde_Translation.
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Horde_Util:: class provides generally useful methods.
  *

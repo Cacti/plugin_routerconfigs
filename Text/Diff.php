@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General API for generating and formatting diffs - the differences between
  * two sequences of strings.

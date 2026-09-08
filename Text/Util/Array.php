@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Horde_Array:: class provides various methods for array manipulation.
  *
@@ -130,9 +131,9 @@ class Horde_Array {
 	 * Given an array, returns an associative array with each element key
 	 * derived from its value.
 	 * For example:
-	 *   array(0 => 'foo', 1 => 'bar')
+	 *   [0 => 'foo', 1 => 'bar']
 	 * would become:
-	 *   array('foo' => 'foo', 'bar' => 'bar')
+	 *   ['foo' => 'foo', 'bar' => 'bar']
 	 *
 	 * @param array $array An array of values.
 	 *

@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Parses unified or context diffs output from eg. the diff utility.
  *
  * Example:
  * <code>
  * $patch = file_get_contents('example.patch');
- * $diff = new Horde_Text_Diff('string', array($patch));
+ * $diff = new Horde_Text_Diff('string', [$patch]);
  * $renderer = new Horde_Text_Diff_Renderer_inline();
  * echo $renderer->render($diff);
  * </code>
