@@ -900,7 +900,14 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 
 	if (hash_equals((string) $stored['ssh_fingerprint'], (string) $hostkey['fingerprint'])) {
 		if (!hash_equals((string) $stored['ssh_hostkey_type'], (string) $hostkey['type'])) {
-			plugin_routerconfigs_log("NOTICE: SSH host-key negotiation for device $device_id changed from {$stored['ssh_hostkey_type']} to {$hostkey['type']}, but the key fingerprint is unchanged.");
+			$updated = db_execute_prepared('UPDATE plugin_routerconfigs_devices
+				SET ssh_hostkey_type = ?
+				WHERE id = ? AND ssh_fingerprint = ?',
+				[$hostkey['type'], $device_id, $hostkey['fingerprint']]);
+
+			if ($updated) {
+				plugin_routerconfigs_log("NOTICE: SSH host-key negotiation for device $device_id changed from {$stored['ssh_hostkey_type']} to {$hostkey['type']}, but the key fingerprint is unchanged; updated the stored algorithm.");
+			}
 		}
 
 		return true;

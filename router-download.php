@@ -63,7 +63,6 @@ $options   = routerconfigs_getopts($shortOpts, $longOpts, $remaining);
 
 include('./include/global.php');
 include_once(__DIR__ . '/include/functions.php');
-include_once(__DIR__ . '/setup.php');
 
 error_reporting(E_ALL ^ E_DEPRECATED);
 

@@ -67,6 +67,13 @@ function db_execute_prepared($sql, $params = []) {
 	$GLOBALS['t_updates'][] = $params;
 	$result                 = $GLOBALS['t_update_result'] ?? true;
 
+	if ($result && strpos($sql, 'SET ssh_hostkey_type = ?') !== false &&
+		is_array($GLOBALS['t_stored']) &&
+		(string) $GLOBALS['t_stored']['id']              === (string) $params[1] &&
+		(string) $GLOBALS['t_stored']['ssh_fingerprint'] === (string) $params[2]) {
+		$GLOBALS['t_stored']['ssh_hostkey_type'] = $params[0];
+	}
+
 	if ($result && count($params) === 3 && is_array($GLOBALS['t_concurrent_pin'])) {
 		$GLOBALS['t_stored'] = $GLOBALS['t_concurrent_pin'];
 	}
@@ -265,7 +272,8 @@ reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
 $GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-rsa', 'ssh_fingerprint' => 'AA:BB:CC'];
 check('algorithm change with the same fingerprint proceeds',
-	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'rsa-sha2-512', 'fingerprint' => 'AA:BB:CC']) === true);
+	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'rsa-sha2-512', 'fingerprint' => 'AA:BB:CC']) === true &&
+	$GLOBALS['t_stored']['ssh_hostkey_type']                                                            === 'rsa-sha2-512');
 
 // Option on, partially stored identity: fail closed rather than replacing it.
 reset_state();
@@ -296,6 +304,12 @@ check('missing SSH extension cannot force a Telnet downgrade',
 reset_state();
 check('legacy SSH-to-Telnet fallback remains when verification is off',
 	plugin_routerconfigs_should_try_next_connection(RCONFIG_CONNECT_BOTH, 'PHPSsh', 1) === true);
+
+$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+check('SCP-only failures retain normal transport handling',
+	plugin_routerconfigs_should_try_next_connection(RCONFIG_CONNECT_SCP, 'PHPScp', 1) === true);
+check('SFTP-only failures retain normal transport handling',
+	plugin_routerconfigs_should_try_next_connection(RCONFIG_CONNECT_SFTP, 'PHPSftp', 1) === true);
 
 // Execute each transport's rejection path and prove authentication is never
 // called after a mismatched host key.
