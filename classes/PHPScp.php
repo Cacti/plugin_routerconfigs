@@ -94,11 +94,17 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		$scp_source = $this->deviceType['configfile'];
 		$scp_dest   = $backuppath . $filename;
 
+		if (!empty($scp_path) && read_config_option('routerconfigs_verify_hostkey') == 'on') {
+			$this->Log('ERROR: External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection');
+
+			return false;
+		}
+
 		if (empty($scp_path)) {
 			$this->Log("DEBUG: Using PHP Internal 'ssh2_scp_recv' command");
 			$this->Log("DEBUG: Attempting to download '$scp_source' to '$scp_dest'");
 
-			return ssh2_scp_recv($this->connection, $scp_source, $scp_dest);
+			return $this->sshScpRecv($scp_source, $scp_dest);
 		} else {
 			$this->Log("DEBUG: Using external '$scp_path' command");
 

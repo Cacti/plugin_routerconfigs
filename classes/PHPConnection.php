@@ -187,13 +187,25 @@ abstract class PHPConnection {
 		return @ssh2_auth_password($this->connection, $this->user, $this->pass);
 	}
 
-	protected function sshHostKey() {
-		if (!function_exists('ssh2_methods_negotiated') || !function_exists('ssh2_fingerprint')) {
-			return false;
-		}
+	protected function sshMethodsNegotiated() {
+		return @ssh2_methods_negotiated($this->connection);
+	}
 
-		$methods     = @ssh2_methods_negotiated($this->connection);
-		$fingerprint = @ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+	protected function sshFingerprint() {
+		return @ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+	}
+
+	protected function sshShell() {
+		return @ssh2_shell($this->connection, 'xterm');
+	}
+
+	protected function sshScpRecv($source, $destination) {
+		return @ssh2_scp_recv($this->connection, $source, $destination);
+	}
+
+	protected function sshHostKey() {
+		$methods     = $this->sshMethodsNegotiated();
+		$fingerprint = $this->sshFingerprint();
 
 		if (!is_array($methods) || empty($methods['hostkey']) || empty($fingerprint)) {
 			return false;

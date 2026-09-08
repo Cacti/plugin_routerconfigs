@@ -19,7 +19,7 @@ foreach (['POLLER_VERBOSITY_NONE' => 0, 'POLLER_VERBOSITY_LOW' => 1, 'POLLER_VER
 	}
 }
 
-foreach (['SSH2_FINGERPRINT_SHA1' => 1, 'SSH2_FINGERPRINT_HEX' => 2] as $k => $v) {
+foreach (['SSH2_FINGERPRINT_SHA1' => 1, 'SSH2_FINGERPRINT_HEX' => 0] as $k => $v) {
 	if (!defined($k)) {
 		define($k, $v);
 	}
@@ -120,6 +120,14 @@ trait RouterconfigsTestSshAdapter {
 	protected function sshHostKey() {
 		return $GLOBALS['t_presented_hostkey'];
 	}
+
+	protected function sshShell() {
+		return (object) ['shell' => true];
+	}
+
+	protected function sshScpRecv($source, $destination) {
+		return true;
+	}
 }
 
 class RouterconfigsTestPHPSsh extends PHPSsh {
@@ -132,6 +140,27 @@ class RouterconfigsTestPHPScp extends PHPScp {
 
 class RouterconfigsTestPHPSftp extends PHPSftp {
 	use RouterconfigsTestSshAdapter;
+}
+
+class RouterconfigsTestHostKeyReader extends PHPConnection {
+	public $test_methods;
+	public $test_fingerprint;
+
+	function __construct() {
+		parent::__construct('TEST', [], ['ipaddress' => '127.0.0.1'], '', '', '', false, false);
+	}
+
+	protected function sshMethodsNegotiated() {
+		return $this->test_methods;
+	}
+
+	protected function sshFingerprint() {
+		return $this->test_fingerprint;
+	}
+
+	public function readHostKey() {
+		return $this->sshHostKey();
+	}
 }
 
 $failures = 0;
@@ -277,6 +306,52 @@ foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'P
 	check("$transport_label refuses before password authentication",
 		$result === RCONFIG_CONNECT_HOSTKEY_FAILED && $GLOBALS['t_auth_calls'] === 0);
 }
+
+foreach (['RouterconfigsTestPHPSsh' => 'PHPSsh', 'RouterconfigsTestPHPScp' => 'PHPScp', 'RouterconfigsTestPHPSftp' => 'PHPSftp'] as $transport_class => $transport_label) {
+	reset_state();
+	$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+	$GLOBALS['t_stored']                              = ['id' => 7, 'ssh_hostkey_type' => 'ssh-ed25519', 'ssh_fingerprint' => 'AA:BB:CC'];
+	$transport                                        = new $transport_class([], ['id' => 7, 'ipaddress' => '127.0.0.1'], 'admin', 'secret', '', false, false);
+
+	check("$transport_label authenticates after a matching host key",
+		$transport->Connect() === 0 && $GLOBALS['t_auth_calls'] === 1);
+}
+
+reset_state();
+$reader                   = new RouterconfigsTestHostKeyReader();
+$reader->test_methods     = ['hostkey' => 'ssh-ed25519'];
+$reader->test_fingerprint = 'AA:BB:CC';
+check('host-key reader returns negotiated algorithm and fingerprint',
+	$reader->readHostKey() === ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']);
+
+$reader->test_methods = false;
+check('host-key reader refuses non-array negotiation metadata', $reader->readHostKey() === false);
+
+$reader->test_methods = [];
+check('host-key reader refuses a missing algorithm', $reader->readHostKey() === false);
+
+$reader->test_methods     = ['hostkey' => 'ssh-ed25519'];
+$reader->test_fingerprint = false;
+check('host-key reader refuses a missing fingerprint', $reader->readHostKey() === false);
+
+reset_state();
+$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+$GLOBALS['t_opt']['routerconfigs_scp_path']       = '/usr/bin/scp';
+$scp_transport                                    = new RouterconfigsTestPHPScp(
+	['configfile' => '/running-config'],
+	['id' => 7, 'ipaddress' => '127.0.0.1'],
+	'admin',
+	'secret',
+	'',
+	false,
+	false
+);
+check('verified mode refuses the unverified external SCP path',
+	$scp_transport->Download('backup.cfg', '/tmp/') === false);
+
+$GLOBALS['t_opt']['routerconfigs_scp_path'] = '';
+check('verified mode allows internal SCP on the verified connection',
+	$scp_transport->Download('backup.cfg', '/tmp/') === true);
 
 // Resetting trust is centralized, audited, and tied only to connection target
 // changes rather than cosmetic description edits.

@@ -187,7 +187,7 @@ $rc_device_edit_fields = [
 	'ssh_hostkey' => [
 		'method'        => 'custom',
 		'friendly_name' => __('Stored SSH Host Key', 'routerconfigs'),
-		'description'   => __('Compare this host-key algorithm and fingerprint with the device through a trusted channel. Use the device action to clear it after a legitimate key change.', 'routerconfigs'),
+		'description'   => __('Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel (for example, ssh-keygen -E sha1 -l). Use the device action to clear it after a legitimate key change.', 'routerconfigs'),
 		'value'         => '|arg1:ssh_hostkey_display|',
 	],
 	'directory' => [
@@ -471,7 +471,7 @@ $rc_settings = [
 	],
 	'routerconfigs_scp_path' => [
 		'friendly_name' => __('SCP Path', 'routerconfigs'),
-		'description'   => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work', 'routerconfigs'),
+		'description'   => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection.', 'routerconfigs'),
 		'method'        => 'textbox',
 		'max_length'    => 255,
 		'size'          => '50',
