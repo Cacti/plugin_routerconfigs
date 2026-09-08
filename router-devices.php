@@ -154,9 +154,15 @@ function actions_devices() {
 				case RCONFIG_DEVICE_DISABLE:
 					for ($i = 0; $i < count($selected_items); $i++) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
-						SET enabled=""
+							SET enabled=""
 						WHERE id = ?',
 							[$selected_items[$i]]);
+					}
+
+					break;
+				case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
+					for ($i = 0; $i < count($selected_items); $i++) {
+						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action by user ' . ($_SESSION['sess_user_id'] ?? 'unknown'));
 					}
 
 					break;
@@ -254,6 +260,16 @@ function actions_devices() {
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Disable Device(s)', 'routerconfigs') . "'>";
 
 				break;
+			case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
+				print "<tr>
+				<td colspan='2' class='textArea'>
+					<p>" . __('Click \'Continue\' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives.', 'routerconfigs') . "</p>
+					<p><ul>$device_list</ul></p>
+				</td>
+			</tr>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Clear SSH Host Key(s)', 'routerconfigs') . "'>";
+
+				break;
 		}
 	} else {
 		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.', 'routerconfigs') . "</span></td></tr>\n";
@@ -284,8 +300,17 @@ function save_devices() {
 	get_filter_request_var('schedule');
 	// ====================================================
 
+	$previous_endpoint = false;
+
 	if (isset_request_var('id')) {
 		$save['id'] = get_request_var('id');
+
+		if ($save['id'] !== '') {
+			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress
+				FROM plugin_routerconfigs_devices
+				WHERE id = ?',
+				[$save['id']]);
+		}
 	} else {
 		$save['id'] = '';
 	}
@@ -309,6 +334,11 @@ function save_devices() {
 
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
+	if ($id && is_array($previous_endpoint) &&
+		plugin_routerconfigs_connection_target_changed($previous_endpoint, $save)) {
+		plugin_routerconfigs_clear_ssh_hostkey($id, 'connection target changed');
+	}
+
 	if (is_error_message()) {
 		header('Location: router-devices.php?header=false&action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
 		exit;
@@ -328,11 +358,15 @@ function edit_devices() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
-		$account['password'] = '';
+		$account                        = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
+		$account['password']            = '';
+		$account['ssh_hostkey_display'] = empty($account['ssh_fingerprint']) ?
+			'<em>' . __esc('Not recorded', 'routerconfigs') . '</em>' :
+			'<code>' . html_escape($account['ssh_hostkey_type'] . ' ' . $account['ssh_fingerprint']) . '</code>';
 		$header_label        = __('Router: [edit: %s]', $account['hostname'], 'routerconfigs');
 	} else {
-		$header_label = __('Router: [new]', 'routerconfigs');
+		$account['ssh_hostkey_display'] = '<em>' . __esc('Not recorded', 'routerconfigs') . '</em>';
+		$header_label                   = __('Router: [new]', 'routerconfigs');
 	}
 
 	form_start('router-devices.php', 'chk');

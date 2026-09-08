@@ -54,7 +54,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	function Connect() {
 		$rv = 0;
 
-		if (!function_exists('ssh2_auth_password')) {
+		if (!$this->sshAvailable()) {
 			$this->Log("DEBUG: PHP doesn't have the ssh2 module installed");
 			$this->Log('DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php');
 			$rv = 4;
@@ -63,14 +63,18 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		if (strlen($this->ip)) {
-			if (!($this->connection = @ssh2_connect($this->server, 22))) {
+			if (!($this->connection = $this->sshConnect())) {
 				$rv = 1;
+			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], $this->sshHostKey())) {
+				$this->Log('ERROR: SSH host key verification failed for ' . $this->server);
+
+				return RCONFIG_CONNECT_HOSTKEY_FAILED;
 			} else {
 				// try to authenticate
-				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
+				if (!$this->sshAuthPassword()) {
 					$rv = 3;
 				} else {
-					if ($this->stream = ssh2_shell($this->connection,'xterm')) {
+					if ($this->stream = $this->sshShell()) {
 						$this->Log('DEBUG: okay: logged in...');
 					}
 				}
