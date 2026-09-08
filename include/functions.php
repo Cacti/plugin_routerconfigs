@@ -887,7 +887,7 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 			return false;
 		}
 
-		plugin_routerconfigs_log("NOTICE: Recorded first-use SSH host key for device $device_id; algorithm '{$hostkey['type']}', fingerprint '{$hostkey['fingerprint']}'");
+		plugin_routerconfigs_log("NOTICE: Recorded first-use SSH host key for device $device_id; algorithm '{$hostkey['type']}', fingerprint '{$hostkey['fingerprint']}'", POLLER_VERBOSITY_LOW);
 
 		return true;
 	}
@@ -943,7 +943,7 @@ function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
 	$fingerprint = str_replace(["\r", "\n"], '', (string) ($stored['ssh_fingerprint'] ?? ''));
 	$reason      = str_replace(["\r", "\n"], '', (string) $reason);
 
-	plugin_routerconfigs_log("NOTICE: Cleared SSH host key for device $device_id ($reason); discarded algorithm '$type', fingerprint '$fingerprint'");
+	plugin_routerconfigs_log("NOTICE: Cleared SSH host key for device $device_id ($reason); discarded algorithm '$type', fingerprint '$fingerprint'", POLLER_VERBOSITY_LOW);
 
 	return true;
 }

@@ -90,7 +90,9 @@ function db_execute_prepared($sql, $params = []) {
 }
 
 function cacti_log($message, $print = false, $type = '', $verbosity = POLLER_VERBOSITY_NONE) {
-	$GLOBALS['t_logs'][] = $message;
+	if ($verbosity <= ($GLOBALS['t_log_verbosity'] ?? POLLER_VERBOSITY_LOW)) {
+		$GLOBALS['t_logs'][] = $message;
+	}
 
 	return true;
 }
@@ -190,6 +192,7 @@ function reset_state() {
 	$GLOBALS['t_concurrent_pin']     = null;
 	$GLOBALS['t_ddl_calls']          = [];
 	$GLOBALS['t_ddl_result']         = true;
+	$GLOBALS['t_log_verbosity']      = POLLER_VERBOSITY_LOW;
 }
 
 // Option off: always proceed, no storage touched.
@@ -398,7 +401,12 @@ check('host-key migration adds and confirms both columns',
 $device_source = file_get_contents(__DIR__ . '/../../router-devices.php');
 check('device UI can clear stored host keys',
 	strpos($device_source, 'case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:') !== false &&
-	strpos($device_source, 'plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], \'device action\')') !== false);
+	strpos($device_source, "plugin_routerconfigs_clear_ssh_hostkey(\$selected_items[\$i], 'device action by user '") !== false);
+
+$download_source = file_get_contents(__DIR__ . '/../../router-download.php');
+check('background downloads fail closed instead of running schema migrations',
+	strpos($download_source, 'routerconfigs_check_upgrade();') === false &&
+	strpos($download_source, 'requires a completed Router Configs plugin upgrade') !== false);
 
 if ($failures > 0) {
 	fwrite(STDERR, "\n$failures check(s) failed\n");

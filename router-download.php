@@ -65,7 +65,12 @@ include('./include/global.php');
 include_once(__DIR__ . '/include/functions.php');
 include_once(__DIR__ . '/setup.php');
 
-routerconfigs_check_upgrade();
+if (read_config_option('routerconfigs_verify_hostkey') == 'on' &&
+	(!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint') ||
+	!db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type'))) {
+	plugin_routerconfigs_log('ERROR: SSH host-key verification requires a completed Router Configs plugin upgrade. Open the Cacti Plugins page before running backups.');
+	exit(1);
+}
 
 error_reporting(E_ALL ^ E_DEPRECATED);
 

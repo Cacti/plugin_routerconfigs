@@ -162,7 +162,7 @@ function actions_devices() {
 					break;
 				case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
 					for ($i = 0; $i < count($selected_items); $i++) {
-						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action');
+						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action by user ' . ($_SESSION['sess_user_id'] ?? 'unknown'));
 					}
 
 					break;

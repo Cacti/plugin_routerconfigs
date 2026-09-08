@@ -180,11 +180,6 @@ abstract class PHPConnection {
 	}
 
 	protected function sshConnect() {
-		if (read_config_option('routerconfigs_verify_hostkey') == 'on' &&
-			!empty($this->device['ssh_hostkey_type'])) {
-			return @ssh2_connect($this->server, 22, ['hostkey' => $this->device['ssh_hostkey_type']]);
-		}
-
 		return @ssh2_connect($this->server, 22);
 	}
 

@@ -65,7 +65,7 @@ function routerconfigs_check_upgrade() {
 	include_once($config['library_path'] . '/functions.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = ['plugins.php', 'router-devices.php', 'router-download.php', 'settings.php'];
+	$files = ['plugins.php', 'router-devices.php', 'settings.php'];
 
 	if (!in_array(get_current_page(), $files, true)) {
 		return;
