@@ -180,6 +180,10 @@ jobs:
           exit 1
         fi
 
+    - name: Run Routerconfigs Unit Tests
+      run: php tests/unit/test_verify_ssh_hostkey.php
+      working-directory: ${{ github.workspace }}/cacti/plugins/routerconfigs
+
     - name: Remove the plugins directory exclusion from the .phpstan.neon
       run: sed '/plugins/d' -i .phpstan.neon
       working-directory: ${{ github.workspace }}/cacti

@@ -65,7 +65,7 @@ function routerconfigs_check_upgrade() {
 	include_once($config['library_path'] . '/functions.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = ['plugins.php', 'router-devices.php'];
+	$files = ['plugins.php', 'router-devices.php', 'router-download.php', 'settings.php'];
 
 	if (!in_array(get_current_page(), $files, true)) {
 		return;
@@ -240,6 +240,18 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
+		if (cacti_version_compare($old, '1.8', '<')) {
+			if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `ssh_fingerprint` varchar(255) DEFAULT NULL');
+			}
+
+			if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type')) {
+				db_execute('ALTER TABLE plugin_routerconfigs_devices
+					ADD COLUMN `ssh_hostkey_type` varchar(64) DEFAULT NULL');
+			}
+		}
+
 		AddDeviceTypes();
 
 		db_execute_prepared('UPDATE plugin_config
@@ -318,6 +330,7 @@ function routerconfigs_setup_table_new() {
 	$data['columns'][] = ['name' => 'timeout', 'type' => 'int(11)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'debug', 'type' => 'longblob', 'NULL' => true];
 	$data['columns'][] = ['name' => 'ssh_fingerprint', 'type' => 'varchar(255)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'ssh_hostkey_type', 'type' => 'varchar(64)', 'NULL' => true];
 
 	$data['keys'][] = ['name' => 'enabled', 'columns' => 'enabled'];
 	$data['keys'][] = ['name' => 'schedule', 'columns' => 'schedule'];

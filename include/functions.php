@@ -504,9 +504,22 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			$connection->Log('DEBUG: Connected via ' . $connection->classType);
 
 			break;
-		} else {
-			$connection = null;
 		}
+
+		if (!plugin_routerconfigs_should_try_next_connection($type_dev, $classname, $result)) {
+			if ($result === RCONFIG_CONNECT_HOSTKEY_FAILED) {
+				$fail_msg = __("ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet", $device['hostname'], 'routerconfigs');
+			} else {
+				$fail_msg = __("ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled", $device['hostname'], 'routerconfigs');
+			}
+
+			plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
+			plugin_routerconfigs_log($fail_msg);
+
+			return false;
+		}
+
+		$connection = null;
 	}
 
 	if ($result) {
@@ -809,50 +822,138 @@ function plugin_routerconfigs_encode($info) {
  * a possible man-in-the-middle and the connection is refused before any
  * credential is sent. A legitimate key change (for example a device reinstall)
  * is resolved by clearing the stored fingerprint for that device. The check is
- * skipped, and the connection allowed, when the option is off or the storage
- * column is not yet present, so it never breaks an existing install.
+ * skipped when the option is off. When verification is enabled, missing
+ * storage fails closed so credentials are never sent without an enforceable
+ * host-key check.
  *
- * @param int|string   $device_id   The routerconfigs device id.
- * @param string|false $fingerprint The key fingerprint from ssh2_fingerprint().
+ * @param int|string  $device_id The routerconfigs device id.
+ * @param array|false $hostkey   The negotiated algorithm and fingerprint.
  *
  * @return bool True to proceed with authentication, false to refuse.
  */
-function plugin_routerconfigs_verify_ssh_hostkey($device_id, $fingerprint) {
+function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 	if (read_config_option('routerconfigs_verify_hostkey') != 'on') {
 		return true;
 	}
 
-	if ($fingerprint === '' || $fingerprint === false || $fingerprint === null) {
+	if (!is_array($hostkey) || empty($hostkey['type']) || empty($hostkey['fingerprint'])) {
 		plugin_routerconfigs_log('ERROR: No SSH host key fingerprint available; refusing to send credentials');
 
 		return false;
 	}
 
-	if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint')) {
-		return true;
+	if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint') ||
+		!db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type')) {
+		plugin_routerconfigs_log('ERROR: SSH host key storage columns are missing; refusing to send credentials. Complete the routerconfigs upgrade first.');
+
+		return false;
 	}
 
-	$stored = db_fetch_cell_prepared('SELECT ssh_fingerprint
+	$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
 		FROM plugin_routerconfigs_devices
 		WHERE id = ?',
 		[$device_id]);
 
-	if ($stored === null || $stored === '' || $stored === false) {
-		db_execute_prepared('UPDATE plugin_routerconfigs_devices
-			SET ssh_fingerprint = ?
+	if (!is_array($stored)) {
+		plugin_routerconfigs_log("ERROR: Unable to read the stored SSH host key for device $device_id; refusing to send credentials.");
+
+		return false;
+	}
+
+	if (empty($stored['ssh_hostkey_type']) && empty($stored['ssh_fingerprint'])) {
+		$updated = db_execute_prepared('UPDATE plugin_routerconfigs_devices
+			SET ssh_hostkey_type = ?, ssh_fingerprint = ?
 			WHERE id = ?',
-			[$fingerprint, $device_id]);
+			[$hostkey['type'], $hostkey['fingerprint'], $device_id]);
+
+		if (!$updated) {
+			plugin_routerconfigs_log("ERROR: Unable to store the SSH host key for device $device_id; refusing to send credentials.");
+
+			return false;
+		}
+
+		$stored = db_fetch_row_prepared('SELECT ssh_hostkey_type, ssh_fingerprint
+			FROM plugin_routerconfigs_devices
+			WHERE id = ?',
+			[$device_id]);
+
+		if (!is_array($stored) ||
+			!hash_equals((string) ($stored['ssh_hostkey_type'] ?? ''), (string) $hostkey['type']) ||
+			!hash_equals((string) ($stored['ssh_fingerprint'] ?? ''), (string) $hostkey['fingerprint'])) {
+			plugin_routerconfigs_log("ERROR: Unable to confirm the stored SSH host key for device $device_id; refusing to send credentials.");
+
+			return false;
+		}
 
 		return true;
 	}
 
-	if (hash_equals((string) $stored, (string) $fingerprint)) {
+	if (empty($stored['ssh_hostkey_type']) || empty($stored['ssh_fingerprint'])) {
+		plugin_routerconfigs_log("ERROR: Stored SSH host key for device $device_id is incomplete; refusing to send credentials. Clear it with the device action.");
+
+		return false;
+	}
+
+	if (hash_equals((string) $stored['ssh_hostkey_type'], (string) $hostkey['type']) &&
+		hash_equals((string) $stored['ssh_fingerprint'], (string) $hostkey['fingerprint'])) {
 		return true;
 	}
 
-	plugin_routerconfigs_log("ERROR: SSH host key for device $device_id changed (possible MITM); refusing. Clear the stored fingerprint after a legitimate key change.");
+	plugin_routerconfigs_log("ERROR: SSH host key for device $device_id changed (possible MITM); refusing. Use the device action to clear the stored host key after a legitimate change.");
 
 	return false;
+}
+
+/**
+ * Open SSH with a stable host-key algorithm preference when verification is on.
+ */
+function plugin_routerconfigs_ssh_connect($server) {
+	if (read_config_option('routerconfigs_verify_hostkey') != 'on') {
+		return @ssh2_connect($server, 22);
+	}
+
+	$methods = [
+		'hostkey' => 'ssh-ed25519,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256,rsa-sha2-512,rsa-sha2-256,ssh-rsa'
+	];
+
+	return @ssh2_connect($server, 22, $methods);
+}
+
+/**
+ * Return the negotiated host-key algorithm and SHA-1 fingerprint.
+ */
+function plugin_routerconfigs_get_ssh_hostkey($connection) {
+	if (!function_exists('ssh2_methods_negotiated')) {
+		return false;
+	}
+
+	$methods     = @ssh2_methods_negotiated($connection);
+	$fingerprint = @ssh2_fingerprint($connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+
+	if (!is_array($methods) || empty($methods['hostkey']) || empty($fingerprint)) {
+		return false;
+	}
+
+	return [
+		'type'        => $methods['hostkey'],
+		'fingerprint' => $fingerprint,
+	];
+}
+
+/**
+ * Decide whether a failed transport may fall through to the next candidate.
+ */
+function plugin_routerconfigs_should_try_next_connection($connection_type, $classname, $result) {
+	if ($result === RCONFIG_CONNECT_HOSTKEY_FAILED) {
+		return false;
+	}
+
+	if ($connection_type === RCONFIG_CONNECT_BOTH && $classname === 'PHPSsh' &&
+		read_config_option('routerconfigs_verify_hostkey') == 'on') {
+		return false;
+	}
+
+	return true;
 }
 
 function plugin_routerconfigs_messagetype($message) {

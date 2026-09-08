@@ -64,11 +64,12 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		}
 
 		if (strlen($this->ip)) {
-			if (!$this->connection = ssh2_connect($this->server, 22)) {
+			if (!$this->connection = plugin_routerconfigs_ssh_connect($this->server)) {
 				$rv = 1;
-			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], @ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX))) {
+			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], plugin_routerconfigs_get_ssh_hostkey($this->connection))) {
 				$this->Log('ERROR: SSH host key verification failed for ' . $this->server);
-				$rv = 3;
+
+				return RCONFIG_CONNECT_HOSTKEY_FAILED;
 			} else {
 				// try to authenticate
 				if (!ssh2_auth_password($this->connection, $this->user, $this->pass)) {
