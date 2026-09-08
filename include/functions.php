@@ -894,8 +894,11 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 		return false;
 	}
 
-	if (hash_equals((string) $stored['ssh_hostkey_type'], (string) $hostkey['type']) &&
-		hash_equals((string) $stored['ssh_fingerprint'], (string) $hostkey['fingerprint'])) {
+	if (hash_equals((string) $stored['ssh_fingerprint'], (string) $hostkey['fingerprint'])) {
+		if (!hash_equals((string) $stored['ssh_hostkey_type'], (string) $hostkey['type'])) {
+			plugin_routerconfigs_log("NOTICE: SSH host-key negotiation for device $device_id changed from {$stored['ssh_hostkey_type']} to {$hostkey['type']}, but the key fingerprint is unchanged.");
+		}
+
 		return true;
 	}
 
@@ -905,30 +908,52 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 }
 
 /**
- * Open SSH with a stable host-key algorithm preference when verification is on.
+ * Return whether SSH password authentication is available.
+ */
+function plugin_routerconfigs_ssh_available() {
+	return isset($GLOBALS['routerconfigs_ssh_auth_password']) || function_exists('ssh2_auth_password');
+}
+
+/**
+ * Open an SSH connection without changing libssh2's negotiation policy.
  */
 function plugin_routerconfigs_ssh_connect($server) {
-	if (read_config_option('routerconfigs_verify_hostkey') != 'on') {
-		return @ssh2_connect($server, 22);
-	}
+	$connect = $GLOBALS['routerconfigs_ssh_connect'] ?? 'ssh2_connect';
 
-	$methods = [
-		'hostkey' => 'ssh-ed25519,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256,rsa-sha2-512,rsa-sha2-256,ssh-rsa'
-	];
+	return @$connect($server, 22);
+}
 
-	return @ssh2_connect($server, 22, $methods);
+/**
+ * Authenticate an SSH connection with a testable adapter seam.
+ */
+function plugin_routerconfigs_ssh_auth_password($connection, $user, $password) {
+	$authenticate = $GLOBALS['routerconfigs_ssh_auth_password'] ?? 'ssh2_auth_password';
+
+	return @$authenticate($connection, $user, $password);
 }
 
 /**
  * Return the negotiated host-key algorithm and SHA-1 fingerprint.
  */
 function plugin_routerconfigs_get_ssh_hostkey($connection) {
-	if (!function_exists('ssh2_methods_negotiated')) {
+	$methods_reader = $GLOBALS['routerconfigs_ssh_methods_negotiated'] ?? null;
+	$fingerprinter  = $GLOBALS['routerconfigs_ssh_fingerprint'] ?? null;
+
+	if ($methods_reader === null && function_exists('ssh2_methods_negotiated')) {
+		$methods_reader = 'ssh2_methods_negotiated';
+	}
+
+	if ($fingerprinter === null && function_exists('ssh2_fingerprint')) {
+		$fingerprinter = 'ssh2_fingerprint';
+	}
+
+	if ($methods_reader === null || $methods_reader === false ||
+		$fingerprinter === null || $fingerprinter === false) {
 		return false;
 	}
 
-	$methods     = @ssh2_methods_negotiated($connection);
-	$fingerprint = @ssh2_fingerprint($connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
+	$methods     = @$methods_reader($connection);
+	$fingerprint = @$fingerprinter($connection, SSH2_FINGERPRINT_SHA1 | SSH2_FINGERPRINT_HEX);
 
 	if (!is_array($methods) || empty($methods['hostkey']) || empty($fingerprint)) {
 		return false;

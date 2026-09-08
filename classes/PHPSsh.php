@@ -54,7 +54,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	function Connect() {
 		$rv = 0;
 
-		if (!function_exists('ssh2_auth_password')) {
+		if (!plugin_routerconfigs_ssh_available()) {
 			$this->Log("DEBUG: PHP doesn't have the ssh2 module installed");
 			$this->Log('DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php');
 			$rv = 4;
@@ -71,7 +71,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				return RCONFIG_CONNECT_HOSTKEY_FAILED;
 			} else {
 				// try to authenticate
-				if (!@ssh2_auth_password($this->connection, $this->user, $this->pass)) {
+				if (!plugin_routerconfigs_ssh_auth_password($this->connection, $this->user, $this->pass)) {
 					$rv = 3;
 				} else {
 					if ($this->stream = ssh2_shell($this->connection,'xterm')) {

@@ -63,29 +63,6 @@ function cacti_log($message, $print = false, $type = '', $verbosity = POLLER_VER
 	return true;
 }
 
-function ssh2_connect($server, $port = 22, $methods = null) {
-	$GLOBALS['t_connect_calls'][] = [
-		'argument_count' => func_num_args(),
-		'methods'        => $methods,
-	];
-
-	return (object) ['connected' => true];
-}
-
-function ssh2_methods_negotiated($connection) {
-	return $GLOBALS['t_methods'] ?? ['hostkey' => 'ssh-ed25519'];
-}
-
-function ssh2_fingerprint($connection, $flags = 0) {
-	return $GLOBALS['t_fingerprint'] ?? 'AA:BB:CC';
-}
-
-function ssh2_auth_password($connection, $user, $password) {
-	$GLOBALS['t_auth_calls']++;
-
-	return true;
-}
-
 // Loading the production file also loads the plugin settings array, which
 // expects a full Cacti bootstrap. Suppress only those bootstrap notices.
 $previous_error_reporting = error_reporting(E_ERROR | E_PARSE);
@@ -116,6 +93,22 @@ function reset_state() {
 	$GLOBALS['t_auth_calls']    = 0;
 	$GLOBALS['t_methods']       = ['hostkey' => 'ssh-ed25519'];
 	$GLOBALS['t_fingerprint']   = 'AA:BB:CC';
+	$GLOBALS['routerconfigs_ssh_connect'] = function ($server, $port) {
+		$GLOBALS['t_connect_calls'][] = ['server' => $server, 'port' => $port];
+
+		return (object) ['connected' => true];
+	};
+	$GLOBALS['routerconfigs_ssh_methods_negotiated'] = function ($connection) {
+		return $GLOBALS['t_methods'];
+	};
+	$GLOBALS['routerconfigs_ssh_fingerprint'] = function ($connection, $flags) {
+		return $GLOBALS['t_fingerprint'];
+	};
+	$GLOBALS['routerconfigs_ssh_auth_password'] = function ($connection, $user, $password) {
+		$GLOBALS['t_auth_calls']++;
+
+		return true;
+	};
 }
 
 // Option off: always proceed, no storage touched.
@@ -166,6 +159,13 @@ $GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-
 check('matching fingerprint proceeds without re-storing',
 	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']) === true && count($GLOBALS['t_updates']) === 0);
 
+// RSA signature negotiation may change without changing the underlying key.
+reset_state();
+$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
+$GLOBALS['t_stored']                              = ['ssh_hostkey_type' => 'ssh-rsa', 'ssh_fingerprint' => 'AA:BB:CC'];
+check('algorithm change with the same fingerprint proceeds',
+	plugin_routerconfigs_verify_ssh_hostkey(7, ['type' => 'rsa-sha2-512', 'fingerprint' => 'AA:BB:CC']) === true);
+
 // Option on, partially stored identity: fail closed rather than replacing it.
 reset_state();
 $GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
@@ -196,23 +196,20 @@ reset_state();
 check('legacy SSH-to-Telnet fallback remains when verification is off',
 	plugin_routerconfigs_should_try_next_connection(RCONFIG_CONNECT_BOTH, 'PHPSsh', 1) === true);
 
-// Verification configures a stable host-key preference, while disabled mode
-// preserves the legacy two-argument ssh2_connect() call.
+// Verification observes libssh2 negotiation without silently restricting it.
 reset_state();
 plugin_routerconfigs_ssh_connect('router.example');
-check('disabled verification leaves SSH negotiation unchanged',
-	$GLOBALS['t_connect_calls'][0]['argument_count'] === 2);
-
-reset_state();
-$GLOBALS['t_opt']['routerconfigs_verify_hostkey'] = 'on';
-plugin_routerconfigs_ssh_connect('router.example');
-check('enabled verification pins the SSH host-key preference',
-	$GLOBALS['t_connect_calls'][0]['argument_count'] === 3 &&
-	isset($GLOBALS['t_connect_calls'][0]['methods']['hostkey']));
+check('SSH connector receives only server and port',
+	$GLOBALS['t_connect_calls'] === [['server' => 'router.example', 'port' => 22]]);
 
 check('negotiated host-key identity includes algorithm and fingerprint',
 	plugin_routerconfigs_get_ssh_hostkey((object) []) === ['type' => 'ssh-ed25519', 'fingerprint' => 'AA:BB:CC']);
 
+$GLOBALS['routerconfigs_ssh_methods_negotiated'] = false;
+check('unavailable negotiation metadata is refused',
+	plugin_routerconfigs_get_ssh_hostkey((object) []) === false);
+
+reset_state();
 $GLOBALS['t_methods'] = [];
 check('missing negotiated host-key algorithm is refused',
 	plugin_routerconfigs_get_ssh_hostkey((object) []) === false);
