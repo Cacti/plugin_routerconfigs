@@ -31,7 +31,7 @@ include('./include/auth.php');
 include_once(__DIR__ . '/include/functions.php');
 
 if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
-	print get_md5_include_css('plugins/routerconfigs/diff.css');
+	print get_md5_include_css('plugins/routerconfigs/css/diff.css');
 }
 
 if (read_config_option('routerconfigs_presentation') == 'console') {

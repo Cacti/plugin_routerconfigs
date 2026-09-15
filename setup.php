@@ -382,7 +382,7 @@ function routerconfigs_page_head() {
 	global $config;
 
 	if (strpos(get_current_page(), 'router-compare.php')) {
-		print '<link rel="stylesheet" type="text/css" href="' . $config['url_path'] . "plugins/routerconfigs/diff.css\">\n";
+		print '<link rel="stylesheet" type="text/css" href="' . $config['url_path'] . "plugins/routerconfigs/css/diff.css\">\n";
 	}
 }
 
