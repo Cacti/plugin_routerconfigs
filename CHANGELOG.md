@@ -3,6 +3,7 @@
 --- develop ---
 
 * issue#151: Defense-in-depth hardening
+* issue#160: Opt-in SSH host-key verification
 
 --- 1.7 ---
 

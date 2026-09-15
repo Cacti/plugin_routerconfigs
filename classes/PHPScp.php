@@ -54,7 +54,7 @@ class PHPScp extends PHPConnection implements ShellSsh {
 	function Connect() {
 		$rv = 0;
 
-		if (!function_exists('ssh2_auth_password')) {
+		if (!$this->sshAvailable()) {
 			$this->Log("DEBUG: PHP doesn't have the ssh2 module installed");
 			$this->Log('DEBUG: Follow the installation instructions in the official manual at http://www.php.net/manual/en/ssh2.installation.php');
 
@@ -64,11 +64,15 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		}
 
 		if (strlen($this->ip)) {
-			if (!$this->connection = ssh2_connect($this->server, 22)) {
+			if (!$this->connection = $this->sshConnect()) {
 				$rv = 1;
+			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], $this->sshHostKey())) {
+				$this->Log('ERROR: SSH host key verification failed for ' . $this->server);
+
+				return RCONFIG_CONNECT_HOSTKEY_FAILED;
 			} else {
 				// try to authenticate
-				if (!ssh2_auth_password($this->connection, $this->user, $this->pass)) {
+				if (!$this->sshAuthPassword()) {
 					$rv = 3;
 				} else {
 					$this->Log('DEBUG: okay: logged in...');
@@ -90,11 +94,17 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		$scp_source = $this->deviceType['configfile'];
 		$scp_dest   = $backuppath . $filename;
 
+		if (!empty($scp_path) && read_config_option('routerconfigs_verify_hostkey') == 'on') {
+			$this->Log('ERROR: External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection');
+
+			return false;
+		}
+
 		if (empty($scp_path)) {
 			$this->Log("DEBUG: Using PHP Internal 'ssh2_scp_recv' command");
 			$this->Log("DEBUG: Attempting to download '$scp_source' to '$scp_dest'");
 
-			return ssh2_scp_recv($this->connection, $scp_source, $scp_dest);
+			return $this->sshScpRecv($scp_source, $scp_dest);
 		} else {
 			$this->Log("DEBUG: Using external '$scp_path' command");
 
