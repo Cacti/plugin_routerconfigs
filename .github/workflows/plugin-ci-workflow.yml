@@ -138,8 +138,6 @@ jobs:
         if [ -f composer.json ]; then
           sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
           sudo composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
-          sudo rm -f composer.lock
-          sudo composer install --dev --no-progress
         fi
 
     - name: Restore vendor ownership for Pest
@@ -204,6 +202,7 @@ jobs:
         COMPOSER_ROOT_VERSION: 1.3.0-dev
       run: |
         cd ${{ github.workspace }}/cacti
+        mkdir -p plugins/routerconfigs/coverage
         include/vendor/bin/pest --configuration=plugins/routerconfigs/phpunit.xml \
           --coverage-clover=plugins/routerconfigs/coverage/clover.xml \
           plugins/routerconfigs/tests/Security \
@@ -269,12 +268,15 @@ jobs:
         fi
 
     - name: Wait for background config downloads to finish
+      if: always()
       run: |
         # routerconfigs_poller_bottom() launches router-download.php via
         # exec_background() as a detached child of the poller, so it can
         # still be writing FATAL/ERROR/WARNING entries to cacti.log after
         # poller.php itself has already exited. Wait for it to finish before
-        # the log is scanned below, or that log line would be missed.
+        # the log is scanned below, or that log line would be missed. Run
+        # with if: always() so a failed poller step doesn't skip this and
+        # let the child race with the log scan below.
         for i in $(seq 1 30); do
           if ! pgrep -f 'router-download\.php' > /dev/null; then
             exit 0
@@ -282,6 +284,7 @@ jobs:
           sleep 2
         done
         echo "router-download.php is still running after the wait timeout"
+        exit 1
 
     - name: View Cacti Logs
       if: always()
