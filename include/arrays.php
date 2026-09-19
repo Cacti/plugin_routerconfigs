@@ -42,10 +42,11 @@ $rc_account_actions = [
 ];
 
 $rc_device_actions = [
-	RCONFIG_DEVICE_BACKUP  => __('Backup', 'routerconfigs'),
-	RCONFIG_DEVICE_DELETE  => __('Delete', 'routerconfigs'),
-	RCONFIG_DEVICE_ENABLE  => __('Enable', 'routerconfigs'),
-	RCONFIG_DEVICE_DISABLE => __('Disable', 'routerconfigs')
+	RCONFIG_DEVICE_BACKUP            => __('Backup', 'routerconfigs'),
+	RCONFIG_DEVICE_DELETE            => __('Delete', 'routerconfigs'),
+	RCONFIG_DEVICE_ENABLE            => __('Enable', 'routerconfigs'),
+	RCONFIG_DEVICE_DISABLE           => __('Disable', 'routerconfigs'),
+	RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY => __('Clear SSH Host Key', 'routerconfigs')
 ];
 
 $rc_devtype_actions = [
@@ -182,6 +183,12 @@ $rc_device_edit_fields = [
 		'description'   => __('This is the IP Address used to communicate with the device.', 'routerconfigs'),
 		'value'         => '|arg1:ipaddress|',
 		'max_length'    => '128',
+	],
+	'ssh_hostkey' => [
+		'method'        => 'custom',
+		'friendly_name' => __('Stored SSH Host Key', 'routerconfigs'),
+		'description'   => __('Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk \'{print $2}\' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk \'{print toupper($NF)}\'. Use the device action to clear it after a legitimate key change.', 'routerconfigs'),
+		'value'         => '|arg1:ssh_hostkey_display|',
 	],
 	'directory' => [
 		'method'        => 'dirpath',
@@ -464,10 +471,16 @@ $rc_settings = [
 	],
 	'routerconfigs_scp_path' => [
 		'friendly_name' => __('SCP Path', 'routerconfigs'),
-		'description'   => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work', 'routerconfigs'),
+		'description'   => __('When using SCP, leaving this blank will use PHP\'s SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection.', 'routerconfigs'),
 		'method'        => 'textbox',
 		'max_length'    => 255,
 		'size'          => '50',
+	],
+	'routerconfigs_verify_hostkey' => [
+		'friendly_name' => __('Verify SSH Host Keys', 'routerconfigs'),
+		'description'   => __('Record each device\'s SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
 	],
 	'routerconfigs_tftpserver' => [
 		'friendly_name' => __('TFTP Server IP', 'routerconfigs'),

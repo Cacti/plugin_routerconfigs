@@ -30,6 +30,7 @@ define('RCONFIG_DEVICE_BACKUP',  1);
 define('RCONFIG_DEVICE_DELETE',  2);
 define('RCONFIG_DEVICE_ENABLE',  3);
 define('RCONFIG_DEVICE_DISABLE', 4);
+define('RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY', 5);
 
 define('RCONFIG_DEVTYPE_DELETE', 1);
 
@@ -39,6 +40,8 @@ define('RCONFIG_CONNECT_SSH',    'ssh');
 define('RCONFIG_CONNECT_TELNET', 'telnet');
 define('RCONFIG_CONNECT_SCP',    'scp');
 define('RCONFIG_CONNECT_SFTP',   'sftp');
+
+define('RCONFIG_CONNECT_HOSTKEY_FAILED', 10);
 
 define('RCONFIG_BACKUP_DAILY',   1);
 define('RCONFIG_BACKUP_WEEKLY',  7);

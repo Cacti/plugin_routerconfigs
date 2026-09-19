@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.2', '8.3', '8.4']
+        php: ['8.3', '8.4']
         os: [ubuntu-latest]
     
     services:
@@ -75,7 +75,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
-        extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring
+        extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring, ssh2
         ini-values: "post_max_size=256M, max_execution_time=60, date.timezone=America/New_York"
     
     - name: Check PHP version
@@ -179,6 +179,10 @@ jobs:
           echo "Syntax errors found!"
           exit 1
         fi
+
+    - name: Run Routerconfigs Unit Tests
+      run: php tests/unit/test_verify_ssh_hostkey.php
+      working-directory: ${{ github.workspace }}/cacti/plugins/routerconfigs
 
     - name: Remove the plugins directory exclusion from the .phpstan.neon
       run: sed '/plugins/d' -i .phpstan.neon
