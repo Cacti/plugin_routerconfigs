@@ -79,8 +79,8 @@ class RouterconfigsTestHostKeyReader extends PHPConnection {
 
 /**
  * Reset the fixture globals and (re)install the stub overrides that give
- * the shared Cacti db_*/read_config_option stubs the behaviour this suite
- * needs, without redeclaring any of them.
+ * the shared Cacti db_* and read_config_option stubs the behaviour this
+ * suite needs, without redeclaring any of them.
  */
 function resetRouterconfigsSshFixture() {
 	$GLOBALS['__t_opt']               = [];
