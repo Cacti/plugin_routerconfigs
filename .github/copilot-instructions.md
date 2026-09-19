@@ -4,174 +4,165 @@
 
 When generating code for this repository:
 
-1. **Version Compatibility First**: Match only versions and APIs evidenced in this repo.
-2. **Context Files First**: If `.github/agents/*` files are added later, prioritize them over these defaults.
-3. **Codebase Patterns Second**: If no context file applies, copy patterns from neighboring files.
-4. **Architectural Consistency**: Preserve plugin boundaries and Cacti integration points.
-5. **Consistency Over Novelty**: Prefer existing repo patterns over external or newer style guidance.
+1. **Version Compatibility**: This is a Cacti plugin (`routerconfigs`, version 1.7) targeting Cacti 1.2.23+
+2. **Context Files**: Prioritize patterns and standards defined in this file (`.github/copilot-instructions.md`)
+3. **Codebase Patterns**: When context files don't provide specific guidance, scan the codebase for established patterns
+4. **Architectural Consistency**: Maintain plugin-based architecture extending Cacti core
+5. **Code Quality**: Prioritize security, maintainability, and compatibility in all generated code
 
-## Detected Technology and Version Constraints
+## Technology Stack
 
-### Confirmed from Repository Metadata
+### Core Technologies
+- **PHP**: Compatible with Cacti 1.2.x supported versions; `#[AllowDynamicProperties]` is used in `classes/PHPConnection.php` to handle PHP 8.2 dynamic-property deprecations
+- **Platform**: Cacti Plugin Architecture — backs up and diffs router/switch configurations
+- **Database**: MySQL/MariaDB
+- **Connectivity**: SSH/Telnet/SCP/SFTP device connections via optional `ssh2` PHP extension
 
-- **Project type**: Cacti plugin (`routerconfigs`) written in PHP.
-- **Plugin version**: `1.7` (from `INFO`).
-- **Cacti compatibility**: `compat = 1.2.23` (from `INFO`).
-- **Versioning style**: SemVer-like in `CHANGELOG.md` (examples: `1.7`, `1.6.1`, `1.5.3`).
+### Key Dependencies
+- Cacti core framework (`api_plugin_*`, `db_*`, `read_config_option()`, `cacti_log()`)
+- Vendored Horde-style text diff utilities under `Text/`
+- Optional runtime dependency: `ssh2` extension (guarded with defensive checks in `classes/PHPSsh.php`)
 
-### PHP Compatibility (Observed, Not Fully Pinned)
+## Project Structure
 
-- No `composer.json` or other explicit PHP engine constraint exists in this repository.
-- Changelog explicitly mentions fixes for **PHP 8.1** and **PHP 8.2** warnings.
-- Code includes `#[AllowDynamicProperties]` in `classes/PHPConnection.php` to handle dynamic-property deprecations.
-- **Instruction**: Keep generated PHP compatible with Cacti plugin runtime and the patterns already used here; do not introduce language features not already present in this codebase.
+```
+routerconfigs/               # Repository root (install to plugins/routerconfigs/ in Cacti)
+├── classes/                   # PHPConnection, PHPSsh, PHPTelnet, PHPScp, PHPSftp transport classes
+├── include/                      # functions.php (core logic), arrays.php/constants.php (config/field maps)
+├── locales/                         # Internationalization files
+├── tests/                              # Test suite
+├── Text/                                  # Vendored diff utilities (Horde-style classes/renderers)
+├── router-devices.php                       # Device administration
+├── router-accounts.php                        # Credential/account administration
+├── router-backups.php                           # Backup listing/administration
+├── router-compare.php                             # Config diff/compare view
+├── router-devtypes.php                              # Device type administration
+├── router-download.php                                # CLI-only backup download/export flow
+├── diff.css / HordeTextInclude.php                       # Diff rendering assets
+├── INFO                                                     # Plugin metadata (name, version, compat)
+├── README.md
+└── setup.php                                                  # Plugin install/uninstall/upgrade hooks
+```
 
-### Libraries/Runtime Dependencies (Observed)
+## Naming Conventions
 
-- Cacti plugin APIs and globals (`api_plugin_register_hook`, `db_*`, `read_config_option`, `cacti_log`, etc.).
-- Optional SSH extension at runtime (`ssh2_*` checks in `classes/PHPSsh.php`).
-- Vendored text diff utilities under `Text/` (Horde-style classes and renderers).
+### Function Names
+- Hook/lifecycle functions use the `routerconfigs_` prefix: `routerconfigs_show_tab()`, `routerconfigs_config_arrays()`, `routerconfigs_poller_bottom()`.
+- Plugin-specific logging uses `plugin_routerconfigs_log()`.
+- Match the existing prefix used by the function you are editing; do not introduce a new naming scheme.
 
-## Architecture and Boundaries
+### Database Tables
+All plugin tables are prefixed `plugin_routerconfigs_`.
 
-This repository follows a **monolithic plugin with layered concerns**:
+### Connection Classes
+Class naming follows the `PHP*` pattern (`PHPConnection`, `PHPSsh`, `PHPTelnet`, `PHPScp`, `PHPSftp`) with explicit `Connect()`/`Disconnect()` methods — OOP is used only for these transport classes; procedural style dominates controllers and page handlers. Do not introduce namespaces or strict typing unless the touched area already uses them.
 
-- **Entry pages/controllers**: top-level `router-*.php` files route actions and render pages.
-- **Core business logic**: `include/functions.php`.
-- **Configuration and field maps**: `include/arrays.php`, `include/constants.php`.
-- **Transport/connection abstractions**: `classes/*` (`PHPConnection`, `PHPSsh`, `PHPTelnet`, `PHPScp`, `PHPSftp`).
-- **Plugin lifecycle and schema**: `setup.php` (hooks, install/upgrade DB schema).
-- **Localization**: `__()` / `__esc()` with domain `routerconfigs`, translation files in `locales/`.
+## Code Style
 
-### Architectural Rules
+### Indentation and Formatting
+- **Tabs**: Use tabs (not spaces) for indentation throughout all PHP files.
+- **Braces**: Opening brace on the same line for functions and control structures.
+- **Spacing**: Space after control structure keywords (`if`, `foreach`, `while`).
 
-- Keep plugin wiring in `setup.php`; do not move hook registration logic into page files.
-- Keep request handling in `router-*.php` and reusable logic in `include/functions.php` or `classes/`.
-- Preserve DB table ownership under `plugin_routerconfigs_*`.
-- Reuse existing Cacti helper APIs rather than introducing custom framework layers.
+### File Structure and Includes
+Most pages start with `chdir('../../');` then `include('./include/auth.php');`, followed by plugin includes from `__DIR__`. Route actions with `set_default_action();` and `switch (get_request_var('action'))`, keeping action handlers as plain functions in the same file.
 
-## Established Code Patterns
+### Input Validation Blocks
+Mark explicit validation sections with the existing comment convention:
+```php
+// ================= input validation =================
+...
+// ====================================================
+```
 
-## 1) File Structure and Includes
+`get_filter_request_var()` (and its `gfrv()` shorthand, where available) called with only the
+`$name` argument (no regex/filter as the 2nd/3rd argument) already validates the value as numeric
+and returns it as a **string** -- it does not return an int, and it halts execution if the request
+value is not numeric. Because of this, do NOT cast its output to `(int)` when the result is only
+used for string output (e.g. `print`/`echo`, string concatenation, embedding in HTML/JS); the cast
+is redundant. Only cast when the value is genuinely used in an integer/numeric context (e.g.
+arithmetic, strict `===` comparisons).
 
-- Use `include` / `include_once` / `require_once` with existing relative patterns.
-- Most pages start with:
-  - `chdir('../../');`
-  - `include('./include/auth.php');`
-  - plugin includes from `__DIR__`.
+### File Headers
+ALL PHP files MUST include the standard GPL v2 license header used throughout this repository (see `setup.php`), crediting "The Cacti Group".
 
-## 2) Request Routing and Actions
+## Security Standards
 
-- Route with `set_default_action();` and `switch (get_request_var('action'))`.
-- Keep action handlers as plain functions in the same file (existing pattern).
+### SQL Query Security
+Prefer prepared variants where the pattern exists: `db_fetch_row_prepared()`, `db_fetch_assoc_prepared()`, `db_fetch_cell_prepared()`, `db_execute_prepared()`.
 
-## 3) Input Validation and Sanitization
+```php
+// CORRECT
+db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', array($id));
 
-- Use explicit validation blocks marked by:
-  - `// ================= input validation =================`
-  - `// ====================================================`
-- Prefer Cacti request helpers:
-  - `get_filter_request_var(...)`
-  - `input_validate_input_number(...)`
-  - `sanitize_unserialize_selected_items(...)`
-  - `sanitize_search_string` callbacks where used.
+// WRONG
+db_fetch_row("SELECT * FROM plugin_routerconfigs_devices WHERE id = $id");
+```
 
-## 4) Database Access
+### Input Validation
+Use Cacti request helpers: `get_filter_request_var()`, `input_validate_input_number()`, `sanitize_unserialize_selected_items()`, or existing `sanitize_search_string` callbacks.
 
-- Prefer prepared variants where pattern exists:
-  - `db_fetch_row_prepared`, `db_fetch_assoc_prepared`, `db_fetch_cell_prepared`, `db_execute_prepared`.
-- Follow existing SQL style (multiline SQL strings and Cacti DB helpers).
-- Keep schema creation/upgrades in `setup.php` via `api_plugin_db_table_create` and `db_column_exists` guards.
+### Output Escaping
+Escape output using established functions (`html_escape()`, `html_escape_request_var()`, `htmlspecialchars()`).
 
-## 5) UI/Output and Escaping
+### Credential Handling
+Continue masking sensitive values (device passwords/credentials) in logs, matching the existing password-masking helpers; never log raw credentials.
 
-- Follow Cacti page wrapper pattern (`top_header()`/`general_header()`, `bottom_footer()`).
-- Use Cacti HTML helpers (`html_start_box`, `form_selectable_cell`, `html_nav_bar`, etc.).
-- Escape output using established functions (`html_escape`, `html_escape_request_var`, `htmlspecialchars`).
+### Optional Extension Guards
+Preserve defensive checks for optional runtime dependencies (e.g., `ssh2` extension availability) before attempting to use them.
 
-## 6) Logging and Messaging
+## Database Operations
 
-- Use `plugin_routerconfigs_log()` for plugin-specific logs.
-- Use `cacti_log()` for environment-level logging where already used.
-- Use `raise_message()` for user-facing result notifications.
-- Keep existing severity wording patterns (`DEBUG`, `NOTICE`, `WARNING`, `ERROR`, `FATAL`, `STATS`).
+Keep schema creation/upgrades in `setup.php` via `api_plugin_db_table_create()` and `db_column_exists()` guards.
 
-## 7) Internationalization
+## Internationalization
 
-- Wrap user-facing text in `__()` or `__esc()`.
-- Always use text domain `'routerconfigs'`.
-- Keep translation-aware strings and avoid hardcoded UI text.
+Wrap user-facing text in `__()` or `__esc()`, always with the text domain `'routerconfigs'`.
 
-## 8) OOP Conventions in This Repo
+## Plugin Architecture
 
-- OOP is used mainly in connection classes; procedural style dominates controllers and page handlers.
-- Keep class naming and inheritance patterns consistent (`PHP*` classes, explicit `Connect()`/`Disconnect()` methods).
-- Do not introduce namespaces or strict typing unless existing file patterns in the touched area already use them.
+### Plugin Hooks
+Register hooks in `setup.php`:
 
-## Security and Reliability Patterns to Preserve
+```php
+api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php');
+api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php');
+api_plugin_register_hook('routerconfigs', 'config_arrays',         'routerconfigs_config_arrays',        'setup.php');
+api_plugin_register_hook('routerconfigs', 'draw_navigation_text',  'routerconfigs_draw_navigation_text', 'setup.php');
+api_plugin_register_hook('routerconfigs', 'config_settings',       'routerconfigs_config_settings',      'setup.php');
+api_plugin_register_hook('routerconfigs', 'poller_bottom',         'routerconfigs_poller_bottom',        'setup.php');
+api_plugin_register_hook('routerconfigs', 'page_head',             'routerconfigs_page_head',            'setup.php');
 
-- Validate/sanitize all request input before use.
-- Prefer prepared SQL helpers for dynamic inputs.
-- Preserve CLI-only guard pattern in `router-download.php` for command-line scripts.
-- Preserve defensive checks for optional runtime dependencies (e.g., `ssh2` extension).
-- Continue masking sensitive values in logs (e.g., password masking helpers).
+api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
+```
 
-## Documentation Requirements (Repository-Observed)
+### Logging
+Use `plugin_routerconfigs_log()` for plugin-specific logs and `cacti_log()` for environment-level logging where already used; use `raise_message()` for user-facing result notifications, keeping existing severity wording (`DEBUG`, `NOTICE`, `WARNING`, `ERROR`, `FATAL`, `STATS`).
 
-- Match current documentation style:
-  - File-level header blocks are common in primary plugin files.
-  - Inline comments are used sparingly, mostly for intent and validation sections.
-- Do not add large doc blocks where surrounding code does not use them.
-- Keep comments short and practical.
+## Best Practices
 
-## Testing Guidance (Repository-Observed)
+1. Keep plugin wiring in `setup.php`; do not move hook registration into page files.
+2. Keep request handling in `router-*.php` and reusable logic in `include/functions.php` or `classes/`.
+3. Preserve DB table ownership under `plugin_routerconfigs_*`.
+4. Always mask credential values in logs.
 
-- No dedicated automated test suite directories or test framework configuration are present in this repo.
-- Validate changes with focused manual checks and existing runtime flows:
-  - page actions in `router-*.php`
-  - CLI flow in `router-download.php`
-  - install/upgrade paths in `setup.php`.
-- If adding tests in the future, place them in a clearly separated structure and document the chosen framework first.
+## Common Pitfalls to Avoid
 
-## Version Control and Changelog Guidance
+```php
+// WRONG - logging a raw credential
+cacti_log("Connecting with password $password");
 
-- Follow existing changelog format in `CHANGELOG.md`.
-- Keep version numbers SemVer-like to match current history.
-- Document fixes/features in concise bullet style consistent with existing entries.
+// CORRECT - mask sensitive values
+cacti_log('Connecting with password ' . str_repeat('*', strlen($password)));
+```
 
-## Copilot Operational Instructions
+## Version Control
 
-Before generating or modifying code:
+Follow the existing `CHANGELOG.md` format; keep version numbers SemVer-like to match current history.
 
-1. Scan the target file and nearby files for established patterns.
-2. Reuse existing helper functions/APIs before creating new abstractions.
-3. Keep changes minimal and localized.
-4. Do not introduce new frameworks, coding paradigms, or build systems.
-5. If version compatibility is unclear, choose the most conservative option consistent with existing code.
+## References
 
-## Project-Specific “Do/Don’t”
-
-### Do
-
-- Follow Cacti plugin conventions used in this repo.
-- Keep i18n and escaping consistent with existing usage.
-- Preserve database schema naming and upgrade guard patterns.
-- Mirror naming and formatting conventions from sibling files.
-
-### Don’t
-
-- Don’t add assumptions about undeclared toolchain versions.
-- Don’t introduce modern PHP features that are not already used nearby.
-- Don’t bypass Cacti request validation, DB helper, or logging APIs.
-- Don’t change architectural boundaries (controller pages vs. shared logic vs. classes).
-
-## Concrete Reference Files
-
-Use these files as primary exemplars when generating code:
-
-- Plugin lifecycle/hooks/schema: `setup.php`
-- Shared logic: `include/functions.php`
-- Config arrays/constants: `include/arrays.php`, `include/constants.php`
-- Controller/action pages: `router-devices.php`, `router-backups.php`, `router-accounts.php`, `router-devtypes.php`, `router-compare.php`
-- CLI flow and argument parsing: `router-download.php`
-- Connection class design: `classes/PHPConnection.php`, `classes/PHPSsh.php`, `classes/PHPTelnet.php`, `classes/PHPScp.php`, `classes/PHPSftp.php`
+- [Cacti main repo](https://github.com/Cacti/cacti/tree/1.2.x)
+- [Cacti Documentation](https://www.github.com/Cacti/documentation)
+- `README.md` for feature descriptions
+- `CHANGELOG.md` for version history
