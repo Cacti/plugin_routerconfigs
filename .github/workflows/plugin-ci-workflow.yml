@@ -260,6 +260,21 @@ jobs:
           exit 1
         fi
 
+    - name: Wait for background config downloads to finish
+      run: |
+        # routerconfigs_poller_bottom() launches router-download.php via
+        # exec_background() as a detached child of the poller, so it can
+        # still be writing FATAL/ERROR/WARNING entries to cacti.log after
+        # poller.php itself has already exited. Wait for it to finish before
+        # the log is scanned below, or that log line would be missed.
+        for i in $(seq 1 30); do
+          if ! pgrep -f 'router-download\.php' > /dev/null; then
+            exit 0
+          fi
+          sleep 2
+        done
+        echo "router-download.php is still running after the wait timeout"
+
     - name: View Cacti Logs
       if: always()
       run: |
