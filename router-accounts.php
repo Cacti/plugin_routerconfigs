@@ -148,7 +148,7 @@ function actions_accounts() {
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
 			<input type='hidden' name='selected_items' value='" . (isset($account_array) ? serialize($account_array) : '') . "'>
-			<input type='hidden' name='drp_action' value='" . get_nfilter_request_var('drp_action') . "'>
+		<input type='hidden' name='drp_action' value='" . html_escape(get_nfilter_request_var('drp_action')) . "'>
 			$save_html
 		</td>
 	</tr>";
@@ -242,12 +242,13 @@ function show_accounts() {
 	load_current_session_value('page', 'sess_wmi_accounts_current_page', '1');
 	$num_rows = 30;
 
-	$result = db_fetch_assoc('SELECT *
+	$result = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_routerconfigs_accounts
-		LIMIT ' . ($num_rows * (get_request_var('page') - 1)) . ", $num_rows");
+		LIMIT ?, ?',
+		[(int) ($num_rows * (get_request_var('page') - 1)), (int) $num_rows]);
 
-	$total_rows = db_fetch_cell('SELECT COUNT(*)
-		FROM plugin_routerconfigs_accounts');
+	$total_rows = db_fetch_cell_prepared('SELECT COUNT(*)
+		FROM plugin_routerconfigs_accounts', []);
 
 	$nav = html_nav_bar('router-accounts.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 5, __('Accounts', 'routerconfigs'), 'page', 'main');
 

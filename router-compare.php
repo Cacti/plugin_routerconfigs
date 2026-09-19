@@ -51,9 +51,9 @@ $diffmode = get_request_var('diffmode');
 $files1   = [];
 $files2   = [];
 
-$devices = db_fetch_assoc('SELECT id, directory, hostname
+$devices = db_fetch_assoc_prepared('SELECT id, directory, hostname
 	FROM plugin_routerconfigs_devices
-	ORDER BY hostname');
+	ORDER BY hostname', []);
 
 if (cacti_sizeof($devices)) {
 	foreach ($devices as $d) {

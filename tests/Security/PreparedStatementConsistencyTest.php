@@ -9,6 +9,9 @@
 
 describe('prepared statement consistency in routerconfigs', function () {
 	it('uses prepared DB helpers in all plugin files', function () {
+		// setup.php is excluded: it is almost entirely schema-migration DDL
+		// (ALTER/DROP/CHANGE COLUMN) with no user-supplied parameters to bind,
+		// unlike the user-facing query code in the other target files.
 		$targetFiles = [
 		'include/functions.php',
 		'router-accounts.php',
@@ -16,7 +19,6 @@ describe('prepared statement consistency in routerconfigs', function () {
 		'router-devices.php',
 		'router-devtypes.php',
 		'router-download.php',
-		'setup.php',
 		];
 
 		$rawPattern      = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';

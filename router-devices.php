@@ -597,7 +597,7 @@ function show_devices() {
 						<select id='devicetype'>
 							<option value='-1'<?php if (get_request_var('devicetype') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs'); ?></option>
 							<?php
-							$devicetypes = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name');
+							$devicetypes = db_fetch_assoc_prepared('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name', []);
 
 	if (cacti_sizeof($devicetypes)) {
 		foreach ($devicetypes as $devicetype) {
@@ -618,7 +618,7 @@ function show_devices() {
 						<select id='account'>
 							<option value='-1'<?php if (get_request_var('account') == '-1') {?> selected<?php }?>><?php print __('Any','routerconfigs'); ?></option>
 							<?php
-	$accounts = db_fetch_assoc('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name');
+	$accounts = db_fetch_assoc_prepared('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name', []);
 
 	if (cacti_sizeof($accounts)) {
 		foreach ($accounts as $account) {

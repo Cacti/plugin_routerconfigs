@@ -10,11 +10,11 @@
 describe('routerconfigs action form wiring', function () {
 	$checks = [
 		'router-accounts.php' => [
-			"html_escape(db_fetch_cell('SELECT name FROM plugin_routerconfigs_accounts WHERE id=' . \$matches[1]))",
+			"html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) \$matches[1]]))",
 			"html_escape(get_nfilter_request_var('drp_action'))",
 		],
 		'router-devtypes.php' => [
-			"html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [\$matches[1]]))",
+			"html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_routerconfigs_devicetypes WHERE id = ?', [(int) \$matches[1]]))",
 			"html_escape(get_request_var('drp_action'))",
 		],
 	];

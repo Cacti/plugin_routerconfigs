@@ -94,6 +94,7 @@ function resetRouterconfigsSshFixture() {
 	$GLOBALS['__t_concurrent_pin']    = null;
 	$GLOBALS['__t_ddl_calls']         = [];
 	$GLOBALS['__t_ddl_result']        = true;
+	$GLOBALS['__test_log_messages']   = [];
 
 	$GLOBALS['__stub_overrides']['read_config_option'] = function ($name, $force = false) {
 		return $GLOBALS['__t_opt'][$name] ?? false;
