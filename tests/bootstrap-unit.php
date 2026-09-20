@@ -295,11 +295,8 @@ if (!function_exists('sql_save')) {
 	}
 }
 
-if (!function_exists('plugin_routerconfigs_maskpw')) {
-	function plugin_routerconfigs_maskpw($password) {
-		return $password === '' ? '' : str_repeat('*', strlen((string) $password));
-	}
-}
+// Not stubbed: SshHostKeyVerificationTest requires include/functions.php, whose
+// unconditional real declaration would fatal on "Cannot redeclare" against a stub here.
 
 if (!defined('CACTI_PATH_BASE')) {
 	define('CACTI_PATH_BASE', '/var/www/html/cacti');
