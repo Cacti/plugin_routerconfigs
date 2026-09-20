@@ -128,7 +128,7 @@ function actions_devicetypes() {
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
 			<input type='hidden' name='selected_items' value='" . (isset($devtype_array) ? serialize($devtype_array) : '') . "'>
-			<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+		<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 			$save_html
 		</td>
 	</tr>";
@@ -247,8 +247,8 @@ function show_devicetypes() {
 			WHERE account = ?',
 			[(int) $account]);
 	} else {
-		$total_rows = db_fetch_cell('SELECT COUNT(*)
-			FROM plugin_routerconfigs_devicetypes');
+		$total_rows = db_fetch_cell_prepared('SELECT COUNT(*)
+			FROM plugin_routerconfigs_devicetypes', []);
 	}
 
 	$nav = html_nav_bar('router-devtypes.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 11, __('Device Types', 'routerconfigs'), 'page', 'main');

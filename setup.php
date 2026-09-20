@@ -73,7 +73,7 @@ function routerconfigs_check_upgrade() {
 
 	$current              = plugin_routerconfigs_version();
 	$current              = $current['version'];
-	$old                  = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='routerconfigs'");
+	$old                  = db_fetch_cell_prepared('SELECT version FROM plugin_config WHERE directory = ?', ['routerconfigs']);
 	$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
 
 	if ($current != $old) {
@@ -175,9 +175,9 @@ function routerconfigs_check_upgrade() {
 			}
 
 			// Perform tidy up of devices
-			db_execute('UPDATE plugin_routerconfigs_devices SET
+			db_execute_prepared('UPDATE plugin_routerconfigs_devices SET
 				nextbackup = IFNULL(nextbackup,0),
-				nextattempt = IFNULL(nextattempt,0)');
+				nextattempt = IFNULL(nextattempt,0)', []);
 
 			// Rename existing columns of device types
 			if (db_column_exists('plugin_routerconfigs_devicetypes','connect_type')) {
@@ -581,7 +581,7 @@ function plugin_routerconfigs_combinepaths($path1, $path2) {
 }
 
 function plugin_routerconfigs_fix_backups_pre14() {
-	$backups = db_fetch_assoc('SELECT id, directory, filename FROM plugin_routerconfigs_backups');
+	$backups = db_fetch_assoc_prepared('SELECT id, directory, filename FROM plugin_routerconfigs_backups', []);
 
 	foreach ($backups as $backup) {
 		$filename = trim($backup['filename']);

@@ -137,7 +137,8 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 		if (strlen($tftpserver) < 2) {
 			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
 		} else {
-			$sqlwhere = '';
+			$sqlwhere  = '';
+			$sqlparams = [];
 
 			// If we aren't forcing all backups...
 			$scheduled = false;
@@ -145,14 +146,17 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 			if ($manual) {
 				$filter_devices = array_map('intval', $filter_devices);
-				$sqlwhere       = 'AND id IN (' . implode(',', $filter_devices) . ')';
+				$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, count($filter_devices), '?')) . ')';
+				$sqlparams      = $filter_devices;
 			} elseif (!$force) {
 				$scheduled = (!$force) || $simulate;
 
 				if ($retry) {
-					$sqlwhere = "AND nextattempt > lastbackup AND nextattempt <= $stime";
+					$sqlwhere  = 'AND nextattempt > lastbackup AND nextattempt <= ?';
+					$sqlparams = [$stime];
 				} else {
-					$sqlwhere = "AND (nextbackup <= $stime OR nextbackup IS NULL)";
+					$sqlwhere  = 'AND (nextbackup <= ? OR nextbackup IS NULL)';
+					$sqlparams = [$stime];
 				}
 			}
 
@@ -161,7 +165,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				WHERE enabled = 'on'
 				$sqlwhere";
 			plugin_routerconfigs_log('DEBUG: SQL: ' . preg_replace('/[\r\n]+\s*/m',' ',$sql));
-			$devices = db_fetch_assoc($sql, false);
+			$devices = db_fetch_assoc_prepared($sql, $sqlparams, false);
 
 			$failed = [];
 			$passed = [];
@@ -187,7 +191,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 				$success   = count($devices) - count($failed);
 				$cfailed   = count($failed);
-				$disabled  = db_fetch_cell('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'');
+				$disabled  = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'', []);
 				$totalsecs = time() - $stime;
 
 				$notice_level = 'NOTICE:';
@@ -365,19 +369,17 @@ function plugin_routerconfigs_check_config($data) {
 function plugin_routerconfigs_start($force = false, $simulate = false) {
 	global $config;
 
-	$running = db_fetch_cell('SELECT value FROM settings WHERE name = \'plugin_routerconfigs_running\'');
+	$running = db_fetch_cell_prepared('SELECT value FROM settings WHERE name = ?', ['plugin_routerconfigs_running']);
 
 	if ($running == 1) {
 		$running = time();
-		db_execute('REPLACE INTO settings (name, value)
-			VALUES (\'plugin_routerconfigs_running\', ' . $running . ')');
+		db_execute_prepared('REPLACE INTO settings (name, value) VALUES (?, ?)', ['plugin_routerconfigs_running', $running]);
 	}
 
 	if ($running < time() - 7200 || $force || $simulate) {
 		$running = time();
 
-		db_execute('REPLACE INTO settings (name, value)
-			VALUES (\'plugin_routerconfigs_running\', ' . $running . ')');
+		db_execute_prepared('REPLACE INTO settings (name, value) VALUES (?, ?)', ['plugin_routerconfigs_running', $running]);
 
 		$datetime = new DateTime();
 		$datetime->setTimestamp($running);
@@ -392,8 +394,7 @@ function plugin_routerconfigs_start($force = false, $simulate = false) {
 
 function plugin_routerconfigs_stop($force_stop) {
 	if ($force_stop) {
-		db_execute('REPLACE INTO settings (name, value)
-			VALUES (\'plugin_routerconfigs_running\', 0)');
+		db_execute_prepared('REPLACE INTO settings (name, value) VALUES (?, ?)', ['plugin_routerconfigs_running', 0]);
 	}
 	exit();
 }

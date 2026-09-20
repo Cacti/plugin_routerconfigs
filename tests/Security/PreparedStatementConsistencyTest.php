@@ -9,6 +9,10 @@
 
 describe('prepared statement consistency in routerconfigs', function () {
 	it('uses prepared DB helpers in all plugin files', function () {
+		// setup.php is included, but its raw db_execute() calls are exempted
+		// when they are schema-migration DDL (ALTER/CREATE/DROP/RENAME TABLE)
+		// with no user-supplied parameters to bind; every data-reading
+		// db_fetch_* call (including in setup.php) must still be _prepared.
 		$targetFiles = [
 		'include/functions.php',
 		'router-accounts.php',
@@ -21,6 +25,7 @@ describe('prepared statement consistency in routerconfigs', function () {
 
 		$rawPattern      = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
 		$preparedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
+		$ddlPattern      = '/\b(?:ALTER|CREATE|DROP|RENAME)\s+TABLE\b/i';
 
 		foreach ($targetFiles as $relativeFile) {
 			$path = realpath(__DIR__ . '/../../' . $relativeFile);
@@ -36,12 +41,27 @@ describe('prepared statement consistency in routerconfigs', function () {
 
 			$lines    = explode("\n", $contents);
 			$rawCalls = 0;
+			$inDdl    = false;
 
 			foreach ($lines as $line) {
 				$trimmed = ltrim($line);
 
 				if (strpos($trimmed, '//') === 0 || strpos($trimmed, '*') === 0 || strpos($trimmed, '#') === 0) {
 					continue;
+				}
+
+				if ($relativeFile === 'setup.php') {
+					if (preg_match('/\bdb_execute\s*\(/', $line) && preg_match($ddlPattern, $line)) {
+						$inDdl = true;
+					}
+
+					if ($inDdl) {
+						if (strpos($line, ')') !== false) {
+							$inDdl = false;
+						}
+
+						continue;
+					}
 				}
 
 				if (preg_match($rawPattern, $line) && !preg_match($preparedPattern, $line)) {
@@ -86,19 +106,21 @@ describe('prepared statement consistency in routerconfigs', function () {
 					continue;
 				}
 
-				// Detect _prepared calls with $ interpolation instead of ? placeholders
-				if (preg_match('/_prepared\s*\(/', $line) && preg_match('/\$[a-zA-Z_]/', $line)) {
-					// Allow array($var) param binding but flag "WHERE id = $var"
-					if (preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN).*\$/', $line)) {
+				// Detect $ interpolation inside the SQL string itself, not in the
+				// bound-parameters array that follows it (e.g. "..., [$id]);").
+				if (preg_match("/_prepared\\s*\\(\\s*['\"](.*?)['\"]\\s*,/", $line, $sqlMatch)) {
+					$sqlText = $sqlMatch[1];
+
+					if (preg_match('/\$[a-zA-Z_]/', $sqlText) && preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN)/i', $sqlText)) {
 						$interpolatedSql++;
 					}
 				}
 			}
 
-			// This is a heuristic; some false positives expected for complex queries
-			expect($interpolatedSql)->toBeLessThanOrEqual(2,
-				"File {$relativeFile} may have SQL interpolation in prepared calls"
+			expect($interpolatedSql)->toBe(0,
+				"File {$relativeFile} interpolates a variable directly into a _prepared() SQL string"
 			);
 		}
 	});
 });
+

@@ -7,13 +7,12 @@
  +-------------------------------------------------------------------------+
 */
 
-$payload = '<script>alert(1)</script>';
-$escaped = htmlspecialchars($payload, ENT_QUOTES, 'UTF-8');
+describe('html_escape confirmation payload escaping', function () {
+	it('escapes script tags out of confirmation-style output', function () {
+		$payload = '<script>alert(1)</script>';
+		$escaped = htmlspecialchars($payload, ENT_QUOTES, 'UTF-8');
 
-if (strpos($escaped, '<script>') === false && strpos($escaped, '&lt;script&gt;') !== false) {
-	print "OK\n";
-	exit(0);
-}
-
-fwrite(STDERR, "Expected confirmation list values to be escaped\n");
-exit(1);
+		expect($escaped)->not->toContain('<script>');
+		expect($escaped)->toContain('&lt;script&gt;');
+	});
+});
