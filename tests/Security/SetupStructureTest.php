@@ -23,11 +23,17 @@ describe('routerconfigs setup.php structure', function () {
 	});
 
 	it('returns version array with name key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]name[\'\""]\s*=>/');
+		expect($source)->toMatch('/parse_ini_file\s*\(/');
+
+		$info = file_get_contents(realpath(__DIR__ . '/../../INFO'));
+		expect($info)->toMatch('/^name\s*=/m');
 	});
 
 	it('returns version array with version key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]version[\'\""]\s*=>/');
+		expect($source)->toMatch('/parse_ini_file\s*\(/');
+
+		$info = file_get_contents(realpath(__DIR__ . '/../../INFO'));
+		expect($info)->toMatch('/^version\s*=/m');
 	});
 
 	it('registers hooks in install function', function () use ($source) {

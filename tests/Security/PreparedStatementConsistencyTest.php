@@ -106,19 +106,21 @@ describe('prepared statement consistency in routerconfigs', function () {
 					continue;
 				}
 
-				// Detect _prepared calls with $ interpolation instead of ? placeholders
-				if (preg_match('/_prepared\s*\(/', $line) && preg_match('/\$[a-zA-Z_]/', $line)) {
-					// Allow array($var) param binding but flag "WHERE id = $var"
-					if (preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN).*\$/', $line)) {
+				// Detect $ interpolation inside the SQL string itself, not in the
+				// bound-parameters array that follows it (e.g. "..., [$id]);").
+				if (preg_match("/_prepared\\s*\\(\\s*['\"](.*?)['\"]\\s*,/", $line, $sqlMatch)) {
+					$sqlText = $sqlMatch[1];
+
+					if (preg_match('/\$[a-zA-Z_]/', $sqlText) && preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN)/i', $sqlText)) {
 						$interpolatedSql++;
 					}
 				}
 			}
 
-			// This is a heuristic; some false positives expected for complex queries
-			expect($interpolatedSql)->toBeLessThanOrEqual(2,
-				"File {$relativeFile} may have SQL interpolation in prepared calls"
+			expect($interpolatedSql)->toBe(0,
+				"File {$relativeFile} interpolates a variable directly into a _prepared() SQL string"
 			);
 		}
 	});
 });
+
