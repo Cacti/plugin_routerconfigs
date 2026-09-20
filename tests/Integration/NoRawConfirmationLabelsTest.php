@@ -20,8 +20,8 @@ describe('routerconfigs confirmation labels contain no raw output', function () 
 	];
 
 	foreach ($checks as $relativeFile => $patterns) {
-		foreach ($patterns as $pattern) {
-			it("does not leave raw confirmation output in {$relativeFile}", function () use ($relativeFile, $pattern) {
+		foreach ($patterns as $index => $pattern) {
+			it("does not leave raw confirmation output in {$relativeFile} (pattern " . ($index + 1) . ')', function () use ($relativeFile, $pattern) {
 				$path = realpath(__DIR__ . '/../../' . $relativeFile);
 
 				expect($path)->not->toBeFalse("Unable to locate {$relativeFile}");
@@ -29,7 +29,7 @@ describe('routerconfigs confirmation labels contain no raw output', function () 
 				$contents = file_get_contents($path);
 
 				expect($contents)->not->toBeFalse("Unable to read {$relativeFile}");
-				expect($contents)->not->toContain($pattern, "Raw confirmation output remains in {$relativeFile}: {$pattern}");
+				expect($contents)->not->toContain($pattern);
 			});
 		}
 	}

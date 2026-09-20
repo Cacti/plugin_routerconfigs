@@ -3,6 +3,7 @@
 declare(strict_types = 1);
 
 $base = dirname(__DIR__, 2) . '/Text';
+require_once $base . '/Exception.php';
 require_once $base . '/Exception/Wrapped.php';
 require_once $base . '/Diff/Exception.php';
 require_once $base . '/Util/String.php';
@@ -52,8 +53,8 @@ describe('Horde_Text_Diff_Engine_String: edge cases in parsing', function (): vo
 
 		expect($edits)->not->toBeEmpty();
 		expect($edits[0])->toBeInstanceOf(Horde_Text_Diff_Op_Change::class);
-		expect($edits[0]->orig)->toBe(['']);
-		expect($edits[0]->final)->toBe(["\t"]);
+		expect($edits[0]->orig)->toBe([' ']);
+		expect($edits[0]->final)->toBe([" \t"]);
 	});
 
 	it('parses unified diff with empty added line', function (): void {

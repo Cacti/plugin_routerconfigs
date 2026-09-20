@@ -29,7 +29,7 @@ describe('routerconfigs action form wiring', function () {
 				$contents = file_get_contents($path);
 
 				expect($contents)->not->toBeFalse("Unable to read {$relativeFile}");
-				expect($contents)->toContain($pattern, "Missing expected escaping in {$relativeFile}: {$pattern}");
+				expect($contents)->toContain($pattern);
 			});
 		}
 	}
