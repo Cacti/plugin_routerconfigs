@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-21 15:26-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -932,11 +932,11 @@ msgstr ""
 msgid "Compare Output"
 msgstr ""
 
-#: router-compare.php:265 router-compare.php:273
+#: router-compare.php:283 router-compare.php:291
 msgid "There are no Changes"
 msgstr ""
 
-#: router-compare.php:283
+#: router-compare.php:301
 msgid "Error, you must have backups for each device."
 msgstr ""
 
