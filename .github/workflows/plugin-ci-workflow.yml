@@ -186,6 +186,19 @@ jobs:
         cd ${{ github.workspace }}/cacti
         sudo php cli/plugin_manage.php --plugin=routerconfigs --install --enable
 
+    - name: Configure Routerconfigs Settings
+      env:
+        MYSQL_AUTH_USR: '--defaults-file=~/.my.cnf'
+      run: |
+        sudo mkdir -p ${{ github.workspace }}/cacti/backups
+        sudo chown www-data:runner ${{ github.workspace }}/cacti/backups
+        mysql $MYSQL_AUTH_USR cacti -e "
+          INSERT INTO settings (name, value) VALUES ('routerconfigs_backup_path', '${{ github.workspace }}/cacti/backups')
+            ON DUPLICATE KEY UPDATE value = '${{ github.workspace }}/cacti/backups';
+          INSERT INTO settings (name, value) VALUES ('routerconfigs_tftpserver', '127.0.0.1')
+            ON DUPLICATE KEY UPDATE value = '127.0.0.1';
+        "
+
     - name: Check PHP Syntax for Plugin
       run: |
         cd ${{ github.workspace }}/cacti/plugins/routerconfigs

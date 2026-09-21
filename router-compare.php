@@ -233,7 +233,8 @@ if (!empty($file1) && !empty($file2)) {
 		}
 
 		$text = $renderer->render($diff);
-	} else {
+	} elseif (cacti_version_compare(CACTI_VERSION, '1.2.32', '<')) {
+		// Cacti core still ships the legacy phpdiff vendor library.
 		include_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
 		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
 		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
@@ -252,6 +253,23 @@ if (!empty($file1) && !empty($file2)) {
 		}
 
 		$text = $diff->render($renderer);
+	} else {
+		// Cacti core ships jfcherng/php-diff (loaded via core's Composer
+		// autoloader), which replaced the unmaintained phpdiff vendor library.
+		$differOptions = [
+			'ignoreWhitespace' => true,
+			'ignoreCase'       => false
+		];
+
+		$differ = new \Jfcherng\Diff\Differ($lines1, $lines2, $differOptions);
+
+		if (get_request_var('diffmode') == 'sdiff') {
+			$renderer = \Jfcherng\Diff\Factory\RendererFactory::make('SideBySide');
+		} else {
+			$renderer = \Jfcherng\Diff\Factory\RendererFactory::make('Inline');
+		}
+
+		$text = $renderer->render($differ);
 	}
 
 	html_start_box('', '100%', '', '1', 'center', '');
