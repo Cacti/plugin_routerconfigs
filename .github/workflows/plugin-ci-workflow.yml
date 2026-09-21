@@ -168,6 +168,17 @@ jobs:
         cd ${{ github.workspace }}/cacti
         sudo php cli/plugin_manage.php --plugin=routerconfigs --install --enable
 
+    - name: Configure Routerconfigs Plugin Settings
+      run: |
+        # Without a configured backup path/TFTP server, the poller logs a
+        # FATAL line on every run (by plugin design, for an unconfigured
+        # install), which trips the strict log-scan step below.
+        sudo mkdir -p /tmp/routerconfigs-backups
+        sudo chown www-data:runner /tmp/routerconfigs-backups
+        MYSQL_AUTH_USR="--defaults-file=$HOME/.my.cnf"
+        mysql "$MYSQL_AUTH_USR" cacti -e "INSERT INTO settings (name, value) VALUES ('routerconfigs_backup_path', '/tmp/routerconfigs-backups') ON DUPLICATE KEY UPDATE value = '/tmp/routerconfigs-backups';"
+        mysql "$MYSQL_AUTH_USR" cacti -e "INSERT INTO settings (name, value) VALUES ('routerconfigs_tftpserver', '127.0.0.1') ON DUPLICATE KEY UPDATE value = '127.0.0.1';"
+
     - name: Check PHP Syntax for Plugin
       run: |
         cd ${{ github.workspace }}/cacti/plugins/routerconfigs
