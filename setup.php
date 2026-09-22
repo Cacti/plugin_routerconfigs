@@ -403,7 +403,7 @@ function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $co
 function routerconfigs_page_head() {
 	global $config;
 
-	if (strpos(get_current_page(), 'router-compare.php')) {
+	if (strpos(get_current_page(), 'router-compare.php') !== false) {
 		print '<link rel="stylesheet" type="text/css" href="' . $config['url_path'] . "plugins/routerconfigs/css/diff.css\">\n";
 	}
 }

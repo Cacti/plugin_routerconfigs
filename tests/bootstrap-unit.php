@@ -74,12 +74,29 @@ require_once $autoload;
  * base_path has to point at the Cacti root two levels above this plugin:
  * routerconfigs' source files build include paths from it at runtime.
  */
+/*
+ * routerconfigs_check_upgrade() include_once()s $config['library_path'] .
+ * '/database.php' and '/functions.php'. Point that at a throwaway
+ * directory containing empty stub files: library_path is fully
+ * test-controlled (unlike base_path/lib, which is Cacti's real library),
+ * so this is safe.
+ */
+$__stub_library_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'routerconfigs-test-lib-stub';
+
+if (!is_dir($__stub_library_path)) {
+	mkdir($__stub_library_path, 0777, true);
+}
+
+file_put_contents($__stub_library_path . '/database.php', "<?php\n");
+file_put_contents($__stub_library_path . '/functions.php', "<?php\n");
+
 $GLOBALS['config'] = array(
 	'base_path'       => $cacti_root,
 	'url_path'        => '/cacti/',
 	'cacti_version'   => $cacti_version,
 	'cacti_server_os' => 'unix',
 	'is_web'          => false,
+	'library_path'    => $__stub_library_path,
 );
 
 $GLOBALS['debug']             = false;
@@ -182,6 +199,18 @@ if (!function_exists('api_plugin_db_table_create')) {
 if (!function_exists('api_plugin_register_hook')) {
 	function api_plugin_register_hook($plugin, $hook, $function, $file, $subtype = '') {
 		return routerconfigs_test_stub('api_plugin_register_hook', array($plugin, $hook, $function, $file, $subtype), true);
+	}
+}
+
+if (!function_exists('api_plugin_register_realm')) {
+	function api_plugin_register_realm($plugin, $file, $description, $enabled = 1) {
+		return routerconfigs_test_stub('api_plugin_register_realm', array($plugin, $file, $description, $enabled), true);
+	}
+}
+
+if (!function_exists('get_current_page')) {
+	function get_current_page() {
+		return routerconfigs_test_stub('get_current_page', array(), '');
 	}
 }
 
