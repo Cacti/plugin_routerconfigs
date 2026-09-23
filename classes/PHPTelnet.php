@@ -52,6 +52,26 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	3 = login failed
 	4 = PHP version too low
 	*/
+	/**
+	 * Initializes a Telnet connection for a device, preparing the raw
+	 * Telnet option-negotiation byte sequences (terminal type/window size/
+	 * etc.) sent at the start of the session. Called when a new PHPTelnet
+	 * object is constructed for a backup attempt.
+	 *
+	 * @param array  $devicetype   The device type row (prompt patterns,
+	 *                            commands, etc.) for this device.
+	 * @param array  $device       The device row being connected to.
+	 * @param string $user         The login username.
+	 * @param string $pass         The login password.
+	 * @param string $enablepw     The enable/elevated password, if any.
+	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
+	 *                            output; defaults to false.
+	 * @param bool   $elevated     Whether this device type is always
+	 *                            considered enabled/elevated; defaults to
+	 *                            false.
+	 *
+	 * @return void
+	 */
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
 		parent::__construct('Telnet', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 
@@ -72,6 +92,15 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 			chr(0x22) . chr(0xFF) . chr(0xFE) . chr(0x05) . chr(0xFF) . chr(0xFC) . chr(0x21);
 	}
 
+	/**
+	 * Opens a raw TCP/Telnet socket connection to the device, negotiates
+	 * Telnet options, and logs in with the configured username/password.
+	 * Called from the backup flow before running commands via
+	 * DoCommand()/Download().
+	 *
+	 * @return int 0 on success, or a nonzero result code (also recordable
+	 *             via ConnectError()) on failure.
+	 */
 	function Connect() {
 		$rv   = 0;
 		$vers = explode('.',PHP_VERSION);
@@ -199,6 +228,17 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		return $rv;
 	}
 
+	/**
+	 * Translates a Connect()/Download() numeric result code into a
+	 * human-readable error message, recording the code on $this->error.
+	 * Called from Connect() when a nonzero result is returned.
+	 *
+	 * @param int $num The result code to translate.
+	 *
+	 * @return string|null The corresponding error message, or null if
+	 *                     $show_connect_error is disabled or the code is
+	 *                     unrecognized.
+	 */
 	function ConnectError($num) {
 		$this->error = $num;
 

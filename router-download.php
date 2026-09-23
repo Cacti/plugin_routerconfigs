@@ -143,6 +143,30 @@ $devices = array_unique($devices);
 plugin_routerconfigs_download($retryMode, $force, $devices, $debugBuffer, $simulate);
 exit(EXIT_NORMAL);
 
+/**
+ * Prints the message registered for a CLI exit code (via
+ * routerconfigs_define_exit()), optionally with printf-style arguments
+ * substituted in, then terminates the script with that exit code.
+ * Called throughout this script's argument parsing to report invalid
+ * CLI usage.
+ *
+ * @param int   $exit_value    The exit code to report and terminate
+ *                            with.
+ * @param mixed $args          A single value or array of values to
+ *                            substitute into the registered message via
+ *                            printf(); defaults to an empty array.
+ * @param int   $display_help  Currently unused placeholder for
+ *                            optionally showing usage help; defaults to
+ *                            0.
+ *
+ * @return void This function always terminates script execution via
+ *              exit and therefore never returns.
+ *
+ * @global bool  $quiet    When true, suppresses the printed message
+ *                         (the script still exits with $exit_value).
+ * @global array $fail_msg The exit-code => message map populated by
+ *                         routerconfigs_define_exit().
+ */
 function routerconfigs_fail($exit_value,$args = [],$display_help = 0) {
 	global $quiet,$fail_msg;
 
@@ -168,6 +192,21 @@ function routerconfigs_fail($exit_value,$args = [],$display_help = 0) {
 	exit($exit_value);
 }
 
+/**
+ * Defines a named exit-code constant and registers its associated
+ * failure message text (indexed by both name and value) for later use
+ * by routerconfigs_fail(). Called at the top of this script to register
+ * each of its EXIT_* constants.
+ *
+ * @param string $name  The constant name to define (e.g. 'EXIT_ARGERR').
+ * @param int    $value The exit code value to assign.
+ * @param string $text  The printf-style message format associated with
+ *                      this exit code.
+ *
+ * @return void
+ *
+ * @global array $fail_msg The exit-code => message map being built up.
+ */
 function routerconfigs_define_exit($name, $value, $text) {
 	global $fail_msg;
 
@@ -178,6 +217,25 @@ function routerconfigs_define_exit($name, $value, $text) {
 	$fail_msg[$value] = $text;
 }
 
+/**
+ * A hand-rolled command-line argument parser: builds the short/long
+ * option definitions and walks $_SERVER['argv'], matching each argument
+ * against them (via routerconfigs_getopts_find()), collecting repeated
+ * options into arrays, and accumulating any unrecognized arguments into
+ * $remaining. Called at the top of this script to parse its CLI
+ * arguments before Cacti's include/global.php is even loaded.
+ *
+ * @param string      $short     The short-option specification string
+ *                               (getopt()-style, e.g. 'Vv').
+ * @param array       $long      The long-option specification array
+ *                               (getopt()-style, e.g. array('device:')).
+ * @param string|null $remaining Reference, set to any arguments that
+ *                               didn't match a known option; defaults
+ *                               to null.
+ *
+ * @return array Map of matched option name to its value (or array of
+ *               values, if repeated).
+ */
 function routerconfigs_getopts($short, $long, &$remaining = null) {
 	$remaining = '';
 	$argv      = $_SERVER['argv'];
@@ -242,6 +300,20 @@ function routerconfigs_getopts($short, $long, &$remaining = null) {
 	return $result;
 }
 
+/**
+ * Parses a getopt()-style long-option specification array into this
+ * parser's internal option definitions, appending them to $options via
+ * routerconfigs_addopt(). Called from routerconfigs_getopts() to build
+ * the long-option half of the option table.
+ *
+ * @param array $options Reference, the option definitions array being
+ *                       built up.
+ * @param array $long    The long-option specification array to parse
+ *                       (each entry optionally suffixed with ':' for a
+ *                       required value or '::' for an optional one).
+ *
+ * @return void
+ */
 function routerconfigs_getopts_long(array &$options, array &$long) {
 	if (isset($long)) {
 		if (!is_array($long)) {
@@ -271,6 +343,19 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 	}
 }
 
+/**
+ * Parses a getopt()-style short-option specification string into this
+ * parser's internal option definitions, appending them to $options via
+ * routerconfigs_addopt(). Called from routerconfigs_getopts() to build
+ * the short-option half of the option table.
+ *
+ * @param array  $options Reference, the option definitions array being
+ *                        built up.
+ * @param string $short   The short-option specification string to parse
+ *                        (getopt()-style, e.g. 'Vv').
+ *
+ * @return void
+ */
 function routerconfigs_getopts_short(array &$options, $short) {
 	if (!preg_match('~[A-Za-z0-9:]~', $short)) {
 		routerconfigs_fail(EXIT_OPTERR,$short);
@@ -287,6 +372,19 @@ function routerconfigs_getopts_short(array &$options, $short) {
 	}
 }
 
+/**
+ * Finds the option definition matching a single command-line argument
+ * (a '-x' or '--long[=value]' style token), extracting an inline
+ * '=value' when present. Called from routerconfigs_getopts() for each
+ * argument encountered.
+ *
+ * @param string $arg     The raw command-line argument token to match.
+ * @param array  $options The option definitions to match against.
+ *
+ * @return array|null The matching option definition (with 'result' set
+ *                    if an inline value was found), or null if no
+ *                    option matched.
+ */
 function routerconfigs_getopts_find($arg, array $options) {
 	$found = null;
 
@@ -335,6 +433,22 @@ function routerconfigs_getopts_find($arg, array $options) {
 	return $found;
 }
 
+/**
+ * Appends a single option definition to the option definitions array.
+ * Called from routerconfigs_getopts_long() and
+ * routerconfigs_getopts_short() for each parsed option.
+ *
+ * @param array  $options Reference, the option definitions array to
+ *                        append to.
+ * @param mixed  $index   Unused positional index (kept for parity with
+ *                        the short-option parser's loop variable).
+ * @param string $text    The option's name/flag text.
+ * @param bool   $val     Whether this option takes a value.
+ * @param bool   $opt     Whether this option's value is optional (only
+ *                        meaningful when $val is true).
+ *
+ * @return void
+ */
 function routerconfigs_addopt(array &$options, $index, $text, $val, $opt) {
 	$option = [
 		'text'     => $text,
@@ -346,6 +460,22 @@ function routerconfigs_addopt(array &$options, $index, $text, $val, $opt) {
 	$options[] = $option;
 }
 
+/**
+ * Checks whether a short-option specification character at $index is
+ * followed by a ':' (indicating it takes a value), advancing $index past
+ * the colon when found. Called from routerconfigs_getopts_short() for
+ * each character of the short-option specification string.
+ *
+ * @param string $label Unused label parameter (kept for parity with
+ *                      other checkopt helpers; not used directly here).
+ * @param string $short The short-option specification string being
+ *                      scanned.
+ * @param int    $index Reference, the current position in $short;
+ *                      advanced by one if a value-indicator colon is
+ *                      found.
+ *
+ * @return bool True if this option takes a value, false otherwise.
+ */
 function routerconfigs_checkopt($label, $short, &$index) {
 	$result = false;
 	$colon  = '<unset>';
@@ -363,6 +493,21 @@ function routerconfigs_checkopt($label, $short, &$index) {
 	return $result;
 }
 
+/**
+ * Checks whether a long-option specification string ends with a ':'
+ * (indicating it takes a value), stripping the trailing colon from the
+ * returned text when found. Called from routerconfigs_getopts_long() for
+ * each long-option specification entry (once for the value indicator,
+ * once for the optional indicator).
+ *
+ * @param string $label Unused label parameter (kept for parity with
+ *                      other checkopt helpers; not used directly here).
+ * @param string $text  Reference, the long-option specification text;
+ *                      updated in place with any trailing ':' removed.
+ *
+ * @return bool True if the original text ended with ':', false
+ *              otherwise.
+ */
 function routerconfigs_checkopt_string($label, &$text) {
 	$result = false;
 	$output = $text;

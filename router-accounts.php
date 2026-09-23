@@ -80,6 +80,23 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Handles the bulk-actions form for the Accounts list (currently only
+ * delete). On first display, renders the confirmation dialog listing
+ * the selected accounts; once confirmed, deletes each selected account.
+ * Invoked from this file's dispatcher when the request's 'action' is
+ * 'actions'.
+ *
+ * @return void Either redirects back to the list after deleting, or
+ *              prints the confirmation dialog and returns nothing.
+ *
+ * @global array $rc_account_actions Map of bulk-action ids to their
+ *                                   display labels, used for the
+ *                                   confirmation dialog title.
+ * @global array $config             Cacti global configuration array
+ *                                   (declared but not directly used
+ *                                   here).
+ */
 function actions_accounts() {
 	global $rc_account_actions, $config;
 
@@ -160,6 +177,15 @@ function actions_accounts() {
 	bottom_footer();
 }
 
+/**
+ * Validates and saves a single router account's credentials (username,
+ * password, enable/elevated password), encoding the password fields
+ * before storing them. Invoked from this file's dispatcher when the
+ * request's 'action' is 'save'.
+ *
+ * @return void Redirects back to the edit form for this account (or the
+ *              list, on success); does not return a value.
+ */
 function save_accounts() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -201,6 +227,19 @@ function save_accounts() {
 	exit;
 }
 
+/**
+ * Renders the add/edit form for a single router account, pre-populating
+ * its fields (except password, which is always blanked) when editing an
+ * existing account. Invoked from this file's dispatcher when the
+ * request's 'action' is 'edit'.
+ *
+ * @return void Outputs the edit form HTML directly.
+ *
+ * @global array $rc_account_edit_fields The edit form's field
+ *                                       definitions, filled in here
+ *                                       with the account's current
+ *                                       values.
+ */
 function edit_accounts() {
 	global $rc_account_edit_fields;
 
@@ -234,6 +273,33 @@ function edit_accounts() {
 	form_save_button('router-accounts.php');
 }
 
+/**
+ * Renders the main Accounts list page: a paginated table of configured
+ * router accounts with their username and the count of devices using
+ * each one. Invoked from this file's dispatcher for the default (no
+ * 'action') request.
+ *
+ * @return void Outputs the list page HTML directly.
+ *
+ * @global mixed $host               Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $username            Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $password            Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $command             Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global array $config              Cacti global configuration array
+ *                                   (declared but not directly used
+ *                                   here).
+ * @global array $rc_account_actions  Map of bulk-action ids to their
+ *                                   display labels, used to populate
+ *                                   the actions dropdown.
+ */
 function show_accounts() {
 	global $host, $username, $password, $command;
 	global $config, $rc_account_actions;

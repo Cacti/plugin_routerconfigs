@@ -79,6 +79,14 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Displays the raw, base64-decoded debug log captured for a device's
+ * last connection attempt. Invoked from this file's dispatcher when the
+ * request's 'action' is 'viewdebug'.
+ *
+ * @return void Redirects back to the list if the device isn't found;
+ *              otherwise outputs the debug log HTML directly.
+ */
 function plugin_routerconfigs_view_device_debug() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -117,6 +125,14 @@ function plugin_routerconfigs_view_device_debug() {
 	}
 }
 
+/**
+ * Displays the most recent stored backup configuration file for a
+ * device. Invoked from this file's dispatcher when the request's
+ * 'action' is 'viewconfig'.
+ *
+ * @return void Outputs the backup file content via
+ *              plugin_routerconfigs_view_device_config().
+ */
 function view_device_config() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -126,6 +142,27 @@ function view_device_config() {
 	plugin_routerconfigs_view_device_config(null, get_request_var('id'), 'router-devices.php');
 }
 
+/**
+ * Handles the bulk-actions form for the Devices list (delete/enable/
+ * disable/clear SSH host key/manual backup). Manual backup launches a
+ * background router-download.php process immediately without a
+ * confirmation step; the other actions render a confirmation dialog on
+ * first display and apply the chosen action to each selected device once
+ * confirmed. Invoked from this file's dispatcher when the request's
+ * 'action' is 'actions'.
+ *
+ * @return void Either redirects back to the list after applying the
+ *              action, or prints the confirmation dialog and returns
+ *              nothing.
+ *
+ * @global array $rc_device_actions Map of bulk-action ids to their
+ *                                 display labels, used for the
+ *                                 confirmation dialog title.
+ * @global array $config            Cacti global configuration array;
+ *                                 used to resolve the PHP binary and
+ *                                 router-download.php path for the
+ *                                 manual backup action.
+ */
 function actions_devices() {
 	global $rc_device_actions, $config;
 
@@ -293,6 +330,17 @@ function actions_devices() {
 	bottom_footer();
 }
 
+/**
+ * Validates and saves a single router device's configuration (hostname/
+ * IP, account/device type, connection settings, schedule), clearing the
+ * recorded SSH host key when the device's connection target (IP/
+ * connection type) has changed so the next connection re-trusts the new
+ * endpoint's key. Invoked from this file's dispatcher when the request's
+ * 'action' is 'save'.
+ *
+ * @return void Redirects back to the edit form for this device (or the
+ *              list, on success); does not return a value.
+ */
 function save_devices() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -348,6 +396,19 @@ function save_devices() {
 	exit;
 }
 
+/**
+ * Renders the add/edit form for a single router device, pre-populating
+ * its fields (except password, which is always blanked) and a display-
+ * only SSH host key fingerprint when editing an existing device.
+ * Invoked from this file's dispatcher when the request's 'action' is
+ * 'edit'.
+ *
+ * @return void Outputs the edit form HTML directly.
+ *
+ * @global array $rc_device_edit_fields The edit form's field
+ *                                     definitions, filled in here with
+ *                                     the device's current values.
+ */
 function edit_devices() {
 	global $rc_device_edit_fields;
 
@@ -385,6 +446,14 @@ function edit_devices() {
 	form_save_button('router-devices.php');
 }
 
+/**
+ * Validates and stores the Devices list's filter/sort/pagination
+ * variables (device type, account, elevated flag, free-text search,
+ * sort column/direction) in the session. Called from show_devices()
+ * before rendering the list.
+ *
+ * @return void
+ */
 function devices_validate_vars() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -434,12 +503,54 @@ function devices_validate_vars() {
 	// ================= input validation =================
 }
 
+/**
+ * Adds a date => label entry to an accumulating array only if that date
+ * isn't already present, preserving the first label seen for a given
+ * date. Called from show_devices() while building the last-backup date
+ * summary column.
+ *
+ * @param array  $date_array Reference, the accumulating date => label
+ *                           map.
+ * @param string $date       The date key to add.
+ * @param string $text       The label to associate with $date if not
+ *                           already present.
+ *
+ * @return void
+ */
 function addDateToArray(&$date_array, $date, $text) {
 	if (!array_key_exists($date, $date_array)) {
 		$date_array[$date] = $text;
 	}
 }
 
+/**
+ * Renders the main Devices list page: validates the request, draws the
+ * filter toolbar, and prints the paginated, sortable table of configured
+ * router devices with their connection/backup status. Invoked from this
+ * file's dispatcher for the default (no 'action') request.
+ *
+ * @return void Outputs the list page HTML directly.
+ *
+ * @global mixed $host              Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ * @global mixed $username           Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ * @global mixed $password           Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ * @global mixed $command            Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ * @global array $config             Cacti global configuration array.
+ * @global array $rc_device_actions  Map of bulk-action ids to their
+ *                                  display labels, used to populate the
+ *                                  actions dropdown.
+ * @global array $item_rows          Rows-per-page options offered by
+ *                                  Cacti core, used to populate the
+ *                                  'rows' select list.
+ */
 function show_devices() {
 	global $host, $username, $password, $command;
 	global $config, $rc_device_actions, $item_rows;

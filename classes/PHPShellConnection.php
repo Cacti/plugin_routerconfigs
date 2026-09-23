@@ -35,10 +35,52 @@ abstract class PHPShellConnection extends PHPConnection {
 	4 = No ssh2 extension
 	5 = Error enabling device
 	*/
+	/**
+	 * Initializes a shell-based (Telnet/SSH interactive shell) connection
+	 * for a device. Called by concrete subclasses (PHPSsh/PHPTelnet) when
+	 * constructed for a backup attempt.
+	 *
+	 * @param string $classtype    The concrete connection class name (for
+	 *                            logging).
+	 * @param array  $devicetype   The device type row (prompt patterns,
+	 *                            commands, etc.) for this device.
+	 * @param array  $device       The device row being connected to.
+	 * @param string $user         The login username.
+	 * @param string $pass         The login password.
+	 * @param string $enablepw     The enable/elevated password, if any.
+	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
+	 *                            output; defaults to false.
+	 * @param bool   $elevated     Whether this device type is always
+	 *                            considered enabled/elevated; defaults to
+	 *                            false.
+	 *
+	 * @return void
+	 */
 	function __construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
 		parent::__construct($classtype, $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 	}
 
+	/**
+	 * Runs the device type's configured 'copy to TFTP' command (with
+	 * %SERVER%/%FILE% placeholders substituted) over the interactive shell,
+	 * then walks the resulting prompt sequence to confirm the transfer
+	 * (answering source/destination address questions and confirmation
+	 * prompts as needed) until the device reports success, an error, or the
+	 * shell returns to a normal/enabled prompt. Called from the backup flow
+	 * after a successful Connect(), for SSH/Telnet interactive-shell-based
+	 * device types.
+	 *
+	 * @param string $filename   The remote filename the device should
+	 *                          write to the TFTP server (substituted for
+	 *                          %FILE%).
+	 * @param string $backuppath Unused directly here (the transfer target
+	 *                          is the configured TFTP server, not a local
+	 *                          path); kept for interface parity with
+	 *                          PHPScp/PHPSftp's Download().
+	 *
+	 * @return bool True if the transfer was confirmed successful, false on
+	 *              error or if elevation could not be ensured.
+	 */
 	function Download($filename, $backuppath) {
 		$tftpserver = read_config_option('routerconfigs_tftpserver');
 		$command    = $this->deviceType['copytftp'];
