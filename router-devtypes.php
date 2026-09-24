@@ -57,6 +57,23 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Handles the bulk-actions form for the Device Types list (currently
+ * only delete). On first display, renders the confirmation dialog
+ * listing the selected device types; once confirmed, deletes each
+ * selected device type. Invoked from this file's dispatcher when the
+ * request's 'action' is 'actions'.
+ *
+ * @return void Either redirects back to the list after deleting, or
+ *              prints the confirmation dialog and returns nothing.
+ *
+ * @global array $rc_devtype_actions Map of bulk-action ids to their
+ *                                   display labels, used for the
+ *                                   confirmation dialog title.
+ * @global array $config             Cacti global configuration array
+ *                                   (declared but not directly used
+ *                                   here).
+ */
 function actions_devicetypes() {
 	global $rc_devtype_actions, $config;
 
@@ -140,6 +157,15 @@ function actions_devicetypes() {
 	bottom_footer();
 }
 
+/**
+ * Validates and saves a single router device type's configuration
+ * (connection type, prompt patterns, config-file/TFTP settings, confirm/
+ * force-confirm behavior, timeouts). Invoked from this file's dispatcher
+ * when the request's 'action' is 'save'.
+ *
+ * @return void Redirects back to the edit form for this device type;
+ *              does not return a value.
+ */
 function save_devicetypes() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -181,6 +207,25 @@ function save_devicetypes() {
 	exit;
 }
 
+/**
+ * Renders the add/edit form for a single router device type,
+ * pre-populating its fields when editing an existing device type.
+ * Invoked from this file's dispatcher when the request's 'action' is
+ * 'edit'.
+ *
+ * @return void Outputs the edit form HTML directly.
+ *
+ * @global array $config                  Cacti global configuration
+ *                                        array (declared but not
+ *                                        directly used here).
+ * @global mixed $form_id                 Reserved/declared for parity
+ *                                        with other functions in this
+ *                                        file; not used directly here.
+ * @global array $rc_devtype_edit_fields  The edit form's field
+ *                                        definitions, filled in here
+ *                                        with the device type's current
+ *                                        values.
+ */
 function edit_devicetypes() {
 	global $config, $form_id, $rc_devtype_edit_fields;
 
@@ -217,6 +262,39 @@ function edit_devicetypes() {
 	form_save_button('router-devtypes.php');
 }
 
+/**
+ * Renders the main Device Types list page: a paginated table of
+ * configured router device types with their connection/prompt settings.
+ * Invoked from this file's dispatcher for the default (no 'action')
+ * request.
+ *
+ * @return void Outputs the list page HTML directly.
+ *
+ * @global mixed $host               Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $username            Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $password            Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $command             Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global array $config              Cacti global configuration array
+ *                                   (declared but not directly used
+ *                                   here).
+ * @global array $rc_devtype_actions  Map of bulk-action ids to their
+ *                                   display labels, used to populate
+ *                                   the actions dropdown.
+ * @global mixed $acc                 Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global mixed $form_id             Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ */
 function show_devicetypes() {
 	global $host, $username, $password, $command;
 	global $config, $rc_devtype_actions, $acc, $form_id;

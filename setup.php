@@ -26,6 +26,18 @@ declare(strict_types = 1);
 
 include_once(__DIR__ . '/include/arrays.php');
 
+/**
+ * Reads this plugin's version/author metadata from its INFO file.
+ * Invoked by the Cacti plugin framework to display plugin information,
+ * and called from routerconfigs_check_upgrade() to detect a pending
+ * schema upgrade.
+ *
+ * @return array The plugin's INFO file 'info' section (name, version,
+ *               author, etc.).
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the plugin's INFO file.
+ */
 function plugin_routerconfigs_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/routerconfigs/INFO', true);
@@ -33,6 +45,15 @@ function plugin_routerconfigs_version() {
 	return $info['info'];
 }
 
+/**
+ * Registers this plugin's Cacti hooks (tab display, config arrays,
+ * navigation breadcrumbs, settings, poller_bottom, page_head) and its
+ * router-*.php realm, then creates the plugin's database tables.
+ * Invoked by the Cacti plugin framework when the plugin is
+ * installed/enabled.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_install() {
 	api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php');
 	api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php');
@@ -47,10 +68,26 @@ function plugin_routerconfigs_install() {
 	routerconfigs_setup_table_new();
 }
 
+/**
+ * No-op uninstall hook; this plugin does not remove its database tables
+ * on uninstall. Invoked by the Cacti plugin framework when the plugin is
+ * uninstalled.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_uninstall() {
 	// Do any extra Uninstall stuff here
 }
 
+/**
+ * Here we will upgrade to the newest version
+ *
+ * Runs any pending database schema upgrade for this plugin. Invoked by
+ * the Cacti plugin framework when the plugin's installed version
+ * differs from its current version.
+ *
+ * @return bool Always false.
+ */
 function plugin_routerconfigs_upgrade() {
 	// Here we will upgrade to the newest version
 	routerconfigs_check_upgrade();
@@ -58,6 +95,25 @@ function plugin_routerconfigs_upgrade() {
 	return false;
 }
 
+/**
+ * Applies version-gated schema migrations for this plugin (realm
+ * updates, column renames/adds/drops across several historical
+ * versions, SSH host-key storage columns, seeding built-in device
+ * types) based on comparing the installed version recorded in
+ * plugin_config against the current INFO file version, then updates the
+ * recorded version. Only runs on plugins.php, router-devices.php, or
+ * settings.php to avoid the version lookup on every page. Called from
+ * plugin_routerconfigs_upgrade() and routerconfigs_config_arrays().
+ *
+ * @return void
+ *
+ * @global array  $config           Cacti global configuration array;
+ *                                  used to locate database/functions
+ *                                  libraries.
+ * @global object $database_default Reserved/declared for parity with
+ *                                  the included library files; not used
+ *                                  directly here.
+ */
 function routerconfigs_check_upgrade() {
 	global $config, $database_default;
 
@@ -254,6 +310,15 @@ function routerconfigs_check_upgrade() {
 	}
 }
 
+/**
+ * Adds the SSH host-key fingerprint/type storage columns to
+ * plugin_routerconfigs_devices if they don't already exist. Called from
+ * routerconfigs_check_upgrade() during upgrade.
+ *
+ * @return bool True if both columns exist after this call (whether they
+ *              already existed or were just added), false if adding them
+ *              failed.
+ */
 function routerconfigs_ensure_hostkey_schema() {
 	if (!db_column_exists('plugin_routerconfigs_devices', 'ssh_fingerprint')) {
 		db_execute('ALTER TABLE plugin_routerconfigs_devices
@@ -269,12 +334,32 @@ function routerconfigs_ensure_hostkey_schema() {
 		db_column_exists('plugin_routerconfigs_devices', 'ssh_hostkey_type');
 }
 
+/**
+ * No-op dependency check. Invoked by the Cacti plugin framework to
+ * verify this plugin's dependencies are satisfied before
+ * installation/upgrade.
+ *
+ * @return bool Always true.
+ *
+ * @global array $plugins Reserved/declared for parity with other hook
+ *                        implementations; not used directly here.
+ * @global array $config  Cacti global configuration array (declared but
+ *                        not directly used here).
+ */
 function routerconfigs_check_dependencies() {
 	global $plugins, $config;
 
 	return true;
 }
 
+/**
+ * Creates all of this plugin's database tables (accounts, backups,
+ * devices, device types, including SSH host-key storage columns) and
+ * seeds the built-in device types. Called from
+ * plugin_routerconfigs_install() during plugin installation.
+ *
+ * @return void
+ */
 function routerconfigs_setup_table_new() {
 	$data            = [];
 	$data['primary'] = 'id';
@@ -378,6 +463,15 @@ function routerconfigs_setup_table_new() {
 	AddDeviceTypes();
 }
 
+/**
+ * Seeds the built-in device type definitions (Cisco IOS/CatOS/Nexus, HP
+ * Comware, Dell Switch) via AddDeviceType(). Called from
+ * routerconfigs_setup_table_new() during install, and from
+ * routerconfigs_check_upgrade() during upgrade to add any newly
+ * introduced built-in device types.
+ *
+ * @return void
+ */
 function AddDeviceTypes() {
 	AddDeviceType('Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on','');
 	AddDeviceType('Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '', '');
@@ -386,6 +480,33 @@ function AddDeviceTypes() {
 	AddDeviceType('Dell Switch', 'User', 'Password', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', 'y', '', '', '', 'Are you sure you want to start');
 }
 
+/**
+ * Inserts a single built-in device type definition if a device type with
+ * the same name doesn't already exist (so re-running this on upgrade
+ * doesn't duplicate or overwrite a user-customized entry). Called from
+ * AddDeviceTypes() for each built-in device type.
+ *
+ * @param string $name             The device type's display name.
+ * @param string $promptuser       The username prompt pattern to expect.
+ * @param string $promptpass       The password prompt pattern to expect.
+ * @param string $copytftp         The command used to copy the running
+ *                                config to a TFTP server.
+ * @param string $version          The command used to query the device's
+ *                                version/model.
+ * @param string $confirm          The confirmation response text
+ *                                expected during backup.
+ * @param string $forceconfirm     Whether to force the confirmation
+ *                                prompt.
+ * @param string $checkendinconfig Whether to check for a recognizable
+ *                                end-of-config marker.
+ * @param string $elevated         Whether this device type requires an
+ *                                elevated/enable password.
+ * @param string $promptconfirm    The confirmation prompt pattern to
+ *                                expect; defaults to
+ *                                'confirm|to tftp:'.
+ *
+ * @return void
+ */
 function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm = 'confirm|to tftp:') {
 	$params = [ $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm, $name ];
 	db_execute_prepared('INSERT INTO plugin_routerconfigs_devicetypes
@@ -400,6 +521,16 @@ function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $co
 			WHERE name = ? LIMIT 1)', $params);
 }
 
+/**
+ * Injects this plugin's diff.css stylesheet into the page head when
+ * viewing router-compare.php. Invoked by the Cacti plugin framework via
+ * the 'page_head' hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to build
+ *                       the stylesheet URL.
+ */
 function routerconfigs_page_head() {
 	global $config;
 
@@ -408,6 +539,20 @@ function routerconfigs_page_head() {
 	}
 }
 
+/**
+ * Launches a background router-download.php process to run scheduled
+ * device backups, once per poller interval near the top of each hour's
+ * cycle, adding '--retry' outside the configured daily retry hour so
+ * failed backups are retried more aggressively at other times. Invoked
+ * by the Cacti plugin framework via the 'poller_bottom' hook at the end
+ * of each poller cycle.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       resolve the PHP binary and
+ *                       router-download.php path.
+ */
 function routerconfigs_poller_bottom() {
 	global $config;
 
@@ -445,6 +590,24 @@ function routerconfigs_poller_bottom() {
 	}
 }
 
+/**
+ * Triggers a schema-upgrade check, then registers this plugin's
+ * 'Router Configs' Settings tab and its configuration fields. Invoked by
+ * the Cacti plugin framework via the 'config_settings' hook when
+ * rendering the Settings page.
+ *
+ * @return void
+ *
+ * @global array $tabs        Cacti's registered settings tabs; a
+ *                            'routerconfigs' entry is added.
+ * @global array $settings    Cacti's registered settings fields; a
+ *                            'routerconfigs' entry is added/merged with
+ *                            $rc_settings.
+ * @global array $config       Cacti global configuration array (declared
+ *                            but not directly used here).
+ * @global array $rc_settings  This plugin's settings field definitions,
+ *                            merged into $settings.
+ */
 function routerconfigs_config_settings() {
 	global $tabs, $settings, $config, $rc_settings;
 
@@ -459,6 +622,17 @@ function routerconfigs_config_settings() {
 	}
 }
 
+/**
+ * Triggers a schema-upgrade check, and adds this plugin's 'Router
+ * Configs' entry to the Utilities menu when using the 'console'
+ * presentation style. Invoked by the Cacti plugin framework via the
+ * 'config_arrays' hook.
+ *
+ * @return void
+ *
+ * @global array $menu Cacti's registered admin menu; a 'Router Configs'
+ *                     entry is added under 'Utilities' when applicable.
+ */
 function routerconfigs_config_arrays() {
 	global $menu;
 
@@ -469,6 +643,16 @@ function routerconfigs_config_arrays() {
 	}
 }
 
+/**
+ * Adds this plugin's page breadcrumb/navigation entries (device list/
+ * edit/actions/view-config/view-debug, backup list/edit/actions/view-
+ * config, account list/edit/actions, and compare). Invoked by the Cacti
+ * plugin framework via the 'draw_navigation_text' hook.
+ *
+ * @param array $nav Cacti's registered navigation text entries.
+ *
+ * @return array The $nav array with this plugin's entries added.
+ */
 function routerconfigs_draw_navigation_text($nav) {
 	$nav['router-devices.php:'] = [
 		'title'   => __('Router Devices', 'routerconfigs'),
@@ -564,6 +748,19 @@ function routerconfigs_draw_navigation_text($nav) {
 	return $nav;
 }
 
+/**
+ * Joins two filesystem path fragments with a single separating slash;
+ * treats $path2 as absolute (discarding $path1) if it starts with '/'.
+ * Called from plugin_routerconfigs_fix_backups_pre14() to rebuild
+ * historical backup file paths.
+ *
+ * @param string $path1 The base path fragment.
+ * @param string $path2 The path fragment to append (or, if absolute,
+ *                      to use in place of $path1).
+ *
+ * @return string The combined path, with exactly one slash between the
+ *                two fragments.
+ */
 function plugin_routerconfigs_combinepaths($path1, $path2) {
 	if (strlen($path2) < 1 || $path2[0] != '/') {
 		if (strlen($path1) && $path1[strlen($path1) - 1] != '/') {
@@ -580,6 +777,15 @@ function plugin_routerconfigs_combinepaths($path1, $path2) {
 	return $path1 . $path2;
 }
 
+/**
+ * Normalizes pre-1.4.0 plugin_routerconfigs_backups rows whose 'filename'
+ * column may have included a relative directory path, splitting it back
+ * into separate 'directory'/'filename' values rooted at the configured
+ * backup path. Called from routerconfigs_check_upgrade() when upgrading
+ * from a version older than 1.4.0.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_fix_backups_pre14() {
 	$backups = db_fetch_assoc_prepared('SELECT id, directory, filename FROM plugin_routerconfigs_backups', []);
 
@@ -612,6 +818,19 @@ function plugin_routerconfigs_fix_backups_pre14() {
 	}
 }
 
+/**
+ * Renders this plugin's tab icon/link on device and graph header pages,
+ * when using the 'toptab' presentation style and the current user is
+ * authorized for router-devices.php. Invoked by the Cacti plugin
+ * framework via the 'top_header_tabs' and 'top_graph_header_tabs' hooks.
+ *
+ * @return void Outputs the tab link HTML directly (nothing if the tab
+ *              style isn't 'toptab' or the user lacks the
+ *              router-devices.php realm).
+ *
+ * @global array $config Cacti global configuration array; used to build
+ *                       the tab link/image URLs.
+ */
 function routerconfigs_show_tab() {
 	global $config;
 

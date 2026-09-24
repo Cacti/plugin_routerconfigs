@@ -47,10 +47,37 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	4 = No ssh2 extension
 	5 = Error enabling device
 	*/
+	/**
+	 * Initializes an SSH interactive-shell connection for a device. Called
+	 * when a new PHPSsh object is constructed for a backup attempt.
+	 *
+	 * @param array  $devicetype   The device type row (prompt patterns,
+	 *                            commands, etc.) for this device.
+	 * @param array  $device       The device row being connected to.
+	 * @param string $user         The login username.
+	 * @param string $pass         The login password.
+	 * @param string $enablepw     The enable/elevated password, if any.
+	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
+	 *                            output; defaults to false.
+	 * @param bool   $elevated     Whether this device type is always
+	 *                            considered enabled/elevated; defaults to
+	 *                            false.
+	 *
+	 * @return void
+	 */
 	function __construct($devicetype, $device, $user, $pass, $enablepw, $buffer_debug = false, $elevated = false) {
 		parent::__construct('SSH', $devicetype, $device, $user, $pass, $enablepw, $buffer_debug, $elevated);
 	}
 
+	/**
+	 * Opens and authenticates an SSH connection and opens an interactive
+	 * shell channel, verifying the remote host's SSH key against any
+	 * previously recorded fingerprint. Called from the backup flow before
+	 * running commands via DoCommand()/Download().
+	 *
+	 * @return int 0 on success, or a nonzero result code (also recordable
+	 *             via ConnectError()) on failure.
+	 */
 	function Connect() {
 		$rv = 0;
 
@@ -89,6 +116,17 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		return $rv; // everything goes well ;)
 	}
 
+	/**
+	 * Translates a Connect()/Download() numeric result code into a
+	 * human-readable error message, recording the code on $this->error.
+	 * Called from Connect() when a nonzero result is returned.
+	 *
+	 * @param int $num The result code to translate.
+	 *
+	 * @return string|null The corresponding error message, or null if
+	 *                     $show_connect_error is disabled or the code is
+	 *                     unrecognized.
+	 */
 	function ConnectError($num) {
 		if ($this->show_connect_error) {
 			$this->error = $num;

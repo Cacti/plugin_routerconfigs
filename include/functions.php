@@ -32,6 +32,18 @@ require_once(__DIR__ . '/../classes/PHPSftp.php');
 require_once(__DIR__ . '/../classes/PHPSsh.php');
 require_once(__DIR__ . '/../classes/PHPTelnet.php');
 
+/**
+ * Renders this plugin's tabbed interface (Devices/Device Types/
+ * Authentication/Backups/Compare), auto-detecting the current tab from
+ * the calling script's filename when not explicitly set, and
+ * highlighting the currently active tab. Called from each of this
+ * plugin's admin pages before rendering their content.
+ *
+ * @return void Outputs the tab bar HTML directly.
+ *
+ * @global array $config Cacti global configuration array; used to build
+ *                       the tab link URLs.
+ */
 function display_tabs() {
 	global $config;
 
@@ -84,10 +96,31 @@ function display_tabs() {
 	}
 }
 
+/**
+ * Produces a display-safe placeholder for a password value (its
+ * character count, or '(Not Set)' when unset) for use in debug logging,
+ * so the real password is never written to the log. Called from
+ * PHPConnection's constructor and throughout the connection classes.
+ *
+ * @param string|null $pass The password value to mask.
+ *
+ * @return string The masked placeholder text.
+ */
 function plugin_routerconfigs_maskpw($pass) {
 	return !isset($pass) ? __('(Not Set)','routerconfigs') : __('(%s chars)',strlen($pass),'routerconfigs');
 }
 
+/**
+ * Logs the current call stack (function name, line, and file for each
+ * frame beyond $skip), for diagnosing where a debug message originated.
+ * Currently unused/dead code: not called from anywhere else in this
+ * file.
+ *
+ * @param int $skip The number of innermost stack frames to skip;
+ *                  defaults to 1 (skipping this function's own frame).
+ *
+ * @return void
+ */
 function plugin_routerconfigs_backtrace($skip = 1) {
 	$backtrace = debug_backtrace();
 
@@ -100,6 +133,36 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 	}
 }
 
+/**
+ * Runs a full backup cycle: determines the set of devices due for backup
+ * (either an explicit device list for a manual run, or scheduled/retry
+ * candidates from the database), downloads each device's configuration
+ * via plugin_routerconfigs_download_config(), logs a summary, emails a
+ * formatted HTML report of successes/failures when configured, and
+ * purges old backups per the retention policy. Called from
+ * router-download.php's main flow (the standalone CLI backup process)
+ * and from router-devices.php's actions_devices() for a manual on-demand
+ * backup.
+ *
+ * @param bool  $retry        Whether this is an automatic retry run
+ *                            (only devices past their retry window are
+ *                            selected); defaults to false.
+ * @param bool  $force        Whether to force backup of every enabled
+ *                            device regardless of schedule; defaults to
+ *                            false.
+ * @param array $devices      An explicit list of device ids to back up
+ *                            (manual backup), overriding schedule-based
+ *                            selection; defaults to an empty array.
+ * @param bool  $buffer_debug Whether to buffer verbose per-line debug
+ *                            output for each connection; defaults to
+ *                            false (falls back to the
+ *                            'routerconfigs_debug_buffer' setting).
+ * @param bool  $simulate     Whether to simulate a scheduled run without
+ *                            actually connecting to devices; defaults to
+ *                            false.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_download($retry = false, $force = false, $devices = [], $buffer_debug = false, $simulate = false) {
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
@@ -285,11 +348,35 @@ td { margin: 5 10 5 10; }
 	plugin_routerconfigs_stop(sizeof($filter_devices) == 0);
 }
 
+/**
+ * Logs a debug line and appends a wrapped HTML paragraph to the running
+ * backup-summary email body. Called from plugin_routerconfigs_download()
+ * to build up its summary email message.
+ *
+ * @param string $message Reference, the HTML email body being built up.
+ * @param string $text    The message text to log and append.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_message(&$message, $text) {
 	plugin_routerconfigs_log("DEBUG: $text");
 	$message .= "<div>$text</div>";
 }
 
+/**
+ * Appends an HTML section heading to the running backup-summary email
+ * body, optionally with a CSS class (e.g. to highlight a failures
+ * section in red). Called from plugin_routerconfigs_download() and
+ * plugin_routerconfigs_message_devicetable() to build up the summary
+ * email message.
+ *
+ * @param string $message Reference, the HTML email body being built up.
+ * @param string $title   The heading text.
+ * @param string $class   An optional CSS class to apply to the heading;
+ *                        defaults to ''.
+ *
+ * @return void
+ */
 function plugin_routerconfigs_message_title(&$message, $title, $class = '') {
 	if ($class > '') {
 		$class = " class='$class'";
@@ -297,6 +384,21 @@ function plugin_routerconfigs_message_title(&$message, $title, $class = '') {
 	$message .= "<h3$class>$title</h3>";
 }
 
+/**
+ * Appends an HTML table listing devices that succeeded or failed their
+ * backup (hostname plus either the last error or last saved filename)
+ * to the running backup-summary email body. Called from
+ * plugin_routerconfigs_download() once for the failed devices and once
+ * for the successful ones.
+ *
+ * @param string $message Reference, the HTML email body being built up.
+ * @param array  $devices The devices to list, each with 'hostname' and
+ *                        either 'lasterror' or 'lastfile'.
+ * @param bool   $failed  Whether $devices represents failed backups
+ *                        (true) or successful ones (false).
+ *
+ * @return void
+ */
 function plugin_routerconfigs_message_devicetable(&$message, $devices, $failed) {
 	$title = 'Devices that ' . ($failed ? 'failed to backup' : 'backed up');
 	plugin_routerconfigs_message_title($message, $title, ($failed ? 'red' : ''));
@@ -320,6 +422,20 @@ function plugin_routerconfigs_message_devicetable(&$message, $devices, $failed) 
 	$message .= '</table>';
 }
 
+/**
+ * Deletes backup files (and their plugin_routerconfigs_backups rows)
+ * older than the configured retention period (clamped to the plugin's
+ * supported min/max range, defaulting to 30 days if out of range).
+ * Called from plugin_routerconfigs_download() after each backup cycle
+ * completes.
+ *
+ * @return void
+ *
+ * @global array $rc_schedules_retention The supported retention period
+ *                                       options (in days), used to
+ *                                       clamp/validate the configured
+ *                                       value.
+ */
 function plugin_routerconfigs_retention() {
 	global $rc_schedules_retention;
 
@@ -358,6 +474,19 @@ function plugin_routerconfigs_retention() {
 		[$time]);
 }
 
+/**
+ * Checks whether a downloaded configuration file's content ends with a
+ * recognizable 'end' marker line, used to sanity-check that a backup
+ * wasn't truncated. Called from
+ * plugin_routerconfigs_download_config() when the device type's
+ * 'checkendinconfig' option is enabled.
+ *
+ * @param string $data The downloaded configuration file content to
+ *                     check.
+ *
+ * @return bool True if the content appears to end with an 'end' marker,
+ *              false otherwise.
+ */
 function plugin_routerconfigs_check_config($data) {
 	if (preg_match('/\n[^\w]*end[^\w]*$/',$data)) {
 		return true;
@@ -366,6 +495,26 @@ function plugin_routerconfigs_check_config($data) {
 	return false;
 }
 
+/**
+ * Acquires a simple database-backed lock (via the 'settings' table) to
+ * prevent overlapping backup runs, treating a lock older than 2 hours as
+ * stale and reclaimable. Exits immediately if another run is already in
+ * progress and this run isn't forced/simulated. Called from
+ * plugin_routerconfigs_download() at the start of a backup cycle.
+ *
+ * @param bool $force    Whether to acquire the lock even if another run
+ *                       appears to be in progress; defaults to false.
+ * @param bool $simulate Whether this is a simulated run, which also
+ *                       bypasses the lock check; defaults to false.
+ *
+ * @return void This function either returns normally after acquiring
+ *              the lock, or terminates script execution via exit() if
+ *              another run holds it.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       determine whether to also print (vs. only log)
+ *                       status messages.
+ */
 function plugin_routerconfigs_start($force = false, $simulate = false) {
 	global $config;
 
@@ -392,6 +541,17 @@ function plugin_routerconfigs_start($force = false, $simulate = false) {
 	}
 }
 
+/**
+ * Releases the backup run lock acquired by plugin_routerconfigs_start()
+ * when $force_stop is true, then terminates the script. Called from
+ * plugin_routerconfigs_download() at the end of a backup cycle.
+ *
+ * @param bool $force_stop Whether to actually clear the run lock before
+ *                         exiting.
+ *
+ * @return void This function always terminates script execution via
+ *              exit() and therefore never returns.
+ */
 function plugin_routerconfigs_stop($force_stop) {
 	if ($force_stop) {
 		db_execute_prepared('REPLACE INTO settings (name, value) VALUES (?, ?)', ['plugin_routerconfigs_running', 0]);
@@ -399,6 +559,16 @@ function plugin_routerconfigs_stop($force_stop) {
 	exit();
 }
 
+/**
+ * Ensures a directory path string ends with a trailing slash. Called
+ * throughout the backup flow when building file paths from a configured
+ * directory.
+ *
+ * @param string $dir The directory path to normalize.
+ *
+ * @return string The path with a trailing slash appended, if it didn't
+ *                already have one.
+ */
 function plugin_routerconfigs_dir($dir) {
 	if (strlen($dir) && $dir[strlen($dir) - 1] != '/') {
 		$dir .= '/';
@@ -407,6 +577,34 @@ function plugin_routerconfigs_dir($dir) {
 	return $dir;
 }
 
+/**
+ * Downloads a single device's configuration: resolves its effective
+ * connection settings (timeout/sleep/connection type/elevated flag,
+ * falling back through device -> device type -> global setting
+ * defaults), tries each configured connection class for the device's
+ * connection type in turn (SCP/SFTP/SSH/Telnet, stopping early on an SSH
+ * host-key verification failure to avoid falling back to insecure
+ * Telnet), downloads the config file once connected, validates and
+ * archives the resulting file, and records the device's last/next
+ * attempt and backup timestamps. Called from
+ * plugin_routerconfigs_download() for each device due for backup.
+ *
+ * @param array  $device      Reference, the device row to back up;
+ *                            updated with its new backup/attempt
+ *                            timestamps and status as a side effect.
+ * @param int    $backuptime  The Unix timestamp this overall backup
+ *                            cycle started at, used to compute the next
+ *                            scheduled backup time.
+ * @param bool   $buffer_debug Whether to buffer verbose per-line debug
+ *                            output for the connection; defaults to
+ *                            false.
+ * @param bool   $scheduled    Whether this download is part of a
+ *                            regularly scheduled run (vs. manual/retry);
+ *                            defaults to false.
+ *
+ * @return bool True if the configuration was successfully downloaded and
+ *              validated, false otherwise.
+ */
 function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
 	$t_last = time();
 
@@ -736,6 +934,18 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	return true;
 }
 
+/**
+ * Persists a connection's accumulated (base64-encoded) debug transcript
+ * to the device's row, for later viewing via the 'View Debug' action.
+ * Called from plugin_routerconfigs_download_config() after a backup
+ * attempt (successful or failed) completes.
+ *
+ * @param array $device     The device row whose debug column to update.
+ * @param mixed $connection The connection instance to read debug output
+ *                          from via getDebug().
+ *
+ * @return void
+ */
 function plugin_routerconfigs_save_debug($device, $connection) {
 	$base64 = base64_encode($connection->getDebug());
 	// echo "Saving Debug\n";
@@ -745,6 +955,22 @@ function plugin_routerconfigs_save_debug($device, $connection) {
 		[$base64, $device['id']]);
 }
 
+/**
+ * Records the most recent error message for a device, either an
+ * explicitly supplied message or one derived from the connection's own
+ * ConnectError()/error() state. Called from
+ * plugin_routerconfigs_download_config() whenever a connection/download
+ * step fails.
+ *
+ * @param int   $id         The device id to record the error against.
+ * @param mixed $connection The connection instance to derive an error
+ *                          message from when $error is empty, or null
+ *                          to only use $error.
+ * @param string $error     An explicit error message to record; defaults
+ *                          to '' (derive from $connection).
+ *
+ * @return void
+ */
 function plugin_routerconfigs_save_error($id, $connection, $error = '') {
 	if ($connection != null && $error == '') {
 		$error = $connection->ConnectError($connection->error());
@@ -756,6 +982,18 @@ function plugin_routerconfigs_save_error($id, $connection, $error = '') {
 		[$error, $id]);
 }
 
+/**
+ * Looks up and decodes the login credentials (username, decoded
+ * password, decoded enable password) configured for a device's assigned
+ * account. Called from plugin_routerconfigs_download_config() before
+ * connecting to a device.
+ *
+ * @param int|string $device The device id to look up the account for.
+ *
+ * @return array|false The account row with decoded 'password'/
+ *                     'enablepw' fields, or false if $device is empty or
+ *                     no account/username is configured.
+ */
 function plugin_routerconfigs_retrieve_account($device) {
 	if ($device == '') {
 		return false;
@@ -786,6 +1024,19 @@ function plugin_routerconfigs_retrieve_account($device) {
 	return false;
 }
 
+/**
+ * Decodes a stored account credential (base64-encoded serialized array
+ * with the real value under a randomized-key wrapper, as produced by
+ * plugin_routerconfigs_encode()), failing safely to an empty string on
+ * malformed input rather than throwing. Called from
+ * plugin_routerconfigs_retrieve_account() to decode a device account's
+ * password/enable password.
+ *
+ * @param string $info The base64-encoded, serialized credential to
+ *                     decode.
+ *
+ * @return string The decoded password value, or '' if decoding failed.
+ */
 function plugin_routerconfigs_decode($info) {
 	$info = base64_decode($info, true);
 
@@ -806,6 +1057,17 @@ function plugin_routerconfigs_decode($info) {
 	return $info['password'];
 }
 
+/**
+ * Encodes an account credential for storage: wraps it in an array with
+ * randomized decoy keys/values around the real 'password' key, then
+ * serializes and base64-encodes it. Called from router-accounts.php's
+ * save_accounts() when saving a new/changed password or enable
+ * password.
+ *
+ * @param string $info The plain-text credential value to encode.
+ *
+ * @return string The base64-encoded, serialized, obfuscated credential.
+ */
 function plugin_routerconfigs_encode($info) {
 	$crypt             = [rand(1, time()) => rand(1, time()), 'password' => '', rand(1, time()) => rand(1, time())];
 	$crypt['password'] = $info;
@@ -920,9 +1182,19 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
 }
 
 /**
- * Clear a device's stored host key and record the security-sensitive reset.
- * @param mixed $device_id
- * @param mixed $reason
+ * Resets a device's stored SSH host key (algorithm/fingerprint) so the
+ * next connection will trust and record whatever key it receives,
+ * logging the discarded key and the reason for clearing it. Called from
+ * router-devices.php's device actions handler (manual 'Clear SSH Host
+ * Key' action) and from save_devices() when the device's connection
+ * target changes.
+ *
+ * @param int    $device_id The device id whose host key to clear.
+ * @param string $reason    A short description of why the key is being
+ *                          cleared, included in the log message.
+ *
+ * @return bool True if the key was successfully cleared, false if the
+ *              device couldn't be read or the update failed.
  */
 function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
 	$stored = db_fetch_row_prepared('SELECT id, ssh_hostkey_type, ssh_fingerprint
@@ -958,8 +1230,18 @@ function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
 
 /**
  * Return whether the network target changed and its host-key pin must reset.
- * @param mixed $previous_device
- * @param mixed $new_device
+ *
+ * Called from router-devices.php's save_devices() after saving a
+ * device, to decide whether to clear its previously recorded SSH host
+ * key.
+ *
+ * @param array $previous_device The device's row before the save (only
+ *                               'ipaddress' is consulted).
+ * @param array $new_device      The device's row/submitted values after
+ *                               the save (only 'ipaddress' is
+ *                               consulted).
+ *
+ * @return bool True if the IP address changed, false otherwise.
  */
 function plugin_routerconfigs_connection_target_changed($previous_device, $new_device) {
 	return (string) ($previous_device['ipaddress'] ?? '') !== (string) ($new_device['ipaddress'] ?? '');
@@ -967,9 +1249,22 @@ function plugin_routerconfigs_connection_target_changed($previous_device, $new_d
 
 /**
  * Decide whether a failed transport may fall through to the next candidate.
- * @param mixed $connection_type
- * @param mixed $classname
- * @param mixed $result
+ *
+ * Refuses to fall back from a failed SSH attempt to Telnet when SSH host
+ * key verification is enabled (since Telnet sends credentials
+ * unencrypted with no equivalent verification), and never continues
+ * after an explicit host-key mismatch regardless of connection type.
+ * Called from plugin_routerconfigs_download_config() after each
+ * connection class attempt fails.
+ *
+ * @param string $connection_type The device's configured connection
+ *                                type (e.g. RCONFIG_CONNECT_BOTH).
+ * @param string $classname       The connection class that just failed
+ *                                (e.g. 'PHPSsh').
+ * @param mixed  $result          The failed connection's result code.
+ *
+ * @return bool True if the next candidate connection class should be
+ *              tried, false if attempts should stop here.
  */
 function plugin_routerconfigs_should_try_next_connection($connection_type, $classname, $result) {
 	if ($result === RCONFIG_CONNECT_HOSTKEY_FAILED) {
@@ -984,6 +1279,18 @@ function plugin_routerconfigs_should_try_next_connection($connection_type, $clas
 	return true;
 }
 
+/**
+ * Determines a log message's severity prefix (the earliest-occurring of
+ * 'ERROR:', 'FATAL:', 'STATS:', 'WARNING:', 'NOTICE:', 'DEBUG:' found in
+ * the message text). Called from plugin_routerconfigs_log() to map a
+ * message to its appropriate Cacti poller verbosity level.
+ *
+ * @param string $message The log message to inspect.
+ *
+ * @return string The detected severity prefix, or the original $message
+ *                unchanged if none of the recognized prefixes are
+ *                found.
+ */
 function plugin_routerconfigs_messagetype($message) {
 	$types   = ['ERROR:', 'FATAL:', 'STATS:', 'WARNING:', 'NOTICE:', 'DEBUG:'];
 	$typepos = [];
@@ -1005,11 +1312,30 @@ function plugin_routerconfigs_messagetype($message) {
 	return $message;
 }
 
-/*
-//Log messages to cacti log or syslog
-//This function is the same as thold plugin with a little change
-//to respect cacti log level settings
-*/
+/**
+ * Log messages to cacti log or syslog
+ * This function is the same as thold plugin with a little change
+ * to respect cacti log level settings
+ *
+ * Logs a message to Cacti's log, auto-detecting an appropriate
+ * verbosity level from the message's severity prefix (via
+ * plugin_routerconfigs_messagetype()) unless one is explicitly supplied,
+ * and forcing full verbosity when global debug mode is enabled. Called
+ * throughout this plugin to report backup progress/errors.
+ *
+ * @param string $message   The message to log.
+ * @param int    $log_level The Cacti poller verbosity level to log at;
+ *                         defaults to POLLER_VERBOSITY_NONE, which
+ *                         triggers auto-detection from the message text.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       decide whether to also print (vs. only log) the
+ *                       message, based on whether this is a web request.
+ * @global bool  $debug  When true, forces full log verbosity regardless
+ *                       of the detected/supplied level.
+ */
 function plugin_routerconfigs_log($message, $log_level = POLLER_VERBOSITY_NONE) {
 	global $config, $debug;
 
@@ -1035,14 +1361,52 @@ function plugin_routerconfigs_log($message, $log_level = POLLER_VERBOSITY_NONE) 
 	cacti_log($message,!$config['is_web'],$environ, $log_level);
 }
 
+/**
+ * Formats a Unix timestamp using Cacti's configured date/time format, or
+ * 'N/A' for an unset (zero or negative) timestamp. Called throughout the
+ * admin UI to display last-backup/attempt timestamps.
+ *
+ * @param int $time The Unix timestamp to format.
+ *
+ * @return string The formatted date/time, or 'N/A'.
+ */
 function plugin_routerconfigs_date_from_time_with_na($time) {
 	return ($time > 0) ? date(CACTI_DATE_TIME_FORMAT, $time) : 'N/A';
 }
 
+/**
+ * Formats a Unix timestamp using Cacti's configured date/time format, or
+ * an empty string for an unset (zero or negative) timestamp. Called from
+ * plugin_routerconfigs_view_device_config() to display a backup's
+ * timestamp.
+ *
+ * @param int $time The Unix timestamp to format.
+ *
+ * @return string The formatted date/time, or ''.
+ */
 function plugin_routerconfigs_date_from_time($time) {
 	return ($time > 0) ? date(CACTI_DATE_TIME_FORMAT, $time) : '';
 }
 
+/**
+ * Computes the next scheduled run time aligned to a repeating interval
+ * (e.g. the next hour/day boundary plus a configured offset), or 0 if
+ * scheduling is disabled. Called from
+ * plugin_routerconfigs_download_config() to compute a device's next
+ * retry attempt time.
+ *
+ * @param int $time       The reference Unix timestamp to compute the
+ *                        next run relative to.
+ * @param int $schedule   The number of interval units to offset by (0
+ *                        disables scheduling).
+ * @param int $multipler  The interval size in seconds (e.g. 3600 for
+ *                        hourly); 0 disables scheduling.
+ * @param int $hour       An additional hour offset to add; defaults to
+ *                        0.
+ *
+ * @return int The computed next run Unix timestamp, or 0 if scheduling
+ *             is disabled.
+ */
 function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) {
 	if ($schedule == 0 || $multipler == 0) {
 		return 0;
@@ -1058,6 +1422,19 @@ function plugin_routerconfigs_nexttime($time, $schedule, $multipler, $hour = 0) 
 	}
 }
 
+/**
+ * Returns the first non-empty value from a list of candidates, used to
+ * implement a device -> device type -> global setting fallback chain.
+ * Called from plugin_routerconfigs_download_config() to resolve a
+ * device's effective timeout/sleep/connection-type/elevated settings.
+ *
+ * @param array $array The candidate values to check in order.
+ * @param bool  $debug Unused debug flag (kept for interface parity);
+ *                     defaults to false.
+ *
+ * @return mixed The first non-empty candidate value, or false if all are
+ *               empty.
+ */
 function plugin_routerconfigs_getfirst($array, $debug = false) {
 	$count = 0;
 
@@ -1072,6 +1449,26 @@ function plugin_routerconfigs_getfirst($array, $debug = false) {
 	return false;
 }
 
+/**
+ * Displays the raw content of a device's stored backup configuration
+ * file (looked up by a specific backup id, or the most recent backup for
+ * a device id), validating that the resolved file path stays within the
+ * device's configured backup directory before reading it. Called from
+ * router-backups.php's and router-devices.php's view_device_config()
+ * dispatch handlers.
+ *
+ * @param int    $backup_id   A specific plugin_routerconfigs_backups.id
+ *                            to display; defaults to 0 (use $device_id
+ *                            instead).
+ * @param int    $device_id   A device id to display the most recent
+ *                            backup for, when $backup_id is not
+ *                            supplied; defaults to 0.
+ * @param string $failure_url A URL to redirect to if no matching backup
+ *                            is found; defaults to '' (no redirect).
+ *
+ * @return void Outputs the backup file content page directly, or
+ *              redirects to $failure_url if no backup is found.
+ */
 function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0, $failure_url = '') {
 	$device = [];
 

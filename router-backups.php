@@ -51,6 +51,14 @@ switch (get_nfilter_request_var('action')) {
 		break;
 }
 
+/**
+ * Displays the raw content of a single stored backup configuration file.
+ * Invoked from this file's dispatcher when the request's 'action' is
+ * 'viewconfig'.
+ *
+ * @return void Outputs the backup file content via
+ *              plugin_routerconfigs_view_device_config().
+ */
 function view_device_config() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -60,6 +68,13 @@ function view_device_config() {
 	plugin_routerconfigs_view_device_config(get_filter_request_var('id'), get_filter_request_var('device'), 'router-backups.php');
 }
 
+/**
+ * Validates and stores the Backups list's filter/sort/pagination
+ * variables (device, free-text search, sort column/direction) in the
+ * session. Called from show_devices() before rendering the list.
+ *
+ * @return void
+ */
 function backups_validate_vars() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -99,6 +114,26 @@ function backups_validate_vars() {
 	// ================= input validation =================
 }
 
+/**
+ * Renders the main Backups list page: validates the request, draws the
+ * device/free-text filter toolbar, and prints the paginated, sortable
+ * table of stored backup files across all devices. Invoked from this
+ * file's dispatcher for the default (no 'action') request.
+ *
+ * @return void Outputs the list page HTML directly.
+ *
+ * @global mixed $action     Reserved/declared for parity with other
+ *                           functions in this file; not used directly
+ *                           here.
+ * @global mixed $device     Reserved/declared for parity with other
+ *                           functions in this file; not used directly
+ *                           here.
+ * @global array $config     Cacti global configuration array (declared
+ *                           but not directly used here).
+ * @global array $item_rows  Rows-per-page options offered by Cacti
+ *                           core, used to populate the 'rows' select
+ *                           list.
+ */
 function show_devices() {
 	global $action, $device, $config, $item_rows;
 

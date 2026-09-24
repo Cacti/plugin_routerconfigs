@@ -333,6 +333,14 @@ html_end_box();
 
 bottom_footer();
 
+/**
+ * Validates and stores the backup-comparison page's filter variables
+ * (diff mode, the two devices/files being compared) in the session.
+ * Called from this file's top-level flow before the two backup files are
+ * looked up and diffed.
+ *
+ * @return void
+ */
 function compare_validate_vars() {
 	// ================= input validation and session storage =================
 	$filters = [
