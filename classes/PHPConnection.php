@@ -623,7 +623,8 @@ abstract class PHPConnection {
 	 *                        defaults to null.
 	 *
 	 * @return int 0 once a recognized prompt is found or the stream
-	 *             isn't open; loops otherwise.
+	 *             isn't open (loops otherwise), or 8 if the read exceeds
+	 *             the configured timeout.
 	 */
 	function GetResponse(&$response, $pass = null) {
 		$time_start = microtime(true);

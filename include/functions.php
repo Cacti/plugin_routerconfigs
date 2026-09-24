@@ -423,10 +423,11 @@ function plugin_routerconfigs_message_devicetable(&$message, $devices, $failed) 
 }
 
 /**
- * Deletes backup files/directories older than the configured retention
- * period (clamped to the plugin's supported min/max range, defaulting to
- * 30 days if out of range). Called from plugin_routerconfigs_download()
- * after each backup cycle completes.
+ * Deletes backup files (and their plugin_routerconfigs_backups rows)
+ * older than the configured retention period (clamped to the plugin's
+ * supported min/max range, defaulting to 30 days if out of range).
+ * Called from plugin_routerconfigs_download() after each backup cycle
+ * completes.
  *
  * @return void
  *
@@ -476,8 +477,9 @@ function plugin_routerconfigs_retention() {
 /**
  * Checks whether a downloaded configuration file's content ends with a
  * recognizable 'end' marker line, used to sanity-check that a backup
- * wasn't truncated. Currently unused/dead code: not called from anywhere
- * else in this file.
+ * wasn't truncated. Called from
+ * plugin_routerconfigs_download_config() when the device type's
+ * 'checkendinconfig' option is enabled.
  *
  * @param string $data The downloaded configuration file content to
  *                     check.
@@ -935,8 +937,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 /**
  * Persists a connection's accumulated (base64-encoded) debug transcript
  * to the device's row, for later viewing via the 'View Debug' action.
- * Currently unused/dead code: not called from anywhere else in this
- * file.
+ * Called from plugin_routerconfigs_download_config() after a backup
+ * attempt (successful or failed) completes.
  *
  * @param array $device     The device row whose debug column to update.
  * @param mixed $connection The connection instance to read debug output
@@ -1183,9 +1185,9 @@ function plugin_routerconfigs_verify_ssh_hostkey($device_id, $hostkey) {
  * Resets a device's stored SSH host key (algorithm/fingerprint) so the
  * next connection will trust and record whatever key it receives,
  * logging the discarded key and the reason for clearing it. Called from
- * router-devices.php's actions_devices() (manual 'Clear SSH Host Key'
- * action) and plugin_routerconfigs_download_config()/save_devices() when
- * a device's connection target changes.
+ * router-devices.php's device actions handler (manual 'Clear SSH Host
+ * Key' action) and from save_devices() when the device's connection
+ * target changes.
  *
  * @param int    $device_id The device id whose host key to clear.
  * @param string $reason    A short description of why the key is being

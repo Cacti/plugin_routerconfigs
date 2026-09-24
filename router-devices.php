@@ -333,10 +333,9 @@ function actions_devices() {
 /**
  * Validates and saves a single router device's configuration (hostname/
  * IP, account/device type, connection settings, schedule), clearing the
- * recorded SSH host key when the device's connection target (IP/
- * connection type) has changed so the next connection re-trusts the new
- * endpoint's key. Invoked from this file's dispatcher when the request's
- * 'action' is 'save'.
+ * recorded SSH host key when the device's IP address has changed so the
+ * next connection re-trusts the new endpoint's key. Invoked from this
+ * file's dispatcher when the request's 'action' is 'save'.
  *
  * @return void Redirects back to the edit form for this device (or the
  *              list, on success); does not return a value.

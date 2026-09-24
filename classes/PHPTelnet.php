@@ -235,9 +235,8 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	 *
 	 * @param int $num The result code to translate.
 	 *
-	 * @return string|null The corresponding error message, or null if
-	 *                     $show_connect_error is disabled or the code is
-	 *                     unrecognized.
+	 * @return string The corresponding error message, or an empty
+	 *                string if the code is unrecognized.
 	 */
 	function ConnectError($num) {
 		$this->error = $num;
