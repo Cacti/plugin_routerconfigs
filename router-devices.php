@@ -424,8 +424,14 @@ function edit_devices() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account                        = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
-		$account                        = is_array($account) ? $account : [];
+		$account = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
+		$account = is_array($account) ? $account : [];
+
+		if (!isset($account['id'])) {
+			header('Location: router-devices.php?header=false');
+			exit;
+		}
+
 		$account['password']            = '';
 		$account['ssh_hostkey_display'] = empty($account['ssh_fingerprint']) ?
 			'<em>' . __esc('Not recorded', 'routerconfigs') . '</em>' :

@@ -32,7 +32,7 @@ abstract class PHPConnection {
 	/** @var bool */
 	protected $debugbuffer  = false;
 	/** @var bool */
-	protected $use_usleep   = false;	// change to 1 for faster execution
+	protected $use_usleep   = true;	// change to false for slower execution
 
 	/** @var int */
 	protected $sleeptime    = 125000;

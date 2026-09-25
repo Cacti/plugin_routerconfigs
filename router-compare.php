@@ -280,7 +280,15 @@ if (!empty($file1) && !empty($file2)) {
 	html_start_box('', '100%', false, 1, 'center', '');
 
 	if (get_request_var('diffmode') == 'sdiff') {
-		html_header([$device1['directory'] . '/' . $device1['filename'], $device2['directory'] . '/' . $device2['filename']]);
+		$label1 = isset($device1['directory']) && isset($device1['filename']) ?
+			$device1['directory'] . '/' . $device1['filename'] :
+			__('Backup %s not found', $file1, 'routerconfigs');
+
+		$label2 = isset($device2['directory']) && isset($device2['filename']) ?
+			$device2['directory'] . '/' . $device2['filename'] :
+			__('Backup %s not found', $file2, 'routerconfigs');
+
+		html_header([$label1, $label2]);
 
 		print "<tr height='1'><td width='50%'></td><td width='50%'></td></tr>";
 

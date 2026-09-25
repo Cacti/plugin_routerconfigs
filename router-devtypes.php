@@ -243,7 +243,13 @@ function edit_devicetypes() {
 			WHERE id = ?',
 			[get_request_var('id')]);
 
-		$devicetype   = is_array($devicetype) ? $devicetype : [];
+		$devicetype = is_array($devicetype) ? $devicetype : [];
+
+		if (!isset($devicetype['id'])) {
+			header('Location: router-devtypes.php?header=false');
+			exit;
+		}
+
 		$header_label = __('Query [edit: %s]', $devicetype['name'], 'routerconfigs');
 	} else {
 		$header_label = __('Query [new]', 'routerconfigs');

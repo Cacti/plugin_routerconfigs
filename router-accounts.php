@@ -252,8 +252,14 @@ function edit_accounts() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) get_request_var('id')]);
-		$account             = is_array($account) ? $account : [];
+		$account = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) get_request_var('id')]);
+		$account = is_array($account) ? $account : [];
+
+		if (!isset($account['id'])) {
+			header('Location: router-accounts.php?header=false');
+			exit;
+		}
+
 		$account['password'] = '';
 		$header_label        = __('Account: [edit: %s]', $account['name'], 'routerconfigs');
 	} else {
