@@ -235,7 +235,7 @@ function show_devices() {
 	</script>
 	<?php
 
-	html_start_box(__('Router Backups', 'routerconfigs'), '100%', '', '4', 'center', '');
+	html_start_box(__('Router Backups', 'routerconfigs'), '100%', false, 4, 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -355,9 +355,9 @@ function show_devices() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 
-	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
+	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
 	if (cacti_sizeof($result)) {
 		$r      = db_fetch_assoc('SELECT device, id FROM plugin_routerconfigs_backups ORDER BY btime ASC');

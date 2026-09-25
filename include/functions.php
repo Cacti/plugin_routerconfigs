@@ -64,8 +64,8 @@ function display_tabs() {
 
 	if (!isset($current_tab) || !strlen($current_tab)) {
 		$back_trace = debug_backtrace();
-		$file_info  = pathinfo($back_trace[0]['file']);
-		$file_tab   = preg_replace('~router-([a-zA-Z]+).php~','\\1',$file_info['basename']);
+		$file_info  = pathinfo($back_trace[0]['file'] ?? '');
+		$file_tab   = preg_replace('~router-([a-zA-Z]+).php~','\\1',$file_info['basename']) ?? '';
 
 		if (array_key_exists($file_tab,$tabs)) {
 			$current_tab = $file_tab;
@@ -126,7 +126,7 @@ function plugin_routerconfigs_backtrace($skip = 1) {
 
 	foreach ($backtrace as $trace) {
 		if ($skip == 0) {
-			plugin_routerconfigs_log('DEBUG: BACKTRACE: ' . $trace['function'] . '() at ' . $trace['line'] . ' in ' . $trace['file']);
+			plugin_routerconfigs_log('DEBUG: BACKTRACE: ' . $trace['function'] . '() at ' . ($trace['line'] ?? 0) . ' in ' . ($trace['file'] ?? ''));
 		} else {
 			$skip--;
 		}
@@ -173,7 +173,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 	$filter_devices = [];
 
-	if ($devices != null && sizeof($devices)) {
+	if (sizeof($devices)) {
 		$filter_devices = $devices;
 		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
 	} else {
@@ -212,7 +212,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 				$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, count($filter_devices), '?')) . ')';
 				$sqlparams      = $filter_devices;
 			} elseif (!$force) {
-				$scheduled = (!$force) || $simulate;
+				$scheduled = true;
 
 				if ($retry) {
 					$sqlwhere  = 'AND nextattempt > lastbackup AND nextattempt <= ?';
@@ -446,9 +446,10 @@ function plugin_routerconfigs_retention() {
 		exit;
 	}
 
-	$min_days = min(array_keys($rc_schedules_retention));
-	$max_days = max(array_keys($rc_schedules_retention));
-	$days     = read_config_option('routerconfigs_retention');
+	$retention_days = array_keys($rc_schedules_retention);
+	$min_days       = !empty($retention_days) ? min($retention_days) : 1;
+	$max_days       = !empty($retention_days) ? max($retention_days) : 30;
+	$days           = read_config_option('routerconfigs_retention');
 
 	if ($days < $min_days || $days > $max_days) {
 		plugin_routerconfigs_log(__('WARNING: Retention period \'%s\' is invalid, defaulting to 30 days', $days, 'routerconfigs'));
@@ -589,16 +590,16 @@ function plugin_routerconfigs_dir($dir) {
  * attempt and backup timestamps. Called from
  * plugin_routerconfigs_download() for each device due for backup.
  *
- * @param array  $device      Reference, the device row to back up;
+ * @param array $device       Reference, the device row to back up;
  *                            updated with its new backup/attempt
  *                            timestamps and status as a side effect.
- * @param int    $backuptime  The Unix timestamp this overall backup
+ * @param int   $backuptime   The Unix timestamp this overall backup
  *                            cycle started at, used to compute the next
  *                            scheduled backup time.
- * @param bool   $buffer_debug Whether to buffer verbose per-line debug
+ * @param bool  $buffer_debug Whether to buffer verbose per-line debug
  *                            output for the connection; defaults to
  *                            false.
- * @param bool   $scheduled    Whether this download is part of a
+ * @param bool  $scheduled    Whether this download is part of a
  *                            regularly scheduled run (vs. manual/retry);
  *                            defaults to false.
  *
@@ -620,6 +621,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$dir     = trim($device['directory']);
 	$ip      = $device['ipaddress'];
 
+	if ($info === false) {
+		$fail_msg = "ERROR: No account/username configured for Device '" . $device['hostname'] . "'";
+		plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+
+		return false;
+	}
+
 	$backuppath  = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
 	$tftpserver  = read_config_option('routerconfigs_tftpserver');
@@ -639,7 +648,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		WHERE id = ?',
 		[$device['devicetype']]);
 
-	if (empty($devicetype)) {
+	if (!is_array($devicetype) || empty($devicetype)) {
 		$devicetype = ['promptuser' => 'username:',
 			'promptpass'               => 'password:',
 			'promptconfirm'            => 'confirm|to tftp:',
@@ -683,6 +692,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 	$result = 1;
 
+	$connection = null;
+
 	foreach ($classes as $classname) {
 		plugin_routerconfigs_log("$ip -> DEBUG: Attempting to use '$classname'");
 
@@ -693,6 +704,10 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		}
 
 		$connection = new $classname($devicetype, $device, $info['username'], $info['password'], $info['enablepw'], $buffer_debug, $elevated);
+
+		if (!$connection instanceof PHPConnection) {
+			continue;
+		}
 
 		$connection->setTimeout($timeout);
 		$connection->setSleep($sleep);
@@ -729,6 +744,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		return false;
 	}
 
+	if (!$connection instanceof PHPConnection) {
+		$fail_msg = __("ERROR: Failed to connect to Device '%s' using connection type: %s",$device['hostname'],$type_dev,'routerconfigs');
+		plugin_routerconfigs_save_error($device['id'],null,$fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+
+		return false;
+	}
+
 	$ip    = $connection->ip();
 	$file  = false;
 
@@ -758,7 +781,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		if ($file === false) {
 			$connection->Log("ERROR: Failed to open file at $readname");
 		} else {
-			$data = @fread($file, filesize("$readname"));
+			$readsize = filesize("$readname");
+			$data     = $readsize > 0 ? @fread($file, $readsize) : '';
 			@fclose($file);
 
 			if ($data === false) {
@@ -805,17 +829,24 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	if (sizeof($data2)) {
 		foreach ($data2 as $d) {
 			if (strpos($d, 'Last configuration change at') !== false) {
-				$lastchange = substr($d, strpos($d, 'change at') + 10, strpos($d, ' by ') - (strpos($d, 'change at') + 10));
+				$change_pos = strpos($d, 'change at');
+				$by_pos     = strpos($d, ' by ');
 
-				$t = explode(' ', $lastchange);
+				if ($change_pos !== false && $by_pos !== false) {
+					$lastchange = substr($d, $change_pos + 10, $by_pos - ($change_pos + 10));
 
-				if (isset($t[5])) {
-					$t          = [$t[3], $t[4], $t[5], $t[0], $t[1]];
-					$t          = implode(' ', $t);
-					$lastchange = strtotime($t);
+					$t = explode(' ', $lastchange);
 
-					if (substr($d, strpos($d, ' by ')) !== false) {
-						$lastuser = substr($d, strpos($d, ' by ') + 4);
+					if (isset($t[5])) {
+						$t          = [$t[3], $t[4], $t[5], $t[0], $t[1]];
+						$t          = implode(' ', $t);
+						$lastchange = strtotime($t);
+
+						$by_suffix = substr($d, $by_pos);
+
+						if ($by_suffix !== '') {
+							$lastuser = substr($d, $by_pos + 4);
+						}
 					}
 				}
 			}
@@ -962,12 +993,12 @@ function plugin_routerconfigs_save_debug($device, $connection) {
  * plugin_routerconfigs_download_config() whenever a connection/download
  * step fails.
  *
- * @param int   $id         The device id to record the error against.
- * @param mixed $connection The connection instance to derive an error
- *                          message from when $error is empty, or null
- *                          to only use $error.
- * @param string $error     An explicit error message to record; defaults
- *                          to '' (derive from $connection).
+ * @param int    $id         The device id to record the error against.
+ * @param mixed  $connection The connection instance to derive an error
+ *                           message from when $error is empty, or null
+ *                           to only use $error.
+ * @param string $error      An explicit error message to record; defaults
+ *                           to '' (derive from $connection).
  *
  * @return void
  */
@@ -1325,8 +1356,8 @@ function plugin_routerconfigs_messagetype($message) {
  *
  * @param string $message   The message to log.
  * @param int    $log_level The Cacti poller verbosity level to log at;
- *                         defaults to POLLER_VERBOSITY_NONE, which
- *                         triggers auto-detection from the message text.
+ *                          defaults to POLLER_VERBOSITY_NONE, which
+ *                          triggers auto-detection from the message text.
  *
  * @return void
  *
@@ -1395,14 +1426,14 @@ function plugin_routerconfigs_date_from_time($time) {
  * plugin_routerconfigs_download_config() to compute a device's next
  * retry attempt time.
  *
- * @param int $time       The reference Unix timestamp to compute the
- *                        next run relative to.
- * @param int $schedule   The number of interval units to offset by (0
- *                        disables scheduling).
- * @param int $multipler  The interval size in seconds (e.g. 3600 for
- *                        hourly); 0 disables scheduling.
- * @param int $hour       An additional hour offset to add; defaults to
- *                        0.
+ * @param int $time      The reference Unix timestamp to compute the
+ *                       next run relative to.
+ * @param int $schedule  The number of interval units to offset by (0
+ *                       disables scheduling).
+ * @param int $multipler The interval size in seconds (e.g. 3600 for
+ *                       hourly); 0 disables scheduling.
+ * @param int $hour      An additional hour offset to add; defaults to
+ *                       0.
  *
  * @return int The computed next run Unix timestamp, or 0 if scheduling
  *             is disabled.
@@ -1515,7 +1546,7 @@ function plugin_routerconfigs_view_device_config($backup_id = 0, $device_id = 0,
 
 		display_tabs();
 
-		html_start_box('', '100%', '', '4', 'center', '');
+		html_start_box('', '100%', false, 4, 'center', '');
 
 		form_alternate_row();
 

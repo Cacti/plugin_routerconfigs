@@ -29,35 +29,90 @@ require_once(__DIR__ . '/Interfaces.php');
 
 #[AllowDynamicProperties]
 abstract class PHPConnection {
+	/** @var bool */
 	protected $debugbuffer  = false;
-	protected $use_usleep   = 1;	// change to 1 for faster execution
+	/** @var bool */
+	protected $use_usleep   = true;	// change to false for slower execution
 
+	/** @var int */
 	protected $sleeptime    = 125000;
+	/** @var int */
 	protected $timeout      = 1; // Seconds to avoid buggies connections
 
+	/** @var mixed */
 	protected $connection   = null; // stores the ssh connection pointer
+	/** @var mixed */
 	protected $stream       = null; // points to the ssh session stream
+	/** @var int */
 	protected $errorcode    = 0;
+	/** @var mixed */
 	protected $error        = 0;
 
+	/** @var string */
 	protected $debug        = '';
+	/** @var string */
 	protected $ip           = '';
+	/** @var string */
+	protected $server       = '';
 
+	/** @var int */
 	private $lastPrompt     = 0;
+	/** @var bool */
 	private $isEnabled      = false;
 
 	// avoid deprecation warnings
+	/** @var string|null */
 	public $classType       = null;
+	/** @var string|null */
 	public $pw1_text        = null;
+	/** @var string|null */
 	public $pw2_text        = null;
-	public $device          = '';
+	/** @var array<string,mixed> */
+	public $device          = [];
+	/** @var string */
 	public $user            = '';
+	/** @var string */
 	public $pass            = '';
+	/** @var string */
 	public $enablepw        = '';
-	public $deviceType      = '';
+	/** @var array<string,mixed> */
+	public $deviceType      = [];
+	/** @var bool */
 	public $isAlwaysEnabled = false;
 
+	/** @var string|int */
+	public $lastuser = '';
+	/** @var string|int */
+	public $lastchange = '';
+
+	/** @var array<string,array<int,string>> */
 	private static $knownTypes = [];
+
+	/**
+	 * Opens the connection to this instance's resolved server, using
+	 * whatever transport the concrete subclass implements (SSH/SCP/SFTP/
+	 * Telnet). Called from the backup flow before Download().
+	 *
+	 * @return int 0 on success, or a nonzero result code (also recordable
+	 *             via ConnectError()) on failure.
+	 */
+	abstract function Connect();
+
+	/**
+	 * Downloads the device's configured configuration file using
+	 * whatever transport the concrete subclass implements. Called from
+	 * the backup flow after a successful Connect().
+	 *
+	 * @param string $filename   The local filename to save the downloaded
+	 *                           config as.
+	 * @param string $backuppath The local directory to save the downloaded
+	 *                           config into.
+	 *
+	 * @return bool|void True/false result of the transfer, or no return
+	 *                   value for a transport that runs in the
+	 *                   background.
+	 */
+	abstract function Download($filename, $backuppath);
 
 	/**
 	 * Registers a connection class under a named group (e.g. connection
@@ -83,7 +138,7 @@ abstract class PHPConnection {
 	 * available connection types for a given group.
 	 *
 	 * @param string $wantedGroup The group name to look up; defaults to
-	 *                           ''.
+	 *                            ''.
 	 *
 	 * @return array The registered class names for this group, or an
 	 *               empty array if none are registered.
@@ -106,18 +161,18 @@ abstract class PHPConnection {
 	 * (PHPSsh/PHPTelnet/etc.) is constructed for a backup/download attempt.
 	 *
 	 * @param string $classtype   The concrete connection class name (for
-	 *                           logging).
+	 *                            logging).
 	 * @param array  $devicetype  The device type row (prompt patterns,
-	 *                           commands, etc.) for this device.
+	 *                            commands, etc.) for this device.
 	 * @param array  $device      The device row being connected to.
 	 * @param string $user        The login username.
 	 * @param string $pass        The login password.
 	 * @param string $enablepw    The enable/elevated password, if any.
 	 * @param bool   $bufferDebug Whether to buffer verbose per-line debug
-	 *                           output; defaults to false.
+	 *                            output; defaults to false.
 	 * @param bool   $elevated    Whether this device type is always
-	 *                           considered enabled/elevated; defaults to
-	 *                           false.
+	 *                            considered enabled/elevated; defaults to
+	 *                            false.
 	 *
 	 * @return void
 	 */
@@ -171,7 +226,7 @@ abstract class PHPConnection {
 	 * @return void
 	 */
 	protected function setServerDetails() {
-		$this->server = $this->device['ipaddress'];
+		$this->server = isset($this->device['ipaddress']) ? $this->device['ipaddress'] : '';
 
 		if (strlen($this->server)) {
 			if (preg_match('/[^0-9.]/', $this->server)) {
@@ -205,7 +260,7 @@ abstract class PHPConnection {
 		}
 
 		$this->Log("DEBUG: Setting timeout to $timeout second(s)");
-		$this->timeout = $timeout;
+		$this->timeout = (int) $timeout;
 	}
 
 	/**
@@ -229,7 +284,7 @@ abstract class PHPConnection {
 
 		$this->Log("DEBUG: Setting sleep time to $sleep " . ($u_sleep ? 'micro' : '') . 'second(s)');
 		$this->use_usleep = $u_sleep;
-		$this->sleeptime  = $sleep;
+		$this->sleeptime  = (int) $sleep;
 	}
 
 	/**
@@ -275,6 +330,8 @@ abstract class PHPConnection {
 	 * flow to decide how to react to the device's current prompt.
 	 *
 	 * @return int The last detected LinePrompt value.
+	 *
+	 * @phpstan-impure
 	 */
 	function prompt() {
 		return $this->lastPrompt;
@@ -374,7 +431,7 @@ abstract class PHPConnection {
 	 *
 	 * @param string $source      The remote file path to receive.
 	 * @param string $destination The local file path to write the
-	 *                           received content to.
+	 *                            received content to.
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -572,8 +629,8 @@ abstract class PHPConnection {
 	 * @param string $cmd      The command to send.
 	 * @param string $response Reference, set to the device's raw response.
 	 * @param string $pass     A password value to mask in logged output
-	 *                        and in the response, if present; defaults to
-	 *                        null.
+	 *                         and in the response, if present; defaults to
+	 *                         null.
 	 *
 	 * @return int The result of GetResponse() (0 on success), or 0 if the
 	 *             stream isn't open.
@@ -602,7 +659,7 @@ abstract class PHPConnection {
 			$result = $this->GetResponse($response, $pass);
 
 			if ($response != '') {
-				$response = preg_replace("/^.*?\n(.*)\n([^\n]*)$/", '$2', $response);
+				$response = preg_replace("/^.*?\n(.*)\n([^\n]*)$/", '$2', $response) ?? $response;
 			}
 		}
 
@@ -618,13 +675,15 @@ abstract class PHPConnection {
 	 * DoCommand() and EnsureEnabled() after sending a command.
 	 *
 	 * @param string $response Reference, appended with the raw data read
-	 *                        from the stream.
+	 *                         from the stream.
 	 * @param string $pass     A password value to mask in the read data;
-	 *                        defaults to null.
+	 *                         defaults to null.
 	 *
 	 * @return int 0 once a recognized prompt is found or the stream
 	 *             isn't open (loops otherwise), or 8 if the read exceeds
 	 *             the configured timeout.
+	 *
+	 * @phpstan-impure
 	 */
 	function GetResponse(&$response, $pass = null) {
 		$time_start = microtime(true);
@@ -752,7 +811,5 @@ abstract class PHPConnection {
 				return 8;
 			}
 		}
-
-		return 0;
 	}
 }

@@ -38,12 +38,16 @@ code is now within PHPConnection with only Telnet specific code
 in this class
 */
 class PHPTelnet extends PHPShellConnection implements ShellTelnet {
+	/** @var int */
 	var $show_connect_error = 1;
 
+	/** @var int */
 	var $loginsleeptime = 1000000;
 
-	var $conn1;
-	var $conn2;
+	/** @var string */
+	var $conn1 = '';
+	/** @var string */
+	var $conn2 = '';
 
 	/*
 	0 = success
@@ -59,16 +63,16 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 	 * object is constructed for a backup attempt.
 	 *
 	 * @param array  $devicetype   The device type row (prompt patterns,
-	 *                            commands, etc.) for this device.
+	 *                             commands, etc.) for this device.
 	 * @param array  $device       The device row being connected to.
 	 * @param string $user         The login username.
 	 * @param string $pass         The login password.
 	 * @param string $enablepw     The enable/elevated password, if any.
 	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
-	 *                            output; defaults to false.
+	 *                             output; defaults to false.
 	 * @param bool   $elevated     Whether this device type is always
-	 *                            considered enabled/elevated; defaults to
-	 *                            false.
+	 *                             considered enabled/elevated; defaults to
+	 *                             false.
 	 *
 	 * @return void
 	 */
@@ -115,11 +119,11 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		}
 
 		for ($i = 0; $i < $j; $i++) {
-			if (($vers[$i] + 0) > $needvers[$i]) {
+			if (((int) $vers[$i]) > $needvers[$i]) {
 				break;
 			}
 
-			if (($vers[$i] + 0) < $needvers[$i]) {
+			if (((int) $vers[$i]) < $needvers[$i]) {
 				$error = $this->ConnectError(4);
 
 				$this->Log('Connect 4 error');
