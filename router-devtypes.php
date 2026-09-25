@@ -118,14 +118,16 @@ function actions_devicetypes() {
 
 	form_start('router-devtypes.php');
 
-	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($rc_devtype_actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
+	$drp_action = (int) get_nfilter_request_var('drp_action');
+
+	if ($drp_action > 0 && array_key_exists($drp_action, $rc_devtype_actions)) {
+		html_start_box($rc_devtype_actions[$drp_action], '60%', false, 3, 'center', '');
 	} else {
-		html_start_box('', '60%', '', '3', 'center', '');
+		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
 	if (sizeof($devtype_array)) {
-		if (get_nfilter_request_var('drp_action') == RCONFIG_DEVTYPE_DELETE) { // Delete
+		if ($drp_action == RCONFIG_DEVTYPE_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
 					<p>" . __('When you click \'Continue\', the following device(s) will be deleted.', 'routerconfigs') . "</p>
@@ -144,7 +146,7 @@ function actions_devicetypes() {
 	print "<tr>
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
-			<input type='hidden' name='selected_items' value='" . (isset($devtype_array) ? serialize($devtype_array) : '') . "'>
+			<input type='hidden' name='selected_items' value='" . serialize($devtype_array) . "'>
 		<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 			$save_html
 		</td>
@@ -241,6 +243,7 @@ function edit_devicetypes() {
 			WHERE id = ?',
 			[get_request_var('id')]);
 
+		$devicetype   = is_array($devicetype) ? $devicetype : [];
 		$header_label = __('Query [edit: %s]', $devicetype['name'], 'routerconfigs');
 	} else {
 		$header_label = __('Query [new]', 'routerconfigs');
@@ -248,7 +251,7 @@ function edit_devicetypes() {
 
 	form_start('router-devtypes.php', 'chk');
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -333,7 +336,7 @@ function show_devicetypes() {
 
 	form_start('router-devtypes.php', 'chk');
 
-	html_start_box(__('View Router Device Types', 'routerconfigs'), '100%', '', '4', 'center', 'router-devtypes.php?action=edit');
+	html_start_box(__('View Router Device Types', 'routerconfigs'), '100%', false, 4, 'center', 'router-devtypes.php?action=edit');
 
 	print $nav;
 

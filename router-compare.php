@@ -56,6 +56,8 @@ $devices = db_fetch_assoc_prepared('SELECT id, directory, hostname
 	ORDER BY hostname', []);
 
 if (cacti_sizeof($devices)) {
+	$default = 0;
+
 	foreach ($devices as $d) {
 		$default = $d['id'];
 
@@ -63,11 +65,11 @@ if (cacti_sizeof($devices)) {
 	}
 
 	if (!is_numeric($device1)) {
-		$device1 == $default;
+		$device1 = $default;
 	}
 
 	if (!is_numeric($device2)) {
-		$device1 = $default;
+		$device2 = $default;
 	}
 }
 
@@ -90,7 +92,7 @@ if (is_numeric($device2)) {
 
 display_tabs();
 
-html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', '', '4', 'center', '');
+html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', false, 4, 'center', '');
 
 ?>
 <tr class='even noprint'>
@@ -131,7 +133,7 @@ html_end_box();
 // show a filter form
 form_start('router-compare.php', 'chk');
 
-html_start_box('', '100%', '', '1', 'center', '');
+html_start_box('', '100%', false, 1, 'center', '');
 html_header(['File', 'File']);
 
 form_alternate_row();
@@ -167,11 +169,14 @@ print '</select></td></tr>';
 html_end_box(false);
 form_end();
 
-html_start_box(__('Compare Output', 'routerconfigs'), '100%', '', '1', 'center', '');
+html_start_box(__('Compare Output', 'routerconfigs'), '100%', false, 1, 'center', '');
 
 if (!empty($file1) && !empty($file2)) {
 	$device1 = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_backups WHERE id = ?', [$file1]);
 	$device2 = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_backups WHERE id = ?', [$file2]);
+
+	$device1 = is_array($device1) ? $device1 : [];
+	$device2 = is_array($device2) ? $device2 : [];
 
 	if (isset($device1['id'])) {
 		$filepath1 = plugin_routerconfigs_dir($device1['directory']) . basename($device1['filename']);
@@ -229,7 +234,7 @@ if (!empty($file1) && !empty($file2)) {
 		if (get_request_var('diffmode') == 'sdiff') {
 			$renderer = new Horde_Text_Diff_Renderer_table(['auto']);
 		} else {
-			$renderer = new Horde_Text_Diff_Renderer_unified();
+			$renderer = new Horde_Text_Diff_Renderer_Unified();
 		}
 
 		$text = $renderer->render($diff);
@@ -272,7 +277,7 @@ if (!empty($file1) && !empty($file2)) {
 		$text = $renderer->render($differ);
 	}
 
-	html_start_box('', '100%', '', '1', 'center', '');
+	html_start_box('', '100%', false, 1, 'center', '');
 
 	if (get_request_var('diffmode') == 'sdiff') {
 		html_header([$device1['directory'] . '/' . $device1['filename'], $device2['directory'] . '/' . $device2['filename']]);

@@ -64,6 +64,14 @@ class RouterconfigsTestHostKeyReader extends PHPConnection {
 		parent::__construct('TEST', [], ['ipaddress' => '127.0.0.1'], '', '', '', false, false);
 	}
 
+	function Connect() {
+		return true;
+	}
+
+	function Download($filename, $backuppath) {
+		return true;
+	}
+
 	protected function sshMethodsNegotiated() {
 		return $this->test_methods;
 	}

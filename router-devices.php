@@ -110,7 +110,7 @@ function plugin_routerconfigs_view_device_debug() {
 
 		display_tabs();
 
-		html_start_box('', '100%', '', '4', 'center', '');
+		html_start_box('', '100%', false, 4, 'center', '');
 
 		form_alternate_row();
 		print '<td><h2>' . __('Debug for %s (%s)<br><br>', html_escape($device['hostname']), html_escape($device['ipaddress']), 'routerconfigs');
@@ -139,7 +139,7 @@ function view_device_config() {
 	// ====================================================
 
 	$device = [];
-	plugin_routerconfigs_view_device_config(null, get_request_var('id'), 'router-devices.php');
+	plugin_routerconfigs_view_device_config(0, get_request_var('id'), 'router-devices.php');
 }
 
 /**
@@ -259,14 +259,16 @@ function actions_devices() {
 
 	form_start('router-devices.php');
 
-	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($rc_device_actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
+	$drp_action = (int) get_nfilter_request_var('drp_action');
+
+	if ($drp_action > 0 && array_key_exists($drp_action, $rc_device_actions)) {
+		html_start_box($rc_device_actions[$drp_action], '60%', false, 3, 'center', '');
 	} else {
-		html_start_box('', '60%', '', '3', 'center', '');
+		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
 	if (cacti_sizeof($device_array)) {
-		switch (get_nfilter_request_var('drp_action')) {
+		switch ($drp_action) {
 			case RCONFIG_DEVICE_DELETE:
 				print "<tr>
 				<td colspan='2' class='textArea'>
@@ -307,6 +309,10 @@ function actions_devices() {
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Clear SSH Host Key(s)', 'routerconfigs') . "'>";
 
 				break;
+			default:
+				$save_html = "<input type='button' value='" . __esc('Return', 'routerconfigs') . "' onClick='cactiReturnTo()'>";
+
+				break;
 		}
 	} else {
 		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.', 'routerconfigs') . "</span></td></tr>\n";
@@ -317,7 +323,7 @@ function actions_devices() {
 	print "<tr>
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
-			<input type='hidden' name='selected_items' value='" . (isset($device_array) ? serialize($device_array) : '') . "'>
+			<input type='hidden' name='selected_items' value='" . serialize($device_array) . "'>
 			<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 			$save_html
 		</td>
@@ -419,6 +425,7 @@ function edit_devices() {
 
 	if (!isempty_request_var('id')) {
 		$account                        = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_devices WHERE id = ?', [(int) get_request_var('id')]);
+		$account                        = is_array($account) ? $account : [];
 		$account['password']            = '';
 		$account['ssh_hostkey_display'] = empty($account['ssh_fingerprint']) ?
 			'<em>' . __esc('Not recorded', 'routerconfigs') . '</em>' :
@@ -431,7 +438,7 @@ function edit_devices() {
 
 	form_start('router-devices.php', 'chk');
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -692,7 +699,7 @@ function show_devices() {
 	</script>
 	<?php
 
-	html_start_box(__('Router Device Management', 'routerconfigs'), '100%', '', '4', 'center', 'router-devices.php?action=edit');
+	html_start_box(__('Router Device Management', 'routerconfigs'), '100%', false, 4, 'center', 'router-devices.php?action=edit');
 
 	?>
 	<tr class='even noprint'>
@@ -872,7 +879,7 @@ function show_devices() {
 	$nav = html_nav_bar('router-devices.php', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 10, 'Devices', 'page', 'main');
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	if (cacti_sizeof($result)) {
