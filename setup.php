@@ -24,6 +24,22 @@ declare(strict_types = 1);
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Return the CSP nonce attribute for inline <script> tags, safely across
+ * Cacti versions. Newer Cacti releases enforce a Content-Security-Policy that
+ * requires a per-request nonce on parser-inserted scripts; older releases lack
+ * the CactiSecureHeaders class, so this returns an empty string there.
+ *
+ * @return string The nonce attribute when supported, otherwise empty string.
+ */
+function plugin_routerconfigs_csp_nonce(): string {
+	if (class_exists('CactiSecureHeaders')) {
+		return CactiSecureHeaders::getNonceAttribute();
+	}
+
+	return '';
+}
+
 include_once(__DIR__ . '/include/arrays.php');
 
 /**
@@ -535,7 +551,7 @@ function routerconfigs_page_head() {
 	global $config;
 
 	if (strpos(get_current_page(), 'router-compare.php') !== false) {
-		print '<link rel="stylesheet" type="text/css" href="' . $config['url_path'] . "plugins/routerconfigs/css/diff.css\">\n";
+		print get_md5_include_css('plugins/routerconfigs/css/diff.css');
 	}
 }
 

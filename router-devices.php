@@ -651,7 +651,7 @@ function show_devices() {
 		$sql_params);
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_routerconfigs_csp_nonce(); ?>>
 
 	function applyFilter() {
 		var strURL = urlPath + 'plugins/routerconfigs/router-devices.php';
