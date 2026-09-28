@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 15:26-0400\n"
+"POT-Creation-Date: 2026-09-25 15:33-0400\n"
 "PO-Revision-Date: 2020-12-13 10:36-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,1385 +17,1390 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: include/arrays.php:41 include/arrays.php:46 include/arrays.php:53
+#: include/arrays.php:45 include/arrays.php:50 include/arrays.php:57
 msgid "Delete"
 msgstr "Xóa"
 
-#: include/arrays.php:45
+#: include/arrays.php:49
 msgid "Backup"
 msgstr "Lưu dự phòng"
 
-#: include/arrays.php:47
+#: include/arrays.php:51
 msgid "Enable"
 msgstr "Bật"
 
-#: include/arrays.php:48
+#: include/arrays.php:52
 msgid "Disable"
 msgstr "Vô hiệu hóa"
 
-#: include/arrays.php:49
+#: include/arrays.php:53
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:57
+#: include/arrays.php:61
 #, fuzzy
 msgid "SSH/Telnet"
 msgstr "Telnet"
 
-#: include/arrays.php:58
+#: include/arrays.php:62
 #, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php:59
+#: include/arrays.php:63
 #, fuzzy
 msgid "Telnet"
 msgstr "Telnet"
 
-#: include/arrays.php:60
+#: include/arrays.php:64
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php:61
+#: include/arrays.php:65
 #, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php:65
+#: include/arrays.php:69
 msgid "Inherit"
 msgstr "Thừa kế"
 
-#: include/arrays.php:69
+#: include/arrays.php:73
 msgid "Daily"
 msgstr "Hàng ngày"
 
-#: include/arrays.php:70
+#: include/arrays.php:74
 msgid "Weekly"
 msgstr "Hàng tuần"
 
-#: include/arrays.php:71
+#: include/arrays.php:75
 msgid "Monthly"
 msgstr "Hàng tháng"
 
-#: include/arrays.php:75
+#: include/arrays.php:79
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "% d tháng"
 
-#: include/arrays.php:76 include/arrays.php:77 include/arrays.php:78
-#: include/arrays.php:79
+#: include/arrays.php:80 include/arrays.php:81 include/arrays.php:82
+#: include/arrays.php:83
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "% d tháng"
 
-#: include/arrays.php:80
+#: include/arrays.php:84
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "% d Năm"
 
-#: include/arrays.php:81 include/arrays.php:82 include/arrays.php:83
-#: include/arrays.php:84
+#: include/arrays.php:85 include/arrays.php:86 include/arrays.php:87
+#: include/arrays.php:88
 #, fuzzy, php-format
 msgid "%d Years"
 msgstr "% d Năm"
 
-#: include/arrays.php:88
+#: include/arrays.php:92
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: include/arrays.php:89
+#: include/arrays.php:93
 #, php-format
 msgid "%d hour"
 msgstr "%d giờ"
 
-#: include/arrays.php:90 include/arrays.php:91 include/arrays.php:92
-#: include/arrays.php:93 include/arrays.php:94 include/arrays.php:95
+#: include/arrays.php:94 include/arrays.php:95 include/arrays.php:96
+#: include/arrays.php:97 include/arrays.php:98 include/arrays.php:99
 #, php-format
 msgid "%d hours"
 msgstr "%d giờ"
 
-#: include/arrays.php:99
+#: include/arrays.php:103
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12 giờ sáng)"
 
-#: include/arrays.php:100
+#: include/arrays.php:104
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (1 giờ sáng)"
 
-#: include/arrays.php:101
+#: include/arrays.php:105
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2 giờ sáng)"
 
-#: include/arrays.php:102
+#: include/arrays.php:106
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3 giờ sáng)"
 
-#: include/arrays.php:103
+#: include/arrays.php:107
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4 giờ sáng)"
 
-#: include/arrays.php:104
+#: include/arrays.php:108
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5 giờ sáng)"
 
-#: include/arrays.php:105
+#: include/arrays.php:109
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6 giờ sáng)"
 
-#: include/arrays.php:106
+#: include/arrays.php:110
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7 giờ sáng)"
 
-#: include/arrays.php:107
+#: include/arrays.php:111
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (8 giờ sáng)"
 
-#: include/arrays.php:108
+#: include/arrays.php:112
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9 giờ sáng)"
 
-#: include/arrays.php:109
+#: include/arrays.php:113
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12 giờ sáng)"
 
-#: include/arrays.php:110
+#: include/arrays.php:114
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11 giờ sáng)"
 
-#: include/arrays.php:111
+#: include/arrays.php:115
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12 giờ trưa)"
 
-#: include/arrays.php:112
+#: include/arrays.php:116
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (1 giờ chiều)"
 
-#: include/arrays.php:113
+#: include/arrays.php:117
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00 (2 giờ chiều)"
 
-#: include/arrays.php:114
+#: include/arrays.php:118
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (3 giờ chiều)"
 
-#: include/arrays.php:115
+#: include/arrays.php:119
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (4 giờ chiều)"
 
-#: include/arrays.php:116
+#: include/arrays.php:120
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (5 giờ chiều)"
 
-#: include/arrays.php:117
+#: include/arrays.php:121
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00 (6 giờ tối)"
 
-#: include/arrays.php:118
+#: include/arrays.php:122
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (7 giờ tối)"
 
-#: include/arrays.php:119
+#: include/arrays.php:123
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (8 giờ tối)"
 
-#: include/arrays.php:120
+#: include/arrays.php:124
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (9 giờ tối)"
 
-#: include/arrays.php:121
+#: include/arrays.php:125
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (10 giờ tối)"
 
-#: include/arrays.php:122
+#: include/arrays.php:126
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (11 giờ tối)"
 
-#: include/arrays.php:128 include/arrays.php:269 router-devtypes.php:265
+#: include/arrays.php:132 include/arrays.php:273 router-devtypes.php:352
 msgid "Name"
 msgstr "Tên"
 
-#: include/arrays.php:129
+#: include/arrays.php:133
 #, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "Đặt cho tài khoản này một tên có ý nghĩa sẽ được hiển thị."
 
-#: include/arrays.php:135 router-accounts.php:261
+#: include/arrays.php:139 router-accounts.php:336
 msgid "Username"
 msgstr "Tên đăng nhập"
 
-#: include/arrays.php:136
+#: include/arrays.php:140
 #, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "Tên người dùng sẽ được sử dụng để xác thực."
 
-#: include/arrays.php:142
+#: include/arrays.php:146
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: include/arrays.php:143
+#: include/arrays.php:147
 #, fuzzy
 msgid "The password used for authentication."
 msgstr "Mật khẩu được sử dụng để xác thực."
 
-#: include/arrays.php:151
+#: include/arrays.php:155
 #, fuzzy
 msgid "Enable Password"
 msgstr "Bật mật khẩu"
 
-#: include/arrays.php:152
+#: include/arrays.php:156
 #, fuzzy
 msgid "Your Enable Password, if required."
 msgstr "Mật khẩu cho phép của bạn, nếu cần."
 
-#: include/arrays.php:167
+#: include/arrays.php:171
 #, fuzzy
 msgid "Enable Device"
 msgstr "Kích hoạt thiết bị"
 
-#: include/arrays.php:168
+#: include/arrays.php:172
 #, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Bỏ chọn hộp này để vô hiệu hóa thiết bị này khỏi bị sao lưu."
 
-#: include/arrays.php:175 router-accounts.php:261
+#: include/arrays.php:179 router-accounts.php:336
 msgid "Description"
 msgstr "Mô tả"
 
-#: include/arrays.php:176
+#: include/arrays.php:180
 #, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "Tên của thiết bị này (sẽ được sử dụng để lưu cấu hình và SVN nếu không có tên máy chủ nào trong cấu hình)."
 
-#: include/arrays.php:182 router-devices.php:717
+#: include/arrays.php:186 router-devices.php:840
 msgid "IP Address"
 msgstr "Địa chỉ IP"
 
-#: include/arrays.php:183
+#: include/arrays.php:187
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "Đây là Địa chỉ IP được sử dụng để liên lạc với thiết bị."
 
-#: include/arrays.php:189
+#: include/arrays.php:193
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:190
+#: include/arrays.php:194
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php:195 router-backups.php:286 router-devices.php:753
+#: include/arrays.php:199 router-backups.php:321 router-devices.php:876
 msgid "Directory"
 msgstr "Danh mục"
 
-#: include/arrays.php:196
+#: include/arrays.php:200
 #, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Đây là cấu trúc thư mục tương đối được sử dụng để lưu trữ các cấu hình."
 
-#: include/arrays.php:202
+#: include/arrays.php:206
 msgid "Schedule"
 msgstr "Lịch trình"
 
-#: include/arrays.php:203
+#: include/arrays.php:207
 #, fuzzy
 msgid "How often to Backup this device."
 msgstr "Tần suất sao lưu thiết bị này."
 
-#: include/arrays.php:210 router-devices.php:594 router-devices.php:700
+#: include/arrays.php:214 router-devices.php:717 router-devices.php:823
 #, fuzzy
 msgid "Device Type"
 msgstr "Loại thiết bị"
 
-#: include/arrays.php:211
+#: include/arrays.php:215
 #, fuzzy
 msgid "Choose the type of device that the router is."
 msgstr "Chọn loại thiết bị mà bộ định tuyến."
 
-#: include/arrays.php:215 router-devices.php:821
+#: include/arrays.php:219 router-devices.php:944
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "Tự động phát hiện"
 
-#: include/arrays.php:219 include/arrays.php:277
+#: include/arrays.php:223 include/arrays.php:281
 msgid "Connection Type"
 msgstr "Kiểu kết nối"
 
-#: include/arrays.php:220 include/arrays.php:278
+#: include/arrays.php:224 include/arrays.php:282
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Đây là Địa chỉ IP được sử dụng để liên lạc với thiết bị."
 
-#: include/arrays.php:227
+#: include/arrays.php:231
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Tài khoản xác thực"
 
-#: include/arrays.php:228
+#: include/arrays.php:232
 #, fuzzy
 msgid "Choose an account to use to Login to the router"
 msgstr "Chọn một tài khoản để sử dụng để Đăng nhập vào bộ định tuyến"
 
-#: include/arrays.php:232
+#: include/arrays.php:236
 msgid "None"
 msgstr "Không"
 
-#: include/arrays.php:235 include/arrays.php:360 include/arrays.php:404
+#: include/arrays.php:239 include/arrays.php:364 include/arrays.php:408
 #, fuzzy
 msgid "Default timeout"
 msgstr "Thời gian chờ mặc định"
 
-#: include/arrays.php:236 include/arrays.php:361 include/arrays.php:405
+#: include/arrays.php:240 include/arrays.php:365 include/arrays.php:409
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "Thời gian mặc định để đợi trong vài giây cho một lần hồi sinh"
 
-#: include/arrays.php:244 include/arrays.php:369 include/arrays.php:412
+#: include/arrays.php:248 include/arrays.php:373 include/arrays.php:416
 #, fuzzy
 msgid "Default sleep time"
 msgstr "Thời gian ngủ mặc định"
 
-#: include/arrays.php:245 include/arrays.php:370 include/arrays.php:413
+#: include/arrays.php:249 include/arrays.php:374 include/arrays.php:417
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "Thời gian mặc định để ngủ tính bằng micro giây (1 / 1.000.000 giây)"
 
-#: include/arrays.php:254 include/arrays.php:353
+#: include/arrays.php:258 include/arrays.php:357
 #, fuzzy
 msgid "Assume elevated"
 msgstr "Giả sử tăng"
 
-#: include/arrays.php:255 include/arrays.php:354
+#: include/arrays.php:259 include/arrays.php:358
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "Bỏ chọn hộp này để vô hiệu hóa thiết bị này khỏi bị sao lưu."
 
-#: include/arrays.php:270
+#: include/arrays.php:274
 #, fuzzy
 msgid "Name of this device type."
 msgstr "Tên của loại thiết bị này."
 
-#: include/arrays.php:285
+#: include/arrays.php:289
 #, fuzzy
 msgid "Username Prompt"
 msgstr "Tên người dùng Nhắc"
 
-#: include/arrays.php:286
+#: include/arrays.php:290
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "Đây là lời nhắc tên người dùng để phù hợp với đăng nhập."
 
-#: include/arrays.php:293
+#: include/arrays.php:297
 #, fuzzy
 msgid "Password Prompt"
 msgstr "Mật khẩu nhắc nhở"
 
-#: include/arrays.php:294
+#: include/arrays.php:298
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "Đây là lời nhắc mật khẩu để khớp với đăng nhập."
 
-#: include/arrays.php:301
+#: include/arrays.php:305
 msgid "Configuration file"
 msgstr "Tập tin cấu hình"
 
-#: include/arrays.php:302
+#: include/arrays.php:306
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "Đây là vị trí tiêu chuẩn của tệp cấu hình trên thiết bị từ xa."
 
-#: include/arrays.php:309 router-devtypes.php:269
+#: include/arrays.php:313 router-devtypes.php:356
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "Sao chép TFTP"
 
-#: include/arrays.php:310
+#: include/arrays.php:314
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Đây là văn bản CLI được sử dụng để gửi bản sao lưu đến máy chủ tftp."
 
-#: include/arrays.php:317
+#: include/arrays.php:321
 #, fuzzy
 msgid "Show Version"
 msgstr "Hiển thị phiên bản"
 
-#: include/arrays.php:318
+#: include/arrays.php:322
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "Đây là văn bản CLI được sử dụng để hiển thị phiên bản hiện tại."
 
-#: include/arrays.php:325
+#: include/arrays.php:329
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "Cấu hình sao lưu"
 
-#: include/arrays.php:326
+#: include/arrays.php:330
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "Đây là lời nhắc tên người dùng để phù hợp với đăng nhập."
 
-#: include/arrays.php:333 router-devtypes.php:271
+#: include/arrays.php:337 router-devtypes.php:358
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: include/arrays.php:334
+#: include/arrays.php:338
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "Có một dấu nhắc xác nhận để sao chép cấu hình?"
 
-#: include/arrays.php:341 router-devtypes.php:272
+#: include/arrays.php:345 router-devtypes.php:359
 #, fuzzy
 msgid "Force Confirm"
 msgstr "Buộc xác nhận"
 
-#: include/arrays.php:342
+#: include/arrays.php:346
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "Có một dấu nhắc xác nhận lực lượng để sao chép cấu hình?"
 
-#: include/arrays.php:347
+#: include/arrays.php:351
 #, fuzzy
 msgid "Check End in Config"
 msgstr "Kiểm tra kết thúc trong cấu hình"
 
-#: include/arrays.php:348
+#: include/arrays.php:352
 #, fuzzy
 msgid "Check end in config?"
 msgstr "Kiểm tra kết thúc trong cấu hình?"
 
-#: include/arrays.php:378
+#: include/arrays.php:382
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "Mọi lời nhắc chính"
 
-#: include/arrays.php:379
+#: include/arrays.php:383
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Văn bản để khớp với lời nhắc kiểu 'Nhấn phím bất kỳ để tiếp tục'"
 
-#: include/arrays.php:393
+#: include/arrays.php:397
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php:397
+#: include/arrays.php:401
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "Thời gian lưu giữ"
 
-#: include/arrays.php:398
+#: include/arrays.php:402
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php:401
+#: include/arrays.php:405
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php:401
+#: include/arrays.php:405
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php:420
+#: include/arrays.php:424
 #, fuzzy
 msgid "Close without exit"
 msgstr "Đóng mà không có lối ra"
 
-#: include/arrays.php:421
+#: include/arrays.php:425
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "Nếu được chọn, khi đóng kết nối thiết bị, không có lệnh 'thoát' nào được đưa ra"
 
-#: include/arrays.php:425
+#: include/arrays.php:429
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "Bộ đệm kết nối gỡ lỗi"
 
-#: include/arrays.php:426
+#: include/arrays.php:430
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "Có ghi đầu ra trực tiếp của kết nối thiết bị hay không"
 
-#: include/arrays.php:430
+#: include/arrays.php:434
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "Giả sử tất cả các thiết bị được nâng lên"
 
-#: include/arrays.php:431
+#: include/arrays.php:435
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "Giả sử tất cả các thiết bị đều được nâng lên"
 
-#: include/arrays.php:435
+#: include/arrays.php:439
 #, fuzzy
 msgid "Download Hour"
 msgstr "Giờ tải xuống"
 
-#: include/arrays.php:436
+#: include/arrays.php:440
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "Giờ trong ngày để thực hiện tải toàn bộ."
 
-#: include/arrays.php:442
+#: include/arrays.php:446
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "Lịch trình"
 
-#: include/arrays.php:443
+#: include/arrays.php:447
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "Thời gian chờ trước khi cố gắng thực hiện tải xuống bổ sung khi tải xuống theo lịch trình không thành công"
 
-#: include/arrays.php:449
+#: include/arrays.php:453
 #, fuzzy
 msgid "Retention Period"
 msgstr "Thời gian lưu giữ"
 
-#: include/arrays.php:450
+#: include/arrays.php:454
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "Số ngày giữ lại các bản sao lưu cũ."
 
-#: include/arrays.php:456
+#: include/arrays.php:460
 #, fuzzy
 msgid "Transfer Options"
 msgstr "Tùy chọn chuyển"
 
-#: include/arrays.php:460
+#: include/arrays.php:464
 #, fuzzy
 msgid "Default connection type"
 msgstr "Loại kết nối mặc định"
 
-#: include/arrays.php:461
+#: include/arrays.php:465
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "Đây là Địa chỉ IP được sử dụng để liên lạc với thiết bị."
 
-#: include/arrays.php:467
+#: include/arrays.php:471
 #, fuzzy
 msgid "Separate By Device"
 msgstr "Tách biệt theo thiết bị"
 
-#: include/arrays.php:468
+#: include/arrays.php:472
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "Tách các cấu hình đã lưu trữ thành một thư mục trên mỗi thiết bị"
 
-#: include/arrays.php:473
+#: include/arrays.php:477
 #, fuzzy
 msgid "SCP Path"
 msgstr "Đường dẫn SCP"
 
-#: include/arrays.php:474
+#: include/arrays.php:478
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php:480
+#: include/arrays.php:484
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php:481
+#: include/arrays.php:485
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php:486
+#: include/arrays.php:490
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "IP máy chủ TFTP"
 
-#: include/arrays.php:487
+#: include/arrays.php:491
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Phải là một IP trỏ đến máy chủ Cacti của bạn."
 
-#: include/arrays.php:494
+#: include/arrays.php:498
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "Đường dẫn thư mục sao lưu"
 
-#: include/arrays.php:495
+#: include/arrays.php:499
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "Đường dẫn đến nơi Configs của bạn sẽ được sao lưu, nó phải là đường dẫn mà Máy chủ TFTP cục bộ ghi vào."
 
-#: include/arrays.php:502
+#: include/arrays.php:506
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "Đường dẫn thư mục sao lưu"
 
-#: include/arrays.php:503
+#: include/arrays.php:507
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "Đường dẫn đến nơi Configs của bạn sẽ được sao lưu, nó phải là đường dẫn mà Máy chủ TFTP cục bộ ghi vào."
 
-#: include/arrays.php:510
+#: include/arrays.php:514
 msgid "Email Options"
 msgstr "Tùy chọn email"
 
-#: include/arrays.php:514
+#: include/arrays.php:518
 msgid "From Address"
 msgstr "Email người gửi"
 
-#: include/arrays.php:515
+#: include/arrays.php:519
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "Địa chỉ email sao lưu hàng đêm sẽ được gửi từ."
 
-#: include/arrays.php:522
+#: include/arrays.php:526
 msgid "From Name"
 msgstr "Tên người gửi"
 
-#: include/arrays.php:523
+#: include/arrays.php:527
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "Địa chỉ email sao lưu hàng đêm sẽ được gửi từ."
 
-#: include/arrays.php:530
+#: include/arrays.php:534
 msgid "Email Address"
 msgstr "Địa chỉ Email"
 
-#: include/arrays.php:531
+#: include/arrays.php:535
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Danh sách địa chỉ Email được phân cách bằng dấu phẩy để gửi Email sao lưu hàng đêm tới."
 
-#: include/functions.php:43 router-accounts.php:261
+#: include/functions.php:55 router-accounts.php:336
 msgid "Devices"
 msgstr "Thiết bị"
 
-#: include/functions.php:44 router-devtypes.php:254
+#: include/functions.php:56 router-devtypes.php:341
 #, fuzzy
 msgid "Device Types"
 msgstr "Các loại thiết bị"
 
-#: include/functions.php:45
+#: include/functions.php:57
 msgid "Authentication"
 msgstr "Xác thực"
 
-#: include/functions.php:46
+#: include/functions.php:58
 msgid "Backups"
 msgstr "Sao lưu"
 
-#: include/functions.php:47 router-backups.php:351
+#: include/functions.php:59 router-backups.php:386
 msgid "Compare"
 msgstr "So sánh"
 
-#: include/functions.php:67
+#: include/functions.php:79
 #, fuzzy, php-format
 msgid "Technical Support [ %s ]"
 msgstr "Hỗ trợ kỹ thuật [ %s]"
 
-#: include/functions.php:88
+#: include/functions.php:110
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "(%s ký tự)"
 
-#: include/functions.php:88
+#: include/functions.php:110
 #, fuzzy
 msgid "(Not Set)"
 msgstr "Thiết lập mặc định"
 
-#: include/functions.php:115
+#: include/functions.php:178
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "LƯU Ý: Bắt đầu sao lưu thủ công các thiết bị %s"
 
-#: include/functions.php:118
+#: include/functions.php:181
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "LƯU Ý: Đang bắt đầu thử lại tự động"
 
-#: include/functions.php:120
+#: include/functions.php:183
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "LƯU Ý: Bắt đầu sao lưu tự động"
 
-#: include/functions.php:135
+#: include/functions.php:198
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: Đường dẫn sao lưu không được đặt hoặc không phải là một thư mục"
 
-#: include/functions.php:138
+#: include/functions.php:201
 #, fuzzy
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: Máy chủ TFTP chưa được đặt"
 
-#: include/functions.php:176
+#: include/functions.php:239
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "GỢI Ý: Đang cố tải xuống cho %s"
 
-#: include/functions.php:218
+#: include/functions.php:281
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "Thiết bị %s được sao lưu thành công. <br>"
 
-#: include/functions.php:219
+#: include/functions.php:282
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "Thiết bị %s không thể sao lưu. <br>"
 
-#: include/functions.php:222
+#: include/functions.php:285
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "Thiết bị %s không thể sao lưu. <br>"
 
-#: include/functions.php:239
+#: include/functions.php:302
 #, fuzzy
 msgid "Config Backups"
 msgstr "Cấu hình sao lưu"
 
-#: include/functions.php:243
+#: include/functions.php:306
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "Cấu hình sao lưu"
 
-#: include/functions.php:246
+#: include/functions.php:309
 #, fuzzy
 msgid " - Forced"
 msgstr " - Cưỡng bức"
 
-#: include/functions.php:250
+#: include/functions.php:313
 #, fuzzy
 msgid " - Manual"
 msgstr "Thủ công"
 
-#: include/functions.php:254
+#: include/functions.php:317
 #, fuzzy
 msgid " - Simulated"
 msgstr " - Mô phỏng"
 
-#: include/functions.php:258
+#: include/functions.php:321
 #, fuzzy
 msgid " - Scheduled"
 msgstr "Đặt lịch"
 
-#: include/functions.php:262
+#: include/functions.php:325
 #, fuzzy
 msgid " - Reattempt"
 msgstr " - Làm lại"
 
-#: include/functions.php:266
+#: include/functions.php:329
 #, fuzzy
 msgid ": Partial"
 msgstr ": Một phần"
 
-#: include/functions.php:268
+#: include/functions.php:331
 #, fuzzy
 msgid ": FAILED"
 msgstr "Thất bại"
 
-#: include/functions.php:283
+#: include/functions.php:346
 #, fuzzy
 msgid "STATS: "
 msgstr "Thống kê"
 
-#: include/functions.php:329
+#: include/functions.php:445
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "Đường dẫn sao lưu không được đặt hoặc không phải là một thư mục"
 
-#: include/functions.php:338
+#: include/functions.php:455
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php:386
+#: include/functions.php:536
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "THỐNG KÊ: Sao lưu hiện đang chạy kể từ %s"
 
-#: include/functions.php:390
+#: include/functions.php:540
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "CẢNH BÁO: Sao lưu đã chạy kể từ %s"
 
-#: include/functions.php:512
+#: include/functions.php:725
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php:514
+#: include/functions.php:727
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php:527
+#: include/functions.php:740 include/functions.php:748
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "LỖI: Không kết nối được với Thiết bị '%s' bằng loại kết nối: %s"
 
-#: include/functions.php:538
+#: include/functions.php:759
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "LỖI: Không tải xuống được '%s' sang '%s' qua '%s'"
 
-#: include/functions.php:1106
+#: include/functions.php:1534
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php:1111
+#: include/functions.php:1539
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "Tệp '%s' không tải được"
 
-#: include/functions.php:1114
+#: include/functions.php:1542
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "Tệp '%s' không được tìm thấy"
 
-#: include/functions.php:1125
+#: include/functions.php:1553
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "Cấu hình bộ định tuyến cho %s ( %s)"
 
-#: include/functions.php:1126
+#: include/functions.php:1554
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "Sao lưu từ %s"
 
-#: include/functions.php:1127
+#: include/functions.php:1555
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Tệp: %s / %s"
 
-#: router-accounts.php:135
+#: router-accounts.php:154
 #, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr "Nhấp vào 'Tiếp tục' để xóa (các) tài khoản sau."
 
-#: router-accounts.php:141 router-devices.php:240 router-devices.php:250
-#: router-devices.php:260 router-devices.php:270 router-devtypes.php:120
+#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
+#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
 msgid "Cancel"
 msgstr "Hủy"
 
-#: router-accounts.php:141 router-devices.php:240 router-devices.php:250
-#: router-devices.php:260 router-devices.php:270 router-devtypes.php:120
+#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
+#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: router-accounts.php:141 router-devices.php:240 router-devtypes.php:120
+#: router-accounts.php:160 router-devices.php:279 router-devtypes.php:139
 #, fuzzy
 msgid "Delete Device(s)"
 msgstr "Xóa thiết bị"
 
-#: router-accounts.php:143
+#: router-accounts.php:162
 #, fuzzy
 msgid "You must select at least one device."
 msgstr "Bạn phải chọn ít nhất một thiết bị."
 
-#: router-accounts.php:144 router-devices.php:277
+#: router-accounts.php:163 router-devices.php:313 router-devices.php:320
 msgid "Return"
 msgstr "Trở về trang cài đặt bắt buộc Plugins"
 
-#: router-accounts.php:216
+#: router-accounts.php:264
 #, fuzzy, php-format
 msgid "Account: [edit: %s]"
 msgstr "Tài khoản: [chỉnh sửa: %s]"
 
-#: router-accounts.php:218
+#: router-accounts.php:266
 #, fuzzy
 msgid "Account: [new]"
 msgstr "Tài khoản: [mới]"
 
-#: router-accounts.php:253
+#: router-accounts.php:328
 msgid "Accounts"
 msgstr "Tài Khoản"
 
-#: router-accounts.php:257
+#: router-accounts.php:332
 msgid "Account Management"
 msgstr "Quản lý tài khoản"
 
-#: router-accounts.php:278
+#: router-accounts.php:353
 #, fuzzy
 msgid "No Router Accounts Found"
 msgstr "Không tìm thấy tài khoản bộ định tuyến"
 
-#: router-backups.php:203 setup.php:509
+#: router-backups.php:238 setup.php:693
 #, fuzzy
 msgid "Router Backups"
 msgstr "Sao lưu bộ định tuyến"
 
-#: router-backups.php:213 router-devices.php:598 router-devices.php:619
+#: router-backups.php:248 router-devices.php:721 router-devices.php:742
 msgid "Any"
 msgstr "Bất kỳ"
 
-#: router-backups.php:230 router-devices.php:636
+#: router-backups.php:265 router-devices.php:759
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: router-backups.php:237 router-devices.php:643
+#: router-backups.php:272 router-devices.php:766
 msgid "Default"
 msgstr "Mặc định"
 
-#: router-backups.php:253 router-devices.php:659
+#: router-backups.php:288 router-devices.php:782
 msgid "Go"
 msgstr "Đi"
 
-#: router-backups.php:253 router-devices.php:659
+#: router-backups.php:288 router-devices.php:782
 #, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "Đặt / làm mới bộ lọc"
 
-#: router-backups.php:254 router-devices.php:660
+#: router-backups.php:289 router-devices.php:783
 msgid "Clear"
 msgstr "Xóa"
 
-#: router-backups.php:254 router-devices.php:660
+#: router-backups.php:289 router-devices.php:783
 #, fuzzy
 msgid "Clear Filters"
 msgstr "Xóa bộ lọc"
 
-#: router-backups.php:268 router-devices.php:677
+#: router-backups.php:303 router-devices.php:800
 msgid "Hostname"
 msgstr "Tên máy chủ"
 
-#: router-backups.php:271 router-devices.php:680
+#: router-backups.php:306 router-devices.php:803
 #, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr "Địa chỉ IP hoặc tên máy chủ. Nếu một tên máy chủ, nó phải có thể phân giải được bằng DNS hoặc từ tệp máy chủ của bạn."
 
-#: router-backups.php:274 router-devices.php:683 router-devtypes.php:264
+#: router-backups.php:309 router-devices.php:806 router-devtypes.php:351
 msgid "ID"
 msgstr "ID"
 
-#: router-backups.php:277 router-devices.php:686
+#: router-backups.php:312 router-devices.php:809
 #, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr "ID cơ sở dữ liệu nội bộ cho Thiết bị này. Hữu ích khi thực hiện tự động hóa hoặc gỡ lỗi."
 
-#: router-backups.php:280
+#: router-backups.php:315
 msgid "Functions"
 msgstr "Máy chủ của bạn không hỗ trợ các chức năng %s  - điều này là bắt buộc để mã hóa ký tự tốt hơn. Một số mục dự phòng sẽ được sử dụng thay cho nó."
 
-#: router-backups.php:283
+#: router-backups.php:318
 #, fuzzy
 msgid "Perform functions against this backup"
 msgstr "Thực hiện các chức năng chống lại bản sao lưu này"
 
-#: router-backups.php:289 router-devices.php:756
+#: router-backups.php:324 router-devices.php:879
 #, fuzzy
 msgid "The directory of the stored device backups"
 msgstr "Số ngày giữ lại các bản sao lưu cũ."
 
-#: router-backups.php:292
+#: router-backups.php:327
 #, fuzzy
 msgid "Backup Time"
 msgstr "Thời gian sao lưu"
 
-#: router-backups.php:295 router-devices.php:697
+#: router-backups.php:330 router-devices.php:820
 #, fuzzy
 msgid "The last Backup time of the device"
 msgstr "Tần suất sao lưu thiết bị này."
 
-#: router-backups.php:298
+#: router-backups.php:333
 #, fuzzy
 msgid "Last Change"
 msgstr "Thay đổi cuối cùng"
 
-#: router-backups.php:301
+#: router-backups.php:336
 #, fuzzy
 msgid "The last Change time of the device"
 msgstr "Lần thay đổi cuối cùng của thiết bị"
 
-#: router-backups.php:304 router-devices.php:748
+#: router-backups.php:339 router-devices.php:871
 #, fuzzy
 msgid "Changed By"
 msgstr "Thay đổi bởi"
 
-#: router-backups.php:307
+#: router-backups.php:342
 #, fuzzy
 msgid "The last person to change the configuration of the device"
 msgstr "Người cuối cùng thay đổi cấu hình của thiết bị"
 
-#: router-backups.php:310
+#: router-backups.php:345
 msgid "Filename"
 msgstr "Tên tập tin"
 
-#: router-backups.php:313
+#: router-backups.php:348
 #, fuzzy
 msgid "The filename of the stored device backups"
 msgstr "Số ngày giữ lại các bản sao lưu cũ."
 
-#: router-backups.php:349 setup.php:495 setup.php:530
+#: router-backups.php:384 setup.php:679 setup.php:714
 #, fuzzy
 msgid "View Config"
 msgstr "Xem cấu hình"
 
-#: router-backups.php:362
+#: router-backups.php:397
 #, fuzzy
 msgid "No Router Backups Found"
 msgstr "Không tìm thấy bản sao lưu bộ định tuyến"
 
-#: router-compare.php:93
+#: router-compare.php:95
 #, fuzzy
 msgid "Router Backup Comparison"
 msgstr "Sao lưu bộ định tuyến"
 
-#: router-compare.php:102
+#: router-compare.php:104
 msgid "Diff Mode"
 msgstr ""
 
-#: router-compare.php:106
+#: router-compare.php:108
 msgid "Inline"
 msgstr ""
 
-#: router-compare.php:107
+#: router-compare.php:109
 msgid "Side by Side"
 msgstr ""
 
-#: router-compare.php:170
+#: router-compare.php:172
 #, fuzzy
 msgid "Compare Output"
 msgstr "So sánh đầu ra"
 
-#: router-compare.php:283 router-compare.php:291
+#: router-compare.php:285 router-compare.php:289
+#, fuzzy, php-format
+msgid "Backup %s not found"
+msgstr "Tệp '%s' không được tìm thấy"
+
+#: router-compare.php:296 router-compare.php:304
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Không có sự thay đổi nào cả"
 
-#: router-compare.php:301
+#: router-compare.php:314
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Lỗi, bạn phải có bản sao lưu cho mỗi thiết bị."
 
-#: router-devices.php:108
+#: router-devices.php:116
 #, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
 msgstr "Gỡ lỗi cho %s ( %s) <br><br>"
 
-#: router-devices.php:207
+#: router-devices.php:244
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "GỢI Ý: Thực hiện sao lưu thủ công bằng cách sử dụng '%s' với các đối số '%s'"
 
-#: router-devices.php:210
+#: router-devices.php:247
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
-msgstr ""
-
-#: router-devices.php:236
-#, fuzzy
-msgid "Click 'Continue' to Delete the following device(s)."
-msgstr "Nhấp vào 'Tiếp tục' để xóa (các) thiết bị sau."
-
-#: router-devices.php:246
-#, fuzzy
-msgid "Click 'Continue' to Enable the following device(s)."
-msgstr "Nhấp vào 'Tiếp tục' để bật (các) thiết bị sau."
-
-#: router-devices.php:250
-#, fuzzy
-msgid "Enable Device(s)"
-msgstr "Kích hoạt thiết bị"
-
-#: router-devices.php:256
-#, fuzzy
-msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "Nhấp vào 'Tiếp tục' để Tắt (các) thiết bị sau."
-
-#: router-devices.php:260
-#, fuzzy
-msgid "Disable Device(s)"
-msgstr "Vô hiệu hóa thiết bị"
-
-#: router-devices.php:266
-msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
-msgstr ""
-
-#: router-devices.php:270
-msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php:275
 #, fuzzy
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Nhấp vào 'Tiếp tục' để xóa (các) thiết bị sau."
+
+#: router-devices.php:285
+#, fuzzy
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Nhấp vào 'Tiếp tục' để bật (các) thiết bị sau."
+
+#: router-devices.php:289
+#, fuzzy
+msgid "Enable Device(s)"
+msgstr "Kích hoạt thiết bị"
+
+#: router-devices.php:295
+#, fuzzy
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Nhấp vào 'Tiếp tục' để Tắt (các) thiết bị sau."
+
+#: router-devices.php:299
+#, fuzzy
+msgid "Disable Device(s)"
+msgstr "Vô hiệu hóa thiết bị"
+
+#: router-devices.php:305
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr ""
+
+#: router-devices.php:309
+msgid "Clear SSH Host Key(s)"
+msgstr ""
+
+#: router-devices.php:318
+#, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Bạn phải chọn ít nhất Thiết bị định tuyến."
 
-#: router-devices.php:364 router-devices.php:368
+#: router-devices.php:437 router-devices.php:441
 msgid "Not recorded"
 msgstr ""
 
-#: router-devices.php:366
+#: router-devices.php:439
 #, fuzzy, php-format
 msgid "Router: [edit: %s]"
 msgstr "Bộ định tuyến: [chỉnh sửa: %s]"
 
-#: router-devices.php:369
+#: router-devices.php:442
 #, fuzzy
 msgid "Router: [new]"
 msgstr "Bộ định tuyến: [mới]"
 
-#: router-devices.php:585
+#: router-devices.php:708
 #, fuzzy
 msgid "Router Device Management"
 msgstr "Quản lý thiết bị định tuyến"
 
-#: router-devices.php:615
+#: router-devices.php:738
 msgid "Account"
 msgstr "Tài khoản"
 
-#: router-devices.php:674
+#: router-devices.php:797
 msgid "Actions"
 msgstr "Hành động"
 
-#: router-devices.php:689
+#: router-devices.php:812
 msgid "Enabled"
 msgstr "Bật"
 
-#: router-devices.php:694
+#: router-devices.php:817
 #, fuzzy
 msgid "Last Backup"
 msgstr "Sao lưu cuối cùng"
 
-#: router-devices.php:703
+#: router-devices.php:826
 #, fuzzy
 msgid "The device type of the device"
 msgstr "Loại thiết bị của thiết bị"
 
-#: router-devices.php:706
+#: router-devices.php:829
 #, fuzzy
 msgid "Connect Type"
 msgstr "Loại thiết bị"
 
-#: router-devices.php:709
+#: router-devices.php:832
 #, fuzzy
 msgid "The connection type for this device"
 msgstr "Loại kết nối cho thiết bị này"
 
-#: router-devices.php:712
+#: router-devices.php:835
 #, fuzzy
 msgid "Configs"
 msgstr "Bánh kẹo"
 
-#: router-devices.php:714
+#: router-devices.php:837
 #, fuzzy
 msgid "The number of configurations for this device"
 msgstr "Số lượng cấu hình cho thiết bị này"
 
-#: router-devices.php:720
+#: router-devices.php:843
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "Tên của loại thiết bị này."
 
-#: router-devices.php:723
+#: router-devices.php:846
 #, fuzzy
 msgid "Next Backup"
 msgstr "Sao lưu cuối cùng"
 
-#: router-devices.php:728
+#: router-devices.php:851
 #, fuzzy
 msgid "Date Backup"
 msgstr "Sao lưu cuối cùng"
 
-#: router-devices.php:733
+#: router-devices.php:856
 #, fuzzy
 msgid "Next Attempt"
 msgstr "Nỗ lực tiếp theo"
 
-#: router-devices.php:738
+#: router-devices.php:861
 #, fuzzy
 msgid "Last Attempt"
 msgstr "Nỗ lực cuối cùng"
 
-#: router-devices.php:743
+#: router-devices.php:866
 #, fuzzy
 msgid "Date Change"
 msgstr "Thay đổi cuối cùng"
 
-#: router-devices.php:788
+#: router-devices.php:911
 msgid "Today"
 msgstr "Hôm nay"
 
-#: router-devices.php:789
+#: router-devices.php:912
 msgid "Yesterday"
 msgstr "Hôm qua"
 
-#: router-devices.php:790
+#: router-devices.php:913
 msgid "This Week"
 msgstr "Tuần này"
 
-#: router-devices.php:791
+#: router-devices.php:914
 msgid "This Month"
 msgstr "Tháng này"
 
-#: router-devices.php:792
+#: router-devices.php:915
 #, fuzzy
 msgid "Within a Year"
 msgstr "Trong vòng một năm"
 
-#: router-devices.php:793
+#: router-devices.php:916
 #, fuzzy
 msgid "Long, Long Ago"
 msgstr "Rất lâu rồi"
 
-#: router-devices.php:824 router-devtypes.php:289 router-devtypes.php:290
-#: router-devtypes.php:292
+#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
+#: router-devtypes.php:379
 msgid "No"
 msgstr "Không"
 
-#: router-devices.php:824 router-devtypes.php:289 router-devtypes.php:290
-#: router-devtypes.php:292
+#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
+#: router-devtypes.php:379
 msgid "Yes"
 msgstr "Có"
 
-#: router-devices.php:840
+#: router-devices.php:963
 #, fuzzy
 msgid "Connect via SSH"
 msgstr "Kết nối qua SSH"
 
-#: router-devices.php:844
+#: router-devices.php:967
 #, fuzzy
 msgid "Connect via Telnet"
 msgstr "Kết nối qua Telnet"
 
-#: router-devices.php:849
+#: router-devices.php:972
 #, fuzzy
 msgid "Trace Route"
 msgstr "Tuyến đường"
 
-#: router-devices.php:852
+#: router-devices.php:975
 #, fuzzy
 msgid "Router Debug Info"
 msgstr "Thông tin gỡ lỗi bộ định tuyến"
 
-#: router-devices.php:863
+#: router-devices.php:986
 #, fuzzy, php-format
 msgid "Backups (%s)"
 msgstr "Sao lưu ( %s)"
 
-#: router-devices.php:863
+#: router-devices.php:986
 msgid "Current"
 msgstr "Hiện hành"
 
-#: router-devices.php:878
+#: router-devices.php:1001
 #, fuzzy
 msgid "No Router Devices Found"
 msgstr "Không tìm thấy thiết bị định tuyến"
 
-#: router-devtypes.php:114
+#: router-devtypes.php:133
 #, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "Khi bạn nhấp vào 'Tiếp tục', (các) thiết bị sau sẽ bị xóa."
 
-#: router-devtypes.php:199
+#: router-devtypes.php:253
 #, fuzzy, php-format
 msgid "Query [edit: %s]"
 msgstr "Truy vấn [chỉnh sửa: %s]"
 
-#: router-devtypes.php:201
+#: router-devtypes.php:255
 #, fuzzy
 msgid "Query [new]"
 msgstr "Truy vấn [mới]"
 
-#: router-devtypes.php:258
+#: router-devtypes.php:345
 #, fuzzy
 msgid "View Router Device Types"
 msgstr "Xem các loại thiết bị định tuyến"
 
-#: router-devtypes.php:266
+#: router-devtypes.php:353
 msgid "Type"
 msgstr "Loại"
 
-#: router-devtypes.php:267
+#: router-devtypes.php:354
 #, fuzzy
 msgid "User Prompt"
 msgstr "Tên người dùng Nhắc"
 
-#: router-devtypes.php:268
+#: router-devtypes.php:355
 #, fuzzy
 msgid "Pass Prompt"
 msgstr "Mật khẩu nhắc nhở"
 
-#: router-devtypes.php:270
+#: router-devtypes.php:357
 msgid "Version"
 msgstr "Phiên bản"
 
-#: router-devtypes.php:273
+#: router-devtypes.php:360
 #, fuzzy
 msgid "Confirm Prompt"
 msgstr "Xác nhận mật khẩu mới"
 
-#: router-devtypes.php:274
+#: router-devtypes.php:361
 #, fuzzy
 msgid "Check End In Config"
 msgstr "Kiểm tra kết thúc trong cấu hình"
 
-#: router-devtypes.php:298
+#: router-devtypes.php:385
 #, fuzzy
 msgid "No Router Device Types Found"
 msgstr "Không tìm thấy loại thiết bị định tuyến"
 
-#: setup.php:45 setup.php:453 setup.php:468
+#: setup.php:66 setup.php:616 setup.php:642
 #, fuzzy
 msgid "Router Configs"
 msgstr "Bộ định tuyến"
 
-#: setup.php:442
+#: setup.php:587
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "GỢI Ý: Đang thực thi '%s' với các đối số '%s'"
 
-#: setup.php:468
+#: setup.php:642
 msgid "Utilities"
 msgstr "Tiện Ích"
 
-#: setup.php:474
+#: setup.php:658
 #, fuzzy
 msgid "Router Devices"
 msgstr "Thiết bị định tuyến"
 
-#: setup.php:481 setup.php:516 setup.php:544
+#: setup.php:665 setup.php:700 setup.php:728
 msgid "(edit)"
 msgstr "(chinnhr sửa)"
 
-#: setup.php:488 setup.php:523 setup.php:551
+#: setup.php:672 setup.php:707 setup.php:735
 #, fuzzy
 msgid "(actions)"
 msgstr "Hành động"
 
-#: setup.php:502
+#: setup.php:686
 #, fuzzy
 msgid "View Debug"
 msgstr "Xem gỡ lỗi"
 
-#: setup.php:537
+#: setup.php:721
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Tài khoản bộ định tuyến"
 
-#: setup.php:558
+#: setup.php:742
 #, fuzzy
 msgid "Router Compare"
 msgstr "Bộ định tuyến so sánh"
 
-#: setup.php:630
+#: setup.php:849
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "Bộ định tuyến"
 
-#: setup.php:630
+#: setup.php:849
 #, fuzzy
 msgid "Routers"
 msgstr "Bộ định tuyến"
