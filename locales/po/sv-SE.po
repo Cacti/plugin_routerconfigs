@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2026-09-12 08:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
@@ -814,7 +814,7 @@ msgstr "Kontoinställningar"
 msgid "No Router Accounts Found"
 msgstr "Inga routerkonton hittades"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 msgid "Router Backups"
 msgstr "Säkerhetskopiering av router"
 
@@ -906,7 +906,7 @@ msgstr "Byt namn"
 msgid "The filename of the stored device backups"
 msgstr "Filnamnet för de lagrade säkerhetskopiorna av enheten"
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 msgid "View Config"
 msgstr "Visa konfiguration"
 
@@ -1179,48 +1179,48 @@ msgstr "Kontrollera konfiguration av ändinställning"
 msgid "No Router Device Types Found"
 msgstr "Inga routerenhetstyper hittades"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 msgid "Router Configs"
 msgstr "Routerkonfigurationer"
 
-#: setup.php:587
+#: setup.php:603
 #, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Körning av '%s' med argumenten '%s'"
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "Tillbehör"
 
-#: setup.php:658
+#: setup.php:674
 msgid "Router Devices"
 msgstr "Router-enheter"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 msgid "(edit)"
 msgstr "(redigera)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 msgid "(actions)"
 msgstr "Åtgärder"
 
-#: setup.php:686
+#: setup.php:702
 msgid "View Debug"
 msgstr "Visa felsökning"
 
-#: setup.php:721
+#: setup.php:737
 msgid "Router Accounts"
 msgstr "Router-konton"
 
-#: setup.php:742
+#: setup.php:758
 msgid "Router Compare"
 msgstr "Jämför router"
 
-#: setup.php:849
+#: setup.php:865
 msgid "RouterConfigs"
 msgstr "Routerkonfigurationer"
 
-#: setup.php:849
+#: setup.php:865
 msgid "Routers"
 msgstr "Routrar"
 
