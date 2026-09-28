@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2026-09-24 21:02+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\n"
@@ -813,7 +813,7 @@ msgstr "ანგარიშების მართვა"
 msgid "No Router Accounts Found"
 msgstr "რაუტერის ანგარიშები აღმოჩენილი არაა"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 msgid "Router Backups"
 msgstr "რაუტერის მარქაფები"
 
@@ -905,7 +905,7 @@ msgstr "ფაილის სახელი"
 msgid "The filename of the stored device backups"
 msgstr ""
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 msgid "View Config"
 msgstr "კონფიგურაციის ნახვა"
 
@@ -1178,48 +1178,48 @@ msgstr "შეამოწმეთ შეყვანის ბოლო კო
 msgid "No Router Device Types Found"
 msgstr "რაუტერის მოწყობილობის ტიპები აღმოჩენილი არაა"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 msgid "Router Configs"
 msgstr "რაუნტერის კონფიგურაციები"
 
-#: setup.php:587
+#: setup.php:603
 #, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr ""
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "ხელსაწყოები"
 
-#: setup.php:658
+#: setup.php:674
 msgid "Router Devices"
 msgstr "რაუტერები"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 msgid "(edit)"
 msgstr "(ჩასწორება)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 msgid "(actions)"
 msgstr "(ქმედებები)"
 
-#: setup.php:686
+#: setup.php:702
 msgid "View Debug"
 msgstr "გამართვის შეტყობინებების ნახვა"
 
-#: setup.php:721
+#: setup.php:737
 msgid "Router Accounts"
 msgstr "რაუტერის ანგარიშები"
 
-#: setup.php:742
+#: setup.php:758
 msgid "Router Compare"
 msgstr "რაუტერის შედარება"
 
-#: setup.php:849
+#: setup.php:865
 msgid "RouterConfigs"
 msgstr "რაუტერის კონფიგურაციები"
 
-#: setup.php:849
+#: setup.php:865
 msgid "Routers"
 msgstr "რაუტერები"
 
