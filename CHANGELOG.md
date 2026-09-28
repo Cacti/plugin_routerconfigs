@@ -3,6 +3,31 @@
 --- develop ---
 
 * security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+
+- issue: Fix router-compare.php using '==' instead of '=' when defaulting
+  an invalid $device1 selection, and assigning the default to $device1
+  instead of $device2 when $device2 was invalid
+
+- issue: Fix router-devices.php's actions_devices() and router-devtypes.php's
+  actions_devicetypes() indexing their action-label arrays with an
+  unvalidated drp_action request value before checking it's a known
+  action id
+
+- issue: Fix router-download.php's option parser referencing the
+  undefined EXIT_OPTERR constant (would fatal with 'Undefined constant'
+  if a malformed option specification were ever encountered)
+
+- issue: Fix PHPShellConnection's connection retry loop never updating
+  $ret from DoCommand()'s return value, silently relying only on the
+  iteration-count safety net to exit
+
+- issue: Fix plugin_routerconfigs_download_config() proceeding to
+  connect with an undefined username/password/enable password when the
+  device's account lookup failed
+
+- issue: Fix router-backups.php's html_header_sort() call passing an
+  incorrect $last_item_colspan argument value
+
 * issue#151: Defense-in-depth hardening
 * issue#160: Opt-in SSH host-key verification
 
