@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -936,7 +936,7 @@ msgstr "Διαχείριση λογαριασμών"
 msgid "No Router Accounts Found"
 msgstr "Δεν βρέθηκαν λογαριασμοί δρομολογητή"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 #, fuzzy
 msgid "Router Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας δρομολογητών"
@@ -1042,7 +1042,7 @@ msgstr "Όνομα αρχείου"
 msgid "The filename of the stored device backups"
 msgstr "Ο αριθμός ημερών για τη διατήρηση των παλιών αντιγράφων ασφαλείας."
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 #, fuzzy
 msgid "View Config"
 msgstr "Προβολή διαμόρφωσης"
@@ -1355,56 +1355,56 @@ msgstr "Έλεγχος Τέλος στο Config"
 msgid "No Router Device Types Found"
 msgstr "Δεν βρέθηκαν τύποι συσκευών δρομολογητή"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 #, fuzzy
 msgid "Router Configs"
 msgstr "Ρυθμίσεις δρομολογητή"
 
-#: setup.php:587
+#: setup.php:603
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Εκτέλεση \"%s\" με ορίσματα \"%s\""
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "Παροχές"
 
-#: setup.php:658
+#: setup.php:674
 #, fuzzy
 msgid "Router Devices"
 msgstr "Συσκευές δρομολόγησης"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 #, fuzzy
 msgid "(edit)"
 msgstr "(Eπεξεργασία)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 #, fuzzy
 msgid "(actions)"
 msgstr "Ενέργειες"
 
-#: setup.php:686
+#: setup.php:702
 #, fuzzy
 msgid "View Debug"
 msgstr "Προβολή εντοπισμού σφαλμάτων"
 
-#: setup.php:721
+#: setup.php:737
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Λογαριασμοί δρομολογητών"
 
-#: setup.php:742
+#: setup.php:758
 #, fuzzy
 msgid "Router Compare"
 msgstr "Σύγκριση δρομολογητή"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "Ρυθμίσεις δρομολογητή"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "Routers"
 msgstr "Ρυθμίσεις δρομολογητή"
