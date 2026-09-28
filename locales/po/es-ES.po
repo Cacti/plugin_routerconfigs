@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2021-09-22 14:09+0000\n"
 "Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/routerconfigs/es/>\n"
@@ -924,7 +924,7 @@ msgstr "Administración de la cuenta"
 msgid "No Router Accounts Found"
 msgstr "No se han encontrado cuentas de enrutador"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 #, fuzzy
 msgid "Router Backups"
 msgstr "Copias de seguridad del router"
@@ -1024,7 +1024,7 @@ msgstr "Nombre del archivo"
 msgid "The filename of the stored device backups"
 msgstr "El número de días para conservar las copias de seguridad antiguas."
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 #, fuzzy
 msgid "View Config"
 msgstr "Ver Config"
@@ -1331,54 +1331,54 @@ msgstr "Check End In Config"
 msgid "No Router Device Types Found"
 msgstr "No se han encontrado tipos de dispositivos de enrutador"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 #, fuzzy
 msgid "Router Configs"
 msgstr "Configuraciones del enrutador"
 
-#: setup.php:587
+#: setup.php:603
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Ejecutando '%s' con argumentos '%s'"
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "Utilidades"
 
-#: setup.php:658
+#: setup.php:674
 #, fuzzy
 msgid "Router Devices"
 msgstr "Dispositivos de enrutador"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 msgid "(edit)"
 msgstr "(Editar)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 msgid "(actions)"
 msgstr "(acciones)"
 
-#: setup.php:686
+#: setup.php:702
 #, fuzzy
 msgid "View Debug"
 msgstr "Ver Depuración"
 
-#: setup.php:721
+#: setup.php:737
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Cuentas de enrutador"
 
-#: setup.php:742
+#: setup.php:758
 #, fuzzy
 msgid "Router Compare"
 msgstr "Comparación de enrutadores"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "Configuraciones del enrutador"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "Routers"
 msgstr "Configuraciones del enrutador"
