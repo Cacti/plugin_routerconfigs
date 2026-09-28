@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2020-12-13 10:25-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -928,7 +928,7 @@ msgstr "Gestione account"
 msgid "No Router Accounts Found"
 msgstr "Nessun conto router trovato"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 #, fuzzy
 msgid "Router Backups"
 msgstr "Backup del router"
@@ -1032,7 +1032,7 @@ msgstr "Nome del file"
 msgid "The filename of the stored device backups"
 msgstr "Il numero di giorni per conservare i vecchi backup."
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 #, fuzzy
 msgid "View Config"
 msgstr "Visualizza Config"
@@ -1343,55 +1343,55 @@ msgstr "Check End In Config"
 msgid "No Router Device Types Found"
 msgstr "Nessun tipo di dispositivo router trovato"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 #, fuzzy
 msgid "Router Configs"
 msgstr "Configurazioni del router"
 
-#: setup.php:587
+#: setup.php:603
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: esecuzione di \"%s\" con argomenti \"%s\""
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "Servizi"
 
-#: setup.php:658
+#: setup.php:674
 #, fuzzy
 msgid "Router Devices"
 msgstr "Dispositivi Router"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 msgid "(edit)"
 msgstr "(modificare)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 #, fuzzy
 msgid "(actions)"
 msgstr "Azioni"
 
-#: setup.php:686
+#: setup.php:702
 #, fuzzy
 msgid "View Debug"
 msgstr "Visualizza Debug"
 
-#: setup.php:721
+#: setup.php:737
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Conti Router"
 
-#: setup.php:742
+#: setup.php:758
 #, fuzzy
 msgid "Router Compare"
 msgstr "Confronto Router"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "Configurazioni del router"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "Routers"
 msgstr "Configurazioni del router"
