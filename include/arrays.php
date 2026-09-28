@@ -34,6 +34,10 @@ $rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
 if (function_exists('gethostname')) {
 	$rc_hostname = gethostname();
 } else {
+	$rc_hostname = false;
+}
+
+if ($rc_hostname === false) {
 	$rc_hostname = php_uname('n');
 }
 

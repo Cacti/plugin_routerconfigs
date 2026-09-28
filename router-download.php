@@ -34,6 +34,7 @@ routerconfigs_define_exit('EXIT_NORMAL',  0, '');
 routerconfigs_define_exit('EXIT_ARGERR',  1, "ERROR: Invalid Argument (%s)\n\n");
 routerconfigs_define_exit('EXIT_NONNUM',  2, "ERROR: Argument is not numeric (%s)\n\n");
 routerconfigs_define_exit('EXIT_ARGMIS',  3, "ERROR: Argument requires value (%s)\n\n");
+routerconfigs_define_exit('EXIT_OPTERR',  4, "ERROR: Invalid option specification (%s)\n\n");
 
 // We are not talking to the browser
 $no_http_headers = true;
@@ -150,14 +151,14 @@ exit(EXIT_NORMAL);
  * Called throughout this script's argument parsing to report invalid
  * CLI usage.
  *
- * @param int   $exit_value    The exit code to report and terminate
- *                            with.
- * @param mixed $args          A single value or array of values to
- *                            substitute into the registered message via
- *                            printf(); defaults to an empty array.
- * @param int   $display_help  Currently unused placeholder for
- *                            optionally showing usage help; defaults to
- *                            0.
+ * @param int      $exit_value   The exit code to report and terminate
+ *                               with.
+ * @param mixed    $args         A single value or array of values to
+ *                               substitute into the registered message via
+ *                               printf(); defaults to an empty array.
+ * @param bool|int $display_help Currently unused placeholder for
+ *                               optionally showing usage help; defaults to
+ *                               0.
  *
  * @return void This function always terminates script execution via
  *              exit and therefore never returns.
@@ -225,18 +226,18 @@ function routerconfigs_define_exit($name, $value, $text) {
  * $remaining. Called at the top of this script to parse its CLI
  * arguments before Cacti's include/global.php is even loaded.
  *
- * @param string      $short     The short-option specification string
- *                               (getopt()-style, e.g. 'Vv').
- * @param array       $long      The long-option specification array
- *                               (getopt()-style, e.g. array('device:')).
- * @param string|null $remaining Reference, set to any arguments that
- *                               didn't match a known option; defaults
- *                               to null.
+ * @param string $short     The short-option specification string
+ *                          (getopt()-style, e.g. 'Vv').
+ * @param array  $long      The long-option specification array
+ *                          (getopt()-style, e.g. array('device:')).
+ * @param string $remaining Reference, set to any arguments that
+ *                          didn't match a known option; defaults
+ *                          to ''.
  *
  * @return array Map of matched option name to its value (or array of
  *               values, if repeated).
  */
-function routerconfigs_getopts($short, $long, &$remaining = null) {
+function routerconfigs_getopts($short, $long, &$remaining = '') {
 	$remaining = '';
 	$argv      = $_SERVER['argv'];
 	$argc      = $_SERVER['argc'];
@@ -315,30 +316,28 @@ function routerconfigs_getopts($short, $long, &$remaining = null) {
  * @return void
  */
 function routerconfigs_getopts_long(array &$options, array &$long) {
-	if (isset($long)) {
-		if (!is_array($long)) {
-			$long = [$long];
-		}
+	if (!is_array($long)) {
+		$long = [$long];
+	}
 
-		if (sizeof($long)) {
-			$index = 0;
+	if (sizeof($long)) {
+		$index = 0;
 
-			foreach ($long as $long_text) {
-				$long_text = trim($long_text);
+		foreach ($long as $long_text) {
+			$long_text = trim($long_text);
 
-				if (strlen($long_text) == 0 || !preg_match("~[A-Za-z0-9:\-]~", $long_text)) {
-					routerconfigs_fail(EXIT_OPTERR,$long_text);
-				}
-
-				$long_val  = routerconfigs_checkopt_string('value',$long_text);
-				$long_opt  = routerconfigs_checkopt_string('optional',$long_text);
-
-				if ($long_opt) {
-					$long_text = substr($long_text, 0, -1);
-				}
-
-				routerconfigs_addopt($options, count($options), $long_text, $long_val, $long_opt);
+			if (strlen($long_text) == 0 || !preg_match("~[A-Za-z0-9:\-]~", $long_text)) {
+				routerconfigs_fail(EXIT_OPTERR,$long_text);
 			}
+
+			$long_val  = routerconfigs_checkopt_string('value',$long_text);
+			$long_opt  = routerconfigs_checkopt_string('optional',$long_text);
+
+			if ($long_opt) {
+				$long_text = substr($long_text, 0, -1);
+			}
+
+			routerconfigs_addopt($options, count($options), $long_text, $long_val, $long_opt);
 		}
 	}
 }

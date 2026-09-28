@@ -41,18 +41,18 @@ abstract class PHPShellConnection extends PHPConnection {
 	 * constructed for a backup attempt.
 	 *
 	 * @param string $classtype    The concrete connection class name (for
-	 *                            logging).
+	 *                             logging).
 	 * @param array  $devicetype   The device type row (prompt patterns,
-	 *                            commands, etc.) for this device.
+	 *                             commands, etc.) for this device.
 	 * @param array  $device       The device row being connected to.
 	 * @param string $user         The login username.
 	 * @param string $pass         The login password.
 	 * @param string $enablepw     The enable/elevated password, if any.
 	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
-	 *                            output; defaults to false.
+	 *                             output; defaults to false.
 	 * @param bool   $elevated     Whether this device type is always
-	 *                            considered enabled/elevated; defaults to
-	 *                            false.
+	 *                             considered enabled/elevated; defaults to
+	 *                             false.
 	 *
 	 * @return void
 	 */
@@ -71,12 +71,12 @@ abstract class PHPShellConnection extends PHPConnection {
 	 * device types.
 	 *
 	 * @param string $filename   The remote filename the device should
-	 *                          write to the TFTP server (substituted for
-	 *                          %FILE%).
+	 *                           write to the TFTP server (substituted for
+	 *                           %FILE%).
 	 * @param string $backuppath Unused directly here (the transfer target
-	 *                          is the configured TFTP server, not a local
-	 *                          path); kept for interface parity with
-	 *                          PHPScp/PHPSftp's Download().
+	 *                           is the configured TFTP server, not a local
+	 *                           path); kept for interface parity with
+	 *                           PHPScp/PHPSftp's Download().
 	 *
 	 * @return bool True if the transfer was confirmed successful, false on
 	 *              error or if elevation could not be ensured.
@@ -102,7 +102,7 @@ abstract class PHPShellConnection extends PHPConnection {
 		$response = '';
 		$result   = $this->DoCommand($command, $response);
 
-		$lines = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+		$lines = explode("\n", preg_replace('/[\r\n]+/', "\n", $response) ?? $response);
 
 		foreach ($lines as $line) {
 			$this->Log("DEBUG: Line: $line");
@@ -195,7 +195,8 @@ abstract class PHPShellConnection extends PHPConnection {
 
 			$response = '';
 			$result   = $this->DoCommand($try_command, $response);
-			$lines    = explode("\n", preg_replace('/[\r\n]+/',"\n",$response));
+			$ret      = $result;
+			$lines    = explode("\n", preg_replace('/[\r\n]+/', "\n", $response) ?? $response);
 
 			foreach ($lines as $line) {
 				$this->Log("DEBUG: Line: $line");
@@ -233,32 +234,32 @@ abstract class PHPShellConnection extends PHPConnection {
 							switch (trim($s[1])) {
 								case 'years':
 								case 'year':
-									$uptime += ($s[0] * 31449600);
+									$uptime += ((int) $s[0] * 31449600);
 
 									break;
 								case 'months':
 								case 'month':
-									$uptime += ($s[0] * 2419200);
+									$uptime += ((int) $s[0] * 2419200);
 
 									break;
 								case 'weeks':
 								case 'week':
-									$uptime += ($s[0] * 604800);
+									$uptime += ((int) $s[0] * 604800);
 
 									break;
 								case 'days':
 								case 'day':
-									$uptime += ($s[0] * 86400);
+									$uptime += ((int) $s[0] * 86400);
 
 									break;
 								case 'hours':
 								case 'hour':
-									$uptime += ($s[0] * 3600);
+									$uptime += ((int) $s[0] * 3600);
 
 									break;
 								case 'minutes':
 								case 'minute':
-									$uptime += ($s[0] * 60);
+									$uptime += ((int) $s[0] * 60);
 
 									break;
 								case 'seconds':

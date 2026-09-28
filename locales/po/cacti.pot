@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 11:06-0400\n"
+"POT-Creation-Date: 2026-09-25 15:33-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -17,576 +17,576 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: include/arrays.php:41 include/arrays.php:46 include/arrays.php:53
+#: include/arrays.php:45 include/arrays.php:50 include/arrays.php:57
 msgid "Delete"
 msgstr ""
 
-#: include/arrays.php:45
+#: include/arrays.php:49
 msgid "Backup"
 msgstr ""
 
-#: include/arrays.php:47
+#: include/arrays.php:51
 msgid "Enable"
 msgstr ""
 
-#: include/arrays.php:48
+#: include/arrays.php:52
 msgid "Disable"
 msgstr ""
 
-#: include/arrays.php:49
+#: include/arrays.php:53
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:57
+#: include/arrays.php:61
 msgid "SSH/Telnet"
 msgstr ""
 
-#: include/arrays.php:58
+#: include/arrays.php:62
 msgid "SSH"
 msgstr ""
 
-#: include/arrays.php:59
+#: include/arrays.php:63
 msgid "Telnet"
 msgstr ""
 
-#: include/arrays.php:60
+#: include/arrays.php:64
 msgid "SCP"
 msgstr ""
 
-#: include/arrays.php:61
+#: include/arrays.php:65
 msgid "SFTP"
 msgstr ""
 
-#: include/arrays.php:65
+#: include/arrays.php:69
 msgid "Inherit"
 msgstr ""
 
-#: include/arrays.php:69
+#: include/arrays.php:73
 msgid "Daily"
 msgstr ""
 
-#: include/arrays.php:70
+#: include/arrays.php:74
 msgid "Weekly"
 msgstr ""
 
-#: include/arrays.php:71
+#: include/arrays.php:75
 msgid "Monthly"
 msgstr ""
 
-#: include/arrays.php:75
+#: include/arrays.php:79
 #, php-format
 msgid "%d Month"
 msgstr ""
 
-#: include/arrays.php:76 include/arrays.php:77 include/arrays.php:78
-#: include/arrays.php:79
+#: include/arrays.php:80 include/arrays.php:81 include/arrays.php:82
+#: include/arrays.php:83
 #, php-format
 msgid "%d Months"
 msgstr ""
 
-#: include/arrays.php:80
+#: include/arrays.php:84
 #, php-format
 msgid "%d Year"
 msgstr ""
 
-#: include/arrays.php:81 include/arrays.php:82 include/arrays.php:83
-#: include/arrays.php:84
+#: include/arrays.php:85 include/arrays.php:86 include/arrays.php:87
+#: include/arrays.php:88
 #, php-format
 msgid "%d Years"
 msgstr ""
 
-#: include/arrays.php:88
+#: include/arrays.php:92
 msgid "Never"
 msgstr ""
 
-#: include/arrays.php:89
+#: include/arrays.php:93
 #, php-format
 msgid "%d hour"
 msgstr ""
 
-#: include/arrays.php:90 include/arrays.php:91 include/arrays.php:92
-#: include/arrays.php:93 include/arrays.php:94 include/arrays.php:95
+#: include/arrays.php:94 include/arrays.php:95 include/arrays.php:96
+#: include/arrays.php:97 include/arrays.php:98 include/arrays.php:99
 #, php-format
 msgid "%d hours"
 msgstr ""
 
-#: include/arrays.php:99
+#: include/arrays.php:103
 msgid "00:00 (12am)"
 msgstr ""
 
-#: include/arrays.php:100
+#: include/arrays.php:104
 msgid "01:00 (1am)"
 msgstr ""
 
-#: include/arrays.php:101
+#: include/arrays.php:105
 msgid "02:00 (2am)"
 msgstr ""
 
-#: include/arrays.php:102
+#: include/arrays.php:106
 msgid "03:00 (3am)"
 msgstr ""
 
-#: include/arrays.php:103
+#: include/arrays.php:107
 msgid "04:00 (4am)"
 msgstr ""
 
-#: include/arrays.php:104
+#: include/arrays.php:108
 msgid "05:00 (5am)"
 msgstr ""
 
-#: include/arrays.php:105
+#: include/arrays.php:109
 msgid "06:00 (6am)"
 msgstr ""
 
-#: include/arrays.php:106
+#: include/arrays.php:110
 msgid "07:00 (7am)"
 msgstr ""
 
-#: include/arrays.php:107
+#: include/arrays.php:111
 msgid "08:00 (8am)"
 msgstr ""
 
-#: include/arrays.php:108
+#: include/arrays.php:112
 msgid "09:00 (9am)"
 msgstr ""
 
-#: include/arrays.php:109
+#: include/arrays.php:113
 msgid "10:00 (12am)"
 msgstr ""
 
-#: include/arrays.php:110
+#: include/arrays.php:114
 msgid "11:00 (11am)"
 msgstr ""
 
-#: include/arrays.php:111
+#: include/arrays.php:115
 msgid "12:00 (12pm)"
 msgstr ""
 
-#: include/arrays.php:112
+#: include/arrays.php:116
 msgid "13:00 (1pm)"
 msgstr ""
 
-#: include/arrays.php:113
+#: include/arrays.php:117
 msgid "14:00 (2pm)"
 msgstr ""
 
-#: include/arrays.php:114
+#: include/arrays.php:118
 msgid "15:00 (3pm)"
 msgstr ""
 
-#: include/arrays.php:115
+#: include/arrays.php:119
 msgid "16:00 (4pm)"
 msgstr ""
 
-#: include/arrays.php:116
+#: include/arrays.php:120
 msgid "17:00 (5pm)"
 msgstr ""
 
-#: include/arrays.php:117
+#: include/arrays.php:121
 msgid "18:00 (6pm)"
 msgstr ""
 
-#: include/arrays.php:118
+#: include/arrays.php:122
 msgid "19:00 (7pm)"
 msgstr ""
 
-#: include/arrays.php:119
+#: include/arrays.php:123
 msgid "20:00 (8pm)"
 msgstr ""
 
-#: include/arrays.php:120
+#: include/arrays.php:124
 msgid "21:00 (9pm)"
 msgstr ""
 
-#: include/arrays.php:121
+#: include/arrays.php:125
 msgid "22:00 (10pm)"
 msgstr ""
 
-#: include/arrays.php:122
+#: include/arrays.php:126
 msgid "23:00 (11pm)"
 msgstr ""
 
-#: include/arrays.php:128 include/arrays.php:269 router-devtypes.php:343
+#: include/arrays.php:132 include/arrays.php:273 router-devtypes.php:352
 msgid "Name"
 msgstr ""
 
-#: include/arrays.php:129
+#: include/arrays.php:133
 msgid "Give this account a meaningful name that will be displayed."
 msgstr ""
 
-#: include/arrays.php:135 router-accounts.php:327
+#: include/arrays.php:139 router-accounts.php:336
 msgid "Username"
 msgstr ""
 
-#: include/arrays.php:136
+#: include/arrays.php:140
 msgid "The username that will be used for authentication."
 msgstr ""
 
-#: include/arrays.php:142
+#: include/arrays.php:146
 msgid "Password"
 msgstr ""
 
-#: include/arrays.php:143
+#: include/arrays.php:147
 msgid "The password used for authentication."
 msgstr ""
 
-#: include/arrays.php:151
+#: include/arrays.php:155
 msgid "Enable Password"
 msgstr ""
 
-#: include/arrays.php:152
+#: include/arrays.php:156
 msgid "Your Enable Password, if required."
 msgstr ""
 
-#: include/arrays.php:167
+#: include/arrays.php:171
 msgid "Enable Device"
 msgstr ""
 
-#: include/arrays.php:168
+#: include/arrays.php:172
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr ""
 
-#: include/arrays.php:175 router-accounts.php:327
+#: include/arrays.php:179 router-accounts.php:336
 msgid "Description"
 msgstr ""
 
-#: include/arrays.php:176
+#: include/arrays.php:180
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr ""
 
-#: include/arrays.php:182 router-devices.php:827
+#: include/arrays.php:186 router-devices.php:840
 msgid "IP Address"
 msgstr ""
 
-#: include/arrays.php:183
+#: include/arrays.php:187
 msgid "This is the IP Address used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php:189
+#: include/arrays.php:193
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:190
+#: include/arrays.php:194
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php:195 router-backups.php:321 router-devices.php:863
+#: include/arrays.php:199 router-backups.php:321 router-devices.php:876
 msgid "Directory"
 msgstr ""
 
-#: include/arrays.php:196
+#: include/arrays.php:200
 msgid "This is the relative directory structure used to store the configs."
 msgstr ""
 
-#: include/arrays.php:202
+#: include/arrays.php:206
 msgid "Schedule"
 msgstr ""
 
-#: include/arrays.php:203
+#: include/arrays.php:207
 msgid "How often to Backup this device."
 msgstr ""
 
-#: include/arrays.php:210 router-devices.php:704 router-devices.php:810
+#: include/arrays.php:214 router-devices.php:717 router-devices.php:823
 msgid "Device Type"
 msgstr ""
 
-#: include/arrays.php:211
+#: include/arrays.php:215
 msgid "Choose the type of device that the router is."
 msgstr ""
 
-#: include/arrays.php:215 router-devices.php:931
+#: include/arrays.php:219 router-devices.php:944
 msgid "Auto-Detect"
 msgstr ""
 
-#: include/arrays.php:219 include/arrays.php:277
+#: include/arrays.php:223 include/arrays.php:281
 msgid "Connection Type"
 msgstr ""
 
-#: include/arrays.php:220 include/arrays.php:278
+#: include/arrays.php:224 include/arrays.php:282
 msgid "This is the type of connection used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php:227
+#: include/arrays.php:231
 msgid "Authentication Account"
 msgstr ""
 
-#: include/arrays.php:228
+#: include/arrays.php:232
 msgid "Choose an account to use to Login to the router"
 msgstr ""
 
-#: include/arrays.php:232
+#: include/arrays.php:236
 msgid "None"
 msgstr ""
 
-#: include/arrays.php:235 include/arrays.php:360 include/arrays.php:404
+#: include/arrays.php:239 include/arrays.php:364 include/arrays.php:408
 msgid "Default timeout"
 msgstr ""
 
-#: include/arrays.php:236 include/arrays.php:361 include/arrays.php:405
+#: include/arrays.php:240 include/arrays.php:365 include/arrays.php:409
 msgid "Default time to wait in seconds for a response"
 msgstr ""
 
-#: include/arrays.php:244 include/arrays.php:369 include/arrays.php:412
+#: include/arrays.php:248 include/arrays.php:373 include/arrays.php:416
 msgid "Default sleep time"
 msgstr ""
 
-#: include/arrays.php:245 include/arrays.php:370 include/arrays.php:413
+#: include/arrays.php:249 include/arrays.php:374 include/arrays.php:417
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr ""
 
-#: include/arrays.php:254 include/arrays.php:353
+#: include/arrays.php:258 include/arrays.php:357
 msgid "Assume elevated"
 msgstr ""
 
-#: include/arrays.php:255 include/arrays.php:354
+#: include/arrays.php:259 include/arrays.php:358
 msgid "Check this box to assume this device is always elevated"
 msgstr ""
 
-#: include/arrays.php:270
+#: include/arrays.php:274
 msgid "Name of this device type."
 msgstr ""
 
-#: include/arrays.php:285
+#: include/arrays.php:289
 msgid "Username Prompt"
 msgstr ""
 
-#: include/arrays.php:286
+#: include/arrays.php:290
 msgid "This is the username prompt to match on login."
 msgstr ""
 
-#: include/arrays.php:293
+#: include/arrays.php:297
 msgid "Password Prompt"
 msgstr ""
 
-#: include/arrays.php:294
+#: include/arrays.php:298
 msgid "This is the password prompt to match on login."
 msgstr ""
 
-#: include/arrays.php:301
+#: include/arrays.php:305
 msgid "Configuration file"
 msgstr ""
 
-#: include/arrays.php:302
+#: include/arrays.php:306
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr ""
 
-#: include/arrays.php:309 router-devtypes.php:347
+#: include/arrays.php:313 router-devtypes.php:356
 msgid "Copy TFTP"
 msgstr ""
 
-#: include/arrays.php:310
+#: include/arrays.php:314
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr ""
 
-#: include/arrays.php:317
+#: include/arrays.php:321
 msgid "Show Version"
 msgstr ""
 
-#: include/arrays.php:318
+#: include/arrays.php:322
 msgid "This is the CLI text used to display the current version."
 msgstr ""
 
-#: include/arrays.php:325
+#: include/arrays.php:329
 msgid "Confirmation Prompt"
 msgstr ""
 
-#: include/arrays.php:326
+#: include/arrays.php:330
 msgid "This is the confirmation prompt to match before transmission."
 msgstr ""
 
-#: include/arrays.php:333 router-devtypes.php:349
+#: include/arrays.php:337 router-devtypes.php:358
 msgid "Confirm"
 msgstr ""
 
-#: include/arrays.php:334
+#: include/arrays.php:338
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr ""
 
-#: include/arrays.php:341 router-devtypes.php:350
+#: include/arrays.php:345 router-devtypes.php:359
 msgid "Force Confirm"
 msgstr ""
 
-#: include/arrays.php:342
+#: include/arrays.php:346
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr ""
 
-#: include/arrays.php:347
+#: include/arrays.php:351
 msgid "Check End in Config"
 msgstr ""
 
-#: include/arrays.php:348
+#: include/arrays.php:352
 msgid "Check end in config?"
 msgstr ""
 
-#: include/arrays.php:378
+#: include/arrays.php:382
 msgid "Any Key prompt"
 msgstr ""
 
-#: include/arrays.php:379
+#: include/arrays.php:383
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr ""
 
-#: include/arrays.php:393
+#: include/arrays.php:397
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php:397
+#: include/arrays.php:401
 msgid "Presentation Mode"
 msgstr ""
 
-#: include/arrays.php:398
+#: include/arrays.php:402
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php:401
+#: include/arrays.php:405
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php:401
+#: include/arrays.php:405
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php:420
+#: include/arrays.php:424
 msgid "Close without exit"
 msgstr ""
 
-#: include/arrays.php:421
+#: include/arrays.php:425
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr ""
 
-#: include/arrays.php:425
+#: include/arrays.php:429
 msgid "Debug Connection Buffer"
 msgstr ""
 
-#: include/arrays.php:426
+#: include/arrays.php:430
 msgid "Whether to log direct output of device connection"
 msgstr ""
 
-#: include/arrays.php:430
+#: include/arrays.php:434
 msgid "Assume all devices elevated"
 msgstr ""
 
-#: include/arrays.php:431
+#: include/arrays.php:435
 msgid "Whether to assume all devices are elevated"
 msgstr ""
 
-#: include/arrays.php:435
+#: include/arrays.php:439
 msgid "Download Hour"
 msgstr ""
 
-#: include/arrays.php:436
+#: include/arrays.php:440
 msgid "The hour of the day to perform the full downloads."
 msgstr ""
 
-#: include/arrays.php:442
+#: include/arrays.php:446
 msgid "Retry Schedule"
 msgstr ""
 
-#: include/arrays.php:443
+#: include/arrays.php:447
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr ""
 
-#: include/arrays.php:449
+#: include/arrays.php:453
 msgid "Retention Period"
 msgstr ""
 
-#: include/arrays.php:450
+#: include/arrays.php:454
 msgid "The number of days to retain old backups."
 msgstr ""
 
-#: include/arrays.php:456
+#: include/arrays.php:460
 msgid "Transfer Options"
 msgstr ""
 
-#: include/arrays.php:460
+#: include/arrays.php:464
 msgid "Default connection type"
 msgstr ""
 
-#: include/arrays.php:461
+#: include/arrays.php:465
 msgid "Default type of connection used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php:467
+#: include/arrays.php:471
 msgid "Separate By Device"
 msgstr ""
 
-#: include/arrays.php:468
+#: include/arrays.php:472
 msgid "Separate archived Configs into a folder per device"
 msgstr ""
 
-#: include/arrays.php:473
+#: include/arrays.php:477
 msgid "SCP Path"
 msgstr ""
 
-#: include/arrays.php:474
+#: include/arrays.php:478
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php:480
+#: include/arrays.php:484
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php:481
+#: include/arrays.php:485
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php:486
+#: include/arrays.php:490
 msgid "TFTP Server IP"
 msgstr ""
 
-#: include/arrays.php:487
+#: include/arrays.php:491
 msgid "Must be an IP pointing to your Cacti server."
 msgstr ""
 
-#: include/arrays.php:494
+#: include/arrays.php:498
 msgid "TFTP Backup Directory Path"
 msgstr ""
 
-#: include/arrays.php:495
+#: include/arrays.php:499
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr ""
 
-#: include/arrays.php:502
+#: include/arrays.php:506
 msgid "Archive Directory Path"
 msgstr ""
 
-#: include/arrays.php:503
+#: include/arrays.php:507
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr ""
 
-#: include/arrays.php:510
+#: include/arrays.php:514
 msgid "Email Options"
 msgstr ""
 
-#: include/arrays.php:514
+#: include/arrays.php:518
 msgid "From Address"
 msgstr ""
 
-#: include/arrays.php:515
+#: include/arrays.php:519
 msgid "Email address the nightly backup will be sent from."
 msgstr ""
 
-#: include/arrays.php:522
+#: include/arrays.php:526
 msgid "From Name"
 msgstr ""
 
-#: include/arrays.php:523
+#: include/arrays.php:527
 msgid "Name the nightly backup will be sent from."
 msgstr ""
 
-#: include/arrays.php:530
+#: include/arrays.php:534
 msgid "Email Address"
 msgstr ""
 
-#: include/arrays.php:531
+#: include/arrays.php:535
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr ""
 
-#: include/functions.php:55 router-accounts.php:327
+#: include/functions.php:55 router-accounts.php:336
 msgid "Devices"
 msgstr ""
 
-#: include/functions.php:56 router-devtypes.php:332
+#: include/functions.php:56 router-devtypes.php:341
 msgid "Device Types"
 msgstr ""
 
@@ -701,114 +701,114 @@ msgstr ""
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr ""
 
-#: include/functions.php:454
+#: include/functions.php:455
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php:535
+#: include/functions.php:536
 #, php-format
 msgid "STATS: Backup now running since %s"
 msgstr ""
 
-#: include/functions.php:539
+#: include/functions.php:540
 #, php-format
 msgid "WARN: Backup already running since %s"
 msgstr ""
 
-#: include/functions.php:710
+#: include/functions.php:725
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php:712
+#: include/functions.php:727
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php:725
+#: include/functions.php:740 include/functions.php:748
 #, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr ""
 
-#: include/functions.php:736
+#: include/functions.php:759
 #, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr ""
 
-#: include/functions.php:1503
+#: include/functions.php:1534
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php:1508
+#: include/functions.php:1539
 #, php-format
 msgid "File '%s' failed to load"
 msgstr ""
 
-#: include/functions.php:1511
+#: include/functions.php:1542
 #, php-format
 msgid "File '%s' was not found"
 msgstr ""
 
-#: include/functions.php:1522
+#: include/functions.php:1553
 #, php-format
 msgid "Router Config for %s (%s)"
 msgstr ""
 
-#: include/functions.php:1523
+#: include/functions.php:1554
 #, php-format
 msgid "Backup from %s"
 msgstr ""
 
-#: include/functions.php:1524
+#: include/functions.php:1555
 #, php-format
 msgid "File: %s/%s"
 msgstr ""
 
-#: router-accounts.php:152
+#: router-accounts.php:154
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr ""
 
-#: router-accounts.php:158 router-devices.php:277 router-devices.php:287
-#: router-devices.php:297 router-devices.php:307 router-devtypes.php:137
+#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
+#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
 msgid "Cancel"
 msgstr ""
 
-#: router-accounts.php:158 router-devices.php:277 router-devices.php:287
-#: router-devices.php:297 router-devices.php:307 router-devtypes.php:137
+#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
+#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
 msgid "Continue"
 msgstr ""
 
-#: router-accounts.php:158 router-devices.php:277 router-devtypes.php:137
+#: router-accounts.php:160 router-devices.php:279 router-devtypes.php:139
 msgid "Delete Device(s)"
 msgstr ""
 
-#: router-accounts.php:160
+#: router-accounts.php:162
 msgid "You must select at least one device."
 msgstr ""
 
-#: router-accounts.php:161 router-devices.php:314
+#: router-accounts.php:163 router-devices.php:313 router-devices.php:320
 msgid "Return"
 msgstr ""
 
-#: router-accounts.php:255
+#: router-accounts.php:264
 #, php-format
 msgid "Account: [edit: %s]"
 msgstr ""
 
-#: router-accounts.php:257
+#: router-accounts.php:266
 msgid "Account: [new]"
 msgstr ""
 
-#: router-accounts.php:319
+#: router-accounts.php:328
 msgid "Accounts"
 msgstr ""
 
-#: router-accounts.php:323
+#: router-accounts.php:332
 msgid "Account Management"
 msgstr ""
 
-#: router-accounts.php:344
+#: router-accounts.php:353
 msgid "No Router Accounts Found"
 msgstr ""
 
@@ -816,47 +816,47 @@ msgstr ""
 msgid "Router Backups"
 msgstr ""
 
-#: router-backups.php:248 router-devices.php:708 router-devices.php:729
+#: router-backups.php:248 router-devices.php:721 router-devices.php:742
 msgid "Any"
 msgstr ""
 
-#: router-backups.php:265 router-devices.php:746
+#: router-backups.php:265 router-devices.php:759
 msgid "Search"
 msgstr ""
 
-#: router-backups.php:272 router-devices.php:753
+#: router-backups.php:272 router-devices.php:766
 msgid "Default"
 msgstr ""
 
-#: router-backups.php:288 router-devices.php:769
+#: router-backups.php:288 router-devices.php:782
 msgid "Go"
 msgstr ""
 
-#: router-backups.php:288 router-devices.php:769
+#: router-backups.php:288 router-devices.php:782
 msgid "Set/Refresh Filters"
 msgstr ""
 
-#: router-backups.php:289 router-devices.php:770
+#: router-backups.php:289 router-devices.php:783
 msgid "Clear"
 msgstr ""
 
-#: router-backups.php:289 router-devices.php:770
+#: router-backups.php:289 router-devices.php:783
 msgid "Clear Filters"
 msgstr ""
 
-#: router-backups.php:303 router-devices.php:787
+#: router-backups.php:303 router-devices.php:800
 msgid "Hostname"
 msgstr ""
 
-#: router-backups.php:306 router-devices.php:790
+#: router-backups.php:306 router-devices.php:803
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr ""
 
-#: router-backups.php:309 router-devices.php:793 router-devtypes.php:342
+#: router-backups.php:309 router-devices.php:806 router-devtypes.php:351
 msgid "ID"
 msgstr ""
 
-#: router-backups.php:312 router-devices.php:796
+#: router-backups.php:312 router-devices.php:809
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr ""
 
@@ -868,7 +868,7 @@ msgstr ""
 msgid "Perform functions against this backup"
 msgstr ""
 
-#: router-backups.php:324 router-devices.php:866
+#: router-backups.php:324 router-devices.php:879
 msgid "The directory of the stored device backups"
 msgstr ""
 
@@ -876,7 +876,7 @@ msgstr ""
 msgid "Backup Time"
 msgstr ""
 
-#: router-backups.php:330 router-devices.php:807
+#: router-backups.php:330 router-devices.php:820
 msgid "The last Backup time of the device"
 msgstr ""
 
@@ -888,7 +888,7 @@ msgstr ""
 msgid "The last Change time of the device"
 msgstr ""
 
-#: router-backups.php:339 router-devices.php:858
+#: router-backups.php:339 router-devices.php:871
 msgid "Changed By"
 msgstr ""
 
@@ -912,31 +912,36 @@ msgstr ""
 msgid "No Router Backups Found"
 msgstr ""
 
-#: router-compare.php:93
+#: router-compare.php:95
 msgid "Router Backup Comparison"
 msgstr ""
 
-#: router-compare.php:102
+#: router-compare.php:104
 msgid "Diff Mode"
 msgstr ""
 
-#: router-compare.php:106
+#: router-compare.php:108
 msgid "Inline"
 msgstr ""
 
-#: router-compare.php:107
+#: router-compare.php:109
 msgid "Side by Side"
 msgstr ""
 
-#: router-compare.php:170
+#: router-compare.php:172
 msgid "Compare Output"
 msgstr ""
 
-#: router-compare.php:283 router-compare.php:291
+#: router-compare.php:285 router-compare.php:289
+#, php-format
+msgid "Backup %s not found"
+msgstr ""
+
+#: router-compare.php:296 router-compare.php:304
 msgid "There are no Changes"
 msgstr ""
 
-#: router-compare.php:301
+#: router-compare.php:314
 msgid "Error, you must have backups for each device."
 msgstr ""
 
@@ -954,220 +959,220 @@ msgstr ""
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
 msgstr ""
 
-#: router-devices.php:273
+#: router-devices.php:275
 msgid "Click 'Continue' to Delete the following device(s)."
 msgstr ""
 
-#: router-devices.php:283
+#: router-devices.php:285
 msgid "Click 'Continue' to Enable the following device(s)."
 msgstr ""
 
-#: router-devices.php:287
+#: router-devices.php:289
 msgid "Enable Device(s)"
 msgstr ""
 
-#: router-devices.php:293
+#: router-devices.php:295
 msgid "Click 'Continue' to Disable the following device(s)."
 msgstr ""
 
-#: router-devices.php:297
+#: router-devices.php:299
 msgid "Disable Device(s)"
 msgstr ""
 
-#: router-devices.php:303
+#: router-devices.php:305
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
 msgstr ""
 
-#: router-devices.php:307
+#: router-devices.php:309
 msgid "Clear SSH Host Key(s)"
 msgstr ""
 
-#: router-devices.php:312
+#: router-devices.php:318
 msgid "You must select at least Router Device."
 msgstr ""
 
-#: router-devices.php:424 router-devices.php:428
+#: router-devices.php:437 router-devices.php:441
 msgid "Not recorded"
 msgstr ""
 
-#: router-devices.php:426
+#: router-devices.php:439
 #, php-format
 msgid "Router: [edit: %s]"
 msgstr ""
 
-#: router-devices.php:429
+#: router-devices.php:442
 msgid "Router: [new]"
 msgstr ""
 
-#: router-devices.php:695
+#: router-devices.php:708
 msgid "Router Device Management"
 msgstr ""
 
-#: router-devices.php:725
+#: router-devices.php:738
 msgid "Account"
 msgstr ""
 
-#: router-devices.php:784
+#: router-devices.php:797
 msgid "Actions"
 msgstr ""
 
-#: router-devices.php:799
+#: router-devices.php:812
 msgid "Enabled"
 msgstr ""
 
-#: router-devices.php:804
+#: router-devices.php:817
 msgid "Last Backup"
 msgstr ""
 
-#: router-devices.php:813
+#: router-devices.php:826
 msgid "The device type of the device"
 msgstr ""
 
-#: router-devices.php:816
+#: router-devices.php:829
 msgid "Connect Type"
 msgstr ""
 
-#: router-devices.php:819
+#: router-devices.php:832
 msgid "The connection type for this device"
 msgstr ""
 
-#: router-devices.php:822
+#: router-devices.php:835
 msgid "Configs"
 msgstr ""
 
-#: router-devices.php:824
+#: router-devices.php:837
 msgid "The number of configurations for this device"
 msgstr ""
 
-#: router-devices.php:830
+#: router-devices.php:843
 msgid "The IP address of this device"
 msgstr ""
 
-#: router-devices.php:833
+#: router-devices.php:846
 msgid "Next Backup"
 msgstr ""
 
-#: router-devices.php:838
+#: router-devices.php:851
 msgid "Date Backup"
 msgstr ""
 
-#: router-devices.php:843
+#: router-devices.php:856
 msgid "Next Attempt"
 msgstr ""
 
-#: router-devices.php:848
+#: router-devices.php:861
 msgid "Last Attempt"
 msgstr ""
 
-#: router-devices.php:853
+#: router-devices.php:866
 msgid "Date Change"
 msgstr ""
 
-#: router-devices.php:898
+#: router-devices.php:911
 msgid "Today"
 msgstr ""
 
-#: router-devices.php:899
+#: router-devices.php:912
 msgid "Yesterday"
 msgstr ""
 
-#: router-devices.php:900
+#: router-devices.php:913
 msgid "This Week"
 msgstr ""
 
-#: router-devices.php:901
+#: router-devices.php:914
 msgid "This Month"
 msgstr ""
 
-#: router-devices.php:902
+#: router-devices.php:915
 msgid "Within a Year"
 msgstr ""
 
-#: router-devices.php:903
+#: router-devices.php:916
 msgid "Long, Long Ago"
 msgstr ""
 
-#: router-devices.php:934 router-devtypes.php:367 router-devtypes.php:368
-#: router-devtypes.php:370
+#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
+#: router-devtypes.php:379
 msgid "No"
 msgstr ""
 
-#: router-devices.php:934 router-devtypes.php:367 router-devtypes.php:368
-#: router-devtypes.php:370
+#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
+#: router-devtypes.php:379
 msgid "Yes"
 msgstr ""
 
-#: router-devices.php:950
+#: router-devices.php:963
 msgid "Connect via SSH"
 msgstr ""
 
-#: router-devices.php:954
+#: router-devices.php:967
 msgid "Connect via Telnet"
 msgstr ""
 
-#: router-devices.php:959
+#: router-devices.php:972
 msgid "Trace Route"
 msgstr ""
 
-#: router-devices.php:962
+#: router-devices.php:975
 msgid "Router Debug Info"
 msgstr ""
 
-#: router-devices.php:973
+#: router-devices.php:986
 #, php-format
 msgid "Backups (%s)"
 msgstr ""
 
-#: router-devices.php:973
+#: router-devices.php:986
 msgid "Current"
 msgstr ""
 
-#: router-devices.php:988
+#: router-devices.php:1001
 msgid "No Router Devices Found"
 msgstr ""
 
-#: router-devtypes.php:131
+#: router-devtypes.php:133
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr ""
 
-#: router-devtypes.php:244
+#: router-devtypes.php:253
 #, php-format
 msgid "Query [edit: %s]"
 msgstr ""
 
-#: router-devtypes.php:246
+#: router-devtypes.php:255
 msgid "Query [new]"
 msgstr ""
 
-#: router-devtypes.php:336
+#: router-devtypes.php:345
 msgid "View Router Device Types"
 msgstr ""
 
-#: router-devtypes.php:344
+#: router-devtypes.php:353
 msgid "Type"
 msgstr ""
 
-#: router-devtypes.php:345
+#: router-devtypes.php:354
 msgid "User Prompt"
 msgstr ""
 
-#: router-devtypes.php:346
+#: router-devtypes.php:355
 msgid "Pass Prompt"
 msgstr ""
 
-#: router-devtypes.php:348
+#: router-devtypes.php:357
 msgid "Version"
 msgstr ""
 
-#: router-devtypes.php:351
+#: router-devtypes.php:360
 msgid "Confirm Prompt"
 msgstr ""
 
-#: router-devtypes.php:352
+#: router-devtypes.php:361
 msgid "Check End In Config"
 msgstr ""
 
-#: router-devtypes.php:376
+#: router-devtypes.php:385
 msgid "No Router Device Types Found"
 msgstr ""
 

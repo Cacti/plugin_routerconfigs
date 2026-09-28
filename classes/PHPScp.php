@@ -37,6 +37,7 @@ included to have proper functionality.  Most common connection code is
 now within PHPConnection with only SSH specific code in this class
 */
 class PHPScp extends PHPConnection implements ShellSsh {
+	/** @var int */
 	var $show_connect_error = 1;
 
 	/*
@@ -52,16 +53,16 @@ class PHPScp extends PHPConnection implements ShellSsh {
 	 * object is constructed for a backup attempt.
 	 *
 	 * @param array  $devicetype   The device type row (prompt patterns,
-	 *                            commands, etc.) for this device.
+	 *                             commands, etc.) for this device.
 	 * @param array  $device       The device row being connected to.
 	 * @param string $user         The login username.
 	 * @param string $pass         The login password.
 	 * @param string $enablepw     The enable/elevated password, if any.
 	 * @param bool   $buffer_debug Whether to buffer verbose per-line debug
-	 *                            output; defaults to false.
+	 *                             output; defaults to false.
 	 * @param bool   $elevated     Whether this device type is always
-	 *                            considered enabled/elevated; defaults to
-	 *                            false.
+	 *                             considered enabled/elevated; defaults to
+	 *                             false.
 	 *
 	 * @return void
 	 */
@@ -110,7 +111,7 @@ class PHPScp extends PHPConnection implements ShellSsh {
 		if ($rv) {
 			$error = $this->ConnectError($rv);
 
-			$this->Log($error);
+			$this->Log($error ?? '');
 		}
 
 		return $rv; // everything goes well ;)
@@ -125,9 +126,9 @@ class PHPScp extends PHPConnection implements ShellSsh {
 	 * successful Connect().
 	 *
 	 * @param string $filename   The local filename to save the downloaded
-	 *                          config as.
+	 *                           config as.
 	 * @param string $backuppath The local directory to save the downloaded
-	 *                          config into.
+	 *                           config into.
 	 *
 	 * @return bool|void True/false result of the internal SCP receive, or
 	 *                   no return value when using the external scp
@@ -195,7 +196,11 @@ class PHPScp extends PHPConnection implements ShellSsh {
 				case 9:
 					return 'ERROR: SSH Enable login failed';
 			}
+
+			return null;
 		}
+
+		return null;
 	}
 }
 

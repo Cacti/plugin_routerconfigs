@@ -42,7 +42,7 @@ function plugin_routerconfigs_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/routerconfigs/INFO', true);
 
-	return $info['info'];
+	return isset($info['info']) && is_array($info['info']) ? $info['info'] : [];
 }
 
 /**
@@ -490,20 +490,20 @@ function AddDeviceTypes() {
  * @param string $promptuser       The username prompt pattern to expect.
  * @param string $promptpass       The password prompt pattern to expect.
  * @param string $copytftp         The command used to copy the running
- *                                config to a TFTP server.
+ *                                 config to a TFTP server.
  * @param string $version          The command used to query the device's
- *                                version/model.
+ *                                 version/model.
  * @param string $confirm          The confirmation response text
- *                                expected during backup.
+ *                                 expected during backup.
  * @param string $forceconfirm     Whether to force the confirmation
- *                                prompt.
+ *                                 prompt.
  * @param string $checkendinconfig Whether to check for a recognizable
- *                                end-of-config marker.
+ *                                 end-of-config marker.
  * @param string $elevated         Whether this device type requires an
- *                                elevated/enable password.
+ *                                 elevated/enable password.
  * @param string $promptconfirm    The confirmation prompt pattern to
- *                                expect; defaults to
- *                                'confirm|to tftp:'.
+ *                                 expect; defaults to
+ *                                 'confirm|to tftp:'.
  *
  * @return void
  */

@@ -139,14 +139,16 @@ function actions_accounts() {
 
 	form_start('router-accounts.php');
 
-	if (get_nfilter_request_var('drp_action') > 0) {
-		html_start_box($rc_account_actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
+	$drp_action = (int) get_nfilter_request_var('drp_action');
+
+	if ($drp_action > 0 && array_key_exists($drp_action, $rc_account_actions)) {
+		html_start_box($rc_account_actions[$drp_action], '60%', false, 3, 'center', '');
 	} else {
-		html_start_box('', '60%', '', '3', 'center', '');
+		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
 	if (sizeof($account_array)) {
-		if (get_nfilter_request_var('drp_action') == RCONFIG_ACCOUNT_DELETE) { // Delete
+		if ($drp_action == RCONFIG_ACCOUNT_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
 					<p>" . __('Click \'Continue\' to delete the following account(s).', 'routerconfigs') . "</p>
@@ -164,7 +166,7 @@ function actions_accounts() {
 	print "<tr>
 		<td class='saveRow'>
 			<input type='hidden' name='action' value='actions'>
-			<input type='hidden' name='selected_items' value='" . (isset($account_array) ? serialize($account_array) : '') . "'>
+			<input type='hidden' name='selected_items' value='" . serialize($account_array) . "'>
 		<input type='hidden' name='drp_action' value='" . html_escape(get_nfilter_request_var('drp_action')) . "'>
 			$save_html
 		</td>
@@ -250,7 +252,14 @@ function edit_accounts() {
 	$account = [];
 
 	if (!isempty_request_var('id')) {
-		$account             = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) get_request_var('id')]);
+		$account = db_fetch_row_prepared('SELECT * FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) get_request_var('id')]);
+		$account = is_array($account) ? $account : [];
+
+		if (!isset($account['id'])) {
+			header('Location: router-accounts.php?header=false');
+			exit;
+		}
+
 		$account['password'] = '';
 		$header_label        = __('Account: [edit: %s]', $account['name'], 'routerconfigs');
 	} else {
@@ -259,7 +268,7 @@ function edit_accounts() {
 
 	form_start('router-accounts.php', 'chk');
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -320,7 +329,7 @@ function show_accounts() {
 
 	form_start('router-accounts.php', 'chk');
 
-	html_start_box(__('Account Management', 'routerconfigs'), '100%', '', '4', 'center', 'router-accounts.php?action=edit');
+	html_start_box(__('Account Management', 'routerconfigs'), '100%', false, 4, 'center', 'router-accounts.php?action=edit');
 
 	print $nav;
 
