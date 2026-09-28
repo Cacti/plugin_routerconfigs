@@ -55,6 +55,11 @@ test('csp nonce delegates to CactiSecureHeaders when the class is available', fu
 	$wrapper = realpath(__DIR__ . '/../../setup.php');
 	expect($wrapper)->not->toBeFalse();
 
+	// The wrapper's file may not be loadable in isolation (some plugins
+	// include translised arrays at file scope), so hand the child the unit
+	// bootstrap too; it defines the Cacti stubs the file needs at load time.
+	$bootstrap = realpath(__DIR__ . '/../bootstrap-unit.php');
+
 	// Run in a clean child process so the double never leaks into the rest
 	// of the suite and the delegation branch is genuinely invoked.
 	$script = <<<'CHILD'
@@ -68,6 +73,10 @@ class CactiSecureHeaders {
 	}
 }
 
+if (isset($argv[2]) && $argv[2] !== '' && is_file($argv[2])) {
+	try { require $argv[2]; } catch (\Throwable $e) { /* no Cacti host locally */ }
+}
+
 require $argv[1];
 
 echo "<<<" . plugin_routerconfigs_csp_nonce() . ">>>";
@@ -79,7 +88,7 @@ CHILD;
 	try {
 		file_put_contents($tmp, $script);
 
-		$command = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($tmp) . ' ' . escapeshellarg($wrapper);
+		$command = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($tmp) . ' ' . escapeshellarg($wrapper) . ' ' . escapeshellarg($bootstrap === false ? '' : $bootstrap);
 		$output  = shell_exec($command);
 
 		expect($output)->not->toBeNull();
