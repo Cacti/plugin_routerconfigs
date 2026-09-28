@@ -112,7 +112,7 @@ html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', false, 4
 			</tr>
 		</table>
 	</form>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_routerconfigs_csp_nonce(); ?>>
 	$(function() {
 		$('#diffmode').change(function() {
 			var strURL = urlPath + 'plugins/routerconfigs/router-compare.php';
@@ -317,7 +317,7 @@ if (!empty($file1) && !empty($file2)) {
 html_end_box();
 
 ?>
-<script type='text/javascript'>
+<script type='text/javascript' <?php print plugin_routerconfigs_csp_nonce(); ?>>
 	function changeDeviceA () {
 		strURL  = 'router-compare.php?header=false&device1='+$('#device1').val();
 		strURL += '&device2='+$('#device2').val();

@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+
 - issue: Fix router-compare.php using '==' instead of '=' when defaulting
   an invalid $device1 selection, and assigning the default to $device1
   instead of $device2 when $device2 was invalid
