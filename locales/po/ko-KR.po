@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-25 15:33-0400\n"
+"POT-Creation-Date: 2026-09-27 11:28-0400\n"
 "PO-Revision-Date: 2020-12-13 10:26-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -933,7 +933,7 @@ msgstr "계정 관리"
 msgid "No Router Accounts Found"
 msgstr "라우터 계정 없음"
 
-#: router-backups.php:238 setup.php:693
+#: router-backups.php:238 setup.php:709
 #, fuzzy
 msgid "Router Backups"
 msgstr "라우터 백업"
@@ -1038,7 +1038,7 @@ msgstr "파일이름"
 msgid "The filename of the stored device backups"
 msgstr "오래된 백업을 유지하는 기간 (일)입니다."
 
-#: router-backups.php:384 setup.php:679 setup.php:714
+#: router-backups.php:384 setup.php:695 setup.php:730
 msgid "View Config"
 msgstr "설정 보기"
 
@@ -1351,55 +1351,55 @@ msgstr "구성에서 끝 확인"
 msgid "No Router Device Types Found"
 msgstr "라우터 장치 유형을 찾을 수 없음"
 
-#: setup.php:66 setup.php:616 setup.php:642
+#: setup.php:82 setup.php:632 setup.php:658
 #, fuzzy
 msgid "Router Configs"
 msgstr "라우터 구성"
 
-#: setup.php:587
+#: setup.php:603
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "디버그 : '%s'인수로 '%s'실행"
 
-#: setup.php:642
+#: setup.php:658
 msgid "Utilities"
 msgstr "도구 "
 
-#: setup.php:658
+#: setup.php:674
 #, fuzzy
 msgid "Router Devices"
 msgstr "라우터 장치"
 
-#: setup.php:665 setup.php:700 setup.php:728
+#: setup.php:681 setup.php:716 setup.php:744
 msgid "(edit)"
 msgstr "(편집)"
 
-#: setup.php:672 setup.php:707 setup.php:735
+#: setup.php:688 setup.php:723 setup.php:751
 #, fuzzy
 msgid "(actions)"
 msgstr "작업"
 
-#: setup.php:686
+#: setup.php:702
 #, fuzzy
 msgid "View Debug"
 msgstr "디버그보기"
 
-#: setup.php:721
+#: setup.php:737
 #, fuzzy
 msgid "Router Accounts"
 msgstr "라우터 계정"
 
-#: setup.php:742
+#: setup.php:758
 #, fuzzy
 msgid "Router Compare"
 msgstr "라우터 비교"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "라우터 구성"
 
-#: setup.php:849
+#: setup.php:865
 #, fuzzy
 msgid "Routers"
 msgstr "라우터 구성"
