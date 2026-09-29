@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 11:28-0400\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,1394 +17,1387 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: include/arrays.php:45 include/arrays.php:50 include/arrays.php:57
+#: include/arrays.php
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: include/arrays.php:49
+#: include/arrays.php
 msgid "Backup"
 msgstr "Αντίγραφα"
 
-#: include/arrays.php:51
+#: include/arrays.php
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
-#: include/arrays.php:52
+#: include/arrays.php
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
-#: include/arrays.php:53
+#: include/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:61
+#: include/arrays.php
 #, fuzzy
 msgid "SSH/Telnet"
 msgstr "远程登录"
 
-#: include/arrays.php:62
+#: include/arrays.php
 #, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php:63
+#: include/arrays.php
 msgid "Telnet"
 msgstr "远程登录"
 
-#: include/arrays.php:64
+#: include/arrays.php
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php:65
+#: include/arrays.php
 #, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php:69
+#: include/arrays.php
 msgid "Inherit"
 msgstr "Κληρονομώ"
 
-#: include/arrays.php:73
+#: include/arrays.php
 msgid "Daily"
 msgstr "Καθημερινά"
 
-#: include/arrays.php:74
+#: include/arrays.php
 msgid "Weekly"
 msgstr "Εβδομαδιαία"
 
-#: include/arrays.php:75
+#: include/arrays.php
 msgid "Monthly"
 msgstr "Μηνιαία"
 
-#: include/arrays.php:79
+#: include/arrays.php
 #, php-format
 msgid "%d Month"
 msgstr "% d Μήνα"
 
-#: include/arrays.php:80 include/arrays.php:81 include/arrays.php:82
-#: include/arrays.php:83
+#: include/arrays.php
 #, php-format
 msgid "%d Months"
 msgstr "% d Μήνας"
 
-#: include/arrays.php:84
+#: include/arrays.php
 #, php-format
 msgid "%d Year"
 msgstr "% d Έτος"
 
-#: include/arrays.php:85 include/arrays.php:86 include/arrays.php:87
-#: include/arrays.php:88
+#: include/arrays.php
 #, php-format
 msgid "%d Years"
 msgstr "% d Έτη"
 
-#: include/arrays.php:92
+#: include/arrays.php
 msgid "Never"
 msgstr "Ποτέ"
 
-#: include/arrays.php:93
+#: include/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d ώρα"
 
-#: include/arrays.php:94 include/arrays.php:95 include/arrays.php:96
-#: include/arrays.php:97 include/arrays.php:98 include/arrays.php:99
+#: include/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d ώρες"
 
-#: include/arrays.php:103
+#: include/arrays.php
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12πμ)"
 
-#: include/arrays.php:104
+#: include/arrays.php
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (1 π.μ.)"
 
-#: include/arrays.php:105
+#: include/arrays.php
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2πμ)"
 
-#: include/arrays.php:106
+#: include/arrays.php
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3πμ)"
 
-#: include/arrays.php:107
+#: include/arrays.php
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4πμ)"
 
-#: include/arrays.php:108
+#: include/arrays.php
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5πμ)"
 
-#: include/arrays.php:109
+#: include/arrays.php
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6πμ)"
 
-#: include/arrays.php:110
+#: include/arrays.php
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7πμ)"
 
-#: include/arrays.php:111
+#: include/arrays.php
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (8πμ)"
 
-#: include/arrays.php:112
+#: include/arrays.php
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9πμ)"
 
-#: include/arrays.php:113
+#: include/arrays.php
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12πμ)"
 
-#: include/arrays.php:114
+#: include/arrays.php
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11πμ)"
 
-#: include/arrays.php:115
+#: include/arrays.php
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12μμ)"
 
-#: include/arrays.php:116
+#: include/arrays.php
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (1μμ)"
 
-#: include/arrays.php:117
+#: include/arrays.php
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00 (2μμ)"
 
-#: include/arrays.php:118
+#: include/arrays.php
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (3μμ)"
 
-#: include/arrays.php:119
+#: include/arrays.php
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (4μμ)"
 
-#: include/arrays.php:120
+#: include/arrays.php
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (5μμ)"
 
-#: include/arrays.php:121
+#: include/arrays.php
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00 (6μμ)"
 
-#: include/arrays.php:122
+#: include/arrays.php
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (7μμ)"
 
-#: include/arrays.php:123
+#: include/arrays.php
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (8μμ)"
 
-#: include/arrays.php:124
+#: include/arrays.php
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (9μμ)"
 
-#: include/arrays.php:125
+#: include/arrays.php
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (10μμ)"
 
-#: include/arrays.php:126
+#: include/arrays.php
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (11μμ)"
 
-#: include/arrays.php:132 include/arrays.php:273 router-devtypes.php:352
+#: include/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "Όνομα"
 
-#: include/arrays.php:133
+#: include/arrays.php
 #, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "Δώστε σε αυτόν τον λογαριασμό ένα σημαντικό όνομα που θα εμφανιστεί."
 
-#: include/arrays.php:139 router-accounts.php:336
+#: include/arrays.php router-accounts.php
 msgid "Username"
 msgstr "Όνομα Χρήστη"
 
-#: include/arrays.php:140
+#: include/arrays.php
 #, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "Το όνομα χρήστη που θα χρησιμοποιηθεί για έλεγχο ταυτότητας."
 
-#: include/arrays.php:146
+#: include/arrays.php
 msgid "Password"
 msgstr "Κωδικός"
 
-#: include/arrays.php:147
+#: include/arrays.php
 #, fuzzy
 msgid "The password used for authentication."
 msgstr "Ο κωδικός πρόσβασης που χρησιμοποιείται για τον έλεγχο ταυτότητας."
 
-#: include/arrays.php:155
+#: include/arrays.php
 #, fuzzy
 msgid "Enable Password"
 msgstr "Ενεργοποίηση κωδικού πρόσβασης"
 
-#: include/arrays.php:156
+#: include/arrays.php
 #, fuzzy
 msgid "Your Enable Password, if required."
 msgstr "Ενεργοποίηση κωδικού πρόσβασης, εάν απαιτείται."
 
-#: include/arrays.php:171
+#: include/arrays.php
 #, fuzzy
 msgid "Enable Device"
 msgstr "Ενεργοποίηση συσκευής"
 
-#: include/arrays.php:172
+#: include/arrays.php
 #, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Καταργήστε την επιλογή αυτού του πλαισίου για να απενεργοποιήσετε τη συγκεκριμένη συσκευή από τη δημιουργία αντιγράφων ασφαλείας."
 
-#: include/arrays.php:179 router-accounts.php:336
+#: include/arrays.php router-accounts.php
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: include/arrays.php:180
+#: include/arrays.php
 #, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "Όνομα αυτής της συσκευής (θα χρησιμοποιηθεί για την αποθήκευση των ρυθμίσεων και για το SVN, αν δεν υπάρχει όνομα κεντρικού υπολογιστή στο config)."
 
-#: include/arrays.php:186 router-devices.php:840
+#: include/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP Address"
 
-#: include/arrays.php:187
+#: include/arrays.php
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php:193
+#: include/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php:194
+#: include/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php:199 router-backups.php:321 router-devices.php:876
+#: include/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "Κατάλογος"
 
-#: include/arrays.php:200
+#: include/arrays.php
 #, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Αυτή είναι η σχετική δομή καταλόγου που χρησιμοποιείται για την αποθήκευση των configs."
 
-#: include/arrays.php:206
+#: include/arrays.php
 msgid "Schedule"
 msgstr "Πρόγραμμα"
 
-#: include/arrays.php:207
+#: include/arrays.php
 #, fuzzy
 msgid "How often to Backup this device."
 msgstr "Πόση ώρα γίνεται η δημιουργία αντιγράφων ασφαλείας αυτής της συσκευής."
 
-#: include/arrays.php:214 router-devices.php:717 router-devices.php:823
+#: include/arrays.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "Τύπος συσκευής"
 
-#: include/arrays.php:215
+#: include/arrays.php
 #, fuzzy
 msgid "Choose the type of device that the router is."
 msgstr "Επιλέξτε τον τύπο συσκευής που είναι ο δρομολογητής."
 
-#: include/arrays.php:219 router-devices.php:944
+#: include/arrays.php router-devices.php
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "Αυτόματη αναγνώριση"
 
-#: include/arrays.php:223 include/arrays.php:281
+#: include/arrays.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "Τύπος σύνδεσης"
 
-#: include/arrays.php:224 include/arrays.php:282
+#: include/arrays.php
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php:231
+#: include/arrays.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Λογαριασμός ελέγχου ταυτότητας"
 
-#: include/arrays.php:232
+#: include/arrays.php
 #, fuzzy
 msgid "Choose an account to use to Login to the router"
 msgstr "Επιλέξτε έναν λογαριασμό που θα χρησιμοποιηθεί για να συνδεθείτε στο δρομολογητή"
 
-#: include/arrays.php:236
+#: include/arrays.php
 msgid "None"
 msgstr "Κανένα"
 
-#: include/arrays.php:239 include/arrays.php:364 include/arrays.php:408
+#: include/arrays.php
 #, fuzzy
 msgid "Default timeout"
 msgstr "Προεπιλεγμένο χρονικό όριο"
 
-#: include/arrays.php:240 include/arrays.php:365 include/arrays.php:409
+#: include/arrays.php
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "Προεπιλεγμένος χρόνος αναμονής σε δευτερόλεπτα για μια ανταπόκριση"
 
-#: include/arrays.php:248 include/arrays.php:373 include/arrays.php:416
+#: include/arrays.php
 #, fuzzy
 msgid "Default sleep time"
 msgstr "Προεπιλεγμένος χρόνος ύπνου"
 
-#: include/arrays.php:249 include/arrays.php:374 include/arrays.php:417
+#: include/arrays.php
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "Προεπιλεγμένος χρόνος ύπνου σε μικροδευτερόλεπτα (1 / 1.000.000 το δευτερόλεπτο)"
 
-#: include/arrays.php:258 include/arrays.php:357
+#: include/arrays.php
 #, fuzzy
 msgid "Assume elevated"
 msgstr "Υποθέστε ότι είναι αυξημένα"
 
-#: include/arrays.php:259 include/arrays.php:358
+#: include/arrays.php
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "Καταργήστε την επιλογή αυτού του πλαισίου για να απενεργοποιήσετε τη συγκεκριμένη συσκευή από τη δημιουργία αντιγράφων ασφαλείας."
 
-#: include/arrays.php:274
+#: include/arrays.php
 #, fuzzy
 msgid "Name of this device type."
 msgstr "Όνομα αυτού του τύπου συσκευής."
 
-#: include/arrays.php:289
+#: include/arrays.php
 #, fuzzy
 msgid "Username Prompt"
 msgstr "Όνομα χρήστη"
 
-#: include/arrays.php:290
+#: include/arrays.php
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "Αυτή είναι η προτροπή ονόματος χρήστη που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php:297
+#: include/arrays.php
 #, fuzzy
 msgid "Password Prompt"
 msgstr "Προώθηση κωδικού πρόσβασης"
 
-#: include/arrays.php:298
+#: include/arrays.php
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "Αυτή είναι η ερώτηση για τον κωδικό πρόσβασης που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php:305
+#: include/arrays.php
 #, fuzzy
 msgid "Configuration file"
 msgstr "Αρχείο διαμόρφωσης"
 
-#: include/arrays.php:306
+#: include/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "Αυτή είναι η τυπική θέση του αρχείου διαμόρφωσης στην απομακρυσμένη συσκευή."
 
-#: include/arrays.php:313 router-devtypes.php:356
+#: include/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "Αντιγραφή TFTP"
 
-#: include/arrays.php:314
+#: include/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Αυτό είναι το κείμενο CLI που χρησιμοποιείται για την αποστολή του αντιγράφου ασφαλείας στον εξυπηρετητή tftp."
 
-#: include/arrays.php:321
+#: include/arrays.php
 #, fuzzy
 msgid "Show Version"
 msgstr "Εμφάνιση έκδοσης"
 
-#: include/arrays.php:322
+#: include/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "Αυτό είναι το κείμενο CLI που χρησιμοποιείται για την εμφάνιση της τρέχουσας έκδοσης."
 
-#: include/arrays.php:329
+#: include/arrays.php
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/arrays.php:330
+#: include/arrays.php
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "Αυτή είναι η προτροπή ονόματος χρήστη που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php:337 router-devtypes.php:358
+#: include/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
-#: include/arrays.php:338
+#: include/arrays.php
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "Υπάρχει μια ερώτηση επιβεβαίωσης για την αντιγραφή του config;"
 
-#: include/arrays.php:345 router-devtypes.php:359
+#: include/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Force Confirm"
 msgstr "Επιβεβαιώστε τη δύναμη"
 
-#: include/arrays.php:346
+#: include/arrays.php
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "Υπάρχει εντολή επιβεβαίωσης δύναμης για την αντιγραφή του config;"
 
-#: include/arrays.php:351
+#: include/arrays.php
 #, fuzzy
 msgid "Check End in Config"
 msgstr "Επιλέξτε Έξοδος στο Config"
 
-#: include/arrays.php:352
+#: include/arrays.php
 #, fuzzy
 msgid "Check end in config?"
 msgstr "Ελέγξτε το τέλος στο config;"
 
-#: include/arrays.php:382
+#: include/arrays.php
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "Οποιαδήποτε προτροπή κλειδιού"
 
-#: include/arrays.php:383
+#: include/arrays.php
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Κείμενο για αντιστοίχιση προτροπής τύπου \"Πατήστε οποιοδήποτε πλήκτρο για να συνεχίσετε\""
 
-#: include/arrays.php:397
+#: include/arrays.php
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php:401
+#: include/arrays.php
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "Περίοδος διατήρησης"
 
-#: include/arrays.php:402
+#: include/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php:405
+#: include/arrays.php
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php:405
+#: include/arrays.php
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php:424
+#: include/arrays.php
 #, fuzzy
 msgid "Close without exit"
 msgstr "Κλείσιμο χωρίς έξοδο"
 
-#: include/arrays.php:425
+#: include/arrays.php
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "Εάν σημειωθεί, κατά το κλείσιμο της σύνδεσης της συσκευής, δεν εκδίδεται εντολή «έξοδος»"
 
-#: include/arrays.php:429
+#: include/arrays.php
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "Ενσωματωμένη σύνδεση σύνδεσης εντοπισμού σφαλμάτων"
 
-#: include/arrays.php:430
+#: include/arrays.php
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "Αν θα συνδεθείτε απευθείας στην έξοδο της σύνδεσης συσκευής"
 
-#: include/arrays.php:434
+#: include/arrays.php
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "Ας υποθέσουμε ότι όλες οι συσκευές είναι ανυψωμένες"
 
-#: include/arrays.php:435
+#: include/arrays.php
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "Αν θα υποθέσουμε ότι όλες οι συσκευές είναι αυξημένες"
 
-#: include/arrays.php:439
+#: include/arrays.php
 #, fuzzy
 msgid "Download Hour"
 msgstr "Λήψη ώρα"
 
-#: include/arrays.php:440
+#: include/arrays.php
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "Η ώρα της ημέρας για να πραγματοποιήσετε τις πλήρεις λήψεις."
 
-#: include/arrays.php:446
+#: include/arrays.php
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "Πρόγραμμα"
 
-#: include/arrays.php:447
+#: include/arrays.php
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "Ο χρόνος αναμονής πριν από την προσπάθεια εκτέλεσης μιας πρόσθετης λήψης όταν η προγραμματισμένη λήψη αποτυγχάνει"
 
-#: include/arrays.php:453
+#: include/arrays.php
 #, fuzzy
 msgid "Retention Period"
 msgstr "Περίοδος διατήρησης"
 
-#: include/arrays.php:454
+#: include/arrays.php
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "Ο αριθμός ημερών για τη διατήρηση των παλιών αντιγράφων ασφαλείας."
 
-#: include/arrays.php:460
+#: include/arrays.php
 #, fuzzy
 msgid "Transfer Options"
 msgstr "Επιλογές μεταφοράς"
 
-#: include/arrays.php:464
+#: include/arrays.php
 #, fuzzy
 msgid "Default connection type"
 msgstr "Προεπιλεγμένος τύπος σύνδεσης"
 
-#: include/arrays.php:465
+#: include/arrays.php
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php:471
+#: include/arrays.php
 #, fuzzy
 msgid "Separate By Device"
 msgstr "Διαχωρισμός ανά συσκευή"
 
-#: include/arrays.php:472
+#: include/arrays.php
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "Διαχωρίστε τα αρχειοθετημένα Config σε ένα φάκελο ανά συσκευή"
 
-#: include/arrays.php:477
+#: include/arrays.php
 #, fuzzy
 msgid "SCP Path"
 msgstr "Διαδρομή SCP"
 
-#: include/arrays.php:478
+#: include/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php:484
+#: include/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php:485
+#: include/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php:490
+#: include/arrays.php
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "IP διακομιστή TFTP"
 
-#: include/arrays.php:491
+#: include/arrays.php
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Πρέπει να είναι IP που να δείχνει στον διακομιστή Cacti."
 
-#: include/arrays.php:498
+#: include/arrays.php
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "Διαδρομή καταλόγου αντιγράφων ασφαλείας"
 
-#: include/arrays.php:499
+#: include/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "Η διαδρομή προς το σημείο όπου θα δημιουργηθούν αντίγραφα ασφαλείας των Configs σας, πρέπει να είναι η διαδρομή που γράφει ο τοπικός διακομιστής TFTP."
 
-#: include/arrays.php:506
+#: include/arrays.php
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "Διαδρομή καταλόγου αντιγράφων ασφαλείας"
 
-#: include/arrays.php:507
+#: include/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "Η διαδρομή προς το σημείο όπου θα δημιουργηθούν αντίγραφα ασφαλείας των Configs σας, πρέπει να είναι η διαδρομή που γράφει ο τοπικός διακομιστής TFTP."
 
-#: include/arrays.php:514
+#: include/arrays.php
 msgid "Email Options"
 msgstr "Επιλογές email"
 
-#: include/arrays.php:518
+#: include/arrays.php
 msgid "From Address"
 msgstr "Από Διεύθυνση"
 
-#: include/arrays.php:519
+#: include/arrays.php
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου θα αποστέλλεται από το νυχτερινό αντίγραφο ασφαλείας."
 
-#: include/arrays.php:526
+#: include/arrays.php
 msgid "From Name"
 msgstr "Από Όνομα"
 
-#: include/arrays.php:527
+#: include/arrays.php
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου θα αποστέλλεται από το νυχτερινό αντίγραφο ασφαλείας."
 
-#: include/arrays.php:534
+#: include/arrays.php
 msgid "Email Address"
 msgstr "Διεύθυνση Email"
 
-#: include/arrays.php:535
+#: include/arrays.php
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Μια λίστα γραμματοσειρών γραμματοσειρών με διευθύνσεις ηλεκτρονικού ταχυδρομείου για την αποστολή του εφεδρικού μηνύματος ηλεκτρονικού ταχυδρομείου την ημέρα."
 
-#: include/functions.php:55 router-accounts.php:336
+#: include/functions.php router-accounts.php
 msgid "Devices"
 msgstr "Τύπος Συσκευής"
 
-#: include/functions.php:56 router-devtypes.php:341
+#: include/functions.php router-devtypes.php
 #, fuzzy
 msgid "Device Types"
 msgstr "Τύποι συσκευών"
 
-#: include/functions.php:57
+#: include/functions.php
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-#: include/functions.php:58
+#: include/functions.php
 msgid "Backups"
 msgstr "Αντίγραφα ασφαλείας"
 
-#: include/functions.php:59 router-backups.php:386
+#: include/functions.php router-backups.php
 msgid "Compare"
 msgstr "Σύγκριση"
 
-#: include/functions.php:79
+#: include/functions.php
 #, fuzzy, php-format
 msgid "Technical Support [ %s ]"
 msgstr "Τεχνική υποστήριξη [ %s]"
 
-#: include/functions.php:110
+#: include/functions.php
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "(%s χαρακτήρες)"
 
-#: include/functions.php:110
+#: include/functions.php
 #, fuzzy
 msgid "(Not Set)"
 msgstr "Ορισμός ως Προεπιλογή"
 
-#: include/functions.php:178
+#: include/functions.php
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη μη αυτόματης δημιουργίας αντιγράφων ασφαλείας %s συσκευών"
 
-#: include/functions.php:181
+#: include/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη αυτόματης επανάληψης"
 
-#: include/functions.php:183
+#: include/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη αυτόματης δημιουργίας αντιγράφων ασφαλείας"
 
-#: include/functions.php:198
+#: include/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: Το Backup Path δεν έχει οριστεί ή δεν είναι κατάλογος"
 
-#: include/functions.php:201
+#: include/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: Ο διακομιστής TFTP δεν έχει οριστεί"
 
-#: include/functions.php:239
+#: include/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: Προσπάθεια λήψης για %s"
 
-#: include/functions.php:281
+#: include/functions.php
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "Οι συσκευές %s υποστηρίχθηκαν με επιτυχία. <br>"
 
-#: include/functions.php:282
+#: include/functions.php
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "Οι συσκευές %s απέτυχαν να δημιουργήσουν αντίγραφα ασφαλείας. <br>"
 
-#: include/functions.php:285
+#: include/functions.php
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "Οι συσκευές %s απέτυχαν να δημιουργήσουν αντίγραφα ασφαλείας. <br>"
 
-#: include/functions.php:302
+#: include/functions.php
 #, fuzzy
 msgid "Config Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/functions.php:306
+#: include/functions.php
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/functions.php:309
+#: include/functions.php
 #, fuzzy
 msgid " - Forced"
 msgstr " - Αναγκαστική"
 
-#: include/functions.php:313
+#: include/functions.php
 #, fuzzy
 msgid " - Manual"
 msgstr "Χειροκίνητα"
 
-#: include/functions.php:317
+#: include/functions.php
 #, fuzzy
 msgid " - Simulated"
 msgstr " - Προσομοίωση"
 
-#: include/functions.php:321
+#: include/functions.php
 #, fuzzy
 msgid " - Scheduled"
 msgstr "Προγραμματισμένο"
 
-#: include/functions.php:325
+#: include/functions.php
 #, fuzzy
 msgid " - Reattempt"
 msgstr " - Προσπαθήστε ξανά"
 
-#: include/functions.php:329
+#: include/functions.php
 #, fuzzy
 msgid ": Partial"
 msgstr ": Μερική"
 
-#: include/functions.php:331
+#: include/functions.php
 #, fuzzy
 msgid ": FAILED"
 msgstr "Απέτυχε"
 
-#: include/functions.php:346
+#: include/functions.php
 #, fuzzy
 msgid "STATS: "
 msgstr "Στατιστικά"
 
-#: include/functions.php:445
+#: include/functions.php
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "Το Backup Path δεν έχει ρυθμιστεί ή δεν είναι κατάλογος"
 
-#: include/functions.php:455
+#: include/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php:536
+#: include/functions.php
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "ΚΑΤΑΣΤΑΣΕΙΣ: Η δημιουργία αντιγράφων ασφαλείας εκτελείται τώρα από τις %s"
 
-#: include/functions.php:540
+#: include/functions.php
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Το αντίγραφο ασφαλείας εκτελείται ήδη από τις %s"
 
-#: include/functions.php:725
+#: include/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php:727
+#: include/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php:740 include/functions.php:748
+#: include/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "ΣΦΑΛΜΑ: Αποτυχία σύνδεσης στη συσκευή \"%s\" χρησιμοποιώντας τύπο σύνδεσης: %s"
 
-#: include/functions.php:759
+#: include/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "ΣΦΑΛΜΑ: Αποτυχία λήψης \"%s\" σε \"%s\" μέσω \"%s\""
 
-#: include/functions.php:1534
+#: include/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php:1539
+#: include/functions.php
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "Απέτυχε η φόρτωση του αρχείου \"%s\""
 
-#: include/functions.php:1542
+#: include/functions.php
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "Το αρχείο \"%s\" δεν βρέθηκε"
 
-#: include/functions.php:1553
+#: include/functions.php
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "Ρύθμιση παραμέτρων δρομολογητή για %s ( %s)"
 
-#: include/functions.php:1554
+#: include/functions.php
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "Δημιουργία αντιγράφων ασφαλείας από το %s"
 
-#: include/functions.php:1555
+#: include/functions.php
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Αρχείο: %s / %s"
 
-#: router-accounts.php:154
+#: router-accounts.php
 #, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τους ακόλουθους λογαριασμούς."
 
-#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
-#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
+#: router-accounts.php router-devices.php router-devtypes.php
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: router-accounts.php:160 router-devices.php:279 router-devices.php:289
-#: router-devices.php:299 router-devices.php:309 router-devtypes.php:139
+#: router-accounts.php router-devices.php router-devtypes.php
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: router-accounts.php:160 router-devices.php:279 router-devtypes.php:139
+#: router-accounts.php router-devices.php router-devtypes.php
 #, fuzzy
 msgid "Delete Device(s)"
 msgstr "Διαγραφή συσκευών"
 
-#: router-accounts.php:162
+#: router-accounts.php
 #, fuzzy
 msgid "You must select at least one device."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία συσκευή."
 
-#: router-accounts.php:163 router-devices.php:313 router-devices.php:320
+#: router-accounts.php router-devices.php
 msgid "Return"
 msgstr "Επιστροφή"
 
-#: router-accounts.php:264
+#: router-accounts.php
 #, fuzzy, php-format
 msgid "Account: [edit: %s]"
 msgstr "Λογαριασμός: [επεξεργασία: %s]"
 
-#: router-accounts.php:266
+#: router-accounts.php
 #, fuzzy
 msgid "Account: [new]"
 msgstr "Λογαριασμός: [νέο]"
 
-#: router-accounts.php:328
+#: router-accounts.php
 #, fuzzy
 msgid "Accounts"
 msgstr "Λογαριασμοί"
 
-#: router-accounts.php:332
+#: router-accounts.php
 #, fuzzy
 msgid "Account Management"
 msgstr "Διαχείριση λογαριασμών"
 
-#: router-accounts.php:353
+#: router-accounts.php
 #, fuzzy
 msgid "No Router Accounts Found"
 msgstr "Δεν βρέθηκαν λογαριασμοί δρομολογητή"
 
-#: router-backups.php:238 setup.php:709
+#: router-backups.php setup.php
 #, fuzzy
 msgid "Router Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας δρομολογητών"
 
-#: router-backups.php:248 router-devices.php:721 router-devices.php:742
+#: router-backups.php router-devices.php
 msgid "Any"
 msgstr "Οποιοδήποτε"
 
-#: router-backups.php:265 router-devices.php:759
+#: router-backups.php router-devices.php
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: router-backups.php:272 router-devices.php:766
+#: router-backups.php router-devices.php
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: router-backups.php:288 router-devices.php:782
+#: router-backups.php router-devices.php
 msgid "Go"
 msgstr "Πήγαινε"
 
-#: router-backups.php:288 router-devices.php:782
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "Ορισμός / Ανανέωση φίλτρων"
 
-#: router-backups.php:289 router-devices.php:783
+#: router-backups.php router-devices.php
 msgid "Clear"
 msgstr "Καθαρισμός"
 
-#: router-backups.php:289 router-devices.php:783
+#: router-backups.php router-devices.php
 msgid "Clear Filters"
 msgstr "Καθαρισμός Φίλτρων"
 
-#: router-backups.php:303 router-devices.php:800
+#: router-backups.php router-devices.php
 msgid "Hostname"
 msgstr "Νέο όνομα φιλοξενίας"
 
-#: router-backups.php:306 router-devices.php:803
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
 msgstr "Είτε διεύθυνση IP ή όνομα κεντρικού υπολογιστή. Εάν ένα όνομα κεντρικού υπολογιστή, πρέπει να επιλυθεί είτε από το DNS είτε από το αρχείο κεντρικών υπολογιστών σας."
 
-#: router-backups.php:309 router-devices.php:806 router-devtypes.php:351
+#: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
 msgstr "ID"
 
-#: router-backups.php:312 router-devices.php:809
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
 msgstr "Το εσωτερικό αναγνωριστικό βάσης δεδομένων για αυτήν τη συσκευή. Χρήσιμο κατά την εκτέλεση αυτοματοποίησης ή εντοπισμού σφαλμάτων."
 
-#: router-backups.php:315
+#: router-backups.php
 #, fuzzy
 msgid "Functions"
 msgstr "Ενέργειες"
 
-#: router-backups.php:318
+#: router-backups.php
 #, fuzzy
 msgid "Perform functions against this backup"
 msgstr "Εκτελέστε λειτουργίες σε αυτό το αντίγραφο ασφαλείας"
 
-#: router-backups.php:324 router-devices.php:879
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "The directory of the stored device backups"
 msgstr "Ο αριθμός ημερών για τη διατήρηση των παλιών αντιγράφων ασφαλείας."
 
-#: router-backups.php:327
+#: router-backups.php
 #, fuzzy
 msgid "Backup Time"
 msgstr "Χρόνος δημιουργίας αντιγράφων ασφαλείας"
 
-#: router-backups.php:330 router-devices.php:820
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "The last Backup time of the device"
 msgstr "Πόση ώρα γίνεται η δημιουργία αντιγράφων ασφαλείας αυτής της συσκευής."
 
-#: router-backups.php:333
+#: router-backups.php
 #, fuzzy
 msgid "Last Change"
 msgstr "Τελευταία αλλαγή"
 
-#: router-backups.php:336
+#: router-backups.php
 #, fuzzy
 msgid "The last Change time of the device"
 msgstr "Ο τελευταίος χρόνος αλλαγής της συσκευής"
 
-#: router-backups.php:339 router-devices.php:871
+#: router-backups.php router-devices.php
 #, fuzzy
 msgid "Changed By"
 msgstr "Τροποποιήθηκε"
 
-#: router-backups.php:342
+#: router-backups.php
 #, fuzzy
 msgid "The last person to change the configuration of the device"
 msgstr "Το τελευταίο άτομο που άλλαξε τη διαμόρφωση της συσκευής"
 
-#: router-backups.php:345
+#: router-backups.php
 msgid "Filename"
 msgstr "Όνομα αρχείου"
 
-#: router-backups.php:348
+#: router-backups.php
 #, fuzzy
 msgid "The filename of the stored device backups"
 msgstr "Ο αριθμός ημερών για τη διατήρηση των παλιών αντιγράφων ασφαλείας."
 
-#: router-backups.php:384 setup.php:695 setup.php:730
+#: router-backups.php setup.php
 #, fuzzy
 msgid "View Config"
 msgstr "Προβολή διαμόρφωσης"
 
-#: router-backups.php:397
+#: router-backups.php
 #, fuzzy
 msgid "No Router Backups Found"
 msgstr "Δεν βρέθηκαν αντίγραφα ασφαλείας δρομολογητή"
 
-#: router-compare.php:95
+#: router-compare.php
 #, fuzzy
 msgid "Router Backup Comparison"
 msgstr "Δημιουργία αντιγράφων ασφαλείας δρομολογητών"
 
-#: router-compare.php:104
+#: router-compare.php
 msgid "Diff Mode"
 msgstr ""
 
-#: router-compare.php:108
+#: router-compare.php
 msgid "Inline"
 msgstr ""
 
-#: router-compare.php:109
+#: router-compare.php
 msgid "Side by Side"
 msgstr ""
 
-#: router-compare.php:172
+#: router-compare.php
 #, fuzzy
 msgid "Compare Output"
 msgstr "Συγκρίνετε την έξοδο"
 
-#: router-compare.php:285 router-compare.php:289
+#: router-compare.php
 #, fuzzy, php-format
 msgid "Backup %s not found"
 msgstr "Το αρχείο \"%s\" δεν βρέθηκε"
 
-#: router-compare.php:296 router-compare.php:304
+#: router-compare.php
 #, fuzzy
 msgid "There are no Changes"
 msgstr "Δεν υπάρχουν αλλαγές"
 
-#: router-compare.php:314
+#: router-compare.php
 #, fuzzy
 msgid "Error, you must have backups for each device."
 msgstr "Σφάλμα, πρέπει να έχετε αντίγραφα ασφαλείας για κάθε συσκευή."
 
-#: router-devices.php:116
+#: router-devices.php
 #, fuzzy, php-format
 msgid "Debug for %s (%s)<br><br>"
 msgstr "Επεξεργασία σφαλμάτων για το %s ( %s) <br><br>"
 
-#: router-devices.php:244
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: Εκτέλεση μη αυτόματης δημιουργίας αντιγράφων ασφαλείας χρησιμοποιώντας το \"%s\" με ορίσματα \"%s\""
 
-#: router-devices.php:247
+#: router-devices.php
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
 msgstr ""
 
-#: router-devices.php:275
+#: router-devices.php
 #, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες συσκευές."
 
-#: router-devices.php:285
+#: router-devices.php
 #, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να ενεργοποιήσετε την παρακάτω συσκευή (ες)."
 
-#: router-devices.php:289
+#: router-devices.php
 #, fuzzy
 msgid "Enable Device(s)"
 msgstr "Ενεργοποίηση συσκευών"
 
-#: router-devices.php:295
+#: router-devices.php
 #, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να απενεργοποιήσετε τις ακόλουθες συσκευές."
 
-#: router-devices.php:299
+#: router-devices.php
 #, fuzzy
 msgid "Disable Device(s)"
 msgstr "Απενεργοποίηση συσκευών"
 
-#: router-devices.php:305
+#: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
 msgstr ""
 
-#: router-devices.php:309
+#: router-devices.php
 msgid "Clear SSH Host Key(s)"
 msgstr ""
 
-#: router-devices.php:318
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον τη συσκευή δρομολογητή."
 
-#: router-devices.php:437 router-devices.php:441
+#: router-devices.php
 msgid "Not recorded"
 msgstr ""
 
-#: router-devices.php:439
+#: router-devices.php
 #, fuzzy, php-format
 msgid "Router: [edit: %s]"
 msgstr "Router: [επεξεργασία: %s]"
 
-#: router-devices.php:442
+#: router-devices.php
 #, fuzzy
 msgid "Router: [new]"
 msgstr "Router: [νέο]"
 
-#: router-devices.php:708
+#: router-devices.php
 #, fuzzy
 msgid "Router Device Management"
 msgstr "Διαχείριση συσκευών δρομολογητή"
 
-#: router-devices.php:738
+#: router-devices.php
 msgid "Account"
 msgstr "Λογαριασμός"
 
-#: router-devices.php:797
+#: router-devices.php
 msgid "Actions"
 msgstr "Ενέργειες"
 
-#: router-devices.php:812
+#: router-devices.php
 msgid "Enabled"
 msgstr "Ενεργοποιημένο"
 
-#: router-devices.php:817
+#: router-devices.php
 #, fuzzy
 msgid "Last Backup"
 msgstr "Τελευταίο αντίγραφο ασφαλείας"
 
-#: router-devices.php:826
+#: router-devices.php
 #, fuzzy
 msgid "The device type of the device"
 msgstr "Ο τύπος συσκευής της συσκευής"
 
-#: router-devices.php:829
+#: router-devices.php
 #, fuzzy
 msgid "Connect Type"
 msgstr "Τύπος συσκευής"
 
-#: router-devices.php:832
+#: router-devices.php
 #, fuzzy
 msgid "The connection type for this device"
 msgstr "Ο τύπος σύνδεσης για αυτήν τη συσκευή"
 
-#: router-devices.php:835
+#: router-devices.php
 #, fuzzy
 msgid "Configs"
 msgstr "Συνεντεύξεις"
 
-#: router-devices.php:837
+#: router-devices.php
 #, fuzzy
 msgid "The number of configurations for this device"
 msgstr "Ο αριθμός των διαμορφώσεων για αυτήν τη συσκευή"
 
-#: router-devices.php:843
+#: router-devices.php
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "Όνομα αυτού του τύπου συσκευής."
 
-#: router-devices.php:846
+#: router-devices.php
 #, fuzzy
 msgid "Next Backup"
 msgstr "Τελευταίο αντίγραφο ασφαλείας"
 
-#: router-devices.php:851
+#: router-devices.php
 #, fuzzy
 msgid "Date Backup"
 msgstr "Τελευταίο αντίγραφο ασφαλείας"
 
-#: router-devices.php:856
+#: router-devices.php
 #, fuzzy
 msgid "Next Attempt"
 msgstr "Επόμενη προσπάθεια"
 
-#: router-devices.php:861
+#: router-devices.php
 #, fuzzy
 msgid "Last Attempt"
 msgstr "Τελευταία προσπάθεια"
 
-#: router-devices.php:866
+#: router-devices.php
 #, fuzzy
 msgid "Date Change"
 msgstr "Τελευταία αλλαγή"
 
-#: router-devices.php:911
+#: router-devices.php
 msgid "Today"
 msgstr "Σήμερα"
 
-#: router-devices.php:912
+#: router-devices.php
 msgid "Yesterday"
 msgstr "Χθές"
 
-#: router-devices.php:913
+#: router-devices.php
 msgid "This Week"
 msgstr "Αυτή την Εβδομάδα"
 
-#: router-devices.php:914
+#: router-devices.php
 msgid "This Month"
 msgstr "Αυτόν το Μήνα"
 
-#: router-devices.php:915
+#: router-devices.php
 #, fuzzy
 msgid "Within a Year"
 msgstr "Μέσα σε ένα έτος"
 
-#: router-devices.php:916
+#: router-devices.php
 #, fuzzy
 msgid "Long, Long Ago"
 msgstr "Πολύ καιρό πριν"
 
-#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
-#: router-devtypes.php:379
+#: router-devices.php router-devtypes.php
 msgid "No"
 msgstr "Όχι"
 
-#: router-devices.php:947 router-devtypes.php:376 router-devtypes.php:377
-#: router-devtypes.php:379
+#: router-devices.php router-devtypes.php
 msgid "Yes"
 msgstr "Ναι"
 
-#: router-devices.php:963
+#: router-devices.php
 #, fuzzy
 msgid "Connect via SSH"
 msgstr "Συνδεθείτε μέσω SSH"
 
-#: router-devices.php:967
+#: router-devices.php
 #, fuzzy
 msgid "Connect via Telnet"
 msgstr "Συνδεθείτε μέσω Telnet"
 
-#: router-devices.php:972
+#: router-devices.php
 #, fuzzy
 msgid "Trace Route"
 msgstr "Παρακολούθηση διαδρομής"
 
-#: router-devices.php:975
+#: router-devices.php
 #, fuzzy
 msgid "Router Debug Info"
 msgstr "Πληροφορίες αποκατάστασης δρομολογητή"
 
-#: router-devices.php:986
+#: router-devices.php
 #, fuzzy, php-format
 msgid "Backups (%s)"
 msgstr "Δημιουργία αντιγράφων ασφαλείας ( %s)"
 
-#: router-devices.php:986
+#: router-devices.php
 msgid "Current"
 msgstr "Τρέχων"
 
-#: router-devices.php:1001
+#: router-devices.php
 #, fuzzy
 msgid "No Router Devices Found"
 msgstr "Δεν βρέθηκαν συσκευές δρομολογητή"
 
-#: router-devtypes.php:133
+#: router-devtypes.php
 #, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "Όταν κάνετε κλικ στο 'Συνέχεια', οι ακόλουθες συσκευές θα διαγραφούν."
 
-#: router-devtypes.php:253
+#: router-devtypes.php
 #, fuzzy, php-format
 msgid "Query [edit: %s]"
 msgstr "Ερώτημα [επεξεργασία: %s]"
 
-#: router-devtypes.php:255
+#: router-devtypes.php
 #, fuzzy
 msgid "Query [new]"
 msgstr "Ερώτημα [νέο]"
 
-#: router-devtypes.php:345
+#: router-devtypes.php
 #, fuzzy
 msgid "View Router Device Types"
 msgstr "Προβολή τύπων συσκευών δρομολόγησης"
 
-#: router-devtypes.php:353
+#: router-devtypes.php
 msgid "Type"
 msgstr "Τύπος"
 
-#: router-devtypes.php:354
+#: router-devtypes.php
 #, fuzzy
 msgid "User Prompt"
 msgstr "Όνομα χρήστη"
 
-#: router-devtypes.php:355
+#: router-devtypes.php
 #, fuzzy
 msgid "Pass Prompt"
 msgstr "Προώθηση κωδικού πρόσβασης"
 
-#: router-devtypes.php:357
+#: router-devtypes.php
 msgid "Version"
 msgstr "Έκδοση"
 
-#: router-devtypes.php:360
+#: router-devtypes.php
 #, fuzzy
 msgid "Confirm Prompt"
 msgstr "Επιβεβαίωση νέου κωδικού/συνθηματικού πρόσβασης"
 
-#: router-devtypes.php:361
+#: router-devtypes.php
 #, fuzzy
 msgid "Check End In Config"
 msgstr "Έλεγχος Τέλος στο Config"
 
-#: router-devtypes.php:385
+#: router-devtypes.php
 #, fuzzy
 msgid "No Router Device Types Found"
 msgstr "Δεν βρέθηκαν τύποι συσκευών δρομολογητή"
 
-#: setup.php:82 setup.php:632 setup.php:658
+#: setup.php
 #, fuzzy
 msgid "Router Configs"
 msgstr "Ρυθμίσεις δρομολογητή"
 
-#: setup.php:603
+#: setup.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "DEBUG: Εκτέλεση \"%s\" με ορίσματα \"%s\""
 
-#: setup.php:658
+#: setup.php
 msgid "Utilities"
 msgstr "Παροχές"
 
-#: setup.php:674
+#: setup.php
 #, fuzzy
 msgid "Router Devices"
 msgstr "Συσκευές δρομολόγησης"
 
-#: setup.php:681 setup.php:716 setup.php:744
+#: setup.php
 #, fuzzy
 msgid "(edit)"
 msgstr "(Eπεξεργασία)"
 
-#: setup.php:688 setup.php:723 setup.php:751
+#: setup.php
 #, fuzzy
 msgid "(actions)"
 msgstr "Ενέργειες"
 
-#: setup.php:702
+#: setup.php
 #, fuzzy
 msgid "View Debug"
 msgstr "Προβολή εντοπισμού σφαλμάτων"
 
-#: setup.php:737
+#: setup.php
 #, fuzzy
 msgid "Router Accounts"
 msgstr "Λογαριασμοί δρομολογητών"
 
-#: setup.php:758
+#: setup.php
 #, fuzzy
 msgid "Router Compare"
 msgstr "Σύγκριση δρομολογητή"
 
-#: setup.php:865
+#: setup.php
 #, fuzzy
 msgid "RouterConfigs"
 msgstr "Ρυθμίσεις δρομολογητή"
 
-#: setup.php:865
+#: setup.php
 #, fuzzy
 msgid "Routers"
 msgstr "Ρυθμίσεις δρομολογητή"
