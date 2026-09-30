@@ -15,7 +15,6 @@
         "index.php",
         "locales/",
         "manifest.json",
-        "phpunit.xml",
         "router-accounts.php",
         "router-backups.php",
         "router-compare.php",
