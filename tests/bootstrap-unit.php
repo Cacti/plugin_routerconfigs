@@ -271,6 +271,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $also_print = false, $log_type = '', $level = 0) {
 		$GLOBALS['__test_log_messages'][] = $message;
+		$GLOBALS['__test_cacti_log'][] = (string) $message;
 
 		routerconfigs_test_stub('cacti_log', array($message, $also_print, $log_type, $level), null);
 	}

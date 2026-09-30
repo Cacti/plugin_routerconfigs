@@ -1,0 +1,28 @@
+{
+    "tombstones": [
+        "include/"
+    ],
+    "expected": [
+        "CHANGELOG.md",
+        "HordeTextInclude.php",
+        "INFO",
+        "LICENSE",
+        "README.md",
+        "Text/",
+        "classes/",
+        "css/",
+        "includes/",
+        "index.php",
+        "locales/",
+        "manifest.json",
+        "phpunit.xml",
+        "router-accounts.php",
+        "router-backups.php",
+        "router-compare.php",
+        "router-devices.php",
+        "router-devtypes.php",
+        "router-download.php",
+        "setup.php"
+    ],
+    "whitelist": []
+}
