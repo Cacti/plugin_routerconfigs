@@ -180,6 +180,25 @@ function routerconfigs_setup_table_new() {
 }
 
 /**
+ * Creates any of this plugin's tables that do not yet exist, leaving
+ * already-present tables untouched so the historical column renames/drops
+ * in routerconfigs_check_upgrade() can still run against them. Called at
+ * the very start of an upgrade, before those guarded pre-steps, the SSH
+ * host-key column check, and AddDeviceTypes(), so a missing devices or
+ * device-types table can no longer make the migration ALTERs error or seed
+ * device types into a not-yet-created table.
+ *
+ * @return void
+ */
+function routerconfigs_create_missing_tables() {
+	foreach (routerconfigs_table_map() as $table => $data) {
+		if (!db_table_exists($table)) {
+			api_plugin_db_table_create('routerconfigs', $table, $data);
+		}
+	}
+}
+
+/**
  * Refreshes this plugin's tables to their current definition on upgrade:
  * db_update_table() diffs the live schema against each definition and
  * issues the exact ALTER when the table already exists, otherwise the

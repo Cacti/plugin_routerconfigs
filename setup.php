@@ -151,9 +151,16 @@ function routerconfigs_check_upgrade() {
 	$info                 = plugin_routerconfigs_version();
 	$current              = $info['version'];
 	$old                  = db_fetch_cell_prepared('SELECT version FROM plugin_config WHERE directory = ?', ['routerconfigs']);
-	$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
 
 	if ($current != $old) {
+		// Create any missing tables up front, before the guarded historical
+		// migrations, the SSH host-key column check, and AddDeviceTypes() below,
+		// so a missing devices/device-types table can no longer make those
+		// pre-steps error or seed device types into a not-yet-created table.
+		routerconfigs_create_missing_tables();
+
+		$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
+
 		api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php', 1);
 		api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php', 1);
 

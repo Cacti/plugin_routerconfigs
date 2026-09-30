@@ -226,7 +226,7 @@ if (!empty($file1) && !empty($file2)) {
 
 	if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
 		// Create the Diff object.
-require_once(__DIR__ . '/HordeTextInclude.php');
+		require_once(__DIR__ . '/HordeTextInclude.php');
 
 		$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
 
@@ -240,9 +240,9 @@ require_once(__DIR__ . '/HordeTextInclude.php');
 		$text = $renderer->render($diff);
 	} elseif (cacti_version_compare(CACTI_VERSION, '1.2.32', '<')) {
 		// Cacti core still ships the legacy phpdiff vendor library.
-require_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
-			require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
-			require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
 
 		$options = [
 			'ignoreWhitespace' => true,
