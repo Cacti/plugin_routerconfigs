@@ -69,7 +69,7 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	}));
 
 	expect($finalUpdate)->toHaveCount(1);
-	expect($finalUpdate[0]['params'])->toBe([$info['version'], 'routerconfigs']);
+	expect($finalUpdate[0]['params'])->toBe([$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
 });
 
 it('adds the SSH host-key columns when they are missing and reports readiness', function () {

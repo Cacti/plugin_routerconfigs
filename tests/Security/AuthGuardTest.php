@@ -31,7 +31,7 @@ describe('auth guard presence in routerconfigs', function () {
 			}
 
 			// Files that include setup.php or are library files don't need direct auth
-			if (strpos($relativeFile, 'include/') === 0 || strpos($relativeFile, 'lib/') === 0) {
+			if (strpos($relativeFile, 'includes/') === 0 || strpos($relativeFile, 'lib/') === 0) {
 				continue;
 			}
 
