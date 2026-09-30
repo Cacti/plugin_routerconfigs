@@ -25,8 +25,8 @@ declare(strict_types = 1);
 */
 
 chdir('../../');
-include_once('./include/auth.php');
-include_once(__DIR__ . '/include/functions.php');
+require_once('./include/auth.php');
+require_once(__DIR__ . '/includes/functions.php');
 
 set_default_action();
 

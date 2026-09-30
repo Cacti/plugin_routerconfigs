@@ -40,7 +40,7 @@ function plugin_routerconfigs_csp_nonce(): string {
 	return '';
 }
 
-include_once(__DIR__ . '/include/arrays.php');
+require_once(__DIR__ . '/includes/arrays.php');
 
 /**
  * Reads this plugin's version/author metadata from its INFO file.
@@ -71,6 +71,8 @@ function plugin_routerconfigs_version() {
  * @return void
  */
 function plugin_routerconfigs_install() {
+	global $config;
+
 	api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php');
 	api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php');
 	api_plugin_register_hook('routerconfigs', 'config_arrays',         'routerconfigs_config_arrays',        'setup.php');
@@ -80,6 +82,8 @@ function plugin_routerconfigs_install() {
 	api_plugin_register_hook('routerconfigs', 'page_head',             'routerconfigs_page_head',            'setup.php');
 
 	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
+
+	require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php');
 
 	routerconfigs_setup_table_new();
 }
@@ -133,8 +137,9 @@ function plugin_routerconfigs_upgrade() {
 function routerconfigs_check_upgrade() {
 	global $config, $database_default;
 
-	include_once($config['library_path'] . '/database.php');
-	include_once($config['library_path'] . '/functions.php');
+	require_once($config['library_path'] . '/database.php');
+	require_once($config['library_path'] . '/functions.php');
+	require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = ['plugins.php', 'router-devices.php', 'settings.php'];
@@ -143,8 +148,8 @@ function routerconfigs_check_upgrade() {
 		return;
 	}
 
-	$current              = plugin_routerconfigs_version();
-	$current              = $current['version'];
+	$info                 = plugin_routerconfigs_version();
+	$current              = $info['version'];
 	$old                  = db_fetch_cell_prepared('SELECT version FROM plugin_config WHERE directory = ?', ['routerconfigs']);
 	$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
 
@@ -319,10 +324,14 @@ function routerconfigs_check_upgrade() {
 			cacti_log('ERROR: Routerconfigs upgrade incomplete: unable to create SSH host-key storage columns', false, 'RCONFIG');
 		}
 
+		// Refresh each table to the current definition; the historical column
+		// renames/drops above run first so db_update_table() sees current names.
+		routerconfigs_upgrade_tables();
+
 		db_execute_prepared('UPDATE plugin_config
-			SET version = ?
+			SET version = ?, name = ?, author = ?, webpage = ?
 			WHERE directory = ?',
-			[$current, 'routerconfigs']);
+			[$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
 	}
 }
 
@@ -366,117 +375,6 @@ function routerconfigs_check_dependencies() {
 	global $plugins, $config;
 
 	return true;
-}
-
-/**
- * Creates all of this plugin's database tables (accounts, backups,
- * devices, device types, including SSH host-key storage columns) and
- * seeds the built-in device types. Called from
- * plugin_routerconfigs_install() during plugin installation.
- *
- * @return void
- */
-function routerconfigs_setup_table_new() {
-	$data            = [];
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Accounts';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'name', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'username', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'password', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_accounts', $data);
-
-	$data            = [];
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Backups';
-	$data['primary'] = 'id';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'btime', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'device', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true];
-
-	$data['keys'][] = ['name' => 'btime', 'columns' => 'btime'];
-	$data['keys'][] = ['name' => 'device', 'columns' => 'device'];
-	$data['keys'][] = ['name' => 'directory', 'columns' => 'directory'];
-	$data['keys'][] = ['name' => 'lastchange', 'columns' => 'lastchange'];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_backups', $data);
-
-	$data = [];
-
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Devices';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'enabled', 'type' => 'varchar(2)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ipaddress', 'type' => 'varchar(128)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'hostname', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'account', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'device', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'schedule', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'nextbackup', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'sleep', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'timeout', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'debug', 'type' => 'longblob', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ssh_fingerprint', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ssh_hostkey_type', 'type' => 'varchar(64)', 'NULL' => true];
-
-	$data['keys'][] = ['name' => 'enabled', 'columns' => 'enabled'];
-	$data['keys'][] = ['name' => 'schedule', 'columns' => 'schedule'];
-	$data['keys'][] = ['name' => 'ipaddress', 'columns' => 'ipaddress'];
-	$data['keys'][] = ['name' => 'account', 'columns' => 'account'];
-	$data['keys'][] = ['name' => 'lastbackup', 'columns' => 'lastbackup'];
-	$data['keys'][] = ['name' => 'lastattempt', 'columns' => 'lastattempt'];
-	$data['keys'][] = ['name' => 'devicetype', 'columns' => 'devicetype'];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_devices', $data);
-
-	$data = [];
-
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Device Types';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'name', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptuser', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptpass', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'configfile', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'version', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptconfirm', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'sleep', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'timeout', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on'];
-	$data['columns'][] = ['name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on'];
-	$data['columns'][] = ['name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
-
-	AddDeviceTypes();
 }
 
 /**

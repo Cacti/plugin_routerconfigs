@@ -62,8 +62,8 @@ $longOpts  = [
 $remaining = '';
 $options   = routerconfigs_getopts($shortOpts, $longOpts, $remaining);
 
-include('./include/global.php');
-include_once(__DIR__ . '/include/functions.php');
+require('./include/global.php');
+require_once(__DIR__ . '/includes/functions.php');
 
 error_reporting(E_ALL ^ E_DEPRECATED);
 

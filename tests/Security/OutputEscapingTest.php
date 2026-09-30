@@ -10,7 +10,7 @@
 describe('output escaping in routerconfigs', function () {
 	it('does not interpolate raw variables into HTML attributes', function () {
 		$uiFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',
@@ -61,7 +61,7 @@ describe('output escaping in routerconfigs', function () {
 
 	it('uses html_escape or __esc for user-controlled output', function () {
 		$uiFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',

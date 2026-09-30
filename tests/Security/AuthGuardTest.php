@@ -10,7 +10,7 @@
 describe('auth guard presence in routerconfigs', function () {
 	it('includes auth.php or global.php in all UI entry points', function () {
 		$uiFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',
@@ -53,7 +53,7 @@ describe('auth guard presence in routerconfigs', function () {
 
 	it('validates numeric IDs from request variables before DB queries', function () {
 		$uiFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',

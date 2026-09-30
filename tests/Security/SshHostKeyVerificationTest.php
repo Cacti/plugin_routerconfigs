@@ -12,7 +12,7 @@
 */
 
 $previous_error_reporting = error_reporting(E_ERROR | E_PARSE);
-require_once __DIR__ . '/../../include/functions.php';
+require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../setup.php';
 error_reporting($previous_error_reporting);
 

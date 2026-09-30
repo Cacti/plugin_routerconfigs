@@ -14,7 +14,7 @@ describe('prepared statement consistency in routerconfigs', function () {
 		// with no user-supplied parameters to bind; every data-reading
 		// db_fetch_* call (including in setup.php) must still be _prepared.
 		$targetFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',
@@ -75,7 +75,7 @@ describe('prepared statement consistency in routerconfigs', function () {
 
 	it('uses parameterized placeholders not string interpolation in SQL', function () {
 		$targetFiles = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',
