@@ -72,6 +72,29 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	expect($finalUpdate[0]['params'])->toBe([$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
 });
 
+it('refreshes already-present tables in place via db_update_table on upgrade', function () {
+	$updated = array();
+
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	// Every table already exists, so routerconfigs_create_missing_tables()
+	// skips creation and routerconfigs_upgrade_tables() takes the
+	// db_update_table() refresh branch for each one.
+	$GLOBALS['__stub_overrides']['db_table_exists']         = fn ($table) => true;
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+	$GLOBALS['__stub_overrides']['db_update_table']         = function ($table, $data) use (&$updated) {
+		$updated[] = $table;
+
+		return true;
+	};
+
+	routerconfigs_check_upgrade();
+
+	expect($updated)->toHaveCount(4);
+});
+
 it('adds the SSH host-key columns when they are missing and reports readiness', function () {
 	$GLOBALS['__stub_overrides']['db_column_exists'] = fn ($table, $column) => false;
 
