@@ -116,7 +116,7 @@ Preserve defensive checks for optional runtime dependencies (e.g., `ssh2` extens
 All schema management lives in `includes/database.php` (the thold model), not in `setup.php`. `setup.php`'s
 install/upgrade paths `require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php')` and
 delegate. Each of the four `plugin_routerconfigs_*` tables is defined once in a `routerconfigs_*_table_data()`
-helper (primaries/keys as arrays) and created via `api_plugin_db_table_create('routerconfigs', ...)`. On a
+helper (scalar `primary` column name for `api_plugin_db_table_create()` backward compatibility; index `keys` columns as arrays) and created via `api_plugin_db_table_create('routerconfigs', ...)`. On a
 version change, `routerconfigs_check_upgrade()` runs the historical version-gated column renames/drops/data
 fix-ups first (these preserve data and cannot be expressed by `db_update_table()`), then calls
 `routerconfigs_upgrade_tables()` to refresh each table via `db_update_table()`, and updates the full
@@ -211,7 +211,7 @@ existing code or adding new code, not just in dedicated cleanup passes:
 - **Plugin schema management.** Keep every schema function (table definitions, create, upgrade) in
   `includes/database.php` (the thold model), required from `setup.php`. Create with
   `api_plugin_db_table_create()`; refresh an existing plugin table with `db_update_table($table, $data)`
-  from the SAME definition (create fallback when missing). Historical column renames/drops that
+  from the SAME definition (create fallback when missing). Declare each table's `primary` as a scalar column name (the legacy string form) for `api_plugin_db_table_create()` backward compatibility; index `keys` columns may be arrays. Historical column renames/drops that
   `db_update_table()` can not express stay as guarded pre-steps. Both are idempotent.
 - **Plugin upgrade bookkeeping.** On a version change, update the FULL `plugin_config` row
   (`version`, `name`, `author`, `webpage`) from the INFO file, not just the version column.

@@ -3,6 +3,7 @@
 --- develop ---
 
 * refactor: Rename the plugin's include/ directory to includes/ and move schema management into includes/database.php (the thold model); setup.php delegates via require_once, and routerconfigs_check_upgrade() now refreshes the four plugin_routerconfigs_* tables via db_update_table() (the historical column renames/drops still run first as guarded pre-steps) and updates the full plugin_config row. Switches every file inclusion from include/include_once to require/require_once
+* issue: Declare plugin table primary keys as a scalar column name (the legacy string form) so a fresh install via api_plugin_db_table_create() creates the tables instead of emitting PRIMARY KEY (`Array`) and failing; index keys remain arrays and db_update_table() accepts either form
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
 * security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 
