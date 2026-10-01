@@ -26,9 +26,9 @@ declare(strict_types = 1);
 
 chdir('../../');
 
-include('./include/auth.php');
+require('./include/auth.php');
 
-include_once(__DIR__ . '/include/functions.php');
+require_once(__DIR__ . '/includes/functions.php');
 
 if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
 	print get_md5_include_css('plugins/routerconfigs/css/diff.css');
@@ -226,7 +226,7 @@ if (!empty($file1) && !empty($file2)) {
 
 	if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
 		// Create the Diff object.
-		include_once(__DIR__ . '/HordeTextInclude.php');
+		require_once(__DIR__ . '/includes/HordeText.php');
 
 		$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
 
@@ -240,9 +240,9 @@ if (!empty($file1) && !empty($file2)) {
 		$text = $renderer->render($diff);
 	} elseif (cacti_version_compare(CACTI_VERSION, '1.2.32', '<')) {
 		// Cacti core still ships the legacy phpdiff vendor library.
-		include_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
-		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
-		include_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
+		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
 
 		$options = [
 			'ignoreWhitespace' => true,

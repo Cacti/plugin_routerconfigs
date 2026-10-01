@@ -26,22 +26,22 @@ When generating code for this repository:
 ## Project Structure
 
 ```
-routerconfigs/               # Repository root (install to plugins/routerconfigs/ in Cacti)
-├── classes/                   # PHPConnection, PHPSsh, PHPTelnet, PHPScp, PHPSftp transport classes
-├── include/                      # functions.php (core logic), arrays.php/constants.php (config/field maps)
-├── locales/                         # Internationalization files
-├── tests/                              # Test suite
-├── Text/                                  # Vendored diff utilities (Horde-style classes/renderers)
-├── router-devices.php                       # Device administration
-├── router-accounts.php                        # Credential/account administration
-├── router-backups.php                           # Backup listing/administration
-├── router-compare.php                             # Config diff/compare view
-├── router-devtypes.php                              # Device type administration
-├── router-download.php                                # CLI-only backup download/export flow
-├── diff.css / HordeTextInclude.php                       # Diff rendering assets
-├── INFO                                                     # Plugin metadata (name, version, compat)
+routerconfigs/          # Repository root (install to plugins/routerconfigs/ in Cacti)
+├── classes/            # PHPConnection, PHPSsh, PHPTelnet, PHPScp, PHPSftp transport classes
+├── includes/           # database.php (schema), functions.php (core logic), arrays.php/constants.php (config/field maps), HordeText.php (Horde diff loader)
+├── locales/            # Internationalization files
+├── tests/              # Test suite
+├── Text/               # Vendored diff utilities (Horde-style classes/renderers)
+├── router-devices.php  # Device administration
+├── router-accounts.php # Credential/account administration
+├── router-backups.php  # Backup listing/administration
+├── router-compare.php  # Config diff/compare view
+├── router-devtypes.php # Device type administration
+├── router-download.php # CLI-only backup download/export flow
+├── css/                # diff.css (diff-rendering stylesheet)
+├── INFO                # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                                                  # Plugin install/uninstall/upgrade hooks
+└── setup.php           # Plugin install/uninstall/upgrade hooks
 ```
 
 ## Naming Conventions
@@ -65,7 +65,7 @@ Class naming follows the `PHP*` pattern (`PHPConnection`, `PHPSsh`, `PHPTelnet`,
 - **Spacing**: Space after control structure keywords (`if`, `foreach`, `while`).
 
 ### File Structure and Includes
-Most pages start with `chdir('../../');` then `include('./include/auth.php');`, followed by plugin includes from `__DIR__`. Route actions with `set_default_action();` and `switch (get_request_var('action'))`, keeping action handlers as plain functions in the same file.
+Most pages start with `chdir('../../');` then `require('./include/auth.php');` (Cacti core's include dir), followed by plugin includes from `__DIR__ . '/includes/'`. Route actions with `set_default_action();` and `switch (get_request_var('action'))`, keeping action handlers as plain functions in the same file.
 
 ### Input Validation Blocks
 Mark explicit validation sections with the existing comment convention:
@@ -113,7 +113,15 @@ Preserve defensive checks for optional runtime dependencies (e.g., `ssh2` extens
 
 ## Database Operations
 
-Keep schema creation/upgrades in `setup.php` via `api_plugin_db_table_create()` and `db_column_exists()` guards.
+All schema management lives in `includes/database.php` (the thold model), not in `setup.php`. `setup.php`'s
+install/upgrade paths `require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php')` and
+delegate. Each of the four `plugin_routerconfigs_*` tables is defined once in a `routerconfigs_*_table_data()`
+helper (scalar `primary` column name for `api_plugin_db_table_create()` backward compatibility; index `keys` columns as arrays) and created via `api_plugin_db_table_create('routerconfigs', ...)`. On a
+version change, `routerconfigs_check_upgrade()` runs the historical version-gated column renames/drops/data
+fix-ups first (these preserve data and cannot be expressed by `db_update_table()`), then calls
+`routerconfigs_upgrade_tables()` to refresh each table via `db_update_table()`, and updates the full
+`plugin_config` row. Never write raw `CREATE TABLE`, and prefer `db_update_table()` over new
+`ALTER TABLE ... ADD COLUMN` for adding columns to plugin tables.
 
 ## Internationalization
 
@@ -142,7 +150,7 @@ Use `plugin_routerconfigs_log()` for plugin-specific logs and `cacti_log()` for 
 ## Best Practices
 
 1. Keep plugin wiring in `setup.php`; do not move hook registration into page files.
-2. Keep request handling in `router-*.php` and reusable logic in `include/functions.php` or `classes/`.
+2. Keep request handling in `router-*.php` and reusable logic in `includes/functions.php` or `classes/`.
 3. Preserve DB table ownership under `plugin_routerconfigs_*`.
 4. Always mask credential values in logs.
 
@@ -195,11 +203,23 @@ existing code or adding new code, not just in dedicated cleanup passes:
 - **i18n text domain.** Every `__()`/`__esc()` call must include this plugin's text domain as the
   final argument, except when deliberately comparing against a literal, untranslated Cacti-core
   label.
-- **Plugin table-creation API.** Use `api_plugin_db_table_create()`/`api_plugin_db_add_column()`
-  (from Cacti core's `lib/plugins.php`) instead of raw `CREATE TABLE`/`ALTER TABLE ... ADD COLUMN`.
-  Both are idempotent (safe no-ops when already applied), so the same call can run unconditionally
-  from both the install AND upgrade paths.
+- **File inclusion uses `require`/`require_once`.** Always use `require`/`require_once` (never
+  `include`/`include_once`) so a missing dependency fails fast and loudly. This plugin's own library
+  directory is `includes/` (note the plural: `includes/functions.php`, `includes/database.php`,
+  `includes/arrays.php`, `includes/constants.php`); reference plugin files from that path. Cacti
+  core's own `./include/auth.php`/`./include/global.php` keep the core (singular) path.
+- **Plugin schema management.** Keep every schema function (table definitions, create, upgrade) in
+  `includes/database.php` (the thold model), required from `setup.php`. Create with
+  `api_plugin_db_table_create()`; refresh an existing plugin table with `db_update_table($table, $data)`
+  from the SAME definition (create fallback when missing). Declare each table's `primary` as a scalar column name (the legacy string form) for `api_plugin_db_table_create()` backward compatibility; index `keys` columns may be arrays. Historical column renames/drops that
+  `db_update_table()` can not express stay as guarded pre-steps. Both are idempotent.
+- **Plugin upgrade bookkeeping.** On a version change, update the FULL `plugin_config` row
+  (`version`, `name`, `author`, `webpage`) from the INFO file, not just the version column.
 - **PHPDoc shape.** Every function gets a PHPDoc block: a one-line description, a blank comment
   line, `@param` lines, a blank comment line, then `@return`. Infer parameter/return types from
   actual usage; don't change the function's real type-hints in the same pass (let static analysis
   flag mismatches separately). Skip vendored third-party library files.
+
+## File manifest & upgrade pruning
+
+The plugin ships a root `manifest.json` with three arrays: `tombstones` (files/directories older versions shipped that have since moved or been removed), `expected` (the top-level files and directories that ship today, directories written with a trailing `/`), and `whitelist` (paths holding user data that must never be touched). Keep `expected` current: CI runs `tests/bin/validate-manifest.php`, which fails on any drift between `expected` and the real top-level tree (it ignores `tests/`, `phpunit.xml`, `.git*`, `.md*`, and whitelisted paths). Custom customer CSS/theme files belong in `expected`, and stylesheets live in `css/` (not `themes/`). On upgrade, `routerconfigs_prune_files()` deletes the tombstoned paths, the dev-only `tests/` tree, and the `phpunit.xml` test config, leaves `whitelist`, `.git*`, and `.md*` alone, and logs (without removing) any top-level entry the manifest does not account for. As a safety measure it refuses any tombstone that resolves outside the plugin directory (a tampered manifest.json) and logs a warning for any file or directory it cannot remove. When you move or delete a shipped file, add its old path to `tombstones` and update `expected` in the same change.

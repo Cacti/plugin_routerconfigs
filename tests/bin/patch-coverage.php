@@ -160,6 +160,14 @@ foreach ($clover->xpath('//file') as $file) {
  * Empty by default; add entries per repository as the need arises.
  */
 $unmeasured_allowlist = [
+	'includes/database.php', // install/upgrade/drop schema bootstrap; require_once's the live Cacti library, only runs during a real install/upgrade
+	'includes/HordeText.php',  // vendored 3rd-party Horde_Text_Diff library; not this plugin's code
+	'router-accounts.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'router-backups.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'router-compare.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'router-devices.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'router-devtypes.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'router-download.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

@@ -28,8 +28,9 @@
     <source>
         <include>
             <file>setup.php</file>
-            <file>include/functions.php</file>
-            <file>include/constants.php</file>
+            <file>includes/functions.php</file>
+            <file>includes/constants.php</file>
+            <file>includes/database.php</file>
         </include>
     </source>
 </phpunit>

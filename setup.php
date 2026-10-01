@@ -40,7 +40,7 @@ function plugin_routerconfigs_csp_nonce(): string {
 	return '';
 }
 
-include_once(__DIR__ . '/include/arrays.php');
+require_once(__DIR__ . '/includes/arrays.php');
 
 /**
  * Reads this plugin's version/author metadata from its INFO file.
@@ -71,6 +71,8 @@ function plugin_routerconfigs_version() {
  * @return void
  */
 function plugin_routerconfigs_install() {
+	global $config;
+
 	api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php');
 	api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php');
 	api_plugin_register_hook('routerconfigs', 'config_arrays',         'routerconfigs_config_arrays',        'setup.php');
@@ -80,6 +82,8 @@ function plugin_routerconfigs_install() {
 	api_plugin_register_hook('routerconfigs', 'page_head',             'routerconfigs_page_head',            'setup.php');
 
 	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
+
+	require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php');
 
 	routerconfigs_setup_table_new();
 }
@@ -133,8 +137,9 @@ function plugin_routerconfigs_upgrade() {
 function routerconfigs_check_upgrade() {
 	global $config, $database_default;
 
-	include_once($config['library_path'] . '/database.php');
-	include_once($config['library_path'] . '/functions.php');
+	require_once($config['library_path'] . '/database.php');
+	require_once($config['library_path'] . '/functions.php');
+	require_once($config['base_path'] . '/plugins/routerconfigs/includes/database.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = ['plugins.php', 'router-devices.php', 'settings.php'];
@@ -143,12 +148,19 @@ function routerconfigs_check_upgrade() {
 		return;
 	}
 
-	$current              = plugin_routerconfigs_version();
-	$current              = $current['version'];
+	$info                 = plugin_routerconfigs_version();
+	$current              = $info['version'];
 	$old                  = db_fetch_cell_prepared('SELECT version FROM plugin_config WHERE directory = ?', ['routerconfigs']);
-	$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
 
 	if ($current != $old) {
+		// Create any missing tables up front, before the guarded historical
+		// migrations, the SSH host-key column check, and AddDeviceTypes() below,
+		// so a missing devices/device-types table can no longer make those
+		// pre-steps error or seed device types into a not-yet-created table.
+		routerconfigs_create_missing_tables();
+
+		$hostkey_schema_ready = routerconfigs_ensure_hostkey_schema();
+
 		api_plugin_register_hook('routerconfigs', 'top_header_tabs',       'routerconfigs_show_tab', 'setup.php', 1);
 		api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php', 1);
 
@@ -319,10 +331,25 @@ function routerconfigs_check_upgrade() {
 			cacti_log('ERROR: Routerconfigs upgrade incomplete: unable to create SSH host-key storage columns', false, 'RCONFIG');
 		}
 
+		// Refresh each table to the current definition; the historical column
+		// renames/drops above run first so db_update_table() sees current names.
+		$tables_ready = routerconfigs_upgrade_tables();
+
+		// Only record the new version (and prune retired files) once every
+		// required schema step succeeded; otherwise leave the stored version
+		// behind so the upgrade is retried on the next request.
+		if (!$hostkey_schema_ready || !$tables_ready) {
+			cacti_log('WARNING: Routerconfigs upgrade did not complete cleanly; leaving the stored version unchanged to retry on the next request', false, 'RCONFIG');
+
+			return;
+		}
+
 		db_execute_prepared('UPDATE plugin_config
-			SET version = ?
+			SET version = ?, name = ?, author = ?, webpage = ?
 			WHERE directory = ?',
-			[$current, 'routerconfigs']);
+			[$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
+
+		routerconfigs_prune_files();
 	}
 }
 
@@ -366,117 +393,6 @@ function routerconfigs_check_dependencies() {
 	global $plugins, $config;
 
 	return true;
-}
-
-/**
- * Creates all of this plugin's database tables (accounts, backups,
- * devices, device types, including SSH host-key storage columns) and
- * seeds the built-in device types. Called from
- * plugin_routerconfigs_install() during plugin installation.
- *
- * @return void
- */
-function routerconfigs_setup_table_new() {
-	$data            = [];
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Accounts';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'name', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'username', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'password', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'enablepw', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_accounts', $data);
-
-	$data            = [];
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Backups';
-	$data['primary'] = 'id';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'btime', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'device', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'filename', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true];
-
-	$data['keys'][] = ['name' => 'btime', 'columns' => 'btime'];
-	$data['keys'][] = ['name' => 'device', 'columns' => 'device'];
-	$data['keys'][] = ['name' => 'directory', 'columns' => 'directory'];
-	$data['keys'][] = ['name' => 'lastchange', 'columns' => 'lastchange'];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_backups', $data);
-
-	$data = [];
-
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Devices';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'enabled', 'type' => 'varchar(2)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ipaddress', 'type' => 'varchar(128)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'hostname', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'account', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastchange', 'type' => 'int(24)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'device', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'schedule', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'nextbackup', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'lastattempt', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'nextattempt', 'type' => 'int(18)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'devicetype', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'sleep', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'timeout', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'debug', 'type' => 'longblob', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ssh_fingerprint', 'type' => 'varchar(255)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'ssh_hostkey_type', 'type' => 'varchar(64)', 'NULL' => true];
-
-	$data['keys'][] = ['name' => 'enabled', 'columns' => 'enabled'];
-	$data['keys'][] = ['name' => 'schedule', 'columns' => 'schedule'];
-	$data['keys'][] = ['name' => 'ipaddress', 'columns' => 'ipaddress'];
-	$data['keys'][] = ['name' => 'account', 'columns' => 'account'];
-	$data['keys'][] = ['name' => 'lastbackup', 'columns' => 'lastbackup'];
-	$data['keys'][] = ['name' => 'lastattempt', 'columns' => 'lastattempt'];
-	$data['keys'][] = ['name' => 'devicetype', 'columns' => 'devicetype'];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_devices', $data);
-
-	$data = [];
-
-	$data['primary'] = 'id';
-	$data['type']    = 'InnoDB';
-	$data['comment'] = 'Router Config Device Types';
-
-	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'name', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptuser', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptpass', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'connecttype', 'type' => 'varchar(10)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'configfile', 'type' => 'varchar(256)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'copytftp', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'version', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'promptconfirm', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'confirm', 'type' => 'varchar(64)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'sleep', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'timeout', 'type' => 'int(11)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'forceconfirm', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on'];
-	$data['columns'][] = ['name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on'];
-	$data['columns'][] = ['name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
-
-	api_plugin_db_table_create('routerconfigs', 'plugin_routerconfigs_devicetypes', $data);
-
-	AddDeviceTypes();
 }
 
 /**
@@ -864,4 +780,174 @@ function routerconfigs_show_tab() {
 			href="' . $config['url_path'] . 'plugins/routerconfigs/router-devices.php">
 			<img src="' . ($selected_theme == 'classic' ? get_classic_tabimage(__('Routers', 'routerconfig'), $down) : '#') . '" alt="' . __esc('RouterConfigs', 'routerconfigs') . '"></a>';
 	}
+}
+
+/**
+ * Removes files and directories that a previous version of this plugin
+ * shipped but that have since moved or been deleted, using the tombstone
+ * and whitelist lists in manifest.json. Whitelisted (user-data) paths and
+ * any VCS metadata (.git*) are never touched; the dev-only tests/ tree is
+ * removed. Any path that resolves outside the plugin directory (a tampered
+ * manifest.json) is refused, and any file/directory that cannot be removed
+ * (e.g. read-only) is reported to the Cacti log. Any top-level entry that is
+ * neither expected nor a tombstone nor whitelisted is logged to the Cacti
+ * log and left in place. Called on a plugin version change.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to resolve
+ *                       the plugin directory.
+ */
+function routerconfigs_prune_files(): void {
+	global $config;
+
+	$plugin_dir    = $config['base_path'] . '/plugins/routerconfigs';
+	$manifest_path = $plugin_dir . '/manifest.json';
+
+	if (!is_readable($manifest_path)) {
+		return;
+	}
+
+	$manifest = json_decode((string) file_get_contents($manifest_path), true);
+
+	if (!is_array($manifest)) {
+		cacti_log('WARNING: routerconfigs manifest.json could not be parsed; skipping file prune', false, 'ROUTERCONFIGS');
+
+		return;
+	}
+
+	$tombstones = isset($manifest['tombstones']) && is_array($manifest['tombstones']) ? $manifest['tombstones'] : [];
+	$expected   = isset($manifest['expected'])   && is_array($manifest['expected'])   ? $manifest['expected']   : [];
+	$whitelist  = isset($manifest['whitelist'])  && is_array($manifest['whitelist'])  ? $manifest['whitelist']  : [];
+
+	$protected = function (string $rel) use ($whitelist): bool {
+		if (strncmp($rel, '.git', 4) === 0 || strncmp($rel, '.md', 3) === 0) {
+			return true;
+		}
+
+		foreach ($whitelist as $entry) {
+			$entry = trim((string) $entry, '/');
+
+			if ($entry !== '' && ($rel === $entry
+				|| strncmp($rel, $entry . '/', strlen($entry) + 1) === 0
+				|| strncmp($entry, $rel . '/', strlen($rel) + 1) === 0)) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+	// Security: resolve the plugin directory so a tampered manifest.json
+	// cannot steer the prune outside of it.
+	$plugin_real = realpath($plugin_dir);
+
+	// Remove tombstoned (moved/deleted) paths plus the dev-only tests/
+	// tree and the phpunit.xml test configuration.
+	$remove   = $tombstones;
+	$remove[] = 'tests/';
+	$remove[] = 'phpunit.xml';
+
+	foreach ($remove as $rel) {
+		$rel = trim((string) $rel, '/');
+
+		if ($rel === '' || $protected($rel)) {
+			continue;
+		}
+
+		// A tombstone must never contain '.'/'..' segments; a tampered manifest
+		// could use them to escape the plugin directory or target its root.
+		$segments = explode('/', $rel);
+
+		if (in_array('.', $segments, true) || in_array('..', $segments, true)) {
+			cacti_log(sprintf('WARNING: routerconfigs prune refused to remove %s: path contains a traversal segment (tampered manifest.json?)', $rel), false, 'ROUTERCONFIGS');
+
+			continue;
+		}
+
+		$path = $plugin_dir . '/' . $rel;
+
+		if (!is_link($path) && !file_exists($path)) {
+			continue;
+		}
+
+		// Refuse any path that, after resolving symlinks and ../ segments,
+		// escapes the plugin directory (protects user data from a tampered
+		// manifest.json).
+		$anchor = is_link($path) ? dirname($path) : $path;
+		$real   = realpath($anchor);
+
+		if ($real === false || ($real !== $plugin_real && strncmp($real, $plugin_real . DIRECTORY_SEPARATOR, strlen((string) $plugin_real) + 1) !== 0)) {
+			cacti_log(sprintf('WARNING: routerconfigs prune refused to remove %s: path resolves outside the plugin directory (tampered manifest.json?)', $rel), false, 'ROUTERCONFIGS');
+
+			continue;
+		}
+
+		if (is_dir($path) && !is_link($path)) {
+			$removed = routerconfigs_rmtree($path);
+		} else {
+			$removed = @unlink($path);
+		}
+
+		if (!$removed) {
+			cacti_log(sprintf('WARNING: routerconfigs upgrade could not remove %s (check file/directory permissions)', $rel), false, 'ROUTERCONFIGS');
+		}
+	}
+
+	// Surface any top-level entry the manifest does not account for.
+	$known = [];
+
+	foreach (array_merge($expected, $tombstones) as $entry) {
+		$top = explode('/', trim((string) $entry, '/'))[0];
+
+		if ($top !== '') {
+			$known[$top] = true;
+		}
+	}
+
+	$entries = scandir($plugin_dir);
+
+	foreach (($entries !== false ? $entries : []) as $entry) {
+		if ($entry === '.' || $entry === '..' || $entry === 'tests' || $entry === 'phpunit.xml' || $protected($entry) || isset($known[$entry])) {
+			continue;
+		}
+
+		cacti_log(sprintf('WARNING: routerconfigs upgrade found a file/directory not described in manifest.json: %s (left in place)', $entry), false, 'ROUTERCONFIGS');
+	}
+}
+
+/**
+ * Recursively deletes a directory and its contents. Symlinks are removed
+ * without being followed. Helper for routerconfigs_prune_files().
+ *
+ * @param string $dir Absolute path to the directory to remove.
+ *
+ * @return bool True if the directory and everything under it was removed;
+ *              false if any entry could not be deleted.
+ */
+function routerconfigs_rmtree(string $dir): bool {
+	$entries = scandir($dir);
+	$ok      = true;
+
+	foreach (($entries !== false ? $entries : []) as $entry) {
+		if ($entry === '.' || $entry === '..') {
+			continue;
+		}
+
+		$path = $dir . '/' . $entry;
+
+		if (is_dir($path) && !is_link($path)) {
+			if (!routerconfigs_rmtree($path)) {
+				$ok = false;
+			}
+		} elseif (!@unlink($path)) {
+			$ok = false;
+		}
+	}
+
+	if (!@rmdir($dir)) {
+		$ok = false;
+	}
+
+	return $ok;
 }

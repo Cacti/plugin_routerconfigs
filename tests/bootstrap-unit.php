@@ -208,6 +208,18 @@ if (!function_exists('api_plugin_db_table_create')) {
 	}
 }
 
+if (!function_exists('db_update_table')) {
+	function db_update_table($table, $data) {
+		return routerconfigs_test_stub('db_update_table', array($table, $data), true);
+	}
+}
+
+if (!function_exists('db_table_exists')) {
+	function db_table_exists($table) {
+		return routerconfigs_test_stub('db_table_exists', array($table), false);
+	}
+}
+
 if (!function_exists('api_plugin_register_hook')) {
 	function api_plugin_register_hook($plugin, $hook, $function, $file, $subtype = '') {
 		return routerconfigs_test_stub('api_plugin_register_hook', array($plugin, $hook, $function, $file, $subtype), true);
@@ -259,6 +271,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $also_print = false, $log_type = '', $level = 0) {
 		$GLOBALS['__test_log_messages'][] = $message;
+		$GLOBALS['__test_cacti_log'][] = (string) $message;
 
 		routerconfigs_test_stub('cacti_log', array($message, $also_print, $log_type, $level), null);
 	}
@@ -335,7 +348,7 @@ if (!function_exists('sql_save')) {
 	}
 }
 
-// Not stubbed: SshHostKeyVerificationTest requires include/functions.php, whose
+// Not stubbed: SshHostKeyVerificationTest requires includes/functions.php, whose
 // unconditional real declaration would fatal on "Cannot redeclare" against a stub here.
 
 if (!defined('CACTI_PATH_BASE')) {

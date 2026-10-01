@@ -12,6 +12,7 @@
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';
+	require_once __DIR__ . '/../../includes/database.php';
 });
 
 beforeEach(function () {

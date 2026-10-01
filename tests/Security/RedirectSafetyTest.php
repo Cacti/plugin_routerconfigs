@@ -10,7 +10,7 @@
 describe('redirect safety in routerconfigs', function () {
 	it('calls exit or die after header Location redirects', function () {
 		$files = [
-		'include/functions.php',
+		'includes/functions.php',
 		'router-accounts.php',
 		'router-compare.php',
 		'router-devices.php',
