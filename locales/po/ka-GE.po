@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2026-09-24 21:02+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\n"
@@ -18,747 +18,747 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "წაშლა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Backup"
 msgstr "მარქაფი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "ჩართვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "გათიშვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH/Telnet"
 msgstr "SSH/Telnet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Telnet"
 msgstr "Telnet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "მემკვიდრეობით"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "ყოველდღიური"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "კვირაში ერთხელ"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "თვეში ერთხელ"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Month"
 msgstr "%d თვე"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Months"
 msgstr "%d თვე"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Year"
 msgstr "%d წელი"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Years"
 msgstr "%d წელი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "არასდროს"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d საათი"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d საათი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "00:00 (12am)"
 msgstr "00:00 (12am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "01:00 (1am)"
 msgstr "01:00 (1am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "02:00 (2am)"
 msgstr "02:00 (2am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "03:00 (3am)"
 msgstr "03:00 (3am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "04:00 (4am)"
 msgstr "04:00 (4am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "05:00 (5am)"
 msgstr "05:00 (5am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "06:00 (6am)"
 msgstr "06:00 (6am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "07:00 (7am)"
 msgstr "07:00 (7am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "08:00 (8am)"
 msgstr "08:00 (8am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "09:00 (9am)"
 msgstr "09:00 (9am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "10:00 (12am)"
 msgstr "10:00 (12am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "11:00 (11am)"
 msgstr "11:00 (11am)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "12:00 (12pm)"
 msgstr "12:00 (12pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "13:00 (1pm)"
 msgstr "13:00 (1pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "14:00 (2pm)"
 msgstr "14:00 (2pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "15:00 (3pm)"
 msgstr "15:00 (3pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "16:00 (4pm)"
 msgstr "16:00 (4pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "17:00 (5pm)"
 msgstr "17:00 (5pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "18:00 (6pm)"
 msgstr "18:00 (6pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "19:00 (7pm)"
 msgstr "19:00 (7pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "20:00 (8pm)"
 msgstr "20:00 (8pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "21:00 (9pm)"
 msgstr "21:00 (9pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "22:00 (10pm)"
 msgstr "22:00 (10pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "23:00 (11pm)"
 msgstr "23:00 (11pm)"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "სახელი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Give this account a meaningful name that will be displayed."
 msgstr ""
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "მომხმარებლის სახელი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The username that will be used for authentication."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "პაროლი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The password used for authentication."
 msgstr "პაროლი ავთენტიკაციისთვის."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Password"
 msgstr "პაროლის ჩართვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Your Enable Password, if required."
 msgstr "თქვენი Enable-ის პაროლი, თუ საჭიროა."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Device"
 msgstr "მოწყობილობის ჩართვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr ""
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "აღწერა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr ""
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP მისამართი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "საქაღალდე"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the relative directory structure used to store the configs."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "გეგმა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "How often to Backup this device."
 msgstr ""
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Device Type"
 msgstr "მოწყობილობის ტიპი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose the type of device that the router is."
 msgstr ""
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Auto-Detect"
 msgstr "ავტოაღმოჩენა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Connection Type"
 msgstr "კავშირის ტიპი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the type of connection used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Authentication Account"
 msgstr "ავთენტიკაციის ანგარიში"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose an account to use to Login to the router"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "არცერთი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default timeout"
 msgstr "ნაგულისხმევი მოლოდინის ვადა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default time to wait in seconds for a response"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default sleep time"
 msgstr "ნაგულისხმევი ძილის დრო"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Assume elevated"
 msgstr "აწევის ჩათვლა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check this box to assume this device is always elevated"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device type."
 msgstr "ამ მოწყობილობის ტიპის სახელი."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Username Prompt"
 msgstr "მომხმარებლის სახელის მოთხოვნა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the username prompt to match on login."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password Prompt"
 msgstr "პაროლის მოთხოვნა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the password prompt to match on login."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Configuration file"
 msgstr "კონფიგურაციის ფაილი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr ""
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Copy TFTP"
 msgstr "TFTP-ის კოპირება"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Show Version"
 msgstr "ვერსიის ჩვენება"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to display the current version."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Confirmation Prompt"
 msgstr "დადასტურების მოთხოვნა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the confirmation prompt to match before transmission."
 msgstr ""
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "დადასტურება"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr ""
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Force Confirm"
 msgstr "ნაძალადევი დადასტურება"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check End in Config"
 msgstr "შეამოწმეთ შეყვანის ბოლო კონფიგურაციაში"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check end in config?"
 msgstr "შემოწმდეს შეყვანის ბოლოს კონფიგურაცია?"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Any Key prompt"
 msgstr "ნებისმიერი ღილაკის კითხვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr "ზოგადი პარამეტრები"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Presentation Mode"
 msgstr "პრეზენტაციის რეჟიმი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr "კონსოლი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr "ზედა ჩანართი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Close without exit"
 msgstr "დახურვა გასვლის გარეშე"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Debug Connection Buffer"
 msgstr "კავშირის ბუფერის გამართვა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Whether to log direct output of device connection"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Assume all devices elevated"
 msgstr "ყველა მოწყობილობის აწეულად ჩათვლა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Whether to assume all devices are elevated"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Download Hour"
 msgstr "საათის გადმოწერა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The hour of the day to perform the full downloads."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Retry Schedule"
 msgstr "გეგმის თავიდან ცდა"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Retention Period"
 msgstr "შენარჩუნების პერიოდი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The number of days to retain old backups."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Transfer Options"
 msgstr "გადატანის პარამეტრები"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default connection type"
 msgstr "ნაგულისხმევი კავშირის ტიპი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default type of connection used to communicate with the device."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Separate By Device"
 msgstr "გაყოფა მოწყობილობით"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Separate archived Configs into a folder per device"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SCP Path"
 msgstr "SCP-ის ბილიკი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "TFTP Server IP"
 msgstr "TFTP სერვერის IP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Must be an IP pointing to your Cacti server."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "TFTP Backup Directory Path"
 msgstr "TFTP მარქაფის საქაღალდის ბილიკი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Archive Directory Path"
 msgstr "არქივის საქაღალდის ბილიკი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Options"
 msgstr "ელფოსტის მორგება"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Address"
 msgstr "მისამართიდან"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email address the nightly backup will be sent from."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Name"
 msgstr "რა სახელისგან"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name the nightly backup will be sent from."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "ელფოსტის მისამართი"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr ""
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "მოწყობილობები"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 msgid "Device Types"
 msgstr "მოწყობილობის ტიპები"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "ავთენტიკაცია"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Backups"
 msgstr "მარქაფები"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "შედარება"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Technical Support [ %s ]"
 msgstr "ტექნიკური მხარდაჭერა [ %s]"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "(%s chars)"
 msgstr "(%s სიმბოლო)"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "(Not Set)"
 msgstr "(დაყენებული არაა)"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "NOTICE: Starting automatic retry"
 msgstr "გაფრთხილება: ავტომატური თავიდან ცდის დასაწყისი"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "NOTICE: Starting automatic backup"
 msgstr "გაფრთხილება: ავტომატური მარქაფის დასაწყისი"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "FATAL: TFTP Server is not set"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices backed up successfully."
 msgstr "%s მოწყობილობის მარქაფი წარმატებულია."
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices failed to backup."
 msgstr "%s მოწყობილობის მარქაფი ჩავარდა."
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices disabled from backup."
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Config Backups"
 msgstr "კონფიგურაციის მარქაფები"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Configuration Backups"
 msgstr "კონფიგურაციის მარქაფები"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Forced"
 msgstr " - ძალით"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Manual"
 msgstr " - სახელმძღვანელო"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Simulated"
 msgstr " - იმიტაცია"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Scheduled"
 msgstr " - დაგეგმილია"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Reattempt"
 msgstr " - თავიდან ცდა"
 
-#: include/functions.php
+#: includes/functions.php
 msgid ": Partial"
 msgstr ": ნაწილობრივი"
 
-#: include/functions.php
+#: includes/functions.php
 msgid ": FAILED"
 msgstr ": ჩავარდა"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "STATS: "
 msgstr "სტატისტიკა: "
 
-#: include/functions.php
+#: includes/functions.php
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "STATS: Backup now running since %s"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARN: Backup already running since %s"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File '%s' failed to load"
 msgstr "ფაილის '%s' ჩატვირთვა ჩავარდა"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File '%s' was not found"
 msgstr "ფაილი '%s' აღმოჩენილი არაა"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Router Config for %s (%s)"
 msgstr "რაუტერის კონფიგურაცია %s-ისთვის (%s)"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Backup from %s"
 msgstr "მაქაფი %s-დან"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File: %s/%s"
 msgstr "ფაილი: %s/%s"
