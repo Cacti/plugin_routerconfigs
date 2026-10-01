@@ -76,7 +76,7 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) =>
 		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
 	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
-	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => false;
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => in_array($column, ['ssh_fingerprint', 'ssh_hostkey_type'], true);
 
 	routerconfigs_check_upgrade();
 
@@ -115,6 +115,26 @@ it('refreshes already-present tables in place via db_update_table on upgrade', f
 	routerconfigs_check_upgrade();
 
 	expect($updated)->toHaveCount(4);
+});
+
+it('does not advance the stored version when a required schema step fails', function () {
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+	$GLOBALS['__stub_overrides']['db_table_exists']         = fn ($table) => true;
+	// A failed ALTER: db_update_table() reports false, so the stored version
+	// must not advance (the upgrade is retried on the next request).
+	$GLOBALS['__stub_overrides']['db_update_table']         = fn ($table, $data) => false;
+
+	routerconfigs_check_upgrade();
+
+	$finalUpdate = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'UPDATE plugin_config') !== false;
+	});
+
+	expect($finalUpdate)->toBeEmpty();
 });
 
 it('adds the SSH host-key columns when they are missing and reports readiness', function () {

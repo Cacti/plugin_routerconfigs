@@ -333,7 +333,16 @@ function routerconfigs_check_upgrade() {
 
 		// Refresh each table to the current definition; the historical column
 		// renames/drops above run first so db_update_table() sees current names.
-		routerconfigs_upgrade_tables();
+		$tables_ready = routerconfigs_upgrade_tables();
+
+		// Only record the new version (and prune retired files) once every
+		// required schema step succeeded; otherwise leave the stored version
+		// behind so the upgrade is retried on the next request.
+		if (!$hostkey_schema_ready || !$tables_ready) {
+			cacti_log('WARNING: Routerconfigs upgrade did not complete cleanly; leaving the stored version unchanged to retry on the next request', false, 'RCONFIG');
+
+			return;
+		}
 
 		db_execute_prepared('UPDATE plugin_config
 			SET version = ?, name = ?, author = ?, webpage = ?

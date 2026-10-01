@@ -217,14 +217,21 @@ function routerconfigs_create_missing_tables() {
  * inside routerconfigs_check_upgrade(). Called from that function when the
  * stored version changes.
  *
- * @return void
+ * @return bool True when every table was refreshed/created successfully;
+ *              false if a db_update_table() refresh reported failure.
  */
-function routerconfigs_upgrade_tables() {
+function routerconfigs_upgrade_tables(): bool {
+	$success = true;
+
 	foreach (routerconfigs_table_map() as $table => $data) {
 		if (db_table_exists($table)) {
-			db_update_table($table, $data);
+			if (db_update_table($table, $data) === false) {
+				$success = false;
+			}
 		} else {
 			api_plugin_db_table_create('routerconfigs', $table, $data);
 		}
 	}
+
+	return $success;
 }
