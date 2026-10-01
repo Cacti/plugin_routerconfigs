@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2020-12-13 10:24-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,870 +17,870 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "हटाएं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Backup"
 msgstr "बैकअप"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "सक्षम करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "अक्षम करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH/Telnet"
 msgstr "टेलनेट"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Telnet"
 msgstr "टेलनेट"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "कन्नै हासल करो"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "प्रतिदिन"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "साप्ताहिक"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "मासिक"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "% d महीना"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "% d माह"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "% d वष"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Years"
 msgstr "% d वष"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d hour"
 msgstr "%d घंटा"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d hours"
 msgstr "%d घंटे"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (1 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (सुबह 8 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (दोपहर 1 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00 (दोपहर 2 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (दोपहर 3 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (शाम 4 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (शाम 5 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00 (शाम 6 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (7 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (रात 8 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (रात 9 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (रात 10 बजे)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (रात 11 बजे)"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "नाम"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "इस खाते को एक सार्थक नाम दें जिसे प्रदर्शित किया जाएगा।"
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "उपयोगकर्ता नाम"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "उपयोगकर्ता नाम जो प्रमाणीकरण के लिए उपयोग किया जाएगा।"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The password used for authentication."
 msgstr "प्रमाणीकरण के लिए उपयोग किया जाने वाला पासवर्ड।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Password"
 msgstr "पासवर्ड सक्षम करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Your Enable Password, if required."
 msgstr "यदि आवश्यक हो तो आपका सक्षम पासवर्ड।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Device"
 msgstr "डिवाइस सक्षम करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "इस डिवाइस को बैकअप होने से अक्षम करने के लिए इस बॉक्स को अनचेक करें"
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "विवरण"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "इस उपकरण का नाम (यदि कोई होस्टनाम विन्यास में मौजूद नहीं है, तो विन्यास बचत और SVN के लिए उपयोग किया जाएगा)"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP सिरनामा"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "निर्देशिका"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "यह विन्यास को संग्रहीत करने के लिए उपयोग की जाने वाली सापेक्ष निर्देशिका संरचना है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "शैड्‌यूल"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "How often to Backup this device."
 msgstr "इस डिवाइस का बैकअप कितनी बार लेना है।"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "उपकरण का प्रकार"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose the type of device that the router is."
 msgstr "राउटर के प्रकार का डिवाइस चुनें।"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "स्वयंं पता लगाना"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "संबंध प्रकार"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "प्रमाणीकरण खाता"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose an account to use to Login to the router"
 msgstr "राउटर में लॉगिन करने के लिए उपयोग करने के लिए एक खाता चुनें"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "कोई नहीं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default timeout"
 msgstr "डिफ़ॉल्ट टाइमआउट"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "एक resposne के लिए सेकंड में प्रतीक्षा करने के लिए डिफ़ॉल्ट समय"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default sleep time"
 msgstr "सोने का डिफ़ॉल्ट समय"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "माइक्रोसेकंड में सोने का डिफ़ॉल्ट समय (एक सेकंड का 1 / 1,000,000)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume elevated"
 msgstr "ऊंचा मान लिया"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "इस डिवाइस को बैकअप होने से अक्षम करने के लिए इस बॉक्स को अनचेक करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device type."
 msgstr "इस उपकरण के प्रकार का नाम।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Username Prompt"
 msgstr "उपयोगकर्ता नाम शीघ्र"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "यह लॉगिन पर मिलान करने के लिए उपयोगकर्ता नाम संकेत है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Password Prompt"
 msgstr "पासवर्ड प्रॉम्प्ट"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "यह लॉगिन पर मिलान करने के लिए पासवर्ड प्रॉम्प्ट है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Configuration file"
 msgstr "विन्यास फाइल"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "यह दूरस्थ डिवाइस पर कॉन्फ़िगरेशन फ़ाइल का मानक स्थान है।"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "TFTP कॉपी करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "यह CLI टेक्स्ट है जिसका उपयोग tftp सर्वर पर बैकअप भेजने के लिए किया जाता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Show Version"
 msgstr "संस्करण दिखाएं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "यह CLI पाठ है जिसका उपयोग वर्तमान संस्करण को प्रदर्शित करने के लिए किया जाता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "बैकअप कॉन्फ़िगर करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "यह लॉगिन पर मिलान करने के लिए उपयोगकर्ता नाम संकेत है।"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "पुष्टि करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "क्या कॉन्फिग कॉपी करने के लिए कोई पुष्टि प्रॉम्प्ट है?"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Force Confirm"
 msgstr "बल की पुष्टि"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "क्या कॉन्फ़िगरेशन की प्रतिलिपि बनाने के लिए कोई बल पुष्टिकरण संकेत है?"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check End in Config"
 msgstr "विन्यास में अंत की जाँच करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check end in config?"
 msgstr "कॉन्फ़िगरेशन में अंत की जाँच करें?"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "कोई कुंजी संकेत"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "टेक्स्ट को 'तत्काल जारी रखने के लिए कोई भी कुंजी दबाएं' स्टाइल से मेल खाने के लिए"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "धारण नीति"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Close without exit"
 msgstr "बाहर निकलने के बिना बंद करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "यदि डिवाइस कनेक्शन को बंद करने पर टिक किया जाता है, तो कोई 'निकास' आदेश जारी नहीं किया जाता है"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "डिबग कनेक्शन बफर"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "डिवाइस कनेक्शन का सीधा आउटपुट लॉग करना है या नहीं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "सभी उपकरणों को ऊंचा मान लें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "क्या मान लें कि सभी डिवाइस उन्नत हैं"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Download Hour"
 msgstr "डाउनलोड घंटे"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "पूरा डाउनलोड करने के लिए दिन का घंटा।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "अनुसूची"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "अनुसूचित डाउनलोड विफल होने पर अतिरिक्त डाउनलोड करने का प्रयास करने से पहले प्रतीक्षा करने का समय"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retention Period"
 msgstr "धारण नीति"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "पुराने बैकअप को बनाए रखने के लिए दिनों की संख्या।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Transfer Options"
 msgstr "स्थानांतरण विकल्प"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default connection type"
 msgstr "डिफ़ॉल्ट कनेक्शन प्रकार"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "यह IP पता डिवाइस के साथ संचार करने के लिए उपयोग किया जाता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate By Device"
 msgstr "डिवाइस द्वारा अलग"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "प्रति डिवाइस एक फ़ोल्डर में अलग किए गए कन्फिग्स को अलग करें"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP Path"
 msgstr "एससीपी पथ"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "TFTP सर्वर आईपी"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "आपके Cacti सर्वर की ओर इशारा करने वाला IP होना चाहिए।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "बैकअप निर्देशिका पथ"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "आपके कन्फ़िग्स को वापस लाने के लिए पथ, यह वह रास्ता होना चाहिए जो स्थानीय TFTP सर्वर को लिखता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "बैकअप निर्देशिका पथ"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "आपके कन्फ़िग्स को वापस लाने के लिए पथ, यह वह रास्ता होना चाहिए जो स्थानीय TFTP सर्वर को लिखता है।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Email Options"
 msgstr "ईमेल विकल्प"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "From Address"
 msgstr "इस पते से"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "रात्रिकालीन बैकअप ईमेल से भेजा जाएगा।"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "From Name"
 msgstr "नाम"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "रात्रिकालीन बैकअप ईमेल से भेजा जाएगा।"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "ईमेल पता"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "रात्रिकालीन बैकअप भेजने के लिए ईमेल पते की अल्पविराम सीमांकित सूची।"
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "डिवाइस"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 #, fuzzy
 msgid "Device Types"
 msgstr "डिवाइस के प्रकार"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "प्रमाणीकरण"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Backups"
 msgstr "बैकअप"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "तुलना"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Technical Support [ %s ]"
 msgstr "तकनीकी सहायता [ %s]"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "(%s वर्ण)"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "(Not Set)"
 msgstr "डिफ़ॉल्ट नियत करें"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "सूचना: %s उपकरणों का मैनुअल बैकअप शुरू करना"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "सूचना: स्वचालित रीट्री शुरू"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "सूचना: स्वचालित बैकअप शुरू करना"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: बैकअप पथ सेट नहीं है या निर्देशिका नहीं है"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: TFTP सर्वर सेट नहीं है"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: %s के लिए डाउनलोड करने का प्रयास"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "%s उपकरणों का सफलतापूर्वक बैकअप लिया गया। <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "%s उपकरण बैकअप में विफल रहा। <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "%s उपकरण बैकअप में विफल रहा। <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Config Backups"
 msgstr "बैकअप कॉन्फ़िगर करें"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "बैकअप कॉन्फ़िगर करें"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Forced"
 msgstr " - जबरन"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Manual"
 msgstr "मैन्युअल"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Simulated"
 msgstr " - नकली"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Scheduled"
 msgstr "अनुसूची"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Reattempt"
 msgstr " - रिटेटेम्प्ट"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": Partial"
 msgstr ": आंशिक"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": FAILED"
 msgstr "असफल"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "STATS: "
 msgstr "आंकड़े"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "बैकअप पथ सेट नहीं है या निर्देशिका नहीं है"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "STATS: अब %s से चल रहा बैकअप"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "चेतावनी: बैकअप पहले से ही %s से चल रहा है"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "त्रुटि: कनेक्शन प्रकार का उपयोग करके डिवाइस '%s' से कनेक्ट करने में विफल: %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "त्रुटि: '%s' को '%s' के माध्यम से '%s' डाउनलोड करने में विफल"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "फ़ाइल '%s' लोड करने में विफल रही"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "फ़ाइल '%s' नहीं मिली"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "%s ( %s) के लिए राउटर कॉन्फ़िगरेशन"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "%s से बैकअप"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "फ़ाइल: %s / %s"
