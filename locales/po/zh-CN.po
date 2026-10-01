@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: routerconfigs on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2024-06-23 04:09+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/routerconfigs/zh_Hans/>\n"
@@ -18,818 +18,818 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.8.1\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "删除"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Backup"
 msgstr "备用"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "启用"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "禁用"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH/Telnet"
 msgstr "远程登录"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Telnet"
 msgstr "Telnet"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "继承"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "每日"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "每周"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "每月"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Month"
 msgstr "%d 月"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Months"
 msgstr "%d 月"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Year"
 msgstr "%d 年"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Years"
 msgstr "%d 年"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "从不"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d 小时"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d 小时"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00（12am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00（1am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00（2am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00（3am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00（4am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00（5am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00（6am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00（7am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00（8am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00（9am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00（12am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00（11am）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00（12pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00（1pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00（2pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00（3pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00（4pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00（5pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00（6pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00（7pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00（8pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00（9pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00（10pm）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00（11pm）"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "名称"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "为此帐户提供一个有意义的名称，以便显示。"
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "用户名"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The username that will be used for authentication."
 msgstr "将用于身份验证的用户名。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "密码"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The password used for authentication."
 msgstr "用于身份验证的密码。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Password"
 msgstr "Enable密码"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Your Enable Password, if required."
 msgstr "您的Enable密码，如果需要。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Device"
 msgstr "启用设备"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "取消选中此框可禁用此设备的备份。"
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "描述"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "此设备的名称（如果配置中没有主机名，将用于配置保存和SVN）。"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP地址"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
 msgstr "这是用于与设备通信的IP地址。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "目录"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the relative directory structure used to store the configs."
 msgstr "这是用于存储配置的相对目录结构。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "计划表"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "How often to Backup this device."
 msgstr "多久备份一次该设备。"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Device Type"
 msgstr "设备类型"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose the type of device that the router is."
 msgstr "选择路由器的设备类型。"
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Auto-Detect"
 msgstr "自动侦测"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Connection Type"
 msgstr "连接类型"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "这是用于与设备通信的IP地址。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Authentication Account"
 msgstr "认证帐户"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose an account to use to Login to the router"
 msgstr "选择一个帐户用于登录到路由器"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "无"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default timeout"
 msgstr "默认超时"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "等待恢复的默认时间（以秒为单位）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default sleep time"
 msgstr "默认睡眠时间"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "默认睡眠时间（以毫秒为单位）（1 / 1,000,000秒）"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume elevated"
 msgstr "假设升高"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "取消选中此框可禁用此设备的备份。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device type."
 msgstr "此设备类型的名称。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Username Prompt"
 msgstr "用户名提示"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the username prompt to match on login."
 msgstr "这是在登录时匹配的用户名提示。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password Prompt"
 msgstr "密码提示"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the password prompt to match on login."
 msgstr "这是在登录时匹配的密码提示。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Configuration file"
 msgstr "配置文件"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "这是远程设备上配置文件的标准位置。"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Copy TFTP"
 msgstr "复制TFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "这是用于将备份发送到tftp服务器的CLI文本。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Show Version"
 msgstr "显示版本"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to display the current version."
 msgstr "这是用于显示当前版本的CLI文本。"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "配置备份"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "这是在登录时匹配的用户名提示。"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "确认"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "是否有复制配置的确认提示？"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Force Confirm"
 msgstr "强制确认"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "是否有强制确认提示复制配置？"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check End in Config"
 msgstr "在配置中检查结束"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check end in config?"
 msgstr "检查配置结束？"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "任何按键提示"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "文字与“按任意键继续”样式提示匹配"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr "通用设置"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "保留期"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Close without exit"
 msgstr "关闭不退出"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "如果选中，则在关闭设备连接时不会发出“退出”命令"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "调试连接缓冲区"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "是否记录设备连接的直接输出"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "假设所有设备提升"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "是否假定所有设备都升高"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Download Hour"
 msgstr "下载时间"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "一天中的小时执行完整下载。"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "时间表"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "计划的下载失败时尝试执行其他下载之前的等待时间"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Retention Period"
 msgstr "保留期"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The number of days to retain old backups."
 msgstr "保留旧备份的天数。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Transfer Options"
 msgstr "传输设置"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default connection type"
 msgstr "默认连接类型"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "这是用于与设备通信的IP地址。"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate By Device"
 msgstr "按设备分开"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "将已归档的配置分别分配到每个设备的文件夹中"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP Path"
 msgstr "SCP路径"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "TFTP Server IP"
 msgstr "TFTP服务器IP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "必须是指向您的Cacti服务器的IP。"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "备份目录路径"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "备份Configs的路径必须是本地TFTP服务器写入的路径。"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "备份目录路径"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "备份Configs的路径必须是本地TFTP服务器写入的路径。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Options"
 msgstr "电子邮件选项"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Address"
 msgstr "来自地址"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email address the nightly backup will be sent from."
 msgstr "电子邮件地址，夜间备份将从中发送。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Name"
 msgstr "发件人"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "电子邮件地址，夜间备份将从中发送。"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "电子邮件地址"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "以逗号分隔的电子邮件地址列表，用于将夜间备份电子邮件发送至。"
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "设备"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 msgid "Device Types"
 msgstr "设备类型"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "认证"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Backups"
 msgstr "备份"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "比较"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Technical Support [ %s ]"
 msgstr "技术支持 [%s ]"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "（%s个字符）"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "(Not Set)"
 msgstr "<未设置>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "注意：开始手动备份%s设备"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "注意：开始自动重试"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "注意：开始自动备份"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "致命错误：备份路径未设置或不是目录"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL：未设置TFTP服务器"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "调试：尝试下载%s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "%s 个设备已成功备份。<br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "%s 个设备已备份失败。<br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "%s 个设备已备份失败。<br>"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Config Backups"
 msgstr "配置备份"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "配置备份"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Forced"
 msgstr " -被迫"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Manual"
 msgstr "手动"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Simulated"
 msgstr " -模拟"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Scheduled"
 msgstr "计划"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Reattempt"
 msgstr " -重新尝试"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": Partial"
 msgstr "：部分"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": FAILED"
 msgstr "失败"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "STATS: "
 msgstr "状态"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "备份路径未设置或不是目录"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "STATS：自%s起，备份现在开始运行"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "警告：自%s起，备份已在运行"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "错误：无法使用连接类型%s连接到设备'%s'"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "错误：无法通过“ %s”将“ %s”下载到“ %s”"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "文件“ %s”无法加载"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "找不到文件“ %s”"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Router Config for %s (%s)"
 msgstr "路由器配置 %s (%s)"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Backup from %s"
 msgstr "从%s备份"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File: %s/%s"
 msgstr "文件: %s/%s"
