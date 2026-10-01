@@ -22,7 +22,7 @@ beforeEach(function () {
 	$GLOBALS['__test_db_calls']  = array();
 
 	// Sandbox base_path so the upgrade-path tests run
-	// plugin_routerconfigs_prune_files() against a throwaway tree with no
+	// routerconfigs_prune_files() against a throwaway tree with no
 	// manifest.json (prune no-ops), never the real checkout. The temp tree
 	// carries a copy of the real INFO (so plugin_routerconfigs_version()
 	// still matches) and an empty includes/database.php the top-level
