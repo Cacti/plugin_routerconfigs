@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,864 +17,864 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Backup"
 msgstr "Αντίγραφα"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH/Telnet"
 msgstr "远程登录"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Telnet"
 msgstr "远程登录"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "Κληρονομώ"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "Καθημερινά"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "Εβδομαδιαία"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "Μηνιαία"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Month"
 msgstr "% d Μήνα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Months"
 msgstr "% d Μήνας"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Year"
 msgstr "% d Έτος"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Years"
 msgstr "% d Έτη"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "Ποτέ"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d ώρα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d ώρες"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (1 π.μ.)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (8πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11πμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (1μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00 (2μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (3μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (4μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (5μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00 (6μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (7μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (8μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (9μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (10μμ)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (11μμ)"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "Όνομα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "Δώστε σε αυτόν τον λογαριασμό ένα σημαντικό όνομα που θα εμφανιστεί."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "Όνομα Χρήστη"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "Το όνομα χρήστη που θα χρησιμοποιηθεί για έλεγχο ταυτότητας."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "Κωδικός"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The password used for authentication."
 msgstr "Ο κωδικός πρόσβασης που χρησιμοποιείται για τον έλεγχο ταυτότητας."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Password"
 msgstr "Ενεργοποίηση κωδικού πρόσβασης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Your Enable Password, if required."
 msgstr "Ενεργοποίηση κωδικού πρόσβασης, εάν απαιτείται."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Device"
 msgstr "Ενεργοποίηση συσκευής"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Καταργήστε την επιλογή αυτού του πλαισίου για να απενεργοποιήσετε τη συγκεκριμένη συσκευή από τη δημιουργία αντιγράφων ασφαλείας."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "Όνομα αυτής της συσκευής (θα χρησιμοποιηθεί για την αποθήκευση των ρυθμίσεων και για το SVN, αν δεν υπάρχει όνομα κεντρικού υπολογιστή στο config)."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP Address"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "Κατάλογος"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Αυτή είναι η σχετική δομή καταλόγου που χρησιμοποιείται για την αποθήκευση των configs."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "Πρόγραμμα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "How often to Backup this device."
 msgstr "Πόση ώρα γίνεται η δημιουργία αντιγράφων ασφαλείας αυτής της συσκευής."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "Τύπος συσκευής"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose the type of device that the router is."
 msgstr "Επιλέξτε τον τύπο συσκευής που είναι ο δρομολογητής."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "Αυτόματη αναγνώριση"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "Τύπος σύνδεσης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Λογαριασμός ελέγχου ταυτότητας"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose an account to use to Login to the router"
 msgstr "Επιλέξτε έναν λογαριασμό που θα χρησιμοποιηθεί για να συνδεθείτε στο δρομολογητή"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "Κανένα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default timeout"
 msgstr "Προεπιλεγμένο χρονικό όριο"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "Προεπιλεγμένος χρόνος αναμονής σε δευτερόλεπτα για μια ανταπόκριση"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default sleep time"
 msgstr "Προεπιλεγμένος χρόνος ύπνου"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "Προεπιλεγμένος χρόνος ύπνου σε μικροδευτερόλεπτα (1 / 1.000.000 το δευτερόλεπτο)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume elevated"
 msgstr "Υποθέστε ότι είναι αυξημένα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "Καταργήστε την επιλογή αυτού του πλαισίου για να απενεργοποιήσετε τη συγκεκριμένη συσκευή από τη δημιουργία αντιγράφων ασφαλείας."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device type."
 msgstr "Όνομα αυτού του τύπου συσκευής."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Username Prompt"
 msgstr "Όνομα χρήστη"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "Αυτή είναι η προτροπή ονόματος χρήστη που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Password Prompt"
 msgstr "Προώθηση κωδικού πρόσβασης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "Αυτή είναι η ερώτηση για τον κωδικό πρόσβασης που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Configuration file"
 msgstr "Αρχείο διαμόρφωσης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "Αυτή είναι η τυπική θέση του αρχείου διαμόρφωσης στην απομακρυσμένη συσκευή."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "Αντιγραφή TFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Αυτό είναι το κείμενο CLI που χρησιμοποιείται για την αποστολή του αντιγράφου ασφαλείας στον εξυπηρετητή tftp."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Show Version"
 msgstr "Εμφάνιση έκδοσης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "Αυτό είναι το κείμενο CLI που χρησιμοποιείται για την εμφάνιση της τρέχουσας έκδοσης."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "Αυτή είναι η προτροπή ονόματος χρήστη που αντιστοιχεί στη σύνδεση."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "Υπάρχει μια ερώτηση επιβεβαίωσης για την αντιγραφή του config;"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Force Confirm"
 msgstr "Επιβεβαιώστε τη δύναμη"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "Υπάρχει εντολή επιβεβαίωσης δύναμης για την αντιγραφή του config;"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check End in Config"
 msgstr "Επιλέξτε Έξοδος στο Config"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check end in config?"
 msgstr "Ελέγξτε το τέλος στο config;"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "Οποιαδήποτε προτροπή κλειδιού"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Κείμενο για αντιστοίχιση προτροπής τύπου \"Πατήστε οποιοδήποτε πλήκτρο για να συνεχίσετε\""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "Περίοδος διατήρησης"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Close without exit"
 msgstr "Κλείσιμο χωρίς έξοδο"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "Εάν σημειωθεί, κατά το κλείσιμο της σύνδεσης της συσκευής, δεν εκδίδεται εντολή «έξοδος»"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "Ενσωματωμένη σύνδεση σύνδεσης εντοπισμού σφαλμάτων"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "Αν θα συνδεθείτε απευθείας στην έξοδο της σύνδεσης συσκευής"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "Ας υποθέσουμε ότι όλες οι συσκευές είναι ανυψωμένες"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "Αν θα υποθέσουμε ότι όλες οι συσκευές είναι αυξημένες"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Download Hour"
 msgstr "Λήψη ώρα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "Η ώρα της ημέρας για να πραγματοποιήσετε τις πλήρεις λήψεις."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "Πρόγραμμα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "Ο χρόνος αναμονής πριν από την προσπάθεια εκτέλεσης μιας πρόσθετης λήψης όταν η προγραμματισμένη λήψη αποτυγχάνει"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retention Period"
 msgstr "Περίοδος διατήρησης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "Ο αριθμός ημερών για τη διατήρηση των παλιών αντιγράφων ασφαλείας."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Transfer Options"
 msgstr "Επιλογές μεταφοράς"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default connection type"
 msgstr "Προεπιλεγμένος τύπος σύνδεσης"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate By Device"
 msgstr "Διαχωρισμός ανά συσκευή"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "Διαχωρίστε τα αρχειοθετημένα Config σε ένα φάκελο ανά συσκευή"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP Path"
 msgstr "Διαδρομή SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "IP διακομιστή TFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Πρέπει να είναι IP που να δείχνει στον διακομιστή Cacti."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "Διαδρομή καταλόγου αντιγράφων ασφαλείας"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "Η διαδρομή προς το σημείο όπου θα δημιουργηθούν αντίγραφα ασφαλείας των Configs σας, πρέπει να είναι η διαδρομή που γράφει ο τοπικός διακομιστής TFTP."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "Διαδρομή καταλόγου αντιγράφων ασφαλείας"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "Η διαδρομή προς το σημείο όπου θα δημιουργηθούν αντίγραφα ασφαλείας των Configs σας, πρέπει να είναι η διαδρομή που γράφει ο τοπικός διακομιστής TFTP."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Options"
 msgstr "Επιλογές email"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Address"
 msgstr "Από Διεύθυνση"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου θα αποστέλλεται από το νυχτερινό αντίγραφο ασφαλείας."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Name"
 msgstr "Από Όνομα"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου θα αποστέλλεται από το νυχτερινό αντίγραφο ασφαλείας."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "Διεύθυνση Email"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Μια λίστα γραμματοσειρών γραμματοσειρών με διευθύνσεις ηλεκτρονικού ταχυδρομείου για την αποστολή του εφεδρικού μηνύματος ηλεκτρονικού ταχυδρομείου την ημέρα."
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "Τύπος Συσκευής"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 #, fuzzy
 msgid "Device Types"
 msgstr "Τύποι συσκευών"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Backups"
 msgstr "Αντίγραφα ασφαλείας"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "Σύγκριση"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Technical Support [ %s ]"
 msgstr "Τεχνική υποστήριξη [ %s]"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "(%s χαρακτήρες)"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "(Not Set)"
 msgstr "Ορισμός ως Προεπιλογή"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη μη αυτόματης δημιουργίας αντιγράφων ασφαλείας %s συσκευών"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη αυτόματης επανάληψης"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "ΕΙΔΟΠΟΙΗΣΗ: Έναρξη αυτόματης δημιουργίας αντιγράφων ασφαλείας"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: Το Backup Path δεν έχει οριστεί ή δεν είναι κατάλογος"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: Ο διακομιστής TFTP δεν έχει οριστεί"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: Προσπάθεια λήψης για %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "Οι συσκευές %s υποστηρίχθηκαν με επιτυχία. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "Οι συσκευές %s απέτυχαν να δημιουργήσουν αντίγραφα ασφαλείας. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "Οι συσκευές %s απέτυχαν να δημιουργήσουν αντίγραφα ασφαλείας. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Config Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "Δημιουργία αντιγράφων ασφαλείας των ρυθμίσεων"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Forced"
 msgstr " - Αναγκαστική"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Manual"
 msgstr "Χειροκίνητα"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Simulated"
 msgstr " - Προσομοίωση"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Scheduled"
 msgstr "Προγραμματισμένο"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Reattempt"
 msgstr " - Προσπαθήστε ξανά"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": Partial"
 msgstr ": Μερική"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": FAILED"
 msgstr "Απέτυχε"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "STATS: "
 msgstr "Στατιστικά"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "Το Backup Path δεν έχει ρυθμιστεί ή δεν είναι κατάλογος"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "ΚΑΤΑΣΤΑΣΕΙΣ: Η δημιουργία αντιγράφων ασφαλείας εκτελείται τώρα από τις %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Το αντίγραφο ασφαλείας εκτελείται ήδη από τις %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "ΣΦΑΛΜΑ: Αποτυχία σύνδεσης στη συσκευή \"%s\" χρησιμοποιώντας τύπο σύνδεσης: %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "ΣΦΑΛΜΑ: Αποτυχία λήψης \"%s\" σε \"%s\" μέσω \"%s\""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "Απέτυχε η φόρτωση του αρχείου \"%s\""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "Το αρχείο \"%s\" δεν βρέθηκε"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "Ρύθμιση παραμέτρων δρομολογητή για %s ( %s)"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "Δημιουργία αντιγράφων ασφαλείας από το %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Αρχείο: %s / %s"
