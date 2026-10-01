@@ -1,10 +1,10 @@
 {
     "tombstones": [
+        "HordeTextInclude.php",
         "include/"
     ],
     "expected": [
         "CHANGELOG.md",
-        "HordeTextInclude.php",
         "INFO",
         "LICENSE",
         "README.md",

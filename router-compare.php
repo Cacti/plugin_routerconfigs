@@ -226,7 +226,7 @@ if (!empty($file1) && !empty($file2)) {
 
 	if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
 		// Create the Diff object.
-		require_once(__DIR__ . '/HordeTextInclude.php');
+		require_once(__DIR__ . '/includes/HordeText.php');
 
 		$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
 
