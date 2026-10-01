@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2026-09-12 08:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
@@ -18,748 +18,748 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "Ta bort"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Backup"
 msgstr "Säkerhetskopiering"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "Aktivera"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "Inaktivera"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH/Telnet"
 msgstr "SSH/Telnet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Telnet"
 msgstr "Telnet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "Ärv"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "Dagligen"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "Veckovis"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "Månadsvis"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Month"
 msgstr "%d månad"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Months"
 msgstr "%d månader"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Year"
 msgstr "%d år"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d Years"
 msgstr "%d år"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "Aldrig"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d timme"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d timmar"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "00:00 (12am)"
 msgstr "00:00 (kl. 12.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "01:00 (1am)"
 msgstr "01:00 (1 på morgonen)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "02:00 (2am)"
 msgstr "02:00 (2 på morgonen)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "03:00 (3am)"
 msgstr "03:00 (3 på morgonen)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "04:00 (4am)"
 msgstr "04:00 (kl. 04.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "05:00 (5am)"
 msgstr "05:00 (5 på morgonen)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "06:00 (6am)"
 msgstr "06:00 (kl. 06.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "07:00 (7am)"
 msgstr "07:00 (kl. 7.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "08:00 (8am)"
 msgstr "08:00 (kl. 8.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "09:00 (9am)"
 msgstr "09:00 (9:00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "10:00 (12am)"
 msgstr "10:00 (12:00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "11:00 (11am)"
 msgstr "11:00 (kl. 11.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "12:00 (12pm)"
 msgstr "12:00 (12pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "13:00 (1pm)"
 msgstr "13:00 (1pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "14:00 (2pm)"
 msgstr "14:00 (2pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "15:00 (3pm)"
 msgstr "15:00 (3pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "16:00 (4pm)"
 msgstr "16:00 (4pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "17:00 (5pm)"
 msgstr "17:00 (kl. 17.00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "18:00 (6pm)"
 msgstr "18:00 (6pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "19:00 (7pm)"
 msgstr "19:00 (7pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "20:00 (8pm)"
 msgstr "20:00 (20:00)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "21:00 (9pm)"
 msgstr "21:00 (9pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "22:00 (10pm)"
 msgstr "22:00 (10pm)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "23:00 (11pm)"
 msgstr "23:00 (23:00)"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "Namn"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "Ge kontot ett meningsfullt namn som kommer att visas."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "Användarnamn"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The username that will be used for authentication."
 msgstr "Det användarnamn som ska användas för autentisering."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "Lösenord"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The password used for authentication."
 msgstr "Det lösenord som används för autentisering."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Password"
 msgstr "Aktivera lösenord"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Your Enable Password, if required."
 msgstr "Ditt lösenord för aktivering, om så krävs."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable Device"
 msgstr "Aktivera enhet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "Avmarkera den här rutan om du vill inaktivera enheten från säkerhetskopiering."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "Beskrivning"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "Namn på den här enheten (används för att spara config och SVN om inget värdnamn finns i config)."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP adress"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
 msgstr "Detta är den IP-adress som används för att kommunicera med enheten."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "Katalog"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Detta är den relativa katalogstruktur som används för att lagra konfigurationerna."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "Schema"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "How often to Backup this device."
 msgstr "Hur ofta ska du säkerhetskopiera den här enheten."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Device Type"
 msgstr "Enhetstyp"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose the type of device that the router is."
 msgstr "Välj vilken typ av enhet som routern är."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "Auto-Detect"
 msgstr "Automatisk detektering"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Connection Type"
 msgstr "Typ av anslutning"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Detta är den typ av anslutning som används för att kommunicera med enheten."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Authentication Account"
 msgstr "Autentiseringskonto"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Choose an account to use to Login to the router"
 msgstr "Välj ett konto som du vill använda för att logga in på routern"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "inget"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default timeout"
 msgstr "Standard timeout"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default time to wait in seconds for a response"
 msgstr "Standardtid i sekunder för att vänta på ett svar"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default sleep time"
 msgstr "Standard sömntid"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "Standardtid för insomning i mikrosekunder (1/1.000.000.000 sekund)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Assume elevated"
 msgstr "Antag förhöjd"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check this box to assume this device is always elevated"
 msgstr "Markera den här rutan om du vill anta att enheten alltid är upphöjd"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name of this device type."
 msgstr "Namn på den här enhetstypen."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Username Prompt"
 msgstr "Uppmaning om användarnamn"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the username prompt to match on login."
 msgstr "Detta är det användarnamn som ska anges vid inloggning."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password Prompt"
 msgstr "Lösenordsfråga"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the password prompt to match on login."
 msgstr "Detta är det lösenord som ska anges vid inloggning."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Configuration file"
 msgstr "Konfigurationsfil"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "Detta är standardplatsen för konfigurationsfilen på fjärrenheten."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Copy TFTP"
 msgstr "Kopiera TFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Detta är den CLI-text som används för att skicka säkerhetskopian till tftp-servern."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Show Version"
 msgstr "Visa version"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the CLI text used to display the current version."
 msgstr "Detta är den CLI-text som används för att visa den aktuella versionen."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Confirmation Prompt"
 msgstr "Bekräftelseprompt"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "Detta är den bekräftelse som ska matchas före sändning."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "Bekräfta"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "Finns det en bekräftelseprompt för kopiering av konfigurationen?"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Force Confirm"
 msgstr "Force Confirm"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "Finns det en tvingande bekräftelseprompt för kopiering av konfigurationen?"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check End in Config"
 msgstr "Kontrollera konfiguration av ändinställning"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Check end in config?"
 msgstr "Kontrollera slutet i konfigurationen?"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Any Key prompt"
 msgstr "Alla tangenters prompt"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Text som matchar en uppmaning i stil med \"Tryck på valfri knapp för att fortsätta"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr "Allmänna inställningar"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Presentation Mode"
 msgstr "Presentationsläge"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr "Ska routerkonfigurationer visas på konsolen eller på en toppflik."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr "Konsol"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr "Översta fliken"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Close without exit"
 msgstr "Stäng utan utgång"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "Om markerad, när anslutningen till enheten stängs av, utfärdas inget \"exit\"-kommando"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Debug Connection Buffer"
 msgstr "Buffert för felsökningsanslutning"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Whether to log direct output of device connection"
 msgstr "Om direktutmatning från enhetens anslutning ska loggas"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Assume all devices elevated"
 msgstr "Antag att alla enheter är upphöjda"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Whether to assume all devices are elevated"
 msgstr "Om man ska anta att alla enheter är upphöjda"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Download Hour"
 msgstr "Ladda ner timme"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The hour of the day to perform the full downloads."
 msgstr "Timmen på dagen för att utföra de fullständiga nedladdningarna."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Retry Schedule"
 msgstr "Schema för omprövning"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "Den tid som ska vänta innan man försöker utföra en ytterligare nedladdning när den schemalagda nedladdningen misslyckas"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Retention Period"
 msgstr "Lagringsperiod"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The number of days to retain old backups."
 msgstr "Antal dagar som gamla säkerhetskopior ska sparas."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Transfer Options"
 msgstr "Alternativ för överföring"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default connection type"
 msgstr "Standard anslutningstyp"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Default type of connection used to communicate with the device."
 msgstr "Standardtyp av anslutning som används för att kommunicera med enheten."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Separate By Device"
 msgstr "Separera efter enhet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Separate archived Configs into a folder per device"
 msgstr "Separera arkiverade Configs i en mapp per enhet"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SCP Path"
 msgstr "SCP-väg"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "TFTP Server IP"
 msgstr "TFTP-server IP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "Måste vara en IP som pekar på din Cacti-server."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "TFTP Backup Directory Path"
 msgstr "TFTP Backup Directory Sökväg"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "Sökvägen till den plats där konfigureringen ska säkerhetskopieras måste vara den sökväg som den lokala TFTP-servern skriver till."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Archive Directory Path"
 msgstr "Sökväg till arkivkatalog"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "Sökvägen till den plats där dina konfigurationer ska arkiveras (flyttas från TFTP-katalogen)"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Options"
 msgstr "E-post Val"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Address"
 msgstr "Från adress"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email address the nightly backup will be sent from."
 msgstr "E-postadress som den nattliga säkerhetskopian skickas från."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Name"
 msgstr "Från namn"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Name the nightly backup will be sent from."
 msgstr "Namn som den nattliga säkerhetskopian skickas från."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "E-postadress"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "En kommaseparerad lista med e-postadresser som den nattliga säkerhetskopian ska skickas till."
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "Enheter"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 msgid "Device Types"
 msgstr "Enhetstyper"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "Autentisering"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Backups"
 msgstr "Backup"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "Jämför"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Technical Support [ %s ]"
 msgstr "Teknisk support [ %s ]"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "(%s chars)"
 msgstr "(%s tecken)"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "(Not Set)"
 msgstr "(Ej inställd)"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "NOTICE: Startar manuell säkerhetskopiering av %s enheter"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "NOTICE: Starting automatic retry"
 msgstr "NOTICE: Startar automatisk omprövning"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "NOTICE: Starting automatic backup"
 msgstr "OBSERVERA: Starta automatisk säkerhetskopiering"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: TFTP Backup Path är inte angiven eller är inte en katalog"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "FATAL: TFTP Server is not set"
 msgstr "FATAL: TFTP-servern är inte inställd"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: Försöker ladda ner för %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices backed up successfully."
 msgstr "%s enheter säkerhetskopierade framgångsrikt."
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices failed to backup."
 msgstr "%s enheter misslyckades med säkerhetskopieringen."
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "%s devices disabled from backup."
 msgstr "%s enheter inaktiverade från backup."
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Config Backups"
 msgstr "Säkerhetskopiering av konfiguration"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Configuration Backups"
 msgstr "Säkerhetskopiering av konfiguration"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Forced"
 msgstr " - Tvingad"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Manual"
 msgstr " - Manuellt"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Simulated"
 msgstr " - Simulerad"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Scheduled"
 msgstr " - Planerad"
 
-#: include/functions.php
+#: includes/functions.php
 msgid " - Reattempt"
 msgstr " - Försök igen"
 
-#: include/functions.php
+#: includes/functions.php
 msgid ": Partial"
 msgstr ": Partiell"
 
-#: include/functions.php
+#: includes/functions.php
 msgid ": FAILED"
 msgstr ": MISSLYCKAD"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "STATS: "
 msgstr "STATS: "
 
-#: include/functions.php
+#: includes/functions.php
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "ERROR: Backup Path är inte angiven eller är inte en katalog"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "STATS: Backup körs nu sedan %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "VARNA: Säkerhetskopiering pågår redan sedan %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "FEL: Misslyckades med att ansluta till enhet '%s' med anslutningstyp: %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "FEL: Misslyckades med att ladda ner '%s' till '%s' via '%s'"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File '%s' failed to load"
 msgstr "Filen '%s' kunde inte laddas"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File '%s' was not found"
 msgstr "Filen '%s' hittades inte"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Router Config for %s (%s)"
 msgstr "Routerkonfiguration för %s (%s)"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "Backup from %s"
 msgstr "Säkerhetskopia från %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "File: %s/%s"
 msgstr "Fil: %s/%s"
