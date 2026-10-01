@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"POT-Creation-Date: 2026-09-29 23:15-0400\n"
 "PO-Revision-Date: 2020-12-13 10:20-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,866 +17,866 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Delete"
 msgstr "حذف"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Backup"
 msgstr "دعم"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Enable"
 msgstr "تفعيل"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Disable"
 msgstr "تعطيل"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Clear SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH/Telnet"
 msgstr "تلنت"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SSH"
 msgstr "SSH"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Telnet"
 msgstr "تلنت"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "SFTP"
 msgstr "SFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Inherit"
 msgstr "وراثة"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Daily"
 msgstr "يومي"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Weekly"
 msgstr "أسبوعي"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Monthly"
 msgstr "شهري"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "٪ د الشهر"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "٪ د أشهر"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "٪ د السنة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy, php-format
 msgid "%d Years"
 msgstr "٪ د السنة"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Never"
 msgstr "أبدا"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hour"
 msgstr "%d ساعة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, php-format
 msgid "%d hours"
 msgstr "%d ساعات"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "00:00 (12am)"
 msgstr "00:00 (12 ص)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "01:00 (1am)"
 msgstr "01:00 (1 صباحًا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "02:00 (2am)"
 msgstr "02:00 (2 صباحًا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "03:00 (3am)"
 msgstr "03:00 (3 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "04:00 (4am)"
 msgstr "04:00 (4 صباحًا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "05:00 (5am)"
 msgstr "05:00 (5 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "06:00 (6am)"
 msgstr "06:00 (6 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "07:00 (7am)"
 msgstr "07:00 (7 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "08:00 (8am)"
 msgstr "08:00 (8 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "09:00 (9am)"
 msgstr "09:00 (9 صباحا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "10:00 (12am)"
 msgstr "10:00 (12 صباحًا)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "11:00 (11am)"
 msgstr "11:00 (11 ص)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "12:00 (12pm)"
 msgstr "12:00 (12 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "13:00 (1pm)"
 msgstr "13:00 (1 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "14:00 (2pm)"
 msgstr "14:00 (2 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "15:00 (3pm)"
 msgstr "15:00 (3 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "16:00 (4pm)"
 msgstr "16:00 (4 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "17:00 (5pm)"
 msgstr "17:00 (5 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "18:00 (6pm)"
 msgstr "18:00 (6 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "19:00 (7pm)"
 msgstr "19:00 (7 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "20:00 (8pm)"
 msgstr "20:00 (8 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "21:00 (9pm)"
 msgstr "21:00 (9 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "22:00 (10pm)"
 msgstr "22:00 (10 مساءً)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (11 مساءً)"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "الاسم"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
 msgstr "امنح هذا الحساب اسمًا ذا معنى سيتم عرضه."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "اسم المستخدم الذي سيتم استخدامه للمصادقة."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Password"
 msgstr "كلمة المرور"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The password used for authentication."
 msgstr "كلمة المرور المستخدمة للمصادقة."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Password"
 msgstr "تمكين كلمة المرور"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Your Enable Password, if required."
 msgstr "تمكين كلمة المرور الخاصة بك ، إذا لزم الأمر."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Enable Device"
 msgstr "تمكين الجهاز"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "ألغ تحديد هذا المربع لتعطيل هذا الجهاز من النسخ الاحتياطي."
 
-#: include/arrays.php router-accounts.php
+#: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "الوصف"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
 msgstr "اسم هذا الجهاز (سيتم استخدامه لحفظ التهيئة و SVN في حالة عدم وجود اسم مضيف في التهيئة)."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "عنوان الIP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Stored SSH Host Key"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
 msgstr ""
 
-#: include/arrays.php router-backups.php router-devices.php
+#: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "الدليل"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "هذا هو هيكل الدليل النسبي المستخدم لتخزين التكوينات."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Schedule"
 msgstr "الجدول"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "How often to Backup this device."
 msgstr "عدد مرات النسخ الاحتياطي لهذا الجهاز."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "نوع الجهاز"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose the type of device that the router is."
 msgstr "اختر نوع الجهاز الذي يوجد به جهاز التوجيه."
 
-#: include/arrays.php router-devices.php
+#: includes/arrays.php router-devices.php
 #, fuzzy
 msgid "Auto-Detect"
 msgstr "اكتشاف تلقائي"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "نوع الاتصال"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the type of connection used to communicate with the device."
 msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "حساب المصادقة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Choose an account to use to Login to the router"
 msgstr "اختر حسابًا لاستخدامه لتسجيل الدخول إلى جهاز التوجيه"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "None"
 msgstr "لا شيء"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default timeout"
 msgstr "المهلة الافتراضية"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to wait in seconds for a response"
 msgstr "الوقت الافتراضي للانتظار بالثواني للحصول على إجابة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default sleep time"
 msgstr "وقت النوم الافتراضي"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
 msgstr "الوقت الافتراضي للنوم بالميكروثانية (1/10000 جزء من الثانية)"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume elevated"
 msgstr "افترض أنها مرتفعة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check this box to assume this device is always elevated"
 msgstr "ألغ تحديد هذا المربع لتعطيل هذا الجهاز من النسخ الاحتياطي."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name of this device type."
 msgstr "اسم هذا النوع من الأجهزة."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Username Prompt"
 msgstr "اسم المستخدم موجه"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the username prompt to match on login."
 msgstr "هذا هو موجه اسم المستخدم للمطابقة عند تسجيل الدخول."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Password Prompt"
 msgstr "كلمة المرور موجه"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the password prompt to match on login."
 msgstr "هذا هو موجه كلمة المرور للمطابقة عند تسجيل الدخول."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Configuration file"
 msgstr "ملف الضبط"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
 msgstr "هذا هو الموقع القياسي لملف التكوين على الجهاز البعيد."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Copy TFTP"
 msgstr "نسخ TFTP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "هذا هو نص CLI المستخدم لإرسال النسخة الاحتياطية إلى خادم tftp."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Show Version"
 msgstr "عرض الإصدار"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "هذا هو نص CLI المستخدم لعرض الإصدار الحالي."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Confirmation Prompt"
 msgstr "النسخ الاحتياطي التكوين"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
 msgstr "هذا هو موجه اسم المستخدم للمطابقة عند تسجيل الدخول."
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "قم بالتأكيد"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
 msgstr "هل هناك مطالبة تأكيد لنسخ التكوين؟"
 
-#: include/arrays.php router-devtypes.php
+#: includes/arrays.php router-devtypes.php
 #, fuzzy
 msgid "Force Confirm"
 msgstr "تأكيد القوة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
 msgstr "هل هناك مطالبة تأكيد قوة لنسخ التكوين؟"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check End in Config"
 msgstr "تحقق نهاية في التكوين"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Check end in config?"
 msgstr "تحقق نهاية في التكوين؟"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Any Key prompt"
 msgstr "أي مفتاح موجه"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "نص لمطابقة موجه نمط \"اضغط على أي مفتاح للمتابعة\""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "General Settings"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Presentation Mode"
 msgstr "فترة الاحتفاظ"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Console"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Top Tab"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Close without exit"
 msgstr "أغلق بدون مخرج"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
 msgstr "إذا تم تحديده ، عند إغلاق اتصال الجهاز ، لا يتم إصدار أمر \"خروج\""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "تصحيح اتصال المخزن المؤقت"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to log direct output of device connection"
 msgstr "ما إذا كان سيتم تسجيل الإخراج المباشر لاتصال الجهاز"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Assume all devices elevated"
 msgstr "افترض أن جميع الأجهزة مرتفعة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Whether to assume all devices are elevated"
 msgstr "سواء افترضنا أن جميع الأجهزة مرتفعة"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Download Hour"
 msgstr "ساعة التنزيل"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "ساعة اليوم لإجراء التنزيلات الكاملة."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retry Schedule"
 msgstr "الجدول"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
 msgstr "وقت الانتظار قبل محاولة إجراء تنزيل إضافي عند فشل التنزيل المجدول"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Retention Period"
 msgstr "فترة الاحتفاظ"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "عدد الأيام للاحتفاظ بالنسخ الاحتياطية القديمة."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Transfer Options"
 msgstr "خيارات النقل"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default connection type"
 msgstr "نوع الاتصال الافتراضي"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Default type of connection used to communicate with the device."
 msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate By Device"
 msgstr "افصل حسب الجهاز"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "قم بفصل Configs المؤرشفة في مجلد لكل جهاز"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "SCP Path"
 msgstr "مسار SCP"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Verify SSH Host Keys"
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
 msgstr ""
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Server IP"
 msgstr "TFTP خادم IP"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
 msgstr "يجب أن يكون عنوان IP يشير إلى خادم Cacti."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "TFTP Backup Directory Path"
 msgstr "مسار دليل النسخ الاحتياطي"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
 msgstr "المسار إلى حيث سيتم نسخ نسخة احتياطية من Configs الخاص بك ، يجب أن يكون المسار الذي يكتب عليه خادم TFTP المحلي."
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Archive Directory Path"
 msgstr "مسار دليل النسخ الاحتياطي"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
 msgstr "المسار إلى حيث سيتم نسخ نسخة احتياطية من Configs الخاص بك ، يجب أن يكون المسار الذي يكتب عليه خادم TFTP المحلي."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Options"
 msgstr "خيارات البريد الكتروني"
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Address"
 msgstr "كعنوان للبريد"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Email address the nightly backup will be sent from."
 msgstr "عنوان البريد الإلكتروني سيتم إرسال النسخ الاحتياطي ليلا من."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "From Name"
 msgstr "اسم النموذج"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "Name the nightly backup will be sent from."
 msgstr "عنوان البريد الإلكتروني سيتم إرسال النسخ الاحتياطي ليلا من."
 
-#: include/arrays.php
+#: includes/arrays.php
 msgid "Email Address"
 msgstr "عنوان البريد الإلكتروني"
 
-#: include/arrays.php
+#: includes/arrays.php
 #, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "قائمة محددة بعناوين البريد الإلكتروني لإرسال رسالة بريد إلكتروني احتياطية ليلا إلى."
 
-#: include/functions.php router-accounts.php
+#: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "الأجهزة"
 
-#: include/functions.php router-devtypes.php
+#: includes/functions.php router-devtypes.php
 #, fuzzy
 msgid "Device Types"
 msgstr "أنواع الأجهزة"
 
-#: include/functions.php
+#: includes/functions.php
 msgid "Authentication"
 msgstr "المصادقة"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Backups"
 msgstr "النسخ الاحتياطي"
 
-#: include/functions.php router-backups.php
+#: includes/functions.php router-backups.php
 msgid "Compare"
 msgstr "قارن"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Technical Support [ %s ]"
 msgstr "الدعم الفني [٪ s]"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "(%s chars)"
 msgstr "(%s حرفًا)"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "(Not Set)"
 msgstr "تعين كافتراضي"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
 msgstr "إشعار: بدء النسخ الاحتياطي اليدوي لعدد %s من الأجهزة"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic retry"
 msgstr "إشعار: بدء إعادة المحاولة التلقائية"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "NOTICE: Starting automatic backup"
 msgstr "إشعار: بدء النسخ الاحتياطي التلقائي"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: لم يتم تعيين مسار النسخ الاحتياطي أو ليس دليلًا"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "FATAL: TFTP Server is not set"
 msgstr "فادح: لم يتم تعيين خادم TFTP"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: محاولة تنزيل %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices backed up successfully."
 msgstr "تم إجراء نسخ احتياطي لأجهزة٪ s بنجاح. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices failed to backup."
 msgstr "فشلت الأجهزة٪ s في النسخ الاحتياطي. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "%s devices disabled from backup."
 msgstr "فشلت الأجهزة٪ s في النسخ الاحتياطي. <br>"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Config Backups"
 msgstr "النسخ الاحتياطي التكوين"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "Configuration Backups"
 msgstr "النسخ الاحتياطي التكوين"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Forced"
 msgstr " - قسري"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Manual"
 msgstr "دليل"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Simulated"
 msgstr " - مقلد"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Scheduled"
 msgstr "المقرر"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid " - Reattempt"
 msgstr " - أعد المحاولة"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": Partial"
 msgstr ": جزئي"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid ": FAILED"
 msgstr "فشل"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "STATS: "
 msgstr "انقر لإظهار إحصائيات الشعار"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
 msgstr "لم يتم تعيين مسار النسخ الاحتياطي أو ليس دليلًا"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "STATS: النسخ الاحتياطي يعمل الآن منذ %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "تحذير: النسخ الاحتياطي قيد التشغيل بالفعل منذ %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
 msgstr "خطأ: فشل الاتصال بالجهاز \"%s\" باستخدام نوع الاتصال: %s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "خطأ: فشل تنزيل \"%s\" إلى \"%s\" عبر \"%s\""
 
-#: include/functions.php
+#: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' failed to load"
 msgstr "فشل تحميل الملف '%s'"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File '%s' was not found"
 msgstr "الملف '%s' غير موجود"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Router Config for %s (%s)"
 msgstr "تكوين جهاز التوجيه لـ٪ s (٪ s)"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "Backup from %s"
 msgstr "النسخ الاحتياطي من٪ s"
 
-#: include/functions.php
+#: includes/functions.php
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "الملف:٪ s /٪ s"
