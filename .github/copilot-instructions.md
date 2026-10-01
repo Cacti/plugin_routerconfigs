@@ -26,22 +26,22 @@ When generating code for this repository:
 ## Project Structure
 
 ```
-routerconfigs/               # Repository root (install to plugins/routerconfigs/ in Cacti)
-├── classes/                   # PHPConnection, PHPSsh, PHPTelnet, PHPScp, PHPSftp transport classes
-├── includes/                      # database.php (schema), functions.php (core logic), arrays.php/constants.php (config/field maps)
-├── locales/                         # Internationalization files
-├── tests/                              # Test suite
-├── Text/                                  # Vendored diff utilities (Horde-style classes/renderers)
-├── router-devices.php                       # Device administration
-├── router-accounts.php                        # Credential/account administration
-├── router-backups.php                           # Backup listing/administration
-├── router-compare.php                             # Config diff/compare view
-├── router-devtypes.php                              # Device type administration
-├── router-download.php                                # CLI-only backup download/export flow
-├── diff.css / HordeTextInclude.php                       # Diff rendering assets
-├── INFO                                                     # Plugin metadata (name, version, compat)
+routerconfigs/          # Repository root (install to plugins/routerconfigs/ in Cacti)
+├── classes/            # PHPConnection, PHPSsh, PHPTelnet, PHPScp, PHPSftp transport classes
+├── includes/           # database.php (schema), functions.php (core logic), arrays.php/constants.php (config/field maps), HordeText.php (Horde diff loader)
+├── locales/            # Internationalization files
+├── tests/              # Test suite
+├── Text/               # Vendored diff utilities (Horde-style classes/renderers)
+├── router-devices.php  # Device administration
+├── router-accounts.php # Credential/account administration
+├── router-backups.php  # Backup listing/administration
+├── router-compare.php  # Config diff/compare view
+├── router-devtypes.php # Device type administration
+├── router-download.php # CLI-only backup download/export flow
+├── css/                # diff.css (diff-rendering stylesheet)
+├── INFO                # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                                                  # Plugin install/uninstall/upgrade hooks
+└── setup.php           # Plugin install/uninstall/upgrade hooks
 ```
 
 ## Naming Conventions
