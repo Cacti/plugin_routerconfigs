@@ -23,5 +23,7 @@
         "router-download.php",
         "setup.php"
     ],
-    "whitelist": []
+    "whitelist": [
+        "backups/"
+    ]
 }
