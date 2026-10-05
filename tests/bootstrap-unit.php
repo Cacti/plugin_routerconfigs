@@ -362,7 +362,9 @@ if (!function_exists('is_error_message')) {
 
 if (!function_exists('sql_save')) {
 	function sql_save($array, $table, $key = 'id') {
-		return isset($array['id']) ? $array['id'] : 1;
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'sql_save', 'table' => $table, 'save' => $array);
+
+		return routerconfigs_test_stub('sql_save', array($array, $table, $key), isset($array['id']) ? $array['id'] : 1);
 	}
 }
 
@@ -403,6 +405,14 @@ if (!defined('POLLER_VERBOSITY_DEVDBG')) {
 
 if (!defined('MESSAGE_LEVEL_ERROR')) {
 	define('MESSAGE_LEVEL_ERROR', 1);
+}
+
+if (!defined('MESSAGE_LEVEL_WARN')) {
+	define('MESSAGE_LEVEL_WARN', 2);
+}
+
+if (!defined('MESSAGE_LEVEL_INFO')) {
+	define('MESSAGE_LEVEL_INFO', 3);
 }
 
 // Only defined by ext-ssh2; stub so tests can run on matrix legs without it.
