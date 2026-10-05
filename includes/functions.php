@@ -78,7 +78,7 @@ function display_tabs() {
 	}
 	$header_label = __('Technical Support [ %s ]', $tabs[$current_tab], 'routerconfigs');
 
-	if (sizeof($tabs)) {
+	if (cacti_sizeof($tabs)) {
 		// draw the tabs
 		print "<div class='tabs'><nav><ul>\n";
 
@@ -173,9 +173,9 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 	$filter_devices = [];
 
-	if (sizeof($devices)) {
+	if (cacti_sizeof($devices)) {
 		$filter_devices = $devices;
-		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
+		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',cacti_sizeof($filter_devices),'routerconfigs'));
 	} else {
 		if ($retry) {
 			plugin_routerconfigs_log(__('NOTICE: Starting automatic retry','routerconfigs'));
@@ -205,7 +205,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 			// If we aren't forcing all backups...
 			$scheduled = false;
-			$manual    = sizeof($filter_devices) > 0;
+			$manual    = cacti_sizeof($filter_devices) > 0;
 
 			if ($manual) {
 				$filter_devices = array_map('intval', $filter_devices);
@@ -233,7 +233,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 			$failed = [];
 			$passed = [];
 
-			if (sizeof($devices)) {
+			if (cacti_sizeof($devices)) {
 				foreach ($devices as $device) {
 					$t = time();
 					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
@@ -285,11 +285,11 @@ td { margin: 5 10 5 10; }
 						plugin_routerconfigs_message($message, __('%s devices disabled from backup.', $disabled, 'routerconfigs'));
 					}
 
-					if (sizeof($failed)) {
+					if (cacti_sizeof($failed)) {
 						plugin_routerconfigs_message_devicetable($message, $failed, true);
 					}
 
-					if (sizeof($passed)) {
+					if (cacti_sizeof($passed)) {
 						plugin_routerconfigs_message_devicetable($message, $passed, false);
 					}
 
@@ -345,7 +345,7 @@ td { margin: 5 10 5 10; }
 
 	plugin_routerconfigs_log(__('STATS: ','routerconfigs') . $download_stats);
 
-	plugin_routerconfigs_stop(sizeof($filter_devices) == 0);
+	plugin_routerconfigs_stop(cacti_sizeof($filter_devices) == 0);
 }
 
 /**
@@ -462,7 +462,7 @@ function plugin_routerconfigs_retention() {
 		WHERE btime < ?',
 		[$time]);
 
-	if (sizeof($backups)) {
+	if (cacti_sizeof($backups)) {
 		foreach ($backups as $backup) {
 			$dir      = $backup['directory'];
 			$filename = $backup['filename'];
@@ -826,7 +826,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$lastchange = '';
 	$lastuser   = '';
 
-	if (sizeof($data2)) {
+	if (cacti_sizeof($data2)) {
 		foreach ($data2 as $d) {
 			if (strpos($d, 'Last configuration change at') !== false) {
 				$change_pos = strpos($d, 'change at');

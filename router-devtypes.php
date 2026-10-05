@@ -126,7 +126,7 @@ function actions_devicetypes() {
 		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
-	if (sizeof($devtype_array)) {
+	if (cacti_sizeof($devtype_array)) {
 		if ($drp_action == RCONFIG_DEVTYPE_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
@@ -362,7 +362,7 @@ function show_devicetypes() {
 		]
 	);
 
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 

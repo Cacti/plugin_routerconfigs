@@ -147,7 +147,7 @@ function actions_accounts() {
 		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
-	if (sizeof($account_array)) {
+	if (cacti_sizeof($account_array)) {
 		if ($drp_action == RCONFIG_ACCOUNT_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
@@ -337,7 +337,7 @@ function show_accounts() {
 
 	$c = 0;
 
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			$count = db_fetch_cell_prepared('SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = ?', [$row['id']]);
 

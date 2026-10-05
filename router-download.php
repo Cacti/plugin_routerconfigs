@@ -320,7 +320,7 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 		$long = [$long];
 	}
 
-	if (sizeof($long)) {
+	if (cacti_sizeof($long)) {
 		$index = 0;
 
 		foreach ($long as $long_text) {
