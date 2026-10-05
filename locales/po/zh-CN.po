@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: routerconfigs on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 13:16-0400\n"
+"POT-Creation-Date: 2026-10-05 14:40-0400\n"
 "PO-Revision-Date: 2024-06-23 04:09+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/routerconfigs/zh_Hans/>\n"
@@ -284,6 +284,16 @@ msgstr "IP地址"
 #: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
 msgstr "这是用于与设备通信的IP地址。"
+
+#: includes/arrays.php router-devices.php
+#, fuzzy
+#| msgid "TFTP Server IP"
+msgid "TFTP Server"
+msgstr "TFTP服务器IP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr ""
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
@@ -1144,6 +1154,10 @@ msgstr "该设备的配置数量"
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "此设备类型的名称。"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr ""
 
 #: router-devices.php
 #, fuzzy
