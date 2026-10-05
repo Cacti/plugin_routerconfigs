@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 11:54-0400\n"
+"POT-Creation-Date: 2026-10-05 13:16-0400\n"
 "PO-Revision-Date: 2024-01-31 14:27+0000\n"
 "Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
 "Language-Team: Dutch <http://translate.cacti.net/projects/cacti/routerconfigs/nl/>\n"
@@ -555,6 +555,14 @@ msgstr "Bewaarperiode"
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "Het aantal dagen om oude back-ups te behouden."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr ""
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr ""
 
 #: includes/arrays.php
 msgid "Transfer Options"
