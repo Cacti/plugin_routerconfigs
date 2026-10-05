@@ -364,15 +364,44 @@ abstract class PHPConnection {
 	}
 
 	/**
+	 * Returns the configured initial-connection timeout in seconds
+	 * (routerconfigs_connect_timeout), defaulting to 10 for an unset or
+	 * invalid value. Used to bound the initial network connection for every
+	 * transport so a hung or unreachable device cannot stall the backup run.
+	 *
+	 * @return int The connect timeout in seconds.
+	 */
+	protected function connectTimeout() {
+		$timeout = (int) read_config_option('routerconfigs_connect_timeout');
+
+		return $timeout > 0 ? $timeout : 10;
+	}
+
+	/**
 	 * Opens an SSH connection to this instance's resolved server on port
-	 * 22. Thin wrapper around ssh2_connect() so subclasses/tests can
-	 * override connection behavior. Called from PHPSsh to establish the
-	 * SSH session.
+	 * 22, bounding the attempt with a short TCP reachability probe first
+	 * (ssh2_connect() itself takes no timeout). Thin wrapper so subclasses/
+	 * tests can override connection behavior. Called from every SSH-based
+	 * transport (interactive SSH, SCP, SFTP) to establish the session.
 	 *
 	 * @return resource|false The ssh2 connection resource, or false on
-	 *                        failure.
+	 *                        failure (including an unreachable device).
 	 */
 	protected function sshConnect() {
+		$timeout = $this->connectTimeout();
+
+		$errno  = 0;
+		$errstr = '';
+		$probe  = @fsockopen($this->server, 22, $errno, $errstr, $timeout);
+
+		if ($probe === false) {
+			$this->Log("WARNING: Unable to reach $this->server:22 within {$timeout} second(s) ($errno: $errstr); skipping device so the backup run can continue");
+
+			return false;
+		}
+
+		fclose($probe);
+
 		return @ssh2_connect($this->server, 22);
 	}
 

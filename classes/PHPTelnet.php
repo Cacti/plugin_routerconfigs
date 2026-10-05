@@ -137,9 +137,14 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		$this->Disconnect();
 
 		if (strlen($this->ip)) {
-			$this->Log("Attempting to open socket to $this->ip:23");
+			$connect_timeout = $this->connectTimeout();
 
-			if ($this->stream = fsockopen($this->ip, 23)) {
+			$this->Log("Attempting to open socket to $this->ip:23 (connect timeout {$connect_timeout}s)");
+
+			$errno  = 0;
+			$errstr = '';
+
+			if ($this->stream = fsockopen($this->ip, 23, $errno, $errstr, $connect_timeout)) {
 				fputs($this->stream, $this->conn1);
 				$this->Sleep();
 
@@ -221,6 +226,8 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 					$this->Disconnect();
 				}
 			} else {
+				$this->Log("ERROR: Telnet connection to $this->ip:23 failed within {$connect_timeout} second(s) ($errno: $errstr)");
+
 				$rv = 1;
 			}
 		}
