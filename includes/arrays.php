@@ -456,6 +456,12 @@ $rc_settings = [
 		'default'       => '30',
 		'array'         => $rc_schedules_retention,
 	],
+	'routerconfigs_retention_keep_inactive' => [
+		'friendly_name' => __('Keep Inactive Device Backups', 'routerconfigs'),
+		'description'   => __('When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
+	],
 	'routerconfigs_header_transfer' => [
 		'friendly_name' => __('Transfer Options', 'routerconfigs'),
 		'method'        => 'spacer',

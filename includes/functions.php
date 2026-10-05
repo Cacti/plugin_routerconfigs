@@ -456,10 +456,20 @@ function plugin_routerconfigs_retention() {
 		$days = 30;
 	}
 
-	$time    = time() - ($days * 24 * 60 * 60);
+	$time = time() - ($days * 24 * 60 * 60);
+
+	// When enabled, keep aged-out backups that belong to disabled devices or to
+	// devices that have been removed, so decommissioned/unreachable equipment
+	// keeps its configurations (issue #116).
+	if (read_config_option('routerconfigs_retention_keep_inactive') == 'on') {
+		$device_filter = ' AND device IN (SELECT id FROM plugin_routerconfigs_devices WHERE enabled = \'on\')';
+	} else {
+		$device_filter = '';
+	}
+
 	$backups = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_routerconfigs_backups
-		WHERE btime < ?',
+		WHERE btime < ?' . $device_filter,
 		[$time]);
 
 	if (sizeof($backups)) {
@@ -471,7 +481,7 @@ function plugin_routerconfigs_retention() {
 	}
 
 	db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
-		WHERE btime < ?',
+		WHERE btime < ?' . $device_filter,
 		[$time]);
 }
 
