@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* issue#133: Add an 'Add to RouterConfigs Backup' action to the Cacti Console Devices page (Management -> Devices) that imports the selected devices into RouterConfigs, seeding each new device's name from the Cacti device description and its address from the Cacti hostname, rejecting any device that is already present, and raising a per-device added/skipped message (closes #115)
 * issue#133: Add an optional per-device 'TFTP Server' so a device can copy its configuration to a TFTP server other than the global default (blank falls back to the global 'TFTP Server' setting); the device edit form exposes the field, the Devices list shows a 'TFTP Server' column, and the backup poller uses the per-device value when set
 * issue#116: Add a 'Keep Inactive Device Backups' setting so the retention cleanup no longer deletes aged-out backups belonging to disabled or removed devices, keeping configurations for decommissioned/unreachable equipment
 * issue#132: Add a configurable 'Connection timeout' (default 10s) so a hung or unreachable device no longer stalls a scheduled backup run; Telnet opens its socket with the timeout and SSH performs a bounded TCP reachability probe before connecting, skipping the device and continuing the run when it cannot be reached in time

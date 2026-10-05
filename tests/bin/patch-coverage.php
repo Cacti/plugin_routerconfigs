@@ -174,6 +174,7 @@ $unmeasured_allowlist = [
 	'router-devices.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-devtypes.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-download.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'includes/devices.php', // Devices-page import action hooks; invoked from host.php, not loadable in the isolated unit process
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

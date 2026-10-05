@@ -112,6 +112,7 @@ function routerconfigs_devices_table_data(): array {
 	$data['columns'][] = ['name' => 'debug', 'type' => 'longblob', 'NULL' => true];
 	$data['columns'][] = ['name' => 'ssh_fingerprint', 'type' => 'varchar(255)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'ssh_hostkey_type', 'type' => 'varchar(64)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'host_id', 'type' => 'int(11)', 'NULL' => true];
 	$data['primary']   = 'id';
 	$data['keys'][]    = ['name' => 'enabled', 'columns' => ['enabled']];
 	$data['keys'][]    = ['name' => 'schedule', 'columns' => ['schedule']];
@@ -120,6 +121,7 @@ function routerconfigs_devices_table_data(): array {
 	$data['keys'][]    = ['name' => 'lastbackup', 'columns' => ['lastbackup']];
 	$data['keys'][]    = ['name' => 'lastattempt', 'columns' => ['lastattempt']];
 	$data['keys'][]    = ['name' => 'devicetype', 'columns' => ['devicetype']];
+	$data['unique_keys'][] = ['name' => 'host_id', 'columns' => ['host_id']];
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Router Config Devices';
 

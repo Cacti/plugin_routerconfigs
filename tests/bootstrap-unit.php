@@ -269,14 +269,30 @@ if (!function_exists('html_escape')) {
 }
 
 if (!function_exists('__')) {
-	function __($text, $domain = '') {
+	function __() {
+		$args  = func_get_args();
+		$text  = (string) array_shift($args);
+		$count = substr_count($text, '%') - 2 * substr_count($text, '%%');
+
+		if ($count > 0 && count($args) >= $count) {
+			return vsprintf($text, array_slice($args, 0, $count));
+		}
+
 		return $text;
 	}
 }
 
 if (!function_exists('__esc')) {
-	function __esc($text, $domain = '') {
-		return htmlspecialchars((string) $text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+	function __esc() {
+		$args  = func_get_args();
+		$text  = (string) array_shift($args);
+		$count = substr_count($text, '%') - 2 * substr_count($text, '%%');
+
+		if ($count > 0 && count($args) >= $count) {
+			$text = vsprintf($text, array_slice($args, 0, $count));
+		}
+
+		return htmlspecialchars($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 	}
 }
 
@@ -327,6 +343,7 @@ if (!function_exists('is_realm_allowed')) {
 
 if (!function_exists('raise_message')) {
 	function raise_message($id, $text = '', $level = 0) {
+		$GLOBALS['__test_messages'][] = array('id' => $id, 'text' => $text, 'level' => $level);
 	}
 }
 
@@ -362,7 +379,9 @@ if (!function_exists('is_error_message')) {
 
 if (!function_exists('sql_save')) {
 	function sql_save($array, $table, $key = 'id') {
-		return isset($array['id']) ? $array['id'] : 1;
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'sql_save', 'table' => $table, 'save' => $array);
+
+		return routerconfigs_test_stub('sql_save', array($array, $table, $key), isset($array['id']) ? $array['id'] : 1);
 	}
 }
 
@@ -403,6 +422,14 @@ if (!defined('POLLER_VERBOSITY_DEVDBG')) {
 
 if (!defined('MESSAGE_LEVEL_ERROR')) {
 	define('MESSAGE_LEVEL_ERROR', 1);
+}
+
+if (!defined('MESSAGE_LEVEL_WARN')) {
+	define('MESSAGE_LEVEL_WARN', 2);
+}
+
+if (!defined('MESSAGE_LEVEL_INFO')) {
+	define('MESSAGE_LEVEL_INFO', 3);
 }
 
 // Only defined by ext-ssh2; stub so tests can run on matrix legs without it.

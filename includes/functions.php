@@ -624,6 +624,90 @@ function plugin_routerconfigs_device_tftpserver($device, $default = null) {
 }
 
 /**
+ * Import (add) a Cacti device into RouterConfigs for backup, modelling the new
+ * RouterConfigs device on the Cacti device: its description seeds the
+ * RouterConfigs name and its hostname seeds the address. A device already
+ * linked to the given Cacti host is rejected as a duplicate. A per-device
+ * message is raised for the add, the rejection, or a lookup/save failure
+ * (issue #133, closes #115).
+ *
+ * @param int $host_id The Cacti host id to import.
+ *
+ * @return int|false The new RouterConfigs device id, or false when the host
+ *                  was not found, is already present, or could not be saved.
+ */
+function plugin_routerconfigs_import_cacti_device($host_id) {
+	$host = db_fetch_row_prepared('SELECT id, description, hostname
+		FROM host
+		WHERE id = ?',
+		[$host_id]);
+
+	if (!cacti_sizeof($host)) {
+		raise_message('rc_import_' . $host_id, __('Cacti Device id %s was not found; not added to RouterConfigs.', $host_id, 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+
+		return false;
+	}
+
+	$name = trim((string) $host['description']) != '' ? $host['description'] : $host['hostname'];
+
+	// hostname is later used verbatim as a backup/archive filename component
+	// (plugin_routerconfigs_download_config()), so strip path separators, NUL
+	// bytes and traversal sequences from the imported Cacti description/name.
+	$name = str_replace(['/', '\\', "\0"], '_', (string) $name);
+	$name = preg_replace('/\.{2,}/', '.', $name);
+	$name = trim($name);
+
+	if ($name === '') {
+		$name = 'host_' . $host['id'];
+	}
+
+	$existing = db_fetch_cell_prepared('SELECT id
+		FROM plugin_routerconfigs_devices
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	if (!empty($existing)) {
+		raise_message('rc_import_' . $host['id'], __esc('Device \'%s\' is already in RouterConfigs; skipped.', $name, 'routerconfigs'), MESSAGE_LEVEL_WARN);
+
+		return false;
+	}
+
+	// No 'id' key so sql_save performs an insert. The device is imported
+	// disabled: it still has no account or device type, so enabling it now would
+	// make every scheduled poll fail until an operator finishes setup.
+	$save = [
+		'host_id'   => $host['id'],
+		'enabled'   => '',
+		'hostname'  => $name,
+		'ipaddress' => $host['hostname'],
+	];
+
+	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
+
+	if (!empty($id)) {
+		raise_message('rc_import_' . $host['id'], __esc('Device \'%s\' added to RouterConfigs (disabled until an account and device type are set).', $name, 'routerconfigs'), MESSAGE_LEVEL_INFO);
+
+		return $id;
+	}
+
+	// The insert failed. If a row for this host now exists it was created by a
+	// concurrent import and rejected by the unique host_id index, which is the
+	// skipped (duplicate) outcome rather than a hard failure.
+	if (!empty(db_fetch_cell_prepared('SELECT id
+		FROM plugin_routerconfigs_devices
+		WHERE host_id = ?',
+		[$host['id']]))) {
+		raise_message('rc_import_' . $host['id'], __esc('Device \'%s\' is already in RouterConfigs; skipped.', $name, 'routerconfigs'), MESSAGE_LEVEL_WARN);
+
+		return false;
+	}
+
+	raise_message('rc_import_' . $host['id'], __esc('Failed to add Device \'%s\' to RouterConfigs.', $name, 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+
+	return false;
+}
+
+/**
  * Downloads a single device's configuration: resolves its effective
  * connection settings (timeout/sleep/connection type/elevated flag,
  * falling back through device -> device type -> global setting
