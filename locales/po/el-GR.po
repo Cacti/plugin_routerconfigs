@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-29 23:15-0400\n"
+"POT-Creation-Date: 2026-10-05 11:54-0400\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -514,6 +514,15 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "Top Tab"
+msgstr ""
+
+#: includes/arrays.php
+#, fuzzy
+msgid "Connection timeout"
+msgstr "Τύπος σύνδεσης"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
 msgstr ""
 
 #: includes/arrays.php
