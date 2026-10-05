@@ -164,6 +164,8 @@ function plugin_routerconfigs_backtrace($skip = 1) {
  * @return void
  */
 function plugin_routerconfigs_download($retry = false, $force = false, $devices = [], $buffer_debug = false, $simulate = false) {
+	// Backup orchestration: forks device connections and exit()s; exercised by the CI poller run, not unit tests.
+	// @codeCoverageIgnoreStart
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
@@ -346,6 +348,7 @@ td { margin: 5 10 5 10; }
 	plugin_routerconfigs_log(__('STATS: ','routerconfigs') . $download_stats);
 
 	plugin_routerconfigs_stop(cacti_sizeof($filter_devices) == 0);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -607,6 +610,8 @@ function plugin_routerconfigs_dir($dir) {
  *              validated, false otherwise.
  */
 function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
+	// Backup download: requires a live SSH/Telnet connection and file transfer; exercised by the CI poller run, not unit tests.
+	// @codeCoverageIgnoreStart
 	$t_last = time();
 
 	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
@@ -963,6 +968,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$connection->Log('DEBUG: Backed up');
 
 	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
