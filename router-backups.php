@@ -363,7 +363,7 @@ function show_devices() {
 		$r      = db_fetch_assoc('SELECT device, id FROM plugin_routerconfigs_backups ORDER BY btime ASC');
 		$latest = [];
 
-		if (count($r)) {
+		if (cacti_count($r)) {
 			foreach ($r as $s) {
 				$latest[$s['device']] = $s['id'];
 			}

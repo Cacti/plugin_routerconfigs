@@ -337,7 +337,7 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 				$long_text = substr($long_text, 0, -1);
 			}
 
-			routerconfigs_addopt($options, count($options), $long_text, $long_val, $long_opt);
+			routerconfigs_addopt($options, cacti_count($options), $long_text, $long_val, $long_opt);
 		}
 	}
 }

@@ -82,7 +82,7 @@ function actions_devicetypes() {
 
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == '1') {
-				for ($i = 0; $i < count($selected_items); $i++) {
+				for ($i = 0; $i < cacti_count($selected_items); $i++) {
 					db_execute_prepared('DELETE FROM plugin_routerconfigs_devicetypes
 						WHERE id = ?',
 						[$selected_items[$i]]);

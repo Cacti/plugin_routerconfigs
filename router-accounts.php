@@ -105,7 +105,7 @@ function actions_accounts() {
 
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == RCONFIG_ACCOUNT_DELETE) {
-				for ($i = 0; $i < count($selected_items); $i++) {
+				for ($i = 0; $i < cacti_count($selected_items); $i++) {
 					db_execute_prepared('DELETE FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) $selected_items[$i]]);
 				}
 			}
@@ -339,7 +339,7 @@ function show_accounts() {
 
 	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
-			$count = db_fetch_cell_prepared('SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = ?', [$row['id']]);
+$count = db_fetch_cell_prepared('SELECT count(account) FROM plugin_routerconfigs_devices WHERE account = ?', [$row['id']]);
 
 			form_alternate_row('line' . $row['id'], false);
 			form_selectable_cell('<a class="linkEditMain" href="router-accounts.php?&action=edit&id=' . $row['id'] . '">' . html_escape($row['name']) . '</a>', $row['id']);

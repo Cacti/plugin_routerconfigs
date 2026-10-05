@@ -172,7 +172,7 @@ function actions_devices() {
 		if ($selected_items != false) {
 			switch(get_nfilter_request_var('drp_action')) {
 				case RCONFIG_DEVICE_DELETE:
-					for ($i = 0; $i < count($selected_items); $i++) {
+					for ($i = 0; $i < cacti_count($selected_items); $i++) {
 						db_execute_prepared('DELETE FROM plugin_routerconfigs_devices
 						WHERE id = ?',
 							[$selected_items[$i]]);
@@ -180,7 +180,7 @@ function actions_devices() {
 
 					break;
 				case RCONFIG_DEVICE_ENABLE:
-					for ($i = 0; $i < count($selected_items); $i++) {
+					for ($i = 0; $i < cacti_count($selected_items); $i++) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
 						SET enabled="on"
 						WHERE id = ?',
@@ -189,7 +189,7 @@ function actions_devices() {
 
 					break;
 				case RCONFIG_DEVICE_DISABLE:
-					for ($i = 0; $i < count($selected_items); $i++) {
+					for ($i = 0; $i < cacti_count($selected_items); $i++) {
 						db_execute_prepared('UPDATE plugin_routerconfigs_devices
 							SET enabled=""
 						WHERE id = ?',
@@ -198,7 +198,7 @@ function actions_devices() {
 
 					break;
 				case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
-					for ($i = 0; $i < count($selected_items); $i++) {
+					for ($i = 0; $i < cacti_count($selected_items); $i++) {
 						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action by user ' . ($_SESSION['sess_user_id'] ?? 'unknown'));
 					}
 
