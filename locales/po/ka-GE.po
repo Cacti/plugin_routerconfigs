@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 11:54-0400\n"
+"POT-Creation-Date: 2026-10-05 13:16-0400\n"
 "PO-Revision-Date: 2026-09-24 21:02+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\n"
@@ -500,6 +500,14 @@ msgstr "შენარჩუნების პერიოდი"
 
 #: includes/arrays.php
 msgid "The number of days to retain old backups."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr ""
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
 msgstr ""
 
 #: includes/arrays.php
