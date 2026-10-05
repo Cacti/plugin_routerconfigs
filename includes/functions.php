@@ -467,22 +467,29 @@ function plugin_routerconfigs_retention() {
 		$device_filter = '';
 	}
 
-	$backups = db_fetch_assoc_prepared('SELECT *
+	// Select the rows to purge once, then delete those exact ids, so the file
+	// removal and the row deletion always act on the same snapshot even if a
+	// device's enabled state changes between the two statements.
+	$backups = db_fetch_assoc_prepared('SELECT id, directory, filename
 		FROM plugin_routerconfigs_backups
 		WHERE btime < ?' . $device_filter,
 		[$time]);
 
-	if (sizeof($backups)) {
+	if (cacti_sizeof($backups)) {
+		$ids = [];
+
 		foreach ($backups as $backup) {
 			$dir      = $backup['directory'];
 			$filename = $backup['filename'];
 			@unlink("$dir/$filename");
-		}
-	}
 
-	db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
-		WHERE btime < ?' . $device_filter,
-		[$time]);
+			$ids[] = $backup['id'];
+		}
+
+		db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
+			WHERE id IN (' . implode(',', array_fill(0, cacti_count($ids), '?')) . ')',
+			$ids);
+	}
 }
 
 /**

@@ -283,6 +283,12 @@ if (!function_exists('cacti_sizeof')) {
 	}
 }
 
+if (!function_exists('cacti_count')) {
+	function cacti_count($array) {
+		return is_array($array) ? count($array) : 0;
+	}
+}
+
 if (!function_exists('cacti_escapeshellarg')) {
 	function cacti_escapeshellarg($string) {
 		return escapeshellarg((string) $string);
