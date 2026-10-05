@@ -992,7 +992,8 @@ function show_devices() {
 			form_selectable_cell(filter_value(__('Current', 'routerconfig'), get_request_var('filter'), 'router-devices.php?action=viewconfig&id=' . $row['id']) . ' - ' . filter_value(__('Backups (%s)', $total, 'routerconfigs'), get_request_var('filter'), 'router-backups.php?device=' . $row['id']), $row['id'], '14%');
 
 			form_selectable_cell(filter_value($row['ipaddress'], get_request_var('filter')), $row['id'], '5%');
-			form_selectable_cell(filter_value($row['tftpserver'] != '' ? $row['tftpserver'] : __('Default', 'routerconfigs'), get_request_var('filter')), $row['id'], '5%');
+			$effective_tftp = plugin_routerconfigs_device_tftpserver($row, '');
+			form_selectable_cell(filter_value($effective_tftp != '' ? $effective_tftp : __('Default', 'routerconfigs'), get_request_var('filter')), $row['id'], '5%');
 			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['nextbackup']), get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['lastbackup']), get_request_var('filter')), $row['id'], '10%');
 			form_selectable_cell(filter_value(plugin_routerconfigs_date_from_time_with_na($row['nextattempt']), get_request_var('filter')), $row['id'], '10%');

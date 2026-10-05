@@ -82,7 +82,8 @@ abstract class PHPShellConnection extends PHPConnection {
 	 *              error or if elevation could not be ensured.
 	 */
 	function Download($filename, $backuppath) {
-		$tftpserver = read_config_option('routerconfigs_tftpserver');
+		// Per-device TFTP server overrides the global default when set (issue #133).
+		$tftpserver = plugin_routerconfigs_device_tftpserver($this->device);
 		$command    = $this->deviceType['copytftp'];
 
 		if (stristr($command, '%SERVER%')) {
@@ -121,7 +122,7 @@ abstract class PHPShellConnection extends PHPConnection {
 		$sent_srv   = false;
 		$sent_dst   = false;
 
-		$tftpserver = read_config_option('routerconfigs_tftpserver');
+		$tftpserver = plugin_routerconfigs_device_tftpserver($this->device);
 
 		while (($ret == 0 || $ret == 8) && $x < 30 &&
 			$this->prompt() != LinePrompt::Enabled &&

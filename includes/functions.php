@@ -678,8 +678,6 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 	$backuppath  = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
-	// Per-device TFTP server overrides the global default when set (issue #133).
-	$tftpserver  = plugin_routerconfigs_device_tftpserver($device);
 
 	$filename = $device['hostname'];
 
