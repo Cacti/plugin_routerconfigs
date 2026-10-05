@@ -73,14 +73,17 @@ if ($probe_status !== 0) {
 $range = escapeshellarg($base_ref) . '...HEAD';
 
 /**
- * Normalise a source line so that a pure re-indent or reflow of an i18n call
- * does not read as a content change.
+ * Normalise a source line so that a pure re-indent/reflow of an i18n call, or a
+ * swap of a count helper for its cacti_*() wrapper (which never changes the
+ * translatable string), does not read as a content change.
  *
  * @param string $line Raw diff line with its leading +/- already removed.
  *
  * @return string Whitespace-collapsed, trimmed line.
  */
 function normalise_line($line) {
+	$line = preg_replace('/\bcacti_(sizeof|count)\s*\(/', '$1(', $line);
+
 	return preg_replace('/\s+/', ' ', trim($line));
 }
 

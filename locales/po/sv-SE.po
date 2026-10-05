@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-29 23:15-0400\nPO-Revision-Date: 2026-10-05 09:06+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-05 11:54-0400\n"
+"PO-Revision-Date: 2026-10-05 17:14+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
+"Language: sv-SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -24,7 +36,7 @@ msgstr "Inaktivera"
 
 #: includes/arrays.php
 msgid "Clear SSH Host Key"
-msgstr ""
+msgstr "Rensa SSH-värdnyckel"
 
 #: includes/arrays.php
 msgid "SSH/Telnet"
@@ -250,11 +262,11 @@ msgstr "Detta är den IP-adress som används för att kommunicera med enheten."
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
-msgstr ""
+msgstr "Sparad SSH-värdnyckel"
 
 #: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
-msgstr ""
+msgstr "Jämför denna värdnyckelalgoritm och SHA-1-fingeravtrycket i hexformat med enheten via en betrodd kanal. På servern ersätter du sökvägen nedan med den motsvarande publika värdnyckelfilen och kör: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Använd enhetsåtgärden för att rensa den efter ett giltigt nyckelbyte."
 
 #: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
@@ -353,9 +365,8 @@ msgid "Configuration file"
 msgstr "Konfigurationsfil"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
-msgstr "Detta är standardplatsen för konfigurationsfilen på fjärrenheten."
+msgstr "Det här är standardsökvägen till konfigurationsfilen på fjärrenheten. Den används av SCP- och SFTP-metoderna"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Copy TFTP"
@@ -434,6 +445,16 @@ msgid "Top Tab"
 msgstr "Toppflik"
 
 #: includes/arrays.php
+#, fuzzy
+#| msgid "Connection Type"
+msgid "Connection timeout"
+msgstr "Typ av anslutning"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr ""
+
+#: includes/arrays.php
 msgid "Close without exit"
 msgstr "Stäng utan utgång"
 
@@ -507,15 +528,15 @@ msgstr "SCP-väg"
 
 #: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
-msgstr ""
+msgstr "Om du använder SCP och lämnar detta tomt används PHP:s SCP-modul, som inte alltid fungerar. Extern SCP är inaktiverad medan verifiering av SSH-värdnycklar är aktiverad eftersom den inte kan återanvända den verifierade anslutningen."
 
 #: includes/arrays.php
 msgid "Verify SSH Host Keys"
-msgstr ""
+msgstr "Verifiera SSH-värdnycklar"
 
 #: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
-msgstr ""
+msgstr "Spara varje enhets SSH-värdnyckel vid första anslutningen och vägra skicka autentiseringsuppgifter om den senare ändras. SSH/Telnet-läget återgår inte till Telnet när verifiering är aktiverad. Vid ett giltigt nyckelbyte använder du enhetsåtgärden för att rensa den sparade värdnyckeln."
 
 #: includes/arrays.php
 msgid "TFTP Server IP"
@@ -691,7 +712,7 @@ msgstr "ERROR: Backup Path är inte angiven eller är inte en katalog"
 #: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
-msgstr ""
+msgstr "VARNING: Lagringsperioden ”%s” är ogiltig; använder 30 dagar som standard"
 
 #: includes/functions.php
 #, php-format
@@ -706,12 +727,12 @@ msgstr "VARNA: Säkerhetskopiering pågår redan sedan %s"
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
-msgstr ""
+msgstr "FEL: Verifiering av SSH-värdnyckeln för enheten ”%s” misslyckades; vägrar skicka autentiseringsuppgifter eller återgå till Telnet"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
-msgstr ""
+msgstr "FEL: SSH-anslutningen för enheten ”%s” misslyckades; återgång till Telnet är inaktiverad medan verifiering av SSH-värdnycklar är aktiverad"
 
 #: includes/functions.php
 #, php-format
@@ -725,7 +746,7 @@ msgstr "FEL: Misslyckades med att ladda ner '%s' till '%s' via '%s'"
 
 #: includes/functions.php
 msgid "File path validation failed"
-msgstr ""
+msgstr "Validering av filsökväg misslyckades"
 
 #: includes/functions.php
 #, php-format
@@ -918,10 +939,9 @@ msgid "Compare Output"
 msgstr "Jämför utgång"
 
 #: router-compare.php
-#, fuzzy, php-format
-#| msgid "File '%s' was not found"
+#, php-format
 msgid "Backup %s not found"
-msgstr "Filen '%s' hittades inte"
+msgstr "Säkerhetskopian %s hittades inte"
 
 #: router-compare.php
 msgid "There are no Changes"
@@ -967,11 +987,11 @@ msgstr "Inaktivera enhet(er)"
 
 #: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
-msgstr ""
+msgstr "Klicka på ”Fortsätt” för att rensa den sparade SSH-värdnyckeln för följande enhet(er). Nästa SSH-anslutning litar på och sparar den mottagna nyckeln."
 
 #: router-devices.php
 msgid "Clear SSH Host Key(s)"
-msgstr ""
+msgstr "Rensa SSH-värdnycklar"
 
 #: router-devices.php
 msgid "You must select at least Router Device."
@@ -979,7 +999,7 @@ msgstr "Du måste välja minst Router Device."
 
 #: router-devices.php
 msgid "Not recorded"
-msgstr ""
+msgstr "Inte registrerad"
 
 #: router-devices.php
 #, php-format

@@ -111,8 +111,8 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 
 		$needvers = [4, 3, 0];
 
-		$j = count($vers);
-		$k = count($needvers);
+		$j = cacti_count($vers);
+		$k = cacti_count($needvers);
 
 		if ($k < $j) {
 			$j = $k;

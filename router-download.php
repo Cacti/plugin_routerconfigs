@@ -320,7 +320,8 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 		$long = [$long];
 	}
 
-	if (sizeof($long)) {
+	// This parser runs before include/global.php, so the cacti_*() wrappers do not exist yet; use plain PHP here.
+	if (!empty($long)) {
 		$index = 0;
 
 		foreach ($long as $long_text) {

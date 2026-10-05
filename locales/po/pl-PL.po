@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-29 23:15-0400\n"
+"POT-Creation-Date: 2026-10-05 11:54-0400\n"
 "PO-Revision-Date: 2022-11-25 15:50+0000\n"
 "Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
 "Language-Team: Polish <http://translate.cacti.net/projects/cacti/routerconfigs/pl/>\n"
@@ -512,6 +512,15 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "Top Tab"
+msgstr ""
+
+#: includes/arrays.php
+#, fuzzy
+msgid "Connection timeout"
+msgstr "Rodzaj połączenia"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
 msgstr ""
 
 #: includes/arrays.php

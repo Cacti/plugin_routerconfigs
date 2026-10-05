@@ -78,7 +78,7 @@ function display_tabs() {
 	}
 	$header_label = __('Technical Support [ %s ]', $tabs[$current_tab], 'routerconfigs');
 
-	if (sizeof($tabs)) {
+	if (cacti_sizeof($tabs)) {
 		// draw the tabs
 		print "<div class='tabs'><nav><ul>\n";
 
@@ -164,6 +164,8 @@ function plugin_routerconfigs_backtrace($skip = 1) {
  * @return void
  */
 function plugin_routerconfigs_download($retry = false, $force = false, $devices = [], $buffer_debug = false, $simulate = false) {
+	// Backup orchestration: forks device connections and exit()s; exercised by the CI poller run, not unit tests.
+	// @codeCoverageIgnoreStart
 	ini_set('max_execution_time', '0');
 	ini_set('memory_limit', '256M');
 
@@ -173,9 +175,9 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 	$filter_devices = [];
 
-	if (sizeof($devices)) {
+	if (cacti_sizeof($devices)) {
 		$filter_devices = $devices;
-		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',sizeof($filter_devices),'routerconfigs'));
+		plugin_routerconfigs_log(__('NOTICE: Starting manual backup of %s devices',cacti_sizeof($filter_devices),'routerconfigs'));
 	} else {
 		if ($retry) {
 			plugin_routerconfigs_log(__('NOTICE: Starting automatic retry','routerconfigs'));
@@ -205,11 +207,11 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 			// If we aren't forcing all backups...
 			$scheduled = false;
-			$manual    = sizeof($filter_devices) > 0;
+			$manual    = cacti_sizeof($filter_devices) > 0;
 
 			if ($manual) {
 				$filter_devices = array_map('intval', $filter_devices);
-				$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, count($filter_devices), '?')) . ')';
+				$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, cacti_count($filter_devices), '?')) . ')';
 				$sqlparams      = $filter_devices;
 			} elseif (!$force) {
 				$scheduled = true;
@@ -233,7 +235,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 			$failed = [];
 			$passed = [];
 
-			if (sizeof($devices)) {
+			if (cacti_sizeof($devices)) {
 				foreach ($devices as $device) {
 					$t = time();
 					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
@@ -252,8 +254,8 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					}
 				}
 
-				$success   = count($devices) - count($failed);
-				$cfailed   = count($failed);
+				$success   = cacti_count($devices) - cacti_count($failed);
+				$cfailed   = cacti_count($failed);
 				$disabled  = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'', []);
 				$totalsecs = time() - $stime;
 
@@ -285,11 +287,11 @@ td { margin: 5 10 5 10; }
 						plugin_routerconfigs_message($message, __('%s devices disabled from backup.', $disabled, 'routerconfigs'));
 					}
 
-					if (sizeof($failed)) {
+					if (cacti_sizeof($failed)) {
 						plugin_routerconfigs_message_devicetable($message, $failed, true);
 					}
 
-					if (sizeof($passed)) {
+					if (cacti_sizeof($passed)) {
 						plugin_routerconfigs_message_devicetable($message, $passed, false);
 					}
 
@@ -345,7 +347,8 @@ td { margin: 5 10 5 10; }
 
 	plugin_routerconfigs_log(__('STATS: ','routerconfigs') . $download_stats);
 
-	plugin_routerconfigs_stop(sizeof($filter_devices) == 0);
+	plugin_routerconfigs_stop(cacti_sizeof($filter_devices) == 0);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -624,6 +627,8 @@ function plugin_routerconfigs_dir($dir) {
  *              validated, false otherwise.
  */
 function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_debug = false, $scheduled = false) {
+	// Backup download: requires a live SSH/Telnet connection and file transfer; exercised by the CI poller run, not unit tests.
+	// @codeCoverageIgnoreStart
 	$t_last = time();
 
 	$t_next = plugin_routerconfigs_nexttime($t_last, read_config_option('routerconfigs_retry'),3600,0);
@@ -843,7 +848,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$lastchange = '';
 	$lastuser   = '';
 
-	if (sizeof($data2)) {
+	if (cacti_sizeof($data2)) {
 		foreach ($data2 as $d) {
 			if (strpos($d, 'Last configuration change at') !== false) {
 				$change_pos = strpos($d, 'change at');
@@ -980,6 +985,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$connection->Log('DEBUG: Backed up');
 
 	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**

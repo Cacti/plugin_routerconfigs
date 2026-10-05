@@ -82,7 +82,7 @@ function actions_devicetypes() {
 
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == '1') {
-				for ($i = 0; $i < count($selected_items); $i++) {
+				for ($i = 0; $i < cacti_count($selected_items); $i++) {
 					db_execute_prepared('DELETE FROM plugin_routerconfigs_devicetypes
 						WHERE id = ?',
 						[$selected_items[$i]]);
@@ -126,7 +126,7 @@ function actions_devicetypes() {
 		html_start_box('', '60%', false, 3, 'center', '');
 	}
 
-	if (sizeof($devtype_array)) {
+	if (cacti_sizeof($devtype_array)) {
 		if ($drp_action == RCONFIG_DEVTYPE_DELETE) { // Delete
 			print "<tr>
 				<td colspan='2' class='textArea'>
@@ -362,7 +362,7 @@ function show_devicetypes() {
 		]
 	);
 
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			form_alternate_row('line' . $row['id'], false);
 
