@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 11:54-0400\n"
+"POT-Creation-Date: 2026-10-05 13:16-0400\n"
 "PO-Revision-Date: 2026-01-16 03:18+0000\n"
 "Last-Translator: sucharlie <su.charlie@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
@@ -597,6 +597,14 @@ msgstr "保留期"
 #, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "保留舊備份的天數。"
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr ""
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr ""
 
 #: includes/arrays.php
 #, fuzzy
