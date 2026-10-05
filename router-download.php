@@ -320,7 +320,8 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 		$long = [$long];
 	}
 
-	if (cacti_sizeof($long)) {
+	// This parser runs before include/global.php, so the cacti_*() wrappers do not exist yet; use plain PHP here.
+	if (!empty($long)) {
 		$index = 0;
 
 		foreach ($long as $long_text) {
@@ -337,7 +338,7 @@ function routerconfigs_getopts_long(array &$options, array &$long) {
 				$long_text = substr($long_text, 0, -1);
 			}
 
-			routerconfigs_addopt($options, cacti_count($options), $long_text, $long_val, $long_opt);
+			routerconfigs_addopt($options, count($options), $long_text, $long_val, $long_opt);
 		}
 	}
 }
