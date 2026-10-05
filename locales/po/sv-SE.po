@@ -4,23 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-29 23:15-0400\n"
-"PO-Revision-Date: 2026-09-12 08:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-29 23:15-0400\nPO-Revision-Date: 2026-10-05 09:06+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Radera"
 
 #: includes/arrays.php
 msgid "Backup"
@@ -254,7 +242,7 @@ msgstr "Namn på den här enheten (används för att spara config och SVN om ing
 
 #: includes/arrays.php router-devices.php
 msgid "IP Address"
-msgstr "IP adress"
+msgstr "IP-adress"
 
 #: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
@@ -314,7 +302,7 @@ msgstr "Välj ett konto som du vill använda för att logga in på routern"
 
 #: includes/arrays.php
 msgid "None"
-msgstr "inget"
+msgstr "Ingen"
 
 #: includes/arrays.php
 msgid "Default timeout"
@@ -330,7 +318,7 @@ msgstr "Standard sömntid"
 
 #: includes/arrays.php
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr "Standardtid för insomning i mikrosekunder (1/1.000.000.000 sekund)"
+msgstr "Standardtid för vänteläge i mikrosekunder (en miljondels sekund)"
 
 #: includes/arrays.php
 msgid "Assume elevated"
@@ -411,7 +399,7 @@ msgstr "Finns det en tvingande bekräftelseprompt för kopiering av konfiguratio
 
 #: includes/arrays.php
 msgid "Check End in Config"
-msgstr "Kontrollera konfiguration av ändinställning"
+msgstr "Kontrollera slutet i Config"
 
 #: includes/arrays.php
 msgid "Check end in config?"
@@ -443,7 +431,7 @@ msgstr "Konsol"
 
 #: includes/arrays.php
 msgid "Top Tab"
-msgstr "Översta fliken"
+msgstr "Toppflik"
 
 #: includes/arrays.php
 msgid "Close without exit"
@@ -827,11 +815,11 @@ msgstr "Standard"
 
 #: router-backups.php router-devices.php
 msgid "Go"
-msgstr "Utför"
+msgstr "Start"
 
 #: router-backups.php router-devices.php
 msgid "Set/Refresh Filters"
-msgstr "Ange / Uppdatera filter"
+msgstr "Ställ in/uppdatera filter"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
@@ -847,7 +835,7 @@ msgstr "Värdnamn"
 
 #: router-backups.php router-devices.php
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr "Antingen en IP-adress eller värdnamn. Om ett värdnamn måste det kunna lösas av antingen DNS eller från din värdfil."
+msgstr "Antingen en IP-adress eller ett värdnamn.  Om det är ett värdnamn måste det kunna lösas med antingen DNS eller från din hosts-fil."
 
 #: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
@@ -855,7 +843,7 @@ msgstr "ID"
 
 #: router-backups.php router-devices.php
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr "Den interna databasen ID för denna enhet. Användbar när du utför automatisering eller felsökning."
+msgstr "Det interna databas-ID:t för den här enheten.  Användbart vid automatisering eller felsökning."
 
 #: router-backups.php
 msgid "Functions"
@@ -895,7 +883,7 @@ msgstr "Den sista personen som kan ändra enhetens konfiguration"
 
 #: router-backups.php
 msgid "Filename"
-msgstr "Byt namn"
+msgstr "Filnamn"
 
 #: router-backups.php
 msgid "The filename of the stored device backups"
@@ -959,11 +947,11 @@ msgstr "Säkerhetskopiering av routern har startat.  Kontrollera kolumnen Datum 
 
 #: router-devices.php
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr "Klicka på &quot;Fortsätt&quot; för att radera följande enhet (er)."
+msgstr "Klicka på \"Fortsätt\" för att ta bort följande enhet(er)."
 
 #: router-devices.php
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr "Klicka på &quot;Fortsätt&quot; för att aktivera följande enhet (er)."
+msgstr "Klicka på \"Fortsätt\" för att aktivera följande enhet(er)."
 
 #: router-devices.php
 msgid "Enable Device(s)"
@@ -971,7 +959,7 @@ msgstr "Aktivera enhet(er)"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "Klicka på &quot;Fortsätt&quot; för att inaktivera följande enhet (er)."
+msgstr "Klicka på \"Fortsätt\" för att inaktivera följande enhet(er)."
 
 #: router-devices.php
 msgid "Disable Device(s)"
@@ -1121,7 +1109,7 @@ msgstr "Säkerhetskopior (%s)"
 
 #: router-devices.php
 msgid "Current"
-msgstr "Nuvarande"
+msgstr "Aktuell"
 
 #: router-devices.php
 msgid "No Router Devices Found"
@@ -1166,7 +1154,7 @@ msgstr "Bekräfta uppmaning"
 
 #: router-devtypes.php
 msgid "Check End In Config"
-msgstr "Kontrollera konfiguration av ändinställning"
+msgstr "Kontrollera slutet i Config"
 
 #: router-devtypes.php
 msgid "No Router Device Types Found"
@@ -1195,7 +1183,7 @@ msgstr "(redigera)"
 
 #: setup.php
 msgid "(actions)"
-msgstr "Åtgärder"
+msgstr "(åtgärder)"
 
 #: setup.php
 msgid "View Debug"
