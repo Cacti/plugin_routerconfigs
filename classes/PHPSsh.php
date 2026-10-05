@@ -91,16 +91,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		if (strlen($this->ip)) {
-			$connect_timeout = (int) read_config_option('routerconfigs_connect_timeout');
-
-			if ($connect_timeout <= 0) {
-				$connect_timeout = 10;
-			}
-
-			if (!$this->tcpReachable($this->server, 22, $connect_timeout)) {
-				$this->Log("WARNING: Unable to reach $this->server:22 within {$connect_timeout} second(s); skipping device so the backup run can continue");
-				$rv = 1;
-			} elseif (!($this->connection = $this->sshConnect())) {
+			if (!($this->connection = $this->sshConnect())) {
 				$rv = 1;
 			} elseif (!plugin_routerconfigs_verify_ssh_hostkey($this->device['id'], $this->sshHostKey())) {
 				$this->Log('ERROR: SSH host key verification failed for ' . $this->server);
@@ -166,36 +157,6 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		return null;
-	}
-
-	/**
-	 * Performs a short, bounded TCP connection probe to confirm the device
-	 * is reachable before handing off to ssh2_connect(), which itself takes
-	 * no timeout. Prevents an unreachable or hung device from stalling a
-	 * scheduled backup run. Called from Connect().
-	 *
-	 * @param string $host    The host/IP to probe.
-	 * @param int    $port    The TCP port to probe.
-	 * @param int    $timeout The maximum seconds to wait for the connection.
-	 *
-	 * @return bool True if the port accepted a connection within the
-	 *              timeout, false otherwise.
-	 */
-	private function tcpReachable($host, $port, $timeout) {
-		$errno  = 0;
-		$errstr = '';
-
-		$socket = @fsockopen($host, $port, $errno, $errstr, $timeout);
-
-		if ($socket === false) {
-			$this->Log("DEBUG: TCP probe to $host:$port failed within {$timeout} second(s) ($errno: $errstr)");
-
-			return false;
-		}
-
-		fclose($socket);
-
-		return true;
 	}
 }
 

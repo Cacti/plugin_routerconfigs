@@ -137,11 +137,7 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 		$this->Disconnect();
 
 		if (strlen($this->ip)) {
-			$connect_timeout = (int) read_config_option('routerconfigs_connect_timeout');
-
-			if ($connect_timeout <= 0) {
-				$connect_timeout = 10;
-			}
+			$connect_timeout = $this->connectTimeout();
 
 			$this->Log("Attempting to open socket to $this->ip:23 (connect timeout {$connect_timeout}s)");
 
