@@ -162,6 +162,7 @@ foreach ($clover->xpath('//file') as $file) {
 $unmeasured_allowlist = [
 	'includes/database.php', // install/upgrade/drop schema bootstrap; require_once's the live Cacti library, only runs during a real install/upgrade
 	'includes/HordeText.php',  // vendored 3rd-party Horde_Text_Diff library; not this plugin's code
+	'includes/arrays.php',   // static settings/field-map data definitions; no executable logic to measure
 	'router-accounts.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-backups.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-compare.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
