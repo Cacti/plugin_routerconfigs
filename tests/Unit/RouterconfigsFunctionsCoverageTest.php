@@ -48,7 +48,7 @@ it('deletes aged-out backups and their rows during retention', function () {
 	};
 
 	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [
-		['directory' => $dir, 'filename' => $file],
+		['id' => 1, 'directory' => $dir, 'filename' => $file],
 	];
 
 	plugin_routerconfigs_retention();

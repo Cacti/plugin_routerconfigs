@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* issue#116: Add a 'Keep Inactive Device Backups' setting so the retention cleanup no longer deletes aged-out backups belonging to disabled or removed devices, keeping configurations for decommissioned/unreachable equipment
 * issue#132: Add a configurable 'Connection timeout' (default 10s) so a hung or unreachable device no longer stalls a scheduled backup run; Telnet opens its socket with the timeout and SSH performs a bounded TCP reachability probe before connecting, skipping the device and continuing the run when it cannot be reached in time
 
 * refactor: Rename the plugin's include/ directory to includes/ and move schema management into includes/database.php (the thold model); setup.php delegates via require_once, and routerconfigs_check_upgrade() now refreshes the four plugin_routerconfigs_* tables via db_update_table() (the historical column renames/drops still run first as guarded pre-steps) and updates the full plugin_config row. Switches every file inclusion from include/include_once to require/require_once

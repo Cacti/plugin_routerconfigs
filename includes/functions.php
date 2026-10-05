@@ -459,23 +459,40 @@ function plugin_routerconfigs_retention() {
 		$days = 30;
 	}
 
-	$time    = time() - ($days * 24 * 60 * 60);
-	$backups = db_fetch_assoc_prepared('SELECT *
+	$time = time() - ($days * 24 * 60 * 60);
+
+	// When enabled, keep aged-out backups that belong to disabled devices or to
+	// devices that have been removed, so decommissioned/unreachable equipment
+	// keeps its configurations (issue #116).
+	if (read_config_option('routerconfigs_retention_keep_inactive') == 'on') {
+		$device_filter = ' AND device IN (SELECT id FROM plugin_routerconfigs_devices WHERE enabled = \'on\')';
+	} else {
+		$device_filter = '';
+	}
+
+	// Select the rows to purge once, then delete those exact ids, so the file
+	// removal and the row deletion always act on the same snapshot even if a
+	// device's enabled state changes between the two statements.
+	$backups = db_fetch_assoc_prepared('SELECT id, directory, filename
 		FROM plugin_routerconfigs_backups
-		WHERE btime < ?',
+		WHERE btime < ?' . $device_filter,
 		[$time]);
 
 	if (cacti_sizeof($backups)) {
+		$ids = [];
+
 		foreach ($backups as $backup) {
 			$dir      = $backup['directory'];
 			$filename = $backup['filename'];
 			@unlink("$dir/$filename");
-		}
-	}
 
-	db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
-		WHERE btime < ?',
-		[$time]);
+			$ids[] = $backup['id'];
+		}
+
+		db_execute_prepared('DELETE FROM plugin_routerconfigs_backups
+			WHERE id IN (' . implode(',', array_fill(0, cacti_count($ids), '?')) . ')',
+			$ids);
+	}
 }
 
 /**
