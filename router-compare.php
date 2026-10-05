@@ -224,43 +224,13 @@ if (!empty($file1) && !empty($file2)) {
 		$lines2 = ['Unable to find backup id ' . $file2];
 	}
 
-	if (cacti_version_compare(CACTI_VERSION, '1.2.23', '<')) {
-		// Create the Diff object.
-		require_once(__DIR__ . '/includes/HordeText.php');
+	// Prefer the diff library bundled with Cacti core. As of Cacti 1.2.32 that
+	// is jfcherng/php-diff, loaded through core's Composer autoloader. Older
+	// supported releases (1.2.29 - 1.2.31) predate it, so fall back to the Horde
+	// Text_Diff library shipped with this plugin.
+	$use_cacti_diff = class_exists('\Jfcherng\Diff\Differ');
 
-		$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
-
-		// Output the diff in unified format.
-		if (get_request_var('diffmode') == 'sdiff') {
-			$renderer = new Horde_Text_Diff_Renderer_table(['auto']);
-		} else {
-			$renderer = new Horde_Text_Diff_Renderer_Unified();
-		}
-
-		$text = $renderer->render($diff);
-	} elseif (cacti_version_compare(CACTI_VERSION, '1.2.32', '<')) {
-		// Cacti core still ships the legacy phpdiff vendor library.
-		require_once($config['base_path'] . '/include/vendor/phpdiff/Diff.php');
-		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/Inline.php');
-		require_once($config['base_path'] . '/include/vendor/phpdiff/Renderer/Html/SideBySide.php');
-
-		$options = [
-			'ignoreWhitespace' => true,
-			'ignoreCase'       => false
-		];
-
-		$diff = new Diff($lines1, $lines2, $options);
-
-		if (get_request_var('diffmode') == 'sdiff') {
-			$renderer = new Diff_Renderer_Html_SideBySide;
-		} else {
-			$renderer = new Diff_Renderer_Html_Inline;
-		}
-
-		$text = $diff->render($renderer);
-	} else {
-		// Cacti core ships jfcherng/php-diff (loaded via core's Composer
-		// autoloader), which replaced the unmaintained phpdiff vendor library.
+	if ($use_cacti_diff) {
 		$differOptions = [
 			'ignoreWhitespace' => true,
 			'ignoreCase'       => false
@@ -275,6 +245,18 @@ if (!empty($file1) && !empty($file2)) {
 		}
 
 		$text = $renderer->render($differ);
+	} else {
+		require_once(__DIR__ . '/includes/HordeText.php');
+
+		$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
+
+		if (get_request_var('diffmode') == 'sdiff') {
+			$renderer = new Horde_Text_Diff_Renderer_table(['auto']);
+		} else {
+			$renderer = new Horde_Text_Diff_Renderer_Unified();
+		}
+
+		$text = $renderer->render($diff);
 	}
 
 	html_start_box('', '100%', false, 1, 'center', '');
@@ -290,18 +272,19 @@ if (!empty($file1) && !empty($file2)) {
 
 		html_header([$label1, $label2]);
 
-		print "<tr height='1'><td width='50%'></td><td width='50%'></td></tr>";
-
-		if (trim($text) == '') {
-			print '<tr><td colspan="2"><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
-		} else {
-			$text = str_replace("\n", '<br>', $text);
-			$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
-
-			print $text;
+		if (!$use_cacti_diff) {
+			print "<tr height='1'><td width='50%'></td><td width='50%'></td></tr>";
 		}
-	} elseif (trim($text) == '') {
+	}
+
+	if (trim($text) == '') {
 		print '<tr><td colspan="2"><center>' . __('There are no Changes', 'routerconfigs') . '</center></td></tr>';
+	} elseif ($use_cacti_diff) {
+		// jfcherng renderers return a complete, already HTML-escaped <table>.
+		// Print it verbatim in a single full-width cell; the legacy newline/row
+		// substitutions below are for the Horde renderers and would corrupt this
+		// markup, exploding large diffs into thousands of <br> tags.
+		print '<tr><td colspan="2">' . $text . '</td></tr>';
 	} else {
 		$text = str_replace("\n", '<br>', $text);
 		$text = str_replace('</td></tr>', '</td></tr>' . "\n", $text);
