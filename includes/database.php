@@ -91,6 +91,7 @@ function routerconfigs_devices_table_data(): array {
 	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];
 	$data['columns'][] = ['name' => 'enabled', 'type' => 'varchar(2)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'ipaddress', 'type' => 'varchar(128)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'tftpserver', 'type' => 'varchar(128)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'hostname', 'type' => 'varchar(255)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'directory', 'type' => 'varchar(255)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'account', 'type' => 'int(11)', 'NULL' => true];

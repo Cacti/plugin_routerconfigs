@@ -599,6 +599,31 @@ function plugin_routerconfigs_dir($dir) {
 }
 
 /**
+ * Resolve the TFTP server a device should copy its configuration to,
+ * preferring the device's own 'tftpserver' value and falling back to the
+ * global routerconfigs_tftpserver when the device does not define one
+ * (issue #133).
+ *
+ * @param array       $device  The device row (may contain 'tftpserver').
+ * @param string|null $default The global default; read from the plugin
+ *                            settings when null.
+ *
+ * @return string The TFTP server address to use; empty when neither the
+ *               device nor the global default is set.
+ */
+function plugin_routerconfigs_device_tftpserver($device, $default = null) {
+	if (is_array($device) && isset($device['tftpserver']) && trim($device['tftpserver']) != '') {
+		return trim($device['tftpserver']);
+	}
+
+	if ($default === null) {
+		$default = read_config_option('routerconfigs_tftpserver');
+	}
+
+	return trim((string) $default);
+}
+
+/**
  * Downloads a single device's configuration: resolves its effective
  * connection settings (timeout/sleep/connection type/elevated flag,
  * falling back through device -> device type -> global setting
@@ -653,7 +678,8 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 	$backuppath  = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
-	$tftpserver  = read_config_option('routerconfigs_tftpserver');
+	// Per-device TFTP server overrides the global default when set (issue #133).
+	$tftpserver  = plugin_routerconfigs_device_tftpserver($device);
 
 	$filename = $device['hostname'];
 

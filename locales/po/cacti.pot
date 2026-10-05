@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 13:16-0400\n"
+"POT-Creation-Date: 2026-10-05 14:40-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -257,6 +257,14 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
+msgstr ""
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
 msgstr ""
 
 #: includes/arrays.php
@@ -1057,6 +1065,10 @@ msgstr ""
 
 #: router-devices.php
 msgid "The IP address of this device"
+msgstr ""
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
 msgstr ""
 
 #: router-devices.php
