@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-29 23:15-0400\n"
+"POT-Creation-Date: 2026-10-05 11:54-0400\n"
 "PO-Revision-Date: 2026-01-16 03:18+0000\n"
 "Last-Translator: sucharlie <su.charlie@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
@@ -527,6 +527,16 @@ msgstr "控制台"
 #, fuzzy
 msgid "Top Tab"
 msgstr "頂部標籤"
+
+#: includes/arrays.php
+#, fuzzy
+#| msgid "Connection Type"
+msgid "Connection timeout"
+msgstr "連接類型"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr ""
 
 #: includes/arrays.php
 #, fuzzy
