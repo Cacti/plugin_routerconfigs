@@ -412,6 +412,14 @@ $rc_settings = [
 		'size'          => '3',
 		'default'       => '1'
 	],
+	'routerconfigs_connect_timeout' => [
+		'friendly_name' => __('Connection timeout', 'routerconfigs'),
+		'description'   => __('Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices.', 'routerconfigs'),
+		'method'        => 'textbox',
+		'max_length'    => '3',
+		'size'          => '3',
+		'default'       => '10'
+	],
 	'routerconfigs_sleep' => [
 		'friendly_name' => __('Default sleep time', 'routerconfigs'),
 		'description'   => __('Default time to sleep in microseconds (1/1,000,000th of a second)', 'routerconfigs'),
