@@ -94,6 +94,35 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	expect($finalUpdate[0]['params'])->toBe([$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
 });
 
+it('migrates legacy realm users when upgrading from before version 0.2', function () {
+	$GLOBALS['__stub_overrides']['get_current_page']       = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = function ($sql, $params) {
+		if (stripos($sql, 'plugin_config') !== false) {
+			return '0.1';
+		}
+
+		if (stripos($sql, 'plugin_realms') !== false) {
+			return 5;
+		}
+
+		return '0';
+	};
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = function ($sql, $params) {
+		return stripos($sql, 'user_auth_realm') !== false
+			? [['user_id' => 1], ['user_id' => 2]]
+			: [];
+	};
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+
+	routerconfigs_check_upgrade();
+
+	$realmInserts = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'INSERT INTO user_auth_realm') !== false;
+	});
+
+	expect($realmInserts)->toHaveCount(2);
+});
+
 it('refreshes already-present tables in place via db_update_table on upgrade', function () {
 	$updated = array();
 

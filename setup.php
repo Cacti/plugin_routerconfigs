@@ -174,7 +174,7 @@ function routerconfigs_check_upgrade() {
 			if ($user > 0) {
 				$users = db_fetch_assoc_prepared('SELECT user_id FROM user_auth_realm WHERE realm_id = ?', [86]);
 
-				if (sizeof($users)) {
+				if (cacti_sizeof($users)) {
 					foreach ($users as $u) {
 						db_execute_prepared('INSERT INTO user_auth_realm
 							(realm_id, user_id) VALUES (?, ?)

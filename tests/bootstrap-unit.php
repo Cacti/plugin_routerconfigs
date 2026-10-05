@@ -226,6 +226,18 @@ if (!function_exists('api_plugin_register_hook')) {
 	}
 }
 
+if (!function_exists('api_plugin_hook')) {
+	function api_plugin_hook($name, $args = array()) {
+		return routerconfigs_test_stub('api_plugin_hook', array($name, $args), null);
+	}
+}
+
+if (!function_exists('load_current_session_value')) {
+	function load_current_session_value($request, $session, $default) {
+		return routerconfigs_test_stub('load_current_session_value', array($request, $session, $default), $default);
+	}
+}
+
 if (!function_exists('api_plugin_register_realm')) {
 	function api_plugin_register_realm($plugin, $file, $description, $enabled = 1) {
 		return routerconfigs_test_stub('api_plugin_register_realm', array($plugin, $file, $description, $enabled), true);
