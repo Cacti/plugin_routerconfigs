@@ -121,7 +121,7 @@ function routerconfigs_devices_table_data(): array {
 	$data['keys'][]    = ['name' => 'lastbackup', 'columns' => ['lastbackup']];
 	$data['keys'][]    = ['name' => 'lastattempt', 'columns' => ['lastattempt']];
 	$data['keys'][]    = ['name' => 'devicetype', 'columns' => ['devicetype']];
-	$data['keys'][]    = ['name' => 'host_id', 'columns' => ['host_id']];
+	$data['unique_keys'][] = ['name' => 'host_id', 'columns' => ['host_id']];
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Router Config Devices';
 

@@ -269,14 +269,30 @@ if (!function_exists('html_escape')) {
 }
 
 if (!function_exists('__')) {
-	function __($text, $domain = '') {
+	function __() {
+		$args  = func_get_args();
+		$text  = (string) array_shift($args);
+		$count = substr_count($text, '%') - 2 * substr_count($text, '%%');
+
+		if ($count > 0 && count($args) >= $count) {
+			return vsprintf($text, array_slice($args, 0, $count));
+		}
+
 		return $text;
 	}
 }
 
 if (!function_exists('__esc')) {
-	function __esc($text, $domain = '') {
-		return htmlspecialchars((string) $text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+	function __esc() {
+		$args  = func_get_args();
+		$text  = (string) array_shift($args);
+		$count = substr_count($text, '%') - 2 * substr_count($text, '%%');
+
+		if ($count > 0 && count($args) >= $count) {
+			$text = vsprintf($text, array_slice($args, 0, $count));
+		}
+
+		return htmlspecialchars($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 	}
 }
 
@@ -327,6 +343,7 @@ if (!function_exists('is_realm_allowed')) {
 
 if (!function_exists('raise_message')) {
 	function raise_message($id, $text = '', $level = 0) {
+		$GLOBALS['__test_messages'][] = array('id' => $id, 'text' => $text, 'level' => $level);
 	}
 }
 
