@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-29 23:15-0400\n"
+"POT-Creation-Date: 2026-10-05 11:54-0400\n"
 "PO-Revision-Date: 2026-09-24 21:02+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\n"
@@ -443,6 +443,16 @@ msgstr "კონსოლი"
 #: includes/arrays.php
 msgid "Top Tab"
 msgstr "ზედა ჩანართი"
+
+#: includes/arrays.php
+#, fuzzy
+#| msgid "Connection Type"
+msgid "Connection timeout"
+msgstr "კავშირის ტიპი"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr ""
 
 #: includes/arrays.php
 msgid "Close without exit"
