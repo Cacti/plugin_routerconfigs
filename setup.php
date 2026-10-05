@@ -81,9 +81,9 @@ function plugin_routerconfigs_install() {
 	api_plugin_register_hook('routerconfigs', 'poller_bottom',         'routerconfigs_poller_bottom',        'setup.php');
 	api_plugin_register_hook('routerconfigs', 'page_head',             'routerconfigs_page_head',            'setup.php');
 
-	api_plugin_register_hook('routerconfigs', 'device_action_array',   'routerconfigs_device_action_array',   'router-device-actions.php');
-	api_plugin_register_hook('routerconfigs', 'device_action_prepare', 'routerconfigs_device_action_prepare', 'router-device-actions.php');
-	api_plugin_register_hook('routerconfigs', 'device_action_execute', 'routerconfigs_device_action_execute', 'router-device-actions.php');
+	api_plugin_register_hook('routerconfigs', 'device_action_array',   'routerconfigs_device_action_array',   'includes/devices.php');
+	api_plugin_register_hook('routerconfigs', 'device_action_prepare', 'routerconfigs_device_action_prepare', 'includes/devices.php');
+	api_plugin_register_hook('routerconfigs', 'device_action_execute', 'routerconfigs_device_action_execute', 'includes/devices.php');
 
 	api_plugin_register_realm('routerconfigs', 'router-devices.php,router-accounts.php,router-backups.php,router-compare.php,router-devtypes.php', __('Router Configs', 'routerconfigs'), 1);
 
@@ -169,9 +169,9 @@ function routerconfigs_check_upgrade() {
 		api_plugin_register_hook('routerconfigs', 'top_graph_header_tabs', 'routerconfigs_show_tab', 'setup.php', 1);
 
 		// Ensure existing installs pick up the Devices-page import action hooks.
-		api_plugin_register_hook('routerconfigs', 'device_action_array',   'routerconfigs_device_action_array',   'router-device-actions.php', 1);
-		api_plugin_register_hook('routerconfigs', 'device_action_prepare', 'routerconfigs_device_action_prepare', 'router-device-actions.php', 1);
-		api_plugin_register_hook('routerconfigs', 'device_action_execute', 'routerconfigs_device_action_execute', 'router-device-actions.php', 1);
+		api_plugin_register_hook('routerconfigs', 'device_action_array',   'routerconfigs_device_action_array',   'includes/devices.php', 1);
+		api_plugin_register_hook('routerconfigs', 'device_action_prepare', 'routerconfigs_device_action_prepare', 'includes/devices.php', 1);
+		api_plugin_register_hook('routerconfigs', 'device_action_execute', 'routerconfigs_device_action_execute', 'includes/devices.php', 1);
 
 		// update realms for old versions
 		if (cacti_version_compare($old,'0.2','<')) {

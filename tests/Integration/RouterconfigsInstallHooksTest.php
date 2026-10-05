@@ -72,7 +72,7 @@ it('registers every hook routerconfigs depends on, its realm, and provisions its
 	] as $expected) {
 		expect($hooks)->toHaveKey($expected);
 		expect($hooks[$expected]['plugin'])->toBe('routerconfigs');
-		expect($hooks[$expected]['file'])->toBe('router-device-actions.php');
+		expect($hooks[$expected]['file'])->toBe('includes/devices.php');
 	}
 
 	expect($GLOBALS['__test_registered_realms'])->toHaveCount(1);
