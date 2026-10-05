@@ -188,6 +188,13 @@ $rc_device_edit_fields = [
 		'value'         => '|arg1:ipaddress|',
 		'max_length'    => '128',
 	],
+	'tftpserver' => [
+		'method'        => 'textbox',
+		'friendly_name' => __('TFTP Server', 'routerconfigs'),
+		'description'   => __('Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting.', 'routerconfigs'),
+		'value'         => '|arg1:tftpserver|',
+		'max_length'    => '128',
+	],
 	'ssh_hostkey' => [
 		'method'        => 'custom',
 		'friendly_name' => __('Stored SSH Host Key', 'routerconfigs'),

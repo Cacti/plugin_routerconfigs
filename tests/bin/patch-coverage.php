@@ -167,6 +167,7 @@ $unmeasured_allowlist = [
 	'classes/PHPConnection.php', // shared transport base (sockets/ssh2); not loadable in the isolated unit process
 	'classes/PHPSsh.php',    // SSH transport (ssh2_connect/sockets); not loadable in the isolated unit process
 	'classes/PHPTelnet.php', // Telnet transport (fsockopen); not loadable in the isolated unit process
+	'classes/PHPShellConnection.php', // interactive shell transport base (live sockets via PHPSsh/PHPTelnet); not loadable in the isolated unit process
 	'router-accounts.php',   // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-backups.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 	'router-compare.php',    // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
