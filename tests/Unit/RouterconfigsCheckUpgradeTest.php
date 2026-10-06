@@ -76,7 +76,7 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) =>
 		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
 	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
-	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => in_array($column, ['ssh_fingerprint', 'ssh_hostkey_type'], true);
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => in_array($column, ['ssh_fingerprint', 'ssh_hostkey_type', 'host_id'], true);
 	// host_id column present with its unique index, so the upgrade's index
 	// reconciliation reports success and the stored version can advance.
 	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => true;
