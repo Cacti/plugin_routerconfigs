@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 14:40-0400\n"
-"PO-Revision-Date: 2026-01-16 03:18+0000\n"
-"Last-Translator: sucharlie <su.charlie@gmail.com>\n"
+"POT-Creation-Date: 2026-10-05 16:02-0400\n"
+"PO-Revision-Date: 2026-10-06 13:29+0000\n"
+"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
@@ -298,7 +298,6 @@ msgid "Name of this device (will be used for config saving and SVN if no hostnam
 msgstr "此設備的名稱（如果配置中沒有主機名，將用於配置保存和SVN）。"
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
 msgid "IP Address"
 msgstr "IP 位址"
 
@@ -720,6 +719,15 @@ msgstr "電子郵件地址"
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "用逗號分隔的電子郵件地址列表，用於將夜間備份電子郵件發送到。"
 
+#: includes/devices.php
+#, fuzzy
+msgid "Add to RouterConfigs Backup"
+msgstr "路由器配置"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr ""
+
 #: includes/functions.php router-accounts.php
 #, fuzzy
 msgid "Devices"
@@ -875,6 +883,26 @@ msgstr "警告：自%s起，備份已在運行"
 
 #: includes/functions.php
 #, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
 msgstr ""
 
@@ -986,32 +1014,26 @@ msgid "Any"
 msgstr "任何"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Search"
 msgstr "搜尋"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Default"
-msgstr "默认"
+msgstr "預設"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Go"
 msgstr "送出"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "設置/刷新過濾器"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Clear"
 msgstr "清除"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "清除過濾器"
 
