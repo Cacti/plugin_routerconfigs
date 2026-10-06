@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 14:40-0400\n"
+"POT-Creation-Date: 2026-10-05 16:02-0400\n"
 "PO-Revision-Date: 2022-11-25 15:50+0000\n"
 "Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
 "Language-Team: Polish <http://translate.cacti.net/projects/cacti/routerconfigs/pl/>\n"
@@ -703,6 +703,15 @@ msgstr "Adres e-mail"
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Przecinek ograniczał listę adresów e-mail do wysyłania nocnej kopii zapasowej wiadomości e-mail do."
 
+#: includes/devices.php
+#, fuzzy
+msgid "Add to RouterConfigs Backup"
+msgstr "Konfiguracja routera"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr ""
+
 #: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "Urządzenia"
@@ -853,6 +862,26 @@ msgstr "STATYSTYKI: kopia zapasowa działa od %s"
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "OSTRZEŻENIE: kopia zapasowa działa już od %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr ""
 
 #: includes/functions.php
 #, php-format

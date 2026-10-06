@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 14:40-0400\n"
+"POT-Creation-Date: 2026-10-05 16:02-0400\n"
 "PO-Revision-Date: 2020-12-13 10:23-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -700,6 +700,15 @@ msgstr "Adresse e-mail"
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Une liste délimitée par des virgules d'adresses Email pour envoyer l'Email de sauvegarde nocturne."
 
+#: includes/devices.php
+#, fuzzy
+msgid "Add to RouterConfigs Backup"
+msgstr "Configs du routeur"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr ""
+
 #: includes/functions.php router-accounts.php
 msgid "Devices"
 msgstr "Équipements"
@@ -848,6 +857,26 @@ msgstr "STATS: sauvegarde en cours depuis %s"
 #, fuzzy, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "AVERTISSEMENT: sauvegarde déjà en cours depuis %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr ""
 
 #: includes/functions.php
 #, php-format
