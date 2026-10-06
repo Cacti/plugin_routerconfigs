@@ -319,8 +319,8 @@ function show_accounts() {
 
 	$result = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_routerconfigs_accounts
-		LIMIT ?, ?',
-		[(int) ($num_rows * (get_request_var('page') - 1)), (int) $num_rows]);
+		LIMIT ' . ($num_rows * ((int) get_request_var('page') - 1)) . ', ' . $num_rows,
+		[]);
 
 	$total_rows = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_routerconfigs_accounts', []);
