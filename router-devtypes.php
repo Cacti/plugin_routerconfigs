@@ -325,8 +325,8 @@ function show_devicetypes() {
 	$result = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_routerconfigs_devicetypes
 		ORDER BY id
-		LIMIT ?, ?',
-		[(int) ($num_rows * (get_request_var('page') - 1)), (int) $num_rows]);
+		LIMIT ' . ($num_rows * ((int) get_request_var('page') - 1)) . ', ' . $num_rows,
+		[]);
 
 	if ($account != '') {
 		$total_rows = db_fetch_cell_prepared('SELECT COUNT(*)
