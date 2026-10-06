@@ -177,3 +177,36 @@ it('returns false and does not save when the Cacti host is not found', function 
 	expect($messages[0]['level'])->toBe(MESSAGE_LEVEL_ERROR);
 	expect($messages[0]['text'])->toContain('was not found');
 });
+
+it('falls back to a host_<id> name when description and hostname are both empty', function () {
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
+		['id' => 7, 'description' => '   ', 'hostname' => ''];
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
+	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 12;
+
+	$id = plugin_routerconfigs_import_cacti_device(7);
+
+	expect($id)->toBe(12);
+
+	$saves = rc_import_saves();
+	expect($saves[0]['save']['hostname'])->toBe('host_7');
+});
+
+it('reports a hard failure when the insert fails and no row exists afterwards', function () {
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
+		['id' => 5, 'description' => 'Core Switch', 'hostname' => '10.0.0.1'];
+
+	// Both the pre-check and the post-insert re-check find no row, so the failed
+	// sql_save is a genuine hard failure rather than a concurrent duplicate.
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
+	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 0;
+
+	$result = plugin_routerconfigs_import_cacti_device(5);
+
+	expect($result)->toBeFalse();
+
+	$messages = rc_import_messages();
+	expect($messages)->toHaveCount(1);
+	expect($messages[0]['level'])->toBe(MESSAGE_LEVEL_ERROR);
+	expect($messages[0]['text'])->toContain('Failed to add');
+});
