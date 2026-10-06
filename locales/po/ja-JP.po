@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 13:16-0400\n"
+"POT-Creation-Date: 2026-10-05 14:40-0400\n"
 "PO-Revision-Date: 2020-12-13 10:25-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -293,6 +293,15 @@ msgstr "IPアドレス"
 #, fuzzy
 msgid "This is the IP Address used to communicate with the device."
 msgstr "これは、デバイスと通信するために使用されるIPアドレスです。"
+
+#: includes/arrays.php router-devices.php
+#, fuzzy
+msgid "TFTP Server"
+msgstr "TFTPサーバIP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr ""
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
@@ -1208,6 +1217,10 @@ msgstr "このデバイスの構成の数"
 #, fuzzy
 msgid "The IP address of this device"
 msgstr "この装置タイプの名前。"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr ""
 
 #: router-devices.php
 #, fuzzy
