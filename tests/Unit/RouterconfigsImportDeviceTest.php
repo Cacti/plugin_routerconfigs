@@ -38,13 +38,15 @@ beforeEach(function () {
 });
 
 /**
- * Record the sql_save calls the importer made against the devices table.
+ * Return the INSERT IGNORE calls the importer made against the devices table,
+ * each with its positional [host_id, enabled, hostname, ipaddress] params.
  *
  * @return array
  */
-function rc_import_saves() {
+function rc_import_inserts() {
 	return array_values(array_filter($GLOBALS['__test_db_calls'], function ($call) {
-		return $call['fn'] === 'sql_save' && $call['table'] === 'plugin_routerconfigs_devices';
+		return $call['fn'] === 'db_execute_prepared'
+			&& stripos($call['sql'], 'INSERT IGNORE INTO plugin_routerconfigs_devices') !== false;
 	}));
 }
 
@@ -61,20 +63,23 @@ it('adds a new device seeded from the Cacti device and returns its id', function
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 5, 'description' => 'Core Switch', 'hostname' => '10.0.0.1'];
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 42;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 1;
+	$GLOBALS['__stub_overrides']['db_fetch_insert_id']     = fn () => 42;
 
 	$id = plugin_routerconfigs_import_cacti_device(5);
 
 	expect($id)->toBe(42);
 
-	$saves = rc_import_saves();
-	expect($saves)->toHaveCount(1);
-	expect($saves[0]['save']['host_id'])->toBe(5);
-	expect($saves[0]['save']['hostname'])->toBe('Core Switch');
-	expect($saves[0]['save']['ipaddress'])->toBe('10.0.0.1');
-	// Imported disabled: it still has no account/device type (issue #133 review).
-	expect($saves[0]['save']['enabled'])->toBe('');
-	expect($saves[0]['save'])->not->toHaveKey('id');
+	$inserts = rc_import_inserts();
+	expect($inserts)->toHaveCount(1);
+	// A plain INSERT IGNORE, never sql_save()'s INSERT ... ON DUPLICATE KEY
+	// UPDATE, so a concurrent duplicate is rejected rather than overwritten.
+	expect(stripos($inserts[0]['sql'], 'ON DUPLICATE KEY'))->toBeFalse();
+	// Positional params: host_id, enabled, hostname, ipaddress.
+	expect($inserts[0]['params'][0])->toBe(5);
+	expect($inserts[0]['params'][1])->toBe('');
+	expect($inserts[0]['params'][2])->toBe('Core Switch');
+	expect($inserts[0]['params'][3])->toBe('10.0.0.1');
 
 	$messages = rc_import_messages();
 	expect($messages)->toHaveCount(1);
@@ -91,7 +96,7 @@ it('rejects a device already linked to the Cacti host without saving', function 
 	$result = plugin_routerconfigs_import_cacti_device(5);
 
 	expect($result)->toBeFalse();
-	expect(rc_import_saves())->toBeEmpty();
+	expect(rc_import_inserts())->toBeEmpty();
 
 	$messages = rc_import_messages();
 	expect($messages)->toHaveCount(1);
@@ -111,7 +116,7 @@ it('treats a concurrent duplicate insert as a skip, not a failure', function () 
 
 		return $calls === 1 ? '' : 7;
 	};
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 0;
+	$GLOBALS['__stub_overrides']['db_affected_rows'] = fn () => 0;
 
 	$result = plugin_routerconfigs_import_cacti_device(5);
 
@@ -127,11 +132,12 @@ it('strips path separators and traversal from the imported name', function () {
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 5, 'description' => '../../etc/cron.d/evil', 'hostname' => '10.0.0.1'];
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 42;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 1;
+	$GLOBALS['__stub_overrides']['db_fetch_insert_id']     = fn () => 42;
 
 	plugin_routerconfigs_import_cacti_device(5);
 
-	$hostname = rc_import_saves()[0]['save']['hostname'];
+	$hostname = rc_import_inserts()[0]['params'][2];
 	expect($hostname)->not->toContain('/');
 	expect($hostname)->not->toContain('\\');
 	expect($hostname)->not->toContain('..');
@@ -141,7 +147,8 @@ it('escapes HTML in the description before raising the message', function () {
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 5, 'description' => '<b>bad', 'hostname' => '10.0.0.1'];
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 42;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 1;
+	$GLOBALS['__stub_overrides']['db_fetch_insert_id']     = fn () => 42;
 
 	plugin_routerconfigs_import_cacti_device(5);
 
@@ -154,14 +161,15 @@ it('falls back to the Cacti hostname when the description is empty', function ()
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 8, 'description' => '   ', 'hostname' => 'router8.example.net'];
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 11;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 1;
+	$GLOBALS['__stub_overrides']['db_fetch_insert_id']     = fn () => 11;
 
 	$id = plugin_routerconfigs_import_cacti_device(8);
 
 	expect($id)->toBe(11);
 
-	$saves = rc_import_saves();
-	expect($saves[0]['save']['hostname'])->toBe('router8.example.net');
+	$inserts = rc_import_inserts();
+	expect($inserts[0]['params'][2])->toBe('router8.example.net');
 });
 
 it('returns false and does not save when the Cacti host is not found', function () {
@@ -170,7 +178,7 @@ it('returns false and does not save when the Cacti host is not found', function 
 	$result = plugin_routerconfigs_import_cacti_device(999);
 
 	expect($result)->toBeFalse();
-	expect(rc_import_saves())->toBeEmpty();
+	expect(rc_import_inserts())->toBeEmpty();
 
 	$messages = rc_import_messages();
 	expect($messages)->toHaveCount(1);
@@ -182,24 +190,26 @@ it('falls back to a host_<id> name when description and hostname are both empty'
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 7, 'description' => '   ', 'hostname' => ''];
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 12;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 1;
+	$GLOBALS['__stub_overrides']['db_fetch_insert_id']     = fn () => 12;
 
 	$id = plugin_routerconfigs_import_cacti_device(7);
 
 	expect($id)->toBe(12);
 
-	$saves = rc_import_saves();
-	expect($saves[0]['save']['hostname'])->toBe('host_7');
+	$inserts = rc_import_inserts();
+	expect($inserts[0]['params'][2])->toBe('host_7');
 });
 
 it('reports a hard failure when the insert fails and no row exists afterwards', function () {
 	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) =>
 		['id' => 5, 'description' => 'Core Switch', 'hostname' => '10.0.0.1'];
 
-	// Both the pre-check and the post-insert re-check find no row, so the failed
-	// sql_save is a genuine hard failure rather than a concurrent duplicate.
+	// Both the pre-check and the post-insert re-check find no row, so the
+	// ignored INSERT is a genuine hard failure rather than a concurrent
+	// duplicate.
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = fn ($sql, $params) => '';
-	$GLOBALS['__stub_overrides']['sql_save'] = fn ($array, $table, $key) => 0;
+	$GLOBALS['__stub_overrides']['db_affected_rows']       = fn () => 0;
 
 	$result = plugin_routerconfigs_import_cacti_device(5);
 

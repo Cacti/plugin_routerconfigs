@@ -236,5 +236,45 @@ function routerconfigs_upgrade_tables(): bool {
 		}
 	}
 
+	// db_update_table() on the minimum supported Cacti (1.2.29) reconciles only
+	// 'keys', not 'unique_keys', so the devices.host_id unique index that dedups
+	// Cacti-device imports is never created on existing installs (and a later
+	// refresh can drop a manually-added one). Reconcile it explicitly so
+	// concurrent imports cannot create duplicate RouterConfigs devices.
+	if (!routerconfigs_ensure_host_id_index()) {
+		$success = false;
+	}
+
 	return $success;
 }
+
+/**
+ * Ensures the unique index on plugin_routerconfigs_devices.host_id exists,
+ * compensating for db_update_table() not reconciling 'unique_keys' on the
+ * minimum supported Cacti (1.2.29). Idempotent: it no-ops when the index is
+ * already present (including when a newer Cacti's db_update_table() created
+ * it) and only issues the ALTER when the column exists but the index does not.
+ * Called from routerconfigs_upgrade_tables() after the schema refresh.
+ *
+ * @return bool True when the unique index exists after this call, false when
+ *              the column is missing or the index could not be created.
+ */
+function routerconfigs_ensure_host_id_index(): bool {
+	$table  = 'plugin_routerconfigs_devices';
+	$column = 'host_id';
+	$index  = 'host_id';
+
+	if (!db_column_exists($table, $column)) {
+		return false;
+	}
+
+	if (db_index_exists($table, $index)) {
+		return true;
+	}
+
+	db_execute('ALTER TABLE ' . $table . '
+		ADD UNIQUE KEY `' . $index . '` (`' . $column . '`)');
+
+	return db_index_exists($table, $index);
+}
+

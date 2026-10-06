@@ -77,6 +77,9 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
 	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
 	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => in_array($column, ['ssh_fingerprint', 'ssh_hostkey_type'], true);
+	// host_id column present with its unique index, so the upgrade's index
+	// reconciliation reports success and the stored version can advance.
+	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => true;
 
 	routerconfigs_check_upgrade();
 
@@ -191,4 +194,79 @@ it('reports readiness without altering anything when the columns already exist',
 	});
 
 	expect($alters)->toBeEmpty();
+});
+
+describe('routerconfigs_ensure_host_id_index', function () {
+	it('returns false and alters nothing when the host_id column is missing', function () {
+		$GLOBALS['__stub_overrides']['db_column_exists'] = fn ($table, $column) => false;
+
+		expect(routerconfigs_ensure_host_id_index())->toBeFalse();
+
+		$alters = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+			return $call['fn'] === 'db_execute' && stripos($call['sql'], 'ADD UNIQUE KEY') !== false;
+		});
+
+		expect($alters)->toBeEmpty();
+	});
+
+	it('returns true without altering anything when the index already exists', function () {
+		$GLOBALS['__stub_overrides']['db_column_exists'] = fn ($table, $column) => true;
+		$GLOBALS['__stub_overrides']['db_index_exists']  = fn ($table, $index) => true;
+
+		expect(routerconfigs_ensure_host_id_index())->toBeTrue();
+
+		$alters = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+			return $call['fn'] === 'db_execute' && stripos($call['sql'], 'ADD UNIQUE KEY') !== false;
+		});
+
+		expect($alters)->toBeEmpty();
+	});
+
+	it('adds the unique index when the column exists but the index does not', function () {
+		$GLOBALS['__stub_overrides']['db_column_exists'] = fn ($table, $column) => true;
+
+		// Missing on the pre-check, present on the post-ALTER verification.
+		$calls = 0;
+		$GLOBALS['__stub_overrides']['db_index_exists'] = function ($table, $index) use (&$calls) {
+			$calls++;
+
+			return $calls > 1;
+		};
+
+		expect(routerconfigs_ensure_host_id_index())->toBeTrue();
+
+		$alters = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+			return $call['fn'] === 'db_execute' && stripos($call['sql'], 'ADD UNIQUE KEY') !== false;
+		});
+
+		expect($alters)->toHaveCount(1);
+	});
+
+	it('returns false when the index still does not exist after the ALTER', function () {
+		$GLOBALS['__stub_overrides']['db_column_exists'] = fn ($table, $column) => true;
+		$GLOBALS['__stub_overrides']['db_index_exists']  = fn ($table, $index) => false;
+
+		expect(routerconfigs_ensure_host_id_index())->toBeFalse();
+	});
+});
+
+it('does not advance the stored version when the host_id unique index cannot be enforced', function () {
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+	$GLOBALS['__stub_overrides']['db_table_exists']         = fn ($table) => true;
+	$GLOBALS['__stub_overrides']['db_update_table']         = fn ($table, $data) => true;
+	// The unique index never materialises, so routerconfigs_upgrade_tables()
+	// reports failure and the stored version must not advance.
+	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => false;
+
+	routerconfigs_check_upgrade();
+
+	$finalUpdate = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'UPDATE plugin_config') !== false;
+	});
+
+	expect($finalUpdate)->toBeEmpty();
 });

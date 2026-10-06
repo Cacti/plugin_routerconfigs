@@ -220,6 +220,24 @@ if (!function_exists('db_table_exists')) {
 	}
 }
 
+if (!function_exists('db_affected_rows')) {
+	function db_affected_rows() {
+		return routerconfigs_test_stub('db_affected_rows', array(), 0);
+	}
+}
+
+if (!function_exists('db_fetch_insert_id')) {
+	function db_fetch_insert_id() {
+		return routerconfigs_test_stub('db_fetch_insert_id', array(), 0);
+	}
+}
+
+if (!function_exists('api_plugin_user_realm_auth')) {
+	function api_plugin_user_realm_auth($file = '') {
+		return routerconfigs_test_stub('api_plugin_user_realm_auth', array($file), true);
+	}
+}
+
 if (!function_exists('api_plugin_register_hook')) {
 	function api_plugin_register_hook($plugin, $hook, $function, $file, $subtype = '') {
 		return routerconfigs_test_stub('api_plugin_register_hook', array($plugin, $hook, $function, $file, $subtype), true);

@@ -672,27 +672,29 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 		return false;
 	}
 
-	// No 'id' key so sql_save performs an insert. The device is imported
-	// disabled: it still has no account or device type, so enabling it now would
-	// make every scheduled poll fail until an operator finishes setup.
-	$save = [
-		'host_id'   => $host['id'],
-		'enabled'   => '',
-		'hostname'  => $name,
-		'ipaddress' => $host['hostname'],
-	];
+	// A direct INSERT IGNORE rather than sql_save(): Cacti's sql_save() issues
+	// INSERT ... ON DUPLICATE KEY UPDATE, so an import that won the race after
+	// the pre-check above would overwrite that existing device's name, address
+	// and enabled flag. INSERT IGNORE instead lets the unique host_id index
+	// reject the duplicate, leaving the existing row untouched. The device is
+	// imported disabled: it still has no account or device type, so enabling it
+	// now would make every scheduled poll fail until an operator finishes setup.
+	db_execute_prepared('INSERT IGNORE INTO plugin_routerconfigs_devices
+		(host_id, enabled, hostname, ipaddress)
+		VALUES (?, ?, ?, ?)',
+		[$host['id'], '', $name, $host['hostname']]);
 
-	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
+	if (db_affected_rows() > 0) {
+		$id = db_fetch_insert_id();
 
-	if (!empty($id)) {
 		raise_message('rc_import_' . $host['id'], __esc('Device \'%s\' added to RouterConfigs (disabled until an account and device type are set).', $name, 'routerconfigs'), MESSAGE_LEVEL_INFO);
 
 		return $id;
 	}
 
-	// The insert failed. If a row for this host now exists it was created by a
-	// concurrent import and rejected by the unique host_id index, which is the
-	// skipped (duplicate) outcome rather than a hard failure.
+	// INSERT IGNORE created no row. If a row for this host now exists it was
+	// created by a concurrent import and rejected by the unique host_id index,
+	// which is the skipped (duplicate) outcome rather than a hard failure.
 	if (!empty(db_fetch_cell_prepared('SELECT id
 		FROM plugin_routerconfigs_devices
 		WHERE host_id = ?',

@@ -34,12 +34,18 @@
 /**
  * Add the RouterConfigs import entry to the Devices page action dropdown.
  *
+ * The Devices page (host.php) authorizes on Device Management, not the
+ * RouterConfigs realm, so the entry is only offered to users who also hold
+ * the RouterConfigs (router-devices.php) realm.
+ *
  * @param array $action The existing Device Management action map.
  *
  * @return array The action map with the RouterConfigs import action added.
  */
 function routerconfigs_device_action_array($action) {
-	$action['plugin_routerconfigs_device'] = __('Add to RouterConfigs Backup', 'routerconfigs');
+	if (api_plugin_user_realm_auth('router-devices.php')) {
+		$action['plugin_routerconfigs_device'] = __('Add to RouterConfigs Backup', 'routerconfigs');
+	}
 
 	return $action;
 }
@@ -82,6 +88,12 @@ function routerconfigs_device_action_execute($action) {
 	global $config;
 
 	if ($action == 'plugin_routerconfigs_device') {
+		// host.php authorizes on Device Management, not the RouterConfigs realm;
+		// enforce it here so a user without RouterConfigs access cannot import.
+		if (!api_plugin_user_realm_auth('router-devices.php')) {
+			return $action;
+		}
+
 		if (isset_request_var('selected_items')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
