@@ -276,7 +276,7 @@ function actions_devices() {
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Delete Device(s)', 'routerconfigs') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Delete Device(s)', 'routerconfigs') . "'>";
 
 				break;
 			case RCONFIG_DEVICE_ENABLE:
@@ -286,7 +286,7 @@ function actions_devices() {
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Enable Device(s)', 'routerconfigs') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Enable Device(s)', 'routerconfigs') . "'>";
 
 				break;
 			case RCONFIG_DEVICE_DISABLE:
@@ -296,7 +296,7 @@ function actions_devices() {
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Disable Device(s)', 'routerconfigs') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Disable Device(s)', 'routerconfigs') . "'>";
 
 				break;
 			case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
@@ -306,18 +306,18 @@ function actions_devices() {
 					<p><ul>$device_list</ul></p>
 				</td>
 			</tr>";
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Clear SSH Host Key(s)', 'routerconfigs') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Clear SSH Host Key(s)', 'routerconfigs') . "'>";
 
 				break;
 			default:
-				$save_html = "<input type='button' value='" . __esc('Return', 'routerconfigs') . "' onClick='cactiReturnTo()'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Return', 'routerconfigs') . "'>";
 
 				break;
 		}
 	} else {
 		print "<tr><td class='even'><span class='textError'>" . __('You must select at least Router Device.', 'routerconfigs') . "</span></td></tr>\n";
 
-		$save_html = "<input type='button' value='" . __esc('Return', 'routerconfigs') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Return', 'routerconfigs') . "'>";
 	}
 
 	print "<tr>
