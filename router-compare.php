@@ -123,6 +123,18 @@ html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', false, 4
 
 			loadPageNoHeader(strURL);
 		});
+
+		$('#device1').change(function() {
+			changeDeviceA();
+		});
+
+		$('#device2').change(function() {
+			changeDeviceB();
+		});
+
+		$('#file1, #file2').change(function() {
+			changeFileForm();
+		});
 	});
 	</script>
 </tr>
@@ -138,28 +150,28 @@ html_header(['File', 'File']);
 
 form_alternate_row();
 
-print "<td width='50%'><select id='device1' name='device1' onChange='changeDeviceA()'>";
+print "<td width='50%'><select id='device1' name='device1'>";
 
 foreach ($devices as $f) {
 	print '<option value="' . $f['id'] . '"' . ($device1 == $f['id'] ? ' selected' : '') . '>' . html_escape($f['directory'] . '/' . $f['hostname']) . '</option>';
 }
 print '</select><br>';
 
-print "<select id='file1' name='file1' onChange='changeFileForm()'><option value='0'></option>";
+print "<select id='file1' name='file1'><option value='0'></option>";
 
 foreach ($files1 as $f) {
 	print '<option value="' . $f['id'] . '"' . ($file1 == $f['id'] ? ' selected' : '') . '>' . html_escape($f['filename']) . '</option>';
 }
 print '</select></td>';
 
-print "<td width='50%'><select id='device2' name='device2' onChange='changeDeviceB()'>";
+print "<td width='50%'><select id='device2' name='device2'>";
 
 foreach ($devices as $f) {
 	print '<option value="' . $f['id'] . '"' . ($device2 == $f['id'] ? ' selected' : '') . '>' . html_escape($f['directory'] . '/' . $f['hostname']) . '</option>';
 }
 print '</select><br>';
 
-print "<select id='file2' name='file2' onChange='changeFileForm()'><option value='0'></option>";
+print "<select id='file2' name='file2'><option value='0'></option>";
 
 foreach ($files2 as $f) {
 	print '<option value="' . $f['id'] . '"' . ($file2 == $f['id'] ? ' selected' : '') . '>' . html_escape($f['filename']) . '</option>';

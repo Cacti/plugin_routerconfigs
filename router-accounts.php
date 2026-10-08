@@ -157,10 +157,10 @@ function actions_accounts() {
 			</tr>";
 		}
 
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'routerconfigs') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Delete Device(s)', 'routerconfigs') . "'>";
+		$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Delete Device(s)', 'routerconfigs') . "'>";
 	} else {
 		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one device.', 'routerconfigs') . "</span></td></tr>\n";
-		$save_html = "<input type='button' value='" . __esc('Return', 'routerconfigs') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Return', 'routerconfigs') . "'>";
 	}
 
 	print "<tr>
