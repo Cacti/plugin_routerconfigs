@@ -22,12 +22,13 @@ beforeEach(function () {
 	$GLOBALS['__test_registered_realms'] = array();
 
 	$GLOBALS['__stub_overrides'] = array(
-		'api_plugin_register_hook' => function ($plugin, $hook, $function, $file, $subtype = '') {
+		'api_plugin_register_hook' => function ($plugin, $hook, $function, $file, bool $enable = true) {
 			$GLOBALS['__test_registered_hooks'][] = array(
 				'plugin'   => $plugin,
 				'hook'     => $hook,
 				'function' => $function,
 				'file'     => $file,
+				'enable'   => $enable,
 			);
 
 			return true;

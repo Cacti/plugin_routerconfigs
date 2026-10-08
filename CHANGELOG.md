@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument in `routerconfigs_check_upgrade()`; under this file's `declare(strict_types=1)` and Cacti 1.3's `bool $enable` type-hint the integer threw an uncaught `TypeError` that fatalled the plugin management page
 * security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel/Return buttons with the CSP-safe `cactiReturnTo` class and move the compare page's device/file selects' inline `onChange` handlers into the ready block so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
 * issue#133: Add an 'Add to RouterConfigs Backup' action to the Cacti Console Devices page (Management -> Devices) that imports the selected devices into RouterConfigs, seeding each new device's name from the Cacti device description and its address from the Cacti hostname, rejecting any device that is already present, and raising a per-device added/skipped message (closes #115)
 * issue#133: Add an optional per-device 'TFTP Server' so a device can copy its configuration to a TFTP server other than the global default (blank falls back to the global 'TFTP Server' setting); the device edit form exposes the field, the Devices list shows a 'TFTP Server' column, and the backup poller uses the per-device value when set
