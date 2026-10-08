@@ -97,6 +97,44 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 	expect($finalUpdate[0]['params'])->toBe([$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
 });
 
+it('re-registers the upgrade-path hooks with a boolean enable flag, never an int', function () {
+	$registered = array();
+
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '0.1' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+	$GLOBALS['__stub_overrides']['db_table_exists']         = fn ($table) => true;
+	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => true;
+	$GLOBALS['__stub_overrides']['db_update_table']         = fn ($table, $data) => true;
+
+	// Capture the 5th argument of each re-registration. With setup.php's
+	// declare(strict_types=1) and the bool-typed stub, a regressed integer
+	// argument would TypeError before reaching this recorder; toBe(true) then
+	// pins the value as a strict boolean as well.
+	$GLOBALS['__stub_overrides']['api_plugin_register_hook'] =
+		function ($plugin, $hook, $function, $file, $enable = true) use (&$registered) {
+			$registered[] = array('hook' => $hook, 'enable' => $enable);
+
+			return true;
+		};
+
+	routerconfigs_check_upgrade();
+
+	expect(array_column($registered, 'hook'))->toBe([
+		'top_header_tabs',
+		'top_graph_header_tabs',
+		'device_action_array',
+		'device_action_prepare',
+		'device_action_execute',
+	]);
+
+	foreach ($registered as $entry) {
+		expect($entry['enable'])->toBe(true);
+	}
+});
+
 it('migrates legacy realm users when upgrading from before version 0.2', function () {
 	$GLOBALS['__stub_overrides']['get_current_page']       = fn () => 'plugins.php';
 	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = function ($sql, $params) {

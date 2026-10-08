@@ -239,8 +239,10 @@ if (!function_exists('api_plugin_user_realm_auth')) {
 }
 
 if (!function_exists('api_plugin_register_hook')) {
-	function api_plugin_register_hook($plugin, $hook, $function, $file, $subtype = '') {
-		return routerconfigs_test_stub('api_plugin_register_hook', array($plugin, $hook, $function, $file, $subtype), true);
+	// Model Cacti 1.3's typed signature: the 5th argument is bool $enable.
+	// Under setup.php's declare(strict_types=1) an integer here would TypeError.
+	function api_plugin_register_hook($plugin, $hook, $function, $file, bool $enable = true) {
+		return routerconfigs_test_stub('api_plugin_register_hook', array($plugin, $hook, $function, $file, $enable), true);
 	}
 }
 
