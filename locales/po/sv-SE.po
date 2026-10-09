@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 16:02-0400\n"
-"PO-Revision-Date: 2026-10-05 17:14+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-10-09 17:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -261,14 +249,12 @@ msgid "This is the IP Address used to communicate with the device."
 msgstr "Detta är den IP-adress som används för att kommunicera med enheten."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
-#| msgid "TFTP Server IP"
 msgid "TFTP Server"
-msgstr "TFTP-server IP"
+msgstr "TFTP-server"
 
 #: includes/arrays.php
 msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
-msgstr ""
+msgstr "Valfri TFTP-server som enheten kopierar sin konfiguration till. Lämna tomt för att använda den globala inställningen för TFTP-server."
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
@@ -455,14 +441,12 @@ msgid "Top Tab"
 msgstr "Toppflik"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Connection Type"
 msgid "Connection timeout"
-msgstr "Typ av anslutning"
+msgstr "Tidsgräns för anslutning"
 
 #: includes/arrays.php
 msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
-msgstr ""
+msgstr "Längsta tid i sekunder att vänta när den första nätverksanslutningen till en enhet upprättas. En enhet som har hängt sig eller inte går att nå överges efter denna tidsgräns så att en schemalagd säkerhetskopiering fortsätter med återstående enheter."
 
 #: includes/arrays.php
 msgid "Close without exit"
@@ -514,11 +498,11 @@ msgstr "Antal dagar som gamla säkerhetskopior ska sparas."
 
 #: includes/arrays.php
 msgid "Keep Inactive Device Backups"
-msgstr ""
+msgstr "Behåll säkerhetskopior för inaktiva enheter"
 
 #: includes/arrays.php
 msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
-msgstr ""
+msgstr "När detta är markerat tar rensningen inte bort gamla säkerhetskopior som hör till inaktiverade eller borttagna enheter, så konfigurationer för avvecklad eller onåbar utrustning behålls."
 
 #: includes/arrays.php
 msgid "Transfer Options"
@@ -609,14 +593,12 @@ msgid "A comma delimited list of Email addresses to send the nightly backup Emai
 msgstr "En kommaseparerad lista med e-postadresser som den nattliga säkerhetskopian ska skickas till."
 
 #: includes/devices.php
-#, fuzzy
-#| msgid "RouterConfigs"
 msgid "Add to RouterConfigs Backup"
-msgstr "Routerkonfigurationer"
+msgstr "Lägg till i RouterConfigs-säkerhetskopiering"
 
 #: includes/devices.php
 msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
-msgstr ""
+msgstr "Klicka på ”Fortsätt” för att lägga till följande enhet(er) i RouterConfigs för säkerhetskopiering. Enheter som redan finns i RouterConfigs hoppas över."
 
 #: includes/functions.php router-accounts.php
 msgid "Devices"
@@ -755,22 +737,22 @@ msgstr "VARNA: Säkerhetskopiering pågår redan sedan %s"
 #: includes/functions.php
 #, php-format
 msgid "Cacti Device id %s was not found; not added to RouterConfigs."
-msgstr ""
+msgstr "Cacti-enheten med id %s hittades inte och lades inte till i RouterConfigs."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' is already in RouterConfigs; skipped."
-msgstr ""
+msgstr "Enheten ”%s” finns redan i RouterConfigs och hoppas över."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
-msgstr ""
+msgstr "Enheten ”%s” lades till i RouterConfigs (inaktiverad tills konto och enhetstyp har angetts)."
 
 #: includes/functions.php
 #, php-format
 msgid "Failed to add Device '%s' to RouterConfigs."
-msgstr ""
+msgstr "Det gick inte att lägga till enheten ”%s” i RouterConfigs."
 
 #: includes/functions.php
 #, php-format
@@ -1007,7 +989,7 @@ msgstr "Felsökning för %s (%s)<br><br>"
 #: router-devices.php
 #, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr "DEBUG: Utför manuell säkerhetskopiering med '%s' med argumenten '%s'"
+msgstr "DEBUG: Utför manuell säkerhetskopiering med '%s' argumenten '%s'"
 
 #: router-devices.php
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
@@ -1104,7 +1086,7 @@ msgstr "IP-adressen för den här enheten"
 
 #: router-devices.php
 msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
-msgstr ""
+msgstr "TFTP-servern för enheten, eller Standard när den globala inställningen för TFTP-server används"
 
 #: router-devices.php
 msgid "Next Backup"
