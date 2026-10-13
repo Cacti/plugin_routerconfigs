@@ -1,6 +1,7 @@
 # ChangeLog
 
 --- develop ---
+* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument in `routerconfigs_check_upgrade()`; under this file's `declare(strict_types=1)` and Cacti 1.3's `bool $enable` type-hint the integer threw an uncaught `TypeError` that fatalled the plugin management page
 * security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel/Return buttons with the CSP-safe `cactiReturnTo` class and move the compare page's device/file selects' inline `onChange` handlers into the ready block so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
