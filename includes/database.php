@@ -28,8 +28,11 @@
  * api_plugin_db_table_create() interpolates the primary key as a string, so
  * the scalar form is required for backward compatibility on a fresh install
  * (an array would emit PRIMARY KEY (`Array`) and fail). db_update_table()
- * accepts either form, and index 'keys' columns stay arrays because both the
- * create and update paths accept them.
+ * requires the array form instead: it reconciles the primary key with
+ * array_diff() (lib/database.php), which fatals on a scalar, so
+ * routerconfigs_upgrade_tables() normalises 'primary' to an array before
+ * passing each definition to it. Index 'keys' columns stay arrays because
+ * both the create and update paths accept them.
  */
 
 /**
@@ -228,6 +231,13 @@ function routerconfigs_upgrade_tables(): bool {
 
 	foreach (routerconfigs_table_map() as $table => $data) {
 		if (db_table_exists($table)) {
+			// db_update_table() reconciles the primary key with array_diff(),
+			// which fatals on the scalar 'primary' form the create path needs,
+			// so normalise it to an array for the update path only.
+			if (isset($data['primary']) && !is_array($data['primary'])) {
+				$data['primary'] = array($data['primary']);
+			}
+
 			if (db_update_table($table, $data) === false) {
 				$success = false;
 			}
@@ -277,4 +287,3 @@ function routerconfigs_ensure_host_id_index(): bool {
 
 	return db_index_exists($table, $index);
 }
-
