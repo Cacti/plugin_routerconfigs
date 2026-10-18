@@ -1,7 +1,6 @@
 # ChangeLog
 
 --- develop ---
-* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument in `routerconfigs_check_upgrade()`; under this file's `declare(strict_types=1)` and Cacti 1.3's `bool $enable` type-hint the integer threw an uncaught `TypeError` that fatalled the plugin management page
 * security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel/Return buttons with the CSP-safe `cactiReturnTo` class and move the compare page's device/file selects' inline `onChange` handlers into the ready block so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
@@ -13,6 +12,7 @@
 * refactor: Rename the plugin's include/ directory to includes/ and move schema management into includes/database.php (the thold model); setup.php delegates via require_once, and routerconfigs_check_upgrade() now refreshes the four plugin_routerconfigs_* tables via db_update_table() (the historical column renames/drops still run first as guarded pre-steps) and updates the full plugin_config row. Switches every file inclusion from include/include_once to require/require_once
 * issue: Declare plugin table primary keys as a scalar column name (the legacy string form) so a fresh install via api_plugin_db_table_create() creates the tables instead of emitting PRIMARY KEY (`Array`) and failing; index keys remain arrays and db_update_table() accepts either form
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
+* dev: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 * security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 
 - issue: Fix the Device Types and Authentication pages failing to list
