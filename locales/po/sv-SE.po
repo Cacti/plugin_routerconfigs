@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-10-21 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-10-26 11:04+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: includes/arrays.php
 msgid "Backup"
@@ -817,7 +817,7 @@ msgstr "Fortsätt"
 
 #: router-accounts.php router-devices.php router-devtypes.php
 msgid "Delete Device(s)"
-msgstr "Ta bort enhet(er)"
+msgstr "Ta bort enheter"
 
 #: router-accounts.php
 msgid "You must select at least one device."
@@ -886,7 +886,7 @@ msgstr "Värdnamn"
 
 #: router-backups.php router-devices.php
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr "Antingen en IP-adress eller ett värdnamn.  Om det är ett värdnamn måste det kunna lösas med antingen DNS eller från din hosts-fil."
+msgstr "En IP-adress eller ett värdnamn. Värdnamn måste kunna slås upp via DNS eller hosts-filen."
 
 #: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
@@ -958,7 +958,7 @@ msgstr "Diff-läge"
 
 #: router-compare.php
 msgid "Inline"
-msgstr "Inline"
+msgstr "Inbäddat"
 
 #: router-compare.php
 msgid "Side by Side"
@@ -997,23 +997,23 @@ msgstr "Säkerhetskopiering av routern har startat.  Kontrollera kolumnen Datum 
 
 #: router-devices.php
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr "Klicka på \"Fortsätt\" för att ta bort följande enhet(er)."
+msgstr "Klicka på ”Fortsätt” för att ta bort följande enheter."
 
 #: router-devices.php
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr "Klicka på \"Fortsätt\" för att aktivera följande enhet(er)."
+msgstr "Klicka på ”Fortsätt” för att aktivera följande enheter."
 
 #: router-devices.php
 msgid "Enable Device(s)"
-msgstr "Aktivera enhet(er)"
+msgstr "Aktivera enheter"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "Klicka på \"Fortsätt\" för att inaktivera följande enhet(er)."
+msgstr "Klicka på ”Fortsätt” för att inaktivera följande enheter."
 
 #: router-devices.php
 msgid "Disable Device(s)"
-msgstr "Inaktivera enhet(er)"
+msgstr "Inaktivera enheter"
 
 #: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
@@ -1225,7 +1225,7 @@ msgstr "DEBUG: Körning av '%s' med argumenten '%s'"
 
 #: setup.php
 msgid "Utilities"
-msgstr "Tillbehör"
+msgstr "Verktyg"
 
 #: setup.php
 msgid "Router Devices"
