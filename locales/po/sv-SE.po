@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-10-26 11:04+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-10-27 12:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -98,99 +98,99 @@ msgstr "%d timmar"
 
 #: includes/arrays.php
 msgid "00:00 (12am)"
-msgstr "00:00 (kl. 12.00)"
+msgstr "00:00"
 
 #: includes/arrays.php
 msgid "01:00 (1am)"
-msgstr "01:00 (1 på morgonen)"
+msgstr "01:00"
 
 #: includes/arrays.php
 msgid "02:00 (2am)"
-msgstr "02:00 (2 på morgonen)"
+msgstr "02:00"
 
 #: includes/arrays.php
 msgid "03:00 (3am)"
-msgstr "03:00 (3 på morgonen)"
+msgstr "03:00"
 
 #: includes/arrays.php
 msgid "04:00 (4am)"
-msgstr "04:00 (kl. 04.00)"
+msgstr "04:00"
 
 #: includes/arrays.php
 msgid "05:00 (5am)"
-msgstr "05:00 (5 på morgonen)"
+msgstr "05:00"
 
 #: includes/arrays.php
 msgid "06:00 (6am)"
-msgstr "06:00 (kl. 06.00)"
+msgstr "06:00"
 
 #: includes/arrays.php
 msgid "07:00 (7am)"
-msgstr "07:00 (kl. 7.00)"
+msgstr "07:00"
 
 #: includes/arrays.php
 msgid "08:00 (8am)"
-msgstr "08:00 (kl. 8.00)"
+msgstr "08:00"
 
 #: includes/arrays.php
 msgid "09:00 (9am)"
-msgstr "09:00 (9:00)"
+msgstr "09:00"
 
 #: includes/arrays.php
 msgid "10:00 (12am)"
-msgstr "10:00 (12:00)"
+msgstr "10:00"
 
 #: includes/arrays.php
 msgid "11:00 (11am)"
-msgstr "11:00 (kl. 11.00)"
+msgstr "11:00"
 
 #: includes/arrays.php
 msgid "12:00 (12pm)"
-msgstr "12:00 (12pm)"
+msgstr "12:00"
 
 #: includes/arrays.php
 msgid "13:00 (1pm)"
-msgstr "13:00 (1pm)"
+msgstr "13:00"
 
 #: includes/arrays.php
 msgid "14:00 (2pm)"
-msgstr "14:00 (2pm)"
+msgstr "14:00"
 
 #: includes/arrays.php
 msgid "15:00 (3pm)"
-msgstr "15:00 (3pm)"
+msgstr "15:00"
 
 #: includes/arrays.php
 msgid "16:00 (4pm)"
-msgstr "16:00 (4pm)"
+msgstr "16:00"
 
 #: includes/arrays.php
 msgid "17:00 (5pm)"
-msgstr "17:00 (kl. 17.00)"
+msgstr "17:00"
 
 #: includes/arrays.php
 msgid "18:00 (6pm)"
-msgstr "18:00 (6pm)"
+msgstr "18:00"
 
 #: includes/arrays.php
 msgid "19:00 (7pm)"
-msgstr "19:00 (7pm)"
+msgstr "19:00"
 
 #: includes/arrays.php
 msgid "20:00 (8pm)"
-msgstr "20:00 (20:00)"
+msgstr "20:00"
 
 #: includes/arrays.php
 msgid "21:00 (9pm)"
-msgstr "21:00 (9pm)"
+msgstr "21:00"
 
 #: includes/arrays.php
 msgid "22:00 (10pm)"
-msgstr "22:00 (10pm)"
+msgstr "22:00"
 
 #: includes/arrays.php
 msgid "23:00 (11pm)"
-msgstr "23:00 (23:00)"
+msgstr "23:00"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -230,7 +230,7 @@ msgstr "Aktivera enhet"
 
 #: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
-msgstr "Avmarkera den här rutan om du vill inaktivera enheten från säkerhetskopiering."
+msgstr "Avmarkera rutan om enheten inte ska säkerhetskopieras."
 
 #: includes/arrays.php router-accounts.php
 msgid "Description"
@@ -314,7 +314,7 @@ msgstr "Ingen"
 
 #: includes/arrays.php
 msgid "Default timeout"
-msgstr "Standard timeout"
+msgstr "Standardtidsgräns"
 
 #: includes/arrays.php
 msgid "Default time to wait in seconds for a response"
@@ -322,7 +322,7 @@ msgstr "Standardtid i sekunder för att vänta på ett svar"
 
 #: includes/arrays.php
 msgid "Default sleep time"
-msgstr "Standard sömntid"
+msgstr "Standardväntetid"
 
 #: includes/arrays.php
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
@@ -330,11 +330,11 @@ msgstr "Standardtid för vänteläge i mikrosekunder (en miljondels sekund)"
 
 #: includes/arrays.php
 msgid "Assume elevated"
-msgstr "Antag förhöjd"
+msgstr "Anta förhöjd behörighet"
 
 #: includes/arrays.php
 msgid "Check this box to assume this device is always elevated"
-msgstr "Markera den här rutan om du vill anta att enheten alltid är upphöjd"
+msgstr "Markera rutan om enheten alltid ska antas ha förhöjd behörighet"
 
 #: includes/arrays.php
 msgid "Name of this device type."
@@ -346,7 +346,7 @@ msgstr "Uppmaning om användarnamn"
 
 #: includes/arrays.php
 msgid "This is the username prompt to match on login."
-msgstr "Detta är det användarnamn som ska anges vid inloggning."
+msgstr "Prompten för användarnamn som ska matchas vid inloggning."
 
 #: includes/arrays.php
 msgid "Password Prompt"
@@ -354,7 +354,7 @@ msgstr "Lösenordsfråga"
 
 #: includes/arrays.php
 msgid "This is the password prompt to match on login."
-msgstr "Detta är det lösenord som ska anges vid inloggning."
+msgstr "Lösenordsprompten som ska matchas vid inloggning."
 
 #: includes/arrays.php
 msgid "Configuration file"
@@ -414,11 +414,11 @@ msgstr "Kontrollera slutet i konfigurationen?"
 
 #: includes/arrays.php
 msgid "Any Key prompt"
-msgstr "Alla tangenters prompt"
+msgstr "Prompt för valfri tangent"
 
 #: includes/arrays.php
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr "Text som matchar en uppmaning i stil med \"Tryck på valfri knapp för att fortsätta"
+msgstr "Text som matchar en prompt i stil med ”Tryck på valfri tangent för att fortsätta”"
 
 #: includes/arrays.php
 msgid "General Settings"
@@ -466,15 +466,15 @@ msgstr "Om direktutmatning från enhetens anslutning ska loggas"
 
 #: includes/arrays.php
 msgid "Assume all devices elevated"
-msgstr "Antag att alla enheter är upphöjda"
+msgstr "Anta förhöjd behörighet för alla enheter"
 
 #: includes/arrays.php
 msgid "Whether to assume all devices are elevated"
-msgstr "Om man ska anta att alla enheter är upphöjda"
+msgstr "Om alla enheter ska antas ha förhöjd behörighet"
 
 #: includes/arrays.php
 msgid "Download Hour"
-msgstr "Ladda ner timme"
+msgstr "Tid för nedladdning"
 
 #: includes/arrays.php
 msgid "The hour of the day to perform the full downloads."
@@ -482,11 +482,11 @@ msgstr "Timmen på dagen för att utföra de fullständiga nedladdningarna."
 
 #: includes/arrays.php
 msgid "Retry Schedule"
-msgstr "Schema för omprövning"
+msgstr "Schema för nya försök"
 
 #: includes/arrays.php
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr "Den tid som ska vänta innan man försöker utföra en ytterligare nedladdning när den schemalagda nedladdningen misslyckas"
+msgstr "Tiden att vänta innan ett nytt nedladdningsförsök görs när en schemalagd nedladdning misslyckas"
 
 #: includes/arrays.php
 msgid "Retention Period"
@@ -510,7 +510,7 @@ msgstr "Alternativ för överföring"
 
 #: includes/arrays.php
 msgid "Default connection type"
-msgstr "Standard anslutningstyp"
+msgstr "Standardanslutningstyp"
 
 #: includes/arrays.php
 msgid "Default type of connection used to communicate with the device."
@@ -522,11 +522,11 @@ msgstr "Separera efter enhet"
 
 #: includes/arrays.php
 msgid "Separate archived Configs into a folder per device"
-msgstr "Separera arkiverade Configs i en mapp per enhet"
+msgstr "Separera arkiverade konfigurationer i en mapp per enhet"
 
 #: includes/arrays.php
 msgid "SCP Path"
-msgstr "SCP-väg"
+msgstr "Sökväg till SCP"
 
 #: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
@@ -550,7 +550,7 @@ msgstr "Måste vara en IP som pekar på din Cacti-server."
 
 #: includes/arrays.php
 msgid "TFTP Backup Directory Path"
-msgstr "TFTP Backup Directory Sökväg"
+msgstr "Sökväg till TFTP-katalog för säkerhetskopior"
 
 #: includes/arrays.php
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
@@ -566,7 +566,7 @@ msgstr "Sökvägen till den plats där dina konfigurationer ska arkiveras (flytt
 
 #: includes/arrays.php
 msgid "Email Options"
-msgstr "E-post Val"
+msgstr "E-postalternativ"
 
 #: includes/arrays.php
 msgid "From Address"
@@ -614,7 +614,7 @@ msgstr "Autentisering"
 
 #: includes/functions.php
 msgid "Backups"
-msgstr "Backup"
+msgstr "Säkerhetskopior"
 
 #: includes/functions.php router-backups.php
 msgid "Compare"
@@ -894,7 +894,7 @@ msgstr "ID"
 
 #: router-backups.php router-devices.php
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr "Det interna databas-ID:t för den här enheten.  Användbart vid automatisering eller felsökning."
+msgstr "Enhetens interna databas-ID. Användbart vid automatisering eller felsökning."
 
 #: router-backups.php
 msgid "Functions"
@@ -930,7 +930,7 @@ msgstr "Ändrat Av"
 
 #: router-backups.php
 msgid "The last person to change the configuration of the device"
-msgstr "Den sista personen som kan ändra enhetens konfiguration"
+msgstr "Den person som senast ändrade enhetens konfiguration"
 
 #: router-backups.php
 msgid "Filename"
@@ -966,7 +966,7 @@ msgstr "Sida vid sida"
 
 #: router-compare.php
 msgid "Compare Output"
-msgstr "Jämför utgång"
+msgstr "Jämförelseresultat"
 
 #: router-compare.php
 #, php-format
@@ -997,11 +997,11 @@ msgstr "Säkerhetskopiering av routern har startat.  Kontrollera kolumnen Datum 
 
 #: router-devices.php
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr "Klicka på ”Fortsätt” för att ta bort följande enheter."
+msgstr "Klicka på ”Fortsätt” för att ta bort urvalet av enheter nedan."
 
 #: router-devices.php
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr "Klicka på ”Fortsätt” för att aktivera följande enheter."
+msgstr "Klicka på ”Fortsätt” för att aktivera urvalet av enheter nedan."
 
 #: router-devices.php
 msgid "Enable Device(s)"
@@ -1009,7 +1009,7 @@ msgstr "Aktivera enheter"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "Klicka på ”Fortsätt” för att inaktivera följande enheter."
+msgstr "Klicka på ”Fortsätt” för att inaktivera urvalet av enheter nedan."
 
 #: router-devices.php
 msgid "Disable Device(s)"
@@ -1025,7 +1025,7 @@ msgstr "Rensa SSH-värdnycklar"
 
 #: router-devices.php
 msgid "You must select at least Router Device."
-msgstr "Du måste välja minst Router Device."
+msgstr "Du måste välja minst en routerenhet."
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1058,7 +1058,7 @@ msgstr "Aktiverad"
 
 #: router-devices.php
 msgid "Last Backup"
-msgstr "Senast backup"
+msgstr "Senaste säkerhetskopiering"
 
 #: router-devices.php
 msgid "The device type of the device"
@@ -1066,7 +1066,7 @@ msgstr "Enhetens typ av enhet"
 
 #: router-devices.php
 msgid "Connect Type"
-msgstr "Anslut typ"
+msgstr "Anslutningstyp"
 
 #: router-devices.php
 msgid "The connection type for this device"
@@ -1074,7 +1074,7 @@ msgstr "Anslutningstyp för den här enheten"
 
 #: router-devices.php
 msgid "Configs"
-msgstr "Konfigs"
+msgstr "Konfigurationer"
 
 #: router-devices.php
 msgid "The number of configurations for this device"
@@ -1094,7 +1094,7 @@ msgstr "Nästa säkerhetskopia"
 
 #: router-devices.php
 msgid "Date Backup"
-msgstr "Datum Backup"
+msgstr "Datum för säkerhetskopiering"
 
 #: router-devices.php
 msgid "Next Attempt"
@@ -1106,7 +1106,7 @@ msgstr "Senaste försöket"
 
 #: router-devices.php
 msgid "Date Change"
-msgstr "Datumändring"
+msgstr "Datum för ändring"
 
 #: router-devices.php
 msgid "Today"
@@ -1196,7 +1196,7 @@ msgstr "Användarprompt"
 
 #: router-devtypes.php
 msgid "Pass Prompt"
-msgstr "Passera uppmaning"
+msgstr "Lösenordsprompt"
 
 #: router-devtypes.php
 msgid "Version"
@@ -1204,7 +1204,7 @@ msgstr "Version"
 
 #: router-devtypes.php
 msgid "Confirm Prompt"
-msgstr "Bekräfta uppmaning"
+msgstr "Bekräftelseprompt"
 
 #: router-devtypes.php
 msgid "Check End In Config"
