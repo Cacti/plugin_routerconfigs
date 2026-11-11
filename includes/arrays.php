@@ -648,4 +648,33 @@ $rc_settings = [
 		'max_length'    => 255,
 		'default'       => ''
 	],
+	'routerconfigs_email_diff' => [
+		'friendly_name' => __('Include Config Diffs', 'routerconfigs'),
+		'description'   => __('Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
+	],
+	'routerconfigs_email_diff_exclude' => [
+		'friendly_name' => __('Diff Exclude Patterns', 'routerconfigs'),
+		'description'   => __('Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively against whole lines.', 'routerconfigs'),
+		'method'        => 'textarea',
+		'class'         => 'textAreaNotes',
+		'textarea_rows' => '4',
+		'textarea_cols' => '40',
+		'default'       => ''
+	],
 ];
+
+// The Thold Notification List option is only meaningful (and only renders a
+// valid dropdown) when the Thold plugin's notification-list table exists, so
+// add it conditionally rather than unconditionally running its drop_sql.
+if (function_exists('db_table_exists') && db_table_exists('plugin_thold_notification_lists')) {
+	$rc_settings['routerconfigs_notification_list'] = [
+		'friendly_name' => __('Thold Notification List', 'routerconfigs'),
+		'description'   => __('When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List.', 'routerconfigs'),
+		'method'        => 'drop_sql',
+		'default'       => '0',
+		'none_value'    => __('None', 'routerconfigs'),
+		'sql'           => 'SELECT id, name FROM plugin_thold_notification_lists ORDER BY name',
+	];
+}

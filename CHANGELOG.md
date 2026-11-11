@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* issue#109: Optionally append a per-device unified configuration diff to the backup Email, so a reviewer can see exactly what changed on each device after a run. A new 'Include Config Diffs' setting enables it, a 'Diff Exclude Patterns' setting lists regular expressions for volatile lines to ignore (e.g. timestamps or serial numbers), binary (non-text) configurations are skipped, and the existing Config Diff Context Lines setting controls the surrounding context. When the Thold plugin is installed, a 'Thold Notification List' option can also send the Email to that list's recipients
+
 * issue#130: Add a per-Device-Type 'Post-Login Prompts' field (one prompt|response pair per line) that is answered right after login, before the copy-to-TFTP command. Each prompt is matched as a case-insensitive regular expression against the device output and the response is sent as typed, or use <CR> to send just a carriage return. This lets devices that interpose extra prompts after login (e.g. HPE Aruba stacks: 'Press any key to continue' and 'Enter switch number to connect to or <CR>:') be backed up
 
 * issue#117: Let Weekly schedules pick specific day(s) of the week and Monthly schedules pick specific day(s) of the month (plus a Monthly on Day type: e.g. the first Monday of selected months), using Automation Networks style multi-selects on the device form that appear only for the relevant Schedule Type

@@ -689,6 +689,30 @@ msgstr ""
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr ""
 
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively against whole lines."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr ""
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr ""
+
 #: includes/devices.php
 msgid "Add to RouterConfigs Backup"
 msgstr ""
@@ -770,6 +794,10 @@ msgstr ""
 #: includes/functions.php
 #, php-format
 msgid "%s devices disabled from backup."
+msgstr ""
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
 msgstr ""
 
 #: includes/functions.php

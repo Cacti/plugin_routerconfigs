@@ -251,7 +251,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
-						$passed[] =  ['hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
+						$passed[] =  ['id' => $device['id'], 'hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
 					} else {
 						plugin_routerconfigs_log('NOTICE: Failed to download for ' . $device['hostname']);
 						$fmsg = db_fetch_cell_prepared('SELECT lasterror
@@ -303,9 +303,43 @@ td { margin: 5 10 5 10; }
 						plugin_routerconfigs_message_devicetable($message, $passed, false);
 					}
 
+					// Optional per-device config diff section (issue #109).
+					if (read_config_option('routerconfigs_email_diff') == 'on' && cacti_sizeof($passed)) {
+						$diff_patterns = plugin_routerconfigs_parse_exclude_patterns(read_config_option('routerconfigs_email_diff_exclude'));
+						$diff_context  = (int) read_config_option('routerconfigs_diff_context');
+
+						if ($diff_context < 1) {
+							$diff_context = 3;
+						}
+
+						$changed = false;
+
+						foreach ($passed as $pdev) {
+							if (!isset($pdev['id'])) {
+								continue;
+							}
+
+							$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context);
+
+							if ($diff_text !== '') {
+								if (!$changed) {
+									plugin_routerconfigs_message_title($message, 'Configuration Changes');
+									$changed = true;
+								}
+
+								$message .= '<h4>' . html_escape($pdev['hostname']) . '</h4>';
+								$message .= '<pre style="font-family:monospace;white-space:pre-wrap;border:1px solid #ccc;padding:5px;">' . html_escape($diff_text) . '</pre>';
+							}
+						}
+
+						if (!$changed) {
+							plugin_routerconfigs_message($message, __('No configuration changes were detected.', 'routerconfigs'));
+						}
+					}
+
 					$from_email = read_config_option('routerconfigs_from');
 					$from_name  = read_config_option('routerconfigs_name');
-					$to         = read_config_option('routerconfigs_email');
+					$to         = plugin_routerconfigs_notification_recipients();
 
 					if ($to != '' && $from_email != '') {
 						if ($from_name == '') {
@@ -760,6 +794,267 @@ function plugin_routerconfigs_parse_login_prompts($text): array {
 	}
 
 	return $entries;
+}
+
+/**
+ * Determines whether a configuration payload is text (not binary) and so
+ * safe to diff and embed in an Email. A NUL byte is treated as the binary
+ * marker, matching how most tools distinguish text from binary content.
+ *
+ * @param string|null $content The configuration content.
+ *
+ * @return bool True when the content is text, false when it looks binary.
+ */
+function plugin_routerconfigs_is_text_config($content): bool {
+	return strpos((string) $content, "\0") === false;
+}
+
+/**
+ * Parses the Diff Exclude Patterns setting (one regular expression per
+ * line) into a list of non-empty trimmed patterns, dropping blank lines.
+ *
+ * @param string|null $text The configured exclude-patterns text.
+ *
+ * @return array<int, string> The parsed patterns.
+ */
+function plugin_routerconfigs_parse_exclude_patterns($text): array {
+	$patterns = [];
+
+	foreach (preg_split('/\r\n|\r|\n/', (string) $text) as $line) {
+		$line = trim($line);
+
+		if ($line !== '') {
+			$patterns[] = $line;
+		}
+	}
+
+	return $patterns;
+}
+
+/**
+ * Removes configuration lines matching any of the supplied exclude
+ * patterns (each matched case-insensitively as a regular expression
+ * against the whole line) before a diff is computed, so volatile lines
+ * such as timestamps or serial numbers do not show up as changes. A
+ * pattern that is not a valid regular expression is ignored rather than
+ * fatal.
+ *
+ * @param array $lines    The configuration lines.
+ * @param array $patterns The exclude patterns.
+ *
+ * @return array<int, string> The filtered lines (re-indexed).
+ */
+function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns): array {
+	if (empty($patterns)) {
+		return array_values($lines);
+	}
+
+	// Keep only patterns that compile, validating each under a scoped error
+	// handler so a malformed pattern is silently ignored instead of emitting
+	// a warning.
+	$valid = [];
+
+	foreach ($patterns as $pattern) {
+		$regex = '/' . str_replace('/', '\/', $pattern) . '/i';
+
+		set_error_handler(static function () {
+			return true;
+		});
+
+		$ok = preg_match($regex, '') !== false;
+
+		restore_error_handler();
+
+		if ($ok) {
+			$valid[] = $regex;
+		}
+	}
+
+	if (empty($valid)) {
+		return array_values($lines);
+	}
+
+	$kept = [];
+
+	foreach ($lines as $line) {
+		$exclude = false;
+
+		foreach ($valid as $regex) {
+			if (preg_match($regex, (string) $line) === 1) {
+				$exclude = true;
+
+				break;
+			}
+		}
+
+		if (!$exclude) {
+			$kept[] = $line;
+		}
+	}
+
+	return $kept;
+}
+
+/**
+ * Renders a unified text diff of two configurations (arrays of lines),
+ * preferring the jfcherng/php-diff library bundled with Cacti core
+ * (1.2.32+) and falling back to the Horde Text_Diff library shipped with
+ * this plugin on older releases. Returns an empty string when the two
+ * inputs are identical. Called when building the backup Email's per-device
+ * diff section.
+ *
+ * @param array $lines1  The previous configuration lines.
+ * @param array $lines2  The new configuration lines.
+ * @param int   $context The number of unchanged context lines to show;
+ *                      defaults to 3.
+ *
+ * @return string The unified diff text, or '' when there is no difference.
+ */
+function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, int $context = 3): string {
+	if ($context < 1) {
+		$context = 3;
+	}
+
+	if (class_exists('\Jfcherng\Diff\Differ')) {
+		$differ = new \Jfcherng\Diff\Differ($lines1, $lines2, [
+			'context'          => $context,
+			'ignoreWhitespace' => false,
+			'ignoreCase'       => false,
+		]);
+
+		if (!cacti_sizeof($differ->getGroupedOpcodes())) {
+			return '';
+		}
+
+		$renderer = \Jfcherng\Diff\Factory\RendererFactory::make('Unified');
+
+		return (string) $renderer->render($differ);
+	}
+
+	// Horde Text_Diff fallback for Cacti 1.2.29-1.2.31 (pre jfcherng/php-diff).
+	// The test environment always has jfcherng, so this path is not exercised.
+	// @codeCoverageIgnoreStart
+	require_once(__DIR__ . '/HordeText.php');
+
+	$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
+
+	if (!cacti_sizeof($diff->getDiff())) {
+		return '';
+	}
+
+	$renderer = new Horde_Text_Diff_Renderer_Unified([
+		'leading_context_lines'  => $context,
+		'trailing_context_lines' => $context,
+	]);
+
+	return (string) $renderer->render($diff);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Safely reads a stored backup file's contents, validating that the
+ * resolved path stays within the backup's recorded directory (the same
+ * containment check the Compare page uses) so a crafted directory/filename
+ * cannot escape it.
+ *
+ * @param array $backup A backup row with 'directory' and 'filename'.
+ *
+ * @return string|false The file contents, or false when the row is
+ *                      incomplete, the path escapes its directory, or the
+ *                      file cannot be read.
+ */
+function plugin_routerconfigs_read_backup_file(array $backup) {
+	if (!isset($backup['directory']) || !isset($backup['filename'])) {
+		return false;
+	}
+
+	$dir      = plugin_routerconfigs_dir($backup['directory']);
+	$filepath = $dir . basename($backup['filename']);
+	$resolved = realpath($filepath);
+	$basedir  = realpath($dir);
+
+	if ($basedir === false || $resolved === false) {
+		return false;
+	}
+
+	if (strpos($resolved, rtrim($basedir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR) !== 0) {
+		return false;
+	}
+
+	$content = @file_get_contents($resolved);
+
+	return $content === false ? false : $content;
+}
+
+/**
+ * Builds a unified diff between a device's two most recent backups,
+ * applying the configured exclude patterns, for inclusion in the backup
+ * Email. Returns an empty string when the device has fewer than two
+ * backups, either file cannot be read, either configuration looks binary,
+ * or the two configurations are identical once excluded lines are removed.
+ *
+ * @param int   $device_id The device id.
+ * @param array $patterns  The exclude patterns (see
+ *                        plugin_routerconfigs_parse_exclude_patterns()).
+ * @param int   $context   The number of context lines; defaults to 3.
+ *
+ * @return string The unified diff text, or '' when there is nothing to
+ *                report.
+ */
+function plugin_routerconfigs_device_config_diff($device_id, array $patterns, int $context = 3): string {
+	$backups = db_fetch_assoc_prepared('SELECT directory, filename
+		FROM plugin_routerconfigs_backups
+		WHERE device = ?
+		ORDER BY btime DESC
+		LIMIT 2',
+		[$device_id]);
+
+	if (!cacti_sizeof($backups) || cacti_count($backups) < 2) {
+		return '';
+	}
+
+	$new = plugin_routerconfigs_read_backup_file($backups[0]);
+	$old = plugin_routerconfigs_read_backup_file($backups[1]);
+
+	if ($new === false || $old === false) {
+		return '';
+	}
+
+	if (!plugin_routerconfigs_is_text_config($new) || !plugin_routerconfigs_is_text_config($old)) {
+		return '';
+	}
+
+	$old_lines = plugin_routerconfigs_diff_exclude_lines(explode("\n", str_replace("\r\n", "\n", $old)), $patterns);
+	$new_lines = plugin_routerconfigs_diff_exclude_lines(explode("\n", str_replace("\r\n", "\n", $new)), $patterns);
+
+	return plugin_routerconfigs_config_unified_diff($old_lines, $new_lines, $context);
+}
+
+/**
+ * Resolves the backup Email recipient list: the configured
+ * 'routerconfigs_email' addresses, plus the recipients of the selected
+ * Thold Notification List when Thold is installed and a list is chosen.
+ * Returns a comma separated address string (possibly empty). Called from
+ * plugin_routerconfigs_download() when sending the summary Email.
+ *
+ * @return string The combined comma separated recipient list.
+ */
+function plugin_routerconfigs_notification_recipients(): string {
+	$recipients = trim((string) read_config_option('routerconfigs_email'));
+	$list_id    = (int) read_config_option('routerconfigs_notification_list');
+
+	if ($list_id > 0 && db_table_exists('plugin_thold_notification_lists')) {
+		$emails = db_fetch_cell_prepared('SELECT emails
+			FROM plugin_thold_notification_lists
+			WHERE id = ?',
+			[$list_id]);
+
+		if (!empty($emails)) {
+			$recipients = ($recipients !== '' ? $recipients . ',' : '') . trim((string) $emails);
+		}
+	}
+
+	return $recipients;
 }
 
 /**
