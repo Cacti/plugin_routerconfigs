@@ -109,6 +109,18 @@ html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', false, 4
 						<option value='sdiff'<?php if (get_request_var('diffmode') == 'sdiff') {?> selected<?php }?>><?php print __('Side by Side','routerconfigs'); ?></option>
 					</select>
 				</td>
+				<td>
+					<?php print __('Context Lines', 'routerconfigs'); ?>
+				</td>
+				<td>
+					<select id='difflines'>
+						<?php
+						foreach ($rc_diff_context as $value => $text) {
+							print "<option value='" . $value . "'" . (get_request_var('difflines') == $value ? ' selected' : '') . '>' . html_escape($text) . '</option>';
+						}
+						?>
+					</select>
+				</td>
 			</tr>
 		</table>
 	</form>
@@ -118,6 +130,18 @@ html_start_box(__('Router Backup Comparison', 'routerconfigs'), '100%', false, 4
 			var strURL = urlPath + 'plugins/routerconfigs/router-compare.php';
 			strURL += '?header=false';
 			strURL += '&diffmode=' + $('#diffmode').val();
+			strURL += '&difflines=' + $('#difflines').val();
+			strURL += '&file1=' + $('#file1').val();
+			strURL += '&file2=' + $('#file2').val();
+
+			loadPageNoHeader(strURL);
+		});
+
+		$('#difflines').change(function() {
+			var strURL = urlPath + 'plugins/routerconfigs/router-compare.php';
+			strURL += '?header=false';
+			strURL += '&diffmode=' + $('#diffmode').val();
+			strURL += '&difflines=' + $('#difflines').val();
 			strURL += '&file1=' + $('#file1').val();
 			strURL += '&file2=' + $('#file2').val();
 
@@ -242,8 +266,15 @@ if (!empty($file1) && !empty($file2)) {
 	// Text_Diff library shipped with this plugin.
 	$use_cacti_diff = class_exists('\Jfcherng\Diff\Differ');
 
+	$diffcontext = (int) get_request_var('difflines');
+
+	if ($diffcontext < 1) {
+		$diffcontext = 3;
+	}
+
 	if ($use_cacti_diff) {
 		$differOptions = [
+			'context'          => $diffcontext,
 			'ignoreWhitespace' => true,
 			'ignoreCase'       => false
 		];
@@ -265,7 +296,10 @@ if (!empty($file1) && !empty($file2)) {
 		if (get_request_var('diffmode') == 'sdiff') {
 			$renderer = new Horde_Text_Diff_Renderer_table(['auto']);
 		} else {
-			$renderer = new Horde_Text_Diff_Renderer_Unified();
+			$renderer = new Horde_Text_Diff_Renderer_Unified([
+				'leading_context_lines'  => $diffcontext,
+				'trailing_context_lines' => $diffcontext
+			]);
 		}
 
 		$text = $renderer->render($diff);
@@ -343,19 +377,28 @@ bottom_footer();
 
 /**
  * Validates and stores the backup-comparison page's filter variables
- * (diff mode, the two devices/files being compared) in the session.
- * Called from this file's top-level flow before the two backup files are
- * looked up and diffed.
+ * (diff mode, context lines, the two devices/files being compared) in the
+ * session. Called from this file's top-level flow before the two backup
+ * files are looked up and diffed.
  *
  * @return void
+ *
+ * @global array $rc_diff_context The offered context-line choices, used to
+ *                                constrain the stored 'difflines' value.
  */
 function compare_validate_vars() {
+	global $rc_diff_context;
+
 	// ================= input validation and session storage =================
 	$filters = [
 		'diffmode' => [
 			'filter'  => FILTER_CALLBACK,
 			'default' => 'inline',
 			'options' => ['options' => 'sanitize_search_string']
+		],
+		'difflines' => [
+			'filter'  => FILTER_VALIDATE_INT,
+			'default' => read_config_option('routerconfigs_diff_context') ?: '3',
 		],
 		'device1' => [
 			'filter'  => FILTER_VALIDATE_INT,
@@ -378,5 +421,13 @@ function compare_validate_vars() {
 	];
 
 	validate_store_request_vars($filters, 'sess_rc_compare');
+
+	// Constrain 'difflines' to one of the offered choices so a crafted URL or a
+	// stale session value cannot desync the dropdown from the rendered context.
+	$allowed = array_map('intval', array_keys($rc_diff_context));
+
+	if (!in_array((int) get_request_var('difflines'), $allowed, true)) {
+		set_request_var('difflines', read_config_option('routerconfigs_diff_context') ?: '3');
+	}
 	// ================= input validation =================
 }

@@ -28,6 +28,7 @@ require_once(__DIR__ . '/constants.php');
 
 global $config, $rc_settings, $rc_connection_types,
 $rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
+$rc_diff_context,
 $rc_account_actions, $rc_device_actions, $rc_devtype_actions,
 $rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
 
@@ -124,6 +125,17 @@ $rc_schedules_download = [
 	'21'  => __('21:00 (9pm)', 'routerconfigs'),
 	'22'  => __('22:00 (10pm)', 'routerconfigs'),
 	'23'  => __('23:00 (11pm)', 'routerconfigs'),
+];
+
+$rc_diff_context = [
+	'1'   => __('%d line', 1, 'routerconfigs'),
+	'2'   => __('%d lines', 2, 'routerconfigs'),
+	'3'   => __('%d lines', 3, 'routerconfigs'),
+	'5'   => __('%d lines', 5, 'routerconfigs'),
+	'10'  => __('%d lines', 10, 'routerconfigs'),
+	'15'  => __('%d lines', 15, 'routerconfigs'),
+	'25'  => __('%d lines', 25, 'routerconfigs'),
+	'50'  => __('%d lines', 50, 'routerconfigs'),
 ];
 
 $rc_account_edit_fields = [
@@ -410,6 +422,13 @@ $rc_settings = [
 		'method'        => 'drop_array',
 		'default'       => 'console',
 		'array'         => ['console' => __('Console', 'routerconfigs'), 'toptab' => __('Top Tab', 'routerconfigs')]
+	],
+	'routerconfigs_diff_context' => [
+		'friendly_name' => __('Config Diff Context Lines', 'routerconfigs'),
+		'description'   => __('The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => '3',
+		'array'         => $rc_diff_context,
 	],
 	'routerconfigs_timeout' => [
 		'friendly_name' => __('Default timeout', 'routerconfigs'),

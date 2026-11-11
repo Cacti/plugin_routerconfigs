@@ -119,7 +119,7 @@ class Horde_Text_Diff_Renderer {
 				// Don't we have any diff blocks yet?
 				if (!is_array($block)) {
 					// Extract context lines from the preceding copy block.
-					$context = array_slice($context, count($context) - $nlead);
+					$context = array_slice($context, max(0, count($context) - $nlead));
 					$x0      = $xi - count($context);
 					$y0      = $yi - count($context);
 					$block   = [];

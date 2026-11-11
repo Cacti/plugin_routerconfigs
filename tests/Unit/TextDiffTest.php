@@ -189,3 +189,46 @@ describe('Horde_Text_Diff_Engine_Native: large input arrays', function (): void 
 		expect($addedLines)->toBe(500);
 	});
 });
+
+require_once $base . '/Diff/Renderer.php';
+require_once $base . '/Diff/Renderer/Unified.php';
+
+describe('Horde_Text_Diff_Renderer_Unified: leading context clamp', function (): void {
+	it('keeps every preceding line when fewer exist than the requested context', function (): void {
+		// Four unchanged lines precede the change; request five lines of
+		// context. A negative array_slice offset would otherwise drop the
+		// earliest lines and keep only the last (nlead - count), so only
+		// 'delta' would survive instead of all four leading lines.
+		$orig  = ['alpha', 'bravo', 'charlie', 'delta', 'OLD'];
+		$final = ['alpha', 'bravo', 'charlie', 'delta', 'NEW'];
+
+		$diff     = new Horde_Text_Diff('Native', [$orig, $final]);
+		$renderer = new Horde_Text_Diff_Renderer_Unified([
+			'leading_context_lines'  => 5,
+			'trailing_context_lines' => 5
+		]);
+
+		$output = $renderer->render($diff);
+
+		expect($output)->toContain('alphabravocharliedelta');
+		expect($output)->toContain('OLD');
+		expect($output)->toContain('NEW');
+	});
+
+	it('still limits context when more preceding lines exist than requested', function (): void {
+		$orig  = ['l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'OLD'];
+		$final = ['l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'NEW'];
+
+		$diff     = new Horde_Text_Diff('Native', [$orig, $final]);
+		$renderer = new Horde_Text_Diff_Renderer_Unified([
+			'leading_context_lines'  => 2,
+			'trailing_context_lines' => 2
+		]);
+
+		$output = $renderer->render($diff);
+
+		expect($output)->toContain('l5l6');
+		expect($output)->not->toContain('l4');
+		expect($output)->toContain('OLD');
+	});
+});
