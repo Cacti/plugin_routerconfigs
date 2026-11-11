@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-05 16:02-0400\n"
+"POT-Creation-Date: 2026-11-11 16:18-0500\n"
 "PO-Revision-Date: 2024-05-25 22:08+0000\n"
 "Last-Translator: Kersten Lohmeyer <kersten.lohmeyer@gmail.com>\n"
 "Language-Team: German <http://translate.cacti.net/projects/cacti/routerconfigs/de/>\n"
@@ -231,6 +231,16 @@ msgstr "22:00 (22 Uhr)"
 #, fuzzy
 msgid "23:00 (11pm)"
 msgstr "23:00 (23:00 Uhr)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr ""
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr ""
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -520,6 +530,14 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "Top Tab"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr ""
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
 msgstr ""
 
 #: includes/arrays.php
@@ -1109,6 +1127,12 @@ msgstr ""
 #: router-compare.php
 msgid "Side by Side"
 msgstr ""
+
+#: router-compare.php
+#, fuzzy
+#| msgid "Continue"
+msgid "Context Lines"
+msgstr "Fortsetzen"
 
 #: router-compare.php
 #, fuzzy
