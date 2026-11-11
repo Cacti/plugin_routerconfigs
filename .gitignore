@@ -27,3 +27,4 @@ locales/LC_MESSAGES/*.mo
 .omc/
 locales/po/*.po
 coverage/
+.phpunit.cache/

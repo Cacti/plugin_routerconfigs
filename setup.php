@@ -344,6 +344,12 @@ function routerconfigs_check_upgrade() {
 		// renames/drops above run first so db_update_table() sees current names.
 		$tables_ready = routerconfigs_upgrade_tables();
 
+		// Convert legacy interval-in-days schedules to the Automation Networks
+		// style scheduler fields now that sched_type/recur_every exist.
+		if ($tables_ready) {
+			routerconfigs_migrate_schedule_types();
+		}
+
 		// Only record the new version (and prune retired files) once every
 		// required schema step succeeded; otherwise leave the stored version
 		// behind so the upgrade is retried on the next request.

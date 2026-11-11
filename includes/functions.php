@@ -23,6 +23,7 @@
 */
 
 require_once(__DIR__ . '/constants.php');
+require_once(__DIR__ . '/scheduler.php');
 require_once(__DIR__ . '/arrays.php');
 require_once(__DIR__ . '/../classes/LinePrompt.php');
 require_once(__DIR__ . '/../classes/PHPConnection.php');
@@ -223,6 +224,13 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					$sqlwhere  = 'AND (nextbackup <= ? OR nextbackup IS NULL)';
 					$sqlparams = [$stime];
 				}
+
+				// A Manual schedule is only ever backed up through the explicit
+				// Backup action, never on a scheduled or retry run (its next-run
+				// time resolves to 0, which would otherwise make it due on every
+				// cycle).
+				$sqlwhere   .= ' AND (sched_type IS NULL OR sched_type <> ?)';
+				$sqlparams[] = SCHEDULE_MANUAL;
 			}
 
 			$sql = "SELECT *
@@ -680,9 +688,9 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 	// imported disabled: it still has no account or device type, so enabling it
 	// now would make every scheduled poll fail until an operator finishes setup.
 	db_execute_prepared('INSERT IGNORE INTO plugin_routerconfigs_devices
-		(host_id, enabled, hostname, ipaddress)
-		VALUES (?, ?, ?, ?)',
-		[$host['id'], '', $name, $host['hostname']]);
+		(host_id, enabled, hostname, ipaddress, sched_type, recur_every)
+		VALUES (?, ?, ?, ?, ?, ?)',
+		[$host['id'], '', $name, $host['hostname'], SCHEDULE_DAILY, 1]);
 
 	if (db_affected_rows() > 0) {
 		$id = db_fetch_insert_id();
@@ -1052,7 +1060,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 					$t_back = time();
 
 					if ($scheduled) {
-						$t_next = plugin_routerconfigs_nexttime($backuptime, $device['schedule'], 86400, read_config_option('routerconfigs_hour'));
+						$t_next = plugin_routerconfigs_schedule_next_start($device, (int) $backuptime);
 					} else {
 						$t_next = db_fetch_cell_prepared('SELECT nextbackup FROM plugin_routerconfigs_devices WHERE id = ?', [$device['id']]);
 					}
