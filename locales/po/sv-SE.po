@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-05 16:02-0400\nPO-Revision-Date: 2026-11-09 22:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"PO-Revision-Date: 2026-11-09 22:18+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
+"Language: sv-SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -191,6 +203,17 @@ msgstr "22:00"
 #: includes/arrays.php
 msgid "23:00 (11pm)"
 msgstr "23:00"
+
+#: includes/arrays.php
+#, fuzzy, php-format
+#| msgid "Inline"
+msgid "%d line"
+msgstr "Inbäddat"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr ""
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -439,6 +462,14 @@ msgstr "Konsol"
 #: includes/arrays.php
 msgid "Top Tab"
 msgstr "Toppflik"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr ""
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr ""
 
 #: includes/arrays.php
 msgid "Connection timeout"
@@ -963,6 +994,12 @@ msgstr "Inbäddat"
 #: router-compare.php
 msgid "Side by Side"
 msgstr "Sida vid sida"
+
+#: router-compare.php
+#, fuzzy
+#| msgid "Continue"
+msgid "Context Lines"
+msgstr "Fortsätt"
 
 #: router-compare.php
 msgid "Compare Output"
