@@ -779,6 +779,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$dir = substr($dir,1);
 	}
 
+	// Optional dated subdirectory (e.g. .../2020-11-04/), inserted before the
+	// per-device folder so each run is grouped under its backup date.
+	$datedir = plugin_routerconfigs_sched_date_dir(read_config_option('routerconfigs_archive_datedir'), (int) $backuptime);
+
+	if ($datedir !== '') {
+		$archivepath = plugin_routerconfigs_dir($archivepath . $datedir);
+	}
+
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
 		$archivepath = plugin_routerconfigs_dir($archivepath . $dir);
 	}

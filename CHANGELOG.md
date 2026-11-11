@@ -2,6 +2,9 @@
 
 --- develop ---
 
+* issue#117: Let Weekly schedules pick specific day(s) of the week and Monthly schedules pick specific day(s) of the month (plus a Monthly on Day type: e.g. the first Monday of selected months), using Automation Networks style multi-selects on the device form that appear only for the relevant Schedule Type
+* issue#117: Add a 'Dated Subdirectory' archive option (Off / YYYY-MM-DD / YYYY/MM/DD / DD-MM-YYYY) that inserts a date-based folder into the archive path before the per-device folder, so each run is grouped under its backup date (e.g. .../2020-11-04/hostname/...); Off preserves the existing layout
+
 * issue#133: Replace the fixed Daily/Weekly/Monthly (=every 10 days) device schedule with an Automation Networks style scheduler (Schedule Type + Rerun Every), adding a true calendar Monthly backup and an explicit 10-day cadence (Daily, Rerun Every 10); the next-run calendar math is a plugin-local replica of Cacti core's api_scheduler (for Cacti 1.2.29+ where that library is unavailable) that delegates to core's api_scheduler_calculate_next_start() on Cacti 1.3+. Existing devices are migrated automatically (legacy weekly becomes a true Weekly, every other interval becomes Daily/rerun-every-N, preserving the original cadence)
 * issue#133: Add an 'Edit (bulk change settings)' Devices action so Enabled, Schedule Type, Rerun Every, Connection Type, Authentication Account, and Device Type can be changed on many devices at once; each field offers a 'No Change' option so untouched settings are left alone
 * issue#133: Skip the Telnet username prompt when a device/account has no username configured, waiting directly for the password prompt so password-only Telnet devices can be backed up

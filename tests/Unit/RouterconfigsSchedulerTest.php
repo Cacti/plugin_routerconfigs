@@ -142,6 +142,62 @@ it('exposes the schedule type options for the device form', function () {
 	expect($types)->toHaveKey(SCHEDULE_DAILY);
 	expect($types)->toHaveKey(SCHEDULE_WEEKLY);
 	expect($types)->toHaveKey(SCHEDULE_MONTHLY);
-	// Monthly on Day is not offered until its selectors exist.
-	expect($types)->not->toHaveKey(SCHEDULE_MONTHLY_ON_DAY);
+	expect($types)->toHaveKey(SCHEDULE_MONTHLY_ON_DAY);
+});
+
+it('exposes day/month option lists for the schedule selectors', function () {
+	expect(plugin_routerconfigs_sched_days_of_week())->toHaveKey(1);
+	expect(plugin_routerconfigs_sched_days_of_week())->toHaveCount(7);
+	expect(plugin_routerconfigs_sched_months())->toHaveCount(12);
+	expect(plugin_routerconfigs_sched_days_of_month())->toHaveKey(32);
+	expect(plugin_routerconfigs_sched_weeks_of_month())->toHaveKey(32);
+});
+
+it('builds the dated subdirectory only for recognized formats', function () {
+	$time = strtotime('2026-03-09 10:00:00');
+
+	expect(plugin_routerconfigs_sched_date_dir('', $time))->toBe('');
+	expect(plugin_routerconfigs_sched_date_dir('bogus', $time))->toBe('');
+	expect(plugin_routerconfigs_sched_date_dir('Y-m-d', $time))->toBe('2026-03-09');
+	expect(plugin_routerconfigs_sched_date_dir('Y/m/d', $time))->toBe('2026/03/09');
+	expect(plugin_routerconfigs_sched_date_dir('d-m-Y', $time))->toBe('09-03-2026');
+});
+
+it('defaults the dated subdirectory time to now', function () {
+	expect(plugin_routerconfigs_sched_date_dir('Y-m-d'))->toBe(date('Y-m-d'));
+	expect(plugin_routerconfigs_sched_date_dir_formats())->toHaveKey('Y-m-d');
+});
+
+it('folds the multi-select schedule inputs into comma separated storage', function () {
+	$save = plugin_routerconfigs_schedule_augment_save(
+		['sched_type' => SCHEDULE_WEEKLY],
+		[
+			'day_of_week'  => ['2', '4', '6'],
+			'month'        => [],
+			'day_of_month' => ['15'],
+			'monthly_day'  => ['3'],
+		]
+	);
+
+	expect($save['day_of_week'])->toBe('2,4,6');
+	expect($save['month'])->toBe('');
+	expect($save['day_of_month'])->toBe('15');
+	expect($save['monthly_week'])->toBe('');
+	expect($save['monthly_day'])->toBe('3');
+});
+
+it('validates monthly and monthly-on-day schedules require their day fields', function () {
+	// Weekly without a weekday is allowed.
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_WEEKLY, 'day_of_week' => '']))->toBe('');
+
+	// Daily needs nothing extra.
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_DAILY]))->toBe('');
+
+	// Monthly requires month and day of month.
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_MONTHLY, 'month' => '', 'day_of_month' => '']))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_MONTHLY, 'month' => '3', 'day_of_month' => '1']))->toBe('');
+
+	// Monthly on Day requires month, weeks, and weekdays.
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_MONTHLY_ON_DAY, 'month' => '3', 'monthly_week' => '', 'monthly_day' => '2']))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_MONTHLY_ON_DAY, 'month' => '3', 'monthly_week' => '1', 'monthly_day' => '2']))->toBe('');
 });

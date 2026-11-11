@@ -537,6 +537,23 @@ function save_devices() {
 	$save['sleep']       = get_nfilter_request_var('sleep');
 	$save['elevated']    = get_nfilter_request_var('elevated');
 
+	$sched_post = [];
+
+	foreach (['day_of_week', 'month', 'day_of_month', 'monthly_week', 'monthly_day'] as $sched_field) {
+		$sched_post[$sched_field] = isset_request_var($sched_field) ? get_nfilter_request_var($sched_field) : [];
+	}
+
+	$save = plugin_routerconfigs_schedule_augment_save($save, $sched_post);
+
+	$sched_error = plugin_routerconfigs_schedule_validate($save);
+
+	if ($sched_error !== '') {
+		raise_message('rc_sched_err', $sched_error, MESSAGE_LEVEL_ERROR);
+
+		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
+		exit;
+	}
+
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
 	if ($id && is_array($previous_endpoint) &&
@@ -608,6 +625,31 @@ function edit_devices() {
 	html_end_box();
 
 	form_save_button('router-devices.php');
+
+	?>
+	<script type='text/javascript' <?php print plugin_routerconfigs_csp_nonce(); ?>>
+	function rcToggleScheduleRows() {
+		var t = parseInt($('#sched_type').val(), 10);
+
+		var recur   = (t === <?php print SCHEDULE_DAILY; ?> || t === <?php print SCHEDULE_WEEKLY; ?> || t === <?php print SCHEDULE_HOURLY; ?>);
+		var weekly  = (t === <?php print SCHEDULE_WEEKLY; ?>);
+		var monthly = (t === <?php print SCHEDULE_MONTHLY; ?>);
+		var onday   = (t === <?php print SCHEDULE_MONTHLY_ON_DAY; ?>);
+
+		$('#row_recur_every').toggle(recur);
+		$('#row_day_of_week').toggle(weekly);
+		$('#row_month').toggle(monthly || onday);
+		$('#row_day_of_month').toggle(monthly);
+		$('#row_monthly_week').toggle(onday);
+		$('#row_monthly_day').toggle(onday);
+	}
+
+	$(function() {
+		$('#sched_type').change(rcToggleScheduleRows);
+		rcToggleScheduleRows();
+	});
+	</script>
+	<?php
 }
 
 /**
