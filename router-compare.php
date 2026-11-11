@@ -382,8 +382,13 @@ bottom_footer();
  * files are looked up and diffed.
  *
  * @return void
+ *
+ * @global array $rc_diff_context The offered context-line choices, used to
+ *                                constrain the stored 'difflines' value.
  */
 function compare_validate_vars() {
+	global $rc_diff_context;
+
 	// ================= input validation and session storage =================
 	$filters = [
 		'diffmode' => [
@@ -416,5 +421,13 @@ function compare_validate_vars() {
 	];
 
 	validate_store_request_vars($filters, 'sess_rc_compare');
+
+	// Constrain 'difflines' to one of the offered choices so a crafted URL or a
+	// stale session value cannot desync the dropdown from the rendered context.
+	$allowed = array_map('intval', array_keys($rc_diff_context));
+
+	if (!in_array((int) get_request_var('difflines'), $allowed, true)) {
+		set_request_var('difflines', read_config_option('routerconfigs_diff_context') ?: '3');
+	}
 	// ================= input validation =================
 }
