@@ -457,6 +457,14 @@ $rc_devtype_edit_fields = [
 		'default'       => '',
 		'max_length'    => '50'
 	],
+	'loginprompts' => [
+		'friendly_name' => __('Post-Login Prompts', 'routerconfigs'),
+		'description'   => __('Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output; the response is sent as typed, or use <CR> to send just a carriage return. Example: Press any key|<CR>', 'routerconfigs'),
+		'method'        => 'textarea',
+		'value'         => '|arg1:loginprompts|',
+		'textarea_rows' => '4',
+		'textarea_cols' => '60',
+	],
 	'id' => [
 		'method' => 'hidden_zero',
 		'value'  => '|arg1:id|'

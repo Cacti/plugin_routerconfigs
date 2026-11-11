@@ -82,6 +82,11 @@ abstract class PHPShellConnection extends PHPConnection {
 	 *              error or if elevation could not be ensured.
 	 */
 	function Download($filename, $backuppath) {
+		// Answer any device-specific prompts that appear right after login
+		// (e.g. "Press any key to continue", stacked-switch selection) before
+		// issuing the copy-to-TFTP command (issue #130).
+		$this->ProcessLoginPrompts();
+
 		// Per-device TFTP server overrides the global default when set (issue #133).
 		$tftpserver = plugin_routerconfigs_device_tftpserver($this->device);
 		$command    = $this->deviceType['copytftp'];
@@ -289,5 +294,46 @@ abstract class PHPShellConnection extends PHPConnection {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Sends the device type's configured Post-Login Prompt responses
+	 * (issue #130). For each parsed prompt/response pair it waits briefly
+	 * for the prompt to appear in the device output (matched as a
+	 * case-insensitive regular expression), then sends the response, with
+	 * an empty response meaning just a carriage return. Devices without any
+	 * configured prompts are unaffected. Called at the start of Download(),
+	 * before the copy-to-TFTP command.
+	 *
+	 * @return void
+	 */
+	function ProcessLoginPrompts() {
+		$text    = isset($this->deviceType['loginprompts']) ? $this->deviceType['loginprompts'] : '';
+		$prompts = plugin_routerconfigs_parse_login_prompts($text);
+
+		if (!cacti_sizeof($prompts)) {
+			return;
+		}
+
+		foreach ($prompts as $entry) {
+			$response = '';
+			$x        = 0;
+
+			while ($x < 5) {
+				$this->GetResponse($response);
+
+				if (@preg_match('/' . $entry['prompt'] . '/i', $response) === 1) {
+					break;
+				}
+
+				$this->Sleep();
+				$x++;
+			}
+
+			$this->Log("DEBUG: Sending post-login response for prompt '" . $entry['prompt'] . "'");
+
+			$result = '';
+			$this->DoCommand($entry['response'], $result);
+		}
 	}
 }

@@ -718,6 +718,51 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 }
 
 /**
+ * Parses a device type's Post-Login Prompts text (one "prompt|response"
+ * pair per line) into an ordered list of ['prompt' => regex,
+ * 'response' => string] entries. Blank lines and lines without a '|'
+ * separator are ignored, as is any line whose prompt side is empty. A
+ * response of '<CR>' (case-insensitive) or an empty response is
+ * normalized to '' meaning "send only a carriage return". Called from
+ * PHPShellConnection::ProcessLoginPrompts() to answer device-specific
+ * prompts that appear right after login (e.g. "Press any key to
+ * continue", a stacked-switch selection) before the copy-to-TFTP command.
+ *
+ * @param string|null $text The configured prompt/response text.
+ *
+ * @return array<int, array<string, string>> The parsed prompt/response
+ *                                           entries.
+ */
+function plugin_routerconfigs_parse_login_prompts($text): array {
+	$entries = [];
+
+	foreach (preg_split('/\r\n|\r|\n/', (string) $text) as $line) {
+		$line = trim($line);
+
+		if ($line === '' || strpos($line, '|') === false) {
+			continue;
+		}
+
+		list($prompt, $response) = explode('|', $line, 2);
+
+		$prompt   = trim($prompt);
+		$response = trim($response);
+
+		if ($prompt === '') {
+			continue;
+		}
+
+		if (strcasecmp($response, '<CR>') === 0) {
+			$response = '';
+		}
+
+		$entries[] = ['prompt' => $prompt, 'response' => $response];
+	}
+
+	return $entries;
+}
+
+/**
  * Downloads a single device's configuration: resolves its effective
  * connection settings (timeout/sleep/connection type/elevated flag,
  * falling back through device -> device type -> global setting
