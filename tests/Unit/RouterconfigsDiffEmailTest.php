@@ -263,11 +263,26 @@ it('hides secret values to the end of the line but keeps the line', function (st
 	// Accepted over-redaction: the keyword rule cannot tell these apart.
 	'over-redacts description'  => ['  description key account', '  description key <secret hidden>'],
 	'over-redacts crypto key'   => ['crypto key generate rsa modulus 2048', 'crypto key <secret hidden>'],
+	'over-redacts radius tail'  => ['radius-server host 192.0.2.5 key "PLACEHOLDER" authentication login', 'radius-server host 192.0.2.5 key <secret hidden> authentication <secret hidden>'],
 	// Nothing follows the keyword, so nothing is hidden.
 	'password-encryption kept'  => ['service password-encryption', 'service password-encryption'],
 	'ordinary line unchanged'   => ['interface GigabitEthernet0/1', 'interface GigabitEthernet0/1'],
 	'snmp v3 host is a user'    => ['snmp-server host 192.0.2.1 version 3 priv v3user', 'snmp-server host 192.0.2.1 version 3 priv v3user'],
 	'hsrp md5 does not count'   => [' standby 1 authentication md5', ' standby 1 authentication md5'],
+	'password= with no space'   => ['password=PLACEHOLDER', 'password=<secret hidden>'],
+	'secret: with no space'     => ['  secret:PLACEHOLDER', '  secret:<secret hidden>'],
+	'key-string= in one token'  => [' key-string=PLACEHOLDER', ' key-string=<secret hidden>'],
+	'set pwd'                   => ['    set pwd PLACEHOLDER', '    set pwd <secret hidden>'],
+	'type digit is its own word' => ['enable secret 5PLACEHOLDER', 'enable secret <secret hidden>'],
+	'lone digit is the value'   => ['enable password 7', 'enable password <secret hidden>'],
+	'escaped quote in a value'  => ['set psk "PLACE\\"HOLDER" next', 'set psk <secret hidden> next'],
+	'secret after a quoted one' => ['set psk "PLACEHOLDER" key PLACEHOLDER', 'set psk <secret hidden> key <secret hidden>'],
+	'nhrp authentication'       => [' ip nhrp authentication PLACEHOLDER', ' ip nhrp authentication <secret hidden>'],
+	'bare authentication text'  => ['  authentication text PLACEHOLDER', '  authentication text <secret hidden>'],
+	'ospf message-digest kept'  => [' ip ospf authentication message-digest', ' ip ospf authentication message-digest'],
+	'dot1x port-control kept'   => [' authentication port-control auto', ' authentication port-control auto'],
+	'aaa method list kept'      => ['aaa authentication login default group tacacs+ local', 'aaa authentication login default group tacacs+ local'],
+	'certificate chain kept'    => ['crypto pki certificate chain TP-self', 'crypto pki certificate chain TP-self'],
 ]);
 
 it('hides every line of a multi-line secret', function (array $lines, array $expected) {
@@ -281,42 +296,179 @@ it('hides every line of a multi-line secret', function (array $lines, array $exp
 		['crypto pki certificate chain TP-self', ' certificate self-signed 01', '  PLACEHOLDER row one', '  PLACEHOLDER row two', '  quit', 'hostname r1'],
 		['crypto pki certificate chain TP-self', ' certificate self-signed 01', '  <secret hidden>', '  <secret hidden>', '  quit', 'hostname r1'],
 	],
+	'quote close re-checks the rest of the line' => [
+		['    set private-key "PLACEHOLDER-A', 'PLACEHOLDER-B" set passwd PLACEHOLDER-C', '    next'],
+		['    set private-key <secret hidden>', '<secret hidden>" set passwd <secret hidden>', '    next'],
+	],
+	'escaped quote does not close a block' => [
+		['set psk "PLACEHOLDER-A', 'PLACE\\"HOLDER-B', 'PLACEHOLDER-C"', 'next'],
+		['set psk <secret hidden>', '<secret hidden>', '<secret hidden>"', 'next'],
+	],
+	'unterminated quote hides the rest' => [
+		['set psk "PLACEHOLDER-A', 'PLACEHOLDER-B', 'hostname r1'],
+		['set psk <secret hidden>', '<secret hidden>', '<secret hidden>'],
+	],
+	'short rows inside a certificate block' => [
+		[' certificate ca 0A1B', '  PLACEHOLDER', '  AB', '  quit', 'hostname r1'],
+		[' certificate ca 0A1B', '  <secret hidden>', '  <secret hidden>', '  quit', 'hostname r1'],
+	],
+	'certificate line that is not an opener' => [
+		[' certificate password PLACEHOLDER', 'hostname r1'],
+		[' certificate password <secret hidden>', 'hostname r1'],
+	],
+	'unterminated certificate hides the rest' => [
+		[' certificate self-signed 01', '  PLACEHOLDER row', 'hostname r1'],
+		[' certificate self-signed 01', '  <secret hidden>', '<secret hidden>'],
+	],
+	'pem on one line' => [
+		['-----BEGIN CERTIFICATE-----PLACEHOLDER-----END CERTIFICATE----- key PLACEHOLDER', 'hostname r1'],
+		['-----BEGIN CERTIFICATE-----<secret hidden>-----END CERTIFICATE----- key <secret hidden>', 'hostname r1'],
+	],
+	'keyword value opens a pem block' => [
+		['ssl key -----BEGIN RSA PRIVATE KEY-----', 'PLACEHOLDER', '-----END RSA PRIVATE KEY-----', 'hostname r1'],
+		['ssl key <secret hidden>', '<secret hidden>', '-----END RSA PRIVATE KEY-----', 'hostname r1'],
+	],
+	'malformed begin marker' => [
+		['-----BEGIN PLACEHOLDER', 'PLACEHOLDER', '-----END X-----', 'hostname r1'],
+		['-----BEGIN <secret hidden>', '<secret hidden>', '-----END X-----', 'hostname r1'],
+	],
 	'cisco key-string block' => [
 		['  key-string', '   PLACEHOLDER row', '  quit', ' hostname r1'],
 		['  key-string', '   <secret hidden>', '  quit', ' hostname r1'],
 	],
 	'fortios quoted multi-line value' => [
 		['    set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----', 'PLACEHOLDER line', '-----END ENCRYPTED PRIVATE KEY-----"', '    next'],
-		['    set private-key <secret hidden>', '<secret hidden>', '<secret hidden>', '    next'],
+		['    set private-key <secret hidden>', '<secret hidden>', '<secret hidden>"', '    next'],
 	],
 ]);
 
-it('hides a multi-line secret inside a diff hunk and keeps the markers', function () {
-	$diff = "@@ -1,4 +1,4 @@\n hostname r1\n-    set private-key \"PLACEHOLDER-OLD\n-PLACEHOLDER-OLD-2\"\n+    set private-key \"PLACEHOLDER-NEW\n+PLACEHOLDER-NEW-2\"\n interface Gi1";
-
-	$redacted = plugin_routerconfigs_redact_diff($diff);
-
-	expect($redacted)->not->toContain('PLACEHOLDER');
-	expect($redacted)->toBe("@@ -1,4 +1,4 @@\n hostname r1\n-    set private-key <secret hidden>\n-<secret hidden>\n+    set private-key <secret hidden>\n+<secret hidden>\n interface Gi1");
-});
-
 it('hides secrets in an emailed diff unless they are included on purpose', function () {
 	$dir = rc_diff_tmpdir([
-		'new.cfg' => "hostname r1\nenable secret 9 NEWHASH-PLACEHOLDER\nsnmp-server community NEWCOMM-PLACEHOLDER RO\n",
+		'new.cfg' => "hostname r2\nenable secret 9 NEWHASH-PLACEHOLDER\nsnmp-server community NEWCOMM-PLACEHOLDER RO\n",
 		'old.cfg' => "hostname r1\nenable secret 9 OLDHASH-PLACEHOLDER\nsnmp-server community OLDCOMM-PLACEHOLDER RO\n",
 	]);
 	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
 
 	$diff = plugin_routerconfigs_device_config_diff(5, [], 3);
 
-	// The change is still visible as a -/+ pair, without either value.
-	expect($diff)->toContain('-enable secret 9 <secret hidden>');
-	expect($diff)->toContain('+enable secret 9 <secret hidden>');
-	expect($diff)->toContain('+snmp-server community <secret hidden>');
-	expect($diff)->toContain(' hostname r1');
-	expect($diff)->not->toContain('NEWHASH');
-	expect($diff)->not->toContain('OLDHASH');
-	expect($diff)->not->toContain('COMM-PLACEHOLDER');
+	// Both configurations are redacted before the comparison, so a change
+	// confined to a hidden value is not a difference; context is clean.
+	expect($diff)->toContain('-hostname r1');
+	expect($diff)->toContain('+hostname r2');
+	expect($diff)->toContain(' enable secret 9 <secret hidden>');
+	expect($diff)->toContain(' snmp-server community <secret hidden>');
+	expect($diff)->not->toContain('PLACEHOLDER');
 
 	expect(plugin_routerconfigs_device_config_diff(5, [], 3, false))->toContain('NEWHASH');
+});
+
+it('reports no difference when only a hidden value changed', function () {
+	$dir = rc_diff_tmpdir([
+		'new.cfg' => "hostname r1\nenable secret 9 NEWHASH-PLACEHOLDER\n",
+		'old.cfg' => "hostname r1\nenable secret 9 OLDHASH-PLACEHOLDER\n",
+	]);
+	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
+
+	expect(plugin_routerconfigs_device_config_diff(5, [], 3))->toBe('');
+});
+
+it('hides a block whose diff hunk starts in the middle of it', function () {
+	// A long certificate whose rows are short and not hex: only the opener
+	// on line 2 marks them as secret, and the hunk starts far below it.
+	$rows = [];
+
+	for ($i = 1; $i <= 30; $i++) {
+		$rows[] = sprintf('  PLACEHOLDER-ROW-%02d', $i);
+	}
+
+	$old = array_merge(['crypto pki certificate chain TP-self', ' certificate self-signed 01'], $rows, ['  quit', 'hostname r1']);
+	$new = $old;
+	$new[20] = '  PLACEHOLDER-ROW-CHANGED';
+
+	$dir = rc_diff_tmpdir([
+		'new.cfg' => implode("\n", $new),
+		'old.cfg' => implode("\n", $old),
+	]);
+	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
+
+	// Every row is redacted to the same text, so nothing differs.
+	expect(plugin_routerconfigs_device_config_diff(5, [], 3))->toBe('');
+	expect(plugin_routerconfigs_device_config_diff(5, [], 3, false))->toContain('@@ -18,7 +18,7 @@');
+});
+
+it('leaves no placeholder secret anywhere in the diff of a realistic configuration', function () {
+	$config = static function (string $v): string {
+		return implode("\n", [
+			'Current configuration : 4242 bytes',
+			'! Last configuration change at 10:00:00 UTC ' . $v . ' by admin',
+			'hostname core-' . $v,
+			'enable secret 9 PLACEHOLDER-ENABLE-' . $v,
+			'username admin privilege 15 secret 9 PLACEHOLDER-USER-' . $v,
+			'username ops password 7 PLACEHOLDER-OPS-' . $v,
+			'aaa authentication login default group tacacs+ local',
+			'crypto pki certificate chain TP-self-signed-1',
+			' certificate self-signed 01',
+			'  PLACEHOLDER-CERT-A-' . $v,
+			'  PLACEHOLDER-CERT-B-' . $v,
+			'  quit',
+			'crypto isakmp key PLACEHOLDER-PSK-' . $v . ' address 192.0.2.7',
+			'key chain KC',
+			' key 1',
+			'  key-string 7 PLACEHOLDER-KC-' . $v,
+			'crypto key pubkey-chain rsa',
+			' named-key peer',
+			'  key-string',
+			'   PLACEHOLDER-PUB-' . $v,
+			'  quit',
+			'interface GigabitEthernet0/1',
+			' description uplink ' . $v,
+			' ip ospf message-digest-key 1 md5 7 PLACEHOLDER-OSPF-' . $v,
+			' ip nhrp authentication PLACEHOLDER-NHRP-' . $v,
+			' standby 1 authentication text PLACEHOLDER-HSRP-' . $v,
+			' authentication port-control auto',
+			'router bgp 65000',
+			' neighbor 192.0.2.2 password 7 PLACEHOLDER-BGP-' . $v,
+			'snmp-server community PLACEHOLDER-COMM-' . $v . ' RO',
+			'snmp-server host 192.0.2.1 version 2c PLACEHOLDER-TRAP-' . $v,
+			'snmp-server user v3 g v3 auth sha PLACEHOLDER-V3A-' . $v . ' priv aes 128 PLACEHOLDER-V3P-' . $v,
+			'tacacs server T',
+			' key 7 PLACEHOLDER-TAC-' . $v,
+			'ip http secure-server',
+			'ssl key',
+			'-----BEGIN RSA PRIVATE KEY-----',
+			'PLACEHOLDER-PEM-' . $v,
+			'-----END RSA PRIVATE KEY-----',
+			'config system admin',
+			'    set password=PLACEHOLDER-FGT-' . $v,
+			'    set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----',
+			'PLACEHOLDER-FGT-KEY-' . $v,
+			'-----END ENCRYPTED PRIVATE KEY-----"',
+			'    set psk "PLACE\"HOLDER-ESC-' . $v . '"',
+			'    set pwd PLACEHOLDER-PWD-' . $v,
+			'    set secret:PLACEHOLDER-COLON-' . $v,
+			'end',
+			'line vty 0 4',
+			' password 7 PLACEHOLDER-VTY-' . $v,
+			'end',
+		]);
+	};
+
+	// Every line of the configuration is redacted.
+	$redacted = implode("\n", plugin_routerconfigs_redact_lines(explode("\n", $config('A'))));
+	expect($redacted)->not->toContain('PLACEHOLDER');
+	expect($redacted)->toContain('aaa authentication login default group tacacs+ local');
+	expect($redacted)->toContain(' authentication port-control auto');
+
+	$dir = rc_diff_tmpdir(['new.cfg' => $config('B'), 'old.cfg' => $config('A')]);
+	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
+
+	// Context 100 puts every remaining line in the diff as -, + or context.
+	$diff = plugin_routerconfigs_device_config_diff(5, [], 100);
+
+	expect($diff)->toContain('-hostname core-A');
+	expect($diff)->toContain('+hostname core-B');
+	expect($diff)->toContain(' crypto pki certificate chain TP-self-signed-1');
+	expect($diff)->not->toContain('PLACEHOLDER');
+	expect($diff)->not->toContain('PLACE\\"HOLDER');
+	expect(plugin_routerconfigs_device_config_diff(5, [], 100, false))->toContain('PLACEHOLDER-PEM-B');
 });

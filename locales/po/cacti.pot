@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 17:33-0800\n"
+"POT-Creation-Date: 2026-11-11 17:41-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -702,7 +702,7 @@ msgid "Include Secrets in Diffs"
 msgstr ""
 
 #: includes/arrays.php
-msgid "Send secret values in the emailed diff as they are. When unchecked (the default), everything after a secret keyword is replaced with &lt;secret hidden&gt; while the line itself is kept, so a changed password still shows up as a change without its value. Redaction fails closed: any line with a word containing passw, secret, psk, key, passphrase, community or md5 loses the rest of the line, and PEM blocks, certificate and key-string blocks, multi-line quoted values and hex or base64 rows are hidden throughout. This also hides some harmless text (e.g. a description mentioning a key). Lines without such a keyword are recognized from Cisco IOS/NX-OS syntax (SNMP trap host communities, SNMPv3 keys, HSRP/VRRP text authentication); other vendors' keyword-less secrets may not be recognized. Stored backups are never changed."
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), both configurations are redacted before they are compared: everything after a secret keyword is replaced with &lt;secret hidden&gt; while the line itself is kept, so a change confined to a hidden value does not appear in the diff. Redaction fails closed: any line with a word containing passw, passphrase, pwd, secret, psk, key, community or md5, or with an authentication value, loses the rest of the line, and PEM blocks, certificate and key-string blocks, multi-line quoted values and hex or base64 rows are hidden throughout; a block that never ends hides the rest of the configuration. This also hides some harmless text (e.g. a description mentioning a key). Exclude patterns are matched against the redacted text. Lines without such a keyword are recognized from Cisco IOS/NX-OS syntax (SNMP trap host communities, SNMPv3 keys); other vendors' keyword-less secrets may not be recognized. Stored backups are never changed."
 msgstr ""
 
 #: includes/arrays.php
