@@ -30,7 +30,7 @@ require_once(__DIR__ . '/scheduler.php');
 global $config, $rc_settings, $rc_connection_types,
 $rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
 $rc_schedules_recur,
-$rc_diff_context,
+$rc_diff_context, $rc_notification_list_setting,
 $rc_account_actions, $rc_device_actions, $rc_devtype_actions,
 $rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
 
@@ -646,13 +646,19 @@ $rc_settings = [
 	],
 	'routerconfigs_email_diff' => [
 		'friendly_name' => __('Include Config Diffs', 'routerconfigs'),
-		'description'   => __('Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped.', 'routerconfigs'),
+		'description'   => __('Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS \'! Last configuration change\', \'! NVRAM config last updated\', \'ntp clock-period\' and \'Current configuration :\', and NX-OS \'!Time:\' and \'!Running configuration last done at:\') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
+	],
+	'routerconfigs_email_diff_secrets' => [
+		'friendly_name' => __('Include Secrets in Diffs', 'routerconfigs'),
+		'description'   => __('Send secret values in the emailed diff as they are. When unchecked (the default), each secret value is replaced with &lt;secret hidden&gt; and the rest of the line is kept, so a changed password still shows up as a change without its value. Redaction covers passwords and secrets of every type (0, 5, 7, 8, 9), SNMP communities and SNMPv3 auth/priv keys, TACACS+/RADIUS keys, IPsec/ISAKMP pre-shared keys, OSPF/BGP/HSRP/VRRP/IS-IS authentication, PPP and wireless keys, and certificate/key hex blocks. The patterns follow Cisco IOS/NX-OS syntax, with a generic fallback for lines naming a password, secret, community or key; other vendors\' secrets may not all be recognized. Stored backups are never changed.', 'routerconfigs'),
 		'method'        => 'checkbox',
 		'default'       => ''
 	],
 	'routerconfigs_email_diff_exclude' => [
 		'friendly_name' => __('Diff Exclude Patterns', 'routerconfigs'),
-		'description'   => __('Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively against whole lines.', 'routerconfigs'),
+		'description'   => __('Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored.', 'routerconfigs'),
 		'method'        => 'textarea',
 		'class'         => 'textAreaNotes',
 		'textarea_rows' => '4',
@@ -661,16 +667,13 @@ $rc_settings = [
 	],
 ];
 
-// The Thold Notification List option is only meaningful (and only renders a
-// valid dropdown) when the Thold plugin's notification-list table exists, so
-// add it conditionally rather than unconditionally running its drop_sql.
-if (function_exists('db_table_exists') && db_table_exists('plugin_thold_notification_lists')) {
-	$rc_settings['routerconfigs_notification_list'] = [
-		'friendly_name' => __('Thold Notification List', 'routerconfigs'),
-		'description'   => __('When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List.', 'routerconfigs'),
-		'method'        => 'drop_sql',
-		'default'       => '0',
-		'none_value'    => __('None', 'routerconfigs'),
-		'sql'           => 'SELECT id, name FROM plugin_thold_notification_lists ORDER BY name',
-	];
-}
+// Added to the settings by routerconfigs_config_settings() only when Thold's
+// plugin_notification_lists table exists, since its drop_sql needs it.
+$rc_notification_list_setting = [
+	'friendly_name' => __('Thold Notification List', 'routerconfigs'),
+	'description'   => __('When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List.', 'routerconfigs'),
+	'method'        => 'drop_sql',
+	'default'       => '0',
+	'none_value'    => __('None', 'routerconfigs'),
+	'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
+];

@@ -554,18 +554,29 @@ function routerconfigs_poller_bottom() {
  *                            but not directly used here).
  * @global array $rc_settings  This plugin's settings field definitions,
  *                            merged into $settings.
+ * @global array $rc_notification_list_setting The Thold Notification List
+ *                            field, added when Thold's table exists.
  */
 function routerconfigs_config_settings() {
-	global $tabs, $settings, $config, $rc_settings;
+	global $tabs, $settings, $config, $rc_settings, $rc_notification_list_setting;
 
 	routerconfigs_check_upgrade();
 
 	$tabs['routerconfigs'] = __('Router Configs', 'routerconfigs');
 
+	$fields = $rc_settings;
+
+	// The Thold Notification List option only renders a valid dropdown when
+	// Thold's notification list table exists. Checked here, when the settings
+	// are built, rather than on every include of includes/arrays.php.
+	if (db_table_exists('plugin_notification_lists')) {
+		$fields['routerconfigs_notification_list'] = $rc_notification_list_setting;
+	}
+
 	if (isset($settings['routerconfigs'])) {
-		$settings['routerconfigs'] = array_merge($settings['routerconfigs'], $rc_settings);
+		$settings['routerconfigs'] = array_merge($settings['routerconfigs'], $fields);
 	} else {
-		$settings['routerconfigs'] = $rc_settings;
+		$settings['routerconfigs'] = $fields;
 	}
 }
 

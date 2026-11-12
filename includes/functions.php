@@ -319,7 +319,7 @@ td { margin: 5 10 5 10; }
 								continue;
 							}
 
-							$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context);
+							$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context, read_config_option('routerconfigs_email_diff_secrets') != 'on');
 
 							if ($diff_text !== '') {
 								if (!$changed) {
@@ -759,7 +759,8 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
  * '\/' is kept as it is. Compiling is checked without emitting a warning,
  * and results are cached per request so a pattern applied to every line of
  * a configuration is checked once. Shared by
- * PHPShellConnection::ProcessLoginPrompts() and save_devicetypes().
+ * PHPShellConnection::ProcessLoginPrompts(), save_devicetypes() and
+ * plugin_routerconfigs_diff_exclude_lines().
  *
  * @param string $pattern The regular expression without delimiters.
  * @param string $flags   The pattern modifiers, e.g. 'i'.
@@ -917,12 +918,32 @@ function plugin_routerconfigs_parse_exclude_patterns($text): array {
 }
 
 /**
+ * Returns the volatile-line patterns that are always removed before two
+ * backups are compared, because they change on every backup without a
+ * configuration change. The Cisco IOS lines follow Oxidized's IOS model
+ * and the NX-OS lines its NX-OS model (lib/oxidized/model/ios.rb and
+ * nxos.rb).
+ *
+ * @return array<int, string> The patterns, without delimiters.
+ */
+function plugin_routerconfigs_diff_volatile_patterns(): array {
+	return [
+		'^! (Last|No) configuration change (at|since)',
+		'^! NVRAM config last updated at',
+		'^ntp clock-period ',
+		'^Current configuration : ',
+		'^!Time:',
+		'^!Running configuration last done at:',
+	];
+}
+
+/**
  * Removes configuration lines matching any of the supplied exclude
- * patterns (each matched case-insensitively as a regular expression
- * against the whole line) before a diff is computed, so volatile lines
- * such as timestamps or serial numbers do not show up as changes. A
- * pattern that is not a valid regular expression is ignored rather than
- * fatal.
+ * patterns (each a case-insensitive regular expression, matched anywhere
+ * in the line unless anchored with ^ or $) before a diff is computed, so
+ * volatile lines such as timestamps or serial numbers do not show up as
+ * changes. Patterns are compiled by plugin_routerconfigs_regex(), and one
+ * that is not a valid regular expression is ignored rather than fatal.
  *
  * @param array $lines    The configuration lines.
  * @param array $patterns The exclude patterns.
@@ -930,32 +951,17 @@ function plugin_routerconfigs_parse_exclude_patterns($text): array {
  * @return array<int, string> The filtered lines (re-indexed).
  */
 function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns): array {
-	if (empty($patterns)) {
-		return array_values($lines);
-	}
-
-	// Keep only patterns that compile, validating each under a scoped error
-	// handler so a malformed pattern is silently ignored instead of emitting
-	// a warning.
 	$valid = [];
 
 	foreach ($patterns as $pattern) {
-		$regex = '/' . str_replace('/', '\/', $pattern) . '/i';
+		$regex = plugin_routerconfigs_regex((string) $pattern);
 
-		set_error_handler(static function () {
-			return true;
-		});
-
-		$ok = preg_match($regex, '') !== false;
-
-		restore_error_handler();
-
-		if ($ok) {
+		if ($regex !== null) {
 			$valid[] = $regex;
 		}
 	}
 
-	if (empty($valid)) {
+	if (!cacti_sizeof($valid)) {
 		return array_values($lines);
 	}
 
@@ -978,6 +984,114 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns):
 	}
 
 	return $kept;
+}
+
+/**
+ * Returns the patterns that hide secret values in an emailed diff, as
+ * pattern => replacement pairs, tried in order until one changes the
+ * line. Each keeps the start of the line (and, where the value is
+ * followed by more options, the rest of it) and puts '<secret hidden>' in
+ * place of the value. The line classes follow what
+ * Oxidized's Cisco IOS and NX-OS models redact (lib/oxidized/model/ios.rb
+ * and nxos.rb) and Cisco's password types: type 7 is reversible and
+ * types 5, 8 and 9 are crackable hashes, so every type is hidden.
+ *
+ * @return array<string, string> Map of PCRE pattern to replacement.
+ */
+function plugin_routerconfigs_secret_patterns(): array {
+	$hidden = '$1 <secret hidden>';
+
+	return [
+		// SNMP communities, including the one on a v1/v2c trap host.
+		'/^(\s*snmp-server community)\s+\S+/i' => $hidden,
+		'/^(\s*snmp-server host\s+\S+(?:\s+vrf\s+\S+)?(?:\s+(?:informs?|traps))?(?:\s+version\s+(?:1|2c))?)\s+(?!version\b)\S+/i' => $hidden,
+		'/^(\s*snmp-server mib community-map)\s+\S+/i' => $hidden,
+		// SNMPv3 user authentication and privacy keys.
+		'/^(\s*snmp-server user\s.*?\bauth\s+(?:md5|sha\S*))\s+\S+(.*?\bpriv(?:\s+(?:des\S*|3des|aes\S*))?(?:\s+\d+)?)\s+\S+/i' => '$1 <secret hidden>$2 <secret hidden>',
+		'/^(\s*snmp-server user\s.*?\bauth\s+(?:md5|sha\S*))\s+\S+/i' => $hidden,
+		// Local users, enable, and line passwords of every type.
+		'/^(\s*username\s+\S+.*?\s(?:password|secret)(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(\s*enable\s+(?:password|secret)(?:\s+level\s+\d+)?(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(\s+(?:password|secret)(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(\s*key config-key password-encrypt)\s+\S.*$/i' => $hidden,
+		// TACACS+ and RADIUS keys, global and inside server blocks.
+		'/^(\s*(?:tacacs-server|radius-server)\s.*?\bkey(?:\s+\d+)?)\s+\S+/i' => $hidden,
+		'/^(\s+(?:server-)?key(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(.*\bserver-key(?:\s+\d+)?)\s+\S+/i' => $hidden,
+		// Key chains, OSPF, BGP, HSRP, VRRP and IS-IS authentication.
+		'/^(\s*key-string(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(.*\bmessage-digest-key\s+\d+\s+md5(?:\s+\d+)?)\s+\S+/i' => $hidden,
+		'/^(\s*ip ospf authentication-key(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(\s*neighbor\s+\S+\s+password(?:\s+\d+)?)\s+\S.*$/i' => $hidden,
+		'/^(\s*standby(?:\s+\d+)?\s+authentication\s+md5\s+key-string(?:\s+\d+)?)\s+\S+/i' => $hidden,
+		'/^(\s*standby(?:\s+\d+)?\s+authentication(?:\s+text)?)\s+(?!md5\b)\S+\s*$/i' => $hidden,
+		'/^(\s*vrrp\s+\d+\s+authentication\s+(?:text|md5\s+key-string(?:\s+\d+)?))\s+\S+/i' => $hidden,
+		'/^(\s*(?:domain|area)-password)\s+\S+/i' => $hidden,
+		'/^(\s*isis\s+password)\s+\S+/i' => $hidden,
+		// IPsec/ISAKMP and IKEv2 pre-shared keys.
+		'/^(\s*crypto isakmp key(?:\s+\d)?)\s+\S+/i' => $hidden,
+		'/^(\s*pre-shared-key(?:\s+(?:local|remote))?(?:\s+\d)?)\s+\S.*$/i' => $hidden,
+		// PPP and wireless keys.
+		'/^(\s*ppp\s+(?:chap|pap)\s.*?\bpassword(?:\s+\d)?)\s+\S.*$/i' => $hidden,
+		'/^(.*\bwpa-psk\s+(?:ascii|hex)(?:\s+\d)?)\s+\S.*$/i' => $hidden,
+		// Certificate and key material printed as rows of 8-digit hex words.
+		'/^(\s+)[0-9a-f]{8}(?:\s+[0-9a-f]{8})+\s*$/i' => '$1<key data hidden>',
+	];
+}
+
+/**
+ * Hides secret values in one configuration line, keeping the rest of the
+ * line so the structure of a change stays visible. When none of the
+ * patterns in plugin_routerconfigs_secret_patterns() changes the line, a
+ * generic fallback hides the value after a password, secret, community or
+ * key keyword (in IOS, NX-OS, Junos and FortiOS spelling), so an
+ * unrecognized secret line fails closed rather than going out in the clear.
+ *
+ * @param string $line The configuration line.
+ *
+ * @return string The line with secret values replaced.
+ */
+function plugin_routerconfigs_redact_secret_line(string $line): string {
+	foreach (plugin_routerconfigs_secret_patterns() as $pattern => $replacement) {
+		$redacted = (string) preg_replace($pattern, $replacement, $line);
+
+		if ($redacted !== $line) {
+			return $redacted;
+		}
+	}
+
+	return (string) preg_replace('/^(.*?\b(?:password|passwd|secret|community|pre-shared-key|psk|authentication-key|auth-key|key-string|private-key|md5-key)(?:\s+(?:\d|ENC))?)\s+("[^"]*"|\S+)/i', '$1 <secret hidden>', $line);
+}
+
+/**
+ * Hides secret values in every line of a unified diff, keeping each
+ * line's ' ', '-' or '+' marker and leaving hunk headers alone. Redacting
+ * the diff rather than the configurations keeps a changed secret visible
+ * as a -/+ pair without its old or new value. Called from
+ * plugin_routerconfigs_device_config_diff().
+ *
+ * @param string $diff The unified diff text.
+ *
+ * @return string The diff with secret values replaced.
+ */
+function plugin_routerconfigs_redact_diff(string $diff): string {
+	$lines = explode("\n", $diff);
+
+	foreach ($lines as $index => $line) {
+		if ($line === '' || strncmp($line, '@@', 2) === 0) {
+			continue;
+		}
+
+		$marker = $line[0];
+
+		if ($marker === ' ' || $marker === '-' || $marker === '+') {
+			$lines[$index] = $marker . plugin_routerconfigs_redact_secret_line(substr($line, 1));
+		} else {
+			$lines[$index] = plugin_routerconfigs_redact_secret_line($line);
+		}
+	}
+
+	return implode("\n", $lines);
 }
 
 /**
@@ -1073,20 +1187,23 @@ function plugin_routerconfigs_read_backup_file(array $backup) {
 
 /**
  * Builds a unified diff between a device's two most recent backups,
- * applying the configured exclude patterns, for inclusion in the backup
- * Email. Returns an empty string when the device has fewer than two
- * backups, either file cannot be read, either configuration looks binary,
- * or the two configurations are identical once excluded lines are removed.
+ * applying the built-in volatile-line patterns and the configured exclude
+ * patterns, for inclusion in the backup Email. Secret values in the diff
+ * are hidden unless $redact is false. Returns an empty string when the
+ * device has fewer than two backups, either file cannot be read, either
+ * configuration looks binary, or the two configurations are identical once
+ * excluded lines are removed.
  *
  * @param int   $device_id The device id.
  * @param array $patterns  The exclude patterns (see
  *                        plugin_routerconfigs_parse_exclude_patterns()).
  * @param int   $context   The number of context lines; defaults to 3.
+ * @param bool  $redact    Whether to hide secret values; defaults to true.
  *
  * @return string The unified diff text, or '' when there is nothing to
  *                report.
  */
-function plugin_routerconfigs_device_config_diff($device_id, array $patterns, int $context = 3): string {
+function plugin_routerconfigs_device_config_diff($device_id, array $patterns, int $context = 3, bool $redact = true): string {
 	$backups = db_fetch_assoc_prepared('SELECT directory, filename
 		FROM plugin_routerconfigs_backups
 		WHERE device = ?
@@ -1109,10 +1226,12 @@ function plugin_routerconfigs_device_config_diff($device_id, array $patterns, in
 		return '';
 	}
 
+	$patterns  = array_merge(plugin_routerconfigs_diff_volatile_patterns(), $patterns);
 	$old_lines = plugin_routerconfigs_diff_exclude_lines(explode("\n", str_replace("\r\n", "\n", $old)), $patterns);
 	$new_lines = plugin_routerconfigs_diff_exclude_lines(explode("\n", str_replace("\r\n", "\n", $new)), $patterns);
+	$diff      = plugin_routerconfigs_config_unified_diff($old_lines, $new_lines, $context);
 
-	return plugin_routerconfigs_config_unified_diff($old_lines, $new_lines, $context);
+	return $redact ? plugin_routerconfigs_redact_diff($diff) : $diff;
 }
 
 /**
@@ -1128,9 +1247,9 @@ function plugin_routerconfigs_notification_recipients(): string {
 	$recipients = trim((string) read_config_option('routerconfigs_email'));
 	$list_id    = (int) read_config_option('routerconfigs_notification_list');
 
-	if ($list_id > 0 && db_table_exists('plugin_thold_notification_lists')) {
+	if ($list_id > 0 && db_table_exists('plugin_notification_lists')) {
 		$emails = db_fetch_cell_prepared('SELECT emails
-			FROM plugin_thold_notification_lists
+			FROM plugin_notification_lists
 			WHERE id = ?',
 			[$list_id]);
 
