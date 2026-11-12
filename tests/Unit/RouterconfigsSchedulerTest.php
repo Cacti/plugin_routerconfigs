@@ -126,6 +126,15 @@ it('resolves monthly calendar schedules to the correct date', function (array $s
 		['id' => 1, 'sched_type' => SCHEDULE_MONTHLY, 'start_at' => '2026-01-01 00:00:00', 'month' => '1', 'day_of_month' => '10'],
 		'2026-06-01 00:00:00', '2027-01-10',
 	],
+	// February 29 alone is skipped in 2026 and 2027 and runs in 2028.
+	'monthly on February 29 waits for the next leap year' => [
+		['id' => 1, 'sched_type' => SCHEDULE_MONTHLY, 'start_at' => '2026-01-01 00:00:00', 'month' => '2', 'day_of_month' => '29'],
+		'2026-01-15 09:00:00', '2028-02-29',
+	],
+	'monthly on February 29 bridges the 2100 non-leap year' => [
+		['id' => 1, 'sched_type' => SCHEDULE_MONTHLY, 'start_at' => '2026-01-01 00:00:00', 'month' => '2', 'day_of_month' => '29'],
+		'2096-03-01 00:00:00', '2104-02-29',
+	],
 	// 2026 is not a leap year, so the last day of February is the 28th.
 	'monthly on the last day of the month (sentinel 32)' => [
 		['id' => 1, 'sched_type' => SCHEDULE_MONTHLY, 'start_at' => '2026-01-01 00:00:00', 'month' => '2', 'day_of_month' => '32'],
@@ -280,4 +289,10 @@ it('recomputes nextbackup only when the schedule changes', function () {
 	// Never scheduled (NULL nextbackup): left for the next run to pick up.
 	$fresh = plugin_routerconfigs_schedule_prepare_save(['nextbackup' => null] + $previous, ['sched_type' => (string) SCHEDULE_WEEKLY], $now);
 	expect($fresh)->not->toHaveKey('nextbackup');
+});
+
+it('resolves to no date when the selected day never exists', function () {
+	$schedule = ['sched_type' => SCHEDULE_MONTHLY, 'start_at' => '2026-01-01 00:00:00', 'month' => '2', 'day_of_month' => '30,31'];
+
+	expect(plugin_routerconfigs_schedule_calc_next_start($schedule, strtotime('2026-01-15 09:00:00')))->toBeFalse();
 });
