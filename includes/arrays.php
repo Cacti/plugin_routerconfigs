@@ -459,7 +459,7 @@ $rc_devtype_edit_fields = [
 	],
 	'loginprompts' => [
 		'friendly_name' => __('Post-Login Prompts', 'routerconfigs'),
-		'description'   => __('Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output; the response is sent as typed, or use <CR> to send just a carriage return. Example: Press any key|<CR>', 'routerconfigs'),
+		'description'   => __('Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>', 'routerconfigs'),
 		'method'        => 'textarea',
 		'value'         => '|arg1:loginprompts|',
 		'textarea_rows' => '4',
