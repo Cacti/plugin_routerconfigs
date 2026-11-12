@@ -945,12 +945,14 @@ function plugin_routerconfigs_diff_volatile_patterns(): array {
  * changes. Patterns are compiled by plugin_routerconfigs_regex(), and one
  * that is not a valid regular expression is ignored rather than fatal.
  *
- * @param array $lines    The configuration lines.
- * @param array $patterns The exclude patterns.
+ * @param array $lines     The configuration lines.
+ * @param array $patterns  The exclude patterns.
+ * @param bool  $keep_keys Whether to keep the input keys instead of
+ *                         re-indexing; defaults to false.
  *
- * @return array<int, string> The filtered lines (re-indexed).
+ * @return array<int, string> The filtered lines.
  */
-function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns): array {
+function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns, bool $keep_keys = false): array {
 	$valid = [];
 
 	foreach ($patterns as $pattern) {
@@ -962,12 +964,12 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns):
 	}
 
 	if (!cacti_sizeof($valid)) {
-		return array_values($lines);
+		return $keep_keys ? $lines : array_values($lines);
 	}
 
 	$kept = [];
 
-	foreach ($lines as $line) {
+	foreach ($lines as $index => $line) {
 		$exclude = false;
 
 		foreach ($valid as $regex) {
@@ -979,214 +981,231 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns):
 		}
 
 		if (!$exclude) {
-			$kept[] = $line;
+			$kept[$index] = $line;
 		}
 	}
 
-	return $kept;
+	return $keep_keys ? $kept : array_values($kept);
 }
 
 /**
- * Returns the patterns for secret lines that the keyword rule in
- * plugin_routerconfigs_redact_text() would miss because they carry no
- * password, secret, key or community keyword: SNMP trap host communities,
- * SNMPv3 auth/priv keys, and text authentication (HSRP, VRRP, NHRP and
- * the like). Each pattern captures the part of the line to keep in group
- * 1, and everything after it is hidden. The line classes follow what
- * Oxidized's Cisco IOS and NX-OS models redact (lib/oxidized/model/ios.rb
- * and nxos.rb).
+ * Hides secrets in a whole configuration, failing closed, and returns one
+ * redacted line for each input line, with the same keys. The configuration
+ * must be passed from its first line, because multi-line secrets are
+ * tracked from where they open.
  *
- * @return array<int, string> The PCRE patterns.
+ * - Every line inside a multi-line secret is replaced, keeping only its
+ *   indentation: a PEM block from -----BEGIN to its -----END line, a
+ *   'certificate [ca|self-signed] <serial>' block under 'crypto pki (or ca)
+ *   certificate chain' and a bare 'key-string' block under 'crypto key
+ *   pubkey-chain' up to 'quit', and a quoted value left open by an odd
+ *   number of unescaped quotes up to the line that closes it. A block that
+ *   never ends hides the rest of the configuration, and $unclosed is set
+ *   to the line number where it opened.
+ * - Any other line that contains a secret-like word anywhere (passw,
+ *   passphrase, pwd, secret, psk, key, community, md5, authentication,
+ *   credential, token or private), a -----BEGIN marker, or the start of a
+ *   quoted value, and any 'snmp-server host' or 'snmp-server user' line, is
+ *   reduced to its indentation and leading word.
+ *
+ * Values are not parsed, so no value syntax can slip through. This hides
+ * many harmless lines ('description key account' becomes 'description
+ * <secret hidden>'), which is accepted.
+ *
+ * @param array<int, string> $lines    The configuration lines, in order.
+ * @param int|null           $unclosed Reference, set to the 1-based line
+ *                                     number of a block still open at the
+ *                                     end, or 0.
+ *
+ * @return array<int, string> The redacted lines.
  */
-function plugin_routerconfigs_secret_patterns(): array {
-	return [
-		'/^(\s*snmp-server host\s+\S+(?:\s+vrf\s+\S+)?(?:\s+(?:informs?|traps))?(?:\s+version\s+(?:1|2c))?)\s+(?!version\b)\S/i',
-		'/^(\s*snmp-server user\s.*?\b(?:auth|priv)(?:\s+(?:md5|sha\S*|des\S*|3des|aes\S*))?(?:\s+\d+)?)\s+\S/i',
-		// aaa method lists and the IOS 802.1X interface commands
-		// (authentication port-control, order, ...) carry no secret.
-		'/^(?!\s*aaa\s)(\s*(?:\S+\s+)*?authentication(?:\s+text)?)\s+(?!(?:md5|key-chain|mode|message-digest|port-control|order|priority|host-mode|periodic|timer|event|violation|open|control-direction|fallback|accounting)(?:\s|$))\S/i',
-	];
-}
-
-/**
- * Hides secret values in a whole configuration, keeping each line (and its
- * indentation) so the structure stays visible. The configuration must be
- * passed from its first line, because multi-line secrets are tracked from
- * where they open. The rules fail closed:
- *
- * - A multi-line secret hides every line up to its terminator: a PEM block
- *   from -----BEGIN to -----END, a Cisco 'certificate [ca|self-signed]
- *   <serial>' or bare 'key-string' block up to 'quit', and a quoted value
- *   opened after a secret keyword up to its unescaped closing quote. A
- *   block that never ends hides the rest of the configuration. Whatever
- *   follows the terminator on its line goes through the rules again.
- * - A row of 8-digit hex words or a long base64 run is hidden on its own.
- * - Elsewhere, see plugin_routerconfigs_redact_text().
- *
- * This over-redacts some harmless lines ('description key account' becomes
- * 'description key <secret hidden>'), which is accepted. Coverage is
- * Cisco-centric; other vendors' secrets fall to the keyword rule.
- *
- * @param array<int, string> $lines The configuration lines, in order.
- *
- * @return array<int, string> The lines with secret values replaced.
- */
-function plugin_routerconfigs_redact_lines(array $lines): array {
-	$block = '';
+function plugin_routerconfigs_redact_lines(array $lines, ?int &$unclosed = null): array {
+	$hidden   = '<secret hidden>';
+	$quote    = false;
+	$pem      = false;
+	$quit     = false;
+	$top      = '';
+	$unclosed = 0;
+	$number   = 0;
 
 	foreach ($lines as $index => $line) {
-		$line = (string) $line;
+		$line     = (string) $line;
+		$in_block = $quote || $pem || $quit;
+		$number++;
 
-		if ($block === '' && preg_match('/^\s*(?:[0-9a-f]{8}\s*){2,}$|^\s*[A-Za-z0-9+\/]{40,}={0,2}\s*$/i', $line)) {
-			$lines[$index] = plugin_routerconfigs_redact_hide($line);
+		preg_match('/^(\s*)([A-Za-z][\w-]*)?(.*)$/s', $line, $match);
+
+		// A quote preceded by an even number of backslashes is unescaped.
+		if (preg_match_all('/(?<!\\\\)(?:\\\\\\\\)*"/', $line) % 2 === 1) {
+			$quote = !$quote;
+		}
+
+		if ($in_block) {
+			$closes_quit = $quit && preg_match('/^\s*quit\s*$/i', $line);
+
+			if ($closes_quit) {
+				$quit = false;
+			}
+
+			if ($pem && strpos($line, '-----END') !== false) {
+				$pem = false;
+			}
+
+			$lines[$index] = ($closes_quit && !$quote) ? $line : $match[1] . $hidden;
 
 			continue;
 		}
 
-		$opener        = $block === '' && preg_match('/^\s*(?:certificate(?:\s+(?:ca|self-signed))?\s+[0-9a-f]+|key-string)\s*$/i', $line);
-		$lines[$index] = plugin_routerconfigs_redact_text($line, $block);
-
-		if ($opener && $block === '') {
-			$block = 'quit';
+		if ($match[1] === '' && trim($line) !== '') {
+			$top = $line;
 		}
+
+		$begin = strpos($line, '-----BEGIN');
+
+		if ($begin !== false && strpos($line, '-----END', $begin) === false) {
+			$pem = true;
+		}
+
+		if ((preg_match('/^crypto\s+(?:pki|ca)\s+certificate\s+chain\b/i', $top) && preg_match('/^\s+certificate(?:\s+(?:ca|self-signed))?\s+[0-9a-f]+\s*$/i', $line))
+			|| (preg_match('/^crypto\s+key\s+pubkey-chain\b/i', $top) && preg_match('/^\s+key-string\s*$/i', $line))) {
+			$quit = true;
+		}
+
+		if ($quote || $pem || $quit) {
+			$unclosed = $number;
+		}
+
+		if (trim($match[3]) !== '' && ($quote || $begin !== false
+			|| preg_match('/passw|passphrase|pwd|secret|psk|key|community|md5|authentication|credential|token|private|^\s*snmp-server\s+(?:host|user)\s/i', $line))) {
+			$lines[$index] = $match[1] . (string) ($match[2] ?? '') . (($match[2] ?? '') === '' ? '' : ' ') . $hidden;
+		}
+	}
+
+	if (!$quote && !$pem && !$quit) {
+		$unclosed = 0;
 	}
 
 	return $lines;
 }
 
 /**
- * Replaces text with the hidden marker, keeping its leading whitespace.
- * Blank text is returned unchanged.
+ * Renders unified diff hunks from grouped opcodes computed on the raw
+ * lines, printing the redacted form of each line instead. A replaced line
+ * whose redacted form did not change is marked '(changed)', so a changed
+ * secret still shows up without its value. Called from
+ * plugin_routerconfigs_config_unified_diff().
  *
- * @param string $text The text to hide.
+ * @param array<int, array<int, array<int, int>>> $hunks Grouped opcodes,
+ *                                                       each [op, i1, i2,
+ *                                                       j1, j2] with the
+ *                                                       jfcherng op values.
+ * @param array<int, string> $raw1  The previous raw lines.
+ * @param array<int, string> $raw2  The new raw lines.
+ * @param array<int, string> $show1 The previous lines to print.
+ * @param array<int, string> $show2 The new lines to print.
  *
- * @return string The leading whitespace and the marker.
+ * @return string The unified diff text.
  */
-function plugin_routerconfigs_redact_hide(string $text): string {
-	if (trim($text) === '') {
-		return $text;
-	}
-
-	return (string) preg_replace('/^(\s*).*$/s', '$1', $text) . '<secret hidden>';
-}
-
-/**
- * Hides secret values in one line of text, carrying multi-line state in
- * $block ('' outside a block, else 'pem', 'quit' or 'quote'); called from
- * plugin_routerconfigs_redact_lines(). Outside a block, the earliest of
- * these rules wins and everything after the kept part is hidden:
- *
- * - plugin_routerconfigs_secret_patterns() for secrets without a keyword.
- * - A word containing passw, passphrase, pwd, secret, psk, key, community
- *   or md5 (so wpa-psk, server-key and set passwd are covered), up to the
- *   end of its letters, digits and dashes and an optional '=' or ':', is
- *   kept, followed by a type number or ENC only when that is a separate
- *   word with a value after it. A value that starts with a quote hides
- *   the quoted part and keeps checking after the unescaped closing quote;
- *   without one, the quote continues on the next lines.
- * - A -----BEGIN marker is kept and starts a PEM block; one that comes
- *   before any of the above wins over them.
- *
- * @param string $text  The line, or the rest of one.
- * @param string $block Reference, the multi-line state.
- *
- * @return string The text with secret values replaced.
- */
-function plugin_routerconfigs_redact_text(string $text, string &$block): string {
+function plugin_routerconfigs_render_hunks(array $hunks, array $raw1, array $raw2, array $show1, array $show2): string {
 	$out = '';
 
-	while ($text !== '') {
-		if ($block === 'quit') {
-			if (preg_match('/^\s*quit\s*$/i', $text)) {
-				$block = '';
+	foreach ($hunks as $hunk) {
+		$hunk = array_values($hunk);
+		$last = cacti_count($hunk) - 1;
+		$i1   = $hunk[0][1];
+		$i2   = $hunk[$last][2];
+		$j1   = $hunk[0][3];
+		$j2   = $hunk[$last][4];
 
-				return $out . $text;
+		$out .= '@@ -' . ($i1 === $i2 ? $i1 : $i1 + 1) . ($i2 - $i1 === 1 ? '' : ',' . ($i2 - $i1))
+			. ' +' . ($j1 === $j2 ? $j1 : $j1 + 1) . ($j2 - $j1 === 1 ? '' : ',' . ($j2 - $j1)) . " @@\n";
+
+		foreach ($hunk as [$op, $a1, $a2, $b1, $b2]) {
+			for ($i = $a1; $i < $a2; $i++) {
+				$out .= ($op === 1 ? ' ' : '-') . ($show1[$i] ?? '') . "\n";
 			}
 
-			return $out . plugin_routerconfigs_redact_hide($text);
-		}
-
-		if ($block === 'pem' || $block === 'quote') {
-			$found = $block === 'pem'
-				? preg_match('/^(.*?)(-----END[^-\r\n]*-----)/s', $text, $match)
-				: preg_match('/^((?:[^"\\\\]|\\\\.)*)(")/s', $text, $match);
-
-			if (!$found) {
-				return $out . plugin_routerconfigs_redact_hide($text);
+			if ($op === 1) {
+				continue;
 			}
 
-			$block = '';
-			$out  .= plugin_routerconfigs_redact_hide($match[1]) . $match[2];
-			$text  = (string) substr($text, strlen($match[0]));
-
-			continue;
-		}
-
-		$keep = null;
-
-		foreach (plugin_routerconfigs_secret_patterns() as $pattern) {
-			if (preg_match($pattern, $text, $match) && ($keep === null || strlen($match[1]) < strlen($keep))) {
-				$keep = $match[1];
+			for ($j = $b1; $j < $b2; $j++) {
+				$i       = $a1 + $j - $b1;
+				$changed = $i < $a2 && ($show1[$i] ?? '') === ($show2[$j] ?? '') && ($raw1[$i] ?? '') !== ($raw2[$j] ?? '');
+				$out    .= '+' . ($show2[$j] ?? '') . ($changed ? ' (changed)' : '') . "\n";
 			}
 		}
-
-		if (preg_match('/^(.*?(?:passw|passphrase|pwd|secret|psk|key|community|md5)[\w-]*+(?:\s*[=:]|\s+(?:\d|ENC)(?=\s+\S))?)\s*\S/i', $text, $match)
-			&& ($keep === null || strlen($match[1]) < strlen($keep))) {
-			$keep = $match[1];
-		}
-
-		$begin = strpos($text, '-----BEGIN');
-
-		// A PEM block that starts before the kept part is handled first,
-		// so the kept part never includes its body.
-		if ($keep !== null && ($begin === false || $begin >= strlen($keep))) {
-			$rest  = (string) substr($text, strlen($keep));
-			$value = ltrim($rest);
-			$space = substr($rest, 0, strlen($rest) - strlen($value));
-			$out  .= $keep . $space . '<secret hidden>';
-
-			if ($value[0] === '"') {
-				if (preg_match('/^"(?:[^"\\\\]|\\\\.)*"/s', $value, $match)) {
-					$text = (string) substr($value, strlen($match[0]));
-
-					continue;
-				}
-
-				$block = 'quote';
-			} elseif (preg_match('/-----BEGIN(?!.*-----END)/s', $value)) {
-				$block = 'pem';
-			}
-
-			return $out;
-		}
-
-		if ($begin === false) {
-			return $out . $text;
-		}
-
-		$block = 'pem';
-
-		if (!preg_match('/^-----BEGIN[^-\r\n]*-----/', substr($text, $begin), $match)) {
-			return $out . substr($text, 0, $begin) . '-----BEGIN <secret hidden>';
-		}
-
-		$out  .= substr($text, 0, $begin) . $match[0];
-		$text  = (string) substr($text, $begin + strlen($match[0]));
 	}
 
 	return $out;
 }
 
 /**
- * Hides secret values in one configuration line; see
- * plugin_routerconfigs_redact_lines().
+ * Converts the edits of a Horde Text_Diff into grouped opcodes in the form
+ * plugin_routerconfigs_render_hunks() takes, with $context unchanged lines
+ * around each change, as Python difflib groups them.
  *
- * @param string $line The configuration line.
+ * @param array $edits   The Horde_Text_Diff_Op_* edits.
+ * @param int   $context The number of context lines.
  *
- * @return string The line with secret values replaced.
+ * @return array<int, array<int, array<int, int>>> The grouped opcodes.
  */
-function plugin_routerconfigs_redact_secret_line(string $line): string {
-	return plugin_routerconfigs_redact_lines([$line])[0];
+function plugin_routerconfigs_horde_hunks(array $edits, int $context): array {
+	$ops = [];
+	$i   = 0;
+	$j   = 0;
+
+	foreach ($edits as $edit) {
+		$n1 = $edit->norig();
+		$n2 = $edit->nfinal();
+
+		if ($edit instanceof Horde_Text_Diff_Op_Copy) {
+			$op = 1;
+		} else {
+			$op = $n1 && $n2 ? 8 : ($n1 ? 2 : 4);
+		}
+
+		$ops[] = [$op, $i, $i + $n1, $j, $j + $n2];
+		$i    += $n1;
+		$j    += $n2;
+	}
+
+	if (!cacti_sizeof($ops)) {
+		return [];
+	}
+
+	$last = cacti_count($ops) - 1;
+
+	if ($ops[0][0] === 1) {
+		$ops[0][1] = max($ops[0][1], $ops[0][2] - $context);
+		$ops[0][3] = max($ops[0][3], $ops[0][4] - $context);
+	}
+
+	if ($ops[$last][0] === 1) {
+		$ops[$last][2] = min($ops[$last][2], $ops[$last][1] + $context);
+		$ops[$last][4] = min($ops[$last][4], $ops[$last][3] + $context);
+	}
+
+	$groups = [];
+	$group  = [];
+
+	foreach ($ops as [$op, $a1, $a2, $b1, $b2]) {
+		if ($op === 1 && $a2 - $a1 > 2 * $context) {
+			$group[]  = [1, $a1, $a1 + $context, $b1, $b1 + $context];
+			$groups[] = $group;
+			$group    = [];
+			$a1       = $a2 - $context;
+			$b1       = $b2 - $context;
+		}
+
+		$group[] = [$op, $a1, $a2, $b1, $b2];
+	}
+
+	if (!(cacti_count($group) === 1 && $group[0][0] === 1)) {
+		$groups[] = $group;
+	}
+
+	return $groups;
 }
 
 /**
@@ -1197,14 +1216,17 @@ function plugin_routerconfigs_redact_secret_line(string $line): string {
  * inputs are identical. Called when building the backup Email's per-device
  * diff section.
  *
- * @param array $lines1  The previous configuration lines.
- * @param array $lines2  The new configuration lines.
- * @param int   $context The number of unchanged context lines to show;
- *                      defaults to 3.
+ * @param array      $lines1  The previous configuration lines.
+ * @param array      $lines2  The new configuration lines.
+ * @param int        $context The number of unchanged context lines to show;
+ *                            defaults to 3.
+ * @param array|null $shown   Optional [previous, new] lines to print in
+ *                            place of $lines1 and $lines2, aligned with
+ *                            them; the comparison still uses the raw lines.
  *
  * @return string The unified diff text, or '' when there is no difference.
  */
-function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, int $context = 3): string {
+function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, int $context = 3, ?array $shown = null): string {
 	if ($context < 1) {
 		$context = 3;
 	}
@@ -1218,6 +1240,10 @@ function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, 
 
 		if (!cacti_sizeof($differ->getGroupedOpcodes())) {
 			return '';
+		}
+
+		if ($shown !== null) {
+			return plugin_routerconfigs_render_hunks($differ->getGroupedOpcodesGnu(), $lines1, $lines2, $shown[0], $shown[1]);
 		}
 
 		$renderer = \Jfcherng\Diff\Factory\RendererFactory::make('Unified');
@@ -1234,6 +1260,10 @@ function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, 
 
 	if (!cacti_sizeof($diff->getDiff())) {
 		return '';
+	}
+
+	if ($shown !== null) {
+		return plugin_routerconfigs_render_hunks(plugin_routerconfigs_horde_hunks($diff->getDiff(), $context), $lines1, $lines2, $shown[0], $shown[1]);
 	}
 
 	$renderer = new Horde_Text_Diff_Renderer_Unified([
@@ -1283,9 +1313,10 @@ function plugin_routerconfigs_read_backup_file(array $backup) {
 /**
  * Builds a unified diff between a device's two most recent backups,
  * applying the built-in volatile-line patterns and the configured exclude
- * patterns, for inclusion in the backup Email. Unless $redact is false,
- * secret values are hidden in each whole configuration before the
- * exclude patterns are applied and the two are compared. Returns an empty string when the
+ * patterns, for inclusion in the backup Email. The comparison runs on the
+ * raw lines; unless $redact is false, each line is printed as
+ * plugin_routerconfigs_redact_lines() redacts it, and a note is added
+ * for a redaction block that never closes. Returns an empty string when the
  * device has fewer than two backups, either file cannot be read, either
  * configuration looks binary, or the two configurations are identical once
  * excluded lines are removed.
@@ -1324,21 +1355,40 @@ function plugin_routerconfigs_device_config_diff($device_id, array $patterns, in
 
 	$old_lines = explode("\n", str_replace("\r\n", "\n", $old));
 	$new_lines = explode("\n", str_replace("\r\n", "\n", $new));
+	$old_open  = 0;
+	$new_open  = 0;
+	$shown     = null;
+	$patterns  = array_merge(plugin_routerconfigs_diff_volatile_patterns(), $patterns);
+	$old_kept  = plugin_routerconfigs_diff_exclude_lines($old_lines, $patterns, true);
+	$new_kept  = plugin_routerconfigs_diff_exclude_lines($new_lines, $patterns, true);
 
-	// Each whole configuration is redacted before the comparison, so a
-	// multi-line secret is tracked from its first line and context lines
-	// are clean. A change confined to a hidden value therefore shows no
-	// difference.
+	// The comparison runs on the raw lines, so every real change gives a
+	// hunk, but each line is printed as redacted from its whole
+	// configuration, so block state always starts at the first line.
 	if ($redact) {
-		$old_lines = plugin_routerconfigs_redact_lines($old_lines);
-		$new_lines = plugin_routerconfigs_redact_lines($new_lines);
+		$shown = [
+			array_values(array_intersect_key(plugin_routerconfigs_redact_lines($old_lines, $old_open), $old_kept)),
+			array_values(array_intersect_key(plugin_routerconfigs_redact_lines($new_lines, $new_open), $new_kept)),
+		];
 	}
 
-	$patterns  = array_merge(plugin_routerconfigs_diff_volatile_patterns(), $patterns);
-	$old_lines = plugin_routerconfigs_diff_exclude_lines($old_lines, $patterns);
-	$new_lines = plugin_routerconfigs_diff_exclude_lines($new_lines, $patterns);
+	$diff = plugin_routerconfigs_config_unified_diff(array_values($old_kept), array_values($new_kept), $context, $shown);
 
-	return plugin_routerconfigs_config_unified_diff($old_lines, $new_lines, $context);
+	if ($diff === '') {
+		return '';
+	}
+
+	$notes = '';
+
+	if ($old_open > 0) {
+		$notes .= __('Redaction block on line %d of the previous backup never closed; following lines hidden.', $old_open, 'routerconfigs') . "\n";
+	}
+
+	if ($new_open > 0) {
+		$notes .= __('Redaction block on line %d of the new backup never closed; following lines hidden.', $new_open, 'routerconfigs') . "\n";
+	}
+
+	return $notes . $diff;
 }
 
 /**
