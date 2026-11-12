@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 17:13-0800\n"
+"POT-Creation-Date: 2026-11-11 17:17-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -310,7 +310,7 @@ msgid "Rerun Every"
 msgstr ""
 
 #: includes/arrays.php
-msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
 msgstr ""
 
 #: includes/arrays.php
@@ -318,7 +318,7 @@ msgid "Days of Week"
 msgstr ""
 
 #: includes/arrays.php
-msgid "For a Weekly schedule, the day(s) of the week to run the backup on. Leave empty to run every Rerun-Every weeks."
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
 msgstr ""
 
 #: includes/arrays.php
@@ -1029,6 +1029,10 @@ msgstr ""
 msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
 msgstr ""
 
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr ""
+
 #: router-accounts.php
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr ""
@@ -1218,6 +1222,11 @@ msgstr ""
 
 #: router-devices.php
 msgid "No Change"
+msgstr ""
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
 msgstr ""
 
 #: router-devices.php

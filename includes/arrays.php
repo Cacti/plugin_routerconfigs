@@ -236,7 +236,7 @@ $rc_device_edit_fields = [
 	'recur_every' => [
 		'method'        => 'drop_array',
 		'friendly_name' => __('Rerun Every', 'routerconfigs'),
-		'description'   => __('For Daily/Weekly schedules, rerun the backup every X days/weeks.', 'routerconfigs'),
+		'description'   => __('For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply.', 'routerconfigs'),
 		'value'         => '|arg1:recur_every|',
 		'default'       => 1,
 		'array'         => $rc_schedules_recur,
@@ -244,7 +244,7 @@ $rc_device_edit_fields = [
 	'day_of_week' => [
 		'method'        => 'drop_multi',
 		'friendly_name' => __('Days of Week', 'routerconfigs'),
-		'description'   => __('For a Weekly schedule, the day(s) of the week to run the backup on. Leave empty to run every Rerun-Every weeks.', 'routerconfigs'),
+		'description'   => __('For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead.', 'routerconfigs'),
 		'value'         => '|arg1:day_of_week|',
 		'array'         => plugin_routerconfigs_sched_days_of_week(),
 	],

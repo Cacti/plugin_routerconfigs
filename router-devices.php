@@ -299,9 +299,13 @@ function actions_devices() {
 					}
 
 					if (cacti_sizeof($set)) {
-						$updated = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
+						$result = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
 
-						raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $updated, 'routerconfigs'), MESSAGE_LEVEL_INFO);
+						if (cacti_sizeof($result['invalid'])) {
+							raise_message('bulk_edit_invalid_schedule', __('No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually.', implode(', ', $result['invalid']), 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+						} else {
+							raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $result['updated'], 'routerconfigs'), MESSAGE_LEVEL_INFO);
+						}
 					} else {
 						raise_message('bulk_edit_none', __('No settings were changed; every field was left on "No Change".', 'routerconfigs'), MESSAGE_LEVEL_WARN);
 					}
@@ -425,7 +429,7 @@ function actions_devices() {
 					'on' => __('Enabled', 'routerconfigs'),
 					''   => __('Disabled', 'routerconfigs'),
 				]);
-				plugin_routerconfigs_bulk_edit_row(__('Schedule Type', 'routerconfigs'), 'bulk_sched_type', plugin_routerconfigs_sched_types());
+				plugin_routerconfigs_bulk_edit_row(__('Schedule Type', 'routerconfigs'), 'bulk_sched_type', plugin_routerconfigs_sched_bulk_types());
 				plugin_routerconfigs_bulk_edit_row(__('Rerun Every', 'routerconfigs'), 'bulk_recur_every', $rc_schedules_recur);
 				plugin_routerconfigs_bulk_edit_row(__('Connection Type', 'routerconfigs'), 'bulk_connecttype', $rc_connection_types);
 				plugin_routerconfigs_bulk_edit_row(__('Authentication Account', 'routerconfigs'), 'bulk_account', plugin_routerconfigs_bulk_options_sql('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name'));
@@ -616,8 +620,10 @@ function edit_devices() {
 	function rcToggleScheduleRows() {
 		var t = parseInt($('#sched_type').val(), 10);
 
-		var recur   = (t === <?php print SCHEDULE_DAILY; ?> || t === <?php print SCHEDULE_WEEKLY; ?> || t === <?php print SCHEDULE_HOURLY; ?>);
 		var weekly  = (t === <?php print SCHEDULE_WEEKLY; ?>);
+		var weekday = weekly && ($('#day_of_week').val() || []).length > 0;
+		// Selected weekdays run every week, so Rerun Every does not apply.
+		var recur   = (t === <?php print SCHEDULE_DAILY; ?> || t === <?php print SCHEDULE_HOURLY; ?> || (weekly && !weekday));
 		var monthly = (t === <?php print SCHEDULE_MONTHLY; ?>);
 		var onday   = (t === <?php print SCHEDULE_MONTHLY_ON_DAY; ?>);
 
@@ -630,7 +636,7 @@ function edit_devices() {
 	}
 
 	$(function() {
-		$('#sched_type').change(rcToggleScheduleRows);
+		$('#sched_type, #day_of_week').change(rcToggleScheduleRows);
 		rcToggleScheduleRows();
 	});
 	</script>

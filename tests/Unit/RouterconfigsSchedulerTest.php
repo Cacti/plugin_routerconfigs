@@ -296,3 +296,47 @@ it('resolves to no date when the selected day never exists', function () {
 
 	expect(plugin_routerconfigs_schedule_calc_next_start($schedule, strtotime('2026-01-15 09:00:00')))->toBeFalse();
 });
+
+it('keeps Monthly on Day out of the bulk Schedule Type options', function () {
+	expect(plugin_routerconfigs_sched_bulk_types())->not->toHaveKey(SCHEDULE_MONTHLY_ON_DAY);
+	expect(plugin_routerconfigs_sched_bulk_types())->toHaveKey(SCHEDULE_MONTHLY);
+	expect(plugin_routerconfigs_schedule_valid_type((string) SCHEDULE_MONTHLY_ON_DAY))->toBeTrue();
+	expect(plugin_routerconfigs_schedule_valid_type((string) SCHEDULE_MONTHLY_ON_DAY, plugin_routerconfigs_sched_bulk_types()))->toBeFalse();
+});
+
+it('skips missing days when the 31st is selected for every month on the form', function () {
+	rc_sched_set_hour(1);
+
+	$months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+	$save   = plugin_routerconfigs_schedule_augment_save(['sched_type' => SCHEDULE_MONTHLY], ['month' => $months, 'day_of_month' => ['31']]);
+
+	expect(plugin_routerconfigs_schedule_validate($save, strtotime('2026-01-15 09:00:00')))->toBe('');
+
+	// April, June, September and November have no 31st: no stray May 1,
+	// July 1, October 1 or December 1 runs.
+	$runs  = [];
+	$after = strtotime('2026-01-15 09:00:00');
+
+	for ($i = 0; $i < 7; $i++) {
+		$after  = plugin_routerconfigs_schedule_next_start($save, $after);
+		$runs[] = date('Y-m-d', $after);
+	}
+
+	expect($runs)->toBe(['2026-01-31', '2026-03-31', '2026-05-31', '2026-07-31', '2026-08-31', '2026-10-31', '2026-12-31']);
+
+	// 31 together with Last still runs on the last day of short months.
+	$with_last = plugin_routerconfigs_schedule_augment_save(['sched_type' => SCHEDULE_MONTHLY], ['month' => ['4'], 'day_of_month' => ['31', '32']]);
+	expect(date('Y-m-d', plugin_routerconfigs_schedule_next_start($with_last, strtotime('2026-01-15 09:00:00'))))->toBe('2026-04-30');
+});
+
+it('rejects a monthly selection that never occurs', function () {
+	$now = strtotime('2026-01-15 09:00:00');
+
+	$never = plugin_routerconfigs_schedule_augment_save(['sched_type' => SCHEDULE_MONTHLY], ['month' => ['2'], 'day_of_month' => ['30', '31']]);
+	expect(plugin_routerconfigs_schedule_validate($never, $now))->not->toBe('');
+
+	// February 29 alone is valid: it runs in leap years.
+	$leap = plugin_routerconfigs_schedule_augment_save(['sched_type' => SCHEDULE_MONTHLY], ['month' => ['2'], 'day_of_month' => ['29']]);
+	expect(plugin_routerconfigs_schedule_validate($leap, $now))->toBe('');
+	expect(plugin_routerconfigs_schedule_validate($leap))->toBe('');
+});
