@@ -200,15 +200,53 @@ it('combines the configured email list with a Thold notification list', function
 		return '';
 	};
 	// Thold creates plugin_notification_lists (plugin_thold includes/database.php).
-	$GLOBALS['__stub_overrides']['db_table_exists']        = fn ($t) => $t === 'plugin_notification_lists';
-	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared'] = function ($sql, $params) {
+	$GLOBALS['__stub_overrides']['db_table_exists']       = fn ($t) => $t === 'plugin_notification_lists';
+	$GLOBALS['__stub_overrides']['db_column_exists']      = fn ($t, $c) => true;
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = function ($sql, $params) {
 		expect($sql)->toContain('FROM plugin_notification_lists');
 		expect($params)->toBe([7]);
 
-		return 'neteng@example.com';
+		return ['emails' => 'neteng@example.com', 'bcc_emails' => 'audit@example.com', 'enabled' => 'on'];
 	};
 
-	expect(plugin_routerconfigs_notification_recipients())->toBe('ops@example.com,neteng@example.com');
+	expect(plugin_routerconfigs_notification_recipients())->toBe(['to' => 'ops@example.com,neteng@example.com', 'bcc' => 'audit@example.com']);
+});
+
+it('sends nothing to a disabled Thold notification list', function () {
+	$GLOBALS['__stub_overrides']['read_config_option'] = function ($name, $force = false) {
+		return ['routerconfigs_email' => 'ops@example.com', 'routerconfigs_notification_list' => '7'][$name] ?? '';
+	};
+	$GLOBALS['__stub_overrides']['db_table_exists']       = fn ($t) => $t === 'plugin_notification_lists';
+	$GLOBALS['__stub_overrides']['db_column_exists']      = fn ($t, $c) => true;
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) => ['emails' => 'neteng@example.com', 'bcc_emails' => 'audit@example.com', 'enabled' => ''];
+
+	expect(plugin_routerconfigs_notification_recipients())->toBe(['to' => 'ops@example.com', 'bcc' => '']);
+});
+
+it('reads a Thold notification list that predates the Enabled and Bcc fields', function () {
+	$GLOBALS['__stub_overrides']['read_config_option'] = function ($name, $force = false) {
+		return $name === 'routerconfigs_notification_list' ? '7' : '';
+	};
+	$GLOBALS['__stub_overrides']['db_table_exists']       = fn ($t) => $t === 'plugin_notification_lists';
+	$GLOBALS['__stub_overrides']['db_column_exists']      = fn ($t, $c) => false;
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = function ($sql, $params) {
+		expect($sql)->not->toContain('enabled')->and($sql)->not->toContain('bcc_emails');
+
+		return ['emails' => 'neteng@example.com'];
+	};
+
+	expect(plugin_routerconfigs_notification_recipients())->toBe(['to' => 'neteng@example.com', 'bcc' => '']);
+});
+
+it('sends to a Bcc-only Thold notification list', function () {
+	$GLOBALS['__stub_overrides']['read_config_option'] = function ($name, $force = false) {
+		return $name === 'routerconfigs_notification_list' ? '7' : '';
+	};
+	$GLOBALS['__stub_overrides']['db_table_exists']       = fn ($t) => $t === 'plugin_notification_lists';
+	$GLOBALS['__stub_overrides']['db_column_exists']      = fn ($t, $c) => true;
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql, $params) => ['emails' => '', 'bcc_emails' => 'audit@example.com', 'enabled' => 'on'];
+
+	expect(plugin_routerconfigs_notification_recipients())->toBe(['to' => '', 'bcc' => 'audit@example.com']);
 });
 
 it('returns no diff when a backup file cannot be read', function () {
@@ -225,7 +263,7 @@ it('returns just the email list when no Thold list is selected', function () {
 	};
 	$GLOBALS['__stub_overrides']['db_table_exists'] = fn ($t) => false;
 
-	expect(plugin_routerconfigs_notification_recipients())->toBe('ops@example.com');
+	expect(plugin_routerconfigs_notification_recipients())->toBe(['to' => 'ops@example.com', 'bcc' => '']);
 });
 
 /**
@@ -269,6 +307,7 @@ it('shows a changed secret as a changed line without either value', function (ar
 	'type and value'          => [['username admin privilege 15 secret 9 PLACEHOLDER-%V']],
 	'snmp trap host'          => [['snmp-server host 192.0.2.1 version 2c PLACEHOLDER-%V']],
 	'snmp v3 user'            => [['snmp-server user v3 g v3 auth sha PLACEHOLDER-%V priv aes 128 PLACEHOLDER-%V']],
+	'hpe snmpv3 user'         => [['snmpv3 user "ops" auth sha "PLACEHOLDER-%V" priv aes "PLACEHOLDER-%V"']],
 	'hsrp text'               => [[' standby 1 authentication PLACEHOLDER-%V']],
 	'vrrp text'               => [[' vrrp 1 authentication text PLACEHOLDER-%V']],
 	'nhrp'                    => [[' ip nhrp authentication PLACEHOLDER-%V']],

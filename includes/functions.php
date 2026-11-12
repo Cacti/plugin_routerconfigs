@@ -339,9 +339,9 @@ td { margin: 5 10 5 10; }
 
 					$from_email = read_config_option('routerconfigs_from');
 					$from_name  = read_config_option('routerconfigs_name');
-					$to         = plugin_routerconfigs_notification_recipients();
+					$recipients = plugin_routerconfigs_notification_recipients();
 
-					if ($to != '' && $from_email != '') {
+					if (($recipients['to'] != '' || $recipients['bcc'] != '') && $from_email != '') {
 						if ($from_name == '') {
 							$from_name = __('Config Backups', 'routerconfigs');
 						}
@@ -375,7 +375,8 @@ td { margin: 5 10 5 10; }
 							$subject .= __(': FAILED', 'routerconfigs');
 						}
 						$message .= '</body></html>';
-						send_mail($to, $from, $subject, $message, $filename = '', $headers = '', $html = true);
+						// mailer() rather than send_mail(), which has no Bcc recipients
+						mailer($from, $recipients['to'], '', $recipients['bcc'], '', $subject, $message, '', '', '', true);
 					}
 				}
 			}
@@ -1010,8 +1011,8 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns, 
  *   -----BEGIN marker, or contains
  *   a secret-like word anywhere (passw, passphrase, pwd, secret, psk, key,
  *   community, md5, authentication, credential, token or private), and
- *   any 'snmp-server host' or 'snmp-server user' line, is reduced to its
- *   indentation and leading word.
+ *   any 'snmp-server host', 'snmp-server user' or 'snmpv3 user' line, is
+ *   reduced to its indentation and leading word.
  *
  * Values are not parsed, so no value syntax can slip through. This hides
  * many harmless lines ('description key account' becomes 'description
@@ -1075,7 +1076,7 @@ function plugin_routerconfigs_redact_lines(array $lines, ?int &$unclosed = null)
 		} elseif (preg_match('/^\s*(?:[0-9a-f]{8}\s*){2,}$|^\s*[A-Za-z0-9+\/]{40,}={0,2}\s*$/i', $line)) {
 			$lines[$index] = $match[1] . $hidden;
 		} elseif (trim($match[3]) !== '' && ($open || $begin !== false
-			|| preg_match('/passw|passphrase|pwd|secret|psk|key|community|md5|authentication|credential|token|private|^\s*snmp-server\s+(?:host|user)\s/i', $line))) {
+			|| preg_match('/passw|passphrase|pwd|secret|psk|key|community|md5|authentication|credential|token|private|^\s*snmp-server\s+(?:host|user)\s|^\s*snmpv3\s+user\s/i', $line))) {
 			$lines[$index] = $match[1] . (string) ($match[2] ?? '') . (($match[2] ?? '') === '' ? '' : ' ') . $hidden;
 		}
 	}
@@ -1389,30 +1390,48 @@ function plugin_routerconfigs_device_config_diff($device_id, array $patterns, in
 }
 
 /**
- * Resolves the backup Email recipient list: the configured
- * 'routerconfigs_email' addresses, plus the recipients of the selected
- * Thold Notification List when Thold is installed and a list is chosen.
- * Returns a comma separated address string (possibly empty). Called from
- * plugin_routerconfigs_download() when sending the summary Email.
+ * Resolves the backup Email recipients: the configured
+ * 'routerconfigs_email' addresses, plus the Email and Bcc recipients of
+ * the selected Thold Notification List when Thold is installed, a list is
+ * chosen and that list is enabled. Thold sends nothing from a disabled
+ * list; Thold versions without the Enabled or Bcc fields are still read.
+ * Called from plugin_routerconfigs_download() when sending the summary
+ * Email.
  *
- * @return string The combined comma separated recipient list.
+ * @return array{to: string, bcc: string} Comma separated To and Bcc
+ *                                        recipient lists, possibly empty.
  */
-function plugin_routerconfigs_notification_recipients(): string {
-	$recipients = trim((string) read_config_option('routerconfigs_email'));
-	$list_id    = (int) read_config_option('routerconfigs_notification_list');
+function plugin_routerconfigs_notification_recipients(): array {
+	$to      = trim((string) read_config_option('routerconfigs_email'));
+	$bcc     = '';
+	$list_id = (int) read_config_option('routerconfigs_notification_list');
 
 	if ($list_id > 0 && db_table_exists('plugin_notification_lists')) {
-		$emails = db_fetch_cell_prepared('SELECT emails
+		$columns = ['emails'];
+
+		foreach (['bcc_emails', 'enabled'] as $column) {
+			if (db_column_exists('plugin_notification_lists', $column)) {
+				$columns[] = $column;
+			}
+		}
+
+		$list = db_fetch_row_prepared('SELECT ' . implode(', ', $columns) . '
 			FROM plugin_notification_lists
 			WHERE id = ?',
 			[$list_id]);
 
-		if (!empty($emails)) {
-			$recipients = ($recipients !== '' ? $recipients . ',' : '') . trim((string) $emails);
+		if (is_array($list) && !empty($list) && ($list['enabled'] ?? 'on') === 'on') {
+			$emails = trim((string) ($list['emails'] ?? ''));
+
+			if ($emails !== '') {
+				$to = ($to !== '' ? $to . ',' : '') . $emails;
+			}
+
+			$bcc = trim((string) ($list['bcc_emails'] ?? ''));
 		}
 	}
 
-	return $recipients;
+	return ['to' => $to, 'bcc' => $bcc];
 }
 
 /**
