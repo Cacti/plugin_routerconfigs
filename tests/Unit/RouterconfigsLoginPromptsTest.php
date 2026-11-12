@@ -31,6 +31,9 @@ class RouterconfigsTestPromptShell extends PHPShellConnection {
 	/** @var array<int, string> Device output returned by successive reads. */
 	public $test_output = [];
 
+	/** @var array<int, string> Device replies returned by successive commands. */
+	public $test_replies = [];
+
 	/** @var array<int, string> Commands sent to the device. */
 	public $test_sent = [];
 
@@ -53,6 +56,7 @@ class RouterconfigsTestPromptShell extends PHPShellConnection {
 
 	function DoCommand($cmd, &$response, $pass = null) {
 		$this->test_sent[] = $cmd;
+		$response          = array_shift($this->test_replies) ?? '';
 
 		return 0;
 	}
@@ -149,6 +153,25 @@ it('answers a prompt containing a slash once it appears', function () {
 	$shell->ProcessLoginPrompts();
 
 	expect($shell->test_sent)->toBe(['y', '']);
+});
+
+it('answers a prompt printed in reply to the previous response', function () {
+	$shell = new RouterconfigsTestPromptShell("Press any key|<CR>\nSelect member|2");
+	$shell->test_output  = ['Press any key to continue'];
+	$shell->test_replies = ['Select member (1/2):'];
+
+	$shell->ProcessLoginPrompts();
+
+	expect($shell->test_sent)->toBe(['', '2']);
+});
+
+it('checks output read while waiting for a missing prompt against the next one', function () {
+	$shell = new RouterconfigsTestPromptShell("Enter switch number|2\nPress any key|<CR>");
+	$shell->test_output = ['Press any key to continue'];
+
+	$shell->ProcessLoginPrompts();
+
+	expect($shell->test_sent)->toBe(['']);
 });
 
 it('sends nothing when the prompt never appears', function () {

@@ -321,6 +321,10 @@ abstract class PHPShellConnection extends PHPConnection {
 			return;
 		}
 
+		// Output already read but not yet matched, such as the reply to the
+		// previous response, which may hold the next prompt in a chain.
+		$pending = '';
+
 		foreach ($prompts as $entry) {
 			$regex = plugin_routerconfigs_regex($entry['prompt']);
 
@@ -330,11 +334,12 @@ abstract class PHPShellConnection extends PHPConnection {
 				continue;
 			}
 
-			$response = '';
-			$seen     = false;
+			$response = $pending;
+			$pending  = '';
+			$seen     = preg_match($regex, $response) === 1;
 			$x        = 0;
 
-			while ($x < 5) {
+			while (!$seen && $x < 5) {
 				$this->GetResponse($response);
 
 				if (preg_match($regex, $response) === 1) {
@@ -350,13 +355,14 @@ abstract class PHPShellConnection extends PHPConnection {
 			if (!$seen) {
 				$this->Log("WARNING: Post-login prompt '" . $entry['prompt'] . "' was not seen after $x attempts, not sending its response");
 
+				$pending = $response;
+
 				continue;
 			}
 
 			$this->Log("DEBUG: Sending post-login response for prompt '" . $entry['prompt'] . "'");
 
-			$result = '';
-			$this->DoCommand($entry['response'], $result);
+			$this->DoCommand($entry['response'], $pending);
 		}
 	}
 }
