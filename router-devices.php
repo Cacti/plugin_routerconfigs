@@ -197,50 +197,37 @@ function plugin_routerconfigs_bulk_edit_row(string $label, string $name, array $
 }
 
 /**
- * Reads the bulk device-edit confirmation form and returns the column =>
- * value map of the fields the operator actually changed (fields left on
- * the "No Change" sentinel are omitted). Only a fixed whitelist of
- * columns is ever returned, and each value is validated/cast to its
- * storage type, so the caller can interpolate the column names into an
- * UPDATE without SQL-injection risk. Invoked from actions_devices().
+ * Reads the bulk device-edit confirmation form and returns the validated
+ * column => value map of the fields the operator actually changed (fields
+ * left on the "No Change" sentinel are omitted). Values are checked by
+ * plugin_routerconfigs_bulk_edit_validate(); when any is invalid, an error
+ * is raised for each and null is returned so nothing is applied. Invoked
+ * from actions_devices().
  *
- * @return array<string, mixed> The column => value map to apply.
+ * @return array<string, int|string>|null The column => value map to apply,
+ *                                        or null when a value is invalid.
  */
-function plugin_routerconfigs_bulk_edit_set(): array {
-	global $rc_connection_types;
-
+function plugin_routerconfigs_bulk_edit_set(): ?array {
 	$nochange = plugin_routerconfigs_bulk_nochange();
-	$set      = [];
+	$input    = [];
 
-	if (isset_request_var('bulk_enabled') && get_nfilter_request_var('bulk_enabled') !== $nochange) {
-		$set['enabled'] = (get_nfilter_request_var('bulk_enabled') === 'on') ? 'on' : '';
-	}
-
-	if (isset_request_var('bulk_sched_type') && get_nfilter_request_var('bulk_sched_type') !== $nochange) {
-		$set['sched_type'] = (int) get_nfilter_request_var('bulk_sched_type');
-	}
-
-	if (isset_request_var('bulk_recur_every') && get_nfilter_request_var('bulk_recur_every') !== $nochange) {
-		$set['recur_every'] = max(1, (int) get_nfilter_request_var('bulk_recur_every'));
-	}
-
-	if (isset_request_var('bulk_connecttype') && get_nfilter_request_var('bulk_connecttype') !== $nochange) {
-		$value = get_nfilter_request_var('bulk_connecttype');
-
-		if (array_key_exists($value, $rc_connection_types)) {
-			$set['connecttype'] = $value;
+	foreach (['enabled', 'sched_type', 'recur_every', 'connecttype', 'account', 'devicetype'] as $column) {
+		if (isset_request_var('bulk_' . $column) && get_nfilter_request_var('bulk_' . $column) !== $nochange) {
+			$input[$column] = get_nfilter_request_var('bulk_' . $column);
 		}
 	}
 
-	if (isset_request_var('bulk_account') && get_nfilter_request_var('bulk_account') !== $nochange) {
-		$set['account'] = (int) get_nfilter_request_var('bulk_account');
+	$result = plugin_routerconfigs_bulk_edit_validate($input);
+
+	if (cacti_sizeof($result['errors'])) {
+		foreach ($result['errors'] as $index => $error) {
+			raise_message('bulk_edit_invalid_' . $index, $error, MESSAGE_LEVEL_ERROR);
+		}
+
+		return null;
 	}
 
-	if (isset_request_var('bulk_devicetype') && get_nfilter_request_var('bulk_devicetype') !== $nochange) {
-		$set['devicetype'] = (int) get_nfilter_request_var('bulk_devicetype');
-	}
-
-	return $set;
+	return $result['set'];
 }
 
 /**
@@ -307,25 +294,14 @@ function actions_devices() {
 				case RCONFIG_DEVICE_EDIT:
 					$set = plugin_routerconfigs_bulk_edit_set();
 
+					if ($set === null) {
+						break;
+					}
+
 					if (cacti_sizeof($set)) {
-						$cols   = [];
-						$values = [];
+						$updated = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
 
-						foreach ($set as $column => $value) {
-							$cols[]   = "`$column` = ?";
-							$values[] = $value;
-						}
-
-						$sqlset = implode(', ', $cols);
-
-						for ($i = 0; $i < cacti_count($selected_items); $i++) {
-							db_execute_prepared("UPDATE plugin_routerconfigs_devices
-								SET $sqlset
-								WHERE id = ?",
-								array_merge($values, [$selected_items[$i]]));
-						}
-
-						raise_message('bulk_edit_done', __('Updated settings on %d device(s).', cacti_count($selected_items), 'routerconfigs'), MESSAGE_LEVEL_INFO);
+						raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $updated, 'routerconfigs'), MESSAGE_LEVEL_INFO);
 					} else {
 						raise_message('bulk_edit_none', __('No settings were changed; every field was left on "No Change".', 'routerconfigs'), MESSAGE_LEVEL_WARN);
 					}
@@ -509,7 +485,7 @@ function save_devices() {
 		$save['id'] = get_request_var('id');
 
 		if ($save['id'] !== '') {
-			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress
+			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress, nextbackup, ' . implode(', ', plugin_routerconfigs_schedule_fields()) . '
 				FROM plugin_routerconfigs_devices
 				WHERE id = ?',
 				[$save['id']]);
@@ -537,6 +513,13 @@ function save_devices() {
 	$save['sleep']       = get_nfilter_request_var('sleep');
 	$save['elevated']    = get_nfilter_request_var('elevated');
 
+	if (!plugin_routerconfigs_schedule_valid_type($save['sched_type']) || !plugin_routerconfigs_schedule_valid_recur($save['recur_every'])) {
+		raise_message('rc_sched_err', __('The selected Schedule Type or Rerun Every is not valid.', 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+
+		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
+		exit;
+	}
+
 	$sched_post = [];
 
 	foreach (['day_of_week', 'month', 'day_of_month', 'monthly_week', 'monthly_day'] as $sched_field) {
@@ -553,6 +536,8 @@ function save_devices() {
 		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
 		exit;
 	}
+
+	$save = plugin_routerconfigs_schedule_prepare_save(is_array($previous_endpoint) ? $previous_endpoint : [], $save, time());
 
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 

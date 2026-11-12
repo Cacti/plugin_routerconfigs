@@ -79,11 +79,7 @@ $rc_schedules_backup = [
 	RCONFIG_BACKUP_MONTHLY => __('Monthly', 'routerconfigs'),
 ];
 
-$rc_schedules_recur = [];
-for ($rc_recur_i = 1; $rc_recur_i <= 31; $rc_recur_i++) {
-	$rc_schedules_recur[$rc_recur_i] = (string) $rc_recur_i;
-}
-unset($rc_recur_i);
+$rc_schedules_recur = plugin_routerconfigs_sched_recur_options();
 
 $rc_schedules_retention = [
 	RCONFIG_RETENTION_MONTH_ONE   => __('%d Month', 1, 'routerconfigs'), // * 30
