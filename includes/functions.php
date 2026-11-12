@@ -992,21 +992,26 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns, 
  * Hides secrets in a whole configuration, failing closed, and returns one
  * redacted line for each input line, with the same keys. The configuration
  * must be passed from its first line, because multi-line secrets are
- * tracked from where they open.
+ * tracked from where they open. The comparison runs on the raw lines, so
+ * hiding too much never hides a change.
  *
- * - Every line inside a multi-line secret is replaced, keeping only its
- *   indentation: a PEM block from -----BEGIN to its -----END line, a
- *   'certificate [ca|self-signed] <serial>' block under 'crypto pki (or ca)
- *   certificate chain' and a bare 'key-string' block under 'crypto key
- *   pubkey-chain' up to 'quit', and a quoted value left open by an odd
- *   number of unescaped quotes up to the line that closes it. A block that
- *   never ends hides the rest of the configuration, and $unclosed is set
- *   to the line number where it opened.
- * - Any other line that contains a secret-like word anywhere (passw,
- *   passphrase, pwd, secret, psk, key, community, md5, authentication,
- *   credential, token or private), a -----BEGIN marker, or the start of a
- *   quoted value, and any 'snmp-server host' or 'snmp-server user' line, is
- *   reduced to its indentation and leading word.
+ * - A multi-line secret is a PEM block from -----BEGIN to -----END, a
+ *   'certificate [ca|self-signed] <serial>' or bare 'key-string' block up
+ *   to 'quit', or a value left open by an odd number of unescaped double
+ *   or single quotes up to the line that closes it. The state after each
+ *   line is worked out from the whole line, so a line that closes one
+ *   block and opens another stays hidden. Every line inside a block is
+ *   replaced, keeping only its indentation; only a bare 'quit' or
+ *   -----END line that leaves no block open is shown. A block that never
+ *   ends hides the rest of the configuration, and $unclosed is set to the
+ *   line number where it opened.
+ * - Outside a block, a row of 8-digit hex words or a base64 run of 40 or
+ *   more characters is hidden, and a line that opens a block, holds a
+ *   -----BEGIN marker, or contains
+ *   a secret-like word anywhere (passw, passphrase, pwd, secret, psk, key,
+ *   community, md5, authentication, credential, token or private), and
+ *   any 'snmp-server host' or 'snmp-server user' line, is reduced to its
+ *   indentation and leading word.
  *
  * Values are not parsed, so no value syntax can slip through. This hides
  * many harmless lines ('description key account' becomes 'description
@@ -1020,70 +1025,62 @@ function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns, 
  * @return array<int, string> The redacted lines.
  */
 function plugin_routerconfigs_redact_lines(array $lines, ?int &$unclosed = null): array {
-	$hidden   = '<secret hidden>';
-	$quote    = false;
-	$pem      = false;
-	$quit     = false;
-	$top      = '';
-	$unclosed = 0;
-	$number   = 0;
+	$hidden = '<secret hidden>';
+	$state  = ['"' => false, "'" => false, 'pem' => false, 'quit' => false];
+	$opened = 0;
+	$number = 0;
 
 	foreach ($lines as $index => $line) {
 		$line     = (string) $line;
-		$in_block = $quote || $pem || $quit;
+		$before   = $state;
+		$in_block = in_array(true, $before, true);
 		$number++;
 
 		preg_match('/^(\s*)([A-Za-z][\w-]*)?(.*)$/s', $line, $match);
 
 		// A quote preceded by an even number of backslashes is unescaped.
-		if (preg_match_all('/(?<!\\\\)(?:\\\\\\\\)*"/', $line) % 2 === 1) {
-			$quote = !$quote;
+		foreach (['"', "'"] as $quote) {
+			if (preg_match_all('/(?<!\\\\)(?:\\\\\\\\)*' . $quote . '/', $line) % 2 === 1) {
+				$state[$quote] = !$state[$quote];
+			}
+		}
+
+		$begin = strrpos($line, '-----BEGIN');
+		$end   = strrpos($line, '-----END');
+
+		if ($begin !== false || $end !== false) {
+			$state['pem'] = $begin !== false && ($end === false || $begin > $end);
+		}
+
+		$bare_quit = (bool) preg_match('/^\s*quit\s*$/i', $line);
+
+		if ($state['quit'] && $bare_quit) {
+			$state['quit'] = false;
+		}
+
+		if (preg_match('/^\s*(?:certificate(?:\s+(?:ca|self-signed))?\s+[0-9a-f]+|key-string)\s*$/i', $line)) {
+			$state['quit'] = true;
+		}
+
+		$open = in_array(true, $state, true);
+
+		if ($open && $state !== $before) {
+			$opened = $number;
 		}
 
 		if ($in_block) {
-			$closes_quit = $quit && preg_match('/^\s*quit\s*$/i', $line);
+			$bare = ($before['quit'] && $bare_quit) || ($before['pem'] && preg_match('/^\s*-----END[^-]*-----\s*$/', $line));
 
-			if ($closes_quit) {
-				$quit = false;
-			}
-
-			if ($pem && strpos($line, '-----END') !== false) {
-				$pem = false;
-			}
-
-			$lines[$index] = ($closes_quit && !$quote) ? $line : $match[1] . $hidden;
-
-			continue;
-		}
-
-		if ($match[1] === '' && trim($line) !== '') {
-			$top = $line;
-		}
-
-		$begin = strpos($line, '-----BEGIN');
-
-		if ($begin !== false && strpos($line, '-----END', $begin) === false) {
-			$pem = true;
-		}
-
-		if ((preg_match('/^crypto\s+(?:pki|ca)\s+certificate\s+chain\b/i', $top) && preg_match('/^\s+certificate(?:\s+(?:ca|self-signed))?\s+[0-9a-f]+\s*$/i', $line))
-			|| (preg_match('/^crypto\s+key\s+pubkey-chain\b/i', $top) && preg_match('/^\s+key-string\s*$/i', $line))) {
-			$quit = true;
-		}
-
-		if ($quote || $pem || $quit) {
-			$unclosed = $number;
-		}
-
-		if (trim($match[3]) !== '' && ($quote || $begin !== false
+			$lines[$index] = ($bare && !$open) ? $line : $match[1] . $hidden;
+		} elseif (preg_match('/^\s*(?:[0-9a-f]{8}\s*){2,}$|^\s*[A-Za-z0-9+\/]{40,}={0,2}\s*$/i', $line)) {
+			$lines[$index] = $match[1] . $hidden;
+		} elseif (trim($match[3]) !== '' && ($open || $begin !== false
 			|| preg_match('/passw|passphrase|pwd|secret|psk|key|community|md5|authentication|credential|token|private|^\s*snmp-server\s+(?:host|user)\s/i', $line))) {
 			$lines[$index] = $match[1] . (string) ($match[2] ?? '') . (($match[2] ?? '') === '' ? '' : ' ') . $hidden;
 		}
 	}
 
-	if (!$quote && !$pem && !$quit) {
-		$unclosed = 0;
-	}
+	$unclosed = in_array(true, $state, true) ? $opened : 0;
 
 	return $lines;
 }

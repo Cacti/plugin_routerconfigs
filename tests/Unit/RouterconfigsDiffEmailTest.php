@@ -376,10 +376,31 @@ it('reduces secret-like lines to their first word and opens blocks only in their
 	'description mentioning a key' => [['  description key account'], ['  description <secret hidden>']],
 	'aaa method list'              => [['aaa authentication login default local'], ['aaa <secret hidden>']],
 	'no leading word'              => [['"token": "PLACEHOLDER"'], ['<secret hidden>']],
-	'keyword alone'                => [['  key-string'], ['  key-string']],
+	'keyword alone opens a block'  => [['  key-string'], ['  key-string']],
 	'ordinary line'                => [['interface Gi1', ' no shutdown'], ['interface Gi1', ' no shutdown']],
-	'certificate outside a chain'  => [[' certificate self-signed 01', 'hostname r1'], [' certificate self-signed 01', 'hostname r1']],
-	'key-string outside a pubkey chain' => [['key chain KC', ' key 1', '  key-string', 'hostname r1'], ['key <secret hidden>', ' key <secret hidden>', '  key-string', 'hostname r1']],
+	'certificate under an unexpected parent' => [
+		['interface Gi1', ' certificate self-signed 01', '  PLACEHOLDER', '  quit', 'hostname r1'],
+		['interface Gi1', ' certificate <secret hidden>', '  <secret hidden>', '  quit', 'hostname r1'],
+	],
+	'key-string under an unexpected parent' => [
+		['key chain KC', ' key 1', '  key-string', '   PLACEHOLDER', '  quit'],
+		['key <secret hidden>', ' key <secret hidden>', '  key-string', '   <secret hidden>', '  quit'],
+	],
+	'stray hex row'                => [['interface Gi1', '  0A1B2C3D 4E5F6071 8293A4B5'], ['interface Gi1', '  <secret hidden>']],
+	'stray base64 row'             => [['  UExBQ0VIT0xERVJQTEFDRUhPTERFUlBMQUNFSE9MREVS'], ['  <secret hidden>']],
+	'single-quoted multi-line'     => [["set psk 'PLACEHOLDER-A", "PLACEHOLDER-B'", 'next'], ['set <secret hidden>', '<secret hidden>', 'next']],
+	'pem closes and reopens on one line' => [
+		['-----BEGIN X-----', 'PLACEHOLDER-A', '-----END X----- -----BEGIN Y-----', 'PLACEHOLDER-B', '-----END Y-----', 'next'],
+		['<secret hidden>', '<secret hidden>', '<secret hidden>', '<secret hidden>', '-----END Y-----', 'next'],
+	],
+	'quote closes and another opens on one line' => [
+		['set psk "PLACEHOLDER-A', "PLACEHOLDER-B\" 'start", 'PLACEHOLDER-C', "end'", 'next'],
+		['set <secret hidden>', '<secret hidden>', '<secret hidden>', '<secret hidden>', 'next'],
+	],
+	'quit with other text stays hidden' => [
+		[' certificate ca 01', '  PLACEHOLDER', '  quit PLACEHOLDER', '  quit', 'next'],
+		[' certificate <secret hidden>', '  <secret hidden>', '  <secret hidden>', '  quit', 'next'],
+	],
 	'pem on one line'              => [['-----BEGIN X-----PLACEHOLDER-----END X-----', 'hostname r1'], ['<secret hidden>', 'hostname r1']],
 ]);
 
