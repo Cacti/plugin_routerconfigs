@@ -28,9 +28,11 @@
  * (the develop branch); this plugin supports Cacti 1.2.29+, where the
  * api_scheduler_* functions and SCHEDULE_* constants do not exist. The
  * helpers below reproduce the same schedule field contract and next-run
- * calendar math so the plugin behaves identically on both baselines,
- * delegating the calendar-heavy monthly calculations to core's
- * api_scheduler_calculate_next_start() whenever it is available.
+ * calendar math. The replica is used on every Cacti version, including
+ * 1.3+, so a device resolves to the same next backup on both baselines:
+ * unlike core, it skips calendar dates that do not exist (February 30,
+ * April 31) instead of letting strtotime() roll them into the next month,
+ * as RFC 5545 section 3.3.10 requires for recurrence rules.
  */
 
 // Schedule type identifiers, matching Cacti core's SCHEDULE_* values so a
@@ -67,6 +69,108 @@ function plugin_routerconfigs_sched_types(): array {
 		SCHEDULE_WEEKLY  => __('Weekly', 'routerconfigs'),
 		SCHEDULE_MONTHLY => __('Monthly', 'routerconfigs'),
 	];
+}
+
+/**
+ * Returns the Rerun Every options (1..31) offered on the device edit and
+ * bulk edit forms.
+ *
+ * @return array<int, string> Map of interval to label.
+ */
+function plugin_routerconfigs_sched_recur_options(): array {
+	$options = [];
+
+	for ($i = 1; $i <= 31; $i++) {
+		$options[$i] = (string) $i;
+	}
+
+	return $options;
+}
+
+/**
+ * Checks a submitted Schedule Type against the offered options.
+ *
+ * @param mixed $value The submitted value.
+ *
+ * @return bool True when the value is one of plugin_routerconfigs_sched_types().
+ */
+function plugin_routerconfigs_schedule_valid_type($value): bool {
+	return ctype_digit((string) $value) && array_key_exists((int) $value, plugin_routerconfigs_sched_types());
+}
+
+/**
+ * Checks a submitted Rerun Every value against the offered options.
+ *
+ * @param mixed $value The submitted value.
+ *
+ * @return bool True when the value is one of plugin_routerconfigs_sched_recur_options().
+ */
+function plugin_routerconfigs_schedule_valid_recur($value): bool {
+	return ctype_digit((string) $value) && array_key_exists((int) $value, plugin_routerconfigs_sched_recur_options());
+}
+
+/**
+ * Returns the day of month stored for a Monthly schedule that was set up
+ * without one: the day it was set up on, or 32 (the last day of the month)
+ * when that day is past the 28th, so a device set up on the 31st still runs
+ * in February, April, June, September and November.
+ *
+ * @param int $time The Unix timestamp the schedule is set up at.
+ *
+ * @return string The day of month in the CSV storage format.
+ */
+function plugin_routerconfigs_schedule_default_day(int $time): string {
+	$day = (int) date('j', $time);
+
+	return $day > 28 ? '32' : (string) $day;
+}
+
+/**
+ * Returns the device columns that determine its next backup time.
+ *
+ * @return array<int, string> The schedule column names.
+ */
+function plugin_routerconfigs_schedule_fields(): array {
+	return ['sched_type', 'recur_every', 'day_of_week', 'month', 'day_of_month', 'monthly_week', 'monthly_day'];
+}
+
+/**
+ * Completes the schedule part of a device save: stores a fixed day of month
+ * for a Monthly schedule saved without one, and recomputes nextbackup when
+ * the schedule changed so the old schedule's pending run is replaced.
+ * nextbackup is left alone for a new device, or one that has never been
+ * scheduled (NULL), so its first backup still happens on the next run.
+ * A Manual schedule stores 0, which the download query never selects.
+ * Called from save_devices() and plugin_routerconfigs_bulk_edit_apply().
+ *
+ * @param array $previous The stored device row, or [] for a new device.
+ * @param array $save     The columns being saved.
+ * @param int   $now      The reference Unix timestamp.
+ *
+ * @return array The save array, with day_of_month and nextbackup added
+ *               where needed.
+ */
+function plugin_routerconfigs_schedule_prepare_save(array $previous, array $save, int $now): array {
+	$row = array_merge($previous, $save);
+
+	if ((int) ($row['sched_type'] ?? 0) === SCHEDULE_MONTHLY && trim((string) ($row['day_of_month'] ?? '')) === '') {
+		$save['day_of_month'] = plugin_routerconfigs_schedule_default_day($now);
+		$row['day_of_month']  = $save['day_of_month'];
+	}
+
+	if (!isset($previous['nextbackup'])) {
+		return $save;
+	}
+
+	foreach (plugin_routerconfigs_schedule_fields() as $field) {
+		if ((string) ($previous[$field] ?? '') !== (string) ($row[$field] ?? '')) {
+			$save['nextbackup'] = plugin_routerconfigs_schedule_next_start($row, $now);
+
+			break;
+		}
+	}
+
+	return $save;
 }
 
 /**
@@ -187,18 +291,12 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 
 		case SCHEDULE_MONTHLY:
 		case SCHEDULE_MONTHLY_ON_DAY:
+			// Always the plugin's replica, even where core's
+			// api_scheduler_calculate_next_start() exists: core rolls
+			// nonexistent dates into the next month, so delegating would give
+			// the same device different backup dates on Cacti 1.2 and 1.3.
 			$sched = plugin_routerconfigs_schedule_normalize($device, $hour, $after);
-
-			if (function_exists('api_scheduler_calculate_next_start')) {
-				// Delegate to Cacti core's scheduler on 1.3+; the CI baseline is
-				// 1.2.x where this function does not exist, so this branch is
-				// not exercised there.
-				// @codeCoverageIgnoreStart
-				$ts = api_scheduler_calculate_next_start($sched);
-				// @codeCoverageIgnoreEnd
-			} else {
-				$ts = plugin_routerconfigs_schedule_calc_next_start($sched, $after);
-			}
+			$ts    = plugin_routerconfigs_schedule_calc_next_start($sched, $after);
 
 			return $ts === false ? 0 : (int) $ts;
 	}
@@ -208,9 +306,11 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 
 /**
  * Builds a core-compatible schedule array for the monthly calculators,
- * supplying sensible defaults (all months, and the reference day of the
- * month) when a true-monthly device has not selected explicit months or
- * days of month.
+ * supplying defaults when a true-monthly device has not selected explicit
+ * months or days of month: all months, and the 1st. The day default is
+ * fixed rather than taken from the reference time, so a row saved without
+ * a day (plugin_routerconfigs_schedule_prepare_save() normally stores one)
+ * keeps one backup day instead of drifting with every late run.
  *
  * @param array $device The device row.
  * @param int   $hour   The configured hour of day (0-23).
@@ -225,13 +325,11 @@ function plugin_routerconfigs_schedule_normalize(array $device, int $hour, int $
 
 	$day_of_month = isset($device['day_of_month']) && $device['day_of_month'] !== '' && $device['day_of_month'] !== null
 		? $device['day_of_month']
-		: date('j', $after);
+		: '1';
 
 	return [
-		'id'           => $device['id'] ?? 0,
 		'sched_type'   => (int) $device['sched_type'],
 		'start_at'     => date('Y-m-d', $after) . sprintf(' %02d:00:00', $hour),
-		'next_start'   => '0000-00-00 00:00:00',
 		'recur_every'  => isset($device['recur_every']) ? max(1, (int) $device['recur_every']) : 1,
 		'day_of_week'  => $device['day_of_week'] ?? '',
 		'month'        => $month,
@@ -299,9 +397,15 @@ function plugin_routerconfigs_schedule_calc_next_start_for_year(array $schedule,
 			$smonth = $months[$month] ?? 'January';
 
 			foreach (plugin_routerconfigs_schedule_csv_ints($schedule['day_of_month']) as $day) {
-				$dates[] = ($day == 32)
-					? strtotime("last day of $smonth $year $time")
-					: strtotime("$smonth $day $year $time");
+				if ($day == 32) {
+					$dates[] = strtotime("last day of $smonth $year $time");
+				} elseif (checkdate($month, $day, $year)) {
+					$dates[] = strtotime("$smonth $day $year $time");
+				}
+
+				// Any other day does not exist in this month (February 30,
+				// April 31) and is skipped, per RFC 5545 section 3.3.10, rather
+				// than rolled into the next month by strtotime().
 			}
 		}
 	} elseif ($type === SCHEDULE_MONTHLY_ON_DAY) {
