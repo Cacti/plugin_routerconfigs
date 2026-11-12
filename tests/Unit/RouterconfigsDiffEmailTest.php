@@ -17,9 +17,61 @@ beforeAll(function () {
 });
 
 beforeEach(function () {
-	$GLOBALS['__stub_overrides'] = array();
-	$GLOBALS['__test_db_calls']  = array();
+	$GLOBALS['__stub_overrides']  = array();
+	$GLOBALS['__test_db_calls']   = array();
+	$GLOBALS['__rc_diff_tmpdirs'] = array();
 });
+
+// Remove every temporary directory a test created, even when an assertion
+// failed before the test reached its own cleanup.
+afterEach(function () {
+	foreach ($GLOBALS['__rc_diff_tmpdirs'] as $dir) {
+		foreach (glob($dir . '/{,.}*', GLOB_BRACE) ?: array() as $path) {
+			if (is_link($path) || is_file($path)) {
+				unlink($path);
+			}
+		}
+
+		if (is_dir($dir)) {
+			rmdir($dir);
+		}
+	}
+});
+
+/**
+ * Creates a temporary directory holding the given files, registered for
+ * removal after the test.
+ *
+ * @param array<string, string> $files Map of file name to contents.
+ *
+ * @return string The directory path.
+ */
+function rc_diff_tmpdir(array $files = array()): string {
+	$dir = sys_get_temp_dir() . '/rc-diff-' . uniqid();
+	mkdir($dir, 0777, true);
+	$GLOBALS['__rc_diff_tmpdirs'][] = $dir;
+
+	foreach ($files as $name => $contents) {
+		file_put_contents($dir . '/' . $name, $contents);
+	}
+
+	return $dir;
+}
+
+/**
+ * Makes the backups query return one row per given file name, newest
+ * first, all stored in the given directory.
+ *
+ * @param string $dir      The backup directory.
+ * @param string ...$names The backup file names, newest first.
+ *
+ * @return void
+ */
+function rc_diff_stub_backups(string $dir, string ...$names): void {
+	$rows = array_map(fn ($name) => ['directory' => $dir, 'filename' => $name], $names);
+
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => $rows;
+}
 
 it('treats a NUL byte as binary and everything else as text', function () {
 	expect(plugin_routerconfigs_is_text_config("hostname router\ninterface eth0"))->toBeTrue();
@@ -60,16 +112,10 @@ it('renders a unified diff only when the configs differ', function () {
 });
 
 it('rejects a backup file that symlinks outside its directory', function () {
-	$base    = sys_get_temp_dir() . '/rc-esc-' . uniqid();
-	$outside = sys_get_temp_dir() . '/rc-out-' . uniqid();
-	mkdir($base, 0777, true);
-	mkdir($outside, 0777, true);
-	file_put_contents($outside . '/secret.cfg', "secret\n");
+	$base    = rc_diff_tmpdir();
+	$outside = rc_diff_tmpdir(['secret.cfg' => "secret\n"]);
 
 	if (!@symlink($outside . '/secret.cfg', $base . '/link.cfg')) {
-		unlink($outside . '/secret.cfg');
-		rmdir($base);
-		rmdir($outside);
 		$this->markTestSkipped('symlink() is not available');
 
 		return;
@@ -78,17 +124,10 @@ it('rejects a backup file that symlinks outside its directory', function () {
 	// realpath() follows the symlink out of $base, so the containment check
 	// rejects it.
 	expect(plugin_routerconfigs_read_backup_file(['directory' => $base, 'filename' => 'link.cfg']))->toBeFalse();
-
-	unlink($base . '/link.cfg');
-	unlink($outside . '/secret.cfg');
-	rmdir($base);
-	rmdir($outside);
 });
 
 it('reads a backup file and rejects a path escaping its directory', function () {
-	$dir  = sys_get_temp_dir() . '/rc-diff-' . uniqid();
-	mkdir($dir, 0777, true);
-	file_put_contents($dir . '/config.cfg', "line1\nline2\n");
+	$dir = rc_diff_tmpdir(['config.cfg' => "line1\nline2\n"]);
 
 	expect(plugin_routerconfigs_read_backup_file(['directory' => $dir, 'filename' => 'config.cfg']))
 		->toBe("line1\nline2\n");
@@ -99,52 +138,31 @@ it('reads a backup file and rejects a path escaping its directory', function () 
 	// basename() strips traversal, so a traversal filename resolves to a
 	// non-existent file inside the directory and returns false.
 	expect(plugin_routerconfigs_read_backup_file(['directory' => $dir, 'filename' => '../../etc/passwd']))->toBeFalse();
-
-	unlink($dir . '/config.cfg');
-	rmdir($dir);
 });
 
 it('diffs the two most recent backups, skipping when fewer than two exist', function () {
-	$dir = sys_get_temp_dir() . '/rc-diff2-' . uniqid();
-	mkdir($dir, 0777, true);
-	file_put_contents($dir . '/new.cfg', "hostname r1\nip address 10.0.0.2\n");
-	file_put_contents($dir . '/old.cfg', "hostname r1\nip address 10.0.0.1\n");
-
-	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [
-		['directory' => $dir, 'filename' => 'new.cfg'],
-		['directory' => $dir, 'filename' => 'old.cfg'],
-	];
+	$dir = rc_diff_tmpdir([
+		'new.cfg' => "hostname r1\nip address 10.0.0.2\n",
+		'old.cfg' => "hostname r1\nip address 10.0.0.1\n",
+	]);
+	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
 
 	$diff = plugin_routerconfigs_device_config_diff(5, [], 3);
 	expect($diff)->toContain('10.0.0.2');
 
 	// Fewer than two backups -> no diff.
-	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [
-		['directory' => $dir, 'filename' => 'new.cfg'],
-	];
+	rc_diff_stub_backups($dir, 'new.cfg');
 	expect(plugin_routerconfigs_device_config_diff(5, [], 3))->toBe('');
-
-	unlink($dir . '/new.cfg');
-	unlink($dir . '/old.cfg');
-	rmdir($dir);
 });
 
 it('returns no diff when a backup is binary', function () {
-	$dir = sys_get_temp_dir() . '/rc-diff3-' . uniqid();
-	mkdir($dir, 0777, true);
-	file_put_contents($dir . '/new.cfg', "text\x00binary\n");
-	file_put_contents($dir . '/old.cfg', "hostname r1\n");
-
-	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [
-		['directory' => $dir, 'filename' => 'new.cfg'],
-		['directory' => $dir, 'filename' => 'old.cfg'],
-	];
+	$dir = rc_diff_tmpdir([
+		'new.cfg' => "text\x00binary\n",
+		'old.cfg' => "hostname r1\n",
+	]);
+	rc_diff_stub_backups($dir, 'new.cfg', 'old.cfg');
 
 	expect(plugin_routerconfigs_device_config_diff(5, [], 3))->toBe('');
-
-	unlink($dir . '/new.cfg');
-	unlink($dir . '/old.cfg');
-	rmdir($dir);
 });
 
 it('combines the configured email list with a Thold notification list', function () {
@@ -166,19 +184,11 @@ it('combines the configured email list with a Thold notification list', function
 });
 
 it('returns no diff when a backup file cannot be read', function () {
-	$dir = sys_get_temp_dir() . '/rc-diff5-' . uniqid();
-	mkdir($dir, 0777, true);
-
 	// Both backup rows point at files that do not exist on disk, so
 	// plugin_routerconfigs_read_backup_file() returns false.
-	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [
-		['directory' => $dir, 'filename' => 'missing-new.cfg'],
-		['directory' => $dir, 'filename' => 'missing-old.cfg'],
-	];
+	rc_diff_stub_backups(rc_diff_tmpdir(), 'missing-new.cfg', 'missing-old.cfg');
 
 	expect(plugin_routerconfigs_device_config_diff(5, [], 3))->toBe('');
-
-	rmdir($dir);
 });
 
 it('returns just the email list when no Thold list is selected', function () {
