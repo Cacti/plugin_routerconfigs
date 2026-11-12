@@ -196,6 +196,12 @@ function save_devicetypes() {
 	$save['elevated']         = get_nfilter_request_var('elevated');
 	$save['loginprompts']     = get_nfilter_request_var('loginprompts');
 
+	$invalid_prompts = plugin_routerconfigs_invalid_login_prompts($save['loginprompts']);
+
+	if (cacti_sizeof($invalid_prompts)) {
+		raise_message('rc_loginprompts_invalid', __('Post-Login Prompts contains a prompt that is not a valid regular expression: %s', html_escape(implode(', ', $invalid_prompts)), 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+	}
+
 	if (!is_error_message()) {
 		$id = sql_save($save, 'plugin_routerconfigs_devicetypes', 'id');
 

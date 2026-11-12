@@ -301,9 +301,15 @@ abstract class PHPShellConnection extends PHPConnection {
 	 * (issue #130). For each parsed prompt/response pair it waits briefly
 	 * for the prompt to appear in the device output (matched as a
 	 * case-insensitive regular expression), then sends the response, with
-	 * an empty response meaning just a carriage return. Devices without any
-	 * configured prompts are unaffected. Called at the start of Download(),
-	 * before the copy-to-TFTP command.
+	 * an empty response meaning just a carriage return. A response is only
+	 * ever sent after its prompt was seen: when the prompt does not appear
+	 * within 5 reads, or is not a valid regular expression, a WARNING is
+	 * logged and the response is not sent, so a reply such as 'y' or '2'
+	 * cannot land on the CLI prompt and run as a command. Download() then
+	 * carries on, and EnsureEnabled() fails the backup if the device is
+	 * still waiting at an unanswered prompt. Devices without any configured
+	 * prompts are unaffected. Called at the start of Download(), before the
+	 * copy-to-TFTP command.
 	 *
 	 * @return void
 	 */
@@ -316,18 +322,35 @@ abstract class PHPShellConnection extends PHPConnection {
 		}
 
 		foreach ($prompts as $entry) {
+			$regex = plugin_routerconfigs_regex($entry['prompt']);
+
+			if ($regex === null) {
+				$this->Log("WARNING: Post-login prompt '" . $entry['prompt'] . "' is not a valid regular expression, not sending its response");
+
+				continue;
+			}
+
 			$response = '';
+			$seen     = false;
 			$x        = 0;
 
 			while ($x < 5) {
 				$this->GetResponse($response);
 
-				if (@preg_match('/' . $entry['prompt'] . '/i', $response) === 1) {
+				if (preg_match($regex, $response) === 1) {
+					$seen = true;
+
 					break;
 				}
 
 				$this->Sleep();
 				$x++;
+			}
+
+			if (!$seen) {
+				$this->Log("WARNING: Post-login prompt '" . $entry['prompt'] . "' was not seen after $x attempts, not sending its response");
+
+				continue;
 			}
 
 			$this->Log("DEBUG: Sending post-login response for prompt '" . $entry['prompt'] . "'");

@@ -752,6 +752,91 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 }
 
 /**
+ * Turns an operator-supplied regular expression (written without
+ * delimiters, as in the device type and settings forms) into a delimited
+ * PCRE pattern, or returns null when it does not compile. An unescaped '/'
+ * is escaped so it cannot end the pattern early, while an already escaped
+ * '\/' is kept as it is. Compiling is checked without emitting a warning,
+ * and results are cached per request so a pattern applied to every line of
+ * a configuration is checked once. Shared by
+ * PHPShellConnection::ProcessLoginPrompts() and save_devicetypes().
+ *
+ * @param string $pattern The regular expression without delimiters.
+ * @param string $flags   The pattern modifiers, e.g. 'i'.
+ *
+ * @return string|null The delimited pattern, or null if it is invalid.
+ */
+function plugin_routerconfigs_regex(string $pattern, string $flags = 'i'): ?string {
+	static $cache = [];
+
+	$key = $flags . '/' . $pattern;
+
+	if (array_key_exists($key, $cache)) {
+		return $cache[$key];
+	}
+
+	$escaped = '';
+	$length  = strlen($pattern);
+
+	for ($i = 0; $i < $length; $i++) {
+		$char = $pattern[$i];
+
+		if ($char === '\\' && $i + 1 < $length) {
+			$escaped .= $char . $pattern[++$i];
+		} elseif ($char === '/') {
+			$escaped .= '\\/';
+		} else {
+			$escaped .= $char;
+		}
+	}
+
+	$regex = '/' . $escaped . '/' . $flags;
+
+	// preg_match() reports a pattern that does not compile with a warning
+	// and false; swallow only that warning, for this one call.
+	set_error_handler(function () {
+		return true;
+	});
+
+	try {
+		$valid = preg_match($regex, '') !== false;
+	} finally {
+		restore_error_handler();
+	}
+
+	// The patterns come from a handful of settings, so this stays small; the
+	// bound only guards a long-running process against unbounded growth.
+	if (cacti_sizeof($cache) >= 256) {
+		$cache = [];
+	}
+
+	$cache[$key] = $valid ? $regex : null;
+
+	return $cache[$key];
+}
+
+/**
+ * Lists the Post-Login Prompts whose prompt is not a valid regular
+ * expression, so save_devicetypes() can reject them instead of storing a
+ * prompt that would never match.
+ *
+ * @param string|null $text The configured prompt/response text.
+ *
+ * @return array<int, string> The invalid prompts, in order.
+ */
+function plugin_routerconfigs_invalid_login_prompts($text): array {
+	$invalid = [];
+
+	foreach (plugin_routerconfigs_parse_login_prompts($text) as $entry) {
+		if (plugin_routerconfigs_regex($entry['prompt']) === null) {
+			$invalid[] = $entry['prompt'];
+		}
+	}
+
+	return $invalid;
+}
+
+/**
  * Parses a device type's Post-Login Prompts text (one "prompt|response"
  * pair per line) into an ordered list of ['prompt' => regex,
  * 'response' => string] entries. Blank lines and lines without a '|'
@@ -1765,6 +1850,173 @@ function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
  */
 function plugin_routerconfigs_connection_target_changed($previous_device, $new_device) {
 	return (string) ($previous_device['ipaddress'] ?? '') !== (string) ($new_device['ipaddress'] ?? '');
+}
+
+/**
+ * Validates the settings an operator changed on the bulk device-edit form
+ * and maps them to device columns. Every value must be one the form
+ * offers: Enabled or Disabled, a Schedule Type from
+ * plugin_routerconfigs_sched_bulk_types(), a Rerun Every from
+ * plugin_routerconfigs_sched_recur_options(), a Connection Type, and an
+ * existing Authentication Account and Device Type. Any other value is
+ * reported instead of being cast into something storable, and the caller
+ * applies nothing. Called from plugin_routerconfigs_bulk_edit_set() in
+ * router-devices.php.
+ *
+ * @param array<string, mixed> $input The submitted values keyed by column
+ *                                    (enabled, sched_type, recur_every,
+ *                                    connecttype, account, devicetype),
+ *                                    holding only the fields not left on
+ *                                    "No Change".
+ *
+ * @return array{set: array<string, int|string>, errors: array<int, string>}
+ *               The column => value map and one message per invalid field.
+ */
+function plugin_routerconfigs_bulk_edit_validate(array $input): array {
+	global $rc_connection_types;
+
+	$labels = [
+		'enabled'     => __('Enabled', 'routerconfigs'),
+		'sched_type'  => __('Schedule Type', 'routerconfigs'),
+		'recur_every' => __('Rerun Every', 'routerconfigs'),
+		'connecttype' => __('Connection Type', 'routerconfigs'),
+		'account'     => __('Authentication Account', 'routerconfigs'),
+		'devicetype'  => __('Device Type', 'routerconfigs'),
+	];
+
+	$set    = [];
+	$errors = [];
+
+	foreach ($input as $column => $value) {
+		$valid = false;
+
+		if (isset($labels[$column]) && is_string($value)) {
+			switch ($column) {
+				case 'enabled':
+					$valid = ($value === 'on' || $value === '');
+
+					break;
+				case 'sched_type':
+					$valid = plugin_routerconfigs_schedule_valid_type($value, plugin_routerconfigs_sched_bulk_types());
+
+					break;
+				case 'recur_every':
+					$valid = plugin_routerconfigs_schedule_valid_recur($value);
+
+					break;
+				case 'connecttype':
+					$valid = array_key_exists($value, $rc_connection_types);
+
+					break;
+				case 'account':
+					$valid = ctype_digit($value) && db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) $value]) > 0;
+
+					break;
+				case 'devicetype':
+					$valid = ctype_digit($value) && db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devicetypes WHERE id = ?', [(int) $value]) > 0;
+
+					break;
+			}
+		}
+
+		if (!$valid) {
+			$errors[] = __('The selected %s is not valid; no devices were changed.', $labels[$column] ?? (string) $column, 'routerconfigs');
+		} elseif ($column === 'enabled' || $column === 'connecttype') {
+			$set[$column] = $value;
+		} else {
+			$set[$column] = (int) $value;
+		}
+	}
+
+	return ['set' => $set, 'errors' => $errors];
+}
+
+/**
+ * Applies validated bulk device-edit settings to the selected devices.
+ * When a schedule column changes, each device's row goes through
+ * plugin_routerconfigs_schedule_prepare_save(), so a Monthly schedule
+ * gets a fixed day of month and the pending nextbackup follows the new
+ * schedule, and the resulting row must pass
+ * plugin_routerconfigs_schedule_validate(). If any device fails, nothing
+ * is written and the failing ids are returned, so bulk edit can never
+ * leave a scheduled device with no next run (a nextbackup of 0 would make
+ * it due on every scheduled run). Devices that end up with identical values share one
+ * UPDATE ... WHERE id IN (...), so a typical bulk change costs one SELECT
+ * and a few UPDATEs rather than one UPDATE per device. Called from
+ * actions_devices() in router-devices.php.
+ *
+ * @param array<int, int|string>    $ids The selected device ids.
+ * @param array<string, int|string> $set The validated column => value map
+ *                                       from
+ *                                       plugin_routerconfigs_bulk_edit_validate().
+ * @param int                       $now The reference Unix timestamp.
+ *
+ * @return array{updated: int, invalid: array<int, int>} The number of
+ *               devices updated, and the ids whose resulting schedule is
+ *               invalid (in which case nothing was updated).
+ */
+function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now): array {
+	$ids    = array_values(array_unique(array_map('intval', $ids)));
+	$result = ['updated' => 0, 'invalid' => []];
+
+	if (!cacti_sizeof($ids) || !cacti_sizeof($set)) {
+		return $result;
+	}
+
+	$fields = plugin_routerconfigs_schedule_fields();
+	$rows   = db_fetch_assoc_prepared('SELECT id, nextbackup, ' . implode(', ', $fields) . '
+		FROM plugin_routerconfigs_devices
+		WHERE id IN (' . implode(',', array_fill(0, cacti_count($ids), '?')) . ')',
+		$ids);
+
+	if (!cacti_sizeof($rows)) {
+		return $result;
+	}
+
+	$reschedule = cacti_sizeof(array_intersect(array_keys($set), $fields)) > 0;
+	$groups     = [];
+
+	foreach ($rows as $row) {
+		$id = (int) $row['id'];
+		unset($row['id']);
+
+		$save = $reschedule ? plugin_routerconfigs_schedule_prepare_save($row, $set, $now) : $set;
+
+		if ($reschedule && plugin_routerconfigs_schedule_validate(array_merge($row, $save), $now) !== '') {
+			$result['invalid'][] = $id;
+
+			continue;
+		}
+
+		$key = serialize($save);
+
+		$groups[$key]['save']  = $save;
+		$groups[$key]['ids'][] = $id;
+	}
+
+	if (cacti_sizeof($result['invalid'])) {
+		return $result;
+	}
+
+	foreach ($groups as $group) {
+		$cols = [];
+
+		// Column names come from the fixed allow-list in
+		// plugin_routerconfigs_bulk_edit_validate() and
+		// plugin_routerconfigs_schedule_prepare_save(), never from the request.
+		foreach (array_keys($group['save']) as $column) {
+			$cols[] = "`$column` = ?";
+		}
+
+		db_execute_prepared('UPDATE plugin_routerconfigs_devices
+			SET ' . implode(', ', $cols) . '
+			WHERE id IN (' . implode(',', array_fill(0, cacti_count($group['ids']), '?')) . ')',
+			array_merge(array_values($group['save']), $group['ids']));
+	}
+
+	$result['updated'] = cacti_sizeof($rows);
+
+	return $result;
 }
 
 /**

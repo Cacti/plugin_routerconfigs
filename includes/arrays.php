@@ -79,11 +79,7 @@ $rc_schedules_backup = [
 	RCONFIG_BACKUP_MONTHLY => __('Monthly', 'routerconfigs'),
 ];
 
-$rc_schedules_recur = [];
-for ($rc_recur_i = 1; $rc_recur_i <= 31; $rc_recur_i++) {
-	$rc_schedules_recur[$rc_recur_i] = (string) $rc_recur_i;
-}
-unset($rc_recur_i);
+$rc_schedules_recur = plugin_routerconfigs_sched_recur_options();
 
 $rc_schedules_retention = [
 	RCONFIG_RETENTION_MONTH_ONE   => __('%d Month', 1, 'routerconfigs'), // * 30
@@ -240,7 +236,7 @@ $rc_device_edit_fields = [
 	'recur_every' => [
 		'method'        => 'drop_array',
 		'friendly_name' => __('Rerun Every', 'routerconfigs'),
-		'description'   => __('For Daily/Weekly schedules, rerun the backup every X days/weeks.', 'routerconfigs'),
+		'description'   => __('For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply.', 'routerconfigs'),
 		'value'         => '|arg1:recur_every|',
 		'default'       => 1,
 		'array'         => $rc_schedules_recur,
@@ -248,7 +244,7 @@ $rc_device_edit_fields = [
 	'day_of_week' => [
 		'method'        => 'drop_multi',
 		'friendly_name' => __('Days of Week', 'routerconfigs'),
-		'description'   => __('For a Weekly schedule, the day(s) of the week to run the backup on. Leave empty to run every Rerun-Every weeks.', 'routerconfigs'),
+		'description'   => __('For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead.', 'routerconfigs'),
 		'value'         => '|arg1:day_of_week|',
 		'array'         => plugin_routerconfigs_sched_days_of_week(),
 	],
@@ -459,7 +455,7 @@ $rc_devtype_edit_fields = [
 	],
 	'loginprompts' => [
 		'friendly_name' => __('Post-Login Prompts', 'routerconfigs'),
-		'description'   => __('Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output; the response is sent as typed, or use <CR> to send just a carriage return. Example: Press any key|<CR>', 'routerconfigs'),
+		'description'   => __('Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>', 'routerconfigs'),
 		'method'        => 'textarea',
 		'value'         => '|arg1:loginprompts|',
 		'textarea_rows' => '4',
