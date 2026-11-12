@@ -132,6 +132,17 @@ it('compiles operator regular expressions without breaking on a slash', function
 	expect(plugin_routerconfigs_regex('[y/n]'))->toBe('/[y\\/n]/i');
 });
 
+it('keeps compiling correctly after the pattern cache fills and is reset', function () {
+	// More distinct patterns than the 256-entry cache holds, so the cache is
+	// emptied at least once along the way.
+	for ($i = 0; $i < 300; $i++) {
+		expect(plugin_routerconfigs_regex("prompt $i/x"))->toBe("/prompt $i\\/x/i");
+	}
+
+	expect(plugin_routerconfigs_regex('[y/n]'))->toBe('/[y\\/n]/i');
+	expect(plugin_routerconfigs_regex('(broken'))->toBeNull();
+});
+
 it('returns null for a pattern that does not compile, without a warning', function (string $pattern) {
 	expect(plugin_routerconfigs_regex($pattern))->toBeNull();
 })->with([
