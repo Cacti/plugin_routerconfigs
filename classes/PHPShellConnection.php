@@ -27,6 +27,9 @@ declare(strict_types = 1);
 require_once(__DIR__ . '/PHPConnection.php');
 
 abstract class PHPShellConnection extends PHPConnection {
+	/** @var bool Whether the Post-Login Prompts were already answered. */
+	protected $loginPromptsDone = false;
+
 	/*
 	0 = success
 	1 = couldn't open network connection
@@ -308,12 +311,21 @@ abstract class PHPShellConnection extends PHPConnection {
 	 * cannot land on the CLI prompt and run as a command. Download() then
 	 * carries on, and EnsureEnabled() fails the backup if the device is
 	 * still waiting at an unanswered prompt. Devices without any configured
-	 * prompts are unaffected. Called at the start of Download(), before the
-	 * copy-to-TFTP command.
+	 * prompts are unaffected. Called from PHPTelnet::Connect() when the
+	 * password reply is not a CLI prompt, and otherwise at the start of
+	 * Download(), before the copy-to-TFTP command. The prompts are answered
+	 * at most once per connection.
+	 *
+	 * @param string $pending Output already read but not yet matched, such
+	 *                        as the reply to the password; defaults to ''.
 	 *
 	 * @return void
 	 */
-	function ProcessLoginPrompts() {
+	function ProcessLoginPrompts($pending = '') {
+		if ($this->loginPromptsDone) {
+			return;
+		}
+
 		$text    = isset($this->deviceType['loginprompts']) ? $this->deviceType['loginprompts'] : '';
 		$prompts = plugin_routerconfigs_parse_login_prompts($text);
 
@@ -321,9 +333,11 @@ abstract class PHPShellConnection extends PHPConnection {
 			return;
 		}
 
-		// Output already read but not yet matched, such as the reply to the
-		// previous response, which may hold the next prompt in a chain.
-		$pending = '';
+		$this->loginPromptsDone = true;
+
+		// $pending holds output already read but not yet matched, such as the
+		// reply to the previous response, which may hold the next prompt in a
+		// chain.
 
 		foreach ($prompts as $entry) {
 			$regex = plugin_routerconfigs_regex($entry['prompt']);
@@ -362,7 +376,7 @@ abstract class PHPShellConnection extends PHPConnection {
 
 			$this->Log("DEBUG: Sending post-login response for prompt '" . $entry['prompt'] . "'");
 
-			$this->DoCommand($entry['response'], $pending);
+			$this->SendResponse($entry['response'], $pending);
 		}
 	}
 }

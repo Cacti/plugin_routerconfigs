@@ -31,10 +31,10 @@ class RouterconfigsTestPromptShell extends PHPShellConnection {
 	/** @var array<int, string> Device output returned by successive reads. */
 	public $test_output = [];
 
-	/** @var array<int, string> Device replies returned by successive commands. */
+	/** @var array<int, string> Device replies returned by successive responses. */
 	public $test_replies = [];
 
-	/** @var array<int, string> Commands sent to the device. */
+	/** @var array<int, string> Responses sent to the device. */
 	public $test_sent = [];
 
 	/** @var array<int, string> Log lines written. */
@@ -54,8 +54,8 @@ class RouterconfigsTestPromptShell extends PHPShellConnection {
 		return 0;
 	}
 
-	function DoCommand($cmd, &$response, $pass = null) {
-		$this->test_sent[] = $cmd;
+	function SendResponse($text, &$response) {
+		$this->test_sent[] = $text;
 		$response          = array_shift($this->test_replies) ?? '';
 
 		return 0;
@@ -66,6 +66,39 @@ class RouterconfigsTestPromptShell extends PHPShellConnection {
 
 	function Log($message) {
 		$this->test_log[] = $message;
+	}
+}
+
+/**
+ * An interactive shell connected to one end of a local socket pair, so
+ * ProcessLoginPrompts() runs the real SendResponse() and GetResponse()
+ * against scripted device output.
+ */
+class RouterconfigsTestSocketShell extends PHPShellConnection {
+	/** @var resource The device's end of the socket pair. */
+	public $test_device;
+
+	function __construct(string $loginprompts, array $deviceType = []) {
+		[$this->stream, $this->test_device] = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+		$this->deviceType = $deviceType + ['loginprompts' => $loginprompts];
+		$this->timeout    = 0.2;
+	}
+
+	function Connect() {
+		return true;
+	}
+
+	function Sleep() {
+	}
+
+	function Log($message) {
+	}
+
+	/** Returns everything the shell has written to the device so far. */
+	function test_received(): string {
+		stream_set_blocking($this->test_device, false);
+
+		return (string) stream_get_contents($this->test_device);
 	}
 }
 
@@ -213,4 +246,28 @@ it('does nothing for a device type without prompts', function () {
 
 	expect($shell->test_sent)->toBe([]);
 	expect($shell->test_log)->toBe([]);
+});
+
+it('answers each prompt with a carriage return and keeps the full reply for the next prompt', function () {
+	$shell = new RouterconfigsTestSocketShell("Press any key|<CR>\nSelect member|2", ['anykey' => 'Press any key']);
+
+	// The member menu arrives with the reply to the first answer. DoCommand()
+	// would have trimmed this reply to an empty string.
+	fwrite($shell->test_device, "Press any key to continue\r\n\r\nSelect member (1/2):\r\n");
+
+	$shell->ProcessLoginPrompts();
+
+	// Each answer ends with CR, not PHP_EOL, whatever the platform.
+	expect($shell->test_received())->toBe("\r2\r");
+});
+
+it('answers prompts already read at login once per connection', function () {
+	$shell = new RouterconfigsTestPromptShell('Select member|2');
+
+	// PHPTelnet::Connect() passes the password reply when it is a menu.
+	$shell->ProcessLoginPrompts("Password OK\r\nSelect member (1/2):\r\n");
+	$shell->test_output = ['Select member (1/2):'];
+	$shell->ProcessLoginPrompts();
+
+	expect($shell->test_sent)->toBe(['2']);
 });
