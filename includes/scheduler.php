@@ -342,8 +342,11 @@ function plugin_routerconfigs_schedule_normalize(array $device, int $hour, int $
 /**
  * Plugin-local replica of core's api_scheduler_calculate_next_start():
  * resolves the next monthly / monthly-on-day occurrence, trying this
- * year then next so a late-year schedule does not resolve to false for
- * the remainder of the year.
+ * year and then the following ones so a late-year schedule does not
+ * resolve to false for the remainder of the year. Because nonexistent
+ * dates are skipped, February 29 alone occurs only in leap years, so the
+ * search covers 8 years: the longest gap between leap years (2096 to
+ * 2104).
  *
  * @param array    $schedule The normalized schedule array.
  * @param int|null $now      The reference time; defaults to time().
@@ -355,13 +358,17 @@ function plugin_routerconfigs_schedule_calc_next_start(array $schedule, ?int $no
 		$now = time();
 	}
 
-	$next = plugin_routerconfigs_schedule_calc_next_start_for_year($schedule, (int) date('Y', $now), $now);
+	$year = (int) date('Y', $now);
 
-	if ($next === false) {
-		$next = plugin_routerconfigs_schedule_calc_next_start_for_year($schedule, (int) date('Y', $now) + 1, $now);
+	for ($offset = 0; $offset <= 8; $offset++) {
+		$next = plugin_routerconfigs_schedule_calc_next_start_for_year($schedule, $year + $offset, $now);
+
+		if ($next !== false) {
+			return $next;
+		}
 	}
 
-	return $next;
+	return false;
 }
 
 /**
