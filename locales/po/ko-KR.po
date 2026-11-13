@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2020-12-13 10:26-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,6 +24,10 @@ msgstr "삭제"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "백업"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -66,15 +70,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "상속"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "매일"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "매주"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "매월"
 
@@ -333,16 +337,25 @@ msgstr "디렉토리"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "configs를 저장하는 데 사용되는 상대 디렉토리 구조입니다."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "일정"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "이 장치의 백업주기."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "장치 유형"
 
@@ -356,7 +369,7 @@ msgstr "라우터가있는 장치 유형을 선택하십시오."
 msgid "Auto-Detect"
 msgstr "자동 감지"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "연결 타입"
@@ -366,7 +379,7 @@ msgstr "연결 타입"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "이것은 장치와 통신하는 데 사용되는 IP 주소입니다."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "인증 계정"
@@ -922,6 +935,15 @@ msgstr "오류 : 연결 유형을 사용하여 '%s'장치에 연결하지 못했
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "오류 : '%s'을 (를) 통해 '%s'(으)로 '%s'을 (를) 다운로드하지 못했습니다."
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "활성화"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -950,6 +972,11 @@ msgstr "%s에서 백업"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "파일 :  %s /  %s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "수동"
 
 #: router-accounts.php
 #, fuzzy
@@ -1164,6 +1191,20 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "%s의 디버그 ( %s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "마지막 변경"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG : '%s'인수와 함께 '%s'을 (를) 사용하여 수동 백업 실행"
@@ -1206,9 +1247,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "비활성화"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "기기 삭제"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "최소한 라우터 장치를 선택해야합니다."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1237,10 +1297,6 @@ msgstr "계정"
 #: router-devices.php
 msgid "Actions"
 msgstr "작업"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "활성화"
 
 #: router-devices.php
 #, fuzzy
@@ -1479,6 +1535,10 @@ msgstr "라우터 구성"
 #, fuzzy
 msgid "Routers"
 msgstr "라우터 구성"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "이 장치의 백업주기."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
