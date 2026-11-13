@@ -12,6 +12,8 @@
  * schedules, plus the legacy interval-in-days fallback (issue #133).
  */
 
+require_once __DIR__ . '/../../includes/scheduler.php';
+
 beforeAll(function () {
 	require_once __DIR__ . '/../../includes/functions.php';
 
@@ -240,3 +242,30 @@ it('resolves to no date when the selected day never exists', function () {
 
 	expect(plugin_routerconfigs_schedule_calc_next_start($schedule, strtotime('2026-01-15 09:00:00')))->toBeFalse();
 });
+
+
+it('keeps the configured local backup hour across daylight saving changes', function (int $type, int $recur, string $days, int $hour, string $after, string $expected) {
+	$timezone = date_default_timezone_get();
+	date_default_timezone_set('America/Los_Angeles');
+
+	try {
+		$next = rc_sched_next($hour, ['sched_type' => $type, 'recur_every' => $recur, 'day_of_week' => $days], $after);
+		expect(date('Y-m-d H:i', $next))->toBe($expected)
+			->and($next)->toBeGreaterThan(strtotime($after));
+	} finally {
+		date_default_timezone_set($timezone);
+	}
+})->with([
+	'daily autumn transition' => [SCHEDULE_DAILY, 1, '', 3, '2026-10-31 03:00:00', '2026-11-01 03:00'],
+	'daily spring transition' => [SCHEDULE_DAILY, 1, '', 3, '2026-03-07 03:00:00', '2026-03-08 03:00'],
+	'today after clocks changed' => [SCHEDULE_DAILY, 1, '', 3, '2026-11-01 02:30:00', '2026-11-01 03:00'],
+	'ten-day cadence' => [SCHEDULE_DAILY, 10, '', 3, '2026-10-25 03:00:00', '2026-11-04 03:00'],
+	'missing spring hour rolls forward' => [SCHEDULE_DAILY, 1, '', 2, '2026-03-07 03:00:00', '2026-03-08 03:00'],
+	'missing spring hour does not change later backups' => [SCHEDULE_DAILY, 1, '', 2, '2026-03-08 04:00:00', '2026-03-09 02:00'],
+	'weekly autumn transition' => [SCHEDULE_WEEKLY, 1, '', 3, '2026-10-25 03:00:00', '2026-11-01 03:00'],
+	'weekly spring transition' => [SCHEDULE_WEEKLY, 1, '', 3, '2026-03-01 03:00:00', '2026-03-08 03:00'],
+	'weekly missing hour does not drift' => [SCHEDULE_WEEKLY, 1, '', 2, '2026-03-08 04:00:00', '2026-03-15 02:00'],
+	'selected Sunday in autumn' => [SCHEDULE_WEEKLY, 1, '1', 3, '2026-10-31 04:00:00', '2026-11-01 03:00'],
+	'selected Sunday in spring' => [SCHEDULE_WEEKLY, 1, '1', 3, '2026-03-07 04:00:00', '2026-03-08 03:00'],
+	'selected missing hour does not drift' => [SCHEDULE_WEEKLY, 1, '1', 2, '2026-03-08 04:00:00', '2026-03-15 02:00'],
+]);

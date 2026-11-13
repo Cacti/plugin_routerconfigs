@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* issue#133: Preserve the configured local backup hour across daylight-saving transitions for daily and weekly schedules
+
 * issue#133: Replace the fixed Daily/Weekly/Monthly (=every 10 days) device schedule with an Automation Networks style scheduler (Schedule Type + Rerun Every), adding a true calendar Monthly backup and an explicit 10-day cadence (Daily, Rerun Every 10); the next-run calendar math is a plugin-local replica of Cacti core's api_scheduler (for Cacti 1.2.29+ where that library is unavailable), used on every Cacti version so 1.2 and 1.3 compute the same dates, and it skips dates a month does not have (e.g. February 30) instead of rolling them into the next month. A Monthly schedule saved without a day of month keeps the day it was saved on (Last after the 28th), and changing a schedule recomputes the next backup time. Existing devices are migrated automatically (legacy weekly becomes a true Weekly, every other interval becomes Daily/rerun-every-N, preserving the original cadence)
 * issue#133: Add an 'Edit (bulk change settings)' Devices action so Enabled, Schedule Type, Rerun Every, Connection Type, Authentication Account, and Device Type can be changed on many devices at once; each field offers a 'No Change' option so untouched settings are left alone
 * issue#133: Skip the Telnet username prompt when a device/account has no username configured, waiting directly for the password prompt so password-only Telnet devices can be backed up

@@ -245,10 +245,12 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			return $next;
 
 		case SCHEDULE_DAILY:
-			$next = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+			$base = strtotime(date('Y-m-d', $after));
+			$next = strtotime(date('Y-m-d', $after) . sprintf(' %02d:00:00', $hour));
 
 			while ($next <= $after) {
-				$next += $recur * 86400;
+				$base = strtotime('+' . $recur . ' days', $base);
+				$next = strtotime(date('Y-m-d', $base) . sprintf(' %02d:00:00', $hour));
 			}
 
 			return $next;
@@ -259,10 +261,12 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			// No specific weekday selected: behave like the legacy weekly
 			// cadence (every recur_every weeks from today's time of day).
 			if (empty($days)) {
-				$next = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+				$base = strtotime(date('Y-m-d', $after));
+				$next = strtotime(date('Y-m-d', $after) . sprintf(' %02d:00:00', $hour));
 
 				while ($next <= $after) {
-					$next += $recur * 7 * 86400;
+					$base = strtotime('+' . $recur . ' weeks', $base);
+					$next = strtotime(date('Y-m-d', $base) . sprintf(' %02d:00:00', $hour));
 				}
 
 				return $next;
@@ -271,15 +275,17 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			// Specific weekday(s): find the soonest selected weekday at the
 			// configured hour, strictly after the reference time. day_of_week
 			// is 1=Sunday .. 7=Saturday.
-			$base      = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+			$base      = strtotime(date('Y-m-d', $after));
 			$today_dow = (int) date('w', $base) + 1;
 			$best      = 0;
 
 			foreach ($days as $day) {
-				$candidate = $base + ((($day - $today_dow) + 7) % 7) * 86400;
+				$date = strtotime('+' . ((($day - $today_dow) + 7) % 7) . ' days', $base);
+				$candidate = strtotime(date('Y-m-d', $date) . sprintf(' %02d:00:00', $hour));
 
 				if ($candidate <= $after) {
-					$candidate += 7 * 86400;
+					$date = strtotime('+1 week', $date);
+					$candidate = strtotime(date('Y-m-d', $date) . sprintf(' %02d:00:00', $hour));
 				}
 
 				if ($best === 0 || $candidate < $best) {
