@@ -158,43 +158,62 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				$this->Sleep();
 				$this->GetResponse($r);
 
-				$x = 0;
+				// When no username is configured, skip the username prompt
+				// entirely and look directly for the password prompt. Some
+				// devices (e.g. password-only Telnet access) never present a
+				// username prompt, which would otherwise fail the login.
+				if (trim((string) $this->user) !== '') {
+					$x = 0;
 
-				while ($x < 10 &&
-					$this->prompt() != LinePrompt::Username &&
-					$this->prompt() != LinePrompt::AccessDenied) {
-					$x++;
+					while ($x < 10 &&
+						$this->prompt() != LinePrompt::Username &&
+						$this->prompt() != LinePrompt::AccessDenied) {
+						$x++;
 
-					$this->Log('DEBUG: No Prompt received (' . $this->prompt() . ": $x : " . LinePrompt::Username . ')');
+						$this->Log('DEBUG: No Prompt received (' . $this->prompt() . ": $x : " . LinePrompt::Username . ')');
 
-					fputs($this->stream, "\r");
+						fputs($this->stream, "\r");
 
-					$this->Sleep();
-					$this->GetResponse($r);
-				}
-
-				if ($x == 10) {
-					return 8;
-				}
-
-				if (!$this->stream ||
-					$this->prompt() != LinePrompt::Username ||
-					$this->prompt() == LinePrompt::AccessDenied) {
-					if ($this->prompt() != LinePrompt::Username) {
-						$this->Log('ERROR: Failed to find username prompt');
+						$this->Sleep();
+						$this->GetResponse($r);
 					}
 
-					if ($this->prompt() == LinePrompt::AccessDenied) {
-						$this->Log('ERROR: Access not permitted');
+					if ($x == 10) {
+						return 8;
 					}
 
-					return 6;
+					if (!$this->stream ||
+						$this->prompt() != LinePrompt::Username ||
+						$this->prompt() == LinePrompt::AccessDenied) {
+						if ($this->prompt() != LinePrompt::Username) {
+							$this->Log('ERROR: Failed to find username prompt');
+						}
+
+						if ($this->prompt() == LinePrompt::AccessDenied) {
+							$this->Log('ERROR: Access not permitted');
+						}
+
+						return 6;
+					}
+
+					// Send Username, wait for Password Prompt
+					$this->Log("DEBUG: Sending username: $this->user");
+
+					fputs($this->stream, "$this->user\r");
+				} else {
+					$this->Log('DEBUG: No username configured; skipping username prompt and waiting for the password prompt');
+
+					// Only nudge the device if the initial read has not already
+					// surfaced the password prompt. Sending a carriage return at
+					// a password prompt would submit an empty password and burn a
+					// failed login attempt.
+					if ($this->prompt() != LinePrompt::Password) {
+						fputs($this->stream, "\r");
+
+						$this->Sleep();
+						$this->GetResponse($r);
+					}
 				}
-
-				// Send Username, wait for Password Prompt
-				$this->Log("DEBUG: Sending username: $this->user");
-
-				fputs($this->stream, "$this->user\r");
 
 				$x = 0;
 

@@ -23,6 +23,7 @@
 */
 
 require_once(__DIR__ . '/constants.php');
+require_once(__DIR__ . '/scheduler.php');
 require_once(__DIR__ . '/arrays.php');
 require_once(__DIR__ . '/../classes/LinePrompt.php');
 require_once(__DIR__ . '/../classes/PHPConnection.php');
@@ -223,6 +224,13 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 					$sqlwhere  = 'AND (nextbackup <= ? OR nextbackup IS NULL)';
 					$sqlparams = [$stime];
 				}
+
+				// A Manual schedule is only ever backed up through the explicit
+				// Backup action, never on a scheduled or retry run (its next-run
+				// time resolves to 0, which would otherwise make it due on every
+				// cycle).
+				$sqlwhere   .= ' AND (sched_type IS NULL OR sched_type <> ?)';
+				$sqlparams[] = SCHEDULE_MANUAL;
 			}
 
 			$sql = "SELECT *
@@ -680,9 +688,9 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 	// imported disabled: it still has no account or device type, so enabling it
 	// now would make every scheduled poll fail until an operator finishes setup.
 	db_execute_prepared('INSERT IGNORE INTO plugin_routerconfigs_devices
-		(host_id, enabled, hostname, ipaddress)
-		VALUES (?, ?, ?, ?)',
-		[$host['id'], '', $name, $host['hostname']]);
+		(host_id, enabled, hostname, ipaddress, sched_type, recur_every)
+		VALUES (?, ?, ?, ?, ?, ?)',
+		[$host['id'], '', $name, $host['hostname'], SCHEDULE_DAILY, 1]);
 
 	if (db_affected_rows() > 0) {
 		$id = db_fetch_insert_id();
@@ -1052,7 +1060,7 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 					$t_back = time();
 
 					if ($scheduled) {
-						$t_next = plugin_routerconfigs_nexttime($backuptime, $device['schedule'], 86400, read_config_option('routerconfigs_hour'));
+						$t_next = plugin_routerconfigs_schedule_next_start($device, (int) $backuptime);
 					} else {
 						$t_next = db_fetch_cell_prepared('SELECT nextbackup FROM plugin_routerconfigs_devices WHERE id = ?', [$device['id']]);
 					}
@@ -1409,6 +1417,153 @@ function plugin_routerconfigs_clear_ssh_hostkey($device_id, $reason) {
  */
 function plugin_routerconfigs_connection_target_changed($previous_device, $new_device) {
 	return (string) ($previous_device['ipaddress'] ?? '') !== (string) ($new_device['ipaddress'] ?? '');
+}
+
+/**
+ * Validates the settings an operator changed on the bulk device-edit form
+ * and maps them to device columns. Every value must be one the form
+ * offers: Enabled or Disabled, a Schedule Type from
+ * plugin_routerconfigs_sched_types(), a Rerun Every from
+ * plugin_routerconfigs_sched_recur_options(), a Connection Type, and an
+ * existing Authentication Account and Device Type. Any other value is
+ * reported instead of being cast into something storable, and the caller
+ * applies nothing. Called from plugin_routerconfigs_bulk_edit_set() in
+ * router-devices.php.
+ *
+ * @param array<string, mixed> $input The submitted values keyed by column
+ *                                    (enabled, sched_type, recur_every,
+ *                                    connecttype, account, devicetype),
+ *                                    holding only the fields not left on
+ *                                    "No Change".
+ *
+ * @return array{set: array<string, int|string>, errors: array<int, string>}
+ *               The column => value map and one message per invalid field.
+ */
+function plugin_routerconfigs_bulk_edit_validate(array $input): array {
+	global $rc_connection_types;
+
+	$labels = [
+		'enabled'     => __('Enabled', 'routerconfigs'),
+		'sched_type'  => __('Schedule Type', 'routerconfigs'),
+		'recur_every' => __('Rerun Every', 'routerconfigs'),
+		'connecttype' => __('Connection Type', 'routerconfigs'),
+		'account'     => __('Authentication Account', 'routerconfigs'),
+		'devicetype'  => __('Device Type', 'routerconfigs'),
+	];
+
+	$set    = [];
+	$errors = [];
+
+	foreach ($input as $column => $value) {
+		$valid = false;
+
+		if (isset($labels[$column]) && is_string($value)) {
+			switch ($column) {
+				case 'enabled':
+					$valid = ($value === 'on' || $value === '');
+
+					break;
+				case 'sched_type':
+					$valid = plugin_routerconfigs_schedule_valid_type($value);
+
+					break;
+				case 'recur_every':
+					$valid = plugin_routerconfigs_schedule_valid_recur($value);
+
+					break;
+				case 'connecttype':
+					$valid = array_key_exists($value, $rc_connection_types);
+
+					break;
+				case 'account':
+					$valid = ctype_digit($value) && db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_accounts WHERE id = ?', [(int) $value]) > 0;
+
+					break;
+				case 'devicetype':
+					$valid = ctype_digit($value) && db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devicetypes WHERE id = ?', [(int) $value]) > 0;
+
+					break;
+			}
+		}
+
+		if (!$valid) {
+			$errors[] = __('The selected %s is not valid; no devices were changed.', $labels[$column] ?? (string) $column, 'routerconfigs');
+		} elseif ($column === 'enabled' || $column === 'connecttype') {
+			$set[$column] = $value;
+		} else {
+			$set[$column] = (int) $value;
+		}
+	}
+
+	return ['set' => $set, 'errors' => $errors];
+}
+
+/**
+ * Applies validated bulk device-edit settings to the selected devices.
+ * When a schedule column changes, each device's row goes through
+ * plugin_routerconfigs_schedule_prepare_save(), so a Monthly schedule
+ * gets a fixed day of month and the pending nextbackup follows the new
+ * schedule. Devices that end up with identical values share one
+ * UPDATE ... WHERE id IN (...), so a typical bulk change costs one SELECT
+ * and a few UPDATEs rather than one UPDATE per device. Called from
+ * actions_devices() in router-devices.php.
+ *
+ * @param array<int, int|string>    $ids The selected device ids.
+ * @param array<string, int|string> $set The validated column => value map
+ *                                       from
+ *                                       plugin_routerconfigs_bulk_edit_validate().
+ * @param int                       $now The reference Unix timestamp.
+ *
+ * @return int The number of devices updated.
+ */
+function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now): int {
+	$ids = array_values(array_unique(array_map('intval', $ids)));
+
+	if (!cacti_sizeof($ids) || !cacti_sizeof($set)) {
+		return 0;
+	}
+
+	$fields = plugin_routerconfigs_schedule_fields();
+	$rows   = db_fetch_assoc_prepared('SELECT id, nextbackup, ' . implode(', ', $fields) . '
+		FROM plugin_routerconfigs_devices
+		WHERE id IN (' . implode(',', array_fill(0, cacti_count($ids), '?')) . ')',
+		$ids);
+
+	if (!cacti_sizeof($rows)) {
+		return 0;
+	}
+
+	$reschedule = cacti_sizeof(array_intersect(array_keys($set), $fields)) > 0;
+	$groups     = [];
+
+	foreach ($rows as $row) {
+		$id = (int) $row['id'];
+		unset($row['id']);
+
+		$save = $reschedule ? plugin_routerconfigs_schedule_prepare_save($row, $set, $now) : $set;
+		$key  = serialize($save);
+
+		$groups[$key]['save']  = $save;
+		$groups[$key]['ids'][] = $id;
+	}
+
+	foreach ($groups as $group) {
+		$cols = [];
+
+		// Column names come from the fixed allow-list in
+		// plugin_routerconfigs_bulk_edit_validate() and
+		// plugin_routerconfigs_schedule_prepare_save(), never from the request.
+		foreach (array_keys($group['save']) as $column) {
+			$cols[] = "`$column` = ?";
+		}
+
+		db_execute_prepared('UPDATE plugin_routerconfigs_devices
+			SET ' . implode(', ', $cols) . '
+			WHERE id IN (' . implode(',', array_fill(0, cacti_count($group['ids']), '?')) . ')',
+			array_merge(array_values($group['save']), $group['ids']));
+	}
+
+	return cacti_sizeof($rows);
 }
 
 /**

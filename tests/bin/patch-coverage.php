@@ -165,6 +165,7 @@ $unmeasured_allowlist = [
 	'Text/Diff/Renderer.php', // vendored 3rd-party Horde_Text_Diff library; not this plugin's code
 	'Text/Diff/ThreeWay/BlockBuilder.php', // vendored 3rd-party Horde_Text_Diff library; not this plugin's code
 	'includes/arrays.php',   // static settings/field-map data definitions; no executable logic to measure
+	'includes/constants.php', // define() constant declarations only; loaded at test-collection time (before coverage starts) via a top-level require, so its lines can never register as covered
 	'classes/PHPConnection.php', // shared transport base (sockets/ssh2); not loadable in the isolated unit process
 	'classes/PHPSsh.php',    // SSH transport (ssh2_connect/sockets); not loadable in the isolated unit process
 	'classes/PHPTelnet.php', // Telnet transport (fsockopen); not loadable in the isolated unit process

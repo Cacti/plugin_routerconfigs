@@ -25,9 +25,11 @@ declare(strict_types = 1);
 */
 
 require_once(__DIR__ . '/constants.php');
+require_once(__DIR__ . '/scheduler.php');
 
 global $config, $rc_settings, $rc_connection_types,
 $rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
+$rc_schedules_recur,
 $rc_diff_context,
 $rc_account_actions, $rc_device_actions, $rc_devtype_actions,
 $rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
@@ -48,6 +50,7 @@ $rc_account_actions = [
 
 $rc_device_actions = [
 	RCONFIG_DEVICE_BACKUP            => __('Backup', 'routerconfigs'),
+	RCONFIG_DEVICE_EDIT              => __('Edit (bulk change settings)', 'routerconfigs'),
 	RCONFIG_DEVICE_DELETE            => __('Delete', 'routerconfigs'),
 	RCONFIG_DEVICE_ENABLE            => __('Enable', 'routerconfigs'),
 	RCONFIG_DEVICE_DISABLE           => __('Disable', 'routerconfigs'),
@@ -75,6 +78,8 @@ $rc_schedules_backup = [
 	RCONFIG_BACKUP_WEEKLY  => __('Weekly', 'routerconfigs'),
 	RCONFIG_BACKUP_MONTHLY => __('Monthly', 'routerconfigs'),
 ];
+
+$rc_schedules_recur = plugin_routerconfigs_sched_recur_options();
 
 $rc_schedules_retention = [
 	RCONFIG_RETENTION_MONTH_ONE   => __('%d Month', 1, 'routerconfigs'), // * 30
@@ -220,13 +225,21 @@ $rc_device_edit_fields = [
 		'value'         => '|arg1:directory|',
 		'max_length'    => '255',
 	],
-	'schedule' => [
+	'sched_type' => [
 		'method'        => 'drop_array',
-		'friendly_name' => __('Schedule', 'routerconfigs'),
-		'description'   => __('How often to Backup this device.', 'routerconfigs'),
-		'value'         => '|arg1:schedule|',
+		'friendly_name' => __('Schedule Type', 'routerconfigs'),
+		'description'   => __('How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup.', 'routerconfigs'),
+		'value'         => '|arg1:sched_type|',
+		'default'       => SCHEDULE_DAILY,
+		'array'         => plugin_routerconfigs_sched_types(),
+	],
+	'recur_every' => [
+		'method'        => 'drop_array',
+		'friendly_name' => __('Rerun Every', 'routerconfigs'),
+		'description'   => __('For Daily/Weekly schedules, rerun the backup every X days/weeks.', 'routerconfigs'),
+		'value'         => '|arg1:recur_every|',
 		'default'       => 1,
-		'array'         => $rc_schedules_backup,
+		'array'         => $rc_schedules_recur,
 	],
 	'devicetype' => [
 		'method'        => 'drop_sql',

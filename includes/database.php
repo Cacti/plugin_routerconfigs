@@ -102,6 +102,13 @@ function routerconfigs_devices_table_data(): array {
 	$data['columns'][] = ['name' => 'lastuser', 'type' => 'varchar(64)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'device', 'type' => 'int(11)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'schedule', 'type' => 'int(11)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'sched_type', 'type' => 'int(10) unsigned', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'recur_every', 'type' => 'int(10) unsigned', 'NULL' => true, 'default' => '1'];
+	$data['columns'][] = ['name' => 'day_of_week', 'type' => 'varchar(45)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'month', 'type' => 'varchar(45)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'day_of_month', 'type' => 'varchar(45)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'monthly_week', 'type' => 'varchar(45)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'monthly_day', 'type' => 'varchar(45)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'lastbackup', 'type' => 'int(18)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'nextbackup', 'type' => 'int(18)', 'NULL' => true];
@@ -286,4 +293,36 @@ function routerconfigs_ensure_host_id_index(): bool {
 		ADD UNIQUE KEY `' . $index . '` (`' . $column . '`)');
 
 	return db_index_exists($table, $index);
+}
+
+/**
+ * Migrates devices from the legacy interval-in-days `schedule` column to
+ * the Automation Networks style `sched_type`/`recur_every` scheduler
+ * fields. Idempotent: only rows that have not yet been assigned a
+ * sched_type (sched_type = 0) are converted, so re-running it (or running
+ * it on a fresh install with no rows) is a safe no-op. The legacy weekly
+ * value maps to a true Weekly schedule; every other interval maps to a
+ * Daily schedule rerunning every N days, which preserves the device's
+ * existing backup cadence (e.g. the old "Monthly" = every 10 days becomes
+ * Daily/rerun-every-10). Called from routerconfigs_check_upgrade().
+ *
+ * @return void
+ */
+function routerconfigs_migrate_schedule_types(): void {
+	if (!db_column_exists('plugin_routerconfigs_devices', 'sched_type')) {
+		return;
+	}
+
+	// Legacy weekly (every 7 days) becomes a true Weekly schedule.
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET sched_type = ?, recur_every = 1
+		WHERE sched_type = 0 AND schedule = ?',
+		[SCHEDULE_WEEKLY, RCONFIG_BACKUP_WEEKLY]);
+
+	// Every other interval becomes Daily, rerunning every N days so the
+	// existing cadence is preserved exactly.
+	db_execute_prepared('UPDATE plugin_routerconfigs_devices
+		SET sched_type = ?, recur_every = GREATEST(COALESCE(schedule, 1), 1)
+		WHERE sched_type = 0',
+		[SCHEDULE_DAILY]);
 }

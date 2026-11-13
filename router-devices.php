@@ -143,6 +143,94 @@ function view_device_config() {
 }
 
 /**
+ * Builds the "No Change" sentinel value used by the bulk device-edit
+ * confirmation form so that leaving a field alone is distinguishable from
+ * selecting an empty value (e.g. Disabled, or the Inherit connection type).
+ *
+ * @return string The sentinel value.
+ */
+function plugin_routerconfigs_bulk_nochange(): string {
+	return '__nochange__';
+}
+
+/**
+ * Loads an id => name option list for a bulk-edit dropdown from a simple
+ * two-column SQL query. Used for the Account and Device Type selectors.
+ *
+ * @param string $sql The SQL returning id and name columns.
+ *
+ * @return array<int|string, string> The id => name option map.
+ */
+function plugin_routerconfigs_bulk_options_sql(string $sql): array {
+	$options = [];
+
+	foreach (db_fetch_assoc_prepared($sql, []) as $r) {
+		$options[$r['id']] = $r['name'];
+	}
+
+	return $options;
+}
+
+/**
+ * Renders one row of the bulk device-edit confirmation form: a labelled
+ * dropdown whose first option is "No Change" (the sentinel) followed by
+ * the supplied value => label options.
+ *
+ * @param string $label   The field label.
+ * @param string $name    The POSTed field name (bulk_*).
+ * @param array  $options The value => label options to offer.
+ *
+ * @return void Outputs an HTML table row directly.
+ */
+function plugin_routerconfigs_bulk_edit_row(string $label, string $name, array $options): void {
+	$nochange = plugin_routerconfigs_bulk_nochange();
+
+	print "<tr class='even'><td class='nowrap' style='padding-left:10px;width:25%;'>" . html_escape($label) . "</td><td>";
+	print "<select name='" . html_escape($name) . "' id='" . html_escape($name) . "'>";
+	print "<option value='" . html_escape($nochange) . "' selected>" . __esc('No Change', 'routerconfigs') . '</option>';
+
+	foreach ($options as $value => $text) {
+		print "<option value='" . html_escape((string) $value) . "'>" . html_escape((string) $text) . '</option>';
+	}
+
+	print '</select></td></tr>';
+}
+
+/**
+ * Reads the bulk device-edit confirmation form and returns the validated
+ * column => value map of the fields the operator actually changed (fields
+ * left on the "No Change" sentinel are omitted). Values are checked by
+ * plugin_routerconfigs_bulk_edit_validate(); when any is invalid, an error
+ * is raised for each and null is returned so nothing is applied. Invoked
+ * from actions_devices().
+ *
+ * @return array<string, int|string>|null The column => value map to apply,
+ *                                        or null when a value is invalid.
+ */
+function plugin_routerconfigs_bulk_edit_set(): ?array {
+	$nochange = plugin_routerconfigs_bulk_nochange();
+	$input    = [];
+
+	foreach (['enabled', 'sched_type', 'recur_every', 'connecttype', 'account', 'devicetype'] as $column) {
+		if (isset_request_var('bulk_' . $column) && get_nfilter_request_var('bulk_' . $column) !== $nochange) {
+			$input[$column] = get_nfilter_request_var('bulk_' . $column);
+		}
+	}
+
+	$result = plugin_routerconfigs_bulk_edit_validate($input);
+
+	if (cacti_sizeof($result['errors'])) {
+		foreach ($result['errors'] as $index => $error) {
+			raise_message('bulk_edit_invalid_' . $index, $error, MESSAGE_LEVEL_ERROR);
+		}
+
+		return null;
+	}
+
+	return $result['set'];
+}
+
+/**
  * Handles the bulk-actions form for the Devices list (delete/enable/
  * disable/clear SSH host key/manual backup). Manual backup launches a
  * background router-download.php process immediately without a
@@ -164,7 +252,7 @@ function view_device_config() {
  *                                 manual backup action.
  */
 function actions_devices() {
-	global $rc_device_actions, $config;
+	global $rc_device_actions, $rc_connection_types, $rc_schedules_recur, $config;
 
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -200,6 +288,22 @@ function actions_devices() {
 				case RCONFIG_DEVICE_CLEAR_SSH_HOSTKEY:
 					for ($i = 0; $i < cacti_count($selected_items); $i++) {
 						plugin_routerconfigs_clear_ssh_hostkey($selected_items[$i], 'device action by user ' . ($_SESSION['sess_user_id'] ?? 'unknown'));
+					}
+
+					break;
+				case RCONFIG_DEVICE_EDIT:
+					$set = plugin_routerconfigs_bulk_edit_set();
+
+					if ($set === null) {
+						break;
+					}
+
+					if (cacti_sizeof($set)) {
+						$updated = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
+
+						raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $updated, 'routerconfigs'), MESSAGE_LEVEL_INFO);
+					} else {
+						raise_message('bulk_edit_none', __('No settings were changed; every field was left on "No Change".', 'routerconfigs'), MESSAGE_LEVEL_WARN);
 					}
 
 					break;
@@ -309,6 +413,27 @@ function actions_devices() {
 				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Clear SSH Host Key(s)', 'routerconfigs') . "'>";
 
 				break;
+			case RCONFIG_DEVICE_EDIT:
+				print "<tr>
+				<td colspan='2' class='textArea'>
+					<p>" . __('Set one or more of the following settings on the selected device(s). Fields left on \'No Change\' are not modified.', 'routerconfigs') . "</p>
+					<p><ul>$device_list</ul></p>
+				</td>
+			</tr>";
+
+				plugin_routerconfigs_bulk_edit_row(__('Enabled', 'routerconfigs'), 'bulk_enabled', [
+					'on' => __('Enabled', 'routerconfigs'),
+					''   => __('Disabled', 'routerconfigs'),
+				]);
+				plugin_routerconfigs_bulk_edit_row(__('Schedule Type', 'routerconfigs'), 'bulk_sched_type', plugin_routerconfigs_sched_types());
+				plugin_routerconfigs_bulk_edit_row(__('Rerun Every', 'routerconfigs'), 'bulk_recur_every', $rc_schedules_recur);
+				plugin_routerconfigs_bulk_edit_row(__('Connection Type', 'routerconfigs'), 'bulk_connecttype', $rc_connection_types);
+				plugin_routerconfigs_bulk_edit_row(__('Authentication Account', 'routerconfigs'), 'bulk_account', plugin_routerconfigs_bulk_options_sql('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name'));
+				plugin_routerconfigs_bulk_edit_row(__('Device Type', 'routerconfigs'), 'bulk_devicetype', plugin_routerconfigs_bulk_options_sql('SELECT id, name FROM plugin_routerconfigs_devicetypes ORDER BY name'));
+
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'routerconfigs') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'routerconfigs') . "' title='" . __esc('Apply settings to Device(s)', 'routerconfigs') . "'>";
+
+				break;
 			default:
 				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Return', 'routerconfigs') . "'>";
 
@@ -350,7 +475,8 @@ function save_devices() {
 	// ================= input validation =================
 	get_filter_request_var('id');
 	get_filter_request_var('devicetype');
-	get_filter_request_var('schedule');
+	get_filter_request_var('sched_type');
+	get_filter_request_var('recur_every');
 	// ====================================================
 
 	$previous_endpoint = false;
@@ -359,7 +485,7 @@ function save_devices() {
 		$save['id'] = get_request_var('id');
 
 		if ($save['id'] !== '') {
-			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress
+			$previous_endpoint = db_fetch_row_prepared('SELECT ipaddress, nextbackup, ' . implode(', ', plugin_routerconfigs_schedule_fields()) . '
 				FROM plugin_routerconfigs_devices
 				WHERE id = ?',
 				[$save['id']]);
@@ -380,11 +506,21 @@ function save_devices() {
 	$save['directory']   = get_nfilter_request_var('directory');
 	$save['account']     = get_nfilter_request_var('account');
 	$save['devicetype']  = get_nfilter_request_var('devicetype');
-	$save['schedule']    = get_nfilter_request_var('schedule');
+	$save['sched_type']  = get_nfilter_request_var('sched_type');
+	$save['recur_every'] = get_nfilter_request_var('recur_every');
 	$save['connecttype'] = get_nfilter_request_var('connecttype');
 	$save['timeout']     = get_nfilter_request_var('timeout');
 	$save['sleep']       = get_nfilter_request_var('sleep');
 	$save['elevated']    = get_nfilter_request_var('elevated');
+
+	if (!plugin_routerconfigs_schedule_valid_type($save['sched_type']) || !plugin_routerconfigs_schedule_valid_recur($save['recur_every'])) {
+		raise_message('rc_sched_err', __('The selected Schedule Type or Rerun Every is not valid.', 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+
+		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
+		exit;
+	}
+
+	$save = plugin_routerconfigs_schedule_prepare_save(is_array($previous_endpoint) ? $previous_endpoint : [], $save, time());
 
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
 
@@ -621,7 +757,7 @@ function show_devices() {
 			SELECT
 			rc_d.id, rc_d.enabled, rc_d.ipaddress, rc_d.tftpserver, rc_d.hostname, rc_d.directory,
 			rc_d.account, rc_d.lastchange, rc_d.device,
-			rc_d.lastuser, rc_d.schedule, rc_d.lasterror,
+			rc_d.lastuser, rc_d.schedule, rc_d.sched_type, rc_d.recur_every, rc_d.lasterror,
 			rc_d.lastbackup, rc_d.nextbackup, rc_d.lastattempt,
 			rc_d.nextattempt, IFNULL(rc_dt.name,'') as devicetype,
 			rc_dt.id as devicetypeid,
