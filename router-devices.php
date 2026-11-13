@@ -299,9 +299,13 @@ function actions_devices() {
 					}
 
 					if (cacti_sizeof($set)) {
-						$updated = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
+						$result = plugin_routerconfigs_bulk_edit_apply($selected_items, $set, time());
 
-						raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $updated, 'routerconfigs'), MESSAGE_LEVEL_INFO);
+						if (cacti_sizeof($result['invalid'])) {
+							raise_message('bulk_edit_invalid_schedule', __('No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually.', implode(', ', $result['invalid']), 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+						} else {
+							raise_message('bulk_edit_done', __('Updated settings on %d device(s).', $result['updated'], 'routerconfigs'), MESSAGE_LEVEL_INFO);
+						}
 					} else {
 						raise_message('bulk_edit_none', __('No settings were changed; every field was left on "No Change".', 'routerconfigs'), MESSAGE_LEVEL_WARN);
 					}
@@ -425,7 +429,7 @@ function actions_devices() {
 					'on' => __('Enabled', 'routerconfigs'),
 					''   => __('Disabled', 'routerconfigs'),
 				]);
-				plugin_routerconfigs_bulk_edit_row(__('Schedule Type', 'routerconfigs'), 'bulk_sched_type', plugin_routerconfigs_sched_types());
+				plugin_routerconfigs_bulk_edit_row(__('Schedule Type', 'routerconfigs'), 'bulk_sched_type', plugin_routerconfigs_sched_bulk_types());
 				plugin_routerconfigs_bulk_edit_row(__('Rerun Every', 'routerconfigs'), 'bulk_recur_every', $rc_schedules_recur);
 				plugin_routerconfigs_bulk_edit_row(__('Connection Type', 'routerconfigs'), 'bulk_connecttype', $rc_connection_types);
 				plugin_routerconfigs_bulk_edit_row(__('Authentication Account', 'routerconfigs'), 'bulk_account', plugin_routerconfigs_bulk_options_sql('SELECT id, name FROM plugin_routerconfigs_accounts ORDER BY name'));
@@ -520,6 +524,27 @@ function save_devices() {
 		exit;
 	}
 
+	$sched_post = [];
+
+	foreach (['day_of_week', 'month', 'day_of_month', 'monthly_week', 'monthly_day'] as $sched_field) {
+		$sched_post[$sched_field] = isset_request_var($sched_field) ? get_nfilter_request_var($sched_field) : [];
+	}
+
+	$sched_error = plugin_routerconfigs_schedule_fields_valid($sched_post);
+
+	if ($sched_error === '') {
+		$save = plugin_routerconfigs_schedule_augment_save($save, $sched_post);
+
+		$sched_error = plugin_routerconfigs_schedule_validate($save);
+	}
+
+	if ($sched_error !== '') {
+		raise_message('rc_sched_err', $sched_error, MESSAGE_LEVEL_ERROR);
+
+		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
+		exit;
+	}
+
 	$save = plugin_routerconfigs_schedule_prepare_save(is_array($previous_endpoint) ? $previous_endpoint : [], $save, time());
 
 	$id = sql_save($save, 'plugin_routerconfigs_devices', 'id');
@@ -593,6 +618,33 @@ function edit_devices() {
 	html_end_box();
 
 	form_save_button('router-devices.php');
+
+	?>
+	<script type='text/javascript' <?php print plugin_routerconfigs_csp_nonce(); ?>>
+	function rcToggleScheduleRows() {
+		var t = parseInt($('#sched_type').val(), 10);
+
+		var weekly  = (t === <?php print SCHEDULE_WEEKLY; ?>);
+		var weekday = weekly && ($('#day_of_week').val() || []).length > 0;
+		// Selected weekdays run every week, so Rerun Every does not apply.
+		var recur   = (t === <?php print SCHEDULE_DAILY; ?> || t === <?php print SCHEDULE_HOURLY; ?> || (weekly && !weekday));
+		var monthly = (t === <?php print SCHEDULE_MONTHLY; ?>);
+		var onday   = (t === <?php print SCHEDULE_MONTHLY_ON_DAY; ?>);
+
+		$('#row_recur_every').toggle(recur);
+		$('#row_day_of_week').toggle(weekly);
+		$('#row_month').toggle(monthly || onday);
+		$('#row_day_of_month').toggle(monthly);
+		$('#row_monthly_week').toggle(onday);
+		$('#row_monthly_day').toggle(onday);
+	}
+
+	$(function() {
+		$('#sched_type, #day_of_week').change(rcToggleScheduleRows);
+		rcToggleScheduleRows();
+	});
+	</script>
+	<?php
 }
 
 /**

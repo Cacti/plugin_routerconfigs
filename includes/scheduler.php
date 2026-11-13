@@ -56,19 +56,138 @@ unset($rc_sched_const, $rc_sched_value);
 /**
  * Returns the Schedule Type options presented on the device edit form,
  * in the order Cacti core's Automation scheduler presents them. Monthly
- * on Day is intentionally omitted here: its week/day-of-week selectors are
- * added in a later change, and offering it before they exist would let an
- * operator pick a schedule that can never resolve to a run time.
+ * on Day resolves a run date such as "the first Monday of selected
+ * months" from its week/day-of-week selectors.
  *
  * @return array<int, string> Map of SCHEDULE_* constant to label.
  */
 function plugin_routerconfigs_sched_types(): array {
 	return [
-		SCHEDULE_MANUAL  => __('Manual', 'routerconfigs'),
-		SCHEDULE_DAILY   => __('Daily', 'routerconfigs'),
-		SCHEDULE_WEEKLY  => __('Weekly', 'routerconfigs'),
-		SCHEDULE_MONTHLY => __('Monthly', 'routerconfigs'),
+		SCHEDULE_MANUAL         => __('Manual', 'routerconfigs'),
+		SCHEDULE_DAILY          => __('Daily', 'routerconfigs'),
+		SCHEDULE_WEEKLY         => __('Weekly', 'routerconfigs'),
+		SCHEDULE_MONTHLY        => __('Monthly', 'routerconfigs'),
+		SCHEDULE_MONTHLY_ON_DAY => __('Monthly on Day', 'routerconfigs'),
 	];
+}
+
+/**
+ * Returns the Days of Week options (1=Sunday .. 7=Saturday), matching
+ * Cacti core's Automation scheduler ordering, for the Weekly schedule's
+ * multi-select.
+ *
+ * @return array<int, string> Map of day number to localized day name.
+ */
+function plugin_routerconfigs_sched_days_of_week(): array {
+	return [
+		1 => __('Sunday', 'routerconfigs'),
+		2 => __('Monday', 'routerconfigs'),
+		3 => __('Tuesday', 'routerconfigs'),
+		4 => __('Wednesday', 'routerconfigs'),
+		5 => __('Thursday', 'routerconfigs'),
+		6 => __('Friday', 'routerconfigs'),
+		7 => __('Saturday', 'routerconfigs'),
+	];
+}
+
+/**
+ * Returns the Months of Year options (1=January .. 12=December) for the
+ * Monthly schedules' multi-select.
+ *
+ * @return array<int, string> Map of month number to localized month name.
+ */
+function plugin_routerconfigs_sched_months(): array {
+	return [
+		1  => __('January', 'routerconfigs'),
+		2  => __('February', 'routerconfigs'),
+		3  => __('March', 'routerconfigs'),
+		4  => __('April', 'routerconfigs'),
+		5  => __('May', 'routerconfigs'),
+		6  => __('June', 'routerconfigs'),
+		7  => __('July', 'routerconfigs'),
+		8  => __('August', 'routerconfigs'),
+		9  => __('September', 'routerconfigs'),
+		10 => __('October', 'routerconfigs'),
+		11 => __('November', 'routerconfigs'),
+		12 => __('December', 'routerconfigs'),
+	];
+}
+
+/**
+ * Returns the Days of Month options (1..31 plus 32 = Last day) for the
+ * Monthly schedule's multi-select.
+ *
+ * @return array<int, string> Map of day number to label.
+ */
+function plugin_routerconfigs_sched_days_of_month(): array {
+	$days = [];
+
+	for ($d = 1; $d <= 31; $d++) {
+		$days[$d] = (string) $d;
+	}
+
+	$days[32] = __('Last', 'routerconfigs');
+
+	return $days;
+}
+
+/**
+ * Returns the Week of Month options (first..fourth plus 32 = Last) for
+ * the Monthly on Day schedule's multi-select.
+ *
+ * @return array<int, string> Map of week number to label.
+ */
+function plugin_routerconfigs_sched_weeks_of_month(): array {
+	return [
+		1  => __('First', 'routerconfigs'),
+		2  => __('Second', 'routerconfigs'),
+		3  => __('Third', 'routerconfigs'),
+		4  => __('Fourth', 'routerconfigs'),
+		32 => __('Last', 'routerconfigs'),
+	];
+}
+
+/**
+ * Returns the supported formats for the optional dated backup
+ * subdirectory, keyed by the PHP date() format string used to build the
+ * path component. The empty key disables the feature.
+ *
+ * @return array<string, string> Map of date() format to label.
+ */
+function plugin_routerconfigs_sched_date_dir_formats(): array {
+	return [
+		''           => __('Off (no dated subdirectory)', 'routerconfigs'),
+		'Y-m-d'      => __('YYYY-MM-DD', 'routerconfigs'),
+		'Y/m/d'      => __('YYYY/MM/DD (nested)', 'routerconfigs'),
+		'd-m-Y'      => __('DD-MM-YYYY', 'routerconfigs'),
+	];
+}
+
+/**
+ * Builds the dated subdirectory path component for a backup, according to
+ * the configured routerconfigs_archive_datedir format. Returns an empty
+ * string when the feature is off or the stored format is not recognized,
+ * so callers insert nothing into the path. Only the fixed, whitelisted
+ * date() formats above are honored.
+ *
+ * @param string|null $format The configured date() format.
+ * @param int|null    $time   The backup time; defaults to now.
+ *
+ * @return string The dated path component (no leading/trailing slash), or
+ *                '' when disabled.
+ */
+function plugin_routerconfigs_sched_date_dir($format, ?int $time = null): string {
+	$format = (string) $format;
+
+	if ($format === '' || !array_key_exists($format, plugin_routerconfigs_sched_date_dir_formats())) {
+		return '';
+	}
+
+	if ($time === null) {
+		$time = time();
+	}
+
+	return date($format, $time);
 }
 
 /**
@@ -88,14 +207,31 @@ function plugin_routerconfigs_sched_recur_options(): array {
 }
 
 /**
+ * Returns the Schedule Type options offered by the bulk device-edit form.
+ * Monthly on Day is left out: it needs per-device Weeks of Month and Days
+ * of Week, which bulk edit cannot set, so it would resolve to no run time.
+ *
+ * @return array<int, string> Map of SCHEDULE_* constant to label.
+ */
+function plugin_routerconfigs_sched_bulk_types(): array {
+	$types = plugin_routerconfigs_sched_types();
+
+	unset($types[SCHEDULE_MONTHLY_ON_DAY]);
+
+	return $types;
+}
+
+/**
  * Checks a submitted Schedule Type against the offered options.
  *
- * @param mixed $value The submitted value.
+ * @param mixed                   $value The submitted value.
+ * @param array<int, string>|null $types The offered options; defaults to
+ *                                       plugin_routerconfigs_sched_types().
  *
- * @return bool True when the value is one of plugin_routerconfigs_sched_types().
+ * @return bool True when the value is one of the offered options.
  */
-function plugin_routerconfigs_schedule_valid_type($value): bool {
-	return ctype_digit((string) $value) && array_key_exists((int) $value, plugin_routerconfigs_sched_types());
+function plugin_routerconfigs_schedule_valid_type($value, ?array $types = null): bool {
+	return ctype_digit((string) $value) && array_key_exists((int) $value, $types ?? plugin_routerconfigs_sched_types());
 }
 
 /**
@@ -136,7 +272,8 @@ function plugin_routerconfigs_schedule_fields(): array {
 
 /**
  * Completes the schedule part of a device save: stores a fixed day of month
- * for a Monthly schedule saved without one, and recomputes nextbackup when
+ * for a Monthly schedule saved without one (and every month when no month
+ * is selected, which only bulk edit can produce), and recomputes nextbackup when
  * the schedule changed so the old schedule's pending run is replaced.
  * nextbackup is left alone for a new device, or one that has never been
  * scheduled (NULL), so its first backup still happens on the next run.
@@ -156,6 +293,11 @@ function plugin_routerconfigs_schedule_prepare_save(array $previous, array $save
 	if ((int) ($row['sched_type'] ?? 0) === SCHEDULE_MONTHLY && trim((string) ($row['day_of_month'] ?? '')) === '') {
 		$save['day_of_month'] = plugin_routerconfigs_schedule_default_day($now);
 		$row['day_of_month']  = $save['day_of_month'];
+	}
+
+	if ((int) ($row['sched_type'] ?? 0) === SCHEDULE_MONTHLY && trim((string) ($row['month'] ?? '')) === '') {
+		$save['month'] = implode(',', array_keys(plugin_routerconfigs_sched_months()));
+		$row['month']  = $save['month'];
 	}
 
 	if (!isset($previous['nextbackup'])) {
@@ -445,4 +587,109 @@ function plugin_routerconfigs_schedule_calc_next_start_for_year(array $schedule,
 	}
 
 	return false;
+}
+
+/**
+ * Validates the device form's raw multi-select schedule inputs
+ * (day_of_week, month, day_of_month, monthly_week, monthly_day) against
+ * the exact option keys each selector offers, before they are folded into
+ * storage. Every submitted element must be a scalar, integer-valued, and
+ * one of the offered keys; anything else (a non-numeric string, a value
+ * outside the offered range such as a Week of Month of 999, or a nested
+ * array) is rejected rather than silently coerced by intval() into a
+ * value the calculator would accept. Invoked from save_devices() in
+ * router-devices.php before plugin_routerconfigs_schedule_augment_save().
+ *
+ * @param array $post The submitted multi-select values keyed by field.
+ *
+ * @return string An error message, or '' when every value is offered.
+ */
+function plugin_routerconfigs_schedule_fields_valid(array $post): string {
+	$allowed = [
+		'day_of_week'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week', 'routerconfigs')],
+		'month'        => [plugin_routerconfigs_sched_months(),        __('Months of Year', 'routerconfigs')],
+		'day_of_month' => [plugin_routerconfigs_sched_days_of_month(), __('Days of Month', 'routerconfigs')],
+		'monthly_week' => [plugin_routerconfigs_sched_weeks_of_month(), __('Weeks of Month', 'routerconfigs')],
+		'monthly_day'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week (Monthly)', 'routerconfigs')],
+	];
+
+	foreach ($allowed as $field => [$options, $label]) {
+		if (!isset($post[$field]) || $post[$field] === '' || $post[$field] === []) {
+			continue;
+		}
+
+		if (!is_array($post[$field])) {
+			return __('The selected %s is not valid.', $label, 'routerconfigs');
+		}
+
+		foreach ($post[$field] as $value) {
+			if (!is_scalar($value) || !ctype_digit((string) $value) || !array_key_exists((int) $value, $options)) {
+				return __('The selected %s is not valid.', $label, 'routerconfigs');
+			}
+		}
+	}
+
+	return '';
+}
+
+/**
+ * Folds the device form's multi-select schedule inputs (day_of_week,
+ * month, day_of_month, monthly_week, monthly_day) into the comma
+ * separated storage format on the save array. Each input is expected to
+ * be an array of integer-like values (or absent, meaning none selected).
+ * Invoked from save_devices() in router-devices.php.
+ *
+ * @param array $save The device save array to augment.
+ * @param array $post The submitted multi-select values keyed by field.
+ *
+ * @return array The save array with the five schedule CSV fields set.
+ */
+function plugin_routerconfigs_schedule_augment_save(array $save, array $post): array {
+	foreach (['day_of_week', 'month', 'day_of_month', 'monthly_week', 'monthly_day'] as $field) {
+		if (isset($post[$field]) && is_array($post[$field]) && cacti_sizeof($post[$field])) {
+			$save[$field] = implode(',', array_map('intval', $post[$field]));
+		} else {
+			$save[$field] = '';
+		}
+	}
+
+	return $save;
+}
+
+/**
+ * Validates a device's schedule selections against its Schedule Type,
+ * mirroring Cacti core's Automation scheduler rules: a Monthly schedule
+ * needs at least one Month and Day of Month, and a Monthly on Day
+ * schedule needs Months, Weeks of Month, and Days of Week. Weekly without
+ * a specific day is allowed (it runs every Rerun-Every weeks). A monthly
+ * selection that never occurs (only February 30 and 31, say) is rejected
+ * too, since its next run would resolve to 0 and make the device due on
+ * every scheduled run. Invoked from save_devices() and
+ * plugin_routerconfigs_bulk_edit_apply() to reject an unschedulable
+ * combination before it is stored.
+ *
+ * @param array    $save The device save array (with sched_type and the CSV
+ *                       schedule fields already set).
+ * @param int|null $now  The reference Unix timestamp; defaults to now.
+ *
+ * @return string An error message, or '' when the schedule is valid.
+ */
+function plugin_routerconfigs_schedule_validate(array $save, ?int $now = null): string {
+	$type = (int) ($save['sched_type'] ?? 0);
+
+	if ($type === SCHEDULE_MONTHLY) {
+		if (($save['month'] ?? '') === '' || ($save['day_of_month'] ?? '') === '') {
+			return __('For a Monthly schedule you must select at least one Month and one Day of Month.', 'routerconfigs');
+		}
+	} elseif ($type === SCHEDULE_MONTHLY_ON_DAY) {
+		if (($save['month'] ?? '') === '' || ($save['monthly_week'] ?? '') === '' || ($save['monthly_day'] ?? '') === '') {
+			return __('For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week.', 'routerconfigs');
+		}
+	}
+
+	if (($type === SCHEDULE_MONTHLY || $type === SCHEDULE_MONTHLY_ON_DAY) && plugin_routerconfigs_schedule_next_start($save, $now ?? time()) === 0) {
+		return __('The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month.', 'routerconfigs');
+	}
+
+	return '';
 }

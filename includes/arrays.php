@@ -236,10 +236,45 @@ $rc_device_edit_fields = [
 	'recur_every' => [
 		'method'        => 'drop_array',
 		'friendly_name' => __('Rerun Every', 'routerconfigs'),
-		'description'   => __('For Daily/Weekly schedules, rerun the backup every X days/weeks.', 'routerconfigs'),
+		'description'   => __('For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply.', 'routerconfigs'),
 		'value'         => '|arg1:recur_every|',
 		'default'       => 1,
 		'array'         => $rc_schedules_recur,
+	],
+	'day_of_week' => [
+		'method'        => 'drop_multi',
+		'friendly_name' => __('Days of Week', 'routerconfigs'),
+		'description'   => __('For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead.', 'routerconfigs'),
+		'value'         => '|arg1:day_of_week|',
+		'array'         => plugin_routerconfigs_sched_days_of_week(),
+	],
+	'month' => [
+		'method'        => 'drop_multi',
+		'friendly_name' => __('Months of Year', 'routerconfigs'),
+		'description'   => __('For a Monthly schedule, the month(s) of the year to run the backup in.', 'routerconfigs'),
+		'value'         => '|arg1:month|',
+		'array'         => plugin_routerconfigs_sched_months(),
+	],
+	'day_of_month' => [
+		'method'        => 'drop_multi',
+		'friendly_name' => __('Days of Month', 'routerconfigs'),
+		'description'   => __('For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month).', 'routerconfigs'),
+		'value'         => '|arg1:day_of_month|',
+		'array'         => plugin_routerconfigs_sched_days_of_month(),
+	],
+	'monthly_week' => [
+		'method'        => 'drop_multi',
+		'friendly_name' => __('Weeks of Month', 'routerconfigs'),
+		'description'   => __('For a Monthly on Day schedule, the week(s) of the month to run the backup in.', 'routerconfigs'),
+		'value'         => '|arg1:monthly_week|',
+		'array'         => plugin_routerconfigs_sched_weeks_of_month(),
+	],
+	'monthly_day' => [
+		'method'        => 'drop_multi',
+		'friendly_name' => __('Days of Week (Monthly)', 'routerconfigs'),
+		'description'   => __('For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection.', 'routerconfigs'),
+		'value'         => '|arg1:monthly_day|',
+		'array'         => plugin_routerconfigs_sched_days_of_week(),
 	],
 	'devicetype' => [
 		'method'        => 'drop_sql',
@@ -525,6 +560,13 @@ $rc_settings = [
 		'description'   => __('Separate archived Configs into a folder per device', 'routerconfigs'),
 		'method'        => 'checkbox',
 		'default'       => 'on'
+	],
+	'routerconfigs_archive_datedir' => [
+		'friendly_name' => __('Dated Subdirectory', 'routerconfigs'),
+		'description'   => __('Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout.', 'routerconfigs'),
+		'method'        => 'drop_array',
+		'default'       => '',
+		'array'         => plugin_routerconfigs_sched_date_dir_formats(),
 	],
 	'routerconfigs_scp_path' => [
 		'friendly_name' => __('SCP Path', 'routerconfigs'),

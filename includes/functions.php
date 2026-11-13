@@ -779,6 +779,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 		$dir = substr($dir,1);
 	}
 
+	// Optional dated subdirectory (e.g. .../2020-11-04/), inserted before the
+	// per-device folder so each run is grouped under its backup date.
+	$datedir = plugin_routerconfigs_sched_date_dir(read_config_option('routerconfigs_archive_datedir'), (int) $backuptime);
+
+	if ($datedir !== '') {
+		$archivepath = plugin_routerconfigs_dir($archivepath . $datedir);
+	}
+
 	if (read_config_option('routerconfigs_archive_separate') == 'on') {
 		$archivepath = plugin_routerconfigs_dir($archivepath . $dir);
 	}
@@ -1423,7 +1431,7 @@ function plugin_routerconfigs_connection_target_changed($previous_device, $new_d
  * Validates the settings an operator changed on the bulk device-edit form
  * and maps them to device columns. Every value must be one the form
  * offers: Enabled or Disabled, a Schedule Type from
- * plugin_routerconfigs_sched_types(), a Rerun Every from
+ * plugin_routerconfigs_sched_bulk_types(), a Rerun Every from
  * plugin_routerconfigs_sched_recur_options(), a Connection Type, and an
  * existing Authentication Account and Device Type. Any other value is
  * reported instead of being cast into something storable, and the caller
@@ -1464,7 +1472,7 @@ function plugin_routerconfigs_bulk_edit_validate(array $input): array {
 
 					break;
 				case 'sched_type':
-					$valid = plugin_routerconfigs_schedule_valid_type($value);
+					$valid = plugin_routerconfigs_schedule_valid_type($value, plugin_routerconfigs_sched_bulk_types());
 
 					break;
 				case 'recur_every':
@@ -1503,7 +1511,11 @@ function plugin_routerconfigs_bulk_edit_validate(array $input): array {
  * When a schedule column changes, each device's row goes through
  * plugin_routerconfigs_schedule_prepare_save(), so a Monthly schedule
  * gets a fixed day of month and the pending nextbackup follows the new
- * schedule. Devices that end up with identical values share one
+ * schedule, and the resulting row must pass
+ * plugin_routerconfigs_schedule_validate(). If any device fails, nothing
+ * is written and the failing ids are returned, so bulk edit can never
+ * leave a scheduled device with no next run (a nextbackup of 0 would make
+ * it due on every scheduled run). Devices that end up with identical values share one
  * UPDATE ... WHERE id IN (...), so a typical bulk change costs one SELECT
  * and a few UPDATEs rather than one UPDATE per device. Called from
  * actions_devices() in router-devices.php.
@@ -1514,13 +1526,16 @@ function plugin_routerconfigs_bulk_edit_validate(array $input): array {
  *                                       plugin_routerconfigs_bulk_edit_validate().
  * @param int                       $now The reference Unix timestamp.
  *
- * @return int The number of devices updated.
+ * @return array{updated: int, invalid: array<int, int>} The number of
+ *               devices updated, and the ids whose resulting schedule is
+ *               invalid (in which case nothing was updated).
  */
-function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now): int {
-	$ids = array_values(array_unique(array_map('intval', $ids)));
+function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now): array {
+	$ids    = array_values(array_unique(array_map('intval', $ids)));
+	$result = ['updated' => 0, 'invalid' => []];
 
 	if (!cacti_sizeof($ids) || !cacti_sizeof($set)) {
-		return 0;
+		return $result;
 	}
 
 	$fields = plugin_routerconfigs_schedule_fields();
@@ -1530,7 +1545,7 @@ function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now):
 		$ids);
 
 	if (!cacti_sizeof($rows)) {
-		return 0;
+		return $result;
 	}
 
 	$reschedule = cacti_sizeof(array_intersect(array_keys($set), $fields)) > 0;
@@ -1541,10 +1556,21 @@ function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now):
 		unset($row['id']);
 
 		$save = $reschedule ? plugin_routerconfigs_schedule_prepare_save($row, $set, $now) : $set;
-		$key  = serialize($save);
+
+		if ($reschedule && plugin_routerconfigs_schedule_validate(array_merge($row, $save), $now) !== '') {
+			$result['invalid'][] = $id;
+
+			continue;
+		}
+
+		$key = serialize($save);
 
 		$groups[$key]['save']  = $save;
 		$groups[$key]['ids'][] = $id;
+	}
+
+	if (cacti_sizeof($result['invalid'])) {
+		return $result;
 	}
 
 	foreach ($groups as $group) {
@@ -1563,7 +1589,9 @@ function plugin_routerconfigs_bulk_edit_apply(array $ids, array $set, int $now):
 			array_merge(array_values($group['save']), $group['ids']));
 	}
 
-	return cacti_sizeof($rows);
+	$result['updated'] = cacti_sizeof($rows);
+
+	return $result;
 }
 
 /**
