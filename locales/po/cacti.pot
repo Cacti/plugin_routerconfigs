@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 17:54-0800\n"
+"POT-Creation-Date: 2026-11-13 14:08-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -313,7 +313,7 @@ msgstr ""
 msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
 msgstr ""
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Days of Week"
 msgstr ""
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
 msgstr ""
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Months of Year"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr ""
 msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
 msgstr ""
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Days of Month"
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr ""
 msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
 msgstr ""
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weeks of Month"
 msgstr ""
 
@@ -345,7 +345,7 @@ msgstr ""
 msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
 msgstr ""
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Days of Week (Monthly)"
 msgstr ""
 
@@ -1027,6 +1027,11 @@ msgstr ""
 
 #: includes/scheduler.php
 msgid "DD-MM-YYYY"
+msgstr ""
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
 msgstr ""
 
 #: includes/scheduler.php

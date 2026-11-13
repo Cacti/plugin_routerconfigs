@@ -106,7 +106,7 @@ function routerconfigs_devices_table_data(): array {
 	$data['columns'][] = ['name' => 'recur_every', 'type' => 'int(10) unsigned', 'NULL' => true, 'default' => '1'];
 	$data['columns'][] = ['name' => 'day_of_week', 'type' => 'varchar(45)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'month', 'type' => 'varchar(45)', 'NULL' => true];
-	$data['columns'][] = ['name' => 'day_of_month', 'type' => 'varchar(45)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'day_of_month', 'type' => 'varchar(128)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'monthly_week', 'type' => 'varchar(45)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'monthly_day', 'type' => 'varchar(45)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'lasterror', 'type' => 'varchar(255)', 'NULL' => true];

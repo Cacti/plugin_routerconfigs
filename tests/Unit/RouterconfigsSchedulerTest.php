@@ -12,6 +12,8 @@
  * schedules, plus the legacy interval-in-days fallback (issue #133).
  */
 
+require_once __DIR__ . '/../../includes/scheduler.php';
+
 beforeAll(function () {
 	require_once __DIR__ . '/../../includes/functions.php';
 
@@ -206,6 +208,31 @@ it('folds the multi-select schedule inputs into comma separated storage', functi
 	expect($save['monthly_day'])->toBe('3');
 });
 
+it('accepts only offered values for the multi-select schedule fields', function () {
+	// Empty, absent, and in-range selections are all valid.
+	expect(plugin_routerconfigs_schedule_fields_valid([]))->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => [], 'day_of_week' => '']))->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid([
+		'day_of_week'  => ['1', '7'],
+		'month'        => ['1', '12'],
+		'day_of_month' => ['1', '31', '32'],
+		'monthly_week' => ['1', '4', '32'],
+		'monthly_day'  => ['2'],
+	]))->toBe('');
+
+	// A Week of Month outside the offered keys is rejected, not coerced to
+	// "first" by the calculator.
+	expect(plugin_routerconfigs_schedule_fields_valid(['monthly_week' => ['999']]))->not->toBe('');
+
+	// Out-of-range, non-numeric, and non-scalar elements are all rejected.
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_week' => ['8']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_month' => ['33']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => ['0']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_month' => ['3abc']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => '3']))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['monthly_day' => [['2']]]))->not->toBe('');
+});
+
 it('validates monthly and monthly-on-day schedules require their day fields', function () {
 	// Weekly without a weekday is allowed.
 	expect(plugin_routerconfigs_schedule_validate(['sched_type' => SCHEDULE_WEEKLY, 'day_of_week' => '']))->toBe('');
@@ -340,3 +367,29 @@ it('rejects a monthly selection that never occurs', function () {
 	expect(plugin_routerconfigs_schedule_validate($leap, $now))->toBe('');
 	expect(plugin_routerconfigs_schedule_validate($leap))->toBe('');
 });
+
+it('keeps the configured local backup hour across daylight saving changes', function (int $type, int $recur, string $days, int $hour, string $after, string $expected) {
+	$timezone = date_default_timezone_get();
+	date_default_timezone_set('America/Los_Angeles');
+
+	try {
+		$next = rc_sched_next($hour, ['sched_type' => $type, 'recur_every' => $recur, 'day_of_week' => $days], $after);
+		expect(date('Y-m-d H:i', $next))->toBe($expected)
+			->and($next)->toBeGreaterThan(strtotime($after));
+	} finally {
+		date_default_timezone_set($timezone);
+	}
+})->with([
+	'daily autumn transition' => [SCHEDULE_DAILY, 1, '', 3, '2026-10-31 03:00:00', '2026-11-01 03:00'],
+	'daily spring transition' => [SCHEDULE_DAILY, 1, '', 3, '2026-03-07 03:00:00', '2026-03-08 03:00'],
+	'today after clocks changed' => [SCHEDULE_DAILY, 1, '', 3, '2026-11-01 02:30:00', '2026-11-01 03:00'],
+	'ten-day cadence' => [SCHEDULE_DAILY, 10, '', 3, '2026-10-25 03:00:00', '2026-11-04 03:00'],
+	'missing spring hour rolls forward' => [SCHEDULE_DAILY, 1, '', 2, '2026-03-07 03:00:00', '2026-03-08 03:00'],
+	'missing spring hour does not change later backups' => [SCHEDULE_DAILY, 1, '', 2, '2026-03-08 04:00:00', '2026-03-09 02:00'],
+	'weekly autumn transition' => [SCHEDULE_WEEKLY, 1, '', 3, '2026-10-25 03:00:00', '2026-11-01 03:00'],
+	'weekly spring transition' => [SCHEDULE_WEEKLY, 1, '', 3, '2026-03-01 03:00:00', '2026-03-08 03:00'],
+	'weekly missing hour does not drift' => [SCHEDULE_WEEKLY, 1, '', 2, '2026-03-08 04:00:00', '2026-03-15 02:00'],
+	'selected Sunday in autumn' => [SCHEDULE_WEEKLY, 1, '1', 3, '2026-10-31 04:00:00', '2026-11-01 03:00'],
+	'selected Sunday in spring' => [SCHEDULE_WEEKLY, 1, '1', 3, '2026-03-07 04:00:00', '2026-03-08 03:00'],
+	'selected missing hour does not drift' => [SCHEDULE_WEEKLY, 1, '1', 2, '2026-03-08 04:00:00', '2026-03-15 02:00'],
+]);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-13 13:52-0500\n"
 "PO-Revision-Date: 2020-12-13 10:22-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,6 +24,10 @@ msgstr "Διαγραφή"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "Αντίγραφα"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -65,15 +69,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "Κληρονομώ"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "Καθημερινά"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "Εβδομαδιαία"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "Μηνιαία"
 
@@ -332,16 +336,67 @@ msgstr "Κατάλογος"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Αυτή είναι η σχετική δομή καταλόγου που χρησιμοποιείται για την αποθήκευση των configs."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "Πρόγραμμα"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "Πόση ώρα γίνεται η δημιουργία αντιγράφων ασφαλείας αυτής της συσκευής."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+#, fuzzy
+#| msgid "This Month"
+msgid "Days of Month"
+msgstr "Αυτόν το Μήνα"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "Τύπος συσκευής"
@@ -356,7 +411,7 @@ msgstr "Επιλέξτε τον τύπο συσκευής που είναι ο �
 msgid "Auto-Detect"
 msgstr "Αυτόματη αναγνώριση"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "Τύπος σύνδεσης"
@@ -366,7 +421,7 @@ msgstr "Τύπος σύνδεσης"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Αυτή είναι η διεύθυνση IP που χρησιμοποιείται για την επικοινωνία με τη συσκευή."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Λογαριασμός ελέγχου ταυτότητας"
@@ -647,6 +702,16 @@ msgstr "Διαχωρίστε τα αρχειοθετημένα Config σε έν�
 
 #: includes/arrays.php
 #, fuzzy
+#| msgid "Directory"
+msgid "Dated Subdirectory"
+msgstr "Κατάλογος"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr ""
+
+#: includes/arrays.php
+#, fuzzy
 msgid "SCP Path"
 msgstr "Διαδρομή SCP"
 
@@ -923,6 +988,15 @@ msgstr "ΣΦΑΛΜΑ: Αποτυχία σύνδεσης στη συσκευή \"
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "ΣΦΑΛΜΑ: Αποτυχία λήψης \"%s\" σε \"%s\" μέσω \"%s\""
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -951,6 +1025,149 @@ msgstr "Δημιουργία αντιγράφων ασφαλείας από το
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Αρχείο: %s / %s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "Χειροκίνητα"
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Monthly"
+msgid "Monthly on Day"
+msgstr "Μηνιαία"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "January"
+msgstr "Χειροκίνητα"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "Αναζήτηση"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "May"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "June"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "July"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "August"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "September"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "October"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "November"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "December"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "First"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr ""
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr ""
 
 #: router-accounts.php
 #, fuzzy
@@ -1169,6 +1386,25 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Επεξεργασία σφαλμάτων για το %s ( %s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "Τελευταία αλλαγή"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr ""
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: Εκτέλεση μη αυτόματης δημιουργίας αντιγράφων ασφαλείας χρησιμοποιώντας το \"%s\" με ορίσματα \"%s\""
@@ -1211,9 +1447,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "Απενεργοποίηση"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "Διαγραφή συσκευών"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον τη συσκευή δρομολογητή."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1241,10 +1496,6 @@ msgstr "Λογαριασμός"
 #: router-devices.php
 msgid "Actions"
 msgstr "Ενέργειες"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "Ενεργοποιημένο"
 
 #: router-devices.php
 #, fuzzy
@@ -1484,6 +1735,10 @@ msgstr "Ρυθμίσεις δρομολογητή"
 #, fuzzy
 msgid "Routers"
 msgstr "Ρυθμίσεις δρομολογητή"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "Πόση ώρα γίνεται η δημιουργία αντιγράφων ασφαλείας αυτής της συσκευής."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
