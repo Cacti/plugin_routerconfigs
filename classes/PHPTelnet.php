@@ -237,6 +237,13 @@ class PHPTelnet extends PHPShellConnection implements ShellTelnet {
 				$this->Sleep();
 				$this->GetResponse($r);
 
+				// A device that stops at a post-login menu has no CLI prompt yet,
+				// so answer the configured prompts here, before deciding the
+				// login failed (issue #130).
+				if ($this->prompt() != LinePrompt::Normal && $this->Prompt() != LinePrompt::Enabled) {
+					$this->ProcessLoginPrompts($r);
+				}
+
 				if ($this->prompt() != LinePrompt::Normal && $this->Prompt() != LinePrompt::Enabled) {
 					$this->Log('DEBUG: Failed, disconnecting');
 
