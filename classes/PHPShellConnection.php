@@ -27,6 +27,9 @@ declare(strict_types = 1);
 require_once(__DIR__ . '/PHPConnection.php');
 
 abstract class PHPShellConnection extends PHPConnection {
+	/** @var bool Whether the Post-Login Prompts were already answered. */
+	protected $loginPromptsDone = false;
+
 	/*
 	0 = success
 	1 = couldn't open network connection
@@ -82,6 +85,11 @@ abstract class PHPShellConnection extends PHPConnection {
 	 *              error or if elevation could not be ensured.
 	 */
 	function Download($filename, $backuppath) {
+		// Answer any device-specific prompts that appear right after login
+		// (e.g. "Press any key to continue", stacked-switch selection) before
+		// issuing the copy-to-TFTP command (issue #130).
+		$this->ProcessLoginPrompts();
+
 		// Per-device TFTP server overrides the global default when set (issue #133).
 		$tftpserver = plugin_routerconfigs_device_tftpserver($this->device);
 		$command    = $this->deviceType['copytftp'];
@@ -289,5 +297,86 @@ abstract class PHPShellConnection extends PHPConnection {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Sends the device type's configured Post-Login Prompt responses
+	 * (issue #130). For each parsed prompt/response pair it waits briefly
+	 * for the prompt to appear in the device output (matched as a
+	 * case-insensitive regular expression), then sends the response, with
+	 * an empty response meaning just a carriage return. A response is only
+	 * ever sent after its prompt was seen: when the prompt does not appear
+	 * within 5 reads, or is not a valid regular expression, a WARNING is
+	 * logged and the response is not sent, so a reply such as 'y' or '2'
+	 * cannot land on the CLI prompt and run as a command. Download() then
+	 * carries on, and EnsureEnabled() fails the backup if the device is
+	 * still waiting at an unanswered prompt. Devices without any configured
+	 * prompts are unaffected. Called from PHPTelnet::Connect() when the
+	 * password reply is not a CLI prompt, and otherwise at the start of
+	 * Download(), before the copy-to-TFTP command. The prompts are answered
+	 * at most once per connection.
+	 *
+	 * @param string $pending Output already read but not yet matched, such
+	 *                        as the reply to the password; defaults to ''.
+	 *
+	 * @return void
+	 */
+	function ProcessLoginPrompts($pending = '') {
+		if ($this->loginPromptsDone) {
+			return;
+		}
+
+		$text    = isset($this->deviceType['loginprompts']) ? $this->deviceType['loginprompts'] : '';
+		$prompts = plugin_routerconfigs_parse_login_prompts($text);
+
+		if (!cacti_sizeof($prompts)) {
+			return;
+		}
+
+		$this->loginPromptsDone = true;
+
+		// $pending holds output already read but not yet matched, such as the
+		// reply to the previous response, which may hold the next prompt in a
+		// chain.
+
+		foreach ($prompts as $entry) {
+			$regex = plugin_routerconfigs_regex($entry['prompt']);
+
+			if ($regex === null) {
+				$this->Log("WARNING: Post-login prompt '" . $entry['prompt'] . "' is not a valid regular expression, not sending its response");
+
+				continue;
+			}
+
+			$response = $pending;
+			$pending  = '';
+			$seen     = preg_match($regex, $response) === 1;
+			$x        = 0;
+
+			while (!$seen && $x < 5) {
+				$this->GetResponse($response);
+
+				if (preg_match($regex, $response) === 1) {
+					$seen = true;
+
+					break;
+				}
+
+				$this->Sleep();
+				$x++;
+			}
+
+			if (!$seen) {
+				$this->Log("WARNING: Post-login prompt '" . $entry['prompt'] . "' was not seen after $x attempts, not sending its response");
+
+				$pending = $response;
+
+				continue;
+			}
+
+			$this->Log("DEBUG: Sending post-login response for prompt '" . $entry['prompt'] . "'");
+
+			$this->SendResponse($entry['response'], $pending);
+		}
 	}
 }

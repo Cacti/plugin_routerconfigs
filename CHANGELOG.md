@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* issue#130: Add a per-Device-Type 'Post-Login Prompts' field (one prompt|response pair per line) that is answered right after login, before the copy-to-TFTP command. Each prompt is matched as a case-insensitive regular expression against the device output and the response is sent as typed, or use <CR> to send just a carriage return. This lets devices that interpose extra prompts after login (e.g. HPE Aruba stacks: 'Press any key to continue' and 'Enter switch number to connect to or <CR>:') be backed up
+
 * issue#117: Let Weekly schedules pick specific day(s) of the week and Monthly schedules pick specific day(s) of the month (plus a Monthly on Day type: e.g. the first Monday of selected months), using Automation Networks style multi-selects on the device form that appear only for the relevant Schedule Type
 * issue#117: Add a 'Dated Subdirectory' archive option (Off / YYYY-MM-DD / YYYY/MM/DD / DD-MM-YYYY) that inserts a date-based folder into the archive path before the per-device folder, so each run is grouped under its backup date (e.g. .../2020-11-04/hostname/...); Off preserves the existing layout
 

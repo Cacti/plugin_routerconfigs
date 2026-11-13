@@ -718,6 +718,136 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
 }
 
 /**
+ * Turns an operator-supplied regular expression (written without
+ * delimiters, as in the device type and settings forms) into a delimited
+ * PCRE pattern, or returns null when it does not compile. An unescaped '/'
+ * is escaped so it cannot end the pattern early, while an already escaped
+ * '\/' is kept as it is. Compiling is checked without emitting a warning,
+ * and results are cached per request so a pattern applied to every line of
+ * a configuration is checked once. Shared by
+ * PHPShellConnection::ProcessLoginPrompts() and save_devicetypes().
+ *
+ * @param string $pattern The regular expression without delimiters.
+ * @param string $flags   The pattern modifiers, e.g. 'i'.
+ *
+ * @return string|null The delimited pattern, or null if it is invalid.
+ */
+function plugin_routerconfigs_regex(string $pattern, string $flags = 'i'): ?string {
+	static $cache = [];
+
+	$key = $flags . '/' . $pattern;
+
+	if (array_key_exists($key, $cache)) {
+		return $cache[$key];
+	}
+
+	$escaped = '';
+	$length  = strlen($pattern);
+
+	for ($i = 0; $i < $length; $i++) {
+		$char = $pattern[$i];
+
+		if ($char === '\\' && $i + 1 < $length) {
+			$escaped .= $char . $pattern[++$i];
+		} elseif ($char === '/') {
+			$escaped .= '\\/';
+		} else {
+			$escaped .= $char;
+		}
+	}
+
+	$regex = '/' . $escaped . '/' . $flags;
+
+	// preg_match() reports a pattern that does not compile with a warning
+	// and false; swallow only that warning, for this one call.
+	set_error_handler(function () {
+		return true;
+	});
+
+	try {
+		$valid = preg_match($regex, '') !== false;
+	} finally {
+		restore_error_handler();
+	}
+
+	// The patterns come from a handful of settings, so this stays small; the
+	// bound only guards a long-running process against unbounded growth.
+	if (cacti_sizeof($cache) >= 256) {
+		$cache = [];
+	}
+
+	$cache[$key] = $valid ? $regex : null;
+
+	return $cache[$key];
+}
+
+/**
+ * Lists the Post-Login Prompts whose prompt is not a valid regular
+ * expression, so save_devicetypes() can reject them instead of storing a
+ * prompt that would never match.
+ *
+ * @param string|null $text The configured prompt/response text.
+ *
+ * @return array<int, string> The invalid prompts, in order.
+ */
+function plugin_routerconfigs_invalid_login_prompts($text): array {
+	$invalid = [];
+
+	foreach (plugin_routerconfigs_parse_login_prompts($text) as $entry) {
+		if (plugin_routerconfigs_regex($entry['prompt']) === null) {
+			$invalid[] = $entry['prompt'];
+		}
+	}
+
+	return $invalid;
+}
+
+/**
+ * Parses a device type's Post-Login Prompts text (one "prompt|response"
+ * pair per line) into an ordered list of ['prompt' => regex,
+ * 'response' => string] entries. Blank lines and lines without a '|'
+ * separator are ignored, as is any line whose prompt side is empty. A
+ * response of '<CR>' (case-insensitive) or an empty response is
+ * normalized to '' meaning "send only a carriage return". Called from
+ * PHPShellConnection::ProcessLoginPrompts() to answer device-specific
+ * prompts that appear right after login (e.g. "Press any key to
+ * continue", a stacked-switch selection) before the copy-to-TFTP command.
+ *
+ * @param string|null $text The configured prompt/response text.
+ *
+ * @return array<int, array<string, string>> The parsed prompt/response
+ *                                           entries.
+ */
+function plugin_routerconfigs_parse_login_prompts($text): array {
+	$entries = [];
+
+	foreach (preg_split('/\r\n|\r|\n/', (string) $text) as $line) {
+		$line = trim($line);
+
+		if ($line === '' || strpos($line, '|') === false) {
+			continue;
+		}
+
+		list($prompt, $response) = explode('|', $line, 2);
+
+		$prompt   = trim($prompt);
+		$response = trim($response);
+
+		if ($prompt === '') {
+			continue;
+		}
+
+		if (strcasecmp($response, '<CR>') === 0) {
+			$response = '';
+		}
+
+		$entries[] = ['prompt' => $prompt, 'response' => $response];
+	}
+
+	return $entries;
+}
+
+/**
  * Downloads a single device's configuration: resolves its effective
  * connection settings (timeout/sleep/connection type/elevated flag,
  * falling back through device -> device type -> global setting

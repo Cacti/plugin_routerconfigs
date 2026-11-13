@@ -696,6 +696,39 @@ abstract class PHPConnection {
 	}
 
 	/**
+	 * Sends one interactive answer, such as a post-login menu choice,
+	 * ended with a carriage return, and reads back the device's reply
+	 * untrimmed. DoCommand() is not used for this: it ends the line with
+	 * PHP_EOL, a line feed on Linux, which some devices do not accept as
+	 * Enter, and it keeps only the last line of the reply, which can drop
+	 * the next prompt in a chain. Called from
+	 * PHPShellConnection::ProcessLoginPrompts().
+	 *
+	 * @param string $text     The answer to send; an empty answer sends
+	 *                         only the carriage return.
+	 * @param string $response Reference, set to the device's untrimmed
+	 *                         reply.
+	 *
+	 * @return int The result of GetResponse() (0 on success), or 0 if the
+	 *             stream isn't open.
+	 */
+	function SendResponse($text, &$response) {
+		$response = '';
+
+		if (!is_resource($this->stream)) {
+			return 0;
+		}
+
+		$this->Log("DEBUG: --> $text");
+
+		fwrite($this->stream, $text . "\r");
+
+		$this->Sleep();
+
+		return $this->GetResponse($response);
+	}
+
+	/**
 	 * Reads from the connection's stream until a recognized prompt
 	 * (normal, enabled, password, username, or confirm, based on the
 	 * device type's configured patterns) is found, updating

@@ -162,6 +162,7 @@ function routerconfigs_devicetypes_table_data(): array {
 	$data['columns'][] = ['name' => 'checkendinconfig', 'type' => 'char(2)', 'NULL' => true, 'default' => 'on'];
 	$data['columns'][] = ['name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
+	$data['columns'][] = ['name' => 'loginprompts', 'type' => 'text', 'NULL' => true];
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Router Config Device Types';
