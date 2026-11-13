@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2026-11-09 22:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
@@ -25,6 +25,10 @@ msgstr "Ta bort"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "Säkerhetskopiering"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -62,15 +66,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "Ärv"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "Dagligen"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "Veckovis"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "Månadsvis"
 
@@ -295,15 +299,25 @@ msgstr "Katalog"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Detta är den relativa katalogstruktur som används för att lagra konfigurationerna."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "Schema"
 
 #: includes/arrays.php
-msgid "How often to Backup this device."
-msgstr "Hur ofta ska du säkerhetskopiera den här enheten."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "Enhetstyp"
 
@@ -315,7 +329,7 @@ msgstr "Välj vilken typ av enhet som routern är."
 msgid "Auto-Detect"
 msgstr "Automatisk detektering"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Connection Type"
 msgstr "Typ av anslutning"
 
@@ -323,7 +337,7 @@ msgstr "Typ av anslutning"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Detta är den typ av anslutning som används för att kommunicera med enheten."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Authentication Account"
 msgstr "Autentiseringskonto"
 
@@ -805,6 +819,15 @@ msgstr "FEL: Misslyckades med att ansluta till enhet '%s' med anslutningstyp: %s
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "FEL: Misslyckades med att ladda ner '%s' till '%s' via '%s'"
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr "Validering av filsökväg misslyckades"
@@ -833,6 +856,12 @@ msgstr "Säkerhetskopia från %s"
 #, php-format
 msgid "File: %s/%s"
 msgstr "Fil: %s/%s"
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid " - Manual"
+msgid "Manual"
+msgstr " - Manuellt"
 
 #: router-accounts.php
 msgid "Click 'Continue' to delete the following account(s)."
@@ -1024,6 +1053,21 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Felsökning för %s (%s)<br><br>"
 
 #: router-devices.php
+#, fuzzy
+#| msgid "Last Change"
+msgid "No Change"
+msgstr "Senaste ändring"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: Utför manuell säkerhetskopiering med '%s' argumenten '%s'"
@@ -1061,8 +1105,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr "Rensa SSH-värdnycklar"
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "Inaktivera"
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Delete Device(s)"
+msgid "Apply settings to Device(s)"
+msgstr "Ta bort enheter"
+
+#: router-devices.php
 msgid "You must select at least Router Device."
 msgstr "Du måste välja minst en routerenhet."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1088,10 +1152,6 @@ msgstr "Konto"
 #: router-devices.php
 msgid "Actions"
 msgstr "Åtgärder"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "Aktiverad"
 
 #: router-devices.php
 msgid "Last Backup"
@@ -1295,6 +1355,9 @@ msgstr "Routerkonfigurationer"
 #: setup.php
 msgid "Routers"
 msgstr "Routrar"
+
+#~ msgid "How often to Backup this device."
+#~ msgstr "Hur ofta ska du säkerhetskopiera den här enheten."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
