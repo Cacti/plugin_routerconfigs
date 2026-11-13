@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-13 13:52-0500\n"
 "PO-Revision-Date: 2020-12-13 10:20-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,6 +25,10 @@ msgstr "حذف"
 #, fuzzy
 msgid "Backup"
 msgstr "دعم"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -66,15 +70,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "وراثة"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "يومي"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "أسبوعي"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "شهري"
 
@@ -333,16 +337,67 @@ msgstr "الدليل"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "هذا هو هيكل الدليل النسبي المستخدم لتخزين التكوينات."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "الجدول"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "عدد مرات النسخ الاحتياطي لهذا الجهاز."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+#, fuzzy
+#| msgid "This Month"
+msgid "Days of Month"
+msgstr "هذا الشهر"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "نوع الجهاز"
@@ -357,7 +412,7 @@ msgstr "اختر نوع الجهاز الذي يوجد به جهاز التوج�
 msgid "Auto-Detect"
 msgstr "اكتشاف تلقائي"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "نوع الاتصال"
@@ -367,7 +422,7 @@ msgstr "نوع الاتصال"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "حساب المصادقة"
@@ -648,6 +703,16 @@ msgstr "قم بفصل Configs المؤرشفة في مجلد لكل جهاز"
 
 #: includes/arrays.php
 #, fuzzy
+#| msgid "Directory"
+msgid "Dated Subdirectory"
+msgstr "الدليل"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr ""
+
+#: includes/arrays.php
+#, fuzzy
 msgid "SCP Path"
 msgstr "مسار SCP"
 
@@ -925,6 +990,15 @@ msgstr "خطأ: فشل الاتصال بالجهاز \"%s\" باستخدام ن�
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "خطأ: فشل تنزيل \"%s\" إلى \"%s\" عبر \"%s\""
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "مفعل"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -953,6 +1027,149 @@ msgstr "النسخ الاحتياطي من٪ s"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "الملف:٪ s /٪ s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "دليل"
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Monthly"
+msgid "Monthly on Day"
+msgstr "شهري"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "January"
+msgstr "دليل"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "بحث"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "May"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "June"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "July"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "August"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "September"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "October"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "November"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "December"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "First"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr ""
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr ""
 
 #: router-accounts.php
 #, fuzzy
@@ -1169,6 +1386,25 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "تصحيح لـ٪ s (٪ s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "اخر تغير"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr ""
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: تنفيذ النسخ الاحتياطي اليدوي باستخدام \"%s\" مع الوسائط \"%s\""
@@ -1211,9 +1447,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "تعطيل"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "حذف الجهاز (الأجهزة)"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "يجب عليك تحديد جهاز التوجيه على الأقل."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1241,10 +1496,6 @@ msgstr "الحساب"
 #: router-devices.php
 msgid "Actions"
 msgstr "أفعال"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "مفعل"
 
 #: router-devices.php
 #, fuzzy
@@ -1484,6 +1735,10 @@ msgstr "التوجيهات Configs"
 #, fuzzy
 msgid "Routers"
 msgstr "التوجيهات Configs"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "عدد مرات النسخ الاحتياطي لهذا الجهاز."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"

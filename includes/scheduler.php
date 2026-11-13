@@ -387,10 +387,12 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			return $next;
 
 		case SCHEDULE_DAILY:
-			$next = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+			$base = strtotime(date('Y-m-d', $after));
+			$next = strtotime(date('Y-m-d', $after) . sprintf(' %02d:00:00', $hour));
 
 			while ($next <= $after) {
-				$next += $recur * 86400;
+				$base = strtotime('+' . $recur . ' days', $base);
+				$next = strtotime(date('Y-m-d', $base) . sprintf(' %02d:00:00', $hour));
 			}
 
 			return $next;
@@ -401,10 +403,12 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			// No specific weekday selected: behave like the legacy weekly
 			// cadence (every recur_every weeks from today's time of day).
 			if (empty($days)) {
-				$next = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+				$base = strtotime(date('Y-m-d', $after));
+				$next = strtotime(date('Y-m-d', $after) . sprintf(' %02d:00:00', $hour));
 
 				while ($next <= $after) {
-					$next += $recur * 7 * 86400;
+					$base = strtotime('+' . $recur . ' weeks', $base);
+					$next = strtotime(date('Y-m-d', $base) . sprintf(' %02d:00:00', $hour));
 				}
 
 				return $next;
@@ -413,15 +417,17 @@ function plugin_routerconfigs_schedule_next_start(array $device, int $after): in
 			// Specific weekday(s): find the soonest selected weekday at the
 			// configured hour, strictly after the reference time. day_of_week
 			// is 1=Sunday .. 7=Saturday.
-			$base      = strtotime(date('Y-m-d', $after)) + $hour * 3600;
+			$base      = strtotime(date('Y-m-d', $after));
 			$today_dow = (int) date('w', $base) + 1;
 			$best      = 0;
 
 			foreach ($days as $day) {
-				$candidate = $base + ((($day - $today_dow) + 7) % 7) * 86400;
+				$date = strtotime('+' . ((($day - $today_dow) + 7) % 7) . ' days', $base);
+				$candidate = strtotime(date('Y-m-d', $date) . sprintf(' %02d:00:00', $hour));
 
 				if ($candidate <= $after) {
-					$candidate += 7 * 86400;
+					$date = strtotime('+1 week', $date);
+					$candidate = strtotime(date('Y-m-d', $date) . sprintf(' %02d:00:00', $hour));
 				}
 
 				if ($best === 0 || $candidate < $best) {
@@ -581,6 +587,49 @@ function plugin_routerconfigs_schedule_calc_next_start_for_year(array $schedule,
 	}
 
 	return false;
+}
+
+/**
+ * Validates the device form's raw multi-select schedule inputs
+ * (day_of_week, month, day_of_month, monthly_week, monthly_day) against
+ * the exact option keys each selector offers, before they are folded into
+ * storage. Every submitted element must be a scalar, integer-valued, and
+ * one of the offered keys; anything else (a non-numeric string, a value
+ * outside the offered range such as a Week of Month of 999, or a nested
+ * array) is rejected rather than silently coerced by intval() into a
+ * value the calculator would accept. Invoked from save_devices() in
+ * router-devices.php before plugin_routerconfigs_schedule_augment_save().
+ *
+ * @param array $post The submitted multi-select values keyed by field.
+ *
+ * @return string An error message, or '' when every value is offered.
+ */
+function plugin_routerconfigs_schedule_fields_valid(array $post): string {
+	$allowed = [
+		'day_of_week'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week', 'routerconfigs')],
+		'month'        => [plugin_routerconfigs_sched_months(),        __('Months of Year', 'routerconfigs')],
+		'day_of_month' => [plugin_routerconfigs_sched_days_of_month(), __('Days of Month', 'routerconfigs')],
+		'monthly_week' => [plugin_routerconfigs_sched_weeks_of_month(), __('Weeks of Month', 'routerconfigs')],
+		'monthly_day'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week (Monthly)', 'routerconfigs')],
+	];
+
+	foreach ($allowed as $field => [$options, $label]) {
+		if (!isset($post[$field]) || $post[$field] === '' || $post[$field] === []) {
+			continue;
+		}
+
+		if (!is_array($post[$field])) {
+			return __('The selected %s is not valid.', $label, 'routerconfigs');
+		}
+
+		foreach ($post[$field] as $value) {
+			if (!is_scalar($value) || !ctype_digit((string) $value) || !array_key_exists((int) $value, $options)) {
+				return __('The selected %s is not valid.', $label, 'routerconfigs');
+			}
+		}
+	}
+
+	return '';
 }
 
 /**
