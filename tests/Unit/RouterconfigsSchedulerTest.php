@@ -12,6 +12,8 @@
  * schedules, plus the legacy interval-in-days fallback (issue #133).
  */
 
+require_once __DIR__ . '/../../includes/scheduler.php';
+
 beforeAll(function () {
 	require_once __DIR__ . '/../../includes/functions.php';
 
@@ -204,6 +206,31 @@ it('folds the multi-select schedule inputs into comma separated storage', functi
 	expect($save['day_of_month'])->toBe('15');
 	expect($save['monthly_week'])->toBe('');
 	expect($save['monthly_day'])->toBe('3');
+});
+
+it('accepts only offered values for the multi-select schedule fields', function () {
+	// Empty, absent, and in-range selections are all valid.
+	expect(plugin_routerconfigs_schedule_fields_valid([]))->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => [], 'day_of_week' => '']))->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid([
+		'day_of_week'  => ['1', '7'],
+		'month'        => ['1', '12'],
+		'day_of_month' => ['1', '31', '32'],
+		'monthly_week' => ['1', '4', '32'],
+		'monthly_day'  => ['2'],
+	]))->toBe('');
+
+	// A Week of Month outside the offered keys is rejected, not coerced to
+	// "first" by the calculator.
+	expect(plugin_routerconfigs_schedule_fields_valid(['monthly_week' => ['999']]))->not->toBe('');
+
+	// Out-of-range, non-numeric, and non-scalar elements are all rejected.
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_week' => ['8']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_month' => ['33']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => ['0']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['day_of_month' => ['3abc']]))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['month' => '3']))->not->toBe('');
+	expect(plugin_routerconfigs_schedule_fields_valid(['monthly_day' => [['2']]]))->not->toBe('');
 });
 
 it('validates monthly and monthly-on-day schedules require their day fields', function () {

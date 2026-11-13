@@ -530,9 +530,13 @@ function save_devices() {
 		$sched_post[$sched_field] = isset_request_var($sched_field) ? get_nfilter_request_var($sched_field) : [];
 	}
 
-	$save = plugin_routerconfigs_schedule_augment_save($save, $sched_post);
+	$sched_error = plugin_routerconfigs_schedule_fields_valid($sched_post);
 
-	$sched_error = plugin_routerconfigs_schedule_validate($save);
+	if ($sched_error === '') {
+		$save = plugin_routerconfigs_schedule_augment_save($save, $sched_post);
+
+		$sched_error = plugin_routerconfigs_schedule_validate($save);
+	}
 
 	if ($sched_error !== '') {
 		raise_message('rc_sched_err', $sched_error, MESSAGE_LEVEL_ERROR);

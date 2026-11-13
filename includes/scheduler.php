@@ -590,6 +590,49 @@ function plugin_routerconfigs_schedule_calc_next_start_for_year(array $schedule,
 }
 
 /**
+ * Validates the device form's raw multi-select schedule inputs
+ * (day_of_week, month, day_of_month, monthly_week, monthly_day) against
+ * the exact option keys each selector offers, before they are folded into
+ * storage. Every submitted element must be a scalar, integer-valued, and
+ * one of the offered keys; anything else (a non-numeric string, a value
+ * outside the offered range such as a Week of Month of 999, or a nested
+ * array) is rejected rather than silently coerced by intval() into a
+ * value the calculator would accept. Invoked from save_devices() in
+ * router-devices.php before plugin_routerconfigs_schedule_augment_save().
+ *
+ * @param array $post The submitted multi-select values keyed by field.
+ *
+ * @return string An error message, or '' when every value is offered.
+ */
+function plugin_routerconfigs_schedule_fields_valid(array $post): string {
+	$allowed = [
+		'day_of_week'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week', 'routerconfigs')],
+		'month'        => [plugin_routerconfigs_sched_months(),        __('Months of Year', 'routerconfigs')],
+		'day_of_month' => [plugin_routerconfigs_sched_days_of_month(), __('Days of Month', 'routerconfigs')],
+		'monthly_week' => [plugin_routerconfigs_sched_weeks_of_month(), __('Weeks of Month', 'routerconfigs')],
+		'monthly_day'  => [plugin_routerconfigs_sched_days_of_week(),  __('Days of Week (Monthly)', 'routerconfigs')],
+	];
+
+	foreach ($allowed as $field => [$options, $label]) {
+		if (!isset($post[$field]) || $post[$field] === '' || $post[$field] === []) {
+			continue;
+		}
+
+		if (!is_array($post[$field])) {
+			return __('The selected %s is not valid.', $label, 'routerconfigs');
+		}
+
+		foreach ($post[$field] as $value) {
+			if (!is_scalar($value) || !ctype_digit((string) $value) || !array_key_exists((int) $value, $options)) {
+				return __('The selected %s is not valid.', $label, 'routerconfigs');
+			}
+		}
+	}
+
+	return '';
+}
+
+/**
  * Folds the device form's multi-select schedule inputs (day_of_week,
  * month, day_of_month, monthly_week, monthly_day) into the comma
  * separated storage format on the save array. Each input is expected to
