@@ -251,7 +251,7 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 
 					if ($found) {
 						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
-						$passed[] =  ['hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
+						$passed[] =  ['id' => $device['id'], 'hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
 					} else {
 						plugin_routerconfigs_log('NOTICE: Failed to download for ' . $device['hostname']);
 						$fmsg = db_fetch_cell_prepared('SELECT lasterror
@@ -303,11 +303,45 @@ td { margin: 5 10 5 10; }
 						plugin_routerconfigs_message_devicetable($message, $passed, false);
 					}
 
+					// Optional per-device config diff section (issue #109).
+					if (read_config_option('routerconfigs_email_diff') == 'on' && cacti_sizeof($passed)) {
+						$diff_patterns = plugin_routerconfigs_parse_exclude_patterns(read_config_option('routerconfigs_email_diff_exclude'));
+						$diff_context  = (int) read_config_option('routerconfigs_diff_context');
+
+						if ($diff_context < 1) {
+							$diff_context = 3;
+						}
+
+						$changed = false;
+
+						foreach ($passed as $pdev) {
+							if (!isset($pdev['id'])) {
+								continue;
+							}
+
+							$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context, read_config_option('routerconfigs_email_diff_secrets') != 'on');
+
+							if ($diff_text !== '') {
+								if (!$changed) {
+									plugin_routerconfigs_message_title($message, 'Configuration Changes');
+									$changed = true;
+								}
+
+								$message .= '<h4>' . html_escape($pdev['hostname']) . '</h4>';
+								$message .= '<pre style="font-family:monospace;white-space:pre-wrap;border:1px solid #ccc;padding:5px;">' . html_escape($diff_text) . '</pre>';
+							}
+						}
+
+						if (!$changed) {
+							plugin_routerconfigs_message($message, __('No configuration changes were detected.', 'routerconfigs'));
+						}
+					}
+
 					$from_email = read_config_option('routerconfigs_from');
 					$from_name  = read_config_option('routerconfigs_name');
-					$to         = read_config_option('routerconfigs_email');
+					$recipients = plugin_routerconfigs_notification_recipients();
 
-					if ($to != '' && $from_email != '') {
+					if (($recipients['to'] != '' || $recipients['bcc'] != '') && $from_email != '') {
 						if ($from_name == '') {
 							$from_name = __('Config Backups', 'routerconfigs');
 						}
@@ -341,7 +375,8 @@ td { margin: 5 10 5 10; }
 							$subject .= __(': FAILED', 'routerconfigs');
 						}
 						$message .= '</body></html>';
-						send_mail($to, $from, $subject, $message, $filename = '', $headers = '', $html = true);
+						// mailer() rather than send_mail(), which has no Bcc recipients
+						mailer($from, $recipients['to'], '', $recipients['bcc'], '', $subject, $message, '', '', '', true);
 					}
 				}
 			}
@@ -725,7 +760,8 @@ function plugin_routerconfigs_import_cacti_device($host_id) {
  * '\/' is kept as it is. Compiling is checked without emitting a warning,
  * and results are cached per request so a pattern applied to every line of
  * a configuration is checked once. Shared by
- * PHPShellConnection::ProcessLoginPrompts() and save_devicetypes().
+ * PHPShellConnection::ProcessLoginPrompts(), save_devicetypes() and
+ * plugin_routerconfigs_diff_exclude_lines().
  *
  * @param string $pattern The regular expression without delimiters.
  * @param string $flags   The pattern modifiers, e.g. 'i'.
@@ -845,6 +881,557 @@ function plugin_routerconfigs_parse_login_prompts($text): array {
 	}
 
 	return $entries;
+}
+
+/**
+ * Determines whether a configuration payload is text (not binary) and so
+ * safe to diff and embed in an Email. A NUL byte is treated as the binary
+ * marker, matching how most tools distinguish text from binary content.
+ *
+ * @param string|null $content The configuration content.
+ *
+ * @return bool True when the content is text, false when it looks binary.
+ */
+function plugin_routerconfigs_is_text_config($content): bool {
+	return strpos((string) $content, "\0") === false;
+}
+
+/**
+ * Parses the Diff Exclude Patterns setting (one regular expression per
+ * line) into a list of non-empty trimmed patterns, dropping blank lines.
+ *
+ * @param string|null $text The configured exclude-patterns text.
+ *
+ * @return array<int, string> The parsed patterns.
+ */
+function plugin_routerconfigs_parse_exclude_patterns($text): array {
+	$patterns = [];
+
+	foreach (preg_split('/\r\n|\r|\n/', (string) $text) as $line) {
+		$line = trim($line);
+
+		if ($line !== '') {
+			$patterns[] = $line;
+		}
+	}
+
+	return $patterns;
+}
+
+/**
+ * Returns the volatile-line patterns that are always removed before two
+ * backups are compared, because they change on every backup without a
+ * configuration change. The Cisco IOS lines follow Oxidized's IOS model
+ * and the NX-OS lines its NX-OS model (lib/oxidized/model/ios.rb and
+ * nxos.rb).
+ *
+ * @return array<int, string> The patterns, without delimiters.
+ */
+function plugin_routerconfigs_diff_volatile_patterns(): array {
+	return [
+		'^! (Last|No) configuration change (at|since)',
+		'^! NVRAM config last updated at',
+		'^ntp clock-period ',
+		'^Current configuration : ',
+		'^!Time:',
+		'^!Running configuration last done at:',
+	];
+}
+
+/**
+ * Removes configuration lines matching any of the supplied exclude
+ * patterns (each a case-insensitive regular expression, matched anywhere
+ * in the line unless anchored with ^ or $) before a diff is computed, so
+ * volatile lines such as timestamps or serial numbers do not show up as
+ * changes. Patterns are compiled by plugin_routerconfigs_regex(), and one
+ * that is not a valid regular expression is ignored rather than fatal.
+ *
+ * @param array $lines     The configuration lines.
+ * @param array $patterns  The exclude patterns.
+ * @param bool  $keep_keys Whether to keep the input keys instead of
+ *                         re-indexing; defaults to false.
+ *
+ * @return array<int, string> The filtered lines.
+ */
+function plugin_routerconfigs_diff_exclude_lines(array $lines, array $patterns, bool $keep_keys = false): array {
+	$valid = [];
+
+	foreach ($patterns as $pattern) {
+		$regex = plugin_routerconfigs_regex((string) $pattern);
+
+		if ($regex !== null) {
+			$valid[] = $regex;
+		}
+	}
+
+	if (!cacti_sizeof($valid)) {
+		return $keep_keys ? $lines : array_values($lines);
+	}
+
+	$kept = [];
+
+	foreach ($lines as $index => $line) {
+		$exclude = false;
+
+		foreach ($valid as $regex) {
+			if (preg_match($regex, (string) $line) === 1) {
+				$exclude = true;
+
+				break;
+			}
+		}
+
+		if (!$exclude) {
+			$kept[$index] = $line;
+		}
+	}
+
+	return $keep_keys ? $kept : array_values($kept);
+}
+
+/**
+ * Hides secrets in a whole configuration, failing closed, and returns one
+ * redacted line for each input line, with the same keys. The configuration
+ * must be passed from its first line, because multi-line secrets are
+ * tracked from where they open. The comparison runs on the raw lines, so
+ * hiding too much never hides a change.
+ *
+ * - A multi-line secret is a PEM block from -----BEGIN to -----END, a
+ *   'certificate [ca|self-signed] <serial>' or bare 'key-string' block up
+ *   to 'quit', or a value left open by an odd number of unescaped double
+ *   or single quotes up to the line that closes it. The state after each
+ *   line is worked out from the whole line, so a line that closes one
+ *   block and opens another stays hidden. Every line inside a block is
+ *   replaced, keeping only its indentation; only a bare 'quit' or
+ *   -----END line that leaves no block open is shown. A block that never
+ *   ends hides the rest of the configuration, and $unclosed is set to the
+ *   line number where it opened.
+ * - Outside a block, a row of 8-digit hex words or a base64 run of 40 or
+ *   more characters is hidden, and a line that opens a block, holds a
+ *   -----BEGIN marker, or contains
+ *   a secret-like word anywhere (passw, passphrase, pwd, secret, psk, key,
+ *   community, md5, authentication, credential, token or private), and
+ *   any 'snmp-server host', 'snmp-server user' or 'snmpv3 user' line, is
+ *   reduced to its indentation and leading word.
+ *
+ * Values are not parsed, so no value syntax can slip through. This hides
+ * many harmless lines ('description key account' becomes 'description
+ * <secret hidden>'), which is accepted.
+ *
+ * @param array<int, string> $lines    The configuration lines, in order.
+ * @param int|null           $unclosed Reference, set to the 1-based line
+ *                                     number of a block still open at the
+ *                                     end, or 0.
+ *
+ * @return array<int, string> The redacted lines.
+ */
+function plugin_routerconfigs_redact_lines(array $lines, ?int &$unclosed = null): array {
+	$hidden = '<secret hidden>';
+	$state  = ['"' => false, "'" => false, 'pem' => false, 'quit' => false];
+	$opened = 0;
+	$number = 0;
+
+	foreach ($lines as $index => $line) {
+		$line     = (string) $line;
+		$before   = $state;
+		$in_block = in_array(true, $before, true);
+		$number++;
+
+		preg_match('/^(\s*)([A-Za-z][\w-]*)?(.*)$/s', $line, $match);
+
+		// A quote preceded by an even number of backslashes is unescaped.
+		foreach (['"', "'"] as $quote) {
+			if (preg_match_all('/(?<!\\\\)(?:\\\\\\\\)*' . $quote . '/', $line) % 2 === 1) {
+				$state[$quote] = !$state[$quote];
+			}
+		}
+
+		$begin = strrpos($line, '-----BEGIN');
+		$end   = strrpos($line, '-----END');
+
+		if ($begin !== false || $end !== false) {
+			$state['pem'] = $begin !== false && ($end === false || $begin > $end);
+		}
+
+		$bare_quit = (bool) preg_match('/^\s*quit\s*$/i', $line);
+
+		if ($state['quit'] && $bare_quit) {
+			$state['quit'] = false;
+		}
+
+		if (preg_match('/^\s*(?:certificate(?:\s+(?:ca|self-signed))?\s+[0-9a-f]+|key-string)\s*$/i', $line)) {
+			$state['quit'] = true;
+		}
+
+		$open = in_array(true, $state, true);
+
+		if ($open && $state !== $before) {
+			$opened = $number;
+		}
+
+		if ($in_block) {
+			$bare = ($before['quit'] && $bare_quit) || ($before['pem'] && preg_match('/^\s*-----END[^-]*-----\s*$/', $line));
+
+			$lines[$index] = ($bare && !$open) ? $line : $match[1] . $hidden;
+		} elseif (preg_match('/^\s*(?:[0-9a-f]{8}\s*){2,}$|^\s*[A-Za-z0-9+\/]{40,}={0,2}\s*$/i', $line)) {
+			$lines[$index] = $match[1] . $hidden;
+		} elseif (trim($match[3]) !== '' && ($open || $begin !== false
+			|| preg_match('/passw|passphrase|pwd|secret|psk|key|community|md5|authentication|credential|token|private|^\s*snmp-server\s+(?:host|user)\s|^\s*snmpv3\s+user\s/i', $line))) {
+			$lines[$index] = $match[1] . (string) ($match[2] ?? '') . (($match[2] ?? '') === '' ? '' : ' ') . $hidden;
+		}
+	}
+
+	$unclosed = in_array(true, $state, true) ? $opened : 0;
+
+	return $lines;
+}
+
+/**
+ * Renders unified diff hunks from grouped opcodes computed on the raw
+ * lines, printing the redacted form of each line instead. A replaced line
+ * whose redacted form did not change is marked '(changed)', so a changed
+ * secret still shows up without its value. Called from
+ * plugin_routerconfigs_config_unified_diff().
+ *
+ * @param array<int, array<int, array<int, int>>> $hunks Grouped opcodes,
+ *                                                       each [op, i1, i2,
+ *                                                       j1, j2] with the
+ *                                                       jfcherng op values.
+ * @param array<int, string> $raw1  The previous raw lines.
+ * @param array<int, string> $raw2  The new raw lines.
+ * @param array<int, string> $show1 The previous lines to print.
+ * @param array<int, string> $show2 The new lines to print.
+ *
+ * @return string The unified diff text.
+ */
+function plugin_routerconfigs_render_hunks(array $hunks, array $raw1, array $raw2, array $show1, array $show2): string {
+	$out = '';
+
+	foreach ($hunks as $hunk) {
+		$hunk = array_values($hunk);
+		$last = cacti_count($hunk) - 1;
+		$i1   = $hunk[0][1];
+		$i2   = $hunk[$last][2];
+		$j1   = $hunk[0][3];
+		$j2   = $hunk[$last][4];
+
+		$out .= '@@ -' . ($i1 === $i2 ? $i1 : $i1 + 1) . ($i2 - $i1 === 1 ? '' : ',' . ($i2 - $i1))
+			. ' +' . ($j1 === $j2 ? $j1 : $j1 + 1) . ($j2 - $j1 === 1 ? '' : ',' . ($j2 - $j1)) . " @@\n";
+
+		foreach ($hunk as [$op, $a1, $a2, $b1, $b2]) {
+			for ($i = $a1; $i < $a2; $i++) {
+				$out .= ($op === 1 ? ' ' : '-') . ($show1[$i] ?? '') . "\n";
+			}
+
+			if ($op === 1) {
+				continue;
+			}
+
+			for ($j = $b1; $j < $b2; $j++) {
+				$i       = $a1 + $j - $b1;
+				$changed = $i < $a2 && ($show1[$i] ?? '') === ($show2[$j] ?? '') && ($raw1[$i] ?? '') !== ($raw2[$j] ?? '');
+				$out    .= '+' . ($show2[$j] ?? '') . ($changed ? ' (changed)' : '') . "\n";
+			}
+		}
+	}
+
+	return $out;
+}
+
+/**
+ * Converts the edits of a Horde Text_Diff into grouped opcodes in the form
+ * plugin_routerconfigs_render_hunks() takes, with $context unchanged lines
+ * around each change, as Python difflib groups them.
+ *
+ * @param array $edits   The Horde_Text_Diff_Op_* edits.
+ * @param int   $context The number of context lines.
+ *
+ * @return array<int, array<int, array<int, int>>> The grouped opcodes.
+ */
+function plugin_routerconfigs_horde_hunks(array $edits, int $context): array {
+	$ops = [];
+	$i   = 0;
+	$j   = 0;
+
+	foreach ($edits as $edit) {
+		$n1 = $edit->norig();
+		$n2 = $edit->nfinal();
+
+		if ($edit instanceof Horde_Text_Diff_Op_Copy) {
+			$op = 1;
+		} else {
+			$op = $n1 && $n2 ? 8 : ($n1 ? 2 : 4);
+		}
+
+		$ops[] = [$op, $i, $i + $n1, $j, $j + $n2];
+		$i    += $n1;
+		$j    += $n2;
+	}
+
+	if (!cacti_sizeof($ops)) {
+		return [];
+	}
+
+	$last = cacti_count($ops) - 1;
+
+	if ($ops[0][0] === 1) {
+		$ops[0][1] = max($ops[0][1], $ops[0][2] - $context);
+		$ops[0][3] = max($ops[0][3], $ops[0][4] - $context);
+	}
+
+	if ($ops[$last][0] === 1) {
+		$ops[$last][2] = min($ops[$last][2], $ops[$last][1] + $context);
+		$ops[$last][4] = min($ops[$last][4], $ops[$last][3] + $context);
+	}
+
+	$groups = [];
+	$group  = [];
+
+	foreach ($ops as [$op, $a1, $a2, $b1, $b2]) {
+		if ($op === 1 && $a2 - $a1 > 2 * $context) {
+			$group[]  = [1, $a1, $a1 + $context, $b1, $b1 + $context];
+			$groups[] = $group;
+			$group    = [];
+			$a1       = $a2 - $context;
+			$b1       = $b2 - $context;
+		}
+
+		$group[] = [$op, $a1, $a2, $b1, $b2];
+	}
+
+	if (!(cacti_count($group) === 1 && $group[0][0] === 1)) {
+		$groups[] = $group;
+	}
+
+	return $groups;
+}
+
+/**
+ * Renders a unified text diff of two configurations (arrays of lines),
+ * preferring the jfcherng/php-diff library bundled with Cacti core
+ * (1.2.32+) and falling back to the Horde Text_Diff library shipped with
+ * this plugin on older releases. Returns an empty string when the two
+ * inputs are identical. Called when building the backup Email's per-device
+ * diff section.
+ *
+ * @param array      $lines1  The previous configuration lines.
+ * @param array      $lines2  The new configuration lines.
+ * @param int        $context The number of unchanged context lines to show;
+ *                            defaults to 3.
+ * @param array|null $shown   Optional [previous, new] lines to print in
+ *                            place of $lines1 and $lines2, aligned with
+ *                            them; the comparison still uses the raw lines.
+ *
+ * @return string The unified diff text, or '' when there is no difference.
+ */
+function plugin_routerconfigs_config_unified_diff(array $lines1, array $lines2, int $context = 3, ?array $shown = null): string {
+	if ($context < 1) {
+		$context = 3;
+	}
+
+	if (class_exists('\Jfcherng\Diff\Differ')) {
+		$differ = new \Jfcherng\Diff\Differ($lines1, $lines2, [
+			'context'          => $context,
+			'ignoreWhitespace' => false,
+			'ignoreCase'       => false,
+		]);
+
+		if (!cacti_sizeof($differ->getGroupedOpcodes())) {
+			return '';
+		}
+
+		if ($shown !== null) {
+			return plugin_routerconfigs_render_hunks($differ->getGroupedOpcodesGnu(), $lines1, $lines2, $shown[0], $shown[1]);
+		}
+
+		$renderer = \Jfcherng\Diff\Factory\RendererFactory::make('Unified');
+
+		return (string) $renderer->render($differ);
+	}
+
+	// Horde Text_Diff fallback for Cacti 1.2.29-1.2.31 (pre jfcherng/php-diff).
+	// The test environment always has jfcherng, so this path is not exercised.
+	// @codeCoverageIgnoreStart
+	require_once(__DIR__ . '/HordeText.php');
+
+	$diff = new Horde_Text_Diff('Native', [$lines1, $lines2]);
+
+	if (!cacti_sizeof($diff->getDiff())) {
+		return '';
+	}
+
+	if ($shown !== null) {
+		return plugin_routerconfigs_render_hunks(plugin_routerconfigs_horde_hunks($diff->getDiff(), $context), $lines1, $lines2, $shown[0], $shown[1]);
+	}
+
+	$renderer = new Horde_Text_Diff_Renderer_Unified([
+		'leading_context_lines'  => $context,
+		'trailing_context_lines' => $context,
+	]);
+
+	return (string) $renderer->render($diff);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Safely reads a stored backup file's contents, validating that the
+ * resolved path stays within the backup's recorded directory (the same
+ * containment check the Compare page uses) so a crafted directory/filename
+ * cannot escape it.
+ *
+ * @param array $backup A backup row with 'directory' and 'filename'.
+ *
+ * @return string|false The file contents, or false when the row is
+ *                      incomplete, the path escapes its directory, or the
+ *                      file cannot be read.
+ */
+function plugin_routerconfigs_read_backup_file(array $backup) {
+	if (!isset($backup['directory']) || !isset($backup['filename'])) {
+		return false;
+	}
+
+	$dir      = plugin_routerconfigs_dir($backup['directory']);
+	$filepath = $dir . basename($backup['filename']);
+	$resolved = realpath($filepath);
+	$basedir  = realpath($dir);
+
+	if ($basedir === false || $resolved === false) {
+		return false;
+	}
+
+	if (strpos($resolved, rtrim($basedir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR) !== 0) {
+		return false;
+	}
+
+	$content = @file_get_contents($resolved);
+
+	return $content === false ? false : $content;
+}
+
+/**
+ * Builds a unified diff between a device's two most recent backups,
+ * applying the built-in volatile-line patterns and the configured exclude
+ * patterns, for inclusion in the backup Email. The comparison runs on the
+ * raw lines; unless $redact is false, each line is printed as
+ * plugin_routerconfigs_redact_lines() redacts it, and a note is added
+ * for a redaction block that never closes. Returns an empty string when the
+ * device has fewer than two backups, either file cannot be read, either
+ * configuration looks binary, or the two configurations are identical once
+ * excluded lines are removed.
+ *
+ * @param int   $device_id The device id.
+ * @param array $patterns  The exclude patterns (see
+ *                        plugin_routerconfigs_parse_exclude_patterns()).
+ * @param int   $context   The number of context lines; defaults to 3.
+ * @param bool  $redact    Whether to hide secret values; defaults to true.
+ *
+ * @return string The unified diff text, or '' when there is nothing to
+ *                report.
+ */
+function plugin_routerconfigs_device_config_diff($device_id, array $patterns, int $context = 3, bool $redact = true): string {
+	$backups = db_fetch_assoc_prepared('SELECT directory, filename
+		FROM plugin_routerconfigs_backups
+		WHERE device = ?
+		ORDER BY btime DESC
+		LIMIT 2',
+		[$device_id]);
+
+	if (!cacti_sizeof($backups) || cacti_count($backups) < 2) {
+		return '';
+	}
+
+	$new = plugin_routerconfigs_read_backup_file($backups[0]);
+	$old = plugin_routerconfigs_read_backup_file($backups[1]);
+
+	if ($new === false || $old === false) {
+		return '';
+	}
+
+	if (!plugin_routerconfigs_is_text_config($new) || !plugin_routerconfigs_is_text_config($old)) {
+		return '';
+	}
+
+	$old_lines = explode("\n", str_replace("\r\n", "\n", $old));
+	$new_lines = explode("\n", str_replace("\r\n", "\n", $new));
+	$old_open  = 0;
+	$new_open  = 0;
+	$shown     = null;
+	$patterns  = array_merge(plugin_routerconfigs_diff_volatile_patterns(), $patterns);
+	$old_kept  = plugin_routerconfigs_diff_exclude_lines($old_lines, $patterns, true);
+	$new_kept  = plugin_routerconfigs_diff_exclude_lines($new_lines, $patterns, true);
+
+	// The comparison runs on the raw lines, so every real change gives a
+	// hunk, but each line is printed as redacted from its whole
+	// configuration, so block state always starts at the first line.
+	if ($redact) {
+		$shown = [
+			array_values(array_intersect_key(plugin_routerconfigs_redact_lines($old_lines, $old_open), $old_kept)),
+			array_values(array_intersect_key(plugin_routerconfigs_redact_lines($new_lines, $new_open), $new_kept)),
+		];
+	}
+
+	$diff = plugin_routerconfigs_config_unified_diff(array_values($old_kept), array_values($new_kept), $context, $shown);
+
+	if ($diff === '') {
+		return '';
+	}
+
+	$notes = '';
+
+	if ($old_open > 0) {
+		$notes .= __('Redaction block on line %d of the previous backup never closed; following lines hidden.', $old_open, 'routerconfigs') . "\n";
+	}
+
+	if ($new_open > 0) {
+		$notes .= __('Redaction block on line %d of the new backup never closed; following lines hidden.', $new_open, 'routerconfigs') . "\n";
+	}
+
+	return $notes . $diff;
+}
+
+/**
+ * Resolves the backup Email recipients: the configured
+ * 'routerconfigs_email' addresses, plus the Email and Bcc recipients of
+ * the selected Thold Notification List when Thold is installed, a list is
+ * chosen and that list is enabled. Thold sends nothing from a disabled
+ * list; Thold versions without the Enabled or Bcc fields are still read.
+ * Called from plugin_routerconfigs_download() when sending the summary
+ * Email.
+ *
+ * @return array{to: string, bcc: string} Comma separated To and Bcc
+ *                                        recipient lists, possibly empty.
+ */
+function plugin_routerconfigs_notification_recipients(): array {
+	$to      = trim((string) read_config_option('routerconfigs_email'));
+	$bcc     = '';
+	$list_id = (int) read_config_option('routerconfigs_notification_list');
+
+	if ($list_id > 0 && db_table_exists('plugin_notification_lists')) {
+		$columns = ['emails'];
+
+		foreach (['bcc_emails', 'enabled'] as $column) {
+			if (db_column_exists('plugin_notification_lists', $column)) {
+				$columns[] = $column;
+			}
+		}
+
+		$list = db_fetch_row_prepared('SELECT ' . implode(', ', $columns) . '
+			FROM plugin_notification_lists
+			WHERE id = ?',
+			[$list_id]);
+
+		if (is_array($list) && !empty($list) && ($list['enabled'] ?? 'on') === 'on') {
+			$emails = trim((string) ($list['emails'] ?? ''));
+
+			if ($emails !== '') {
+				$to = ($to !== '' ? $to . ',' : '') . $emails;
+			}
+
+			$bcc = trim((string) ($list['bcc_emails'] ?? ''));
+		}
+	}
+
+	return ['to' => $to, 'bcc' => $bcc];
 }
 
 /**

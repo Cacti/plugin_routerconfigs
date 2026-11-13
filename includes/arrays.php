@@ -30,7 +30,7 @@ require_once(__DIR__ . '/scheduler.php');
 global $config, $rc_settings, $rc_connection_types,
 $rc_schedules_backup, $rc_schedules_retry, $rc_schedules_retention, $rc_schedules_download,
 $rc_schedules_recur,
-$rc_diff_context,
+$rc_diff_context, $rc_notification_list_setting,
 $rc_account_actions, $rc_device_actions, $rc_devtype_actions,
 $rc_account_edit_fields, $rc_device_edit_fields, $rc_devtype_edit_fields;
 
@@ -644,4 +644,36 @@ $rc_settings = [
 		'max_length'    => 255,
 		'default'       => ''
 	],
+	'routerconfigs_email_diff' => [
+		'friendly_name' => __('Include Config Diffs', 'routerconfigs'),
+		'description'   => __('Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS \'! Last configuration change\', \'! NVRAM config last updated\', \'ntp clock-period\' and \'Current configuration :\', and NX-OS \'!Time:\' and \'!Running configuration last done at:\') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
+	],
+	'routerconfigs_email_diff_secrets' => [
+		'friendly_name' => __('Include Secrets in Diffs', 'routerconfigs'),
+		'description'   => __('Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed.', 'routerconfigs'),
+		'method'        => 'checkbox',
+		'default'       => ''
+	],
+	'routerconfigs_email_diff_exclude' => [
+		'friendly_name' => __('Diff Exclude Patterns', 'routerconfigs'),
+		'description'   => __('Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored.', 'routerconfigs'),
+		'method'        => 'textarea',
+		'class'         => 'textAreaNotes',
+		'textarea_rows' => '4',
+		'textarea_cols' => '40',
+		'default'       => ''
+	],
+];
+
+// Added to the settings by routerconfigs_config_settings() only when Thold's
+// plugin_notification_lists table exists, since its drop_sql needs it.
+$rc_notification_list_setting = [
+	'friendly_name' => __('Thold Notification List', 'routerconfigs'),
+	'description'   => __('When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List.', 'routerconfigs'),
+	'method'        => 'drop_sql',
+	'default'       => '0',
+	'none_value'    => __('None', 'routerconfigs'),
+	'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
 ];

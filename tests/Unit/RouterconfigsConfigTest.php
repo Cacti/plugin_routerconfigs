@@ -47,6 +47,24 @@ it('merges into an existing settings array without clobbering it', function () {
 	}
 });
 
+it('offers the Thold Notification List only when Thold\'s table exists', function () {
+	global $tabs, $settings;
+
+	$tabs     = [];
+	$settings = [];
+
+	routerconfigs_config_settings();
+	expect($settings['routerconfigs'])->not->toHaveKey('routerconfigs_notification_list');
+
+	$GLOBALS['__stub_overrides']['db_table_exists'] = fn ($table) => $table === 'plugin_notification_lists';
+
+	$settings = [];
+	routerconfigs_config_settings();
+
+	expect($settings['routerconfigs']['routerconfigs_notification_list']['sql'])
+		->toBe('SELECT id, name FROM plugin_notification_lists ORDER BY name');
+});
+
 it('adds the Utilities menu entry only when the console presentation is selected', function () {
 	global $menu;
 
