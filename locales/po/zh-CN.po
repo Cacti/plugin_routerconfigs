@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: routerconfigs on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 13:52-0500\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
 "PO-Revision-Date: 2024-06-23 04:09+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/routerconfigs/zh_Hans/>\n"
@@ -538,6 +538,15 @@ msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "文字与“按任意键继续”样式提示匹配"
 
 #: includes/arrays.php
+#, fuzzy
+msgid "Post-Login Prompts"
+msgstr "密码提示"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr ""
+
+#: includes/arrays.php
 msgid "General Settings"
 msgstr "通用设置"
 
@@ -749,6 +758,38 @@ msgstr "电子邮件地址"
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "以逗号分隔的电子邮件地址列表，用于将夜间备份电子邮件发送至。"
 
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr ""
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr ""
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr ""
+
 #: includes/devices.php
 #, fuzzy
 msgid "Add to RouterConfigs Backup"
@@ -838,6 +879,10 @@ msgid "%s devices disabled from backup."
 msgstr "%s 个设备已备份失败。<br>"
 
 #: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr ""
+
+#: includes/functions.php
 msgid "Config Backups"
 msgstr "配置备份"
 
@@ -924,6 +969,16 @@ msgstr ""
 #: includes/functions.php
 #, php-format
 msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
 msgstr ""
 
 #: includes/functions.php
@@ -1557,6 +1612,11 @@ msgstr "未找到路由器设备"
 #: router-devtypes.php
 msgid "When you click 'Continue', the following device(s) will be deleted."
 msgstr "当您点击“继续”时，以下设备将被删除。"
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr ""
 
 #: router-devtypes.php
 #, php-format
