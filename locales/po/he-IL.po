@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2020-12-13 10:24-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,6 +25,10 @@ msgstr "מחק"
 #, fuzzy
 msgid "Backup"
 msgstr "גיבוי"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -65,15 +69,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "בירושה"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "יומי"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "שבועי"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "באופן חודשי"
 
@@ -332,16 +336,25 @@ msgstr "אינדקס שרותים ועסקים"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "זהו מבנה הספריות היחסי המשמש לאחסון התצורות."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "תאריך משלוח"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "כמה פעמים כדי לגבות את המכשיר הזה."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "סוג התקן"
 
@@ -355,7 +368,7 @@ msgstr "בחר את סוג ההתקן שהנתב הוא."
 msgid "Auto-Detect"
 msgstr "זיהוי אוטומטי"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Connection Type"
 msgstr "סוג הקשר"
 
@@ -364,7 +377,7 @@ msgstr "סוג הקשר"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "זוהי כתובת ה- IP המשמשת להתקשרות עם ההתקן."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "חשבון אימות"
@@ -923,6 +936,15 @@ msgstr "שגיאה: ההתחברות למכשיר '%s' נכשלה באמצעות
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "שגיאה: ההורדה של '%s' אל '%s' נכשלה דרך '%s'."
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "מאופשר"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -951,6 +973,11 @@ msgstr "גיבוי מ - %s"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "קובץ: %s / %s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "ידני"
 
 #: router-accounts.php
 #, fuzzy
@@ -1165,6 +1192,21 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "ניפוי באגים עבור %s ( %s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+#| msgid "Last Change"
+msgid "No Change"
+msgstr "שינוי אחרון"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "DEBUG: ביצוע גיבוי ידני באמצעות '%s' עם ארגומנטים '%s'"
@@ -1207,9 +1249,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "כיבוי"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "מחק מכשירים"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "עליך לבחור לפחות התקן נתב."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1237,10 +1298,6 @@ msgstr "חשבון"
 #: router-devices.php
 msgid "Actions"
 msgstr "פעולות"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "מאופשר"
 
 #: router-devices.php
 #, fuzzy
@@ -1479,6 +1536,10 @@ msgstr "נתב Configs"
 #, fuzzy
 msgid "Routers"
 msgstr "נתב Configs"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "כמה פעמים כדי לגבות את המכשיר הזה."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"

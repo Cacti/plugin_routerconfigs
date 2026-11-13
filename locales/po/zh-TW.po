@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2026-10-06 13:29+0000\n"
 "Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
@@ -26,6 +26,10 @@ msgstr "刪除"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "備份"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 #, fuzzy
@@ -67,17 +71,17 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "繼承"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 #, fuzzy
 msgid "Daily"
 msgstr "每日"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 #, fuzzy
 msgid "Weekly"
 msgstr "每週"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 #, fuzzy
 msgid "Monthly"
 msgstr "每月"
@@ -342,17 +346,24 @@ msgstr "目錄"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "這是用於存儲配置的相對目錄結構。"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
-msgid "Schedule"
+msgid "Schedule Type"
 msgstr "排程"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "備份此設備的頻率。"
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "設備類型"
 
@@ -365,7 +376,7 @@ msgstr "選擇路由器所屬的設備類型。"
 msgid "Auto-Detect"
 msgstr "自動検出"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Connection Type"
 msgstr "連接類型"
 
@@ -374,7 +385,7 @@ msgstr "連接類型"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "這是用於與設備通信的IP地址。"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "驗證帳戶"
@@ -939,6 +950,16 @@ msgstr "錯誤：無法使用連接類型%s連接到設備'%s'"
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "錯誤：無法通過“ %s”將“ %s”下載到“ %s”"
 
+#: includes/functions.php router-devices.php
+#, fuzzy
+msgid "Enabled"
+msgstr "啟用"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -967,6 +988,11 @@ msgstr "從％s備份"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "檔案：％s /％s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "手動"
 
 #: router-accounts.php
 #, fuzzy
@@ -1186,6 +1212,20 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "調試％s（％s） <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "最後一次變更"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "調試：使用帶有參數“ %s”的“ %s”執行手動備份"
@@ -1228,9 +1268,27 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+msgid "Disabled"
+msgstr "停用"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "刪除設備"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "您必須至少選擇路由器設備。"
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1259,11 +1317,6 @@ msgstr "帳戶"
 #, fuzzy
 msgid "Actions"
 msgstr "動作"
-
-#: router-devices.php
-#, fuzzy
-msgid "Enabled"
-msgstr "啟用"
 
 #: router-devices.php
 msgid "Last Backup"
@@ -1508,6 +1561,10 @@ msgstr "路由器配置"
 #, fuzzy
 msgid "Routers"
 msgstr "路由器配置"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "備份此設備的頻率。"
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
