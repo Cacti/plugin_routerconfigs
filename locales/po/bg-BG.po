@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2020-12-13 10:21-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,6 +24,10 @@ msgstr "Изтрий"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "Архивиране"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -64,15 +68,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "Наследи"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "Ежедневно"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "Седмично"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "Месечно"
 
@@ -331,16 +335,25 @@ msgstr "Папка"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Това е относителната структура на директории, използвана за съхраняване на конфиг."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "Планиране"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "Колко често да архивирате това устройство."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "Тип на устройството"
@@ -355,7 +368,7 @@ msgstr "Изберете типа устройство, което е рутер
 msgid "Auto-Detect"
 msgstr "Автоматично откриване"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Connection Type"
 msgstr "Вид на връзката"
@@ -365,7 +378,7 @@ msgstr "Вид на връзката"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Това е IP адресът, използван за комуникация с устройството."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Профил за удостоверяване"
@@ -922,6 +935,15 @@ msgstr "ГРЕШКА: Неуспешно свързване с устройст�
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "ГРЕШКА: Неуспешно изтегляне на „%s“ на „%s“ чрез „%s“"
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Разрешен"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -950,6 +972,11 @@ msgstr "Архивиране от %s"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Файл: %s / %s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "Ръчна"
 
 #: router-accounts.php
 #, fuzzy
@@ -1167,6 +1194,20 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Отстраняване на грешки за %s ( %s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "Последна промяна"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "ОТЛАГАНЕ: Изпълнение на ръчно архивиране с помощта на „%s“ с аргументи „%s“"
@@ -1209,9 +1250,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "Изключи"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "Изтриване на устройствата"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Трябва да изберете поне устройство за рутер."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1239,10 +1299,6 @@ msgstr "Профил"
 #: router-devices.php
 msgid "Actions"
 msgstr "Действия"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "Разрешен"
 
 #: router-devices.php
 #, fuzzy
@@ -1481,6 +1537,10 @@ msgstr "Рутер Конфиг"
 #, fuzzy
 msgid "Routers"
 msgstr "Рутер Конфиг"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "Колко често да архивирате това устройство."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
