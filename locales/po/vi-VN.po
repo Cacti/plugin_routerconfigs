@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 16:18-0500\n"
+"POT-Creation-Date: 2026-11-11 17:11-0800\n"
 "PO-Revision-Date: 2020-12-13 10:36-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,6 +24,10 @@ msgstr "Xóa"
 #: includes/arrays.php
 msgid "Backup"
 msgstr "Lưu dự phòng"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr ""
 
 #: includes/arrays.php
 msgid "Enable"
@@ -66,15 +70,15 @@ msgstr "SFTP"
 msgid "Inherit"
 msgstr "Thừa kế"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Daily"
 msgstr "Hàng ngày"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Weekly"
 msgstr "Hàng tuần"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/scheduler.php
 msgid "Monthly"
 msgstr "Hàng tháng"
 
@@ -333,16 +337,25 @@ msgstr "Danh mục"
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Đây là cấu trúc thư mục tương đối được sử dụng để lưu trữ các cấu hình."
 
-#: includes/arrays.php
-msgid "Schedule"
+#: includes/arrays.php includes/functions.php router-devices.php
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedule Type"
 msgstr "Lịch trình"
 
 #: includes/arrays.php
-#, fuzzy
-msgid "How often to Backup this device."
-msgstr "Tần suất sao lưu thiết bị này."
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr ""
 
-#: includes/arrays.php router-devices.php
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgstr ""
+
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Device Type"
 msgstr "Loại thiết bị"
@@ -357,7 +370,7 @@ msgstr "Chọn loại thiết bị mà bộ định tuyến."
 msgid "Auto-Detect"
 msgstr "Tự động phát hiện"
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 msgid "Connection Type"
 msgstr "Kiểu kết nối"
 
@@ -366,7 +379,7 @@ msgstr "Kiểu kết nối"
 msgid "This is the type of connection used to communicate with the device."
 msgstr "Đây là Địa chỉ IP được sử dụng để liên lạc với thiết bị."
 
-#: includes/arrays.php
+#: includes/arrays.php includes/functions.php router-devices.php
 #, fuzzy
 msgid "Authentication Account"
 msgstr "Tài khoản xác thực"
@@ -923,6 +936,15 @@ msgstr "LỖI: Không kết nối được với Thiết bị '%s' bằng loại
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "LỖI: Không tải xuống được '%s' sang '%s' qua '%s'"
 
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Bật"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr ""
+
 #: includes/functions.php
 msgid "File path validation failed"
 msgstr ""
@@ -951,6 +973,11 @@ msgstr "Sao lưu từ %s"
 #, fuzzy, php-format
 msgid "File: %s/%s"
 msgstr "Tệp: %s / %s"
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "Manual"
+msgstr "Thủ công"
 
 #: router-accounts.php
 #, fuzzy
@@ -1167,6 +1194,20 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Gỡ lỗi cho %s ( %s) <br><br>"
 
 #: router-devices.php
+#, fuzzy
+msgid "No Change"
+msgstr "Thay đổi cuối cùng"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr ""
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr ""
+
+#: router-devices.php
 #, fuzzy, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
 msgstr "GỢI Ý: Thực hiện sao lưu thủ công bằng cách sử dụng '%s' với các đối số '%s'"
@@ -1209,9 +1250,28 @@ msgid "Clear SSH Host Key(s)"
 msgstr ""
 
 #: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr ""
+
+#: router-devices.php
+#, fuzzy
+#| msgid "Disable"
+msgid "Disabled"
+msgstr "Vô hiệu hóa"
+
+#: router-devices.php
+#, fuzzy
+msgid "Apply settings to Device(s)"
+msgstr "Xóa thiết bị"
+
+#: router-devices.php
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "Bạn phải chọn ít nhất Thiết bị định tuyến."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr ""
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1239,10 +1299,6 @@ msgstr "Tài khoản"
 #: router-devices.php
 msgid "Actions"
 msgstr "Hành động"
-
-#: router-devices.php
-msgid "Enabled"
-msgstr "Bật"
 
 #: router-devices.php
 #, fuzzy
@@ -1481,6 +1537,10 @@ msgstr "Bộ định tuyến"
 #, fuzzy
 msgid "Routers"
 msgstr "Bộ định tuyến"
+
+#, fuzzy
+#~ msgid "How often to Backup this device."
+#~ msgstr "Tần suất sao lưu thiết bị này."
 
 #, fuzzy
 #~ msgid "--------------------------------<br>"
