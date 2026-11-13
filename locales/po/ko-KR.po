@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 17:11-0800\n"
+"POT-Creation-Date: 2026-11-13 13:52-0500\n"
 "PO-Revision-Date: 2020-12-13 10:26-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -352,7 +352,49 @@ msgid "Rerun Every"
 msgstr ""
 
 #: includes/arrays.php
-msgid "For Daily/Weekly schedules, rerun the backup every X days/weeks."
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+#, fuzzy
+#| msgid "This Month"
+msgid "Days of Month"
+msgstr "이번 달"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr ""
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr ""
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
 msgstr ""
 
 #: includes/arrays.php includes/functions.php router-devices.php
@@ -656,6 +698,16 @@ msgstr "장치별로 분리"
 #, fuzzy
 msgid "Separate archived Configs into a folder per device"
 msgstr "보관 된 구성을 장치별로 폴더로 분리"
+
+#: includes/arrays.php
+#, fuzzy
+#| msgid "Directory"
+msgid "Dated Subdirectory"
+msgstr "디렉토리"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr ""
 
 #: includes/arrays.php
 #, fuzzy
@@ -978,6 +1030,144 @@ msgstr "파일 :  %s /  %s"
 msgid "Manual"
 msgstr "수동"
 
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Monthly"
+msgid "Monthly on Day"
+msgstr "매월"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+msgid "January"
+msgstr "수동"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr ""
+
+#: includes/scheduler.php
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "검색"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "May"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "June"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "July"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "August"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "September"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "October"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "November"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "December"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "First"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr ""
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr ""
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr ""
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr ""
+
 #: router-accounts.php
 #, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
@@ -1194,6 +1384,11 @@ msgstr "%s의 디버그 ( %s) <br><br>"
 #, fuzzy
 msgid "No Change"
 msgstr "마지막 변경"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr ""
 
 #: router-devices.php
 #, php-format
