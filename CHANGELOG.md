@@ -1,66 +1,33 @@
 # ChangeLog
 
---- develop ---
+--- 2.0 ---
 
 * issue#109: Optionally append a per-device unified configuration diff to the backup Email, so a reviewer can see exactly what changed on each device after a run. A new 'Include Config Diffs' setting enables it, a 'Diff Exclude Patterns' setting lists regular expressions for volatile lines to ignore (e.g. timestamps or serial numbers), binary (non-text) configurations are skipped, and the existing Config Diff Context Lines setting controls the surrounding context. When the Thold plugin is installed, a 'Thold Notification List' option can also send the Email to that list's recipients
-
-* issue#130: Add a per-Device-Type 'Post-Login Prompts' field (one prompt|response pair per line) that is answered right after login, before the copy-to-TFTP command. Each prompt is matched as a case-insensitive regular expression against the device output and the response is sent as typed, or use <CR> to send just a carriage return. This lets devices that interpose extra prompts after login (e.g. HPE Aruba stacks: 'Press any key to continue' and 'Enter switch number to connect to or <CR>:') be backed up
-
+* issue#116: Add a 'Keep Inactive Device Backups' setting so the retention cleanup no longer deletes aged-out backups belonging to disabled or removed devices, keeping configurations for decommissioned/unreachable equipment
 * issue#117: Let Weekly schedules pick specific day(s) of the week and Monthly schedules pick specific day(s) of the month (plus a Monthly on Day type: e.g. the first Monday of selected months), using Automation Networks style multi-selects on the device form that appear only for the relevant Schedule Type
 * issue#117: Add a 'Dated Subdirectory' archive option (Off / YYYY-MM-DD / YYYY/MM/DD / DD-MM-YYYY) that inserts a date-based folder into the archive path before the per-device folder, so each run is grouped under its backup date (e.g. .../2020-11-04/hostname/...); Off preserves the existing layout
-
+* issue#130: Add a per-Device-Type 'Post-Login Prompts' field (one prompt|response pair per line) that is answered right after login, before the copy-to-TFTP command. Each prompt is matched as a case-insensitive regular expression against the device output and the response is sent as typed, or use <CR> to send just a carriage return. This lets devices that interpose extra prompts after login (e.g. HPE Aruba stacks: 'Press any key to continue' and 'Enter switch number to connect to or <CR>:') be backed up
+* issue#132: Add a configurable 'Connection timeout' (default 10s) so a hung or unreachable device no longer stalls a scheduled backup run; Telnet opens its socket with the timeout and SSH performs a bounded TCP reachability probe before connecting, skipping the device and continuing the run when it cannot be reached in time
 * issue#133: Preserve the configured local backup hour across daylight-saving transitions for daily and weekly schedules
 * issue#133: Replace the fixed Daily/Weekly/Monthly (=every 10 days) device schedule with an Automation Networks style scheduler (Schedule Type + Rerun Every), adding a true calendar Monthly backup and an explicit 10-day cadence (Daily, Rerun Every 10); the next-run calendar math is a plugin-local replica of Cacti core's api_scheduler (for Cacti 1.2.29+ where that library is unavailable), used on every Cacti version so 1.2 and 1.3 compute the same dates, and it skips dates a month does not have (e.g. February 30) instead of rolling them into the next month. A Monthly schedule saved without a day of month keeps the day it was saved on (Last after the 28th), and changing a schedule recomputes the next backup time. Existing devices are migrated automatically (legacy weekly becomes a true Weekly, every other interval becomes Daily/rerun-every-N, preserving the original cadence)
 * issue#133: Add an 'Edit (bulk change settings)' Devices action so Enabled, Schedule Type, Rerun Every, Connection Type, Authentication Account, and Device Type can be changed on many devices at once; each field offers a 'No Change' option so untouched settings are left alone
 * issue#133: Skip the Telnet username prompt when a device/account has no username configured, waiting directly for the password prompt so password-only Telnet devices can be backed up
-
-* issue#195: Add a configurable 'Config Diff Context Lines' setting (and a matching per-comparison 'Context Lines' selector on the Compare page) so backup diffs can show more than the fixed 3 unchanged lines before and after each change, making it easier to see the surrounding configuration context. The per-comparison value is constrained to the offered choices, and the Horde Text_Diff fallback (Cacti 1.2.29-1.2.31) now clamps its leading-context slice so a short preceding block is no longer truncated when the context is increased; note the Horde Unified fallback's default context drops from its built-in 4 to the new configurable default of 3
-* bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument in `routerconfigs_check_upgrade()`; under this file's `declare(strict_types=1)` and Cacti 1.3's `bool $enable` type-hint the integer threw an uncaught `TypeError` that fatalled the plugin management page
-* security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel/Return buttons with the CSP-safe `cactiReturnTo` class and move the compare page's device/file selects' inline `onChange` handlers into the ready block so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
 * issue#133: Add an 'Add to RouterConfigs Backup' action to the Cacti Console Devices page (Management -> Devices) that imports the selected devices into RouterConfigs, seeding each new device's name from the Cacti device description and its address from the Cacti hostname, rejecting any device that is already present, and raising a per-device added/skipped message (closes #115)
 * issue#133: Add an optional per-device 'TFTP Server' so a device can copy its configuration to a TFTP server other than the global default (blank falls back to the global 'TFTP Server' setting); the device edit form exposes the field, the Devices list shows a 'TFTP Server' column, and the backup poller uses the per-device value when set
-* issue#116: Add a 'Keep Inactive Device Backups' setting so the retention cleanup no longer deletes aged-out backups belonging to disabled or removed devices, keeping configurations for decommissioned/unreachable equipment
-* issue#132: Add a configurable 'Connection timeout' (default 10s) so a hung or unreachable device no longer stalls a scheduled backup run; Telnet opens its socket with the timeout and SSH performs a bounded TCP reachability probe before connecting, skipping the device and continuing the run when it cannot be reached in time
-
-* refactor: Rename the plugin's include/ directory to includes/ and move schema management into includes/database.php (the thold model); setup.php delegates via require_once, and routerconfigs_check_upgrade() now refreshes the four plugin_routerconfigs_* tables via db_update_table() (the historical column renames/drops still run first as guarded pre-steps) and updates the full plugin_config row. Switches every file inclusion from include/include_once to require/require_once
-* issue: Declare plugin table primary keys as a scalar column name (the legacy string form) so a fresh install via api_plugin_db_table_create() creates the tables instead of emitting PRIMARY KEY (`Array`) and failing; index keys remain arrays and db_update_table() accepts either form
-* dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
-* dev: Pin the CI database image and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
-* security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
-
-- issue: Fix the Device Types and Authentication pages failing to list
-  any rows (SQL syntax error near ''0', '30'') because show_devicetypes()
-  and show_accounts() passed the pagination offset/row count as prepared
-  'LIMIT ?, ?' placeholders, which MariaDB/MySQL reject when bound as
-  quoted strings; interpolate the integer-cast offset and row count
-  directly like the other list pages
-
-- issue: Fix router-compare.php using '==' instead of '=' when defaulting
-  an invalid $device1 selection, and assigning the default to $device1
-  instead of $device2 when $device2 was invalid
-
-- issue: Fix router-devices.php's actions_devices() and router-devtypes.php's
-  actions_devicetypes() indexing their action-label arrays with an
-  unvalidated drp_action request value before checking it's a known
-  action id
-
-- issue: Fix router-download.php's option parser referencing the
-  undefined EXIT_OPTERR constant (would fatal with 'Undefined constant'
-  if a malformed option specification were ever encountered)
-
-- issue: Fix PHPShellConnection's connection retry loop never updating
-  $ret from DoCommand()'s return value, silently relying only on the
-  iteration-count safety net to exit
-
-- issue: Fix plugin_routerconfigs_download_config() proceeding to
-  connect with an undefined username/password/enable password when the
-  device's account lookup failed
-
-- issue: Fix router-backups.php's html_header_sort() call passing an
-  incorrect $last_item_colspan argument value
-
 * issue#151: Defense-in-depth hardening
 * issue#160: Opt-in SSH host-key verification
+* issue#195: Add a configurable 'Config Diff Context Lines' setting (and a matching per-comparison 'Context Lines' selector on the Compare page) so backup diffs can show more than the fixed 3 unchanged lines before and after each change, making it easier to see the surrounding configuration context. The per-comparison value is constrained to the offered choices, and the Horde Text_Diff fallback (Cacti 1.2.29-1.2.31) now clamps its leading-context slice so a short preceding block is no longer truncated when the context is increased; note the Horde Unified fallback's default context drops from its built-in 4 to the new configurable default of 3
+* issue: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument in `routerconfigs_check_upgrade()`; under this file's `declare(strict_types=1)` and Cacti 1.3's `bool $enable` type-hint the integer threw an uncaught `TypeError` that fatalled the plugin management page
+* security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel/Return buttons with the CSP-safe `cactiReturnTo` class and move the compare page's device/file selects' inline `onChange` handlers into the ready block so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
+* issue: Declare plugin table primary keys as a scalar column name (the legacy string form) so a fresh install via api_plugin_db_table_create() creates the tables instead of emitting PRIMARY KEY (`Array`) and failing; index keys remain arrays and db_update_table() accepts either form
+* security: Add a version-safe CSP nonce (`plugin_routerconfigs_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+* issue: Fix the Device Types and Authentication pages failing to list any rows (SQL syntax error near ''0', '30'') because show_devicetypes() and show_accounts() passed the pagination offset/row count as prepared 'LIMIT ?, ?' placeholders, which MariaDB/MySQL reject when bound as quoted strings; interpolate the integer-cast offset and row count directly like the other list pages
+* issue: Fix router-compare.php using '==' instead of '=' when defaulting an invalid $device1 selection, and assigning the default to $device1 instead of $device2 when $device2 was invalid
+* issue: Fix router-devices.php's actions_devices() and router-devtypes.php's actions_devicetypes() indexing their action-label arrays with an unvalidated drp_action request value before checking it's a known action id
+* issue: Fix router-download.php's option parser referencing the undefined EXIT_OPTERR constant (would fatal with 'Undefined constant' if a malformed option specification were ever encountered)
+* issue: Fix PHPShellConnection's connection retry loop never updating $ret from DoCommand()'s return value, silently relying only on the iteration-count safety net to exit
+* issue: Fix plugin_routerconfigs_download_config() proceeding to connect with an undefined username/password/enable password when the device's account lookup failed
+* issue: Fix router-backups.php's html_header_sort() call passing an incorrect $last_item_colspan argument value
 
 --- 1.7 ---
 
