@@ -509,6 +509,14 @@ msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Jest to tekst CLI używany do wysłania kopii zapasowej do serwera tftp."
 
 #: includes/arrays.php
+msgid "Capture Command"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr ""
+
+#: includes/arrays.php
 #, fuzzy
 msgid "Show Version"
 msgstr "Pokaż wersję"
@@ -893,9 +901,8 @@ msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: Ścieżka kopii zapasowej nie jest ustawiona lub nie jest katalogiem"
 
 #: includes/functions.php
-#, fuzzy
-msgid "FATAL: TFTP Server is not set"
-msgstr "FATAL: Serwer TFTP nie jest ustawiony"
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr ""
 
 #: includes/functions.php
 #, fuzzy, php-format
@@ -1788,6 +1795,10 @@ msgstr "Konfiguracja routera"
 #, fuzzy
 msgid "Routers"
 msgstr "Konfiguracja routera"
+
+#, fuzzy
+#~ msgid "FATAL: TFTP Server is not set"
+#~ msgstr "FATAL: Serwer TFTP nie jest ustawiony"
 
 #, fuzzy
 #~ msgid "How often to Backup this device."
