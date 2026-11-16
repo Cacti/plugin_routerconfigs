@@ -67,7 +67,8 @@ instructions.
 MikroTik RouterOS cannot copy its configuration to a TFTP server, so the
 built-in `MikroTik RouterOS` device type uses a **Capture Command** instead: the
 plugin logs in over SSH, runs `/export` on its own exec channel, and saves the
-output as the backup. No TFTP server is involved for these devices.
+output as the backup. No TFTP server is involved for these devices, so one does
+not need to be set for them (other device types still need it).
 
 To back up a MikroTik device:
 
@@ -76,8 +77,8 @@ To back up a MikroTik device:
    also needs `sensitive`). The default `admin` user works, but a dedicated user
    in a read-only group is preferable, as the credentials are stored by the
    plugin. Only password authentication is supported.
-2. Create a device and choose the `MikroTik RouterOS` device type. Its
-   Connection Type is SSH; Telnet is not supported for capture.
+2. Create a device and choose the `MikroTik RouterOS` device type. A capture
+   command always runs over SSH, whatever the Connection Type.
 3. Make sure the SSH service is enabled on the router (`/ip service`).
 
 Notes:

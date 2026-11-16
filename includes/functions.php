@@ -195,89 +195,85 @@ function plugin_routerconfigs_download($retry = false, $force = false, $devices 
 	$cfailed = 0;
 
 	$backuppath = read_config_option('routerconfigs_backup_path');
-	$tftpserver = read_config_option('routerconfigs_tftpserver');
 
 	if (!is_dir($backuppath) || strlen($backuppath) < 2) {
 		plugin_routerconfigs_log(__('FATAL: TFTP Backup Path is not set or is not a directory', 'routerconfigs'));
 	} else {
-		if (strlen($tftpserver) < 2) {
-			plugin_routerconfigs_log(__('FATAL: TFTP Server is not set', 'routerconfigs'));
-		} else {
-			$sqlwhere  = '';
-			$sqlparams = [];
+		$sqlwhere  = '';
+		$sqlparams = [];
 
-			// If we aren't forcing all backups...
-			$scheduled = false;
-			$manual    = cacti_sizeof($filter_devices) > 0;
+		// If we aren't forcing all backups...
+		$scheduled = false;
+		$manual    = cacti_sizeof($filter_devices) > 0;
 
-			if ($manual) {
-				$filter_devices = array_map('intval', $filter_devices);
-				$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, cacti_count($filter_devices), '?')) . ')';
-				$sqlparams      = $filter_devices;
-			} elseif (!$force) {
-				$scheduled = true;
+		if ($manual) {
+			$filter_devices = array_map('intval', $filter_devices);
+			$sqlwhere       = 'AND id IN (' . implode(',', array_fill(0, cacti_count($filter_devices), '?')) . ')';
+			$sqlparams      = $filter_devices;
+		} elseif (!$force) {
+			$scheduled = true;
 
-				if ($retry) {
-					$sqlwhere  = 'AND nextattempt > lastbackup AND nextattempt <= ?';
-					$sqlparams = [$stime];
-				} else {
-					$sqlwhere  = 'AND (nextbackup <= ? OR nextbackup IS NULL)';
-					$sqlparams = [$stime];
-				}
-
-				// A Manual schedule is only ever backed up through the explicit
-				// Backup action, never on a scheduled or retry run (its next-run
-				// time resolves to 0, which would otherwise make it due on every
-				// cycle).
-				$sqlwhere   .= ' AND (sched_type IS NULL OR sched_type <> ?)';
-				$sqlparams[] = SCHEDULE_MANUAL;
+			if ($retry) {
+				$sqlwhere  = 'AND nextattempt > lastbackup AND nextattempt <= ?';
+				$sqlparams = [$stime];
+			} else {
+				$sqlwhere  = 'AND (nextbackup <= ? OR nextbackup IS NULL)';
+				$sqlparams = [$stime];
 			}
 
-			$sql = "SELECT *
-				FROM plugin_routerconfigs_devices
-				WHERE enabled = 'on'
-				$sqlwhere";
-			plugin_routerconfigs_log('DEBUG: SQL: ' . preg_replace('/[\r\n]+\s*/m',' ',$sql));
-			$devices = db_fetch_assoc_prepared($sql, $sqlparams, false);
+			// A Manual schedule is only ever backed up through the explicit
+			// Backup action, never on a scheduled or retry run (its next-run
+			// time resolves to 0, which would otherwise make it due on every
+			// cycle).
+			$sqlwhere   .= ' AND (sched_type IS NULL OR sched_type <> ?)';
+			$sqlparams[] = SCHEDULE_MANUAL;
+		}
 
-			$failed = [];
-			$passed = [];
+		$sql = "SELECT *
+			FROM plugin_routerconfigs_devices
+			WHERE enabled = 'on'
+			$sqlwhere";
+		plugin_routerconfigs_log('DEBUG: SQL: ' . preg_replace('/[\r\n]+\s*/m',' ',$sql));
+		$devices = db_fetch_assoc_prepared($sql, $sqlparams, false);
 
-			if (cacti_sizeof($devices)) {
-				foreach ($devices as $device) {
-					$t = time();
-					plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
-					$found = plugin_routerconfigs_download_config($device, $stime, $buffer_debug, $scheduled);
+		$failed = [];
+		$passed = [];
 
-					if ($found) {
-						plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
-						$passed[] =  ['id' => $device['id'], 'hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
-					} else {
-						plugin_routerconfigs_log('NOTICE: Failed to download for ' . $device['hostname']);
-						$fmsg = db_fetch_cell_prepared('SELECT lasterror
-							FROM plugin_routerconfigs_devices
-					                WHERE id = ?',
-							[$device['id']]);
-						$failed[] = ['hostname' => $device['hostname'], 'lasterror' => $fmsg];
-					}
+		if (cacti_sizeof($devices)) {
+			foreach ($devices as $device) {
+				$t = time();
+				plugin_routerconfigs_log(__('DEBUG: Attempting download for %s', $device['hostname'], 'routerconfigs'));
+				$found = plugin_routerconfigs_download_config($device, $stime, $buffer_debug, $scheduled);
+
+				if ($found) {
+					plugin_routerconfigs_log('NOTICE: Download successful for ' . $device['hostname']);
+					$passed[] =  ['id' => $device['id'], 'hostname' => $device['hostname'], 'lastfile' => $device['lastfile']];
+				} else {
+					plugin_routerconfigs_log('NOTICE: Failed to download for ' . $device['hostname']);
+					$fmsg = db_fetch_cell_prepared('SELECT lasterror
+						FROM plugin_routerconfigs_devices
+				                WHERE id = ?',
+						[$device['id']]);
+					$failed[] = ['hostname' => $device['hostname'], 'lasterror' => $fmsg];
 				}
+			}
 
-				$success   = cacti_count($devices) - cacti_count($failed);
-				$cfailed   = cacti_count($failed);
-				$disabled  = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'', []);
-				$totalsecs = time() - $stime;
+			$success   = cacti_count($devices) - cacti_count($failed);
+			$cfailed   = cacti_count($failed);
+			$disabled  = db_fetch_cell_prepared('SELECT COUNT(*) FROM plugin_routerconfigs_devices WHERE enabled <> \'on\'', []);
+			$totalsecs = time() - $stime;
 
-				$notice_level = 'NOTICE:';
+			$notice_level = 'NOTICE:';
 
-				if ($cfailed > 0) {
-					$notice_level = 'WARNING:';
-				}
+			if ($cfailed > 0) {
+				$notice_level = 'WARNING:';
+			}
 
-				plugin_routerconfigs_log("$notice_level $success Devices Backed Up, $cfailed Devices Failed, $disabled Disabled (ignored) in $totalsecs seconds");
+			plugin_routerconfigs_log("$notice_level $success Devices Backed Up, $cfailed Devices Failed, $disabled Disabled (ignored) in $totalsecs seconds");
 
-				if ($success != 0 || $cfailed != 0 || $retry != true) {
-					// print out failures
-					$message = '<html><head><style>
+			if ($success != 0 || $cfailed != 0 || $retry != true) {
+				// print out failures
+				$message = '<html><head><style>
 h3 { border-bottom: 1px solid black; padding-bottom: 5px; }
 table { border-style: collapse: border: none; }
 th { border-bottom: 1px solid gray; }
@@ -287,102 +283,101 @@ td { margin: 5 10 5 10; }
 .row0 { background-color: #eee; }
 .row1 { background-color: #ddd; }
 </style></head><body>';
-					plugin_routerconfigs_message_title($message, 'Summary');
-					plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
-					plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
+				plugin_routerconfigs_message_title($message, 'Summary');
+				plugin_routerconfigs_message($message, __('%s devices backed up successfully.', $success, 'routerconfigs'));
+				plugin_routerconfigs_message($message, __('%s devices failed to backup.', $cfailed, 'routerconfigs'));
 
-					if ($disabled > 0) {
-						plugin_routerconfigs_message($message, __('%s devices disabled from backup.', $disabled, 'routerconfigs'));
+				if ($disabled > 0) {
+					plugin_routerconfigs_message($message, __('%s devices disabled from backup.', $disabled, 'routerconfigs'));
+				}
+
+				if (cacti_sizeof($failed)) {
+					plugin_routerconfigs_message_devicetable($message, $failed, true);
+				}
+
+				if (cacti_sizeof($passed)) {
+					plugin_routerconfigs_message_devicetable($message, $passed, false);
+				}
+
+				// Optional per-device config diff section (issue #109).
+				if (read_config_option('routerconfigs_email_diff') == 'on' && cacti_sizeof($passed)) {
+					$diff_patterns = plugin_routerconfigs_parse_exclude_patterns(read_config_option('routerconfigs_email_diff_exclude'));
+					$diff_context  = (int) read_config_option('routerconfigs_diff_context');
+
+					if ($diff_context < 1) {
+						$diff_context = 3;
 					}
 
-					if (cacti_sizeof($failed)) {
-						plugin_routerconfigs_message_devicetable($message, $failed, true);
-					}
+					$changed = false;
 
-					if (cacti_sizeof($passed)) {
-						plugin_routerconfigs_message_devicetable($message, $passed, false);
-					}
-
-					// Optional per-device config diff section (issue #109).
-					if (read_config_option('routerconfigs_email_diff') == 'on' && cacti_sizeof($passed)) {
-						$diff_patterns = plugin_routerconfigs_parse_exclude_patterns(read_config_option('routerconfigs_email_diff_exclude'));
-						$diff_context  = (int) read_config_option('routerconfigs_diff_context');
-
-						if ($diff_context < 1) {
-							$diff_context = 3;
+					foreach ($passed as $pdev) {
+						if (!isset($pdev['id'])) {
+							continue;
 						}
 
-						$changed = false;
+						$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context, read_config_option('routerconfigs_email_diff_secrets') != 'on');
 
-						foreach ($passed as $pdev) {
-							if (!isset($pdev['id'])) {
-								continue;
+						if ($diff_text !== '') {
+							if (!$changed) {
+								plugin_routerconfigs_message_title($message, 'Configuration Changes');
+								$changed = true;
 							}
 
-							$diff_text = plugin_routerconfigs_device_config_diff($pdev['id'], $diff_patterns, $diff_context, read_config_option('routerconfigs_email_diff_secrets') != 'on');
-
-							if ($diff_text !== '') {
-								if (!$changed) {
-									plugin_routerconfigs_message_title($message, 'Configuration Changes');
-									$changed = true;
-								}
-
-								$message .= '<h4>' . html_escape($pdev['hostname']) . '</h4>';
-								$message .= '<pre style="font-family:monospace;white-space:pre-wrap;border:1px solid #ccc;padding:5px;">' . html_escape($diff_text) . '</pre>';
-							}
-						}
-
-						if (!$changed) {
-							plugin_routerconfigs_message($message, __('No configuration changes were detected.', 'routerconfigs'));
+							$message .= '<h4>' . html_escape($pdev['hostname']) . '</h4>';
+							$message .= '<pre style="font-family:monospace;white-space:pre-wrap;border:1px solid #ccc;padding:5px;">' . html_escape($diff_text) . '</pre>';
 						}
 					}
 
-					$from_email = read_config_option('routerconfigs_from');
-					$from_name  = read_config_option('routerconfigs_name');
-					$recipients = plugin_routerconfigs_notification_recipients();
-
-					if (($recipients['to'] != '' || $recipients['bcc'] != '') && $from_email != '') {
-						if ($from_name == '') {
-							$from_name = __('Config Backups', 'routerconfigs');
-						}
-
-						$from    = [0 => $from_email, 1 => $from_name];
-						$subject = __('Configuration Backups', 'routerconfigs');
-
-						if ($force) {
-							$subject .= __(' - Forced', 'routerconfigs');
-						}
-
-						if ($manual) {
-							$subject .= __(' - Manual', 'routerconfigs');
-						}
-
-						if ($simulate) {
-							$subject .= __(' - Simulated', 'routerconfigs');
-						}
-
-						if ($scheduled) {
-							$subject .= __(' - Scheduled', 'routerconfigs');
-						}
-
-						if ($retry) {
-							$subject .= __(' - Reattempt', 'routerconfigs');
-						}
-
-						if ($cfailed && $success) {
-							$subject .= __(': Partial', 'routerconfigs');
-						} elseif ($cfailed) {
-							$subject .= __(': FAILED', 'routerconfigs');
-						}
-						$message .= '</body></html>';
-						// mailer() rather than send_mail(), which has no Bcc recipients
-						mailer($from, $recipients['to'], '', $recipients['bcc'], '', $subject, $message, '', '', '', true);
+					if (!$changed) {
+						plugin_routerconfigs_message($message, __('No configuration changes were detected.', 'routerconfigs'));
 					}
 				}
+
+				$from_email = read_config_option('routerconfigs_from');
+				$from_name  = read_config_option('routerconfigs_name');
+				$recipients = plugin_routerconfigs_notification_recipients();
+
+				if (($recipients['to'] != '' || $recipients['bcc'] != '') && $from_email != '') {
+					if ($from_name == '') {
+						$from_name = __('Config Backups', 'routerconfigs');
+					}
+
+					$from    = [0 => $from_email, 1 => $from_name];
+					$subject = __('Configuration Backups', 'routerconfigs');
+
+					if ($force) {
+						$subject .= __(' - Forced', 'routerconfigs');
+					}
+
+					if ($manual) {
+						$subject .= __(' - Manual', 'routerconfigs');
+					}
+
+					if ($simulate) {
+						$subject .= __(' - Simulated', 'routerconfigs');
+					}
+
+					if ($scheduled) {
+						$subject .= __(' - Scheduled', 'routerconfigs');
+					}
+
+					if ($retry) {
+						$subject .= __(' - Reattempt', 'routerconfigs');
+					}
+
+					if ($cfailed && $success) {
+						$subject .= __(': Partial', 'routerconfigs');
+					} elseif ($cfailed) {
+						$subject .= __(': FAILED', 'routerconfigs');
+					}
+					$message .= '</body></html>';
+					// mailer() rather than send_mail(), which has no Bcc recipients
+					mailer($from, $recipients['to'], '', $recipients['bcc'], '', $subject, $message, '', '', '', true);
+				}
 			}
-			// remove old backups
-			plugin_routerconfigs_retention();
 		}
+		// remove old backups
+		plugin_routerconfigs_retention();
 	}
 
 	$end            = microtime(true);
@@ -664,6 +659,44 @@ function plugin_routerconfigs_device_tftpserver($device, $default = null) {
 	}
 
 	return trim((string) $default);
+}
+
+/**
+ * Returns a device type's capture command, the command whose output is
+ * saved as the configuration instead of asking the device to copy it to a
+ * TFTP server (for example '/export' on MikroTik RouterOS). Called from
+ * PHPSsh and plugin_routerconfigs_download_config() to decide how a
+ * device's configuration is obtained.
+ *
+ * @param mixed $devicetype The device type row; anything else is treated
+ *                          as having no capture command.
+ *
+ * @return string The trimmed command, or '' when the device type has none
+ *                and the configuration is copied to a TFTP server.
+ */
+function plugin_routerconfigs_capture_command($devicetype) {
+	if (!is_array($devicetype) || !isset($devicetype['capturecmd'])) {
+		return '';
+	}
+
+	return trim((string) $devicetype['capturecmd']);
+}
+
+/**
+ * Whether a device would copy its configuration to a TFTP server but has
+ * none to copy to. A device type with a capture command never uses TFTP, so
+ * it needs no TFTP server; any other device needs its own or the global one.
+ * Called from plugin_routerconfigs_download_config() so that only the
+ * devices that need a TFTP server are failed when none is set.
+ *
+ * @param array $device     The device row (may contain 'tftpserver').
+ * @param array $devicetype The device type row.
+ *
+ * @return bool True if the device needs a TFTP server and none is set.
+ */
+function plugin_routerconfigs_tftp_missing($device, $devicetype) {
+	return plugin_routerconfigs_capture_command($devicetype) === '' &&
+		strlen(plugin_routerconfigs_device_tftpserver($device)) < 2;
 }
 
 /**
@@ -1531,6 +1564,14 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 
 	$readname = "$backuppath$filename";
 
+	if (plugin_routerconfigs_tftp_missing($device, $devicetype)) {
+		$fail_msg = __("ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings", $device['hostname'], 'routerconfigs');
+		plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+
+		return false;
+	}
+
 	clearstatcache();
 
 	if (file_exists("$readname")) {
@@ -1550,6 +1591,12 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$timeout  = plugin_routerconfigs_getfirst([$device['timeout'], $devicetype['timeout'], read_config_option('timeout'), 1]);
 	$sleep    = plugin_routerconfigs_getfirst([$device['sleep'], $devicetype['sleep'], read_config_option('sleep'), 125000]);
 	$type_dev = plugin_routerconfigs_getfirst([$device['connecttype'], $devicetype['connecttype'], read_config_option('routerconfigs_connecttype'), 'both'], true);
+
+	// A capture command only runs over SSH, so never fall back to Telnet.
+	if (plugin_routerconfigs_capture_command($devicetype) !== '') {
+		$type_dev = RCONFIG_CONNECT_SSH;
+	}
+
 	$elevated = plugin_routerconfigs_getfirst([$device['elevated'], $devicetype['elevated'], read_config_option('routerconfigs_elevated'), ''], true);
 
 	$classes = PHPConnection::GetTypes($type_dev);

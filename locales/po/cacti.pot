@@ -450,7 +450,7 @@ msgid "Capture Command"
 msgstr ""
 
 #: includes/arrays.php
-msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It runs over SSH only, so the Connection Type must be SSH, and nothing is needed on the TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
 msgstr ""
 
 #: includes/arrays.php
@@ -789,7 +789,7 @@ msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr ""
 
 #: includes/functions.php
-msgid "FATAL: TFTP Server is not set"
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
 msgstr ""
 
 #: includes/functions.php

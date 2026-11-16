@@ -104,12 +104,10 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				// try to authenticate
 				if (!$this->sshAuthPassword()) {
 					$rv = 3;
-				} elseif ($this->captureCommand() !== '') {
-					// The capture command runs on its own exec channel, so no
-					// interactive shell is needed.
-					$this->Log('DEBUG: okay: logged in...');
 				} else {
-					if ($this->stream = $this->sshShell()) {
+					// A capture command runs on its own exec channel, so no
+					// interactive shell is needed.
+					if (plugin_routerconfigs_capture_command($this->deviceType) !== '' || ($this->stream = $this->sshShell())) {
 						$this->Log('DEBUG: okay: logged in...');
 					}
 				}
@@ -122,18 +120,6 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		return $rv; // everything goes well ;)
-	}
-
-	/**
-	 * Returns the device type's capture command, the command whose output
-	 * is saved as the configuration instead of asking the device to copy
-	 * it to a TFTP server (for example '/export' on MikroTik RouterOS).
-	 *
-	 * @return string The trimmed command, or '' when the device type has
-	 *                none and the TFTP copy is used.
-	 */
-	protected function captureCommand() {
-		return trim((string) ($this->deviceType['capturecmd'] ?? ''));
 	}
 
 	/**
@@ -150,7 +136,7 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 	 * @return bool True if the configuration was obtained, false on error.
 	 */
 	function Download($filename, $backuppath) {
-		$command = $this->captureCommand();
+		$command = plugin_routerconfigs_capture_command($this->deviceType);
 
 		if ($command === '') {
 			return parent::Download($filename, $backuppath);
@@ -164,9 +150,13 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 
 	/**
 	 * Runs $command on an exec channel, reads its output until the device
-	 * closes the channel (or the capture limit passes), and writes it to
-	 * $destination with Unix line endings, since the backup flow adds its
-	 * own CRLFs.
+	 * closes the channel, and writes it to $destination with Unix line
+	 * endings, since the backup flow adds its own CRLFs. The capture limit
+	 * bounds the whole read, so a command that never finishes, or keeps
+	 * producing output, fails rather than running on. The file is written
+	 * under a temporary name and renamed into place only once it is
+	 * complete, so a failed write never leaves a partial file for the backup
+	 * flow to archive.
 	 *
 	 * @param string $command     The command whose output is the
 	 *                            configuration.
@@ -192,18 +182,18 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		$deadline = time() + $this->captureLimit;
 
 		while (!feof($channel)) {
+			if (time() >= $deadline) {
+				$timedout = true;
+
+				break;
+			}
+
 			$chunk = fread($channel, 8192);
 
 			if ($chunk !== false && $chunk !== '') {
 				$output .= $chunk;
 
 				continue;
-			}
-
-			if (time() >= $deadline) {
-				$timedout = true;
-
-				break;
 			}
 
 			$this->Sleep();
@@ -228,8 +218,40 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 			return false;
 		}
 
-		if (!is_dir(dirname($destination)) || @file_put_contents($destination, $output) === false) {
+		if (!$this->writeCapture($output, $destination)) {
 			$this->Log("ERROR: Failed to write the captured configuration to '$destination'");
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Writes $data to $destination through a temporary file in the same
+	 * directory, so the destination only ever holds the whole of $data. The
+	 * temporary file is removed if anything fails.
+	 *
+	 * @param string $data        The captured configuration.
+	 * @param string $destination The incoming file to create.
+	 *
+	 * @return bool True if $destination now holds all of $data.
+	 */
+	protected function writeCapture($data, $destination) {
+		$dir = dirname($destination);
+
+		if (!is_dir($dir) || !is_writable($dir)) {
+			return false;
+		}
+
+		$temp = @tempnam($dir, '.capture-');
+
+		if ($temp === false) {
+			return false;
+		}
+
+		if (@file_put_contents($temp, $data) !== strlen($data) || !@rename($temp, $destination)) {
+			@unlink($temp);
 
 			return false;
 		}
