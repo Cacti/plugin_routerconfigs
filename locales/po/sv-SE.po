@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2026-11-09 22:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-16 07:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -28,7 +16,7 @@ msgstr "Säkerhetskopiering"
 
 #: includes/arrays.php
 msgid "Edit (bulk change settings)"
-msgstr ""
+msgstr "Redigera (massändra inställningar)"
 
 #: includes/arrays.php
 msgid "Enable"
@@ -209,15 +197,14 @@ msgid "23:00 (11pm)"
 msgstr "23:00"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "Inline"
+#, php-format
 msgid "%d line"
-msgstr "Inbäddat"
+msgstr "%d rad"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d rader"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -300,64 +287,60 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "Detta är den relativa katalogstruktur som används för att lagra konfigurationerna."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "Schema"
+msgstr "Schematyp"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
-msgstr ""
+msgstr "Hur ofta enheten ska säkerhetskopieras. Dagligen med Kör om var 10 utför en säkerhetskopiering var tionde dag, medan Månadsvis körs enligt kalendern varje månad."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Rerun Every"
-msgstr ""
+msgstr "Kör om var"
 
 #: includes/arrays.php
 msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
-msgstr ""
+msgstr "För dagliga scheman körs säkerhetskopieringen om var X:e dag. För veckoscheman utan angivna veckodagar körs den om var X:e vecka. När veckodagar väljs körs den dessa dagar varje vecka och detta fält används inte."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week"
-msgstr ""
+msgstr "Veckodagar"
 
 #: includes/arrays.php
 msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
-msgstr ""
+msgstr "För ett veckoschema: veckodag(ar) då säkerhetskopieringen ska köras varje vecka. Lämna tomt om den i stället ska köras enligt antalet veckor i Kör om var."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Months of Year"
-msgstr ""
+msgstr "Årets månader"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
-msgstr ""
+msgstr "För ett månadsschema: de månader då säkerhetskopieringen ska köras."
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
-#| msgid "This Month"
 msgid "Days of Month"
-msgstr "Denna månad"
+msgstr "Månadens dagar"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
-msgstr ""
+msgstr "För ett månadsschema: de dagar i månaden då säkerhetskopieringen ska köras (Sista = månadens sista dag)."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Weeks of Month"
-msgstr ""
+msgstr "Månadens veckor"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
-msgstr ""
+msgstr "För ett schema av typen Månadsvis på veckodag: de veckor i månaden då säkerhetskopieringen ska köras."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week (Monthly)"
-msgstr ""
+msgstr "Veckodagar (månadsvis)"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
-msgstr ""
+msgstr "För ett schema av typen Månadsvis på veckodag: de veckodagar som ska kombineras med valet Månadens veckor."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
@@ -500,14 +483,12 @@ msgid "Text to match a 'Press Any Key To Continue' styled prompt"
 msgstr "Text som matchar en prompt i stil med ”Tryck på valfri tangent för att fortsätta”"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Pass Prompt"
 msgid "Post-Login Prompts"
-msgstr "Lösenordsprompt"
+msgstr "Inloggningsfrågor"
 
 #: includes/arrays.php
 msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
-msgstr ""
+msgstr "Valfria fråge-/svarspar som skickas direkt efter inloggning, före kopieringskommandot till TFTP, ett per rad i formen fråga|svar. Frågan matchas som ett skiftlägesokänsligt reguljärt uttryck mot enhetens utdata (den får därför inte innehålla | och hakparenteser samt andra specialtecken måste avskärmas, till exempel Save \\[y/n\\]). Svaret skickas som det skrivits, eller använd <CR> för att endast skicka vagnretur. Ett svar skickas först när dess fråga har setts, antingen i svaret på föregående svar eller i senare utdata; i annat fall loggas en varning och inget skickas. Dessa besvaras först. Frågan Any Key ovan besvaras senare när enheten aktiveras, så en fråga som besvaras här når aldrig Any Key. Exempel: Press any key|<CR>"
 
 #: includes/arrays.php
 msgid "General Settings"
@@ -531,11 +512,11 @@ msgstr "Toppflik"
 
 #: includes/arrays.php
 msgid "Config Diff Context Lines"
-msgstr ""
+msgstr "Kontextrader för konfigurationsskillnader"
 
 #: includes/arrays.php
 msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
-msgstr ""
+msgstr "Standardantalet oförändrade rader som visas före och efter varje ändring när två säkerhetskopior jämförs. Ett större värde gör det lättare att se den omgivande konfigurationskontexten. Värdet kan åsidosättas för varje jämförelse på sidan Jämför."
 
 #: includes/arrays.php
 msgid "Connection timeout"
@@ -622,14 +603,12 @@ msgid "Separate archived Configs into a folder per device"
 msgstr "Separera arkiverade konfigurationer i en mapp per enhet"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Directory"
 msgid "Dated Subdirectory"
-msgstr "Katalog"
+msgstr "Datumbaserad underkatalog"
 
 #: includes/arrays.php
 msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
-msgstr ""
+msgstr "Infoga en datumbaserad underkatalog i arkivsökvägen, före mappen för respektive enhet, så att varje körning sparas under datumet då säkerhetskopieringen gjordes, till exempel .../2020-11-04/värdnamn/.... Av behåller befintlig layout."
 
 #: includes/arrays.php
 msgid "SCP Path"
@@ -701,35 +680,35 @@ msgstr "En kommaseparerad lista med e-postadresser som den nattliga säkerhetsko
 
 #: includes/arrays.php
 msgid "Include Config Diffs"
-msgstr ""
+msgstr "Inkludera konfigurationsskillnader"
 
 #: includes/arrays.php
 msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
-msgstr ""
+msgstr "Lägg till en enhetlig diff för varje enhet vars konfiguration ändrades under körningen i e-postmeddelandet om säkerhetskopiering, så att granskaren ser exakt vad som ändrades. Binära konfigurationer, alltså andra än text, hoppas över. Flyktiga rader som ändras vid varje säkerhetskopiering, Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' och 'Current configuration :', samt NX-OS '!Time:' och '!Running configuration last done at:', ignoreras alltid. Varning: diffen skickas i klartext till alla mottagare av e-postmeddelandet och kan därför avslöja konfiguration som ska hållas privat. Lämna Inkludera hemliga värden i skillnader avmarkerat."
 
 #: includes/arrays.php
 msgid "Include Secrets in Diffs"
-msgstr ""
+msgstr "Inkludera hemliga värden i skillnader"
 
 #: includes/arrays.php
 msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
-msgstr ""
+msgstr "Skicka hemliga värden i den e-postade diffen oförändrade. När alternativet är avmarkerat, vilket är standard, hittas de ändrade raderna i de råa konfigurationerna och skrivs ut maskerade med säker standard: rader som innehåller ord av typen passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token eller private, samt värd- och användarrader för SNMP, kortas ned till sitt första ord följt av &lt;secret hidden&gt;. Varje rad i ett PEM-block, ett certifikat- eller nyckelsträngsblock, ett citerat flerradsvärde samt alla hex- eller base64-rader döljs. Ett block som aldrig avslutas döljer resten av konfigurationen. Det här döljer även ofarliga rader, till exempel en beskrivning som nämner en nyckel, men varje ändrad rad visas ändå och märks med (changed) när enbart dess dolda del skiljer sig. Ett block som aldrig avslutas anges i e-postmeddelandet. Sparade säkerhetskopior ändras aldrig."
 
 #: includes/arrays.php
 msgid "Diff Exclude Patterns"
-msgstr ""
+msgstr "Undantagsmönster för skillnader"
 
 #: includes/arrays.php
 msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
-msgstr ""
+msgstr "Valfria reguljära uttryck, ett per rad, som matchar konfigurationsrader som ska ignoreras vid jämförelse. Då visas inte flyktiga rader, till exempel tidsstämplar eller serienummer, som ändringar. Varje mönster matchas skiftlägesokänsligt var som helst på raden om det inte förankras med ^ eller $. Ett mönster som inte är ett giltigt reguljärt uttryck ignoreras."
 
 #: includes/arrays.php
 msgid "Thold Notification List"
-msgstr ""
+msgstr "Thold-aviseringslista"
 
 #: includes/arrays.php
 msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
-msgstr ""
+msgstr "När Thold är installerat skickas e-postmeddelandet om säkerhetskopieringen även till mottagarna i den valda Thold-aviseringslistan."
 
 #: includes/devices.php
 msgid "Add to RouterConfigs Backup"
@@ -816,7 +795,7 @@ msgstr "%s enheter inaktiverade från backup."
 
 #: includes/functions.php
 msgid "No configuration changes were detected."
-msgstr ""
+msgstr "Inga konfigurationsändringar upptäcktes."
 
 #: includes/functions.php
 msgid "Config Backups"
@@ -900,12 +879,12 @@ msgstr "Det gick inte att lägga till enheten ”%s” i RouterConfigs."
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
-msgstr ""
+msgstr "Maskeringsblock på rad %d i föregående säkerhetskopia avslutades aldrig. Efterföljande rader döljs."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
-msgstr ""
+msgstr "Maskeringsblock på rad %d i den nya säkerhetskopian avslutades aldrig. Efterföljande rader döljs."
 
 #: includes/functions.php
 #, php-format
@@ -934,7 +913,7 @@ msgstr "Aktiverad"
 #: includes/functions.php
 #, php-format
 msgid "The selected %s is not valid; no devices were changed."
-msgstr ""
+msgstr "Vald %s är ogiltig. Inga enheter ändrades."
 
 #: includes/functions.php
 msgid "File path validation failed"
@@ -966,149 +945,141 @@ msgid "File: %s/%s"
 msgstr "Fil: %s/%s"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid " - Manual"
 msgid "Manual"
-msgstr " - Manuellt"
+msgstr "Manuell"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Monthly"
 msgid "Monthly on Day"
-msgstr "Månadsvis"
+msgstr "Månadsvis på veckodag"
 
 #: includes/scheduler.php
 msgid "Sunday"
-msgstr ""
+msgstr "söndag"
 
 #: includes/scheduler.php
 msgid "Monday"
-msgstr ""
+msgstr "måndag"
 
 #: includes/scheduler.php
 msgid "Tuesday"
-msgstr ""
+msgstr "tisdag"
 
 #: includes/scheduler.php
 msgid "Wednesday"
-msgstr ""
+msgstr "onsdag"
 
 #: includes/scheduler.php
 msgid "Thursday"
-msgstr ""
+msgstr "torsdag"
 
 #: includes/scheduler.php
 msgid "Friday"
-msgstr ""
+msgstr "fredag"
 
 #: includes/scheduler.php
 msgid "Saturday"
-msgstr ""
+msgstr "lördag"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid " - Manual"
 msgid "January"
-msgstr " - Manuellt"
+msgstr "januari"
 
 #: includes/scheduler.php
 msgid "February"
-msgstr ""
+msgstr "februari"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Search"
 msgid "March"
-msgstr "Sök"
+msgstr "mars"
 
 #: includes/scheduler.php
 msgid "April"
-msgstr ""
+msgstr "april"
 
 #: includes/scheduler.php
 msgid "May"
-msgstr ""
+msgstr "maj"
 
 #: includes/scheduler.php
 msgid "June"
-msgstr ""
+msgstr "juni"
 
 #: includes/scheduler.php
 msgid "July"
-msgstr ""
+msgstr "juli"
 
 #: includes/scheduler.php
 msgid "August"
-msgstr ""
+msgstr "augusti"
 
 #: includes/scheduler.php
 msgid "September"
-msgstr ""
+msgstr "september"
 
 #: includes/scheduler.php
 msgid "October"
-msgstr ""
+msgstr "oktober"
 
 #: includes/scheduler.php
 msgid "November"
-msgstr ""
+msgstr "november"
 
 #: includes/scheduler.php
 msgid "December"
-msgstr ""
+msgstr "december"
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "Sista"
 
 #: includes/scheduler.php
 msgid "First"
-msgstr ""
+msgstr "Första"
 
 #: includes/scheduler.php
 msgid "Second"
-msgstr ""
+msgstr "Andra"
 
 #: includes/scheduler.php
 msgid "Third"
-msgstr ""
+msgstr "Tredje"
 
 #: includes/scheduler.php
 msgid "Fourth"
-msgstr ""
+msgstr "Fjärde"
 
 #: includes/scheduler.php
 msgid "Off (no dated subdirectory)"
-msgstr ""
+msgstr "Av (ingen datumbaserad underkatalog)"
 
 #: includes/scheduler.php
 msgid "YYYY-MM-DD"
-msgstr ""
+msgstr "YYYY-MM-DD"
 
 #: includes/scheduler.php
 msgid "YYYY/MM/DD (nested)"
-msgstr ""
+msgstr "YYYY/MM/DD (kapslad)"
 
 #: includes/scheduler.php
 msgid "DD-MM-YYYY"
-msgstr ""
+msgstr "DD-MM-YYYY"
 
 #: includes/scheduler.php
 #, php-format
 msgid "The selected %s is not valid."
-msgstr ""
+msgstr "Vald %s är ogiltig."
 
 #: includes/scheduler.php
 msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
-msgstr ""
+msgstr "För ett månadsschema måste du välja minst en månad och en dag i månaden."
 
 #: includes/scheduler.php
 msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
-msgstr ""
+msgstr "För ett schema av typen Månadsvis på veckodag måste du välja månader, månadens veckor och veckodagar."
 
 #: includes/scheduler.php
 msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
-msgstr ""
+msgstr "De valda månaderna och dagarna i månaden inträffar aldrig tillsammans. Välj en annan dag eller Sista för månadens sista dag."
 
 #: router-accounts.php
 msgid "Click 'Continue' to delete the following account(s)."
@@ -1272,10 +1243,8 @@ msgid "Side by Side"
 msgstr "Sida vid sida"
 
 #: router-compare.php
-#, fuzzy
-#| msgid "Continue"
 msgid "Context Lines"
-msgstr "Fortsätt"
+msgstr "Kontextrader"
 
 #: router-compare.php
 msgid "Compare Output"
@@ -1300,24 +1269,22 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "Felsökning för %s (%s)<br><br>"
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Last Change"
 msgid "No Change"
-msgstr "Senaste ändring"
+msgstr "Ingen ändring"
 
 #: router-devices.php
 #, php-format
 msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
-msgstr ""
+msgstr "Inga enheter ändrades: det nya schemat kan inte köras för enhets-id %s, eftersom månader, dagar i månaden, månadens veckor eller veckodagar saknas eller aldrig inträffar. Ställ in schemat individuellt för de enheterna."
 
 #: router-devices.php
 #, php-format
 msgid "Updated settings on %d device(s)."
-msgstr ""
+msgstr "Uppdaterade inställningar för %d enhet(er)."
 
 #: router-devices.php
 msgid "No settings were changed; every field was left on \"No Change\"."
-msgstr ""
+msgstr "Inga inställningar ändrades. Alla fält lämnades på \"Ingen ändring\"."
 
 #: router-devices.php
 #, php-format
@@ -1358,19 +1325,15 @@ msgstr "Rensa SSH-värdnycklar"
 
 #: router-devices.php
 msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
-msgstr ""
+msgstr "Ange en eller flera av följande inställningar för valda enheter. Fält som lämnas på 'Ingen ändring' ändras inte."
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Inaktivera"
+msgstr "Inaktiverad"
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Delete Device(s)"
 msgid "Apply settings to Device(s)"
-msgstr "Ta bort enheter"
+msgstr "Tillämpa inställningar på enhet(er)"
 
 #: router-devices.php
 msgid "You must select at least Router Device."
@@ -1378,7 +1341,7 @@ msgstr "Du måste välja minst en routerenhet."
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
-msgstr ""
+msgstr "Den valda schematypen eller Kör om var är ogiltig."
 
 #: router-devices.php
 msgid "Not recorded"
@@ -1525,7 +1488,7 @@ msgstr "När du klickar på \"Fortsätt\" kommer följande enhet(er) att raderas
 #: router-devtypes.php
 #, php-format
 msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
-msgstr ""
+msgstr "Inloggningsfrågor innehåller en fråga som inte är ett giltigt reguljärt uttryck: %s"
 
 #: router-devtypes.php
 #, php-format
