@@ -2,6 +2,7 @@
 
 --- 2.0 ---
 
+* issue#203: Fix the built-in HP Comware device type seeding its Telnet username prompt as the misspelled 'usernmae:', which never matched a device printing 'Username:' so Telnet logins failed after their retries; the seed now uses 'username:' and an upgrade corrects existing installs whose HP Comware prompt is still exactly the misspelling, leaving any admin-customized value alone
 * issue#109: Optionally append a per-device unified configuration diff to the backup Email, so a reviewer can see exactly what changed on each device after a run. A new 'Include Config Diffs' setting enables it, a 'Diff Exclude Patterns' setting lists regular expressions for volatile lines to ignore (e.g. timestamps or serial numbers), binary (non-text) configurations are skipped, and the existing Config Diff Context Lines setting controls the surrounding context. When the Thold plugin is installed, a 'Thold Notification List' option can also send the Email to that list's recipients
 * issue#116: Add a 'Keep Inactive Device Backups' setting so the retention cleanup no longer deletes aged-out backups belonging to disabled or removed devices, keeping configurations for decommissioned/unreachable equipment
 * issue#117: Let Weekly schedules pick specific day(s) of the week and Monthly schedules pick specific day(s) of the month (plus a Monthly on Day type: e.g. the first Monday of selected months), using Automation Networks style multi-selects on the device form that appear only for the relevant Schedule Type
