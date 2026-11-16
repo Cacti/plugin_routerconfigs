@@ -2,7 +2,7 @@
 
 --- 2.1 ---
 
-* issue#206: Back up MikroTik RouterOS devices over SSH. A new per-Device-Type 'Capture Command' field runs a command on an SSH exec channel and saves its output as the configuration, instead of asking the device to copy it to a TFTP server, which RouterOS cannot do; no TFTP server is needed for these devices. A built-in 'MikroTik RouterOS' device type (SSH, '/export') is added on install and upgrade, and existing installs gain the new capturecmd column automatically. Restoring a configuration to a device is not part of this change
+* feature#206: Back up MikroTik RouterOS devices over SSH. A new per-Device-Type 'Capture Command' field runs a command on an SSH exec channel and saves its output as the configuration, instead of asking the device to copy it to a TFTP server, which RouterOS cannot do; no TFTP server is needed for these devices. A built-in 'MikroTik RouterOS' device type (SSH, '/export') is added on install and upgrade, and existing installs gain the new capturecmd column automatically. Restoring a configuration to a device is not part of this change
 
 --- 2.0 ---
 
