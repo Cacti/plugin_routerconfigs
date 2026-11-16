@@ -83,5 +83,5 @@ it('registers every hook routerconfigs depends on, its realm, and provisions its
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'INSERT INTO plugin_routerconfigs_devicetypes') !== false;
 	});
 
-	expect($creates)->toHaveCount(5);
+	expect($creates)->toHaveCount(6);
 });
