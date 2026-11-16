@@ -454,6 +454,23 @@ abstract class PHPConnection {
 	}
 
 	/**
+	 * Runs a single command on its own exec channel of the current SSH
+	 * connection, without an interactive shell, so the output holds only
+	 * the command's own output (no prompts, echo or terminal control
+	 * codes). Thin wrapper around ssh2_exec(). Called from PHPSsh to
+	 * capture a device's configuration from a command such as MikroTik's
+	 * '/export'.
+	 *
+	 * @param string $command The command to run on the device.
+	 *
+	 * @return resource|false The channel stream to read the output from,
+	 *                        or false on failure.
+	 */
+	protected function sshExec($command) {
+		return @ssh2_exec($this->connection, $command);
+	}
+
+	/**
 	 * Receives a remote file over the current SSH connection via SCP. Thin
 	 * wrapper around ssh2_scp_recv(). Called from PHPScp to download a
 	 * device's configuration file.

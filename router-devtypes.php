@@ -185,6 +185,7 @@ function save_devicetypes() {
 	$save['connecttype']      = get_nfilter_request_var('connecttype');
 	$save['configfile']       = get_nfilter_request_var('configfile');
 	$save['copytftp']         = get_nfilter_request_var('copytftp');
+	$save['capturecmd']       = trim(get_nfilter_request_var('capturecmd'));
 	$save['version']          = get_nfilter_request_var('version');
 	$save['promptconfirm']    = get_nfilter_request_var('promptconfirm');
 	$save['confirm']          = get_nfilter_request_var('confirm');

@@ -62,6 +62,36 @@ type - Create an authentication account - Create a device
 On other operating systems, or for CentOS 7, you will have to find equivalent
 instructions.
 
+## MikroTik RouterOS
+
+MikroTik RouterOS cannot copy its configuration to a TFTP server, so the
+built-in `MikroTik RouterOS` device type uses a **Capture Command** instead: the
+plugin logs in over SSH, runs `/export` on its own exec channel, and saves the
+output as the backup. No TFTP server is involved for these devices.
+
+To back up a MikroTik device:
+
+1. Create an authentication account for a RouterOS user that is allowed to log
+   in over SSH and run `/export` (the `ssh` and `read` policies; `show-sensitive`
+   also needs `sensitive`).
+2. Create a device and choose the `MikroTik RouterOS` device type. Its
+   Connection Type is SSH; Telnet is not supported for capture.
+3. Make sure the SSH service is enabled on the router (`/ip service`).
+
+Notes:
+
+* `/export` omits sensitive values (passwords, keys, secrets) on RouterOS 7, so
+  a backup is a readable record of the configuration, not a full restore image.
+  To include most of them, set the Capture Command to `/export show-sensitive`,
+  and protect the backup directory accordingly; user account passwords are never
+  exported.
+* The first line of an export is a header comment with the export date and
+  time, so it shows up as a difference between two backups. Add it to the `Diff
+  Exclude Patterns` setting if you do not want it in emailed diffs.
+* Any other device type can use the same field with a command that prints its
+  configuration to the terminal.
+* Restoring a saved configuration back to a device is not supported.
+
 ## Bugs and Feature Enhancements
 
 Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.

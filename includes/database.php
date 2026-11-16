@@ -163,6 +163,7 @@ function routerconfigs_devicetypes_table_data(): array {
 	$data['columns'][] = ['name' => 'anykey', 'type' => 'varchar(50)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'elevated', 'type' => 'varchar(3)', 'NULL' => true];
 	$data['columns'][] = ['name' => 'loginprompts', 'type' => 'text', 'NULL' => true];
+	$data['columns'][] = ['name' => 'capturecmd', 'type' => 'varchar(255)', 'NULL' => true];
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Router Config Device Types';

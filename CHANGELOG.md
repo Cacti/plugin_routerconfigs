@@ -1,5 +1,9 @@
 # ChangeLog
 
+--- 2.1 ---
+
+* issue#206: Back up MikroTik RouterOS devices over SSH. A new per-Device-Type 'Capture Command' field runs a command on an SSH exec channel and saves its output as the configuration, instead of asking the device to copy it to a TFTP server, which RouterOS cannot do; no TFTP server is needed for these devices. A built-in 'MikroTik RouterOS' device type (SSH, '/export') is added on install and upgrade, and existing installs gain the new capturecmd column automatically. Restoring a configuration to a device is not part of this change
+
 --- 2.0 ---
 
 * issue#203: Fix the built-in HP Comware device type seeding its Telnet username prompt as the misspelled 'usernmae:', which never matched a device printing 'Username:' so Telnet logins failed after their retries; the seed now uses 'username:' and an upgrade corrects existing installs whose HP Comware prompt is still exactly the misspelling, leaving any admin-customized value alone

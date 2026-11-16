@@ -345,6 +345,14 @@ function routerconfigs_check_upgrade() {
 				['username:', 'HP Comware', 'usernmae:']);
 		}
 
+		// Add the MikroTik capture command column before AddDeviceTypes() seeds
+		// a row that uses it; routerconfigs_upgrade_tables() runs after the
+		// seeding.
+		if (!db_column_exists('plugin_routerconfigs_devicetypes', 'capturecmd')) {
+			db_execute('ALTER TABLE plugin_routerconfigs_devicetypes
+				ADD COLUMN `capturecmd` varchar(255) DEFAULT NULL');
+		}
+
 		AddDeviceTypes();
 
 		if (!$hostkey_schema_ready) {
@@ -423,7 +431,7 @@ function routerconfigs_check_dependencies() {
 
 /**
  * Seeds the built-in device type definitions (Cisco IOS/CatOS/Nexus, HP
- * Comware, Dell Switch) via AddDeviceType(). Called from
+ * Comware, Dell Switch, MikroTik RouterOS) via AddDeviceType(). Called from
  * routerconfigs_setup_table_new() during install, and from
  * routerconfigs_check_upgrade() during upgrade to add any newly
  * introduced built-in device types.
@@ -436,6 +444,7 @@ function AddDeviceTypes() {
 	AddDeviceType('Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', '', '');
 	AddDeviceType('HP Comware', 'username:', 'password:', 'copy startup.cfg tftp://%SERVER%/%FILE%', '', '', '', '', 'on');
 	AddDeviceType('Dell Switch', 'User', 'Password', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', 'y', '', '', '', 'Are you sure you want to start');
+	AddDeviceType('MikroTik RouterOS', 'Login:', 'Password:', '', '', '', '', '', 'on', 'confirm|to tftp:', 'ssh', '/export');
 }
 
 /**
@@ -462,19 +471,25 @@ function AddDeviceTypes() {
  * @param string $promptconfirm    The confirmation prompt pattern to
  *                                 expect; defaults to
  *                                 'confirm|to tftp:'.
+ * @param string $connecttype      The connection type the device type
+ *                                 requires (e.g. 'ssh'); '' leaves it to
+ *                                 the global default.
+ * @param string $capturecmd       The command whose output is saved as the
+ *                                 configuration instead of a TFTP copy
+ *                                 (SSH only); '' uses the TFTP copy.
  *
  * @return void
  */
-function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm = 'confirm|to tftp:') {
-	$params = [ $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm, $name ];
+function AddDeviceType($name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm = 'confirm|to tftp:', $connecttype = '', $capturecmd = '') {
+	$params = [ $name, $promptuser, $promptpass, $copytftp, $version, $confirm, $forceconfirm, $checkendinconfig, $elevated, $promptconfirm, $connecttype, $capturecmd, $name ];
 	db_execute_prepared('INSERT INTO plugin_routerconfigs_devicetypes
 		(name, promptuser, promptpass, copytftp, version,
 		confirm, forceconfirm, checkendinconfig, elevated,
-		promptconfirm)
+		promptconfirm, connecttype, capturecmd)
 		SELECT
 			? AS name, ? AS promptuser, ? AS promptpass, ? AS copytftp, ? AS version,
 			? AS confirm, ? AS forceconfirm, ? AS checkendinconfig, ? AS elevated,
-			? AS promptconfirm FROM DUAL
+			? AS promptconfirm, ? AS connecttype, ? AS capturecmd FROM DUAL
 		WHERE NOT EXISTS(SELECT * FROM plugin_routerconfigs_devicetypes
 			WHERE name = ? LIMIT 1)', $params);
 }

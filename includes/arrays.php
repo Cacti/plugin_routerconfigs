@@ -383,6 +383,14 @@ $rc_devtype_edit_fields = [
 		'size'          => '20',
 		'max_length'    => '64',
 	],
+	'capturecmd' => [
+		'method'        => 'textbox',
+		'friendly_name' => __('Capture Command', 'routerconfigs'),
+		'description'   => __('Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It runs over SSH only, so the Connection Type must be SSH, and nothing is needed on the TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export', 'routerconfigs'),
+		'value'         => '|arg1:capturecmd|',
+		'size'          => '20',
+		'max_length'    => '255',
+	],
 	'version' => [
 		'method'        => 'textbox',
 		'friendly_name' => __('Show Version', 'routerconfigs'),

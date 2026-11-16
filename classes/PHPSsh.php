@@ -37,6 +37,9 @@ included to have proper functionality.  Most common connection code is
 now within PHPConnection with only SSH specific code in this class
 */
 class PHPSsh extends PHPShellConnection implements ShellSsh {
+	/** @var int Seconds to wait for a capture command to finish. */
+	protected $captureLimit = 120;
+
 	/** @var int */
 	var $show_connect_error = 1;
 
@@ -101,6 +104,10 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 				// try to authenticate
 				if (!$this->sshAuthPassword()) {
 					$rv = 3;
+				} elseif ($this->captureCommand() !== '') {
+					// The capture command runs on its own exec channel, so no
+					// interactive shell is needed.
+					$this->Log('DEBUG: okay: logged in...');
 				} else {
 					if ($this->stream = $this->sshShell()) {
 						$this->Log('DEBUG: okay: logged in...');
@@ -115,6 +122,119 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 		}
 
 		return $rv; // everything goes well ;)
+	}
+
+	/**
+	 * Returns the device type's capture command, the command whose output
+	 * is saved as the configuration instead of asking the device to copy
+	 * it to a TFTP server (for example '/export' on MikroTik RouterOS).
+	 *
+	 * @return string The trimmed command, or '' when the device type has
+	 *                none and the TFTP copy is used.
+	 */
+	protected function captureCommand() {
+		return trim((string) ($this->deviceType['capturecmd'] ?? ''));
+	}
+
+	/**
+	 * Downloads the device's configuration. A device type with a capture
+	 * command has that command run on an exec channel and its output saved
+	 * to the incoming file the backup flow reads; any other device type
+	 * uses the interactive shell's copy-to-TFTP. Called from the backup
+	 * flow after a successful Connect().
+	 *
+	 * @param string $filename   The incoming file name the backup flow
+	 *                           reads the configuration from.
+	 * @param string $backuppath The directory the incoming file is in.
+	 *
+	 * @return bool True if the configuration was obtained, false on error.
+	 */
+	function Download($filename, $backuppath) {
+		$command = $this->captureCommand();
+
+		if ($command === '') {
+			return parent::Download($filename, $backuppath);
+		}
+
+		$this->lastuser   = '';
+		$this->lastchange = '';
+
+		return $this->captureConfig($command, $backuppath . $filename);
+	}
+
+	/**
+	 * Runs $command on an exec channel, reads its output until the device
+	 * closes the channel (or the capture limit passes), and writes it to
+	 * $destination with Unix line endings, since the backup flow adds its
+	 * own CRLFs.
+	 *
+	 * @param string $command     The command whose output is the
+	 *                            configuration.
+	 * @param string $destination The incoming file to write.
+	 *
+	 * @return bool True if a non-empty configuration was written.
+	 */
+	protected function captureConfig($command, $destination) {
+		$this->Log("DEBUG: Capturing configuration with '$command'");
+
+		$channel = $this->sshExec($command);
+
+		if (!is_resource($channel)) {
+			$this->Log("ERROR: Unable to run '$command' on the device");
+
+			return false;
+		}
+
+		stream_set_blocking($channel, false);
+
+		$output   = '';
+		$timedout = false;
+		$deadline = time() + $this->captureLimit;
+
+		while (!feof($channel)) {
+			$chunk = fread($channel, 8192);
+
+			if ($chunk !== false && $chunk !== '') {
+				$output .= $chunk;
+
+				continue;
+			}
+
+			if (time() >= $deadline) {
+				$timedout = true;
+
+				break;
+			}
+
+			$this->Sleep();
+		}
+
+		fclose($channel);
+
+		if ($timedout) {
+			// A partial configuration must not be saved as a good backup.
+			$this->Log("ERROR: Timed out after {$this->captureLimit} seconds reading the output of '$command'");
+
+			return false;
+		}
+
+		$output = preg_replace('/\r\n?/', "\n", $output) ?? $output;
+
+		$this->Log('DEBUG: Captured ' . strlen($output) . ' bytes');
+
+		if (trim($output) === '') {
+			$this->Log("ERROR: '$command' returned no output");
+
+			return false;
+		}
+
+		if (!is_dir(dirname($destination)) || @file_put_contents($destination, $output) === false) {
+			$this->Log("ERROR: Failed to write the captured configuration to '$destination'");
+
+			return false;
+		}
+
+		return true;
 	}
 
 	/**

@@ -87,7 +87,7 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'INSERT INTO plugin_routerconfigs_devicetypes') !== false;
 	});
 
-	expect($deviceTypeInserts)->toHaveCount(5);
+	expect($deviceTypeInserts)->toHaveCount(6);
 
 	$finalUpdate = array_values(array_filter($GLOBALS['__test_db_calls'], function ($call) {
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'UPDATE plugin_config') !== false;
@@ -95,6 +95,41 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 
 	expect($finalUpdate)->toHaveCount(1);
 	expect($finalUpdate[0]['params'])->toBe([$info['version'], $info['longname'], $info['author'], $info['homepage'], 'routerconfigs']);
+});
+
+it('adds the capturecmd column before seeding the MikroTik device type on upgrade', function () {
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '2.0' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => $column !== 'capturecmd';
+	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => true;
+
+	routerconfigs_check_upgrade();
+
+	$calls = array_values($GLOBALS['__test_db_calls']);
+
+	$alter = array_keys(array_filter($calls, fn ($call) => $call['fn'] === 'db_execute' && stripos($call['sql'], 'ADD COLUMN `capturecmd`') !== false));
+	$seed  = array_keys(array_filter($calls, fn ($call) => $call['fn'] === 'db_execute_prepared' && ($call['params'][0] ?? '') === 'MikroTik RouterOS'));
+
+	expect($alter)->toHaveCount(1);
+	expect($seed)->toHaveCount(1);
+	expect($alter[0])->toBeLessThan($seed[0]);
+});
+
+it('leaves an existing capturecmd column alone on upgrade', function () {
+	$GLOBALS['__stub_overrides']['get_current_page']        = fn () => 'plugins.php';
+	$GLOBALS['__stub_overrides']['db_fetch_cell_prepared']  = fn ($sql, $params) =>
+		stripos($sql, 'plugin_config') !== false ? '2.0' : '0';
+	$GLOBALS['__stub_overrides']['db_fetch_assoc_prepared'] = fn ($sql, $params) => [];
+	$GLOBALS['__stub_overrides']['db_column_exists']        = fn ($table, $column) => true;
+	$GLOBALS['__stub_overrides']['db_index_exists']         = fn ($table, $index) => true;
+
+	routerconfigs_check_upgrade();
+
+	$alter = array_filter($GLOBALS['__test_db_calls'], fn ($call) => $call['fn'] === 'db_execute' && stripos($call['sql'], 'capturecmd') !== false);
+
+	expect($alter)->toBeEmpty();
 });
 
 it('re-registers the upgrade-path hooks with a boolean enable flag, never an int', function () {
