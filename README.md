@@ -73,7 +73,9 @@ To back up a MikroTik device:
 
 1. Create an authentication account for a RouterOS user that is allowed to log
    in over SSH and run `/export` (the `ssh` and `read` policies; `show-sensitive`
-   also needs `sensitive`).
+   also needs `sensitive`). The default `admin` user works, but a dedicated user
+   in a read-only group is preferable, as the credentials are stored by the
+   plugin. Only password authentication is supported.
 2. Create a device and choose the `MikroTik RouterOS` device type. Its
    Connection Type is SSH; Telnet is not supported for capture.
 3. Make sure the SSH service is enabled on the router (`/ip service`).
