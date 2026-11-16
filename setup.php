@@ -431,7 +431,9 @@ function routerconfigs_check_dependencies() {
 
 /**
  * Seeds the built-in device type definitions (Cisco IOS/CatOS/Nexus, HP
- * Comware, Dell Switch, MikroTik RouterOS) via AddDeviceType(). Called from
+ * Comware, Dell Switch, MikroTik RouterOS, Juniper Junos, Arista EOS, HPE
+ * Aruba CX, Extreme EXOS, Huawei VRP, Fortinet FortiOS, Ruckus ICX, Ubiquiti
+ * EdgeSwitch, Netgear Managed, TP-Link JetStream) via AddDeviceType(). Called from
  * routerconfigs_setup_table_new() during install, and from
  * routerconfigs_check_upgrade() during upgrade to add any newly
  * introduced built-in device types.
@@ -445,6 +447,20 @@ function AddDeviceTypes() {
 	AddDeviceType('HP Comware', 'username:', 'password:', 'copy startup.cfg tftp://%SERVER%/%FILE%', '', '', '', '', 'on');
 	AddDeviceType('Dell Switch', 'User', 'Password', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', 'y', '', '', '', 'Are you sure you want to start');
 	AddDeviceType('MikroTik RouterOS', 'Login:', 'Password:', '', '', '', '', '', 'on', 'confirm|to tftp:', 'ssh', '/export');
+
+	// Devices whose configuration is read over SSH with a Capture Command.
+	AddDeviceType('Juniper Junos', 'login:', 'Password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'show configuration');
+	AddDeviceType('Arista EOS', 'Username:', 'Password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'show running-config');
+	AddDeviceType('HPE Aruba CX', 'login:', 'Password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'show running-config');
+	AddDeviceType('Extreme EXOS', 'login:', 'password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'show configuration');
+	AddDeviceType('Huawei VRP', 'Username:', 'Password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'display current-configuration');
+	AddDeviceType('Fortinet FortiOS', 'login:', 'Password:', '', '', '', '', '', '', 'confirm|to tftp:', 'ssh', 'show full-configuration');
+
+	// Devices that copy their configuration to a TFTP server.
+	AddDeviceType('Ruckus ICX', 'Login Name:', 'Password:', 'copy running-config tftp %SERVER% %FILE%', '', '', '', '', '');
+	AddDeviceType('Ubiquiti EdgeSwitch', 'User:', 'Password:', 'copy nvram:startup-config tftp://%SERVER%/%FILE%', '', 'y', '', '', '', 'Are you sure you want to start');
+	AddDeviceType('Netgear Managed', 'User:', 'Password:', 'copy nvram:startup-config tftp://%SERVER%/%FILE%', '', 'y', '', '', '', 'Are you sure you want to start');
+	AddDeviceType('TP-Link JetStream', 'User:', 'Password:', 'copy startup-config tftp ip-address %SERVER% filename %FILE%', '', '', '', '', '');
 }
 
 /**

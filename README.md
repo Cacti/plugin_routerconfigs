@@ -62,6 +62,36 @@ type - Create an authentication account - Create a device
 On other operating systems, or for CentOS 7, you will have to find equivalent
 instructions.
 
+## Built-in device types
+
+These device types are created on install and upgrade. An existing device type
+with the same name is never overwritten, so edit them freely. Prompts, commands
+and privilege levels differ between models and firmware releases, so check a
+definition against your own devices before relying on it.
+
+Device type | Method | Command
+--- | --- | ---
+Cisco IOS, Cisco CatOS, Cisco Nexus | TFTP | `copy ... tftp`
+HP Comware, Dell Switch | TFTP | `copy ... tftp`
+MikroTik RouterOS | SSH capture | `/export`
+Juniper Junos | SSH capture | `show configuration`
+Arista EOS | SSH capture | `show running-config`
+HPE Aruba CX | SSH capture | `show running-config`
+Extreme EXOS | SSH capture | `show configuration`
+Huawei VRP | SSH capture | `display current-configuration`
+Fortinet FortiOS | SSH capture | `show full-configuration`
+Ruckus ICX | TFTP | `copy running-config tftp %SERVER% %FILE%`
+Ubiquiti EdgeSwitch | TFTP | `copy nvram:startup-config tftp://%SERVER%/%FILE%`
+Netgear Managed | TFTP | `copy nvram:startup-config tftp://%SERVER%/%FILE%`
+TP-Link JetStream | TFTP | `copy startup-config tftp ip-address %SERVER% filename %FILE%`
+
+SSH capture device types need the SSH service on the device and a user that can
+run the command without an enable step (for example privilege 15 or a
+read-only role); they never fall back to Telnet and need no TFTP server. Use
+the MikroTik section below as the model for the account and the notes on
+sensitive values and diff exclusion. Other HPE Aruba (ArubaOS-Switch) stacks can
+use a TFTP device type with Post-Login Prompts.
+
 ## MikroTik RouterOS
 
 MikroTik RouterOS cannot copy its configuration to a TFTP server, so the

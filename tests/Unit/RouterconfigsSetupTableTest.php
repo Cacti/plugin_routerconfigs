@@ -27,10 +27,10 @@ it('creates all 4 routerconfigs tables and seeds the default device types', func
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'INSERT INTO plugin_routerconfigs_devicetypes') !== false;
 	});
 
-	expect($inserts)->toHaveCount(6);
+	expect($inserts)->toHaveCount(16);
 });
 
-it('seeds exactly the 6 known default device types with matching parameters', function () {
+it('seeds exactly the 16 known default device types with matching parameters', function () {
 	AddDeviceTypes();
 
 	$names = array_map(function ($call) {
@@ -39,7 +39,47 @@ it('seeds exactly the 6 known default device types with matching parameters', fu
 		return $call['fn'] === 'db_execute_prepared';
 	})));
 
-	expect($names)->toBe(['Cisco IOS', 'Cisco CatOS', 'Cisco Nexus', 'HP Comware', 'Dell Switch', 'MikroTik RouterOS']);
+	expect($names)->toBe(['Cisco IOS', 'Cisco CatOS', 'Cisco Nexus', 'HP Comware', 'Dell Switch', 'MikroTik RouterOS',
+		'Juniper Junos', 'Arista EOS', 'HPE Aruba CX', 'Extreme EXOS', 'Huawei VRP', 'Fortinet FortiOS',
+		'Ruckus ICX', 'Ubiquiti EdgeSwitch', 'Netgear Managed', 'TP-Link JetStream']);
+});
+
+it('seeds the SSH-only vendors with a capture command and the SSH connection type', function () {
+	AddDeviceTypes();
+
+	$expected = [
+		'Juniper Junos'    => 'show configuration',
+		'Arista EOS'       => 'show running-config',
+		'HPE Aruba CX'     => 'show running-config',
+		'Extreme EXOS'     => 'show configuration',
+		'Huawei VRP'       => 'display current-configuration',
+		'Fortinet FortiOS' => 'show full-configuration',
+	];
+
+	foreach ($expected as $name => $command) {
+		$rows = array_values(array_filter($GLOBALS['__test_db_calls'], function ($call) use ($name) {
+			return $call['fn'] === 'db_execute_prepared' && $call['params'][0] === $name;
+		}));
+
+		expect($rows)->toHaveCount(1);
+		expect($rows[0]['params'][3])->toBe('');
+		expect($rows[0]['params'][10])->toBe('ssh');
+		expect($rows[0]['params'][11])->toBe($command);
+	}
+});
+
+it('seeds the TFTP vendors with a copy command that names the server and file', function () {
+	AddDeviceTypes();
+
+	foreach (['Ruckus ICX', 'Ubiquiti EdgeSwitch', 'Netgear Managed', 'TP-Link JetStream'] as $name) {
+		$rows = array_values(array_filter($GLOBALS['__test_db_calls'], function ($call) use ($name) {
+			return $call['fn'] === 'db_execute_prepared' && $call['params'][0] === $name;
+		}));
+
+		expect($rows)->toHaveCount(1);
+		expect($rows[0]['params'][3])->toContain('%SERVER%')->toContain('%FILE%');
+		expect($rows[0]['params'][11])->toBe('');
+	}
 });
 
 it('seeds MikroTik RouterOS as an SSH device type that captures /export', function () {
