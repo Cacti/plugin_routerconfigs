@@ -2,6 +2,8 @@
 
 --- 2.1 ---
 
+* feature: Add built-in device types for ten more switch vendors, seeded on install and upgrade without touching existing or customized device types. Juniper Junos, Arista EOS, HPE Aruba CX, Extreme EXOS, Huawei VRP and Fortinet FortiOS use an SSH Capture Command (no TFTP server needed); Ruckus ICX, Ubiquiti EdgeSwitch, Netgear Managed and TP-Link JetStream copy their configuration to the TFTP server. These definitions are starting points and should be checked against your own firmware, as prompts and commands vary between models and releases
+
 * feature#206: Back up MikroTik RouterOS devices over SSH. A new per-Device-Type 'Capture Command' field runs a command on an SSH exec channel and saves its output as the configuration, instead of asking the device to copy it to a TFTP server, which RouterOS cannot do; no TFTP server is needed for these devices, so one no longer has to be set for them to run; the backup run no longer stops when the global TFTP Server is empty, and instead each device that does need a TFTP server and has none fails on its own with an error. A capture command always runs over SSH, never Telnet. A built-in 'MikroTik RouterOS' device type (SSH, '/export') is added on install and upgrade, and existing installs gain the new capturecmd column automatically. Restoring a configuration to a device is not part of this change
 
 --- 2.0 ---

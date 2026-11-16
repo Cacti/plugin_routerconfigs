@@ -87,7 +87,7 @@ it('runs every migration step and updates plugin_config when upgrading from a ve
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'INSERT INTO plugin_routerconfigs_devicetypes') !== false;
 	});
 
-	expect($deviceTypeInserts)->toHaveCount(6);
+	expect($deviceTypeInserts)->toHaveCount(16);
 
 	$finalUpdate = array_values(array_filter($GLOBALS['__test_db_calls'], function ($call) {
 		return $call['fn'] === 'db_execute_prepared' && stripos($call['sql'], 'UPDATE plugin_config') !== false;
