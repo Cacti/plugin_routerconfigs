@@ -334,6 +334,17 @@ function routerconfigs_check_upgrade() {
 			}
 		}
 
+		if (cacti_version_compare($old, '2.0', '<')) {
+			// Correct the built-in HP Comware username prompt typo
+			// ('usernmae:' -> 'username:'), but only while the seeded
+			// value is still exactly the misspelling so any value an
+			// admin changed is left alone.
+			db_execute_prepared('UPDATE plugin_routerconfigs_devicetypes
+				SET promptuser = ?
+				WHERE name = ? AND promptuser = ?',
+				['username:', 'HP Comware', 'usernmae:']);
+		}
+
 		AddDeviceTypes();
 
 		if (!$hostkey_schema_ready) {
@@ -423,7 +434,7 @@ function AddDeviceTypes() {
 	AddDeviceType('Cisco IOS', 'username:', 'password:', 'copy run tftp', 'show version', 'y', '', 'on','');
 	AddDeviceType('Cisco CatOS', 'username:', 'password:', 'copy config tftp', '', 'y', 'on', '', '');
 	AddDeviceType('Cisco Nexus', 'Username:', 'Password:', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', '', '', '', '');
-	AddDeviceType('HP Comware', 'usernmae:', 'password:', 'copy startup.cfg tftp://%SERVER%/%FILE%', '', '', '', '', 'on');
+	AddDeviceType('HP Comware', 'username:', 'password:', 'copy startup.cfg tftp://%SERVER%/%FILE%', '', '', '', '', 'on');
 	AddDeviceType('Dell Switch', 'User', 'Password', 'copy running-config tftp://%SERVER%/%FILE% vrf management', 'show version', 'y', '', '', '', 'Are you sure you want to start');
 }
 
