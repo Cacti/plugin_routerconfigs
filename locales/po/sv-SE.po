@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-16 07:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-16 07:18+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/routerconfigs/sv/>\n"
+"Language: sv-SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -435,6 +447,14 @@ msgid "This is the CLI text used to send the backup to tftp server."
 msgstr "Detta är den CLI-text som används för att skicka säkerhetskopian till tftp-servern."
 
 #: includes/arrays.php
+msgid "Capture Command"
+msgstr ""
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr ""
+
+#: includes/arrays.php
 msgid "Show Version"
 msgstr "Visa version"
 
@@ -770,8 +790,8 @@ msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: TFTP Backup Path är inte angiven eller är inte en katalog"
 
 #: includes/functions.php
-msgid "FATAL: TFTP Server is not set"
-msgstr "FATAL: TFTP-servern är inte inställd"
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr ""
 
 #: includes/functions.php
 #, php-format
@@ -1575,6 +1595,9 @@ msgstr "Routerkonfigurationer"
 #: setup.php
 msgid "Routers"
 msgstr "Routrar"
+
+#~ msgid "FATAL: TFTP Server is not set"
+#~ msgstr "FATAL: TFTP-servern är inte inställd"
 
 #~ msgid "How often to Backup this device."
 #~ msgstr "Hur ofta ska du säkerhetskopiera den här enheten."
