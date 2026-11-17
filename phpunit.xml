@@ -28,6 +28,8 @@
     <source>
         <include>
             <file>setup.php</file>
+            <file>classes/PHPSsh.php</file>
+            <file>classes/PHPConnection.php</file>
             <file>includes/functions.php</file>
             <file>includes/database.php</file>
             <file>includes/scheduler.php</file>

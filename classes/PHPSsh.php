@@ -175,13 +175,25 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 			return false;
 		}
 
+		$stderr = $this->sshStderr($channel);
+
+		if (!is_resource($stderr)) {
+			fclose($channel);
+			$this->Log("ERROR: Unable to read standard error for '$command'");
+
+			return false;
+		}
+
 		stream_set_blocking($channel, false);
+		stream_set_blocking($stderr, false);
 
 		$output   = '';
 		$timedout = false;
+		$failed   = false;
 		$deadline = time() + $this->captureLimit;
 
-		while (!feof($channel)) {
+		// Drain both streams so a full stderr window cannot stall stdout.
+		while (!feof($channel) || !feof($stderr)) {
 			if (time() >= $deadline) {
 				$timedout = true;
 
@@ -189,21 +201,34 @@ class PHPSsh extends PHPShellConnection implements ShellSsh {
 			}
 
 			$chunk = fread($channel, 8192);
+			$error = fread($stderr, 8192);
 
-			if ($chunk !== false && $chunk !== '') {
-				$output .= $chunk;
+			if ($chunk === false || $error === false) {
+				$failed = true;
 
-				continue;
+				break;
 			}
 
-			$this->Sleep();
+			$output .= $chunk;
+
+			if ($chunk === '' && $error === '') {
+				$this->Sleep();
+			}
 		}
 
+		$status = $this->sshExitStatus($channel);
+		fclose($stderr);
 		fclose($channel);
 
 		if ($timedout) {
 			// A partial configuration must not be saved as a good backup.
 			$this->Log("ERROR: Timed out after {$this->captureLimit} seconds reading the output of '$command'");
+
+			return false;
+		}
+
+		if ($failed || $status !== 0) {
+			$this->Log("ERROR: '$command' did not complete successfully (exit status " . ($status ?? 'unavailable') . ')');
 
 			return false;
 		}
