@@ -12,9 +12,7 @@
  * cannot copy its configuration to a TFTP server.
  */
 
-beforeAll(function () {
-	require_once __DIR__ . '/../../includes/functions.php';
-});
+require_once __DIR__ . '/../../includes/functions.php';
 
 beforeEach(function () {
 	$GLOBALS['__stub_overrides'] = [];
@@ -29,6 +27,12 @@ beforeEach(function () {
 class RouterconfigsTestCaptureSsh extends PHPSsh {
 	/** @var resource|false The channel handed back by sshExec(). */
 	public $test_channel = false;
+
+	public $test_stderr = null;
+
+	public $test_status = 0;
+
+	public $test_finished = false;
 
 	/** @var array<int, string> Commands run on an exec channel. */
 	public $test_commands = [];
@@ -72,6 +76,16 @@ class RouterconfigsTestCaptureSsh extends PHPSsh {
 		$this->test_commands[] = $command;
 
 		return $this->test_channel;
+	}
+
+	protected function sshStderr($channel) {
+		return $this->test_stderr ?? routerconfigs_test_channel('');
+	}
+
+	protected function sshExitStatus($channel) {
+		$this->test_finished = feof($channel) && (!is_resource($this->test_stderr) || feof($this->test_stderr));
+
+		return $this->test_status;
 	}
 
 	function Sleep() {
@@ -345,4 +359,190 @@ it('opens the interactive shell when the device type has no capture command', fu
 		expect($ssh->Connect())->toBe(0);
 		expect($ssh->test_shell)->toBeTrue();
 	}
+});
+
+
+it('rejects failed commands even with enough stdout to pass backup size validation', function ($status) {
+	$dir = routerconfigs_test_capture_dir();
+	$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+	$ssh->test_channel = routerconfigs_test_channel(str_repeat('export failed: permission denied\n', 10));
+	$ssh->test_stderr = routerconfigs_test_channel('permission denied');
+	$ssh->test_status = $status;
+
+	expect($ssh->Download('edge1', $dir))->toBeFalse();
+	expect($ssh->test_finished)->toBeTrue();
+	expect(is_resource($ssh->test_channel))->toBeFalse();
+	expect(is_resource($ssh->test_stderr))->toBeFalse();
+	expect(glob($dir . '*'))->toBe([]);
+	expect(glob($dir . '.capture-*'))->toBe([]);
+	expect(implode("\n", $ssh->test_log))->toContain('did not complete successfully');
+
+	routerconfigs_test_capture_cleanup($dir);
+})->with([1, 255, null]);
+
+it('drains stderr and accepts warnings only when the command succeeds', function () {
+	$dir = routerconfigs_test_capture_dir();
+	$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+	$ssh->test_channel = routerconfigs_test_channel("/system identity\nset name=edge1\n");
+	$ssh->test_stderr = fopen('php://temp', 'w+');
+	fwrite($ssh->test_stderr, str_repeat("warning\n", 4000));
+	rewind($ssh->test_stderr);
+
+	expect($ssh->Download('edge1', $dir))->toBeTrue();
+	expect($ssh->test_finished)->toBeTrue();
+	expect(file_get_contents($dir . 'edge1'))->toBe("/system identity\nset name=edge1\n");
+	expect(is_resource($ssh->test_stderr))->toBeFalse();
+
+	routerconfigs_test_capture_cleanup($dir);
+});
+
+it('closes stdout when the stderr stream cannot be opened', function () {
+	$dir = routerconfigs_test_capture_dir();
+	$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+	$ssh->test_channel = routerconfigs_test_channel('configuration');
+	$ssh->test_stderr = false;
+
+	expect($ssh->Download('edge1', $dir))->toBeFalse();
+	expect(is_resource($ssh->test_channel))->toBeFalse();
+	expect(glob($dir . '*'))->toBe([]);
+
+	routerconfigs_test_capture_cleanup($dir);
+});
+
+class RouterconfigsTestFailedReadStream extends RouterconfigsTestEndlessStream {
+	function stream_read($count) {
+		return false;
+	}
+
+	function stream_eof() {
+		return false;
+	}
+}
+
+it('rejects a stream read failure without waiting for the deadline', function ($failed_stream) {
+	stream_wrapper_register('rcfailedread', RouterconfigsTestFailedReadStream::class);
+	$dir = routerconfigs_test_capture_dir();
+	$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+	$ssh->test_channel = routerconfigs_test_channel('partial config');
+	$ssh->test_stderr = routerconfigs_test_channel('');
+	$ssh->setCaptureLimit(1);
+	fclose($ssh->$failed_stream);
+	$ssh->$failed_stream = fopen('rcfailedread://device', 'r');
+
+	expect($ssh->Download('edge1', $dir))->toBeFalse();
+	expect(is_resource($ssh->test_channel))->toBeFalse();
+	expect(is_resource($ssh->test_stderr))->toBeFalse();
+	expect(glob($dir . '*'))->toBe([]);
+
+	stream_wrapper_unregister('rcfailedread');
+	routerconfigs_test_capture_cleanup($dir);
+})->with(['test_channel', 'test_stderr']);
+
+it('waits for delayed output before checking the exit status', function () {
+	$dir = routerconfigs_test_capture_dir();
+	[$channel, $device] = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+	$ssh = new class(['capturecmd' => '/export'], $device) extends RouterconfigsTestCaptureSsh {
+		private $device_stream;
+		function __construct($type, $device) {
+			parent::__construct($type);
+			$this->device_stream = $device;
+		}
+		function Sleep() {
+			if (is_resource($this->device_stream)) {
+				fwrite($this->device_stream, 'delayed configuration');
+				fclose($this->device_stream);
+			}
+		}
+	};
+	$ssh->test_channel = $channel;
+
+	expect($ssh->Download('edge1', $dir))->toBeTrue();
+	expect($ssh->test_finished)->toBeTrue();
+	expect(file_get_contents($dir . 'edge1'))->toBe('delayed configuration');
+
+	routerconfigs_test_capture_cleanup($dir);
+});
+
+class RouterconfigsTestFailedCaptureBackup extends RouterconfigsTestCaptureSsh {
+	function __construct($type) {
+		parent::__construct($type);
+		$this->test_channel = routerconfigs_test_channel(str_repeat('permission denied', 20));
+		$this->test_status = 1;
+	}
+}
+
+it('does not archive failed captures or advance the last successful backup', function () {
+	$dir = routerconfigs_test_capture_dir();
+	mkdir($dir . 'incoming');
+	mkdir($dir . 'archive');
+	// A stale incoming file must not be mistaken for this failed attempt.
+	file_put_contents($dir . 'incoming/edge1', str_repeat('old configuration', 20));
+	$types = new ReflectionProperty(PHPConnection::class, 'knownTypes');
+	$original = $types->getValue();
+	$types->setValue(null, [RCONFIG_CONNECT_SSH => [RouterconfigsTestFailedCaptureBackup::class]]);
+	$GLOBALS['__stub_overrides']['read_config_option'] = fn ($name) => [
+		'routerconfigs_backup_path' => $dir . 'incoming',
+		'routerconfigs_archive_path' => $dir . 'archive',
+		'routerconfigs_retry' => 1,
+	][$name] ?? '';
+	$GLOBALS['__stub_overrides']['db_fetch_row_prepared'] = fn ($sql) => str_contains($sql, 'plugin_routerconfigs_accounts') ? ['username' => 'fixture'] : [
+		'capturecmd' => '/export', 'checkendinconfig' => '', 'timeout' => 1, 'sleep' => 1, 'connecttype' => RCONFIG_CONNECT_SSH, 'elevated' => '',
+	];
+	$device = ['id' => 1, 'hostname' => 'edge1', 'directory' => '', 'ipaddress' => '192.0.2.1', 'devicetype' => 1,
+		'timeout' => 1, 'sleep' => 1, 'connecttype' => RCONFIG_CONNECT_SSH, 'elevated' => '', 'debug' => ''];
+
+	try {
+		expect(plugin_routerconfigs_download_config($device, time()))->toBeFalse();
+		expect(glob($dir . 'archive/*'))->toBe([]);
+		expect(glob($dir . 'incoming/*'))->toBe([]);
+		$sql = implode("\n", array_column($GLOBALS['__test_db_calls'], 'sql'));
+		expect($sql)->not->toContain('SET lastbackup', 'INSERT INTO plugin_routerconfigs_backups');
+	} finally {
+		$types->setValue(null, $original);
+		routerconfigs_test_capture_cleanup($dir);
+	}
+});
+
+it('treats missing exit metadata as unavailable', function () {
+	$ssh = new class(['capturecmd' => '/export']) extends RouterconfigsTestCaptureSsh {
+		public function metadataStatus($stream) {
+			$method = new ReflectionMethod(PHPConnection::class, 'sshExitStatus');
+
+			return $method->invoke($this, $stream);
+		}
+	};
+	$stream = fopen('php://memory', 'r');
+	expect($ssh->metadataStatus($stream))->toBeNull();
+	fclose($stream);
+});
+
+// Only the optional extension boundary is replaced; the adapter still has to
+// request SSH2_STREAM_STDERR on the exact exec channel supplied by the caller.
+if (!function_exists('ssh2_fetch_stream')) {
+	if (!defined('SSH2_STREAM_STDERR')) {
+		define('SSH2_STREAM_STDERR', 1);
+	}
+	function ssh2_fetch_stream($channel, $stream_id) {
+		return ($GLOBALS['__test_ssh_stderr'])($channel, $stream_id);
+	}
+}
+
+it('requests the standard error stream of the exec channel', function () {
+	if (extension_loaded('ssh2')) {
+		test()->markTestSkipped('The extension boundary double is used only without ssh2.');
+	}
+	$channel = fopen('php://memory', 'r+');
+	$stderr = fopen('php://memory', 'r+');
+	$GLOBALS['__test_ssh_stderr'] = function ($actual, $stream_id) use ($channel, $stderr) {
+		expect($actual)->toBe($channel);
+		expect($stream_id)->toBe(SSH2_STREAM_STDERR);
+
+		return $stderr;
+	};
+	$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+	$method = new ReflectionMethod(PHPConnection::class, 'sshStderr');
+	expect($method->invoke($ssh, $channel))->toBe($stderr);
+	unset($GLOBALS['__test_ssh_stderr']);
+	fclose($channel);
+	fclose($stderr);
 });

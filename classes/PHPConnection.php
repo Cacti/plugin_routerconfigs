@@ -471,6 +471,30 @@ abstract class PHPConnection {
 	}
 
 	/**
+	 * Open the exec channel's standard-error stream.
+	 *
+	 * @param resource $channel Exec channel.
+	 *
+	 * @return resource|false The channel's standard-error stream.
+	 */
+	protected function sshStderr($channel) {
+		return @ssh2_fetch_stream($channel, SSH2_STREAM_STDERR);
+	}
+
+	/**
+	 * Read before closing the channel, after both output streams reach EOF.
+	 *
+	 * @param resource $channel Exec channel.
+	 *
+	 * @return int|null Remote exit status, or null when unavailable.
+	 */
+	protected function sshExitStatus($channel) {
+		$metadata = stream_get_meta_data($channel);
+
+		return $metadata['exit_status'] ?? null;
+	}
+
+	/**
 	 * Receives a remote file over the current SSH connection via SCP. Thin
 	 * wrapper around ssh2_scp_recv(). Called from PHPScp to download a
 	 * device's configuration file.
