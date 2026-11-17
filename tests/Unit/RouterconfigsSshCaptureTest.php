@@ -546,3 +546,21 @@ it('requests the standard error stream of the exec channel', function () {
 	fclose($channel);
 	fclose($stderr);
 });
+
+it('propagates failure to open the standard error stream', function () {
+	$channel = fopen('php://memory', 'r+');
+	if (!extension_loaded('ssh2')) {
+		$GLOBALS['__test_ssh_stderr'] = fn () => false;
+	}
+
+	try {
+		// The real extension rejects a non-SSH stream. Without it, exercise
+		// the same failure through the existing extension-boundary double.
+		$ssh = new RouterconfigsTestCaptureSsh(['capturecmd' => '/export']);
+		$method = new ReflectionMethod(PHPConnection::class, 'sshStderr');
+		expect($method->invoke($ssh, $channel))->toBeFalse();
+	} finally {
+		unset($GLOBALS['__test_ssh_stderr']);
+		fclose($channel);
+	}
+});

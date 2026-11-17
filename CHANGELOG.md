@@ -3,6 +3,7 @@
 --- 2.1 ---
 
 * issue: Reject failed SSH capture commands before writing an incoming backup, and drain standard error alongside configuration output
+* dev: Exercise stderr-adapter failure with and without the optional SSH2 extension
 
 * feature: Add built-in device types for ten more switch vendors, seeded on install and upgrade without touching existing or customized device types. Juniper Junos, Arista EOS, HPE Aruba CX, Extreme EXOS, Huawei VRP and Fortinet FortiOS use an SSH Capture Command (no TFTP server needed); Ruckus ICX, Ubiquiti EdgeSwitch, Netgear Managed and TP-Link JetStream copy their configuration to the TFTP server. These definitions are starting points and should be checked against your own firmware, as prompts and commands vary between models and releases
 
