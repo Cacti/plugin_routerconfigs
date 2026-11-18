@@ -70,7 +70,16 @@ Setting | Description
 --- | ---
 TFTP Server IP | The IP Address of the Cacti server given to the routers
 TFTP Backup Directory Path | The directory that your TFTP server stores its files
-Archive Path | The directory to copy the configuration to
+Archive Directory Path | The directory to copy the configuration to
+Separate By Device | Archive configurations into a folder per device
+Dated Subdirectory | Insert a date-based subdirectory into the archive path, before the per-device folder, so each run is stored under its backup date
+SCP Path | Path of an external SCP binary; leave blank to use PHP's SCP module. External SCP is disabled while Verify SSH Host Keys is on
+Verify SSH Host Keys | Record each device's SSH host key on first connect and refuse to send credentials if it later changes; SSH/Telnet mode will not fall back to Telnet while this is on
+Include Config Diffs | Append a unified diff of each changed device to the backup Email; secret values are redacted unless Include Secrets in Diffs is checked
+Include Secrets in Diffs | Send secret values in the emailed diff as they are
+Diff Exclude Patterns | Regular expressions, one per line, for configuration lines to ignore when comparing
+
+Access to the plugin pages is controlled by the 'Router Configs' realm.
 
 With those global settings in place, you will then need to - Create a device
 type - Create an authentication account - Create a device
@@ -168,8 +177,7 @@ server_args= -c -s /home/configs/backups
 You will need to create this folder (or whatever folder you specify) and give
 the apache server and the tftp server permissions to access it
 
-I have provided a copy of this file for you.  Then we just need to turn on the
-tftp server so do this.
+Then we just need to turn on the tftp server so do this.
 
 ```console
 chkconfig xinetd on
