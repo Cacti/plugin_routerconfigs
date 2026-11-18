@@ -329,10 +329,10 @@ function actions_devices() {
 			input_validate_input_number($matches[1]);
 			// ====================================================
 
-			$device_list .= '<li>' . db_fetch_cell_prepared('SELECT hostname
+			$device_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT hostname
 				FROM plugin_routerconfigs_devices
 				WHERE id = ?',
-				[$matches[1]]) . '</li>';
+				[$matches[1]])) . '</li>';
 
 			$device_array[] = $matches[1];
 		}
@@ -517,6 +517,13 @@ function save_devices() {
 	$save['sleep']       = get_nfilter_request_var('sleep');
 	$save['elevated']    = get_nfilter_request_var('elevated');
 
+	if (!plugin_routerconfigs_valid_hostname($save['hostname'])) {
+		raise_message('rc_hostname_err', __('The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or "..".', 'routerconfigs'), MESSAGE_LEVEL_ERROR);
+
+		header('Location: router-devices.php?header=false&action=edit&id=' . (isset_request_var('id') ? get_request_var('id') : 0));
+		exit;
+	}
+
 	if (!plugin_routerconfigs_schedule_valid_type($save['sched_type']) || !plugin_routerconfigs_schedule_valid_recur($save['recur_every'])) {
 		raise_message('rc_sched_err', __('The selected Schedule Type or Rerun Every is not valid.', 'routerconfigs'), MESSAGE_LEVEL_ERROR);
 
@@ -598,7 +605,7 @@ function edit_devices() {
 		$account['ssh_hostkey_display'] = empty($account['ssh_fingerprint']) ?
 			'<em>' . __esc('Not recorded', 'routerconfigs') . '</em>' :
 			'<code>' . html_escape($account['ssh_hostkey_type'] . ' ' . $account['ssh_fingerprint']) . '</code>';
-		$header_label        = __('Router: [edit: %s]', $account['hostname'], 'routerconfigs');
+		$header_label        = __('Router: [edit: %s]', html_escape($account['hostname']), 'routerconfigs');
 	} else {
 		$account['ssh_hostkey_display'] = '<em>' . __esc('Not recorded', 'routerconfigs') . '</em>';
 		$header_label                   = __('Router: [new]', 'routerconfigs');
