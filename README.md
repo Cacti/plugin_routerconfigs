@@ -14,7 +14,7 @@ This README describes the `develop` source branch.
 
 | Code | Plugin version | Minimum Cacti declared in `INFO` |
 | --- | --- | --- |
-| [Source branch](INFO) | 2.1 | 1.2.29 |
+| [Source branch](https://github.com/Cacti/plugin_routerconfigs/blob/develop/INFO) | 2.1 | 1.2.29 |
 | [Published v2.0](https://github.com/Cacti/plugin_routerconfigs/releases/tag/v2.0) | 2.0 | 1.2.29 |
 
 Use the published release’s assets and tagged documentation when installing that
@@ -24,7 +24,7 @@ matches the release. Cacti’s own PHP and database requirements also apply.
 Install this plugin in **`<cacti-root>/plugins/routerconfigs`**, using the directory
 name `routerconfigs` rather than `plugin_routerconfigs`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
+See [CHANGELOG.md](https://github.com/Cacti/plugin_routerconfigs/blob/develop/CHANGELOG.md) for the version history.
 
 ## Problematic Devices
 
