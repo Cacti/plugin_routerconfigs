@@ -662,10 +662,6 @@ function plugin_routerconfigs_safe_name($name) {
 		return false;
 	}
 
-	if (basename($name) !== $name) {
-		return false;
-	}
-
 	return $name;
 }
 
