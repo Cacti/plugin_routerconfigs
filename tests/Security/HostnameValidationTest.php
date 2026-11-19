@@ -26,6 +26,12 @@ it('rejects path separators, traversal, NUL and other characters', function (str
 	expect(plugin_routerconfigs_valid_hostname($name))->toBeFalse();
 })->with(['../victim', 'a/b', 'a\\b', '..', '.hidden', '', "a\0b", 'a..b', "a\nb", '<b>x</b>', "x'y"]);
 
+it('accepts hostnames up to the stored length limit', function () {
+	expect(plugin_routerconfigs_valid_hostname(str_repeat('a', 255)))->toBeTrue();
+	expect(plugin_routerconfigs_valid_hostname(str_repeat('a', 256)))->toBeFalse();
+	expect(plugin_routerconfigs_valid_hostname(null))->toBeFalse();
+});
+
 it('refuses to use a stored hostname that leaves the backup directory', function (string $name) {
 	expect(plugin_routerconfigs_backup_filename($name))->toBeFalse();
 })->with(['../victim', 'sub/victim', '..', '.', "a\0b", 'a\\b', '']);
