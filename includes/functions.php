@@ -637,6 +637,72 @@ function plugin_routerconfigs_dir($dir) {
 }
 
 /**
+ * Reduce a value to a single, safe filename component for use under the
+ * configured backup or archive directory.
+ *
+ * A device backup file is named from device- and device-output-controlled
+ * values (the device hostname, or a name parsed from the configuration).
+ * Such a value must never introduce a directory separator, a NUL byte, or a
+ * parent-directory reference, or the backup read, write, or removal could
+ * act on a file outside the backup root.
+ *
+ * @param string $name The candidate filename component.
+ *
+ * @return string|false The value unchanged when it is a safe single
+ *                      component, or false when it must be rejected.
+ */
+function plugin_routerconfigs_safe_name($name) {
+	$name = (string) $name;
+
+	if ($name === '' || $name === '.' || $name === '..') {
+		return false;
+	}
+
+	if (strpbrk($name, "/\\\0") !== false) {
+		return false;
+	}
+
+	if (basename($name) !== $name) {
+		return false;
+	}
+
+	return $name;
+}
+
+/**
+ * Contain the per-device backup subdirectory within the configured backup
+ * and archive roots.
+ *
+ * The device 'directory' field may name nested subdirectories, but it must
+ * stay relative to the root: a leading separator or any '..' component would
+ * let a backup be written outside it. The value is returned normalised to
+ * forward slashes with any leading separators removed.
+ *
+ * @param string $dir The device 'directory' field.
+ *
+ * @return string|false The contained relative subdirectory (possibly empty),
+ *                      or false when it escapes the root.
+ */
+function plugin_routerconfigs_safe_subdir($dir) {
+	$dir = (string) $dir;
+
+	if (strpos($dir, "\0") !== false) {
+		return false;
+	}
+
+	$dir = str_replace('\\', '/', $dir);
+	$dir = ltrim($dir, '/');
+
+	foreach (explode('/', $dir) as $part) {
+		if ($part === '..') {
+			return false;
+		}
+	}
+
+	return $dir;
+}
+
+/**
  * Resolve the TFTP server a device should copy its configuration to,
  * preferring the device's own 'tftpserver' value and falling back to the
  * global routerconfigs_tftpserver when the device does not define one
@@ -1523,10 +1589,26 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$backuppath  = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
 
-	$filename = $device['hostname'];
+	$filename = plugin_routerconfigs_safe_name($device['hostname']);
 
-	if (strlen($dir) && $dir[0] == '/') {
-		$dir = substr($dir,1);
+	if ($filename === false) {
+		$fail_msg = "ERROR: Device '" . $device['hostname'] . "' has a hostname that is not a safe backup filename";
+		plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+
+		return false;
+	}
+
+	// Keep the per-device backup folder relative to the configured backup and
+	// archive roots so the 'directory' field cannot write outside them.
+	$dir = plugin_routerconfigs_safe_subdir($dir);
+
+	if ($dir === false) {
+		$fail_msg = "ERROR: Device '" . $device['hostname'] . "' has a backup directory that escapes the backup root";
+		plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
+		plugin_routerconfigs_log($fail_msg);
+
+		return false;
 	}
 
 	// Optional dated subdirectory (e.g. .../2020-11-04/), inserted before the
@@ -1764,9 +1846,11 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 			}
 
 			if (preg_match('~^(host|set system )name ["]{0,1}([a-zA-Z0-9\._\-]+)["]{0,1}~i',$d,$matches)) {
-				$filename = trim($matches[2]);
+				$parsed = plugin_routerconfigs_safe_name(trim($matches[2]));
 
-				if (strlen($filename)) {
+				if ($parsed !== false) {
+					$filename = $parsed;
+
 					db_execute_prepared('UPDATE plugin_routerconfigs_devices
 						SET hostname = ?, ipaddress = ?
 						WHERE id = ?',
