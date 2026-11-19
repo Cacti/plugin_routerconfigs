@@ -1,16 +1,30 @@
 # routerconfigs
 
-The routerconfigs plugin is designed to act in conjunction with the Cacti servers
-tftp server to receive backups from your router devices.  It also provides the
-ability to view and diff those router configurations as they change over time.
-It is designed primarily for Cisco device types, but may work with other device
-types.
+Router Configs backs up router and switch configurations, keeps an archive of
+previous versions, and shows the differences between backups. Devices can use
+TFTP transfers or SSH command capture, depending on their device type.
 
-NOTE: Whilst this plugin is actively maintained by the Cacti Group, it is a
-community plugin that primarily receives contributions from the Cacti community.
-The Cacti Group has recently updated the plugin functionality to support the
-vast majority of devices on Cacti 1.x and beyond.  Help from the community on
-functionality changes, compatibility and the like are always welcome.
+The 2.0 release adds calendar schedules, optional configuration diffs in email,
+dated archive directories, and controls for inactive-device backups. This source
+branch also includes the SSH capture device types listed below.
+
+## Versions and compatibility
+
+This README describes the `develop` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](https://github.com/Cacti/plugin_routerconfigs/blob/develop/INFO) | 2.1 | 1.2.29 |
+| [Published v2.0](https://github.com/Cacti/plugin_routerconfigs/releases/tag/v2.0) | 2.0 | 1.2.29 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/routerconfigs`**, using the directory
+name `routerconfigs` rather than `plugin_routerconfigs`.
+
+See [CHANGELOG.md](https://github.com/Cacti/plugin_routerconfigs/blob/develop/CHANGELOG.md) for the version history.
 
 ## Problematic Devices
 
@@ -44,8 +58,10 @@ Just like any other Cacti plugin, untar the package to the Cacti plugins
 directory, rename the directory to 'routerconfigs', and then from Cacti's Plugin
 Management interface, Install and Enable the plugin.
 
-This plugin requires a TFTP server on the Cacti server (see below for an example
-under CentOS 6)
+TFTP device types require a reachable TFTP server and writable backup directory.
+SSH capture device types need PHP’s `ssh2` extension and SSH access to the device;
+they do not require TFTP. Configure the service using your supported operating
+system’s package and service documentation. The CentOS 6 example below is historical.
 
 There are a few options in Cacti you will need to change to then get the plugin
 up and running.  They are located under Settings > Router Configs
@@ -54,13 +70,22 @@ Setting | Description
 --- | ---
 TFTP Server IP | The IP Address of the Cacti server given to the routers
 TFTP Backup Directory Path | The directory that your TFTP server stores its files
-Archive Path | The directory to copy the configuration to
+Archive Directory Path | The directory to copy the configuration to
+Separate By Device | Archive configurations into a folder per device
+Dated Subdirectory | Insert a date-based subdirectory into the archive path, before the per-device folder, so each run is stored under its backup date
+SCP Path | Path of an external SCP binary; leave blank to use PHP's SCP module. External SCP is disabled while Verify SSH Host Keys is on
+Verify SSH Host Keys | Record each device's SSH host key on first connect and refuse to send credentials if it later changes; SSH/Telnet mode will not fall back to Telnet while this is on
+Include Config Diffs | Append a unified diff of each changed device to the backup Email; secret values are redacted unless Include Secrets in Diffs is checked
+Include Secrets in Diffs | Send secret values in the emailed diff as they are
+Diff Exclude Patterns | Regular expressions, one per line, for configuration lines to ignore when comparing
+
+Access to the plugin pages is controlled by the 'Router Configs' realm.
 
 With those global settings in place, you will then need to - Create a device
 type - Create an authentication account - Create a device
 
-On other operating systems, or for CentOS 7, you will have to find equivalent
-instructions.
+Verify the archive and transfer-directory permissions using the accounts that
+run the Cacti poller, web server and transfer service.
 
 ## Built-in device types
 
@@ -131,7 +156,10 @@ Bug and feature enhancements for the routerconfigs plugin are handled in GitHub.
 If you find a first search the Cacti forums for a solution before creating an
 issue in GitHub.
 
-## TFTP Server setup example (CentOS 6)
+## TFTP Server setup example (CentOS 6, historical)
+
+This example targets an obsolete operating system and its `xinetd` service. Use
+your current distribution’s TFTP documentation for a new installation.
 
 For CentOS 6, just run these commands:
 
@@ -149,8 +177,7 @@ server_args= -c -s /home/configs/backups
 You will need to create this folder (or whatever folder you specify) and give
 the apache server and the tftp server permissions to access it
 
-I have provided a copy of this file for you.  Then we just need to turn on the
-tftp server so do this.
+Then we just need to turn on the tftp server so do this.
 
 ```console
 chkconfig xinetd on

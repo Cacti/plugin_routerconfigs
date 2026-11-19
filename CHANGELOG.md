@@ -1,5 +1,8 @@
 # ChangeLog
 
+Documentation update (unreleased): Refresh README release/source compatibility,
+installation guidance and source-checked behavior.
+
 --- 2.1 ---
 
 * issue: Reject failed SSH capture commands before writing an incoming backup, and drain standard error alongside configuration output
