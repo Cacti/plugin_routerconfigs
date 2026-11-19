@@ -5,6 +5,7 @@ installation guidance and source-checked behavior.
 
 --- 2.1 ---
 
+* issue: Contain device backup file paths within the configured backup and archive directories, so the per-device directory field, the device hostname, and a name parsed from the returned configuration cannot cause a backup to be written, read, or removed outside those directories
 * issue: Reject failed SSH capture commands before writing an incoming backup, and drain standard error alongside configuration output
 * dev: Exercise stderr-adapter failure with and without the optional SSH2 extension
 
