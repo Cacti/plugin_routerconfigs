@@ -453,8 +453,8 @@ function plugin_routerconfigs_message_devicetable(&$message, $devices, $failed) 
 	$row = 0;
 
 	foreach ($devices as $device) {
-		$message .= '<tr class=\'row' . $row . '\'><td>' . $device['hostname'] . '</td>';
-		$message .= '<td>' . ($failed ? $device['lasterror'] : $device['lastfile']) . '</td>';
+		$message .= '<tr class=\'row' . $row . '\'><td>' . html_escape($device['hostname']) . '</td>';
+		$message .= '<td>' . html_escape($failed ? $device['lasterror'] : $device['lastfile']) . '</td>';
 		$message .= "</tr>\n";
 
 		$row = ($row + 1) % 2;
@@ -696,6 +696,44 @@ function plugin_routerconfigs_safe_subdir($dir) {
 	}
 
 	return $dir;
+}
+
+/**
+ * Checks that a device name is made only of hostname/IP address characters
+ * (letters, digits, '.', '-', '_', ':' and inner spaces, as produced when a
+ * Cacti device description is imported), starts with a letter or digit and
+ * contains no '..' sequence. The name is later used as a backup file name,
+ * so path separators, NUL bytes and traversal sequences are never allowed.
+ *
+ * @param mixed $hostname The device hostname to check.
+ *
+ * @return bool True when the name is acceptable.
+ */
+function plugin_routerconfigs_valid_hostname($hostname) {
+	if (!is_string($hostname) || strlen($hostname) > 255) {
+		return false;
+	}
+
+	return preg_match('/^[A-Za-z0-9][A-Za-z0-9._: -]*$/D', $hostname) === 1 && strpos($hostname, '..') === false;
+}
+
+/**
+ * Returns a device name that is safe to append to a backup directory path,
+ * or false when it could point outside that directory. Rows saved before
+ * hostname validation existed are checked here as well, since the stored
+ * value is used to build the path that is unlinked and written.
+ *
+ * @param mixed $hostname The stored device hostname.
+ *
+ * @return string|false The name unchanged when it is a single plain path
+ *                      component, otherwise false.
+ */
+function plugin_routerconfigs_backup_filename($hostname) {
+	if (!is_string($hostname) || strpos($hostname, '..') !== false) {
+		return false;
+	}
+
+	return plugin_routerconfigs_safe_name($hostname);
 }
 
 /**
@@ -1585,10 +1623,10 @@ function plugin_routerconfigs_download_config(&$device, $backuptime, $buffer_deb
 	$backuppath  = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_backup_path')));
 	$archivepath = plugin_routerconfigs_dir(trim(read_config_option('routerconfigs_archive_path')));
 
-	$filename = plugin_routerconfigs_safe_name($device['hostname']);
+	$filename = plugin_routerconfigs_backup_filename($device['hostname']);
 
 	if ($filename === false) {
-		$fail_msg = "ERROR: Device '" . $device['hostname'] . "' has a hostname that is not a safe backup filename";
+		$fail_msg = __("ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters", $device['hostname'], 'routerconfigs');
 		plugin_routerconfigs_save_error($device['id'], null, $fail_msg);
 		plugin_routerconfigs_log($fail_msg);
 
