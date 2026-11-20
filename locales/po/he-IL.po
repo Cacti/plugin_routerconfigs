@@ -903,10 +903,6 @@ msgid "FATAL: TFTP Backup Path is not set or is not a directory"
 msgstr "FATAL: נתיב גיבוי אינו מוגדר או אינו ספריה"
 
 #: includes/functions.php
-msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
-msgstr ""
-
-#: includes/functions.php
 #, fuzzy, php-format
 msgid "DEBUG: Attempting download for %s"
 msgstr "DEBUG: ניסיון להורדה עבור %s"
@@ -1028,6 +1024,16 @@ msgstr ""
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
 msgstr ""
 
 #: includes/functions.php
@@ -1524,6 +1530,10 @@ msgstr "מחק מכשירים"
 #, fuzzy
 msgid "You must select at least Router Device."
 msgstr "עליך לבחור לפחות התקן נתב."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr ""
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
