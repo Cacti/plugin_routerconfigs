@@ -22,13 +22,12 @@ msgid "Delete"
 msgstr "מחק"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Backup"
 msgstr "גיבוי"
 
 #: includes/arrays.php
 msgid "Edit (bulk change settings)"
-msgstr ""
+msgstr "עריכה (שינוי הגדרות מרוכז)"
 
 #: includes/arrays.php
 msgid "Enable"
@@ -40,24 +39,21 @@ msgstr "כיבוי"
 
 #: includes/arrays.php
 msgid "Clear SSH Host Key"
-msgstr ""
+msgstr "נקה מפתח מארח SSH"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SSH/Telnet"
-msgstr "Telnet"
+msgstr "SSH/Telnet"
 
 #: includes/arrays.php
 msgid "SSH"
 msgstr "SSH"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Telnet"
 msgstr "Telnet"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
@@ -82,24 +78,24 @@ msgid "Monthly"
 msgstr "באופן חודשי"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d חודש"
+msgstr "%d חודש"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% חודשים"
+msgstr "%d חודשים"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d שנה"
+msgstr "%d שנה"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "% d שנה"
+msgstr "%d שנים"
 
 #: includes/arrays.php
 msgid "Never"
@@ -113,153 +109,127 @@ msgstr "%d שעה"
 #: includes/arrays.php
 #, php-format
 msgid "%d hours"
-msgstr "%d לפני מספר ימים"
+msgstr "%d שעות"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "00:00 (12am)"
-msgstr "00:00 (00:00)"
+msgstr "00:00 (12 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "01:00 (1am)"
-msgstr "01:00 (01:00)"
+msgstr "01:00 (1 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "02:00 (2am)"
-msgstr "02:00 (02:00)"
+msgstr "02:00 (2 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "03:00 (3am)"
-msgstr "03:00 (3 בבוקר)"
+msgstr "03:00 (3 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "04:00 (4am)"
-msgstr "04:00 (04:00)"
+msgstr "04:00 (4 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "05:00 (5am)"
-msgstr "05:00 (05:00)"
+msgstr "05:00 (5 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "06:00 (6am)"
-msgstr "06:00 (06:00)"
+msgstr "06:00 (6 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "07:00 (7am)"
-msgstr "07:00 (07:00)"
+msgstr "07:00 (7 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "08:00 (8am)"
-msgstr "08:00 (08:00)"
+msgstr "08:00 (8 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "09:00 (9am)"
-msgstr "09:00 (09:00)"
+msgstr "09:00 (9 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "10:00 (12am)"
-msgstr "10:00 (00:00)"
+msgstr "10:00 (12 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "11:00 (11am)"
-msgstr "11:00 (11:00)"
+msgstr "11:00 (11 לפנה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "12:00 (12pm)"
-msgstr "12:00 (12:00)"
+msgstr "12:00 (12 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "13:00 (1pm)"
-msgstr "13:00 (13:00)"
+msgstr "13:00 (1 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "14:00 (2pm)"
-msgstr "14:00 (14:00)"
+msgstr "14:00 (2 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "15:00 (3pm)"
-msgstr "15:00 (15:00)"
+msgstr "15:00 (3 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "16:00 (4pm)"
-msgstr "16:00 (16:00)"
+msgstr "16:00 (4 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "17:00 (5pm)"
-msgstr "17:00 (17:00)"
+msgstr "17:00 (5 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "18:00 (6pm)"
-msgstr "18:00 (18:00)"
+msgstr "18:00 (6 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "19:00 (7pm)"
-msgstr "19:00 (19:00)"
+msgstr "19:00 (7 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "20:00 (8pm)"
-msgstr "20:00 (20:00)"
+msgstr "20:00 (8 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "21:00 (9pm)"
-msgstr "21:00 (21:00)"
+msgstr "21:00 (9 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "22:00 (10pm)"
-msgstr "22:00 (22:00)"
+msgstr "22:00 (10 אחה\"צ)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "23:00 (11pm)"
-msgstr "23:00 (23:00)"
+msgstr "23:00 (11 אחה\"צ)"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d line"
-msgstr ""
+msgstr "%d שורה"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d שורות"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
 msgstr "שם"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
-msgstr "תן לחשבון הזה שם בעל משמעות שיוצג."
+msgstr "תן לחשבון זה שם בעל משמעות שיוצג."
 
 #: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "שם משתמש"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "שם המשתמש שישמש לאימות."
 
@@ -268,145 +238,132 @@ msgid "Password"
 msgstr "סיסמה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The password used for authentication."
 msgstr "הסיסמה המשמשת לאימות."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Enable Password"
-msgstr "הפעל סיסמה"
+msgstr "סיסמת Enable"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Your Enable Password, if required."
-msgstr "הפעל את הסיסמה שלך, אם נדרש."
+msgstr "סיסמת ה-Enable שלך, אם נדרש."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Enable Device"
-msgstr "הפעל את המכשיר"
+msgstr "הפעלת מכשירים (מכשירים)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
-msgstr "בטל את הסימון בתיבה זו כדי להשבית את המכשיר הזה מגיבוי."
+msgstr "בטל את סימון תיבה זו כדי להשבית גיבוי של התקן זה."
 
 #: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "תיאור"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
-msgstr "שם המכשיר (ישמש לשמירת תצורה ו- SVN אם לא קיים שם מארח בתצורה)."
+msgstr "שם התקן זה (ישמש לשמירת תצורה ול-SVN אם אין שם מארח בתצורה)."
 
 #: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "כתובת IP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the IP Address used to communicate with the device."
-msgstr "זוהי כתובת ה- IP המשמשת להתקשרות עם ההתקן."
+msgstr "זוהי כתובת ה-IP המשמשת לתקשורת עם ההתקן."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
 msgid "TFTP Server"
-msgstr "IP שרת TFTP"
+msgstr "שרת TFTP"
 
 #: includes/arrays.php
 msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
-msgstr ""
+msgstr "שרת TFTP אופציונלי שאליו התקן זה מעתיק את התצורה שלו. השאר ריק כדי להשתמש בהגדרת שרת ה-TFTP הגלובלית."
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
-msgstr ""
+msgstr "מפתח מארח SSH שמור"
 
 #: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
-msgstr ""
+msgstr "השווה אלגוריתם מפתח מארח זה ואת טביעת האצבע ההקסדצימלית מסוג SHA-1 מול ההתקן דרך ערוץ מהימן. בשרת, החלף את הנתיב שלהלן בקובץ מפתח המארח הציבורי התואם והרץ: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. השתמש בפעולת ההתקן כדי לנקות אותו לאחר החלפת מפתח לגיטימית."
 
 #: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "אינדקס שרותים ועסקים"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the relative directory structure used to store the configs."
-msgstr "זהו מבנה הספריות היחסי המשמש לאחסון התצורות."
+msgstr "זהו מבנה הספריות היחסי המשמש לאחסון קובצי התצורה."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
 #| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "תאריך משלוח"
+msgstr "סוג לוח זמנים"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
-msgstr ""
+msgstr "באיזו תדירות לגבות התקן זה. תדירות יומית עם ערך \"הרץ מחדש כל\" של 10 מבצעת גיבוי כל 10 ימים; תדירות חודשית מבצעת גיבוי לפי חודש קלנדרי אמיתי."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Rerun Every"
-msgstr ""
+msgstr "Rerun כל"
 
 #: includes/arrays.php
 msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
-msgstr ""
+msgstr "עבור תזמונים יומיים, הרץ מחדש את הגיבוי כל X ימים. עבור תזמונים שבועיים ללא ימים ספציפיים בשבוע, הרץ אותו מחדש כל X שבועות; לאחר שנבחרו ימים בשבוע הגיבוי רץ באותם ימים מדי שבוע ושדה זה אינו חל."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week"
-msgstr ""
+msgstr "ימים בשבוע"
 
 #: includes/arrays.php
 msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
-msgstr ""
+msgstr "עבור תזמון שבועי, יום(י) השבוע שבהם יורץ הגיבוי מדי שבוע. השאר ריק כדי להריץ כל מספר השבועות שבשדה \"הרץ מחדש כל\"."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Months of Year"
-msgstr ""
+msgstr "חודשים של שנה"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
-msgstr ""
+msgstr "עבור תזמון חודשי, החודש(ים) בשנה שבהם יורץ הגיבוי."
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
 #| msgid "This Month"
 msgid "Days of Month"
-msgstr "החודש הנוכחי"
+msgstr "ימים בחודש"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
-msgstr ""
+msgstr "עבור תזמון חודשי, יום(י) החודש שבהם יורץ הגיבוי (אחרון = היום האחרון בחודש)."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Weeks of Month"
-msgstr ""
+msgstr "שבועות בחודש"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
-msgstr ""
+msgstr "עבור תזמון חודשי לפי יום, השבוע(ות) בחודש שבהם יורץ הגיבוי."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week (Monthly)"
-msgstr ""
+msgstr "ימי השבוע (חודשי)"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
-msgstr ""
+msgstr "עבור תזמון חודשי לפי יום, יום(י) השבוע שיש לשייך לבחירת השבועות בחודש."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "סוג התקן"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Choose the type of device that the router is."
-msgstr "בחר את סוג ההתקן שהנתב הוא."
+msgstr "בחר את סוג ההתקן של הנתב."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
 msgid "Auto-Detect"
 msgstr "זיהוי אוטומטי"
 
@@ -415,363 +372,306 @@ msgid "Connection Type"
 msgstr "סוג הקשר"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the type of connection used to communicate with the device."
-msgstr "זוהי כתובת ה- IP המשמשת להתקשרות עם ההתקן."
+msgstr "זהו סוג החיבור המשמש לתקשורת עם ההתקן."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
 msgid "Authentication Account"
 msgstr "חשבון אימות"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Choose an account to use to Login to the router"
-msgstr "בחר חשבון שבו ברצונך להשתמש כדי להתחבר לנתב"
+msgstr "בחר חשבון לשימוש לצורך התחברות לנתב"
 
 #: includes/arrays.php
 msgid "None"
 msgstr "ללא"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default timeout"
-msgstr "פסק זמן המוגדר כברירת מחדל"
+msgstr "פסק זמן ברירת מחדל"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default time to wait in seconds for a response"
-msgstr "זמן ברירת מחדל להמתין בשניות לרספונס"
+msgstr "זמן המתנה ברירת מחדל לתגובה בשניות"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default sleep time"
-msgstr "זמן שינה המוגדר כברירת מחדל"
+msgstr "זמן השהיה ברירת מחדל"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr "זמן ברירת מחדל לישון במיקרו-שניות (1/1000,000 שנייה)"
+msgstr "זמן השהיה ברירת מחדל במיקרו-שניות (1/1,000,000 של שנייה)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Assume elevated"
-msgstr "נניח מוגבה"
+msgstr "הנח מצב מורשה (elevated)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check this box to assume this device is always elevated"
-msgstr "בטל את הסימון בתיבה זו כדי להשבית את המכשיר הזה מגיבוי."
+msgstr "סמן תיבה זו כדי להניח שהתקן זה נמצא תמיד בהרשאה מוגברת (elevated)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name of this device type."
 msgstr "שם סוג התקן זה."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Username Prompt"
-msgstr "שם משתמש"
+msgstr "בקשת שם משתמש"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the username prompt to match on login."
-msgstr "זוהי ההנחיה של שם המשתמש להתאמה בהתחברות."
+msgstr "זוהי בקשת שם המשתמש שיש להתאים בעת ההתחברות."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Password Prompt"
-msgstr "בקשה לסיסמה"
+msgstr "בקשת סיסמה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the password prompt to match on login."
-msgstr "זו סיסמת הסיסמה להתאמה על ההתחברות."
+msgstr "זוהי בקשת הסיסמה שיש להתאים בעת ההתחברות."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Configuration file"
 msgstr "קובץ תצורה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
-msgstr "זהו המיקום הסטנדרטי של קובץ התצורה בהתקן המרוחק."
+msgstr "זהו המיקום הסטנדרטי של קובץ התצורה בהתקן המרוחק. הוא משמש עבור שיטת SCP ו-SFTP"
 
 #: includes/arrays.php router-devtypes.php
-#, fuzzy
 msgid "Copy TFTP"
-msgstr "העתק TFTP"
+msgstr "העתקת TFTP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
-msgstr "זהו טקסט CLI המשמש לשלוח את הגיבוי לשרת tftp."
+msgstr "זהו טקסט ה-CLI המשמש לשליחת הגיבוי לשרת TFTP."
 
 #: includes/arrays.php
 msgid "Capture Command"
-msgstr ""
+msgstr "פקודת לכידה"
 
 #: includes/arrays.php
 msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
-msgstr ""
+msgstr "פקודה אופציונלית שפלטה נשמר כתצורה, במקום להעתיק אותה לשרת TFTP. היא רצה תמיד דרך SSH, ללא קשר לסוג החיבור, ואז ההתקן אינו זקוק לשרת TFTP. השאר ריק עבור התקנים המעתיקים את תצורתם ל-TFTP. דוגמה עבור MikroTik RouterOS: /export"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Show Version"
 msgstr "הצג גרסה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the CLI text used to display the current version."
-msgstr "זהו טקסט CLI המשמש להצגת הגרסה הנוכחית."
+msgstr "זהו טקסט ה-CLI המשמש להצגת הגרסה הנוכחית."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Confirmation Prompt"
-msgstr "גיבויים Config"
+msgstr "הנחיית אישור"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
-msgstr "זוהי ההנחיה של שם המשתמש להתאמה בהתחברות."
+msgstr "זוהי הנחיית האישור שיש להתאים לפני השידור."
 
 #: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "אשר"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr "האם יש בקשה לאישור להעתקת התצורה?"
+msgstr "האם מוצגת בקשת אישור בעת העתקת התצורה?"
 
 #: includes/arrays.php router-devtypes.php
-#, fuzzy
 msgid "Force Confirm"
-msgstr "כוח אישור"
+msgstr "אלץ אישור"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
-msgstr "האם יש אישור אישור כוח להעתקת התצורה?"
+msgstr "האם קיימת בקשת אישור מאולץ בעת העתקת התצורה?"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check End in Config"
-msgstr "סמן את הסיום ב- Config"
+msgstr "בדיקת End בתצורה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check end in config?"
-msgstr "בדוק את הסיום בתצורה?"
+msgstr "האם לבדוק end בתצורה?"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Any Key prompt"
-msgstr "כל בקשת מפתח"
+msgstr "בקשת לחיצה על מקש כלשהו"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr "שלח טקסט כדי להתאים להנחיה 'לחץ על כל מקש להמשך'"
+msgstr "טקסט להתאמה להנחיה בסגנון 'Press Any Key To Continue'"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Post-Login Prompts"
-msgstr "בקשה לסיסמה"
+msgstr "הנחיות לאחר התחברות"
 
 #: includes/arrays.php
 msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
-msgstr ""
+msgstr "זוגות הנחיה/תגובה אופציונליים הנשלחים מיד לאחר ההתחברות, לפני פקודת ההעתקה ל-TFTP, זוג אחד בשורה בתבנית prompt|response. ההנחיה מותאמת כביטוי רגולרי לא תלוי-רישיות מול פלט ההתקן (לכן היא אינה יכולה להכיל בעצמה |, ויש לבצע escape לסוגריים ולתווים מיוחדים אחרים, למשל Save \\[y/n\\]), והתגובה נשלחת כפי שהוקלדה, או השתמש ב-<CR> כדי לשלוח מעבר שורה (carriage return) בלבד. תגובה נשלחת רק לאחר שהנחייתה זוהתה, בתשובה לתגובה הקודמת או בפלט מאוחר יותר; אחרת תירשם אזהרה ביומן ולא יישלח דבר. על אלה נענה תחילה; על הנחיית Any Key למעלה נענה מאוחר יותר, בעת הפעלת ההתקן, כך שהנחיה שנענתה כאן לעולם אינה מגיעה ל-Any Key. דוגמה: Press any key|<CR>"
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Presentation Mode"
-msgstr "תקופת החזקה"
+msgstr "מצב תצוגה"
 
 #: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
-msgstr ""
+msgstr "האם להציג את Router Configs במסוף (Console) או בלשונית עליונה."
 
 #: includes/arrays.php
 msgid "Console"
-msgstr ""
+msgstr "מסוף"
 
 #: includes/arrays.php
 msgid "Top Tab"
-msgstr ""
+msgstr "הכרטיסייה העליונה"
 
 #: includes/arrays.php
 msgid "Config Diff Context Lines"
-msgstr ""
+msgstr "שורות הקשר להשוואת תצורה"
 
 #: includes/arrays.php
 msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
-msgstr ""
+msgstr "מספר ברירת המחדל של שורות ללא שינוי להצגה לפני ואחרי כל שינוי בעת השוואת שני גיבויים. ערך גדול יותר מקל על ראיית הקשר התצורה שמסביב. ניתן לעקוף הגדרה זו לכל השוואה בדף ההשוואה."
 
 #: includes/arrays.php
-#, fuzzy
 #| msgid "Connection Type"
 msgid "Connection timeout"
-msgstr "סוג הקשר"
+msgstr "זמן קצוב לחיבור"
 
 #: includes/arrays.php
 msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
-msgstr ""
+msgstr "זמן ההמתנה המרבי בשניות בעת יצירת חיבור הרשת הראשוני להתקן. התקן תקוע או שאינו נגיש ננטש לאחר פרק זמן זה כדי שהרצת גיבוי מתוזמנת תמשיך עם שאר ההתקנים."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Close without exit"
 msgstr "סגור ללא יציאה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
-msgstr "אם מסומנת, כאשר סוגרים את חיבור ההתקן, לא מוציאה פקודת 'יציאה'"
+msgstr "אם מסומן, בעת סגירת החיבור להתקן לא תישלח פקודת 'exit'"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Debug Connection Buffer"
-msgstr "ניפוי מאגר חיבורים"
+msgstr "חוצץ ניפוי שגיאות חיבור"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Whether to log direct output of device connection"
-msgstr "בין אם לרשום פלט ישיר מחיבור המכשיר"
+msgstr "האם לתעד ביומן פלט ישיר של חיבור ההתקן"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Assume all devices elevated"
-msgstr "נניח שכל המכשירים מוגבהים"
+msgstr "הנח שכל ההתקנים במצב מורשה (elevated)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Whether to assume all devices are elevated"
-msgstr "אם להניח שכל המכשירים מוגבהים"
+msgstr "האם להניח שכל ההתקנים נמצאים במצב הרשאות מוגברות (elevated)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Download Hour"
-msgstr "הורד שעה"
+msgstr "שעת הורדה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The hour of the day to perform the full downloads."
 msgstr "שעת היום לביצוע ההורדות המלאות."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Retry Schedule"
-msgstr "תאריך משלוח"
+msgstr "תזמון ניסיונות חוזרים"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr "הזמן לחכות לפני שתנסה לבצע הורדה נוספת כאשר ההורדה המתוזמנת נכשלת"
+msgstr "זמן ההמתנה לפני ניסיון לבצע הורדה נוספת כאשר הורדה מתוזמנת נכשלת"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Retention Period"
-msgstr "תקופת החזקה"
+msgstr "תקופת שמירה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The number of days to retain old backups."
 msgstr "מספר הימים לשמירת גיבויים ישנים."
 
 #: includes/arrays.php
 msgid "Keep Inactive Device Backups"
-msgstr ""
+msgstr "שמור גיבויים של התקנים לא פעילים"
 
 #: includes/arrays.php
 msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
-msgstr ""
+msgstr "כאשר מסומן, ניקוי השמירה לא ימחק גיבויים שפג תוקפם השייכים להתקנים מושבתים או להתקנים שהוסרו, כך שתצורות של ציוד שהושבת או שאינו זמין יישמרו."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Transfer Options"
 msgstr "אפשרויות העברה"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default connection type"
 msgstr "סוג חיבור ברירת מחדל"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default type of connection used to communicate with the device."
-msgstr "זוהי כתובת ה- IP המשמשת להתקשרות עם ההתקן."
+msgstr "סוג החיבור ברירת המחדל המשמש לתקשורת עם ההתקן."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Separate By Device"
-msgstr "הפרד לפי מכשיר"
+msgstr "הפרד לפי התקן"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Separate archived Configs into a folder per device"
-msgstr "הפרד Configs שהועברו לארכיון לתיקיה לכל מכשיר"
+msgstr "הפרד תצורות שהועברו לארכיון לתיקייה נפרדת לכל התקן"
 
 #: includes/arrays.php
-#, fuzzy
 #| msgid "Directory"
 msgid "Dated Subdirectory"
-msgstr "אינדקס שרותים ועסקים"
+msgstr "תת-ספרייה לפי תאריך"
 
 #: includes/arrays.php
 msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
-msgstr ""
+msgstr "הכנס תת-תיקייה מבוססת תאריך לתוך נתיב הארכיון (לפני התיקייה לכל התקן), כך שכל הרצה תישמר תחת תאריך הגיבוי שלה, לדוגמה .../2020-11-04/hostname/.... מצב כבוי שומר על הפריסה הקיימת."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SCP Path"
 msgstr "נתיב SCP"
 
 #: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
-msgstr ""
+msgstr "בעת שימוש ב-SCP, השארת שדה זה ריק תשתמש במודול ה-SCP של PHP, שלא תמיד עובד. SCP חיצוני מושבת כאשר אימות מפתחות מארח SSH מופעל, מכיוון שאינו יכול לעשות שימוש חוזר בחיבור המאומת."
 
 #: includes/arrays.php
 msgid "Verify SSH Host Keys"
-msgstr ""
+msgstr "אמת מפתחות מארח SSH"
 
 #: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
-msgstr ""
+msgstr "שמור את מפתח המארח של SSH של כל התקן בחיבור הראשון וסרב לשלוח פרטי גישה אם הוא משתנה בהמשך. מצב SSH/Telnet לא יחזור ל-Telnet כל עוד האימות מופעל. לאחר החלפת מפתח לגיטימית, השתמש בפעולת ההתקן כדי לנקות את מפתח המארח השמור."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "TFTP Server IP"
-msgstr "IP שרת TFTP"
+msgstr "כתובת IP של שרת TFTP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
-msgstr "חייב להיות כתובת IP לשרת Cacti שלך."
+msgstr "חייבת להיות כתובת IP המצביעה לשרת Cacti שלך."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "TFTP Backup Directory Path"
-msgstr "נתיב תיקיית גיבוי"
+msgstr "נתיב תיקיית גיבוי TFTP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
-msgstr "הנתיב שבו Confists שלך יהיה מגובה, זה חייב להיות הנתיב כי שרת TFTP המקומי כותב."
+msgstr "הנתיב שבו קובצי התצורה יגובו; זה חייב להיות הנתיב שאליו שרת ה-TFTP המקומי כותב."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Archive Directory Path"
-msgstr "נתיב תיקיית גיבוי"
+msgstr "נתיב תיקיית הארכיון"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
-msgstr "הנתיב שבו Confists שלך יהיה מגובה, זה חייב להיות הנתיב כי שרת TFTP המקומי כותב."
+msgstr "הנתיב שאליו קובצי התצורה יועברו לארכיון (יועברו מתיקיית TFTP)"
 
 #: includes/arrays.php
 msgid "Email Options"
@@ -782,84 +682,78 @@ msgid "From Address"
 msgstr "כתובת שולח"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Email address the nightly backup will be sent from."
-msgstr "כתובת הדוא\"ל הגיבוי הלילי יישלח מ."
+msgstr "כתובת הדוא\"ל שממנה יישלח הגיבוי הלילי."
 
 #: includes/arrays.php
 msgid "From Name"
 msgstr "שם השולח"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name the nightly backup will be sent from."
-msgstr "כתובת הדוא\"ל הגיבוי הלילי יישלח מ."
+msgstr "השם שממנו יישלח הגיבוי הלילי."
 
 #: includes/arrays.php
 msgid "Email Address"
 msgstr "כתובת אימייל"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
-msgstr "רשימה מופרדת בפסיקים של כתובות דוא\"ל כדי לשלוח את הגיבוי הלילי."
+msgstr "רשימה מופרדת בפסיקים של כתובות דוא\"ל שאליהן יישלח דוא\"ל הגיבוי הלילי."
 
 #: includes/arrays.php
 msgid "Include Config Diffs"
-msgstr ""
+msgstr "כלול הבדלי תצורה"
 
 #: includes/arrays.php
 msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
-msgstr ""
+msgstr "צרף diff מאוחד של כל התקן שתצורתו השתנתה במהלך הריצה לדוא\"ל הגיבוי, כדי שסוקר יוכל לראות בדיוק מה השתנה. תצורות בינאריות (שאינן טקסט) מדולגות. שורות נדיפות המשתנות בכל גיבוי (ב-Cisco IOS:‏ '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' ו-'Current configuration :', וב-NX-OS:‏ '!Time:' ו-'!Running configuration last done at:') זוכות להתעלמות תמיד. אזהרה: ה-diff נשלח בטקסט גלוי לכל נמען של הדוא\"ל, ולכן הוא עלול לחשוף תצורה שצריכה להישאר פרטית; השאר את 'כלול סודות בהשוואות (Diffs)' לא מסומן."
 
 #: includes/arrays.php
 msgid "Include Secrets in Diffs"
-msgstr ""
+msgstr "כלול סודות בהבדלים"
 
 #: includes/arrays.php
 msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
-msgstr ""
+msgstr "שלח ערכים סודיים בהבדלים (diff) הנשלחים בדוא\"ל כפי שהם. כאשר אפשרות זו אינה מסומנת (ברירת המחדל), השורות שהשתנו מאותרות בתצורות הגולמיות ומודפסות מושחרות (fail-closed): שורות המכילות מילים דמויות-סוד (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) ושורות מארח ומשתמש SNMP מקוצרות למילה הראשונה שלהן שאחריה מופיע &lt;secret hidden&gt;, וכל שורה של בלוק PEM, בלוק אישור או מחרוזת מפתח, ערך מרובה-שורות במירכאות, וכל שורת hex או base64, מוסתרת; בלוק שאינו מסתיים לעולם מסתיר את שאר התצורה. פעולה זו מסתירה גם שורות תמימות (למשל תיאור המזכיר מפתח), אך כל שורה שהשתנתה עדיין מופיעה, מסומנת (changed) כאשר רק חלקה המוסתר שונה, ובלוק שאינו מסתיים לעולם מצוין בדוא\"ל. גיבויים שמורים אינם משתנים לעולם."
 
 #: includes/arrays.php
 msgid "Diff Exclude Patterns"
-msgstr ""
+msgstr "דפוסים להחרגה מהשוואה"
 
 #: includes/arrays.php
 msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
-msgstr ""
+msgstr "ביטויים רגולריים אופציונליים (אחד בשורה) התואמים לשורות תצורה שיש להתעלם מהן בעת ההשוואה, כדי ששורות משתנות כגון חותמות זמן או מספרים סידוריים לא יופיעו כשינויים. כל תבנית מותאמת ללא תלות ברישיות בכל מקום בשורה אלא אם היא מעוגנת באמצעות ^ או $; תבנית שאינה ביטוי רגולרי תקין לא תילקח בחשבון."
 
 #: includes/arrays.php
 msgid "Thold Notification List"
-msgstr ""
+msgstr "רשימת התראות Thold"
 
 #: includes/arrays.php
 msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
-msgstr ""
+msgstr "כאשר Thold מותקן, שלח גם את דוא\"ל הגיבוי לנמענים ברשימת ההתראות שנבחרה ב-Thold."
 
 #: includes/devices.php
-#, fuzzy
 msgid "Add to RouterConfigs Backup"
-msgstr "נתב Configs"
+msgstr "הוסף לגיבוי RouterConfigs"
 
 #: includes/devices.php
 msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
-msgstr ""
+msgstr "לחץ על 'המשך' כדי להוסיף את ההתקנים הבאים אל RouterConfigs לצורך גיבוי. כל התקן שכבר קיים ב-RouterConfigs ידולג."
 
 #: includes/functions.php router-accounts.php
 msgid "Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+msgstr "התקנים"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
-msgstr "סוגי מכשירים"
+msgstr "סוגי התקנים"
 
 #: includes/functions.php
 msgid "Authentication"
-msgstr "שיטת האימות לא חוקי"
+msgstr "אימות"
 
 #: includes/functions.php
-#, fuzzy
 msgid "Backups"
 msgstr "גיבויים"
 
@@ -868,193 +762,178 @@ msgid "Compare"
 msgstr "השווה"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Technical Support [ %s ]"
-msgstr "תמיכה טכנית [ %s]"
+msgstr "תמיכה טכנית [ %s ]"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "(%s chars)"
 msgstr "(%s תווים)"
 
 #: includes/functions.php
-#, fuzzy
 msgid "(Not Set)"
-msgstr "קבע כברירת מחדל"
+msgstr "(לא הוגדר)"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
-msgstr "שים לב: החל גיבוי ידני של %s מכשירים"
+msgstr "הודעה: מתחיל גיבוי ידני של %s התקנים"
 
 #: includes/functions.php
-#, fuzzy
 msgid "NOTICE: Starting automatic retry"
-msgstr "שים לב: הפעלת ניסיון אוטומטי מחדש"
+msgstr "הודעה: מתחיל ניסיון חוזר אוטומטי"
 
 #: includes/functions.php
-#, fuzzy
 msgid "NOTICE: Starting automatic backup"
-msgstr "שים לב: הפעלת גיבוי אוטומטי"
+msgstr "הודעה: מתחיל גיבוי אוטומטי"
 
 #: includes/functions.php
-#, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
-msgstr "FATAL: נתיב גיבוי אינו מוגדר או אינו ספריה"
+msgstr "שגיאה קריטית: נתיב הגיבוי של TFTP אינו מוגדר או שאינו ספרייה"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Attempting download for %s"
-msgstr "DEBUG: ניסיון להורדה עבור %s"
+msgstr "DEBUG: ניסיון הורדה עבור %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices backed up successfully."
-msgstr "%s התקנים מגובים בהצלחה. <br>"
+msgstr "%s התקנים גובו בהצלחה."
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices failed to backup."
-msgstr "%s נכשל גיבוי. <br>"
+msgstr "גיבוי %s התקנים נכשל."
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices disabled from backup."
-msgstr "%s נכשל גיבוי. <br>"
+msgstr "%s התקנים הושבתו מגיבוי."
 
 #: includes/functions.php
 msgid "No configuration changes were detected."
-msgstr ""
+msgstr "לא זוהו שינויי תצורה."
 
 #: includes/functions.php
-#, fuzzy
 msgid "Config Backups"
-msgstr "גיבויים Config"
+msgstr "גיבויי תצורה"
 
 #: includes/functions.php
-#, fuzzy
 msgid "Configuration Backups"
-msgstr "גיבויים Config"
+msgstr "גיבויי תצורה"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Forced"
-msgstr " מאולץ"
+msgstr " - מאולץ"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Manual"
-msgstr "ידני"
+msgstr " - ידני"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Simulated"
 msgstr " - מדומה"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Scheduled"
-msgstr "מתוזמן"
+msgstr " - מתוזמן"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Reattempt"
 msgstr " - ניסיון חוזר"
 
 #: includes/functions.php
-#, fuzzy
 msgid ": Partial"
 msgstr ": חלקי"
 
 #: includes/functions.php
-#, fuzzy
 msgid ": FAILED"
-msgstr "נכשלה"
+msgstr ": נכשל"
 
 #: includes/functions.php
-#, fuzzy
 msgid "STATS: "
-msgstr "סטטיסטיקה"
+msgstr "סטטיסטיקה: "
 
 #: includes/functions.php
-#, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
-msgstr "נתיב הגיבוי אינו מוגדר או אינו ספריה"
+msgstr "שגיאה: נתיב הגיבוי אינו מוגדר או שאינו ספרייה"
 
 #: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
-msgstr ""
+msgstr "אזהרה: תקופת השמירה '%s' אינה חוקית, עובר לברירת המחדל של 30 יום"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "STATS: Backup now running since %s"
-msgstr "נתונים סטטיסטיים: הגיבוי פועל כעת מאז %s"
+msgstr "סטטיסטיקה: הגיבוי פועל כעת מאז %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "אזהרה: הגיבוי כבר פועל מאז %s"
 
 #: includes/functions.php
 #, php-format
 msgid "Cacti Device id %s was not found; not added to RouterConfigs."
-msgstr ""
+msgstr "מזהה התקן Cacti %s לא נמצא; לא נוסף ל-RouterConfigs."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' is already in RouterConfigs; skipped."
-msgstr ""
+msgstr "ההתקן '%s' כבר נמצא ב-RouterConfigs; דולג."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
-msgstr ""
+msgstr "ההתקן '%s' נוסף אל RouterConfigs (מושבת עד שיוגדרו חשבון וסוג התקן)."
 
 #: includes/functions.php
 #, php-format
 msgid "Failed to add Device '%s' to RouterConfigs."
-msgstr ""
+msgstr "הוספת ההתקן '%s' ל-RouterConfigs נכשלה."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
-msgstr ""
+msgstr "בלוק ההסתרה בשורה %d של הגיבוי הקודם מעולם לא נסגר; השורות הבאות מוסתרות."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
-msgstr ""
+msgstr "בלוק ההסתרה בשורה %d של הגיבוי החדש מעולם לא נסגר; השורות הבאות מוסתרות."
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
-msgstr ""
+msgstr "שגיאה: שם המארח של ההתקן '%s' אינו חוקי כשם קובץ גיבוי; ערוך את ההתקן והשתמש בתווי שם מארח או כתובת IP בלבד"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
-msgstr ""
+msgstr "שגיאה: לא הוגדר שרת TFTP עבור ההתקן '%s'; הגדר שרת TFTP בהתקן או בהגדרות הגלובליות"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
-msgstr ""
+msgstr "שגיאה: אימות מפתח מארח SSH נכשל עבור ההתקן '%s'; מסרב לשלוח פרטי הזדהות או לעבור לגיבוי Telnet"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
-msgstr ""
+msgstr "שגיאה: חיבור SSH נכשל עבור ההתקן '%s'; מעבר לגיבוי Telnet מושבת כאשר אימות מפתח מארח SSH מופעל"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
-msgstr "שגיאה: ההתחברות למכשיר '%s' נכשלה באמצעות סוג חיבור: %s"
+msgstr "שגיאה: ההתחברות להתקן '%s' נכשלה באמצעות סוג חיבור: %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
-msgstr "שגיאה: ההורדה של '%s' אל '%s' נכשלה דרך '%s'."
+msgstr "שגיאה: ההורדה של '%s' אל '%s' דרך '%s' נכשלה"
 
 #: includes/functions.php router-devices.php
 msgid "Enabled"
@@ -1063,182 +942,177 @@ msgstr "מאופשר"
 #: includes/functions.php
 #, php-format
 msgid "The selected %s is not valid; no devices were changed."
-msgstr ""
+msgstr "הערך הנבחר %s אינו תקין; לא שונו התקנים."
 
 #: includes/functions.php
 msgid "File path validation failed"
-msgstr ""
+msgstr "אימות נתיב הקובץ נכשל"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File '%s' failed to load"
-msgstr "הטעינה של הקובץ '%s' נכשלה"
+msgstr "טעינת הקובץ '%s' נכשלה"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File '%s' was not found"
 msgstr "הקובץ '%s' לא נמצא"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Router Config for %s (%s)"
-msgstr "תצורת נתב עבור %s ( %s)"
+msgstr "תצורת נתב עבור %s (%s)"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backup from %s"
-msgstr "גיבוי מ - %s"
+msgstr "גיבוי מ-%s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File: %s/%s"
-msgstr "קובץ: %s / %s"
+msgstr "קובץ: %s/%s"
 
 #: includes/scheduler.php
-#, fuzzy
 msgid "Manual"
 msgstr "ידני"
 
 #: includes/scheduler.php
-#, fuzzy
 #| msgid "Monthly"
 msgid "Monthly on Day"
-msgstr "באופן חודשי"
+msgstr "חודשי ביום"
 
 #: includes/scheduler.php
 msgid "Sunday"
-msgstr ""
+msgstr "יום ראשון"
 
 #: includes/scheduler.php
 msgid "Monday"
-msgstr ""
+msgstr "יום שני"
 
 #: includes/scheduler.php
 msgid "Tuesday"
-msgstr ""
+msgstr "יום שלישי"
 
 #: includes/scheduler.php
 msgid "Wednesday"
-msgstr ""
+msgstr "יום רביעי"
 
 #: includes/scheduler.php
 msgid "Thursday"
-msgstr ""
+msgstr "יום חמישי"
 
 #: includes/scheduler.php
 msgid "Friday"
-msgstr ""
+msgstr "יום שישי"
 
 #: includes/scheduler.php
 msgid "Saturday"
-msgstr ""
+msgstr "שבת"
 
 #: includes/scheduler.php
-#, fuzzy
 msgid "January"
-msgstr "ידני"
+msgstr "ינואר"
 
 #: includes/scheduler.php
 msgid "February"
-msgstr ""
+msgstr "פברואר"
 
 #: includes/scheduler.php
-#, fuzzy
 #| msgid "Search"
 msgid "March"
-msgstr "חיפוש"
+msgstr "מרץ"
 
 #: includes/scheduler.php
 msgid "April"
-msgstr ""
+msgstr "אפריל"
 
 #: includes/scheduler.php
 msgid "May"
-msgstr ""
+msgstr "מאי"
 
 #: includes/scheduler.php
 msgid "June"
-msgstr ""
+msgstr "יוני"
 
 #: includes/scheduler.php
 msgid "July"
-msgstr ""
+msgstr "יולי"
 
 #: includes/scheduler.php
 msgid "August"
-msgstr ""
+msgstr "אוגוסט"
 
 #: includes/scheduler.php
 msgid "September"
-msgstr ""
+msgstr "ספטמבר"
 
 #: includes/scheduler.php
 msgid "October"
-msgstr ""
+msgstr "אוקטובר"
 
 #: includes/scheduler.php
 msgid "November"
-msgstr ""
+msgstr "נובמבר"
 
 #: includes/scheduler.php
 msgid "December"
-msgstr ""
+msgstr "דצמבר"
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "אחרון"
 
 #: includes/scheduler.php
 msgid "First"
-msgstr ""
+msgstr "ראשון"
 
 #: includes/scheduler.php
 msgid "Second"
-msgstr ""
+msgstr "שניה"
 
 #: includes/scheduler.php
 msgid "Third"
-msgstr ""
+msgstr "שלישי"
 
 #: includes/scheduler.php
 msgid "Fourth"
-msgstr ""
+msgstr "רביעי"
 
 #: includes/scheduler.php
 msgid "Off (no dated subdirectory)"
-msgstr ""
+msgstr "כבוי (ללא תת-תיקייה לפי תאריך)"
 
 #: includes/scheduler.php
 msgid "YYYY-MM-DD"
-msgstr ""
+msgstr "YYYY-MM-DD"
 
 #: includes/scheduler.php
 msgid "YYYY/MM/DD (nested)"
-msgstr ""
+msgstr "YYYY/MM/DD (מקונן)"
 
 #: includes/scheduler.php
 msgid "DD-MM-YYYY"
-msgstr ""
+msgstr "DD-MM-YYYY"
 
 #: includes/scheduler.php
 #, php-format
 msgid "The selected %s is not valid."
-msgstr ""
+msgstr "הערך הנבחר %s אינו תקין."
 
 #: includes/scheduler.php
 msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
-msgstr ""
+msgstr "עבור תזמון חודשי יש לבחור לפחות חודש אחד ויום אחד בחודש."
 
 #: includes/scheduler.php
 msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
-msgstr ""
+msgstr "עבור תזמון חודשי לפי יום יש לבחור חודשים, שבועות בחודש וימים בשבוע."
 
 #: includes/scheduler.php
 msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
-msgstr ""
+msgstr "החודשים והימים בחודש שנבחרו אינם מתקיימים יחד לעולם; בחר יום אחר, או 'אחרון' עבור היום האחרון בחודש."
 
 #: router-accounts.php
-#, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
 msgstr "לחץ על 'המשך' כדי למחוק את החשבונות הבאים."
 
@@ -1251,26 +1125,23 @@ msgid "Continue"
 msgstr "המשך"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "מחק מכשירים"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "עליך לבחור לפחות מכשיר אחד."
+msgstr "עליך לבחור לפחות התקן אחד."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
 msgstr "חזרה אל עריכת פוסט"
 
 #: router-accounts.php
-#, fuzzy, php-format
+#, php-format
 msgid "Account: [edit: %s]"
 msgstr "חשבון: [עריכה: %s]"
 
 #: router-accounts.php
-#, fuzzy
 msgid "Account: [new]"
 msgstr "חשבון: [חדש]"
 
@@ -1283,14 +1154,12 @@ msgid "Account Management"
 msgstr "ניהול חשבון"
 
 #: router-accounts.php
-#, fuzzy
 msgid "No Router Accounts Found"
 msgstr "לא נמצאו חשבונות נתב"
 
 #: router-backups.php setup.php
-#, fuzzy
 msgid "Router Backups"
-msgstr "נתב גיבויים"
+msgstr "גיבויי נתב"
 
 #: router-backups.php router-devices.php
 msgid "Any"
@@ -1309,7 +1178,6 @@ msgid "Go"
 msgstr "עבור"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "הגדר / רענן מסננים"
 
@@ -1326,237 +1194,209 @@ msgid "Hostname"
 msgstr "Hostname"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr "או כתובת IP, או שם מארח. אם שם מארח, זה חייב להיות ניתן לפתרון באמצעות DNS או מקובץ המארחים שלך."
+msgstr "או כתובת IP, או שם מארח. אם שם המארח, הוא חייב להיות פתיר על ידי DNS או מקובץ המארחים שלך."
 
 #: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
 msgstr "מזהה"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr "מזהה מסד הנתונים הפנימי של מכשיר זה. שימושי בעת ביצוע אוטומציה או ניפוי באגים."
+msgstr "מזהה מסד הנתונים הפנימי עבור התקן זה. שימושי בעת ביצוע אוטומציה או איתור באגים."
 
 #: router-backups.php
 msgid "Functions"
 msgstr "פעולות"
 
 #: router-backups.php
-#, fuzzy
 msgid "Perform functions against this backup"
-msgstr "בצע פונקציות כנגד גיבוי זה"
+msgstr "בצע פעולות על גיבוי זה"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The directory of the stored device backups"
-msgstr "מספר הימים לשמירת גיבויים ישנים."
+msgstr "התיקייה שבה מאוחסנים גיבויי ההתקן"
 
 #: router-backups.php
-#, fuzzy
 msgid "Backup Time"
 msgstr "זמן גיבוי"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The last Backup time of the device"
-msgstr "כמה פעמים כדי לגבות את המכשיר הזה."
+msgstr "מועד הגיבוי האחרון של ההתקן"
 
 #: router-backups.php
 msgid "Last Change"
 msgstr "שינוי אחרון"
 
 #: router-backups.php
-#, fuzzy
 msgid "The last Change time of the device"
-msgstr "זמן השינוי האחרון של המכשיר"
+msgstr "מועד השינוי האחרון של ההתקן"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Changed By"
-msgstr "השתנה"
+msgstr "שונה על ידי"
 
 #: router-backups.php
-#, fuzzy
 msgid "The last person to change the configuration of the device"
-msgstr "האדם האחרון ששינה את תצורת המכשיר"
+msgstr "המשתמש האחרון ששינה את תצורת ההתקן"
 
 #: router-backups.php
 msgid "Filename"
 msgstr "שם קובץ"
 
 #: router-backups.php
-#, fuzzy
 msgid "The filename of the stored device backups"
-msgstr "מספר הימים לשמירת גיבויים ישנים."
+msgstr "שם הקובץ של גיבויי ההתקן השמורים"
 
 #: router-backups.php setup.php
-#, fuzzy
 msgid "View Config"
 msgstr "הצג תצורה"
 
 #: router-backups.php
-#, fuzzy
 msgid "No Router Backups Found"
-msgstr "לא נמצאו נתבים גיבויים"
+msgstr "לא נמצאו גיבויי נתבים"
 
 #: router-compare.php
-#, fuzzy
 msgid "Router Backup Comparison"
-msgstr "נתב גיבויים"
+msgstr "השוואת גיבויי נתב"
 
 #: router-compare.php
 msgid "Diff Mode"
-msgstr ""
+msgstr "מצב השוואה"
 
 #: router-compare.php
 msgid "Inline"
-msgstr ""
+msgstr "בשורה"
 
 #: router-compare.php
 msgid "Side by Side"
-msgstr ""
+msgstr "זה לצד זה"
 
 #: router-compare.php
-#, fuzzy
 #| msgid "Continue"
 msgid "Context Lines"
-msgstr "המשך"
+msgstr "שורות הקשר"
 
 #: router-compare.php
-#, fuzzy
 msgid "Compare Output"
 msgstr "השווה פלט"
 
 #: router-compare.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backup %s not found"
-msgstr "הקובץ '%s' לא נמצא"
+msgstr "הגיבוי %s לא נמצא"
 
 #: router-compare.php
-#, fuzzy
 msgid "There are no Changes"
 msgstr "אין שינויים"
 
 #: router-compare.php
-#, fuzzy
 msgid "Error, you must have backups for each device."
-msgstr "שגיאה, אתה חייב להיות גיבויים עבור כל התקן."
+msgstr "שגיאה, חייבים להיות לך גיבויים עבור כל התקן."
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Debug for %s (%s)<br><br>"
-msgstr "ניפוי באגים עבור %s ( %s) <br><br>"
+msgstr "ניפוי שגיאות עבור %s (%s)<br><br>"
 
 #: router-devices.php
-#, fuzzy
 #| msgid "Last Change"
 msgid "No Change"
-msgstr "שינוי אחרון"
+msgstr "ללא שינוי"
 
 #: router-devices.php
 #, php-format
 msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
-msgstr ""
+msgstr "לא שונו התקנים: התזמון החדש אינו יכול לרוץ על מזהי ההתקנים %s, מכיוון שהחודשים, הימים בחודש, השבועות בחודש או הימים בשבוע שלהם חסרים או לעולם אינם מתקיימים. הגדר את התזמון בהתקנים אלה בנפרד."
 
 #: router-devices.php
 #, php-format
 msgid "Updated settings on %d device(s)."
-msgstr ""
+msgstr "ההגדרות עודכנו ב-%d התקן(ים)."
 
 #: router-devices.php
 msgid "No settings were changed; every field was left on \"No Change\"."
-msgstr ""
+msgstr "לא שונו הגדרות; כל שדה הושאר על \"ללא שינוי\"."
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr "DEBUG: ביצוע גיבוי ידני באמצעות '%s' עם ארגומנטים '%s'"
+msgstr "DEBUG: מבצע גיבוי ידני באמצעות '%s' עם הארגומנטים '%s'"
 
 #: router-devices.php
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
-msgstr ""
+msgstr "גיבוי הנתב התחיל. בדוק את עמודת תאריך הגיבוי או את יומן Cacti לקבלת מצב ההשלמה והתזמון"
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
 msgstr "לחץ על 'המשך' כדי למחוק את ההתקנים הבאים."
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
 msgstr "לחץ על 'המשך' כדי להפעיל את ההתקנים הבאים."
 
 #: router-devices.php
-#, fuzzy
 msgid "Enable Device(s)"
 msgstr "הפעלת מכשירים (מכשירים)"
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "לחץ על 'המשך' כדי לבטל את ההתקנים הבאים."
+msgstr "לחץ על 'המשך' כדי להשבית את ההתקנים הבאים."
 
 #: router-devices.php
-#, fuzzy
 msgid "Disable Device(s)"
 msgstr "השבת מכשירים (מכשירים)"
 
 #: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
-msgstr ""
+msgstr "לחץ על 'המשך' כדי לנקות את מפתח המארח השמור של SSH עבור ההתקנים הבאים. חיבור ה-SSH הבא ייתן אמון במפתח שיתקבל ויתעד אותו."
 
 #: router-devices.php
 msgid "Clear SSH Host Key(s)"
-msgstr ""
+msgstr "נקה מפתחות מארח SSH"
 
 #: router-devices.php
 msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
-msgstr ""
+msgstr "הגדר אחת או יותר מההגדרות הבאות בהתקנים שנבחרו. שדות שיישארו על 'ללא שינוי' לא ישתנו."
 
 #: router-devices.php
-#, fuzzy
 #| msgid "Disable"
 msgid "Disabled"
-msgstr "כיבוי"
+msgstr "לא זמין"
 
 #: router-devices.php
-#, fuzzy
 msgid "Apply settings to Device(s)"
-msgstr "מחק מכשירים"
+msgstr "החל הגדרות על התקן/התקנים"
 
 #: router-devices.php
-#, fuzzy
 msgid "You must select at least Router Device."
-msgstr "עליך לבחור לפחות התקן נתב."
+msgstr "עליך לבחור לפחות התקן נתב אחד."
 
 #: router-devices.php
 msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
-msgstr ""
+msgstr "שם המארח (Hostname) אינו תקין. השתמש באותיות, ספרות, רווחים ובתווים . - _ : בלבד, ואל תשתמש במפרידי נתיבים או ב-\"..\"."
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
-msgstr ""
+msgstr "סוג התזמון או 'הרץ שוב כל' שנבחרו אינם תקינים."
 
 #: router-devices.php
 msgid "Not recorded"
-msgstr ""
+msgstr "לא מתועד"
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Router: [edit: %s]"
 msgstr "נתב: [עריכה: %s]"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router: [new]"
 msgstr "נתב: [חדש]"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router Device Management"
-msgstr "נתב ניהול התקנים"
+msgstr "ניהול התקני נתב"
 
 #: router-devices.php
 msgid "Account"
@@ -1567,68 +1407,56 @@ msgid "Actions"
 msgstr "פעולות"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Backup"
 msgstr "גיבוי אחרון"
 
 #: router-devices.php
-#, fuzzy
 msgid "The device type of the device"
-msgstr "סוג ההתקן של המכשיר"
+msgstr "סוג ההתקן של ההתקן"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect Type"
-msgstr "סוג התקן"
+msgstr "סוג חיבור"
 
 #: router-devices.php
-#, fuzzy
 msgid "The connection type for this device"
-msgstr "סוג החיבור למכשיר זה"
+msgstr "סוג החיבור עבור התקן זה"
 
 #: router-devices.php
-#, fuzzy
 msgid "Configs"
-msgstr "קונפיג"
+msgstr "תצורות"
 
 #: router-devices.php
-#, fuzzy
 msgid "The number of configurations for this device"
-msgstr "מספר התצורות עבור מכשיר זה"
+msgstr "מספר התצורות עבור התקן זה"
 
 #: router-devices.php
-#, fuzzy
 msgid "The IP address of this device"
-msgstr "שם סוג התקן זה."
+msgstr "כתובת ה-IP של התקן זה"
 
 #: router-devices.php
 msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
-msgstr ""
+msgstr "שרת ה-TFTP לכל התקן, או ברירת מחדל כאשר נעשה שימוש בהגדרת שרת ה-TFTP הגלובלית"
 
 #: router-devices.php
-#, fuzzy
 msgid "Next Backup"
-msgstr "גיבוי אחרון"
+msgstr "הגיבוי הבא"
 
 #: router-devices.php
-#, fuzzy
 msgid "Date Backup"
-msgstr "גיבוי אחרון"
+msgstr "תאריך גיבוי"
 
 #: router-devices.php
-#, fuzzy
 msgid "Next Attempt"
 msgstr "הניסיון הבא"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "ניסיון אחרון"
 
 #: router-devices.php
-#, fuzzy
 msgid "Date Change"
-msgstr "שינוי אחרון"
+msgstr "תאריך שינוי"
 
 #: router-devices.php
 msgid "Today"
@@ -1647,14 +1475,12 @@ msgid "This Month"
 msgstr "החודש הנוכחי"
 
 #: router-devices.php
-#, fuzzy
 msgid "Within a Year"
-msgstr "תוך שנה"
+msgstr "בתוך שנה"
 
 #: router-devices.php
-#, fuzzy
 msgid "Long, Long Ago"
-msgstr "לפני הרבה זמן"
+msgstr "לפני זמן רב מאוד"
 
 #: router-devices.php router-devtypes.php
 msgid "No"
@@ -1665,149 +1491,128 @@ msgid "Yes"
 msgstr "כן"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect via SSH"
 msgstr "התחבר באמצעות SSH"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect via Telnet"
-msgstr "התחבר דרך Telnet"
+msgstr "התחבר באמצעות Telnet"
 
 #: router-devices.php
-#, fuzzy
 msgid "Trace Route"
-msgstr "מסלול מעקב"
+msgstr "מעקב נתיב"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router Debug Info"
-msgstr "נתב מידע באגים"
+msgstr "מידע ניפוי שגיאות נתב"
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backups (%s)"
-msgstr "גיבויים ( %s)"
+msgstr "גיבויים (%s)"
 
 #: router-devices.php
 msgid "Current"
 msgstr "נוכחי"
 
 #: router-devices.php
-#, fuzzy
 msgid "No Router Devices Found"
-msgstr "לא נמצאו התקנים נתב"
+msgstr "לא נמצאו התקני נתב"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
-msgstr "כאשר תלחץ על 'המשך', המכשירים הבאים יימחקו."
+msgstr "בעת לחיצה על 'המשך', ההתקנים הבאים יימחקו."
 
 #: router-devtypes.php
 #, php-format
 msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
-msgstr ""
+msgstr "הנחיות לאחר התחברות מכילות הנחיה שאינה ביטוי רגולרי תקין: %s"
 
 #: router-devtypes.php
-#, fuzzy, php-format
+#, php-format
 msgid "Query [edit: %s]"
 msgstr "שאילתה [עריכה: %s]"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Query [new]"
 msgstr "שאילתה [חדש]"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "View Router Device Types"
-msgstr "הצג סוגי התקן נתב"
+msgstr "הצג סוגי התקני נתב"
 
 #: router-devtypes.php
 msgid "Type"
 msgstr "סוג"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "User Prompt"
-msgstr "שם משתמש"
+msgstr "בקשת משתמש"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Pass Prompt"
-msgstr "בקשה לסיסמה"
+msgstr "בקשת סיסמה"
 
 #: router-devtypes.php
 msgid "Version"
 msgstr "גרסה"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Confirm Prompt"
-msgstr "אשר"
+msgstr "הנחיית אישור"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Check End In Config"
-msgstr "סמן את הסיום ב- Config"
+msgstr "בדיקת End בתצורה"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "No Router Device Types Found"
-msgstr "לא נמצאו סוגי נתבים מסוג התקנים"
+msgstr "לא נמצאו סוגי התקני נתב"
 
 #: setup.php
-#, fuzzy
 msgid "Router Configs"
-msgstr "נתב Configs"
+msgstr "תצורות נתב"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
-msgstr "DEBUG: ביצוע '%s' עם ארגומנטים '%s'"
+msgstr "DEBUG: מריץ את '%s' עם הארגומנטים '%s'"
 
 #: setup.php
 msgid "Utilities"
-msgstr "Comment"
+msgstr "כלי עזר"
 
 #: setup.php
-#, fuzzy
 msgid "Router Devices"
-msgstr "נתב התקנים"
+msgstr "התקני נתב"
 
 #: setup.php
 msgid "(edit)"
 msgstr "(עריכה)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "פעולות"
+msgstr "(פעולות)"
 
 #: setup.php
-#, fuzzy
 msgid "View Debug"
-msgstr "הצג ניקוי באגים"
+msgstr "הצג ניפוי שגיאות"
 
 #: setup.php
-#, fuzzy
 msgid "Router Accounts"
-msgstr "נתב חשבונות"
+msgstr "חשבונות נתב"
 
 #: setup.php
-#, fuzzy
 msgid "Router Compare"
-msgstr "נתב השווה"
+msgstr "השוואת נתב"
 
 #: setup.php
-#, fuzzy
 msgid "RouterConfigs"
-msgstr "נתב Configs"
+msgstr "RouterConfigs"
 
 #: setup.php
-#, fuzzy
 msgid "Routers"
-msgstr "נתב Configs"
+msgstr "נתבים"
 
 #, fuzzy
 #~ msgid "FATAL: TFTP Server is not set"

@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 23:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk-UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Видалити"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Резервна копія"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Редагувати (масова зміна налаштувань)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Увімкнути"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Вимкнути"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Очистити SSH-ключ хоста"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Успадкувати"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Щодня"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Щотижня"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Щомісяця"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Місяць"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Місяців"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Рік"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d років"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Ніколи"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d година"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d Годин"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d рядок"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d рядків"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Ім'я"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Задайте змістовну назву для цього облікового запису, яка буде відображатися."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Ім'я користувача"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Ім'я користувача, яке використовуватиметься для автентифікації."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Пароль"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Пароль, що використовується для автентифікації."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Пароль Enable"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Ваш пароль для режиму Enable, якщо потрібен."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Увімкнути пристрій"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Зніміть цей прапорець, щоб вимкнути резервне копіювання цього пристрою."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Опис"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Назва цього пристрою (використовуватиметься для збереження конфігурації та SVN, якщо в конфігурації відсутнє ім'я хоста)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "IP адреса"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Це IP-адреса, що використовується для зв'язку з пристроєм."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "TFTP-сервер"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Необов'язковий TFTP-сервер, на який цей пристрій копіює свою конфігурацію. Залиште порожнім, щоб використовувати глобальний параметр TFTP-сервера."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Збережений ключ хоста SSH"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Порівняйте цей алгоритм ключа вузла та шістнадцятковий відбиток SHA-1 із пристроєм через довірений канал. На сервері замініть шлях нижче відповідним файлом відкритого ключа вузла та виконайте: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Використайте дію пристрою, щоб очистити його після легітимної зміни ключа."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Каталог"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Це відносна структура каталогів, яка використовується для зберігання конфігурацій."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Тип розкладу"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Як часто створювати резервну копію цього пристрою. Варіант «Щодня» з параметром «Повторювати кожні» = 10 виконує резервне копіювання кожні 10 днів; «Щомісяця» виконує резервне копіювання за календарним місяцем."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Повторювати кожен"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Для щоденного розкладу повторювати резервне копіювання кожні X днів. Для щотижневого розкладу без вибраних днів тижня повторювати його кожні X тижнів; якщо дні тижня вибрано, резервне копіювання виконується в ці дні щотижня, і це поле не застосовується."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Дні тижня"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Для щотижневого розкладу — день (дні) тижня, у які резервне копіювання виконуватиметься щотижня. Залиште порожнім, щоб натомість запускати кожні «Повторювати кожні» тижнів."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Місяці року"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Для щомісячного розкладу — місяць (місяці) року для виконання резервного копіювання."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Дні місяця"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Для щомісячного розкладу — день (дні) місяця для виконання резервного копіювання (Last = останній день місяця)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Тижні місяця"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Для щомісячного розкладу за днем тижня — тиждень (тижні) місяця для виконання резервного копіювання."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Дні тижня (щомісяця)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Для щомісячного розкладу за днем тижня — день (дні) тижня, що поєднуються з вибраними тижнями місяця."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Тип пристрою"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Виберіть тип пристрою, до якого належить цей маршрутизатор."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Автовизначення"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Тип підключення"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Це тип з'єднання, який використовується для обміну даними з пристроєм."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Обліковий запис автентифікації"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Виберіть обліковий запис для входу на маршрутизатор"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Немає"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Типовий тайм-аут"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Типовий час очікування відповіді в секундах"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Типовий час паузи"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Типовий час паузи в мікросекундах (1/1 000 000 секунди)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Вважати з підвищеними привілеями"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Позначте цей прапорець, щоб вважати, що цей пристрій завжди має підвищені привілеї"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Назва цього типу пристрою."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Запит імені користувача"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Це запит імені користувача, який очікується під час входу."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Запит пароля"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Це запит пароля, який очікується під час входу."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Файл конфігурації"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Це стандартне розташування файлу конфігурації на віддаленому пристрої. Використовується для методів SCP та SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Копіювати через TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Це текст CLI, що використовується для надсилання резервної копії на TFTP-сервер."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Команда захоплення"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Необов'язкова команда, вивід якої зберігається як конфігурація замість копіювання на TFTP-сервер. Вона завжди виконується через SSH незалежно від типу підключення, і тоді пристрою не потрібен TFTP-сервер. Залиште порожнім для пристроїв, які копіюють свою конфігурацію на TFTP. Приклад для MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Показати версію"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Це текст CLI, що використовується для відображення поточної версії."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Запит підтвердження"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Це запит підтвердження, з яким виконується зіставлення перед передачею."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Чи є запит підтвердження для копіювання конфігурації?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Примусове підтвердження"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Чи є запит примусового підтвердження для копіювання конфігурації?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Перевіряти «end» у конфігурації"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Перевіряти «end» у конфігурації?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Запит натискання будь-якої клавіші"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Текст для розпізнавання запиту на кшталт 'Press Any Key To Continue'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Запрошення після входу"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Необов'язкові пари запит/відповідь, що надсилаються одразу після входу перед командою копіювання на TFTP, по одній на рядок у форматі запит|відповідь. Запит зіставляється як регулярний вираз без урахування регістру з виводом пристрою (тому сам запит не може містити |, а дужки та інші спеціальні символи потрібно екранувати, напр. Save \\[y/n\\]), а відповідь надсилається як введено, або використайте <CR>, щоб надіслати лише повернення каретки. Відповідь надсилається лише після появи відповідного запиту — у відповіді на попередню відповідь або в подальшому виводі; інакше до журналу записується попередження й нічого не надсилається. Відповіді на ці запити надаються першими; на запит «Будь-яка клавіша» вище відповідь надається пізніше, під час переходу пристрою в режим enable, тому запит, оброблений тут, ніколи не доходить до «Будь-яка клавіша». Приклад: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Загальні налаштування"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Режим презентації"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Чи відображати Router Configs у консолі або на верхній вкладці."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Консоль"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Верхня вкладка"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Рядки контексту різниці конфігурації"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Кількість незмінених рядків за замовчуванням, що відображається до та після кожної зміни під час порівняння двох резервних копій. Більше значення полегшує перегляд навколишнього контексту конфігурації. Це значення можна змінити для кожного окремого порівняння на сторінці порівняння."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Час очікування підключення вичерпано"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Максимальний час очікування в секундах під час встановлення початкового мережевого з'єднання з пристроєм. Завислий або недосяжний пристрій пропускається після закінчення цього часу очікування, щоб заплановане резервне копіювання продовжилося для решти пристроїв."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Закрити без виходу"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Якщо позначено, під час закриття з'єднання з пристроєм команда 'exit' не надсилається"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Буфер налагодження з'єднання"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Чи записувати до журналу прямий вивід підключення до пристрою"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Вважати всі пристрої з підвищеними привілеями"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Чи вважати всі пристрої такими, що мають підвищені привілеї"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Година завантаження"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Година доби для виконання повного завантаження."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Розклад повторних спроб"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Час очікування перед спробою виконати додаткове завантаження у разі збою запланованого завантаження"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Термін зберігання"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Кількість днів зберігання старих резервних копій."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Зберігати резервні копії неактивних пристроїв"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Якщо позначено, очищення за строком зберігання не видалятиме застарілі резервні копії вимкнених або видалених пристроїв, тому конфігурації виведеного з експлуатації чи недоступного обладнання буде збережено."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Параметри передавання"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Типовий тип з'єднання"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Типовий тип з'єднання, що використовується для взаємодії з пристроєм."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Розділяти за пристроєм"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Розділяти архівовані конфігурації у теку для кожного пристрою"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Підкаталог з датою"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Додавати підкаталог із датою до шляху архіву (перед каталогом пристрою), щоб кожен запуск зберігався в каталозі дати резервного копіювання, наприклад, .../2020-11-04/hostname/.... Якщо вимкнено, зберігається поточна структура."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Шлях SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Під час використання SCP, якщо залишити це поле порожнім, використовуватиметься модуль SCP у PHP, який працює не завжди. Зовнішній SCP вимкнено, поки увімкнено перевірку ключа хоста SSH, оскільки він не може повторно використовувати перевірене з'єднання."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Перевіряти ключі хоста SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Зберігати ключ SSH-хоста кожного пристрою під час першого підключення та відхиляти надсилання облікових даних, якщо він згодом зміниться. Режим SSH/Telnet не перемикатиметься на Telnet, доки увімкнено перевірку. Після правомірної зміни ключа скористайтеся дією пристрою, щоб очистити збережений ключ хоста."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP-адреса TFTP-сервера"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Має бути IP-адресою, що вказує на ваш сервер Cacti."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Шлях до каталогу резервних копій TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Шлях для резервного копіювання ваших конфігурацій; це має бути каталог, куди записує локальний TFTP-сервер."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Шлях до каталогу архіву"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Шлях, куди архівуватимуться ваші конфігурації (переміщуватимуться з каталогу TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Параметри електронної пошти"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Адреса відправника"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Адреса електронної пошти, з якої надсилатиметься нічна резервна копія."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Від імені"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Ім'я, від якого надсилатиметься нічне резервне копіювання."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Email адреса"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Список адрес електронної пошти через кому для надсилання нічного листа з резервним копіюванням."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Включити відмінності конфігурації"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Додавати до листа резервного копіювання уніфіковане порівняння (diff) для кожного пристрою, конфігурація якого змінилася під час запуску, щоб рецензент міг точно бачити, що змінилося. Двійкові (нетекстові) конфігурації пропускаються. Змінні рядки, які змінюються під час кожного резервного копіювання (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' і 'Current configuration :', а також NX-OS '!Time:' і '!Running configuration last done at:'), завжди ігноруються. Попередження: порівняння надсилається відкритим текстом кожному отримувачу листа, тому воно може розкрити конфігурацію, яка має залишатися конфіденційною; залиште прапорець «Включати секретні дані у порівняння» знятим."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Включити секретні дані у відмінності"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Надсилати секретні значення у відмінності (diff) електронною поштою як є. Якщо прапорець знято (за замовчуванням), змінені рядки знаходяться у вихідних конфігураціях і виводяться з приховуванням конфіденційних даних за принципом заборони за замовчуванням: рядки, що містять слова, схожі на секрети (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private), а також рядки хостів і користувачів SNMP скорочуються до першого слова, за яким слідує &lt;secret hidden&gt;, а кожен рядок блоку PEM, блоку сертифіката чи рядка ключа, багаторядкового значення в лапках і будь-який рядок hex або base64 приховуються; блок, що не завершується, приховує решту конфігурації. Це також приховує нешкідливі рядки (наприклад, опис зі згадкою key), але кожен змінений рядок усе одно відображається з позначкою (changed), коли відрізняється лише його прихована частина, а незавершений блок відмічається в електронному листі. Збережені резервні копії ніколи не змінюються."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Шаблони виключення для порівняння (diff)"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Необов'язкові регулярні вирази (по одному на рядок), що відповідають рядкам конфігурації, які слід ігнорувати під час порівняння, щоб мінливі рядки, як-от мітки часу або серійні номери, не відображалися як зміни. Кожен шаблон зіставляється без урахування регістру в будь-якому місці рядка, якщо не закріплений за допомогою ^ або $; шаблон, який не є коректним регулярним виразом, ігнорується."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Список сповіщень Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Якщо встановлено Thold, також надсилати електронний лист із резервною копією одержувачам вибраного списку сповіщень Thold."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Додати до резервного копіювання RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Натисніть 'Продовжити', щоб додати наведені нижче пристрої до RouterConfigs для резервного копіювання. Будь-який пристрій, який уже є в RouterConfigs, пропускається."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Пристрої"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Типи пристроїв"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Аутентифікація"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Резервні копії"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Порівняти"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Технічна підтримка [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s симв.)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Не задано)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ПОВІДОМЛЕННЯ: Запуск ручного резервного копіювання %s пристроїв"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ПОВІДОМЛЕННЯ: Запуск автоматичної повторної спроби"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ПОВІДОМЛЕННЯ: Запуск автоматичного резервного копіювання"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "КРИТИЧНО: шлях резервного копіювання TFTP не задано або це не каталог"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Спроба завантаження для %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Успішно виконано резервне копіювання %s пристроїв."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Не вдалося виконати резервне копіювання %s пристроїв."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Для %s пристроїв вимкнено резервне копіювання."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Змін конфігурації не виявлено."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Резервні копії конфігурації"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Резервні копії конфігурації"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Примусово"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Вручну"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Зімітовано"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - За розкладом"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Повторна спроба"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Частково"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": ПОМИЛКА"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "СТАТИСТИКА: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "ПОМИЛКА: шлях резервного копіювання не задано або він не є каталогом"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "ПОПЕРЕДЖЕННЯ: Період зберігання '%s' недійсний, використовується значення за замовчуванням 30 днів"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "СТАТИСТИКА: Резервне копіювання триває з %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "ПОПЕРЕДЖЕННЯ: Резервне копіювання вже виконується з %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Пристрій Cacti з ID %s не знайдено; не додано до RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Пристрій '%s' уже є в RouterConfigs; пропущено."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Пристрій '%s' додано до RouterConfigs (вимкнено, доки не вказано обліковий запис і тип пристрою)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Не вдалося додати пристрій '%s' до RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Блок приховування в рядку %d попередньої резервної копії не закрито; наступні рядки приховано."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Блок приховування в рядку %d нової резервної копії не закрито; наступні рядки приховано."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "ПОМИЛКА: ім'я вузла пристрою '%s' неприпустиме як назва файлу резервної копії; відредагуйте пристрій і використовуйте лише символи імені вузла або IP-адреси"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "ПОМИЛКА: для пристрою '%s' не задано сервер TFTP; вкажіть сервер TFTP для пристрою або в глобальних налаштуваннях"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "ПОМИЛКА: не пройдено перевірку ключа вузла SSH для пристрою '%s'; відмова у надсиланні облікових даних або переході на Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "ПОМИЛКА: збій SSH-підключення до пристрою '%s'; резервний перехід на Telnet вимкнено, доки увімкнено перевірку ключа вузла SSH"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "ПОМИЛКА: не вдалося підключитися до пристрою '%s' з типом підключення: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "ПОМИЛКА: не вдалося завантажити '%s' до '%s' через '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Вибраний елемент %s є некоректним; жоден пристрій не було змінено."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Помилка перевірки шляху до файлу"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Не вдалося завантажити файл '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Файл '%s' не знайдено"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Конфігурація маршрутизатора для %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Резервна копія від %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Файл: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Вручну"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Щомісяця в день"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Неділя"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Понеділок"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Вівторок"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Середа"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Четвер"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "П'ятниця"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Субота"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Січень"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Лютий"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Березень"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Квітень"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Травень"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Червень"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Липень"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Серпень"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Вересень"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Жовтень"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Листопад"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Грудень"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Останній"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Перший"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Секунда"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Третій"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Четвертий"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Вимк. (без підкаталогу з датою)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (вкладений)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "ДД-ММ-РРРР"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Вибраний елемент %s є некоректним."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Для щомісячного розкладу потрібно вибрати принаймні один місяць і один день місяця."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Для щомісячного розкладу за днем тижня потрібно вибрати місяці, тижні місяця та дні тижня."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Вибрані місяці та дні місяця ніколи не збігаються; виберіть інший день або «Останній» (Last) для останнього дня місяця."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче облікові записи."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Продовжити"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Видалити Пристрій(ої)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Необхідно вибрати принаймні один пристрій."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Повернутися"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Обліковий запис: [редагування: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Обліковий запис: [новий]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Облікові записи"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Керування обліковими записами"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Облікових записів маршрутизаторів не знайдено"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Резервні копії маршрутизаторів"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Будь-який"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Пошук"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Перейти"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Встановити/оновити фільтри"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Очистити"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Очистити фільтри"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Ім'я хоста"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "IP-адреса, чи ім'я хоста. Якщо це ім’я хоста, воно має бути резолвитись за допомогою DNS чи вашого файлу hosts."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Внутрішній ID бази даних для цього Пристрою. Корисно для автоматизації та відлагодження."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Функції"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Виконати дії над цією резервною копією"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Каталог збережених резервних копій пристрою"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Час резервного копіювання"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Час останнього резервного копіювання пристрою"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Остання зміна"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Час останньої зміни пристрою"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Ким змінено"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Останній користувач, який змінив конфігурацію пристрою"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Назва файлу"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Ім'я файлу збережених резервних копій пристрою"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Перегляд конфігурації"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Резервних копій маршрутизаторів не знайдено"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Порівняння резервних копій маршрутизаторів"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Режим порівняння (diff)"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Вбудовані"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Поряд"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Рядки контексту"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Порівняти вивід"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Резервну копію %s не знайдено"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Змін немає"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Помилка: для кожного пристрою мають бути резервні копії."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Налагодження для %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Без змін"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Жоден пристрій не змінено: новий розклад не може виконуватися на пристроях з ID %s, оскільки значення полів «Місяці», «Дні місяця», «Тижні місяця» або «Дні тижня» відсутні або ніколи не настають. Налаштуйте розклад для цих пристроїв окремо."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Оновлено налаштування на %d пристроях(-ї)."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Жодних налаштувань не змінено; для кожного поля залишено значення «Без змін»."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Виконання ручного резервного копіювання за допомогою '%s' з аргументами '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Резервне копіювання маршрутизатора розпочато. Перевірте стовпець дати резервного копіювання або журнал Cacti, щоб дізнатися статус і час завершення"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче пристрої."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Натисніть 'Продовжити', щоб увімкнути наведені нижче пристрої."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Ввімкнути Пристрої"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Натисніть 'Продовжити', щоб вимкнути наведені нижче пристрої."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Вимкнути Пристрої"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Натисніть 'Продовжити', щоб очистити збережений SSH-ключ хоста для наведених нижче пристроїв. Під час наступного SSH-з'єднання отриманий ключ буде прийнято як довірений і збережено."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Очистити SSH-ключ(і) хоста"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Установіть один або кілька наведених нижче параметрів для вибраного пристрою(-їв). Поля, залишені в стані «Без змін», не змінюються."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Вимкнен"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Застосувати налаштування до пристрою(їв)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Необхідно вибрати принаймні один пристрій маршрутизатора."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Некоректне ім'я вузла. Використовуйте лише літери, цифри, пробіли та символи . - _ : і не використовуйте роздільники шляхів чи \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Вибраний тип розкладу або інтервал повторного запуску (Rerun Every) є некоректним."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Не зафіксовано"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Маршрутизатор: [редагування: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Маршрутизатор: [новий]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Керування пристроями маршрутизаторів"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Обліковий запис"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Дії"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Остання резервна копія"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Тип цього пристрою"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Тип підключення"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Тип підключення для цього пристрою"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Конфігурації"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Кількість конфігурацій для цього пристрою"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "IP-адреса цього пристрою"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "TFTP-сервер для окремого пристрою або «Типово», якщо використовується глобальне налаштування TFTP-сервера"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Наступне резервне копіювання"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Дата резервної копії"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Наступна спроба"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Остання спроба"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Дата зміни"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Сьогодні"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Вчора"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Цей тиждень"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Цей місяць"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Протягом року"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Дуже давно"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Ні"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Так"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Підключитися через SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Підключитися через Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Трасування маршруту"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Налагоджувальна інформація маршрутизатора"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Резервні копії (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Поточний"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Пристроїв маршрутизаторів не знайдено"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Після натискання 'Продовжити' такі пристрої буде видалено."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "«Запрошення після входу» містить запит, який не є коректним регулярним виразом: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Запит [редагування: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Запит [новий]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Перегляд типів пристроїв маршрутизаторів"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Тип"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Запит користувача"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Запит пароля"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Версія"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Запит підтвердження"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Перевіряти «end» у конфігурації"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Типів пристроїв маршрутизаторів не знайдено"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Конфігурації маршрутизаторів"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Виконання '%s' з аргументами '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Комунальні послуги"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Пристрої маршрутизаторів"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(редагувати)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(дії)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Перегляд налагодження"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Облікові записи маршрутизаторів"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Порівняння маршрутизаторів"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Маршрутизатори"
+

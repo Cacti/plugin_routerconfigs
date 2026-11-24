@@ -448,11 +448,11 @@ msgstr "Detta är den CLI-text som används för att skicka säkerhetskopian til
 
 #: includes/arrays.php
 msgid "Capture Command"
-msgstr ""
+msgstr "Insamlingskommando"
 
 #: includes/arrays.php
 msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
-msgstr ""
+msgstr "Valfritt kommando vars utdata sparas som konfigurationen i stället för att kopiera den till en TFTP-server. Det körs alltid över SSH, oavsett anslutningstyp, och enheten behöver då ingen TFTP-server. Lämna tomt för enheter som kopierar sin konfiguration till TFTP. Exempel för MikroTik RouterOS: /export"
 
 #: includes/arrays.php
 msgid "Show Version"
@@ -905,12 +905,12 @@ msgstr "Maskeringsblock på rad %d i den nya säkerhetskopian avslutades aldrig.
 #: includes/functions.php
 #, php-format
 msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
-msgstr ""
+msgstr "FEL: Värdnamnet för enheten '%s' är inte giltigt som filnamn för säkerhetskopia; redigera enheten och använd endast tecken för värdnamn eller IP-adress"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
-msgstr ""
+msgstr "FEL: Ingen TFTP-server är angiven för enheten '%s'; ange en TFTP-server på enheten eller i de globala inställningarna"
 
 #: includes/functions.php
 #, php-format
@@ -1367,7 +1367,7 @@ msgstr "Du måste välja minst en routerenhet."
 
 #: router-devices.php
 msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
-msgstr ""
+msgstr "Värdnamnet är ogiltigt. Använd endast bokstäver, siffror, mellanslag och tecknen . - _ : och använd inte sökvägsavgränsare eller \"..\"."
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
