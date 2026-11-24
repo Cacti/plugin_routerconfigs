@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Arabic (Morocco)\n"
+"Language: ar-MA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "النسخ الاحتياطي"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "تحرير (تغيير الإعدادات بشكل جماعي)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "تفعيل"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "تعطيل"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "مسح مفتاح SSH للمستضيف Host"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "تلنت"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "وراثة"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "يومي"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "أسبوعي"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "شهري"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d شهر"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d أشهر"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d سنة"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d سنوات"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "أبدا"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d ساعة"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d ساعات"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 صباحًا)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 صباحًا)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 صباحًا)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 صباحًا)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 صباحًا)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 صباحًا)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 صباحًا)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 صباحًا)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 صباحًا)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 صباحًا)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 صباحًا)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 صباحًا)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 مساءً)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 مساءً)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 مساءً)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 مساءً)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 مساءً)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 مساءً)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 مساءً)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 مساءً)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 مساءً)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 مساءً)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 مساءً)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 مساءً)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d سطر"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "خطوط %d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "الاسم"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "أعطِ هذا الحساب اسمًا ذا معنى ليتم عرضه."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "اسم المستخدم الذي سيُستخدم للمصادقة."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "كلمة المرور المستخدمة للمصادقة."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "كلمة مرور التمكين (Enable)"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "كلمة مرور التفعيل الخاصة بك، إذا كانت مطلوبة."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "تمكين الجهاز"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "ألغِ تحديد هذا المربع لتعطيل النسخ الاحتياطي لهذا الجهاز."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "الوصف"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "اسم هذا الجهاز (سيتم استخدامه لحفظ الإعدادات و SVN في حالة عدم وجود اسم مستضيف في الإعدادات)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "عنوان الIP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "هذا هو عنوان IP المستخدم للتواصل مع الجهاز."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "خادم TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "خادم TFTP اختياري ينسخ هذا الجهاز تكوينه إليه. اتركه فارغًا لاستخدام إعداد خادم TFTP العام."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "مفتاح مستضيف SSH المخزن"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "قارن خوارزمية مفتاح المستضيف وبصمة SHA-1 السداسية عشرية هذه مع الجهاز عبر قناة موثوقة. على الخادم، استبدل المسار أدناه بملف مفتاح المستضيف العام المطابق ونفّذ: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. استخدم إجراء الجهاز لمسحه بعد تغيير مفتاح مشروع."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "الدليل"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "هذا هو هيكل المجلدات النسبي المستخدم لتخزين ملفات التكوين."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "نوع الجدول"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "عدد مرات النسخ الاحتياطي لهذا الجهاز. الخيار يومي مع قيمة إعادة التشغيل كل 10 يقوم بالنسخ الاحتياطي كل 10 أيام؛ بينما يقوم الخيار شهري بالنسخ الاحتياطي وفقاً للشهر التقويمي الفعلي."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "أعد تشغيل كل"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "بالنسبة للجداول اليومية، أعد تشغيل النسخ الاحتياطي كل X يوم. وبالنسبة للجداول الأسبوعية بدون أيام محددة من الأسبوع، أعد تشغيله كل X أسبوع؛ وبمجرد تحديد أيام الأسبوع، يعمل النسخ الاحتياطي في تلك الأيام كل أسبوع ولا ينطبق هذا الحقل."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "أيام من الأسبوع"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "بالنسبة للجدول الأسبوعي، يوم (أو أيام) الأسبوع لتشغيل النسخ الاحتياطي فيه كل أسبوع. اتركه فارغًا للتشغيل كل عدد أسابيع «إعادة التشغيل كل» بدلاً من ذلك."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "أشهر من العام"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "بالنسبة للجدول الشهري، شهر (أو أشهر) السنة لتشغيل النسخ الاحتياطي فيه."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "ايام الشهر"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "بالنسبة للجدول الشهري، يوم (أو أيام) الشهر لتشغيل النسخ الاحتياطي فيه (Last = آخر يوم في الشهر)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "أسابيع الشهر"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "بالنسبة لجدول شهري في يوم محدد، أسبوع (أو أسابيع) الشهر لتشغيل النسخ الاحتياطي فيه."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "أيام الأسبوع (شهريًا)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "بالنسبة لجدول شهري في يوم محدد، يوم (أو أيام) الأسبوع المقترن باختيار أسابيع الشهر."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "نوع الجهاز"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "اختر نوع الجهاز الخاص بالموجه."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "اكتشاف تلقائي"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "نوع الاتصال"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "هذا هو نوع الاتصال المستخدم للتواصل مع الجهاز."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "حساب المصادقة"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "اختر حسابًا لاستخدامه في تسجيل الدخول إلى الموجه"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "لا شيء"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "مهلة الانتظار الافتراضية"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "وقت الانتظار الافتراضي بالثواني للحصول على استجابة"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "وقت السكون الافتراضي"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "وقت السكون الافتراضي بالميكروثانية (1/1,000,000 من الثانية)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "افتراض صلاحيات مرتفعة"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "حدّد هذا المربع لافتراض أن هذا الجهاز يعمل دائمًا بصلاحيات مرتفعة"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "اسم نوع هذا الجهاز."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "مطالبة اسم المستخدم"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "هذا هو موجه اسم المستخدم المطلوب مطابقته عند تسجيل الدخول."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "موجه كلمة المرور"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "هذا هو موجه كلمة المرور المطلوب مطابقته عند تسجيل الدخول."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "ملف التكوين"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "هذا هو الموقع القياسي لملف التكوين على الجهاز البعيد. يُستخدم لطريقتي SCP وSFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "نسخ TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "هذا هو نص CLI المستخدم لإرسال النسخة الاحتياطية إلى خادم tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "أمر الالتقاط"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "أمر اختياري يُحفظ مخرجه كملف تكوين، بدلًا من نسخه إلى خادم TFTP. يُشغَّل دائمًا عبر SSH، بغض النظر عن نوع الاتصال، ولا يحتاج الجهاز حينها إلى خادم TFTP. اتركه فارغًا للأجهزة التي تنسخ تكوينها إلى TFTP. مثال لـ MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "إظهار الإصدار"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "هذا هو نص CLI المستخدم لعرض الإصدار الحالي."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "مطالبة التأكيد"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "هذا هو موجه التأكيد المطلوب مطابقته قبل الإرسال."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "قم بالتأكيد"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "هل يوجد موجه تأكيد لنسخ التكوين؟"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "فرض التأكيد"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "هل يوجد موجه تأكيد إجباري لنسخ التكوين؟"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "التحقق من End في التكوين"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "هل يتم التحقق من end في التكوين؟"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "مطالبة الضغط على أي مفتاح"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "نص لمطابقة موجه مثل 'Press Any Key To Continue'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "موجهات ما بعد تسجيل الدخول"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "أزواج اختيارية من المطالبة/الاستجابة تُرسل مباشرة بعد تسجيل الدخول وقبل أمر النسخ إلى TFTP، واحد في كل سطر بصيغة prompt|response. تتم مطابقة المطالبة كتعبير نمطي غير حساس لحالة الأحرف مع مخرجات الجهاز (لذا لا يمكن أن تحتوي نفسها على |، ويجب تهريب الأقواس والأحرف الخاصة الأخرى، مثل Save \\[y/n\\])، وتُرسل الاستجابة كما كُتبت، أو استخدم <CR> لإرسال مفتاح الإدخال فقط. لا تُرسل الاستجابة إلا بعد رؤية مطالبتها، سواء في الرد على الاستجابة السابقة أو في مخرجات لاحقة؛ وإلا يُسجَّل تحذير ولا يُرسل شيء. تتم الإجابة على هذه أولًا؛ أما مطالبة Any Key أعلاه فتتم الإجابة عليها لاحقًا أثناء تمكين الجهاز، لذا فإن المطالبة المجاب عليها هنا لا تصل أبدًا إلى Any Key. مثال: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "الاعدادات العامة"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "وضع العرض التقديمي"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "هل يجب عرض Router Configs في وحدة التحكم أم في تبويب علوي."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "وحدة التحكم"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "أعلى تبويب"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "أسطر سياق مقارنة التكوين"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "العدد الافتراضي للأسطر غير المتغيرة المراد عرضها قبل وبعد كل تغيير عند مقارنة نسختين احتياطيتين. تسهل القيمة الأكبر رؤية سياق التكوين المحيط. يمكن تجاوز ذلك لكل مقارنة في صفحة المقارنة."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "مهلة الاتصال"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "أقصى وقت للانتظار بالثواني عند إنشاء اتصال الشبكة الأولي بجهاز. يتم التخلي عن الجهاز المعلق أو غير القابل للوصول بعد هذه المهلة حتى تستمر عملية النسخ الاحتياطي المجدولة مع باقي الأجهزة."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "إغلاق دون خروج"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "إذا تم تحديده، فعند إغلاق اتصال الجهاز، لن يتم إصدار الأمر 'exit'"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "مخزن تصحيح الاتصال المؤقت"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "ما إذا كان يجب تسجيل المخرجات المباشرة لاتصال الجهاز"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "افتراض أن جميع الأجهزة ذات صلاحيات مرتفعة"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "ما إذا كان يجب افتراض أن جميع الأجهزة بصلاحيات مرتفعة"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "ساعة التنزيل"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "ساعة اليوم لإجراء التنزيلات الكاملة."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "جدول إعادة المحاولة"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "وقت الانتظار قبل محاولة إجراء تنزيل إضافي عند فشل التنزيل المجدول"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "فترة الاحتفاظ"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "عدد الأيام للاحتفاظ بالنسخ الاحتياطية القديمة."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "الاحتفاظ بالنسخ الاحتياطية للجهاز غير النشط"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "عند التحديد، لن يحذف تنظيف الاحتفاظ النسخ الاحتياطية المنتهية صلاحيتها التي تخص الأجهزة المعطلة أو الأجهزة التي تمت إزالتها، بحيث يتم الاحتفاظ بتكوينات المعدات الخارجة من الخدمة أو التي يتعذر الوصول إليها."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "خيارات النقل"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "نوع الاتصال الافتراضي"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "نوع الاتصال الافتراضي المستخدم للتواصل مع الجهاز."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "الفصل حسب الجهاز"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "فصل التكوينات المؤرشفة في مجلد لكل جهاز"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "مجلد فرعي مؤرخ"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "إدراج دليل فرعي يستند إلى التاريخ في مسار الأرشيف (قبل المجلد الخاص بكل جهاز)، بحيث يتم تخزين كل تشغيل تحت تاريخ النسخ الاحتياطي الخاص به، مثل .../2020-11-04/hostname/.... يؤدي إيقاف التشغيل إلى الحفاظ على التخطيط الحالي."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "مسار SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "عند استخدام SCP، سيؤدي ترك هذا الحقل فارغًا إلى استخدام وحدة SCP الخاصة بـ PHP والتي لا تعمل دائمًا. يتم تعطيل SCP الخارجي أثناء تفعيل التحقق من مفتاح المستضيف Host لـ SSH لأنه لا يمكنه إعادة استخدام الاتصال الذي تم التحقق منه."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "التحقق من مفاتيح المستضيف Host لـ SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "تسجيل مفتاح المستضيف Host الخاص بـ SSH لكل جهاز عند الاتصال الأول ورفض إرسال بيانات الاعتماد إذا تغير لاحقًا. لن يرجع وضع SSH/Telnet إلى Telnet أثناء تفعيل التحقق. بعد تغيير المفتاح بشكل مشروع، استخدم إجراء الجهاز لمسح مفتاح المستضيف Host المخزن."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "عنوان IP لخادم TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "يجب أن يكون عنوان IP يشير إلى خادم Cacti الخاص بك."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "مسار مجلد النسخ الاحتياطي لـ TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "المسار الذي سيتم نسخ التكوينات احتياطيًا إليه، يجب أن يكون المسار الذي يكتب إليه خادم TFTP المحلي."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "مسار مجلد الأرشيف"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "المسار الذي سيتم أرشفة التكوينات فيه (نقلها من دليل TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "خيارات البريد الكتروني"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "كعنوان للبريد"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "عنوان البريد الإلكتروني الذي سيتم إرسال النسخ الاحتياطي الليلي منه."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "اسم النموذج"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "الاسم الذي سيتم إرسال النسخ الاحتياطي الليلي منه."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "قائمة مفصولة بفواصل لعناوين البريد الإلكتروني لإرسال بريد النسخ الاحتياطي الليلي إليها."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "تضمين فروقات التكوين"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "إلحاق ملف فروقات موحد لكل جهاز تغيرت إعداداته أثناء التشغيل بالبريد الإلكتروني للنسخ الاحتياطي، حتى يتمكن المراجع من رؤية ما تغير بالضبط. يتم تخطي الإعدادات الثنائية (غير النصية). يتم دائمًا تجاهل الأسطر المتغيرة التي تتبدل في كل نسخة احتياطية (في Cisco IOS: '! Last configuration change' و'! NVRAM config last updated' و'ntp clock-period' و'Current configuration :'، وفي NX-OS: '!Time:' و'!Running configuration last done at:'). تحذير: يُرسل ملف الفروقات كنص واضح إلى كل مستلم للبريد الإلكتروني، مما قد يكشف عن إعدادات يجب أن تبقى سرية؛ اترك خيار «تضمين الأسرار في الفروقات» غير محدد."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "تضمين الأسرار في الفروقات"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "إرسال القيم السرية في الفروقات (diff) المرسلة عبر البريد الإلكتروني كما هي. عند عدم التحديد (الوضع الافتراضي)، يتم البحث عن الأسطر المتغيرة في التكوينات الأولية وطباعتها منقحة بنهج الإغلاق الآمن: الأسطر التي تحتوي على كلمات تشير إلى أسرار (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) وأسطر مستضيف SNMP والمستخدم يتم اختصارها إلى كلمتها الأولى متبوعة بـ &lt;secret hidden&gt;، كما يتم إخفاء كل سطر من كتلة PEM أو كتلة شهادة أو سلسلة مفتاح أو قيمة مقتبسة متعددة الأسطر وأي صف سداسي عشري (hex) أو base64؛ والكتلة التي لا تنتهي تخفي بقية التكوين. يؤدي هذا أيضًا إلى إخفاء أسطر غير ضارة (مثل وصف يذكر مفتاحًا)، ولكن يظل كل سطر متغير ظاهرًا مع تمييزه بـ (changed) عندما يختلف جزؤه المخفي فقط، وتُذكر الكتلة التي لا تنتهي في البريد الإلكتروني. ولا يتم تغيير النسخ الاحتياطية المخزنة أبدًا."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "أنماط استبعاد المقارنة (Diff)"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "تعبيرات نمطية اختيارية (واحد في كل سطر) تطابق أسطر التكوين المطلوب تجاهلها عند المقارنة، بحيث لا تظهر الأسطر المتغيرة مثل الطوابع الزمنية أو الأرقام التسلسلية كتغييرات. تتم مطابقة كل نمط دون حساسية لحالة الأحرف في أي مكان بالسطر ما لم يكن مثبتًا بـ ^ أو $؛ ويتم تجاهل أي نمط لا يمثل تعبيرًا نمطيًا صالحًا."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "قائمة إشعارات Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "عند تثبيت Thold، أرسل أيضًا البريد الإلكتروني للنسخ الاحتياطي إلى مستلمي قائمة إشعارات Thold المحددة."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "إضافة إلى النسخ الاحتياطي لـ RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "انقر على 'إستمرار' لإضافة الجهاز (الأجهزة) التالية إلى RouterConfigs للنسخ الاحتياطي. يتم تخطي أي جهاز موجود بالفعل في RouterConfigs."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "أنواع الأجهزة"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "المصادقة"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "النسخ الاحتياطية"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "قارن"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "الدعم الفني [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s حرف)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(غير محدد)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "إشعار: جارٍ بدء النسخ الاحتياطي اليدوي لعدد %s من الأجهزة"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "إشعار: جارٍ بدء إعادة المحاولة التلقائية"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "إشعار: جارٍ بدء النسخ الاحتياطي التلقائي"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "خطأ فادح: مسار النسخ الاحتياطي عبر TFTP غير محدد أو ليس مجلداً"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "تصحيح: محاولة التنزيل لـ %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "تم النسخ الاحتياطي لـ %s من الأجهزة بنجاح."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "فشل النسخ الاحتياطي لـ %s من الأجهزة."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "تم تعطيل النسخ الاحتياطي لـ %s من الأجهزة."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "لم يتم اكتشاف أي تغييرات في التهيئة."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "النسخ الاحتياطية للتكوين"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "النسخ الاحتياطية للتكوين"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - إجباري"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - يدوي"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - محاكى"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - مجدول"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - إعادة المحاولة"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": جزئي"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": فشل"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "الإحصائيات: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "خطأ: مسار النسخ الاحتياطي غير محدد أو ليس مجلدًا"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "تحذير: مدة الاحتفاظ '%s' غير صالحة، سيتم استخدام 30 يومًا افتراضيًا"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "الإحصائيات: النسخ الاحتياطي قيد التشغيل الآن منذ %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "تحذير: النسخ الاحتياطي قيد التشغيل بالفعل منذ %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "لم يتم العثور على معرّف جهاز Cacti %s؛ لم تتم إضافته إلى RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "الجهاز '%s' موجود بالفعل في RouterConfigs؛ تم تخطيه."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "تمت إضافة الجهاز '%s' إلى RouterConfigs (معطل حتى يتم تعيين حساب ونوع جهاز)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "فشل إضافة الجهاز '%s' إلى RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "كتلة التنقيح في السطر %d من النسخة الاحتياطية السابقة لم تُغلق أبدًا؛ تم إخفاء الأسطر التالية."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "كتلة التنقيح في السطر %d من النسخة الاحتياطية الجديدة لم تُغلق أبدًا؛ تم إخفاء الأسطر التالية."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "خطأ: اسم مستضيف الجهاز '%s' غير صالح كاسم ملف نسخ احتياطي؛ قم بتحرير الجهاز واستخدم أحرف اسم المستضيف أو عنوان IP فقط"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "خطأ: لم يتم تعيين خادم TFTP للجهاز '%s'؛ قم بتعيين خادم TFTP على الجهاز أو في الإعدادات العامة"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "خطأ: فشل التحقق من مفتاح مستضيف SSH للجهاز '%s'؛ تم رفض إرسال بيانات الاعتماد أو الرجوع إلى Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "خطأ: فشل اتصال SSH للجهاز '%s'؛ تم تعطيل الرجوع إلى Telnet بينما يكون التحقق من مفتاح مستضيف SSH مفعلًا"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "خطأ: فشل الاتصال بالجهاز '%s' باستخدام نوع الاتصال: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "خطأ: فشل تنزيل '%s' إلى '%s' عبر '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "مفعل"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s المحدد غير صالح؛ لم يتم تغيير أي أجهزة."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "فشل التحقق من صحة مسار الملف"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "فشل تحميل الملف '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "لم يتم العثور على الملف '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "تكوين الموجه لـ %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "نسخة احتياطية من %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "الملف: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "دليل"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "شهريا في اليوم"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "الأحد"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "الاثنين"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "الخميس"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "الجمعة"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "السبت"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "يناير"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "فبراير"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "مارس"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "أبريل"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "ماي"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "يونيو"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "يوليوز"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "غشت"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "شتنبر"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "أكتوبر"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "نونبر"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "دجنبر"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "الاخير"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "الاول"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "ثانية"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "الثالث"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "الرابع"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "إيقاف (بدون مجلد فرعي مؤرخ)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (متداخل)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s المحدد غير صالح."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "بالنسبة للجدول الشهري، يجب تحديد شهر واحد ويوم واحد من الشهر على الأقل."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "بالنسبة لجدول شهري في يوم محدد، يجب تحديد الأشهر وأسابيع الشهر وأيام الأسبوع."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "الأشهر وأيام الشهر المحددة لا تتوافق معًا أبدًا؛ اختر يومًا آخر، أو «الأخير» لآخر يوم في الشهر."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "انقر على 'إستمرار' لحذف الحساب (الحسابات) التالية."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "إستمرار"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "حذف الجهاز (الأجهزة)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "يجب عليك اختيار جهاز واحد على الأقل."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "عودة"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "الحساب: [تحرير: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "الحساب: [جديد]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "حسابات"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "إدارة الحساب"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "لم يتم العثور على حسابات موجهات"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "النسخ الاحتياطية للموجهات"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "الجميع"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "بحث"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "الافتراضي"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "انتقال"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "مجموعة / تحديث الفلاتر"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "مسح"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "مسح الفلتر"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "اسم الخادم"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "إما عنوان IP ، أو اسم المضيف. إذا كان اسم المضيف ، يجب أن يكون قابلاً للحل إما بواسطة DNS ، أو من ملف المضيفات."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "الهویة الشخصیة"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "معرف قاعدة البيانات الداخلي لهذا الجهاز. مفيد عند تنفيذ التشغيل الآلي أو التصحيح."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "الوظائف"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "تنفيذ وظائف على هذه النسخة الاحتياطية"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "دليل النسخ الاحتياطية المخزنة للجهاز"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "وقت النسخ الاحتياطي"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "وقت آخر نسخ احتياطي للجهاز"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "اخر تغير"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "وقت آخر تغيير للجهاز"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "تم التغيير بواسطة"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "آخر شخص قام بتغيير تكوين الجهاز"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "اسم الملف"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "اسم ملف النسخ الاحتياطية المخزنة للجهاز"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "عرض التكوين"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "لم يتم العثور على نسخ احتياطية للموجهات"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "مقارنة النسخ الاحتياطية للموجه"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "وضع المقارنة (Diff)"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "داخل النص"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "جنباً إلى جنب"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "أسطر السياق"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "مقارنة المخرجات"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "لم يتم العثور على النسخة الاحتياطية %s"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "لا توجد تغييرات"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "خطأ، يجب أن يكون لديك نسخ احتياطية لكل جهاز."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "تصحيح الأخطاء لـ %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "لا تغيير"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "لم يتم تغيير أي أجهزة: لا يمكن تشغيل الجدول الزمني الجديد على معرف/معرفات الجهاز %s، لأن الأشهر أو أيام الشهر أو أسابيع الشهر أو أيام الأسبوع مفقودة أو لا تحدث أبداً. قم بتعيين الجدول الزمني على تلك الأجهزة بشكل فردي."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "تم تحديث الإعدادات على %d جهاز (أجهزة)."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "لم يتم تغيير أي إعدادات؛ تم ترك كل حقل على \"بدون تغيير\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "تصحيح: تنفيذ النسخ الاحتياطي اليدوي باستخدام '%s' بالوسائط '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "بدأ النسخ الاحتياطي للموجه. راجع عمود تاريخ النسخ الاحتياطي أو سجل Cacti لمعرفة حالة الاكتمال والتوقيت"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "انقر على 'إستمرار' لحذف الجهاز (الأجهزة) التالية."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "انقر على 'إستمرار' لتفعيل الجهاز (الأجهزة) التالية."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "تمكين الأجهزة (الأجهزة)"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "انقر على 'إستمرار' لتعطيل الجهاز (الأجهزة) التالية."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "تعطيل الجهاز (الأجهزة)"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "انقر على 'إستمرار' لمسح مفتاح مستضيف SSH المخزن للجهاز (الأجهزة) التالية. سيثق اتصال SSH التالي بالمفتاح الذي يستقبله ويسجله."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "مسح مفتاح/مفاتيح SSH للمستضيف Host"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "عين واحدًا أو أكثر من الإعدادات التالية على الجهاز/الأجهزة المحددة. لن يتم تعديل الحقول المتروكة على 'بدون تغيير'."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "معطل"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "تطبيق الإعدادات على الجهاز (الأجهزة)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "يجب تحديد جهاز موجه (Router) واحد على الأقل."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "اسم المستضيف غير صالح. استخدم الأحرف والأرقام والمسافات والرموز . - _ : فقط، ولا تستخدم فواصل المسارات أو \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "نوع الجدول الزمني أو خيار «إعادة التشغيل كل» المحدد غير صالح."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "غير مسجل"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "الموجه: [تحرير: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "الموجه: [جديد]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "إدارة أجهزة الموجهات"
+
+#: router-devices.php
+msgid "Account"
+msgstr "الحساب"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "أفعال"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "آخر نسخة احتياطية"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "نوع الجهاز الخاص بهذا الجهاز"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "نوع الاتصال"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "نوع الاتصال لهذا الجهاز"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "التكوينات"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "عدد التكوينات لهذا الجهاز"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "عنوان IP لهذا الجهاز"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "خادم TFTP لكل جهاز، أو «افتراضي» عندما يستخدم إعداد خادم TFTP العام"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "النسخ الاحتياطي التالي"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "تاريخ النسخ الاحتياطي"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "المحاولة التالية"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "آخر محاولة"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "تاريخ التغيير"
+
+#: router-devices.php
+msgid "Today"
+msgstr "اليوم"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "أمس"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "هذا الأسبوع"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "هذا الشهر"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "خلال عام"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "منذ زمن طويل جدًا"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "لا"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "نعم"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "الاتصال عبر SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "الاتصال عبر Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "تتبع المسار"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "معلومات تصحيح أخطاء الموجه"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "النسخ الاحتياطية (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "بريدك الإلكتروني الحالي غير مسموح"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "لم يتم العثور على أجهزة موجهات"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "عند النقر على 'إستمرار'، سيتم حذف الجهاز (الأجهزة) التالية."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "تحتوي موجهات ما بعد تسجيل الدخول على موجه لا يمثل تعبيراً نمطياً صالحاً: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "استعلام [تحرير: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "استعلام [جديد]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "عرض أنواع أجهزة الموجه"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "النوع"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "مطالبة المستخدم"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "موجه المرور"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "الإصدار"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "تأكيد المطالبة"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "التحقق من End في التكوين"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "لم يتم العثور على أنواع أجهزة موجهات"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "تكوينات الموجهات"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "تصحيح: تنفيذ '%s' بالوسائط '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "المرافق"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "أجهزة الموجهات"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(تعديل)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "أفعال"
+
+#: setup.php
+msgid "View Debug"
+msgstr "عرض تصحيح الأخطاء"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "حسابات الموجهات"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "مقارنة الموجه"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "الموجهات"
+

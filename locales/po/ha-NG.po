@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Hausa\n"
+"Language: ha-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Share"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Ajiyar Madadi"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Gyara (sauya saituna gaba ɗaya)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Kunna"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Kashe"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Share Maɓallin Mai Masauki na SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Gada"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Kullum"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Mako-mako"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Wata-wata"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Wata %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Watanni %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Shekara %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "Shekaru %d"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Ba a Taɓa Ba"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "sa'a %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "sa'o'i %d"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 na dare)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 na dare)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 na dare)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 na dare)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 na dare)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 na safe)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 na safe)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 na safe)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 na safe)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 na safe)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 na dare)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 na safe)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 na rana)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 na rana)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 na rana)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 na rana)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 na yamma)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 na yamma)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 na yamma)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 na dare)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 na dare)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 na dare)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 na dare)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 na dare)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "layi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "layuka %d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Suna"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Ba wa wannan asusun suna mai ma'ana da za a nuna."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Sunan mai amfani"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Sunan mai amfani da za a yi amfani da shi don tantancewa."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Kalmar sirri"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Kalmar sirri da ake amfani da ita don tantancewa."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Kunna Kalmar Sirri"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Kalmar sirrinka ta Enable, idan ana buƙata."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Kunna Na'ura"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Cire alama a wannan akwatin don hana yin ajiyar baya ga wannan na'ura."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Bayani"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Sunan wannan na'ura (za a yi amfani da shi wajen ajiye saiti da SVN idan babu sunan mai masauki a cikin saitin)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Adireshin IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Wannan shine Adireshin IP da ake amfani da shi don sadarwa da na'ura."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Uwar Garken TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Sabar TFTP ta zaɓi da wannan na'ura ke kwafar saitinta zuwa gare ta. Bar shi fanko don amfani da saitin Sabar TFTP na gama-gari."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Mabuɗin Mai Masauki na SSH da Aka Ajiye"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Kwatanta wannan tsarin maɓallin mai masauki da sawun yatsar SHA-1 hex tare da na'urar ta hanyar da aka amince da ita. A kan uwar garke, maye gurbin hanyar da ke ƙasa da fayil ɗin maɓallin mai masauki na jama'a da ya dace sannan ka gudanar da: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Yi amfani da aikin na'urar don share shi bayan halastaccen canjin maɓalli."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Jagorar Fayiloli"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Wannan shi ne tsarin babban fayil na dangantaka da ake amfani da shi wajen adana saitunan."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Nau'in Jadawali"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Sau nawa za a yi Ajiyar baya ga wannan na'ura. Kullum tare da Sake Gudu Kowace 10 yana yin ajiyar baya kowane kwana 10; Kowane Wata yana yin cikakkiyar ajiyar baya ta kalandar wata."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Sake Gudanarwa Kowanne"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Don tsare-tsaren lokaci na Kullum, sake gudanar da madadin ajiya duk bayan kwanaki X. Don tsare-tsaren lokaci na Mako-mako ba tare da takamaiman Ranaku na Mako ba, sake gudanar da shi duk bayan makonni X; da zarar an zaɓi Ranaku na Mako, madadin ajiya zai riƙa gudana a waɗannan ranakun kowane mako kuma wannan filin ba zai yi aiki ba."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Kwanakin Mako"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Don tsarin lokaci na Mako-mako, ranar(ranakun) mako da za a gudanar da madadin ajiya a kai, kowane mako. Bar shi fanko don gudanarwa a kowane makonni na Sake Gudanarwa Duk Bayan a maimakon haka."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Watannin Shekara"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Don tsarin lokaci na Wata-wata, watan(watannin) shekara da za a gudanar da madadin ajiya a ciki."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Kwanakin Wata"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Don tsarin lokaci na Wata-wata, ranar(ranakun) wata da za a gudanar da madadin ajiya a kai (Ƙarshe = ranar ƙarshe ta wata)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Makonni na Wata"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Don tsarin lokaci na Wata-wata a Rana, mako(nni) na wata da za a gudanar da madadin ajiya a ciki."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Kwanakin Mako (Kowane Wata)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Don tsarin lokaci na Wata-wata a Rana, ranar(ranakun) mako da za a haɗa da zaɓin Makonnin Wata."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Nau'in Na'ura"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Zaɓi nau'in na'urar da wannan na'urar raba sadarwa (router) take."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Gano da Kansa"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Nau'in Haɗi"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Wannan shi ne nau'in haɗin da ake amfani da shi don sadarwa da na'urar."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Asusun Tabbatar da Shaida"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Zaɓi asusun da za a yi amfani da shi don Shiga cikin na'urar raba sadarwa (router)"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Babu"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Ƙarewar lokaci na asali"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Lokacin jira na asali a cikin daƙiƙu don samun amsa"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Lokacin dakatawa na asali"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Lokacin dakatawa na asali a cikin mayikurosakan (1/1,000,000 na daƙiƙa)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Ɗauka yana da babban iko"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Yi alama a wannan akwatin don ɗauka cewa wannan na'urar tana da matsayi mai girma a kodayaushe"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Sunan wannan nau'in na'ura."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Alamar Sunan mai amfani"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Wannan shi ne saƙon neman sunan mai amfani da za a daidaita yayin shiga."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Tambayar Kalmar Sirri"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Wannan shi ne saƙon neman kalmar sirri da za a daidaita yayin shiga."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Fayil ɗin tsarin saiti"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Wannan shi ne wurin da aka saba ajiye fayil ɗin saiti a kan na'urar nesa. Ana amfani da shi don hanyar SCP da SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Kwafi TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Wannan shine rubutun CLI da ake amfani da shi don aika ajiyar bayanai (backup) zuwa sabar tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Umarnin Ɗaukar Bayani"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Umarni na zaɓi wanda ake ajiye sakamakonsa a matsayin saiti, maimakon kwafa shi zuwa sabar TFTP. Koyaushe yana gudana ta SSH, komai Nau'in Haɗin, kuma na'urar ba ta buƙatar sabar TFTP. Bar shi fanko don na'urorin da ke kwafar saitinsu zuwa TFTP. Misali don MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Nuna Siga"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Wannan shine rubutun CLI da ake amfani da shi don nuna sigar yanzu."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Tambayar Tabbatarwa"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Wannan shine saƙon tabbatarwa da za a daidaita kafin aikawa."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Tabbatar"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Shin akwai tambayar tabbatarwa don kwafin saitin?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Tilasta Tabbatarwa"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Shin akwai tambayar tabbatarwa ta tilas don kwafin saitin?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Duba Ƙarshe a Cikin Tsari"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "A duba ƙarshe a cikin tsari?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Saƙon Kowane Maɓalli"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Rubutu da zai dace da saƙon neman izini irin na 'Press Any Key To Continue'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Saƙonnin Bayan Shiga"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Nau'i-nau'in tambaya/amsa na zaɓi da ake aikawa nan da nan bayan shiga, kafin umarnin kwafa zuwa TFTP, ɗaya a kowane layi kamar prompt|response. Ana daidaita tambayar a matsayin regular expression mara bambancin manyan ko ƙananan haruffa da sakamakon na'urar (don haka ba za ta iya ƙunsar | da kanta ba, kuma dole ne a kuɓutar da maƙalai da sauran haruffa na musamman, misali Save \\\\[y/n\\\\]), kuma ana aika amsar kamar yadda aka rubuta ta, ko a yi amfani da <CR> don aika dawowar layi kawai. Ana aika amsa ne kawai da zarar an ga tambayarta, ko dai a cikin amsar tambayar baya ko a cikin sakamako na gaba; in ba haka ba ana rubuta gargaɗi a rajista kuma ba a aika komai. Ana amsa waɗannan da farko; ana amsa tambayar Any Key da ke sama daga baya, yayin da ake kunna na'urar, don haka tambayar da aka amsa a nan ba ta taɓa kaiwa ga Any Key ba. Misali: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Saitunan Gabaɗaya"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Yanayin Gabatarwa"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Shin ya kamata a nuna Router Configs a kan Console ko a Shafin Sama."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Kansul"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Tab na Sama"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Layukan Mahallin Bambancin Saiti"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Tsohon adadin layukan da ba su canza ba da za a nuna kafin da bayan kowane canji yayin kwatanta ajiyar baya guda biyu. Babbar ƙima tana sauƙaƙa ganin yanayin tsarin da ke kewaye. Ana iya soke wannan ga kowane kwatanci a shafin Kwatanta."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Lokacin haɗi ya ƙare"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Mafi tsawon lokacin jira a daƙiƙa lokacin kafa haɗin sadarwa na farko zuwa Na'ura. Ana barin Na'ura da ta rataye ko ba a iya samunta bayan wannan ƙarewar lokaci domin shirin ajiyar bayanai ya ci gaba da sauran Na'urori."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Rufe ba tare da fita ba"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Idan an yi masa alama, yayin rufe haɗin na'ura, ba za a fitar da umarnin 'exit' ba"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Ma'adanin Wucin-gadi na Gano Kuskuren Haɗi"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Ko a rubuta sakamakon haɗin na'ura kai tsaye a rajista"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Ɗauka duk na'urori suna da babban iko"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Ko a ɗauka cewa dukkan na'urori suna da babban matsayi"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Sa'ar Saukewa"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Sa'ar rana da za a gudanar da cikakken saukarwa."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Tsarin Lokacin Sake Gwadawa"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Lokacin da za a jira kafin a yi ƙoƙarin yin ƙarin saukarwa lokacin da saukarwar da aka tsara ta gaza"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Lokacin Riƙewa"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Adadin kwanakin da za a adana tsofaffin ajiyayyun bayanai."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Ajiye Ajiyar Bayanan Na'ura Mara Aiki"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Idan aka zaɓa, tsaftacewar ajiya ba za ta share tsofaffin madadin bayanai na na'urori da aka kashe ko na na'urori da aka cire ba, don haka za a riƙe saitunan kayan aikin da aka daina amfani da su ko waɗanda ba za a iya isa gare su ba."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Zaɓuɓɓukan Canjawa"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Nau'in haɗi na asali"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Nau'in haɗi na asali da ake amfani da shi wajen sadarwa da na'ura."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Raba Ta Na'ura"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Raba Saitunan da aka ajiye zuwa babban fayil ɗaya ga kowace na'ura"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Ƙaramin Jaka Mai Kwanan Wata"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Saka ƙaramin babban fayil mai tushen kwanan wata a cikin hanyar ajiya (kafin babban fayil na kowace na'ura), ta yadda za a adana kowane aiki ƙarƙashin kwanan watan ajiyarsa, misali .../2020-11-04/hostname/.... Kashewa tana kiyaye tsarin da ke akwai."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Hanyar SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Lokacin amfani da SCP, barin wannan fanko zai yi amfani da tsarin SCP na PHP wanda ba koyaushe yake aiki ba. An kashe SCP na waje yayin da aka kunna tabbatar da maɓallin mai masauki na SSH saboda ba zai iya sake amfani da haɗin da aka tabbatar ba."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Tabbatar da Maɓallan Mai Masauki na SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Yi rikodin maɓallin mai masauki na SSH na kowace na'ura a haɗin farko kuma a ƙi aika bayanan shiga idan ya canza daga baya. Yanayin SSH/Telnet ba zai koma Telnet ba yayin da aka kunna tabbatarwa. Bayan halaltaccen canjin maɓalli, yi amfani da matakin na'ura don share maɓallin mai masauki da aka ajiye."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "Adireshin IP na Sabar TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Dole ne ya zama IP da ke nuna sabar Cacti ɗin ka."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Hanyar Jakar Ajiyar TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Hanyar zuwa inda za a yi ajiyar madadin Saitunanku, dole ne ta zama hanyar da Uwar Garken TFTP na gida ke rubutu zuwa gare ta."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Hanyar Jakar Adana Bayanai"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Hanyar zuwa inda za a adana Saitunanku (a matsar daga kundin TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Zaɓuɓɓukan Imel"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Adireshin Mai Aikawa"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Adireshin imel da za a turo ajiyar baya ta dare daga gare shi."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Sunan Mai Aikawa"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Sunan da za a aika da ajiyar dare daga gare shi."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Adireshin Imel"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Jerin adiresoshin Imel da aka raba da waƙafi don aika Imel ɗin ajiyar baya na dare zuwa gare su."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Haɗa Bambance-bambancen Saiti"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Ƙara haɗaɗɗen bambanci (unified diff) na kowace na'ura da tsarinta ya canza yayin gudanarwa zuwa Imel ɗin ajiya, ta yadda mai dubawa zai ga ainihin abin da ya canza. Ana tsallake tsare-tsaren binary (waɗanda ba rubutu ba). Layuka masu sauyawa a kowane ajiya (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' da 'Current configuration :', da NX-OS '!Time:' da '!Running configuration last done at:') koyaushe ana watsi da su. Gargaɗi: ana aika bambancin a rubutu bayyananne ga kowane mai karɓar Imel ɗin, don haka zai iya tona tsarin da ya kamata ya kasance a asirce; bar Haɗa Sirri a Cikin Bambance-bambance ba tare da an zaɓa ba."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Haɗa Sirrika a cikin Bambance-bambance"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Aika ƙimomin sirri a cikin bambancin (diff) da aka aika ta imel kamar yadda suke. Idan ba a yi masa alama ba (na asali), ana gano layukan da suka sauya a cikin ɗanyen saitin kuma a buga su a ɓoye, ta hanyar rufewa idan akwai shakka: layukan da ke ɗauke da kalmomi masu kama da sirri (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) da layukan mai masauki da mai amfani na SNMP ana rage su zuwa kalmarsu ta farko sannan &lt;secret hidden&gt; ya biyo baya, kuma kowane layi na gungu na PEM, takardar shaida ko gungun mabuɗin rubutu, ko ƙimar da aka sa a cikin alamun zance mai layuka da yawa, da kowane layin hex ko base64, ana ɓoye su; gungun da bai ƙare ba yana ɓoye sauran saitin. Wannan kuma yana ɓoye layukan da ba su da illa (misali bayani da ya ambaci key), amma duk layin da ya sauya zai ci gaba da bayyana, an yi masa alamar (changed) idan ɓangarensa da aka ɓoye kawai ya bambanta, kuma ana ambaton gungun da bai ƙare ba a cikin Imel. Ba a taɓa canza ajiyayyun madadin bayanai."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Tsarin Keɓewa na Bambanci (Diff)"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Regular expressions na zaɓi (ɗaya a kowane layi) da suka dace da layukan saiti da za a yi watsi da su yayin kwatantawa, don layuka masu sauyawa kamar tambarin lokaci ko lambobin seri ba za su bayyana a matsayin sauye-sauye ba. Ana daidaita kowane tsari ba tare da la'akari da manyan ko ƙananan haruffa ba a ko'ina cikin layi sai dai idan an kafa shi da ^ ko $; ana yin watsi da tsarin da ba ingantaccen regular expression ba ne."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Jerin Sanarwar Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Lokacin da aka shigar da Thold, a kuma aika Imel na madadin ga masu karɓa na Jerin Sanarwar Thold da aka zaɓa."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Ƙara zuwa Ajiyar RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Danna 'Ci gaba' don ƙara Na'ura/Na'urori masu zuwa zuwa RouterConfigs don ajiyar baya. Za a tsallake duk wata na'ura da ke cikin RouterConfigs tuni."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Na'urori"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Nau'ikan Na'urori"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Tantancewa"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Ajiyoyin Madadi"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Kwatanta"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Tallafin Fasaha [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(haruffa %s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Ba a Saita ba)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "SANARWA: Ana fara ajiyar baya ta hannu na na'urori %s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "SANARWA: Ana fara sake gwadawa ta atomatik"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "SANARWA: Ana fara ajiyar baya ta atomatik"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "BABBAN KUSKURE: Ba a saita Hanyar Ajiyar TFTP ba ko kuma ba kundin adireshi ba ne"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Ana ƙoƙarin saukewa don %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "An yi ajiyar madadin na'urori %s cikin nasara."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "An kasa yin ajiyar madadin na'urori %s."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "An kashe ajiyar madadin na'urori %s."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Ba a gano wani sauyin saiti ba."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Ajiyayyun Saiti"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Ajiyayyun Tsare-tsaren Saiti"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - An tilasta"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Da hannu"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Na kwaikwayo"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - An tsara lokaci"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Sake gwadawa"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Wani ɓangare"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": YA KASA"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "KIDIDDIGA: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "KUSKURE: Ba a saita Hanyar Ajiyar Baya ba ko kuma ba kundin fayiloli ba ne"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "GARGAƊI: Lokacin riƙewa '%s' ba daidai ba ne, ana komawa zuwa kwanaki 30"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "KIDIDDIGA: Ajiyar baya tana gudana yanzu tun %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "GARGAƊI: Ajiyar baya tana gudana tun %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Ba a sami ID na Na'urar Cacti %s ba; ba a ƙara zuwa RouterConfigs ba."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Na'ura '%s' tana cikin RouterConfigs tuni; an tsallake."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "An ƙara Na'ura '%s' zuwa RouterConfigs (an kashe har sai an saita asusu da nau'in na'ura)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "An kasa ƙara Na'ura '%s' zuwa RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Ba a taɓa rufe rukunin ɓoye bayanai a layi na %d na madadin ajiyar da ya gabata ba; an ɓoye layukan da ke biye."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Ba a taɓa rufe rukunin ɓoye bayanai a layi na %d na sabon madadin ajiyar ba; an ɓoye layukan da ke biye."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "KUSKURE: Sunan mai masauki na Na'ura '%s' bai dace a matsayin sunan fayil na ajiyar baya ba; gyara Na'urar kuma yi amfani da haruffan sunan mai masauki ko adireshin IP kaɗai"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "KUSKURE: Ba a saita uwar garken TFTP ga Na'ura '%s' ba; saita Uwar Garken TFTP a kan na'urar ko a cikin saitunan gabaɗaya"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "KUSKURE: Tabbatar da maɓallin mai masauki na SSH ya kasa ga Na'ura '%s'; an ƙi aika bayanan sirri ko komawa kan Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "KUSKURE: Haɗin SSH ya kasa ga Na'ura '%s'; an kashe komawa kan Telnet yayin da aka kunna tabbatar da maɓallin mai masauki na SSH"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "KUSKURE: An kasa haɗawa da Na'ura '%s' ta amfani da nau'in haɗi: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "KUSKURE: An kasa sauke '%s' zuwa '%s' ta hanyar '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "An kunna"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s da aka zaɓa ba daidai ba ne; babu na'urorin da aka canza."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Tabbatar da hanyar fayil ya kasa"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Fayil '%s' ya kasa lodi"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Ba a sami fayil '%s' ba"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Saitin Router na %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Ajiyar madadi daga %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Fayil: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Na Hannu"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Kowane Wata a Rana"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Lahadi"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Litinin"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Talata"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Laraba"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Alhamis"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Juma'a"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Asabar"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Janairu"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Fabrairu"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Maris"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Afirilu"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Mayu"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Yuni"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Yuli"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Agusta"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Satumba"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktoba"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Nuwamba"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Disamba"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Ƙarshe"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Farko"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Na Biyu"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Na Uku"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Na huɗu"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "A kashe (babu ƙaramin babban fayil mai kwanan wata)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (cikin juna)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s da aka zaɓa ba daidai ba ne."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Don tsarin lokaci na Wata-wata dole ne ka zaɓi aƙalla Wata ɗaya da Ranar Wata ɗaya."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Don tsarin lokaci na Wata-wata a Rana dole ne ka zaɓi Watanni, Makonnin Wata, da Ranakun Mako."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Watanni da Kwanakin Wata da aka zaɓa ba sa taɓa faruwa tare; zaɓi wata rana, ko Ƙarshe don ranar ƙarshe ta watan."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Danna 'Ci gaba' don share asusu/asusai masu zuwa."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Soke"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Ci gaba"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Share Na'urori"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Dole ne ka zaɓi aƙalla na'ura guda ɗaya."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Koma"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Asusu: [gyara: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Asusu: [sabo]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Asusai"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Gudanar da Asusu"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Ba a Samu Asusunan Na'urar Rauta ba"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Ajiyar Bayanan Router"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Kowane"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Bincika"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Na Asali"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Tafi"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Saita/Sabunta Matatu"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Share"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Share Matatu"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Sunan Mai Masauki"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Ko dai adireshin IP, ko sunan mai masauki. Idan sunan mai masauki ne, dole ne a iya warware shi ta hanyar DNS, ko daga fayil ɗin hosts naka."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "Lambar ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Lambar shaidar rumbun bayanai ta ciki don wannan Na'ura. Tana da amfani yayin aiwatar da sarrafa kai tsaye ko binciken kuskure."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Ayyuka"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Yi ayyuka akan wannan madadin ajiyar"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Jagorar ajiyar na'ura da aka adana"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Lokacin Ajiyar Madadi"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Lokacin ajiyar bayanai na ƙarshe na na'urar"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Canji Na Ƙarshe"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Lokacin canji na ƙarshe na na'urar"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Wanda ya Sauya"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Mutumin ƙarshe da ya canza saitin na'urar"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Sunan Fayil"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Sunan fayil na ajiyayyun bayanan na'ura da aka adana"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Duba Saitin Tsari"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Ba a Samu Ajiyar Baya ta Na'urar Rauta ba"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Kwatanta Ajiyar Bayanan Router"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Yanayin Bambanci (Diff)"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "A Cikin Shafi"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Gefen Juna"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Layukan Mahalli"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Kwatanta Sakamako"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Ba a sami ajiyar madadi %s ba"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Babu wani Canji"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Kuskure, dole ne ku kasance kuna da ajiyar bayanai ga kowace na'ura."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Gano kuskure na %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Babu Canji"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Ba a sauya kowace na'ura ba: sabon jadawalin lokaci ba zai iya aiki a kan lambar na'ura %s ba, saboda Watanninsu, Kwanakin Wata, Makonnin Wata ko Kwanakin Mako sun ɓace ko ba sa faruwa. Saita jadawalin lokaci a kan waɗannan na'urori ɗaya bayan ɗaya."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "An sabunta saituna a kan na'ura(na'urori) %d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Ba a sauya wasu saituna ba; an bar kowane fili a kan \"Ba Sauyi\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Ana aiwatar da ajiyar hannu ta amfani da '%s' tare da sigogin '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "An fara Ajiyar Bayanan Router. Duba shafi na Kwanan Watan Ajiya ko Rijistar Cacti don matsayin kammalawa da lokaci"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Danna 'Ci gaba' don Share waɗannan na'ura(ori) na gaba."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Danna 'Ci gaba' don Kunna waɗannan na'ura(ori) na gaba."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Kunna Na'ura(ori)"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Danna 'Ci gaba' don Kashe waɗannan na'ura(ori) na gaba."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Kashe Na'ura(ori)"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Danna 'Ci gaba' don share maɓallin SSH na mai masauki da aka ajiye don na'ura/na'urori masu zuwa. Haɗin SSH na gaba zai amince kuma ya rubuta maɓallin da ya karɓa."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Share Maɓallin/Maɓallan Mai Masauki na SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Saita ɗaya ko fiye daga cikin waɗannan saitunan akan na'ura/na'urori da aka zaɓa. Filayen da aka bari a kan 'Babu Sauyi' ba za a gyara su ba."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "An kashe"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Aiwatar da saituna ga Na'ura/Na'urori"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Dole ne ka zaɓi aƙalla Na'urar Router."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Sunan Mai Masauki ba shi da inganci. Yi amfani da haruffa, lambobi, sarari da alamomin . - _ : kaɗai kuma kada ka yi amfani da masu raba hanya (path separators) ko \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Nau'in Jadawalin Lokaci ko Sake Gudanarwa Kowanne da aka zaɓa ba daidai ba ne."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Ba a yi rikodi ba"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Router: [gyara: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Router: [sabo]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Gudanar da Na'urorin Router"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Asusu"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Ayyuka"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Ajiyar Baya Ta Ƙarshe"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Nau'in na'ura na na'urar"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Nau'in Haɗi"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Nau'in haɗi na wannan na'ura"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Tsare-tsaren Saiti"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Adadin saituna don wannan na'ura"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Adireshin IP na wannan na'ura"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Uwar garken TFTP ga kowace na'ura, ko Tsoho idan tana amfani da saitin Uwar Garken TFTP na gabaɗaya"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Ajiya ta Gaba"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Kwanan Watan Ajiyar Wari"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Gwaji na Gaba"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Yunƙuri Na Ƙarshe"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Kwanan Watan Canji"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Yau"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Jiya"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Wannan Mako"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Wannan Wata"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Cikin Shekara Guda"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Can Daɗewa"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "A'a"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Eh"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Haɗa ta SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Haɗa ta Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Bibiyar Hanya"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Bayanin Gyaran Kuskuren Router"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Ajiyoyin Madadi (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Na Yanzu"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Ba a Samu Na'urorin Rauta ba"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Lokacin da ka danna 'Ci gaba', za a share waɗannan na'ura(ori)."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Saƙonnin Bayan Shiga ya ƙunshi saƙon da ba sahihin tsarin rubutu na musamman ba ne: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Tambaya [gyara: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Tambaya [sabo]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Duba Nau'ikan Na'urorin Router"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Nau'i"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Umarnin Mai Amfani"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Neman Kalmar Sirri"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Siga"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Tabbatar da Umarni"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Duba Ƙarshe a Cikin Tsari"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Ba a Samu Nau'ikan Na'urar Rauta ba"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Saitunan Router"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Ana aiwatar da '%s' tare da sigogin '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Kayan Aiki"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Na'urorin Router"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(gyara)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(ayyuka)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Duba Gyaran Kuskure"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Asusun Router"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Kwatanta Router"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Na'urorin Router"
+

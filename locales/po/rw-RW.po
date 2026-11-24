@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Kinyarwanda\n"
+"Language: rw-RW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Siba"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Ikopi y'ububiko"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Hindura (guhindura amagenamiterere mu kivunge)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Koresha"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Hagarika"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Hanagura Urufunguzo rwa Mwakirizi rwa SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Gukomora"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Buri munsi"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Buri cyumweru"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Buri kwezi"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Ukwezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Amezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Umwaka %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "Imyaka %d"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Nta na rimwe"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "isaha %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "amasaha %d"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (saa sita z'ijoro)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (saa saba z'ijoro)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (saa munani z'ijoro)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (saa cyenda z'ijoro)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (saa kumi z'ijoro)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (saa kumi n'imwe za mu gitondo)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (saa kumi n'ebyiri za mu gitondo)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (saa moya za mu gitondo)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (saa mbiri za mu gitondo)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (saa tatu za mu gitondo)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (saa sita z'ijoro)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (saa tanu za mu gitondo)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (saa sita z'amanywa)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (saa saba z'amanywa)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (saa munani z'amanywa)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (saa cyenda z'amanywa)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (saa kumi z'amanywa)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (saa kumi n'imwe z'umugoroba)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (saa kumi n'ebyiri z'umugoroba)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (saa moya z'umugoroba)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (saa mbiri z'ijoro)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (saa tatu z'ijoro)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (saa yine z'ijoro)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (saa tanu z'ijoro)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "umurongo %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "imirongo %d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Izina"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Ha iyi konti izina rifite igisobanuro rizajya rigaragara."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Izina ry'ukoresha"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Izina ry'ukoresha rizakoreshwa mu kwemeza umwirondoro."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Ijambobanga"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Ijambobanga rikoreshwa mu kwemeza umwirondoro."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Fungura Ijambobanga"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Ijambobanga ryawe rya Enable, niba rikenewe."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Emerera igikoresho"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Kura akamenyetso muri aka gasanduku kugira ngo uhagarike ikorwa ry'ikopi y'umutekano kuri iki gikoresho."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Ibisobanuro"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Izina ry'iki gikoresho (rizakoreshwa mu kubika amagenamiterere no muri SVN niba nta zina rya mwakirizi riri mu magenamiterere)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Aderesi ya IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Iyi ni Aderesi ya IP ikoreshwa mu kuvugana n'igikoresho."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Seriveri ya TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Seriveri ya TFTP itari ngombwa iki gikoresho gikoperaho igenamiterere ryacyo. Siga harimo ubusa kugira ngo ukoreshe amagenamiterere rusange ya Seriveri ya TFTP."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Urufunguzo rwabitswe rwa Mwakirizi wa SSH"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Gereranya ubu buryo bwa host-key n'igikumwe cya SHA-1 hex hamwe n'igikoresho unyuze ku muyoboro wizewe. Kuri seriveri, simbuza inzira iri hasi dosiye ya public host-key bijyanye hanyuma ukoreshe: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Koresha igikorwa cy'igikoresho kugira ngo ubisibe nyuma y'ihinduka ry'urufunguzo ryemewe."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Ububiko"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Iyi ni imiterere y'ububiko bwerekeye ikoreshwa mu kubika amagenamiterere."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Ubwoko bw'ingengabihe"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Inshuro zo gukora kopi y'umutekano y'iki gikoresho. Buri munsi hamwe na Kongera Gukora Buri 10 bikora kopi y'umutekano buri minsi 10; Buri kwezi bikora kopi y'umutekano y'ukwezi nyako kw'ingengabihe."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Ongera ukore buri"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Kuri gahunda za buri munsi, ongera ukore kopi y'uburinzi buri minsi X. Kuri gahunda za buri cyumweru zidafite Iminsi y'Icyumweru yihariye, ongera uyikore buri byumweru X; iyo Iminsi y'Icyumweru yahiswemo, kopi y'uburinzi ikorwa kuri iyo minsi buri cyumweru kandi aka gace ntikagikoreshwa."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Iminsi y'icyumweru"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Kuri gahunda ya Buri cyumweru, umunsi (iminsi) y'icyumweru yo gukoreraho kopi y'uburinzi, buri cyumweru. Bireke birimo ubusa kugira ngo ikore buri byumweru bya Ongera ukore buri aho kubikora gutyo."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Amezi y'umwaka"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Kuri gahunda ya Buri kwezi, ukwezi (amezi) y'umwaka yo gukoreramo kopi y'uburinzi."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Iminsi y'ukwezi"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Kuri gahunda ya Buri kwezi, umunsi (iminsi) y'ukwezi yo gukoreraho kopi y'uburinzi (Wa nyuma = umunsi wa nyuma w'ukwezi)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Ibyumweru by'ukwezi"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Kuri gahunda ya Buri kwezi ku Munsi, icyumweru (ibyumweru) by'ukwezi byo gukoreramo kopi y'uburinzi."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Iminsi y'icyumweru (Buri kwezi)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Kuri gahunda ya Buri kwezi ku Munsi, umunsi (iminsi) y'icyumweru yo guhuza n'amahitamo y'Ibyumweru by'Ukwezi."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Ubwoko bw'Igikoresho"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Hitamo ubwoko bw'igikoresho cy'iyi router."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Gutahura mu buryo bwikora"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Ubwoko bw'Ihuza"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Ubu ni ubwoko bw'ihuzanzira bukoreshwa mu kuvugana n'igikoresho."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Konti yo kwemeza umwirondoro"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Hitamo konti yo gukoresha mu kwinjira muri router"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Nta na kimwe"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Igihe ntarengwa mburabuzi"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Igihe mburabuzi cyo gutegereza igisubizo mu masegonda"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Igihe mburabuzi cyo kuruhuka"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Igihe mburabuzi cyo kuruhuka mu mikorosegonda (1/1,000,000 y'isegonda)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Fata ko bifite uburenganzira bwisumbuye"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Hitamo aka gasanduku kugira ngo ufatireho ko iki gikoresho gihorana uburenganzira bwisumbuye"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Izina ry'ubu bwoko bw'igikoresho."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Ubutumwa busaba izina ry'ukoresha"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Iki ni ikibazo cy'izina ry'ukoresha cyo kugereranya igihe cyo kwinjira."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Gusaba ijambobanga"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Iki ni ikibazo cy'ijambobanga cyo kugereranya igihe cyo kwinjira."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Dosiye y'igenamiterere"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Aha ni ho hasanzwe habikwa dosiye y'igenamiterere ku gikoresho cya kure. Bikoreshwa ku buryo bwa SCP na SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Koporora TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Uyu ni umwandiko wa CLI ukoreshwa mu kohereza kopi y'umutekano kuri seriveri ya tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Ibwiriza ryo gufata"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Itegeko ritari ngombwa rifite ibisohoka bibikwa nk'igenamiterere, aho kubikopera kuri seriveri ya TFTP. Rihora rikorera kuri SSH, uko Ubwoko bw'Ihuzanzira bwaba bumeze kose, kandi icyo gikoresho ntikiba gikeneye seriveri ya TFTP. Siga harimo ubusa ku bikoresho bikopera igenamiterere ryabyo kuri TFTP. Urugero kuri MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Erekana verisiyo"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Uyu ni umwandiko wa CLI ukoreshwa mu kwerekana verisiyo iriho ubu."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Ikibazo cy'Iyemeza"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Ubu ni ubutumwa bwo kwemeza bugomba guhura mbere yo kohereza."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Emeza"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Hari ubutumwa bwo kwemeza mbere yo gukoporora imiterere?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Hatira Kwemeza"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Hari ubutumwa bwo kwemeza ku gahato mbere yo gukoporora imiterere?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Genzura impera mu igenamiterere"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Genzura impera mu igenamiterere?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Ubutumwa bw'urufunguzo urwo ari rwo rwose"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Inyandiko ihura n'ubutumwa busaba nka 'Kanda Buto Iyo Ari Yo Yose Kugira Ngo Ukomeze'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Ubutumwa bwa nyuma yo kwinjira"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Amatsinda atari ngombwa y'ikibazo/igisubizo yoherezwa nyuma gato yo kwinjira, mbere y'itegeko ryo gukopera kuri TFTP, rimwe ku murongo nka prompt|response. Ikibazo gihuzwa nk'imvugo isanzwe itita ku nyuguti nkuru cyangwa nto ku bisohoka by'igikoresho (bityo ubwacyo ntigishobora kuba kirimo |, kandi udukomo n'izindi nyuguti zidasanzwe bigomba gutangwa n'akarango ko gutoroka, urugero Save \\[y/n\\]), kandi igisubizo cyoherezwa uko cyanditswe, cyangwa ukoreshe <CR> kugira ngo wohereze gusa gusubira ku murongo mushya. Igisubizo cyoherezwa gusa iyo ikibazo cyacyo kimaze kugaragara, haba mu gisubizo cy'igisubizo cyabanje cyangwa mu bisohoka byakurikiyeho; bitabaye ibyo iburira ryandikwa mu makuru kandi ntacyo cyoherezwa. Ibi bisubizwa mbere; ikibazo cya Any Key kiri haruguru gisubizwa nyuma, igihe igikoresho kiri gufungurwa, ku buryo ikibazo gisubirijwe hano kitigera kigera kuri Any Key. Urugero: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Igenamiterere rusange"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Uburyo bwo kwerekana"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Ese igenamiterere rya Router rigomba kugaragara kuri Console cyangwa ku gice cyo hejuru."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Konsole"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Agafishi ko hejuru"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Imirongo y'Igisobanuro mu Itandukaniro ry'Igenamiterere"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Umubare usanzwe w'imirongo itahindutse yo kwerekana mbere na nyuma ya buri mpinduka igihe hagereranywa kopi zibitswe ebyiri. Umubare munini woroshya kubona imiterere y'igenamiterere riyikikije. Ibi bishobora guhindurwa ku buryo bwihariye kuri buri kugereranya ku rupapuro rwa Gereranya."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Igihe cyo guhuza cyarenze"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Igihe ntarengwa cyo gutegereza mu masegonda igihe hatangizwa ihuza rya mbere ry'umuyoboro ku Gikoresho. Igikoresho cyahagaze cyangwa kitagerwaho kirarekwa nyuma y'iki gihe kugira ngo igikorwa cyateguwe cyo kubika amakuru gikomeze ku bindi Bikoresho bisigaye."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Funga udasohotse"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Niba hashyizweho akamenyetso, igihe ufunga ihuza ry'Igikoresho, nta tegeko rya 'exit' ritangwa"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Ububiko bw'agateganyo bwo gukemura ibibazo by'ihuzanzira"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Niba handikwa mu bubiko bw'inyandiko ibisohoka ako kanya mu ihuza ry'igikoresho"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Fata ko ibikoresho byose bifite uburenganzira bwisumbuye"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Niba hafatwa ko ibikoresho byose bifite uburenganzira bwo hejuru"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Isaha yo gukurura"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Isaha y'umunsi yo gukoreraho gukurura amakuru byuzuye."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Gahunda yo kongera kugerageza"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Igihe cyo gutegereza mbere yo kugerageza gukurura bundi bushya igihe ikurura ryateganyijwe ryananiwe"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Igihe cyo kubika"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Umubare w'iminsi yo kubika kopi z'ububiko zishaje."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Bika kopi z'igikoresho kidakora"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Iyo bihiswemo, isukura ry'ibibitswe ntirizasiba kopi z'ububiko zashaje z'Ibikoresho byahagaritswe cyangwa ibyakuweho, kugira ngo amagenamiterere y'ibikoresho byavanywe ku murongo cyangwa bitagerwaho akomeze kubikwa."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Amahitamo yo Kohereza"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Ubwoko mburabuzi bw'ihuzanzira"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Ubwoko mburabuzi bw'ihuzanzira bukoreshwa mu kuvugana n'igikoresho."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Tandukanya ukurikije Igikoresho"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Tandukanya Igenamiterere ryabitswe mu bubiko bwa buri gikoresho"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Ububiko bwungirije buriho itariki"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Shyiramo ububiko bwungirije bushingiye ku itariki mu nzira y'ububiko bw'inyandiko (mbere y'ububiko bwa buri gikoresho), kugira ngo buri gikorwa kibikwe munsi y'itariki y'ububiko bwacyo, urugero .../2020-11-04/hostname/.... Iyo bihagaritswe bigumana imiterere isanzwe."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Inzira ya SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Iyo ukoresha SCP, gusiga aha hantu hari ubusa bizakoresha igice cya SCP cya PHP kidakunze gukora buri gihe. SCP yo hanze iba Yahagaritswe mu gihe igenzura ry'urufunguzo rwa Mwakirizi ya SSH Ryafunguwe kuko itashobora kongera gukoresha ihuza ryagenzuwe."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Genzura imfunguzo za mwakirizi wa SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Andika urufunguzo rwa mwakirizi wa SSH rwa buri gikoresho ku kwihuza kwa mbere kandi wange kohereza ibyangombwa byo kwinjira niba nyuma ruhindutse. Uburyo bwa SSH/Telnet ntibuzasubira kuri Telnet mu gihe igenzura ryafunguwe. Nyuma y'ihinduka ryemewe ry'urufunguzo, koresha igikorwa cy'igikoresho kugira ngo usibe urufunguzo rwa mwakirizi rwabitswe."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "Aderesi IP ya seriveri ya TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Bigomba kuba IP yerekeza kuri seriveri yawe ya Cacti."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Inzira y'ububiko bw'inyandiko z'ingoboka za TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Inzira igana aho Igenamiterere ryawe rizabikirwa, igomba kuba ari yo nzira Seriveri ya TFTP y'imbere yandikamo."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Inzira y'Ububiko bw'Inyandiko Zishaje"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Inzira igana aho Igenamiterere ryawe rizabikwa nk'ubushyinguro (rikimurwa rivanwa mu bubiko bwa TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Amahitamo y'Imeyili"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Aderesi y'ohereza"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Aderesi y'imeyili ububiko bw'inyunganizi bwa buri joro buzoherezwa buturutseho."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Izina ry'ohereza"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Izina kopi y'ububiko ya buri joro izoherezwa iturutseho."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Aderesi ya imeyili"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Urutonde rutandukanyijwe n'akitso rwa aderesi z'Imeyili zo koherezaho Imeyili y'ibika ry'ijoro."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Shyiramo Itandukaniro ry'Amagenamikorere"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Ongeraho itandukaniro rihuriweho ry'igikoresho cyose cyahinduye igenamiterere mu gihe cy'igikorwa ku Imeyili y'ububiko bw'inyunganizi, kugira ngo ugenzura abashe kubona neza icyahindutse. Amagenamiterere ya binari (atari umwandiko) arasimbukwa. Imirongo ihindagurika kuri buri bubiko bw'inyunganizi (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' na 'Current configuration :', na NX-OS '!Time:' na '!Running configuration last done at:') irengagizwa buri gihe. Iburira: itandukaniro ryoherezwa mu mwandiko ugaragara kuri buri muntu wakiriye Imeyili, bityo rishobora kugaragaza igenamiterere rikwiye kuguma ari ibanga; reka 'Shyiramo Amabanga mu Matandukaniro' bitatoranyijwe."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Shyiramo Amabanga mu Matandukaniro"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Ohereza indangagaciro z'ibanga mu itandukaniro ryo kuri imeyili uko ziri. Iyo bitatoranyijwe (ari byo bisanzwe), imirongo yahindutse iboneka ku igenamiterere ritaratunganywa kandi ikandikwa ihishwe, ifungwa ku buryo budafungura mu makosa: imirongo irimo amagambo asa n'ibanga (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) n'imirongo ya mwakirizi n'ukoresha ba SNMP igabanywa ikaba ijambo ryayo rya mbere rikurikiwe na &lt;secret hidden&gt;, kandi buri murongo w'igice cya PEM, icyemezo cyangwa igice cy'urukurikirane rw'urufunguzo, cyangwa agaciro kari mu twuguruzo ku mirongo myinshi, ndetse n'umurongo uwo ari wo wose wa hex cyangwa base64, birahishwa; igice kidashira gihisha ibisigaye byose by'igenamiterere. Ibi binahisha imirongo itagira icyo itwaye (urugero: ibisobanuro bivuga urufunguzo), ariko buri murongo wahindutse ukomeza kugaragara, ukagaragazwa nka (changed) igihe igice cyayo gihishwe ari cyo cyonyine gitandukanye, kandi igice kidashira kigaragazwa mu Imeyili. Inkopi zibitswe ntizihindurwa na rimwe."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Imiterere Ikumirwa muri Diff"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Imvugo zisanzwe zitari ngombwa (imwe ku murongo) zihura n'imirongo y'igenamiterere igomba kwirengagizwa igihe ugereranya, kugira ngo imirongo ihindagurika nk'ibihe cyangwa imibare iranga ibikoresho itagaragara nk'impinduka. Buri cyitegererezo gihuzwa hatitawe ku nyuguti nkuru cyangwa nto aho ari ho hose mu murongo keretse iyo gifashwe na ^ cyangwa $; icyitegererezo kitari imvugo isanzwe yemewe kirirengagizwa."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Urutonde rw'Amamenyesha ya Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Iyo Thold yashyizweho, ohereza kandi Imeyili y'ububiko ku bagenerwa bo ku Rutonde rw'Imenyesha rwa Thold rwatoranyijwe."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Ongeraho mu Bubiko bwa RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Kanda 'Komeza' kugira ngo wongereho Igikoresho/Ibikoresho bikurikira muri RouterConfigs kugira ngo bibikwe. Igikoresho icyo ari cyo cyose gisanzwe muri RouterConfigs kirasimbukwa."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Ibikoresho"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Amoko y'Ibikoresho"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Kwemeza umwirondoro"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Amakopi y'ububiko"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Gereranya"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Ubufasha bwa tekiniki [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(inyuguti %s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Ntibyatunganyijwe)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ITANGAZO: Gutangira kopi y'ububiko ikozwe n'umuntu y'Ibikoresho %s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ITANGAZO: Gutangira kugerageza bundi bushya byikora"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ITANGAZO: Gutangira kopi y'ububiko yikora"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "IKOSA RIKOMEYE: Inzira y'ibika rya TFTP ntiyashyizweho cyangwa si ububiko"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Hageragezwa gukurura %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Ibikoresho %s byabitsweho kopi neza."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Ibikoresho %s byanze kubikwaho kopi."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Ibikoresho %s byahagaritswe kubikwaho kopi."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Nta mpinduka z'igenamiterere zabonetse."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Ububiko bw'Igenamiterere"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Ububiko bw'Amagenamiterere"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Byahatirijwe"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Mu buryo bw'intoki"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Byiganywe"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Byateguwe ku gihe"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Ongera ugerageze"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Igice"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": BYANZE"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "IMIBARE: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "IKOSA: Inzira y'ububiko bw'inyunganizi ntiyashyizweho cyangwa si ububiko"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "IBURIRA: Igihe cyo kubika '%s' ntikemewe, hagiye gukoreshwa iminsi 30 nk'ibyibanze"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "IMIBARE: Ibika ry'amakuru riri gukora kuva %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "IBURIRA: Ikopya ry'ubwirinzi ririmo gukora guhera %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "ID %s y'Igikoresho cya Cacti ntiyabonetse; ntiyongewe muri RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Igikoresho '%s' gisanzwe kiri muri RouterConfigs; cyasimbwe."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Igikoresho '%s' cyongewe muri RouterConfigs (cyahagaritswe kugeza igihe konti n'ubwoko bw'Igikoresho bishyiriweho)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Kongera Igikoresho '%s' muri RouterConfigs byanze."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Igice cyo guhisha ku murongo wa %d w'ububiko bwabanje nticyigeze gifungwa; imirongo ikurikira yahishwe."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Igice cyo guhisha ku murongo wa %d w'ububiko bushya nticyigeze gifungwa; imirongo ikurikira yahishwe."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "IKOSA: Izina rya mwakirizi ry'Igikoresho '%s' ntiryemewe nk'izina rya dosiye y'ububiko bw'inyunganizi; hindura Igikoresho ukoreshe inyuguti z'izina rya mwakirizi cyangwa aderesi ya IP gusa"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "IKOSA: Nta seriveri ya TFTP yashyizweho ku Gikoresho '%s'; shyiraho Seriveri ya TFTP ku gikoresho cyangwa mu magenamiterere rusange"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "IKOSA: Kugenzura urufunguzo rwa mwakirizi rwa SSH byanze ku Gikoresho '%s'; byanze kohereza imyirondoro cyangwa kwitabaza Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "IKOSA: Guhuza kwa SSH kwanze ku Gikoresho '%s'; kwitabaza Telnet byahagaritswe igihe kugenzura urufunguzo rwa mwakirizi rwa SSH byafunguwe"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "IKOSA: Kwinjira ku Gikoresho '%s' byanze hakoreshejwe uburyo bwo guhuza: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "IKOSA: Gukurura '%s' bijya muri '%s' binyuze kuri '%s' byanze"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Byafunguwe"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s yahiswemo ntiyemewe; nta bikoresho byahinduwe."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Kwemeza inzira ya dosiye byanze"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Gupakira dosiye '%s' byanze"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Dosiye '%s' ntiyabonetse"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Igenamiterere rya ruteri kuri %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Ikopi y'ububiko yo ku wa %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Dosiye: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Bikorwa n'intoki"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Buri kwezi ku munsi"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Ku Cyumweru"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Ku wa Mbere"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Ku wa Kabiri"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Ku wa Gatatu"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Ku wa Kane"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Ku wa Gatanu"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Ku wa Gatandatu"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Mutarama"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Gashyantare"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Werurwe"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Mata"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Gicurasi"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Kamena"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Nyakanga"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Kanama"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Nzeri"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Ukwakira"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Ugushyingo"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Ukuboza"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Cya nyuma"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Cya mbere"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Cya kabiri"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Cya gatatu"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Icya kane"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Byafunzwe (nta bubiko bwungirije buriho itariki)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (byubakitse mu byiciro)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s yahiswemo ntiyemewe."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Kuri gahunda ya Buri kwezi, ugomba guhitamo byibuze Ukwezi kumwe n'Umunsi umwe w'Ukwezi."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Kuri gahunda ya Buri kwezi ku Munsi, ugomba guhitamo Amezi, Ibyumweru by'Ukwezi, n'Iminsi y'Icyumweru."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Amezi n'Iminsi y'Ukwezi byahiswemo ntibishobora kubaho icyarimwe; hitamo undi munsi, cyangwa Uw'impera ku munsi wa nyuma w'ukwezi."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Kanda 'Komeza' kugira ngo usibe konti ikurikira/zikurikira."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Hagarika"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Komeza"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Siba igikoresho/ibikoresho"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Ugomba guhitamo nibura igikoresho kimwe."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Subira inyuma"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Konti: [hindura: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Konti: [nshya]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Amakonti"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Imicungire ya konti"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Nta konti za router zabonetse"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Ibikopi by'umutekano bya ruteri"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Icyo ari cyo cyose"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Shakisha"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Mburabuzi"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Komeza"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Gushyiraho/Kuvugurura muyunguruzi"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Siba"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Gusiba muyunguruzi"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Izina ku muyoboro"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Aderesi ya IP cyangwa izina ku muyoboro. Niba ari izina ku muyoboro, rigomba kuba rishobora kuboneka hakoreshejwe DNS cyangwa muri dosiye yawe ya hosts."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Nomero ndanga yo mu bubiko bw'amakuru bw'imbere y'iki gikoresho. Ni ingirakamaro mu gihe hakorwa imikorere yikora cyangwa isuzuma ry'amakosa."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Imimaro"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Kora ibikorwa kuri iyi kopi y'ububiko"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Ububiko bw'amadosiye ya kopi zibitswe z'igikoresho"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Igihe cy'ikopi y'ububiko"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Igihe cya nyuma cyo gufata kopi y'ububiko bw'igikoresho"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Impinduka ya nyuma"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Igihe cya nyuma cy'ihinduka ry'igikoresho"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Byahinduwe na"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Umuntu wa nyuma wahinduye igenamiterere ry'igikoresho"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Izina rya dosiye"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Izina rya dosiye y'ububiko bw'inyunganizi bw'igikoresho"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Reba ibonezamikorere"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Nta kopi z'ububiko za router zabonetse"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Igereranya ry'ibikopi by'umutekano bya ruteri"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Uburyo bwa Diff"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Mu ipaji imwe"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Biteganye"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Imirongo y'Igisobanuro"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Gereranya Ibisohoka"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Ikopi y'ububiko %s ntiyabonetse"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Nta mpinduka zihari"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Ikosa, ugomba kugira kopi z'ububiko kuri buri gikoresho."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Gukemura ibibazo kuri %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Nta Mpinduka"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Nta bikoresho byahinduwe: gahunda nshya ntishobora gukora ku bikoresho bifite nimero %s, kuko Amezi, Iminsi y'Ukwezi, Ibyumweru by'Ukwezi cyangwa Iminsi y'Icyumweru byabyo bibura cyangwa bitabaho. Shyiraho gahunda kuri ibyo bikoresho buri kimwe ukwayo."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Amagenamiterere yavuguruwe ku bikoresho %d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Nta magenamiterere yahinduwe; buri mwanya wasigaye kuri \"Nta mpinduka\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Hakorwa kubika mu buryo bw'intoki hakoreshejwe '%s' hamwe n'ibipimo '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Ikopi y'umutekano ya ruteri yatangiye.  Reba inkingi ya Itariki y'Ikopi cyangwa Inyandiko y'ibikorwa ya Cacti kugira ngo umenye imiterere y'irangira n'igihe byamaze"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Kanda 'Komeza' kugira ngo usibe ibikoresho bikurikira."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Kanda 'Komeza' kugira ngo ufungure ibikoresho bikurikira."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Shoboza Igikoresho/Ibikoresho"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Kanda 'Komeza' kugira ngo uhagarike ibikoresho bikurikira."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Hagarika Igikoresho/Ibikoresho"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Kanda 'Komeza' kugira ngo usibe urufunguzo rwabitswe rwa Mwakirizi wa SSH ku gikoresho/ibikoresho bikurikira. Ihuzwa rya SSH ritaha rizizera kandi ryandike urufunguzo rwakiriye."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Hanagura Imfunguzo za Mwakirizi za SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Shyiraho rimwe cyangwa menshi mu magenamiterere akurikira ku gikoresho cyatoranyijwe cyangwa ibikoresho byatoranyijwe. Imyanya isizwe kuri 'Nta mpinduka' ntihindurwa."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Byahagaritswe"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Koresha amagenamiterere ku Bikoresho"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Ugomba guhitamo nibura Igikoresho cya Router."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Izina rya Mwakirizi ntiryemewe. Koresha gusa inyuguti, imibare, imyanya n'ibimenyetso . - _ : kandi ntukoreshe ibitandukanya inzira cyangwa \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Ubwoko bw'Ingengabihe cyangwa Ongera ukore Buri bwatoranyijwe ntibyemewe."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Ntibyanditswe"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Ruteri: [hindura: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Ruteri: [nshya]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Imicungire y'igikoresho cya ruteri"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Konti"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Ibikorwa"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Kopi y'ububiko ya nyuma"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Ubwoko bw'iki gikoresho"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Ubwoko bwo Guhuza"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Ubwoko bw'imikoranire kuri iki gikoresho"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Amagenamiterere"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Umubare w'amagenamiterere y'iki gikoresho"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Aderesi IP y'iki gikoresho"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Seriveri ya TFTP kuri buri gikoresho, cyangwa Mburabuzi igihe ikoresha igenamiterere rusange rya Seriveri ya TFTP"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Kopi y'Ububiko Ikurikira"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Itariki y'ububiko bw'ingoboka"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Igerageza Rikurikira"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Igerageza rya nyuma"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Itariki y'impinduka"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Uyu munsi"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Ejo hashize"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Iki cyumweru"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Uku kwezi"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Mu mwaka umwe"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Kera cyane"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Oya"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Yego"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Huza ukoresheje SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Huza ukoresheje Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Gukurikirana inzira"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Amakuru yo gukosora amakosa ya ruteri"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Amakopi y'ububiko (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Ibiriho ubu"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Nta bikoresho bya router byabonetse"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Iyo ukanze kuri 'Komeza', ibikoresho bikurikira bizasibwa."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Ubutumwa bwa nyuma yo kwinjira burimo ubutumwa butari imvugo isanzwe yemewe: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Ububazo [hindura: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Ububazo [bushya]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Reba ubwoko bw'ibikoresho bya rutere"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Ubwoko"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Ubutumwa bw'ukoresha"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Ikibazo gisaba ijambobanga"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Verisiyo"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Ikibazo cyo Kwemeza"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Genzura impera mu igenamiterere"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Nta moko y'ibikoresho bya router yabonetse"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Amagenamiterere ya ruteri"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Hakorwa '%s' hamwe n'ibipimo '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Ibikoresho by'ubufasha"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Ibikoresho bya ruteri"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(hindura)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(ibikorwa)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Reba isuzumamakosa"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Konti za ruteri"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Gereranya ruteri"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Za ruteri"
+

@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: French (Morocco)\n"
+"Language: fr-MA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Supprimer"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Sauvegarde"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Editer (modifier les paramètres en masse)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Activer"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Désactiver"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Effacer la clé d'hôte SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "Sftp"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Hérité"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Quotidien"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d mois"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d mois"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d année"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d années"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Jamais"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d heure"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d heures"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (minuit)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1h)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2h)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3h)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4h)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5h)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6h)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7h)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8h)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9h)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12am)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11am)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12pm)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1pm)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2pm)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3pm)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4pm)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5pm)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6pm)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7pm)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8pm)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9pm)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10pm)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11pm)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d ligne"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d lignes"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Nom"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Donnez à ce compte un nom explicite qui sera affiché."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Le nom d'utilisateur qui sera utilisé pour l'authentification."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Mot de passe"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Le mot de passe utilisé pour l'authentification."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Mot de passe Enable"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Votre mot de passe Enable, si nécessaire."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Activer le périphérique"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Décochez cette case pour désactiver la sauvegarde de cet équipement."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Description"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Nom de cet équipement (sera utilisé pour la sauvegarde de la configuration et SVN si aucun nom d'hôte n'est présent dans la configuration)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Adresse IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Ceci est l'adresse IP utilisée pour communiquer avec l'équipement."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Serveur TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Serveur TFTP optionnel vers lequel cet équipement copie sa configuration. Laissez vide pour utiliser le paramètre global du serveur TFTP."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Clé d'hôte SSH stockée"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Comparez cet algorithme de clé d'hôte et cette empreinte hexadécimale SHA-1 avec l'équipement via un canal de confiance. Sur le serveur, remplacez le chemin ci-dessous par le fichier de clé d'hôte publique correspondant et exécutez : awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Utilisez l'action de l'équipement pour l'effacer après un changement de clé légitime."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Répertoire"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Ceci est la structure de répertoires relative utilisée pour stocker les configurations."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Type de planification"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Fréquence de sauvegarde de cet équipement. Quotidien avec une réexécution tous les 10 effectue une sauvegarde tous les 10 jours ; Mensuel effectue une véritable sauvegarde par mois calendaire."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Réexécuter tous les"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Pour les planifications quotidiennes, relancer la sauvegarde tous les X jours. Pour les planifications hebdomadaires sans jours de la semaine spécifiques, la relancer toutes les X semaines ; une fois des jours de la semaine sélectionnés, la sauvegarde s'exécute ces jours-là chaque semaine et ce champ ne s'applique pas."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Jours de la semaine"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Pour une planification hebdomadaire, le ou les jours de la semaine durant lesquels exécuter la sauvegarde, chaque semaine. Laisser vide pour exécuter selon l'intervalle « Relancer tous les » en semaines."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Mois de l’année"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Pour une planification mensuelle, le ou les mois de l'année durant lesquels exécuter la sauvegarde."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Jours du mois"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Pour une planification mensuelle, le ou les jours du mois durant lesquels exécuter la sauvegarde (Dernier = dernier jour du mois)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Semaines du mois"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Pour une planification mensuelle par jour, la ou les semaines du mois durant lesquelles exécuter la sauvegarde."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Jours de la semaine (mensuel)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Pour une planification mensuelle par jour, le ou les jours de la semaine à associer à la sélection des semaines du mois."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Type d'équipement"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Choisissez le type d'équipement correspondant au routeur."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Détecter automatiquement"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Type de connexion"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Ceci est le type de connexion utilisé pour communiquer avec l'équipement."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Compte d'authentification"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Choisissez un compte à utiliser pour vous connecter au routeur"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Aucun"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Délai d'expiration par défaut"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Délai d'attente par défaut en secondes pour une réponse"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Temps de pause par défaut"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Durée de pause par défaut en microsecondes (1/1 000 000e de seconde)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Supposer des privilèges élevés"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Cochez cette case pour considérer que cet équipement dispose toujours de privilèges élevés"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Nom de ce type d'équipement."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Invite de nom d'utilisateur"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Ceci est l'invite de nom d'utilisateur à faire correspondre lors de la connexion."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Invite de mot de passe"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Ceci est l'invite de mot de passe à faire correspondre lors de la connexion."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Fichier de configuration"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Ceci est l'emplacement standard du fichier de configuration sur l'équipement distant. Il est utilisé pour les méthodes SCP et SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Copie TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Ceci est le texte CLI utilisé pour envoyer la sauvegarde au serveur TFTP."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Commande de capture"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Commande optionnelle dont la sortie est enregistrée comme configuration, au lieu de la copier vers un serveur TFTP. Elle s'exécute toujours via SSH, quel que soit le type de connexion, et l'équipement n'a alors pas besoin de serveur TFTP. Laissez vide pour les équipements qui copient leur configuration vers TFTP. Exemple pour MikroTik RouterOS : /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Afficher la version"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Ceci est le texte CLI utilisé pour afficher la version actuelle."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Invite de confirmation"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Ceci est l'invite de confirmation à faire correspondre avant la transmission."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Y a-t-il une invite de confirmation pour la copie de la configuration ?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Forcer la confirmation"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Y a-t-il une invite de confirmation forcée pour la copie de la configuration ?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Vérifier « end » dans la configuration"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Vérifier « end » dans la configuration ?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Invite d'appui sur une touche"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Texte permettant de détecter une invite de type « Press Any Key To Continue »"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Invites post-connexion"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Paires invite/réponse optionnelles envoyées juste après la connexion, avant la commande de copie vers TFTP, une par ligne sous la forme invite|réponse. L'invite est comparée comme une expression régulière insensible à la casse à la sortie de l'équipement (elle ne peut donc pas contenir |, et les crochets ainsi que les autres caractères spéciaux doivent être échappés, par ex. Save \\[y/n\\]), et la réponse est envoyée telle qu'elle est saisie, ou utilisez <CR> pour envoyer simplement un retour chariot. Une réponse n'est envoyée qu'une fois son invite détectée, soit dans la réponse à la réponse précédente, soit dans la sortie ultérieure ; sinon un avertissement est journalisé et rien n'est envoyé. Ces invites reçoivent une réponse en premier ; l'invite Touche quelconque ci-dessus est traitée plus tard, lors de l'activation de l'équipement, de sorte qu'une invite traitée ici n'atteint jamais l'invite Touche quelconque. Exemple : Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Réglages généraux"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Mode présentation"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Indique si Router Configs doit être affiché dans la Console ou dans un onglet supérieur."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Console"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Onglet supérieur"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Lignes de contexte des différences de configuration"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Le nombre par défaut de lignes inchangées à afficher avant et après chaque modification lors de la comparaison de deux sauvegardes. Une valeur plus élevée facilite la visualisation du contexte de configuration environnant. Ce paramètre peut être remplacé pour chaque comparaison sur la page Comparer."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Délai d'expiration de la connexion"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Temps d'attente maximal en secondes lors de l'établissement de la connexion réseau initiale à un équipement. Un équipement bloqué ou inaccessible est abandonné après ce délai afin qu'une sauvegarde planifiée continue avec les équipements restants."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Fermer sans quitter"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Si coché, lors de la fermeture de la connexion à l'équipement, aucune commande 'exit' n'est envoyée"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Tampon de connexion de débogage"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Indique s'il faut journaliser la sortie directe de la connexion à l'équipement"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Supposer des privilèges élevés pour tous les équipements"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Indique s'il faut supposer que tous les équipements ont des privilèges élevés"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Heure de téléchargement"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "L'heure de la journée pour effectuer les téléchargements complets."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Planification des nouvelles tentatives"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Le temps d'attente avant de tenter un téléchargement supplémentaire lorsqu'un téléchargement planifié échoue"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Période de rétention"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Le nombre de jours de conservation des anciennes sauvegardes."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Conserver les sauvegardes des équipements inactifs"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Lorsque cette case est cochée, le nettoyage de rétention ne supprimera pas les sauvegardes expirées appartenant à des équipements désactivés ou à des équipements ayant été supprimés, afin de conserver les configurations des équipements hors service ou injoignables."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Options de transfert"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Type de connexion par défaut"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Type de connexion par défaut utilisé pour communiquer avec l'équipement."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Séparer par équipement"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Séparer les configurations archivées dans un dossier par équipement"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Sous-répertoire daté"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Insérer un sous-répertoire basé sur la date dans le chemin d'archive (avant le dossier par équipement), afin que chaque exécution soit stockée sous sa date de sauvegarde, par ex. .../2020-11-04/hostname/.... Désactivé conserve l'organisation actuelle."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Chemin SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Lors de l'utilisation de SCP, laisser ce champ vide utilisera le module SCP de PHP, qui ne fonctionne pas toujours. Le SCP externe est désactivé lorsque la vérification de la clé d'hôte SSH est activée, car il ne peut pas réutiliser la connexion vérifiée."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Vérifier les clés d'hôte SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Enregistrer la clé d'hôte SSH de chaque équipement lors de la première connexion et refuser d'envoyer les identifiants si elle change par la suite. Le mode SSH/Telnet ne basculera pas sur Telnet tant que la vérification est activée. Après un changement de clé légitime, utilisez l'action sur l'équipement pour effacer la clé d'hôte enregistrée."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP du serveur TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Doit être une adresse IP pointant vers votre serveur Cacti."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Chemin du répertoire de sauvegarde TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Le chemin où vos configurations seront sauvegardées ; il doit s'agir du chemin dans lequel écrit le serveur TFTP local."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Chemin du répertoire d'archive"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Le chemin où vos configurations seront archivées (déplacées depuis le répertoire TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Options d&rsquo;e-mail"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Depuis l'adresse"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Adresse e-mail utilisée comme expéditeur pour l'envoi de la sauvegarde nocturne."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Nom de l'expéditeur"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Nom d'expéditeur utilisé pour l'envoi de la sauvegarde nocturne."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Adresse e-mail"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Une liste d'adresses e-mail séparées par des virgules auxquelles envoyer l'e-mail de sauvegarde nocturne."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Inclure les différences de configuration"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Ajouter à l'e-mail de sauvegarde un diff unifié pour chaque équipement dont la configuration a changé durant l'exécution, afin qu'un réviseur puisse voir exactement ce qui a été modifié. Les configurations binaires (non textuelles) sont ignorées. Les lignes volatiles qui changent à chaque sauvegarde (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' et 'Current configuration :', ainsi que NX-OS '!Time:' et '!Running configuration last done at:') sont toujours ignorées. Avertissement : le diff est envoyé en texte clair à chaque destinataire de l'e-mail et peut donc révéler des paramètres de configuration qui devraient rester confidentiels ; laissez l'option Inclure les secrets dans les diffs décochée."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Inclure les secrets dans les différences"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Envoyer telles quelles les valeurs secrètes dans le diff envoyé par e-mail. Lorsque cette case est décochée (par défaut), les lignes modifiées sont recherchées dans les configurations brutes et affichées expurgées, en mode sécurisé par défaut : les lignes contenant des mots sensibles (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) ainsi que les lignes d'hôte et d'utilisateur SNMP sont réduites à leur premier mot suivi de &lt;secret hidden&gt;, et chaque ligne d'un bloc PEM, d'un bloc de certificat ou de chaîne de clé, ou d'une valeur multi-lignes entre guillemets, ainsi que toute ligne hexadécimale ou base64, est masquée ; un bloc qui ne se termine jamais masque le reste de la configuration. Cela masque également des lignes inoffensives (par exemple une description mentionnant « key »), mais chaque ligne modifiée apparaît toujours, marquée (changed) lorsque seule sa partie masquée diffère, et un bloc non terminé est signalé dans l'e-mail. Les sauvegardes stockées ne sont jamais modifiées."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Motifs d'exclusion de comparaison (diff)"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Expressions régulières optionnelles (une par ligne) correspondant aux lignes de configuration à ignorer lors de la comparaison, afin que les lignes volatiles telles que les horodatages ou les numéros de série n'apparaissent pas comme des modifications. Chaque motif est recherché sans tenir compte de la casse n'importe où dans une ligne sauf s'il est ancré avec ^ ou $ ; un motif qui n'est pas une expression régulière valide est ignoré."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Liste de notification Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Lorsque Thold est installé, envoyer également l'E-mail de sauvegarde aux destinataires de la liste de notifications Thold sélectionnée."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Ajouter à la sauvegarde RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Cliquez sur 'Continuer' pour ajouter le(s) équipement(s) suivant(s) à RouterConfigs pour la sauvegarde. Tout équipement déjà présent dans RouterConfigs est ignoré."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Équipements"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Types d’appareil"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Authentification"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Sauvegardes"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Comparer"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Support technique [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s caractères)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Non défini)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "AVIS : Démarrage de la sauvegarde manuelle de %s équipements"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "AVIS : Démarrage de la nouvelle tentative automatique"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "AVIS : Démarrage de la sauvegarde automatique"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "ERREUR FATALE : le chemin de sauvegarde TFTP n'est pas défini ou n'est pas un répertoire"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DÉBOGAGE : Tentative de téléchargement pour %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "%s équipements sauvegardés avec succès."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "%s équipements n'ont pas pu être sauvegardés."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "%s équipements avec sauvegarde désactivée."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Aucun changement de configuration n'a été détecté."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Sauvegardes de configuration"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Sauvegardes de configuration"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Forcé"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Manuel"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Simulé"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Planifié"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Nouvelle tentative"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Partiel"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": ÉCHEC"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "STATS : "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "ERREUR : Le chemin de sauvegarde n'est pas défini ou n'est pas un répertoire"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "AVERTISSEMENT : La période de rétention '%s' est invalide, valeur par défaut de 30 jours appliquée"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "STATS : Sauvegarde en cours d'exécution depuis %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "AVERTISSEMENT : Une sauvegarde est déjà en cours depuis %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "L'ID d'équipement Cacti %s est introuvable ; non ajouté à RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "L'équipement '%s' est déjà dans RouterConfigs ; ignoré."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Équipement '%s' ajouté à RouterConfigs (désactivé tant qu'un compte et un type d'équipement ne sont pas définis)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Échec de l'ajout de l'équipement '%s' à RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Le bloc de masquage à la ligne %d de la sauvegarde précédente n'a jamais été fermé ; les lignes suivantes sont masquées."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Le bloc de masquage à la ligne %d de la nouvelle sauvegarde n'a jamais été fermé ; les lignes suivantes sont masquées."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "ERREUR : Le nom d'hôte de l'Équipement '%s' n'est pas valide comme nom de fichier de sauvegarde ; éditez l'Équipement et n'utilisez que des caractères de nom d'hôte ou d'adresse IP"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "ERREUR : Aucun serveur TFTP n'est défini pour l'Équipement '%s' ; définissez un serveur TFTP sur l'équipement ou dans les paramètres globaux"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "ERREUR : La vérification de la clé d'hôte SSH a échoué pour l'Équipement '%s' ; refus d'envoyer les identifiants ou de basculer vers Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "ERREUR : La connexion SSH a échoué pour l'Équipement '%s' ; le basculement vers Telnet est désactivé lorsque la vérification de la clé d'hôte SSH est activée"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "ERREUR : Échec de la connexion à l'Équipement '%s' avec le type de connexion : %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "ERREUR : Échec du téléchargement de '%s' vers '%s' via '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Activé"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Le %s sélectionné n'est pas valide ; aucun équipement n'a été modifié."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Échec de la validation du chemin de fichier"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Échec du chargement du fichier '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Le fichier '%s' est introuvable"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Configuration du routeur pour %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Sauvegarde du %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Fichier : %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Manuel"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Mensuel"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Dimanche"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Lundi"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Mardi"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Mercredi"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Jeudi"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Vendredi"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Samedi"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Janvier"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Février"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Mars"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Avril"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Mai"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Juin"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Juillet"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Août"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Septembre"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Octobre"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Novembre"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Décembre"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Dernier"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Première"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Seconde"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Troisième"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Quatrième"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Désactivé (aucun sous-répertoire daté)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (imbriqué)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Le %s sélectionné n'est pas valide."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Pour une planification mensuelle, vous devez sélectionner au moins un mois et un jour du mois."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Pour une planification mensuelle par jour, vous devez sélectionner les mois, les semaines du mois et les jours de la semaine."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Les mois et jours du mois sélectionnés ne coïncident jamais ; choisissez un autre jour, ou Dernier pour le dernier jour du mois."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Cliquez sur 'Continuer' pour supprimer le(s) compte(s) suivant(s)."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Annuler"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Continuer"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Supprimer le(s) appareil(s)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Vous devez sélectionner au moins un appareil."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Retour"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Compte : [éditer : %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Compte : [nouveau]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Comptes"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Gestion du Compte"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Aucun compte de routeur trouvé"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Sauvegardes de routeur"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "N'importe lequel"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Rechercher"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Défaut"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Go"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Définir/Rafraîchir les filtres"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Effacer"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Supprimer les filtres"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Nom d'hôte"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Soit une adresse IP, soit un nom d'hôte.  S'il s'agit d'un nom d'hôte, il doit pouvoir être résolu soit par DNS, soit à partir de votre fichier hosts."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "L'identifiant de cet équipement dans la base de données. Utile lors pour de l'automatisation ou du débogage."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Fonctions"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Exécuter des opérations sur cette sauvegarde"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Le répertoire des sauvegardes stockées de l'équipement"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Heure de sauvegarde"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "L'heure de la dernière sauvegarde de l'équipement"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Dernière modification"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "L'heure de la dernière modification de l'équipement"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Modifié par"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "La dernière personne à avoir modifié la configuration de l'équipement"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Nom du fichier"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Le nom de fichier des sauvegardes stockées de l'équipement"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Afficher la configuration"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Aucune sauvegarde de routeur trouvée"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Comparaison des sauvegardes de routeur"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Mode Diff"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "En ligne"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Côte à côte"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Lignes de contexte"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Comparer la sortie"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Sauvegarde %s introuvable"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Il n'y a aucune modification"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Erreur, vous devez disposer de sauvegardes pour chaque équipement."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Débogage pour %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Aucun changement"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Aucun équipement n'a été modifié : la nouvelle planification ne peut pas s'exécuter sur les ID d'équipement %s, car leurs mois, jours du mois, semaines du mois ou jours de la semaine sont manquants ou ne surviennent jamais. Définissez la planification individuellement sur ces équipements."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Paramètres mis à jour sur %d équipement(s)."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Aucun paramètre n'a été modifié ; tous les champs sont restés sur « Aucune modification »."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DÉBOGAGE : Exécution de la sauvegarde manuelle via '%s' avec les arguments '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Sauvegarde du routeur démarrée. Vérifiez la colonne Date de sauvegarde ou le journal Cacti pour connaître l'état d'achèvement et la durée"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Cliquez sur 'Continuer' pour supprimer le(s) équipement(s) suivant(s)."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Cliquez sur 'Continuer' pour activer le(s) équipement(s) suivant(s)."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Activer le(s) équipement(s)"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Cliquez sur 'Continuer' pour désactiver le(s) équipement(s) suivant(s)."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Désactiver le(s) équipement(s)"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Cliquez sur 'Continuer' pour effacer la clé d'hôte SSH enregistrée pour le(s) équipement(s) suivant(s). La prochaine connexion SSH fera confiance à la clé reçue et l'enregistrera."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Effacer la ou les clés d'hôte SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Définissez un ou plusieurs des paramètres suivants sur le(s) équipement(s) sélectionné(s). Les champs laissés sur « Aucun changement » ne sont pas modifiés."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Appliquer les paramètres au(x) équipement(s)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Vous devez sélectionner au moins un équipement routeur."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Le nom d'hôte n'est pas valide. Utilisez uniquement des lettres, des chiffres, des espaces et les caractères . - _ : et n'utilisez pas de séparateurs de chemin ni « .. »."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Le type de planification ou l'intervalle de réexécution sélectionné n'est pas valide."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Non enregistré"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Routeur : [éditer : %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Routeur : [nouveau]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Gestion des équipements routeurs"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Compte"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Actions"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Dernière sauvegarde"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Le type d'équipement de l'équipement"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Type de connexion"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Le type de connexion pour cet équipement"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Configs"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Le nombre de configurations pour cet équipement"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "L'adresse IP de cet équipement"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Le serveur TFTP par équipement, ou Par défaut lorsqu'il utilise le paramètre global du serveur TFTP"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Prochaine sauvegarde"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Date de sauvegarde"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Tentative suivante"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Dernière tentative"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Date de modification"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Aujourd’hui"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Hier"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Cette semaine"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Ce mois-ci"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Dans l'année"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Il y a très longtemps"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Non"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Oui"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Se connecter via SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Se connecter via Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Traceroute"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Informations de débogage du routeur"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Sauvegardes (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Actuel"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Aucun équipement routeur trouvé"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Lorsque vous cliquez sur « Continuer », le ou les équipements suivants seront supprimés."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Les invites post-connexion contiennent une invite qui n'est pas une expression régulière valide : %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Requête [éditer : %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Requête [nouvelle]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Afficher les types d'Équipement routeur"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Type"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Invite utilisateur"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Invite de mot de passe"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Version"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Invite de confirmation"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Vérifier « end » dans la configuration"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Aucun type d'équipement routeur trouvé"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Configurations de routeur"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DÉBOGAGE : Exécution de '%s' avec les arguments '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Utilitaires"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Équipements routeurs"
+
+#: setup.php
+msgid "(edit)"
+msgstr "Éditer"
+
+#: setup.php
+msgid "(actions)"
+msgstr "Actions"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Afficher le débogage"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Comptes de routeur"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Comparaison de routeurs"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Routeurs"
+

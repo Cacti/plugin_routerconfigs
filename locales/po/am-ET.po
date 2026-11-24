@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Amharic\n"
+"Language: am-ET\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "ሰርዝ"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "ምትኬ"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "አርትዕ (ቅንብሮችን በጅምላ ለውጥ)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "አንቃ"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "አሰናክል"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "የSSH አስተናጋጅ ቁልፍን አጽዳ"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "ውረስ"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "ዕለታዊ"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "ሳምንታዊ"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "ወርሃዊ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d ወር"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d ወራት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d ዓመት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d ዓመታት"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "ፈጽሞ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d ሰዓት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d ሰዓታት"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 ጥዋት)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 ጥዋት)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 ጥዋት)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 ጥዋት)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 ጥዋት)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 ጥዋት)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 ጥዋት)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 ጥዋት)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 ጥዋት)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 ጥዋት)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 ጥዋት)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 ጥዋት)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 ከሰዓት)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 ከሰዓት)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d መስመር"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d መስመሮች"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "ስም"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "ለዚህ መለያ የሚታይ ትርጉም ያለው ስም ይስጡ።"
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "የተጠቃሚ ስም"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "ለማረጋገጫ የሚያገለግለው የተጠቃሚ ስም።"
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "የይለፍ ቃል"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "ለማረጋገጫ ጥቅም ላይ የዋለው የይለፍ ቃል።"
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Enable የይለፍ ቃል"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "የእርስዎ Enable የይለፍ ቃል፣ አስፈላጊ ከሆነ።"
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "መሣሪያን አንቃ"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "ይህ መሣሪያ ምትኬ እንዳይወሰድበት ለማሰናከል የዚህን ሳጥን ምልክት ያንሱ።"
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "መግለጫ"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "የዚህ መሣሪያ ስም (በውቅሩ ውስጥ የአስተናጋጅ ስም ከሌለ ውቅርን ለማስቀመጥ እና ለSVN ያገለግላል)።"
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "የIP አድራሻ"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "ይህ ከመሣሪያው ጋር ለመገናኘት የሚያገለግለው የIP አድራሻ ነው።"
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "የTFTP አገልጋይ"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "ይህ መሣሪያ ውቅሩን የሚቀዳበት አማራጭ TFTP አገልጋይ። ዓለም አቀፋዊውን የTFTP አገልጋይ ቅንብር ለመጠቀም ባዶ ይተዉት።"
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "የተከማቸ የSSH አስተናጋጅ ቁልፍ"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "ይህን የአስተናጋጅ-ቁልፍ ስልተ-ቀመር እና የSHA-1 ሄክስ አሻራ ከመሣሪያው ጋር በታመነ ቻናል አወዳድር። በአገልጋዩ ላይ ከታች ያለውን መንገድ በተዛማጅ የህዝብ አስተናጋጅ-ቁልፍ ፋይል ተክተው ይህን ያሂዱ፦ awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'። ህጋዊ የቁልፍ ለውጥ ከተደረገ በኋላ እሱን ለማጽዳት የመሣሪያ እርምጃውን ይጠቀሙ።"
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "ማውጫ"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "ይህ ውቅሮችን ለማከማቸት የሚያገለግለው አንጻራዊ የማውጫ መዋቅር ነው።"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "የመርሃግብር ዓይነት"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "ይህን መሣሪያ ምን ያህል ጊዜ ምትኬ (Backup) ማስቀመጥ እንደሚያስፈልግ። «በየቀኑ» ከ«በየ 10 ቀኑ ድገም» ጋር በየ10 ቀኑ ምትኬ ይፈጽማል፤ «በየወሩ» ትክክለኛ የቀን መቁጠሪያ ወር ምትኬን ይፈጽማል።"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "እንደገና አሂድ በየ"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "ለዕለታዊ መርሃ ግብሮች፣ ምትኬውን በየ X ቀናት እንደገና ያሂዱ። የተወሰኑ የሳምንቱ ቀናት ለሌላቸው ሳምንታዊ መርሃ ግብሮች፣ በየ X ሳምንታት እንደገና ያሂዱት፤ የሳምንቱ ቀናት ከተመረጡ በኋላ ምትኬው በየሳምንቱ በእነዚያ ቀናት ይሄዳል እና ይህ መስክ አይተገበርም።"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "የሳምንቱ ቀናት"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "ለሳምንታዊ መርሃ ግብር፣ ምትኬው በየሳምንቱ የሚሄድበት የሳምንቱ ቀን(ኖች)። በምትኩ በየ 'በየዚህን ያህል ጊዜ እንደገና አሂድ' ሳምንታት እንዲሄድ ባዶ ይተዉት።"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "የዓመቱ ወራት"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "ለወርሃዊ መርሃ ግብር፣ ምትኬው የሚሄድበት የዓመቱ ወር(ሮች)።"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "የወሩ ቀናት"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "ለወርሃዊ መርሃ ግብር፣ ምትኬው የሚሄድበት የወሩ ቀን(ኖች) (የመጨረሻ = የወሩ የመጨረሻ ቀን)።"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "የወሩ ሳምንታት"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "ለወርሃዊ በቀን መርሃ ግብር፣ ምትኬው የሚሄድበት የወሩ ሳምንት(ቶች)።"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "የሳምንቱ ቀናት (ወርሃዊ)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "ለወርሃዊ በቀን መርሃ ግብር፣ ከወሩ ሳምንታት ምርጫ ጋር የሚጣመር የሳምንቱ ቀን(ኖች)።"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "የመሣሪያ ዓይነት"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "ራውተሩ የሆነውን የመሣሪያ ዓይነት ይምረጡ።"
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "በራስ-ሰር አግኝ"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "የግንኙነት ዓይነት"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "ይህ ከመሣሪያው ጋር ለመገናኘት ጥቅም ላይ የዋለው የግንኙነት ዓይነት ነው።"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "የማረጋገጫ መለያ"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "ወደ ራውተሩ ለመግባት የሚጠቀሙበትን መለያ ይምረጡ"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "ምንም"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "ነባሪ የጊዜ ማብቂያ"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "ምላሽ ለመጠበቅ በሰከንዶች ውስጥ ነባሪ የመቆያ ጊዜ"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "ነባሪ የእንቅልፍ ጊዜ"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "በማይክሮሰከንዶች ውስጥ የሚቆይበት ነባሪ የእንቅልፍ ጊዜ (ከአንድ ሰከንድ 1/1,000,000ኛ)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "ከፍ ያለ መብት እንዳለ ይገመት"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "ይህ መሣሪያ ሁልጊዜ ከፍ ያለ ፈቃድ እንዳለው ለመገመት ይህን ሳጥን ይምረጡ"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "የዚህ የመሣሪያ ዓይነት ስም።"
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "የተጠቃሚ ስም መጠየቂያ"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "ይህ በመግቢያ ላይ የሚዛመድ የተጠቃሚ ስም መጠየቂያ ነው።"
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "የይለፍ ቃል መጠየቂያ"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "ይህ በመግቢያ ላይ የሚዛመድ የይለፍ ቃል መጠየቂያ ነው።"
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "የውቅር ፋይል"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "ይህ በርቀት መሣሪያው ላይ ያለው የውቅር ፋይል መደበኛ ቦታ ነው። ለSCP እና SFTP ዘዴ ጥቅም ላይ ይውላል"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "TFTP ቅዳ"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "ይህ ምትኬውን ወደ tftp አገልጋይ ለመላክ የሚያገለግል የCLI ጽሑፍ ነው።"
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "የመያዣ ትዕዛዝ"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "ውቅሩን ወደ TFTP አገልጋይ ከመቅዳት ይልቅ ውጤቱ እንደ ውቅር የሚቀመጥበት አማራጭ ትዕዛዝ። የግንኙነት ዓይነቱ ምንም ይሁን ምን ሁልጊዜ በSSH ላይ ይሰራል፣ እና መሣሪያው የTFTP አገልጋይ አያስፈልገውም። ውቅራቸውን ወደ TFTP ለሚቀዱ መሳሪያዎች ባዶ ይተዉት። ለMikroTik RouterOS ምሳሌ፦ /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "ስሪት አሳይ"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "ይህ የአሁኑን ስሪት ለማሳየት የሚያገለግል የCLI ጽሑፍ ነው።"
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "የማረጋገጫ ጥያቄ"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "ይህ ከማስተላለፍ በፊት መመሳሰል ያለበት የማረጋገጫ መጠየቂያ ነው።"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "አረጋግጥ"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "ውቅረቱን ለመቅዳት የማረጋገጫ ጥያቄ አለ?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "ማረጋገጫ አስገድድ"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "ውቅረቱን ለመቅዳት የግዴታ ማረጋገጫ ጥያቄ አለ?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "በውቅር ውስጥ መጨረሻን አረጋግጥ"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "በውቅር ውስጥ መጨረሻን ማረጋገጥ ይፈልጋሉ?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "የማንኛውም ቁልፍ ጥያቄ"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "የ'Press Any Key To Continue' አይነት ጥያቄን የሚያዛምድ ጽሑፍ"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "ከመግባት በኋላ የሚታዩ መጠየቂያዎች"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "ከገቡ በኋላ ወዲያውኑ፣ ከcopy-to-TFTP ትዕዛዝ በፊት የሚላኩ አማራጭ የመጠየቂያ/ምላሽ ጥንዶች፣ በእያንዳንዱ መስመር አንድ እንደ prompt|response። መጠየቂያው ከመሣሪያው ውጤት ጋር ትንሽ እና ትልቅ ፊደል ሳይለይ እንደ መደበኛ አገላለጽ ይዛመዳል (ስለዚህ እራሱ | ሊይዝ አይችልም፣ እና ቅንፎችና ሌሎች ልዩ ቁምፊዎች ማምለጥ አለባቸው፣ ለምሳሌ Save \\[y/n\\])፣ እና ምላሹ እንደተተየበው ይላካል፣ ወይም የጋሪ መመለሻ ብቻ ለመላክ <CR> ይጠቀሙ። ምላሽ የሚላከው መጠየቂያው አንዴ ከታየ በኋላ ብቻ ነው፣ ወይም ለቀዳሚው ምላሽ በተሰጠው መልስ ውስጥ ወይም በኋለኛው ውጤት ውስጥ፤ ያለበለዚያ ማስጠንቀቂያ ይመዘገባል እና ምንም አይላክም። እነዚህ መጀመሪያ ይመለሳሉ፤ ከላይ ያለው ማንኛውም ቁልፍ መጠየቂያ መሣሪያው በሚነቃበት ጊዜ በኋላ ይመለሳል፣ ስለዚህ እዚህ የተመለሰ መጠየቂያ በፍጹም ወደ ማንኛውም ቁልፍ አይደርስም። ምሳሌ፦ Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "አጠቃላይ ቅንብሮች"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "የአቀራረብ ሁነታ"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "የራውተር ውቅሮች በኮንሶል ላይ ወይም በላይኛው ትር ላይ መቅረብ አለባቸው?"
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "ኮንሶል"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "የላይኛው ትር"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "የውቅር ልዩነት አውድ መስመሮች"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "ሁለት ምትኬዎችን ሲያነጻጽሩ ከእያንዳንዱ ለውጥ በፊት እና በኋላ የሚታዩ ያልተለወጡ መስመሮች ነባሪ ቁጥር። ትልቅ እሴት በዙሪያው ያለውን የውቅር አውድ ለማየት ቀላል ያደርገዋል። ይህ በአነጻጽር (Compare) ገጽ ላይ በእያንዳንዱ ንጽጽር ሊሻር ይችላል።"
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "የግንኙነት ጊዜ አብቅቷል"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "ከአንድ መሣሪያ ጋር የመጀመሪያ የአውታረ መረብ ግንኙነት ሲመሰረት የሚጠበቅበት ከፍተኛ ጊዜ በሴኮንዶች። የቆመ ወይም የማይደረስበት መሣሪያ ከዚህ የጊዜ ገደብ በኋላ ስለሚተው የታቀደ የምትኬ ሩጫ በቀሪዎቹ መሳሪያዎች ይቀጥላል።"
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "ሳይወጡ ዝጋ"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "ከተመረጠ፣ የመሣሪያውን ግንኙነት ሲዘጉ፣ ምንም የ'exit' ትዕዛዝ አይሰጥም"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "የግንኙነት ቋት ማረሚያ"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "የመሣሪያ ግንኙነት ቀጥተኛ ውጤት በምዝግብ ማስታወሻ ይመዝገብ እንደሆነ"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "ሁሉም መሳሪያዎች ከፍ ያለ መብት እንዳላቸው ይገመት"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "ሁሉም መሳሪያዎች ከፍ ያለ መብት (elevated) እንዳላቸው ተደርጎ ይወሰድ እንደሆነ"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "የማውረጃ ሰዓት"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "ሙሉ ማውረዶችን ለማከናወን የቀኑ ሰዓት።"
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "የዳግም ሙከራ መርሐግብር"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "በመርሐግብር የተያዘ ማውረድ ሲከሽፍ ተጨማሪ ማውረድ ለማካሄድ ከመሞከር በፊት የሚጠበቅበት ጊዜ"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "የማቆያ ጊዜ"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "የቆዩ ምትኬዎችን ለማቆየት የቀናት ብዛት።"
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "ንቁ ያልሆኑ የመሣሪያ ምትኬዎችን አቆይ"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "ምልክት ሲደረግበት፣ የማቆያ ጊዜ ጽዳቱ ለተሰናከሉ መሳሪያዎች ወይም ለተወገዱ መሳሪያዎች የሆኑ ጊዜያቸው ያለፈባቸው ምትኬዎችን አይሰርዝም፤ ስለዚህ ከአገልግሎት ውጭ የሆኑ ወይም የማይደረስባቸው መሣሪያዎች ውቅሮች ተጠብቀው ይቆያሉ።"
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "የዝውውር አማራጮች"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "ነባሪ የግንኙነት ዓይነት"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "ከመሣሪያው ጋር ለመገናኘት የሚያገለግል ነባሪ የግንኙነት ዓይነት።"
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "በመሣሪያ ለይ"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "በማህደር የተቀመጡ ውቅሮችን ለእያንዳንዱ መሣሪያ በአንድ አቃፊ ውስጥ ለይ"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "በቀን የተሰየመ ንዑስ ማውጫ"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "በማህደር መንገዱ ውስጥ (ከየመሣሪያው አቃፊ በፊት) በቀን ላይ የተመሠረተ ንዑስ ማውጫ ያስገቡ፤ ይህም እያንዳንዱ ሂደት በመጠባበቂያ ቀኑ ስር እንዲቀመጥ ያደርጋል፣ ለምሳሌ .../2020-11-04/hostname/...። ጠፍቷል ነባሩን አቀማመጥ ይጠብቃል።"
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "የSCP መንገድ"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "SCP ን ሲጠቀሙ፣ ይህንን ባዶ መተው ሁልጊዜ የማይሰራውን የPHP SCP ሞጁል ይጠቀማል። የSSH አስተናጋጅ ቁልፍ ማረጋገጫ ሲነቃ የተረጋገጠውን ግንኙነት እንደገና መጠቀም ስለማይችል ውጫዊ SCP ይሰናከላል።"
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "የSSH አስተናጋጅ ቁልፎችን አረጋግጥ"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "በመጀመሪያው ግንኙነት የእያንዳንዱን መሣሪያ SSH አስተናጋጅ ቁልፍ ይመዝግቡ እና በኋላ ከተቀየረ የማረጋገጫ መረጃዎችን ለመላክ እምቢ ይበሉ። ማረጋገጫ ነቅቶ እያለ የSSH/Telnet ሁነታ ወደ Telnet አይመለስም። ከህጋዊ የቁልፍ ለውጥ በኋላ የተከማቸውን የአስተናጋጅ ቁልፍ ለማጽዳት የመሣሪያውን እርምጃ ይጠቀሙ።"
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "የTFTP አገልጋይ IP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "ወደ Cacti አገልጋይዎ የሚያመለክት IP መሆን አለበት።"
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "የTFTP ምትኬ ማውጫ መንገድ"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "ውቅሮችዎ (Configs) ምትኬ የሚቀመጥበት መንገድ፤ ይህ የአካባቢው TFTP አገልጋይ የሚጽፍበት መንገድ መሆን አለበት።"
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "የማህደር ማውጫ መንገድ"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "ውቅሮችዎ (Configs) የሚቀመጡበት መንገድ (ከTFTP ማውጫ የሚዛወሩበት)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "የኢሜይል አማራጮች"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "የላኪ አድራሻ"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "የሌሊት ምትኬው የሚላክበት የኢሜይል አድራሻ።"
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "የላኪ ስም"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "የምሽት ምትኬ የሚላክበት ስም።"
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "የኢሜይል አድራሻ"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "የሌሊት ምትኬ ኢሜይል የሚላክባቸው በነጠላ ሰረዝ የተለዩ የኢሜይል አድራሻዎች ዝርዝር።"
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "የውቅር ልዩነቶችን አካትት"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "በሩጫው ወቅት ውቅሩ የተቀየረ የእያንዳንዱን መሣሪያ የተዋሃደ ልዩነት (unified diff) ወደ ምትኬ ኢሜይሉ ያክሉ፣ ይህም ገምጋሚው ምን እንደተቀየረ በትክክል እንዲያይ ያስችለዋል። ሁለትዮሽ (ጽሑፍ ያልሆኑ) ውቅሮች ይዘለላሉ። በእያንዳንዱ ምትኬ ላይ የሚቀየሩ ተለዋዋጭ መስመሮች (Cisco IOS '! Last configuration change'፣ '! NVRAM config last updated'፣ 'ntp clock-period' እና 'Current configuration :'፣ እና NX-OS '!Time:' እና '!Running configuration last done at:') ሁልጊዜ ችላ ይባላሉ። ማስጠንቀቂያ፦ ልዩነቱ (diff) ለእያንዳንዱ የኢሜይል ተቀባይ በግልጽ ጽሑፍ ስለሚላክ በሚስጥር መቆየት ያለበትን ውቅር ሊያጋልጥ ይችላል፤ 'Include Secrets in Diffs' የሚለውን ሳይመረጥ ይተዉት።"
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "ምስጢሮችን በልዩነቶች ውስጥ አካትት"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "ሚስጥራዊ እሴቶችን በኢሜይል በሚላከው ልዩነት (diff) ውስጥ እንዳሉ ላክ። ምልክት ሳይደረግበት ሲቀር (ነባሪው)፣ የተቀየሩት መስመሮች በጥሬ ውቅሮች ላይ ተፈልገው ተደብቀው ይታተማሉ፣ በተዘጋ መልኩ በመውደቅ፡ እንደ ሚስጥር ያሉ ቃላትን የያዙ መስመሮች (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) እና የSNMP አስተናጋጅ እና የተጠቃሚ መስመሮች ወደ መጀመሪያው ቃላቸው ተቀንሰው &lt;secret hidden&gt; ይከተላቸዋል፣ እንዲሁም የPEM ብሎክ፣ የምስክር ወረቀት ወይም የቁልፍ-ሕብረቁምፊ ብሎክ፣ ወይም ባለብዙ-መስመር የተጠቀሰ እሴት እያንዳንዱ መስመር እና ማንኛውም hex ወይም base64 ረድፍ ይደበቃል፤ የማያልቅ ብሎክ የቀረውን ውቅር ይደብቃል። ይህ ጉዳት የሌላቸውን መስመሮችም (ለምሳሌ ቁልፍን የሚጠቅስ መግለጫ) ይደብቃል፣ ነገር ግን የተደበቀው ክፍል ብቻ ሲለያይ (changed) በሚል ምልክት ተደርጎበት እያንዳንዱ የተቀየረ መስመር አሁንም ይታያል፣ እና የማያልቅ ብሎክ በኢሜይሉ ውስጥ ይገለጻል። የተቀመጡ ምትኬዎች መቼም አይቀየሩም።"
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "ከልዩነት (Diff) የሚገለሉ ቅጦች"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "ሲነጻጸሩ ችላ የሚባሉ የውቅር መስመሮችን የሚያዛምዱ አማራጭ መደበኛ አገላለጾች (በመስመር አንድ)፣ ስለዚህ እንደ የጊዜ ማህተሞች ወይም ተከታታይ ቁጥሮች ያሉ ተለዋዋጭ መስመሮች እንደ ለውጦች አይታዩም። እያንዳንዱ ንድፍ በ^ ወይም $ ካልታሰረ በስተቀር በመስመር ውስጥ በየትኛውም ቦታ ትንሽ እና ትልቅ ፊደል ሳይለይ ይዛመዳል፤ ትክክለኛ መደበኛ አገላለጽ ያልሆነ ንድፍ ችላ ይባላል።"
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "የThold ማሳወቂያ ዝርዝር"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Thold ሲጫን የመጠባበቂያ ኢሜይሉን ለተመረጠው የThold ማሳወቂያ ዝርዝር ተቀባዮችም ይላኩ።"
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "ወደ RouterConfigs ምትኬ አክል"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "የሚከተሉትን መሣሪያ(ዎች) ለምትኬ ወደ RouterConfigs ለማከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ። አስቀድሞ በRouterConfigs ውስጥ ያለ ማንኛውም መሣሪያ ይዘለላል።"
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "መሳሪያዎች"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "የመሣሪያ ዓይነቶች"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "ማረጋገጫ"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "ምትኬዎች"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "አወዳድር"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "የቴክኒክ ድጋፍ [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s ቁምፊዎች)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(አልተዘጋጀም)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ማሳሰቢያ: የ%s መሳሪያዎችን በእጅ ምትኬ መጀመር ላይ"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ማሳሰቢያ: ራስ-ሰር ድጋሚ ሙከራ መጀመር ላይ"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ማሳሰቢያ: ራስ-ሰር ምትኬ መጀመር ላይ"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "ከባድ ስህተት: የTFTP ምትኬ መንገድ አልተዘጋጀም ወይም ማውጫ አይደለም"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: ለ%s ማውረድ በመሞከር ላይ"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "%s መሳሪያዎች በተሳካ ሁኔታ ምትኬ ተይዞላቸዋል።"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "%s መሳሪያዎች ምትኬ መያዝ አልቻሉም።"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "%s መሳሪያዎች ከምትኬ ተሰናክለዋል።"
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "ምንም የውቅር ለውጦች አልተገኙም።"
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "የውቅር ምትኬዎች"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "የውቅር ምትኬዎች"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - የተገደደ"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - በእጅ"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - የተመሰለ"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - የታቀደ"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - እንደገና ሞክር"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": ከፊል"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": አልተሳካም"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "ስታቲስቲክስ: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "ስህተት፦ የምትኬ መንገድ አልተቀናበረም ወይም አቃፊ አይደለም"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "ማስጠንቀቂያ፦ የማቆያ ጊዜ '%s' ልክ ያልሆነ ነው፣ በነባሪነት ወደ 30 ቀናት ተቀናብሯል"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "ስታቲስቲክስ: ምትኬ አሁን ከ%s ጀምሮ እየሄደ ነው"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "ማስጠንቀቂያ፦ ምትኬ ከ%s ጀምሮ አስቀድሞ እየሰራ ነው"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "የ Cacti መሣሪያ መታወቂያ %s አልተገኘም፤ ወደ RouterConfigs አልታከለም።"
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "መሣሪያ '%s' ቀድሞውኑ በRouterConfigs ውስጥ አለ፤ ተዘሏል።"
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "መሣሪያ '%s' ወደ RouterConfigs ታክሏል (መለያ እና የመሣሪያ ዓይነት እስኪዘጋጁ ድረስ ተሰናክሏል)።"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "መሣሪያ '%s' ወደ RouterConfigs ማከል አልተሳካም።"
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "በቀደመው ምትኬ መስመር %d ላይ ያለው የስውር መረጃ ብሎክ አልተዘጋም፤ የሚከተሉት መስመሮች ተደብቀዋል።"
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "በአዲሱ ምትኬ መስመር %d ላይ ያለው የስውር መረጃ ብሎክ አልተዘጋም፤ የሚከተሉት መስመሮች ተደብቀዋል።"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "ስህተት፦ የመሣሪያ '%s' አስተናጋጅ ስም እንደ የምትኬ ፋይል ስም ልክ አይደለም፤ መሣሪያውን ያርትዑ እና የአስተናጋጅ ስም ወይም የIP አድራሻ ቁምፊዎችን ብቻ ይጠቀሙ"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "ስህተት፦ ለመሣሪያ '%s' ምንም የTFTP አገልጋይ አልተቀናበረም፤ በመሣሪያው ላይ ወይም በአጠቃላይ ቅንብሮች ውስጥ የTFTP አገልጋይ ያቀናብሩ"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "ስህተት፦ ለመሣሪያ '%s' የSSH አስተናጋጅ ቁልፍ ማረጋገጫ አልተሳካም፤ ምስክርነቶችን መላክ ወይም ወደ Telnet መመለስ አይቻልም"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "ስህተት፦ ለመሣሪያ '%s' የSSH ግንኙነት አልተሳካም፤ የSSH አስተናጋጅ ቁልፍ ማረጋገጫ ነቅቶ ሳለ ወደ Telnet መመለስ ተሰናክሏል"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "ስህተት፦ ወደ መሣሪያ '%s' መገናኘት አልተቻለም፣ የተጠቀመው የግንኙነት ዓይነት፦ %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "ስህተት፦ '%s'ን ወደ '%s' በ'%s' በኩል ማውረድ አልተቻለም"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "ነቅቷል"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "የተመረጠው %s ልክ አይደለም፤ ምንም መሳሪያዎች አልተቀየሩም።"
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "የፋይል መንገድ ማረጋገጫ አልተሳካም"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "ፋይል '%s' መጫን አልተሳካም"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "ፋይል '%s' አልተገኘም"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "የራውተር ውቅር ለ%s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "ምትኬ ከ %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "ፋይል: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "በእጅ"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "በየወሩ በቀኑ"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "እሑድ"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "ሰኞ"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "ማክሰኞ"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "ረቡዕ"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "ሐሙስ"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "ዓርብ"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "ቅዳሜ"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "ጃንዩወሪ"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "ፌብሩወሪ"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "ማርች"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "ኤፕሪል"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "ሜይ"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "ጁን"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "ጁላይ"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "ኦገስት"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "ሴፕቴምበር"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "ኦክቶበር"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "ኖቬምበር"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "ዲሴምበር"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "መጨረሻ"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "መጀመሪያ"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "ሁለተኛ"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "ሦስተኛ"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "አራተኛ"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "ጠፍቷል (ቀን ያለው ንዑስ ማውጫ የለም)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (የተከተተ)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "የተመረጠው %s ልክ አይደለም።"
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "ለወርሃዊ መርሃ ግብር ቢያንስ አንድ ወር እና አንድ የወሩን ቀን መምረጥ አለብዎት።"
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "ለወርሃዊ በቀን መርሃ ግብር ወራትን፣ የወሩን ሳምንታት እና የሳምንቱን ቀናት መምረጥ አለብዎት።"
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "የተመረጡት ወራት እና የወሩ ቀናት በፍጹም አብረው አይገናኙም፤ ሌላ ቀን ይምረጡ፣ ወይም ለወሩ የመጨረሻ ቀን Last የሚለውን ይምረጡ።"
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "የሚከተሉትን መለያ(ዎች) ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "ይቅር"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "ቀጥል"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "መሣሪያ(ዎች) ሰርዝ"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "ቢያንስ አንድ መሣሪያ መምረጥ አለብዎት።"
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "ተመለስ"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "መለያ፦ [አርትዕ: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "መለያ፦ [አዲስ]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "መለያዎች"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "የመለያ አስተዳደር"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "ምንም የራውተር መለያዎች አልተገኙም"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "የራውተር ምትኬዎች"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "ማንኛውም"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "ፈልግ"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "ነባሪ"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "ሂድ"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "ማጣሪያዎችን አዘጋጅ/አድስ"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "አጽዳ"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "ማጣሪያዎችን አጽዳ"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "የአስተናጋጅ ስም"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "የIP አድራሻ ወይም የአስተናጋጅ ስም። የአስተናጋጅ ስም ከሆነ፣ በDNS ወይም ከhosts ፋይልዎ ሊፈታ የሚችል መሆን አለበት."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "መለያ"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "የዚህ መሣሪያ ውስጣዊ የውሂብ ጎታ መለያ (ID)። አውቶሜሽን ወይም ማረም (debugging) ሲያከናውኑ ጠቃሚ ነው."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "ተግባራት"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "በዚህ ምትኬ ላይ ተግባራትን ያከናውኑ"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "የተቀመጡ የመሣሪያ ምትኬዎች ማውጫ"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "የምትኬ ጊዜ"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "የመሣሪያው የመጨረሻ የምትኬ ጊዜ"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "የመጨረሻ ለውጥ"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "የመሣሪያው የመጨረሻ የለውጥ ጊዜ"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "የተቀየረው በ"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "የመሣሪያውን ውቅር የለወጠው የመጨረሻው ሰው"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "የፋይል ስም"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "የተቀመጡ የመሣሪያ ምትኬዎች የፋይል ስም"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "ውቅር ተመልከት"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "ምንም የራውተር ምትኬዎች አልተገኙም"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "የራውተር ምትኬ ንጽጽር"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "የልዩነት (Diff) ሁነታ"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "በመስመር ውስጥ"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "ጎን ለጎን"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "የአውድ መስመሮች"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "ውጤት አወዳድር"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "ምትኬ %s አልተገኘም"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "ምንም ለውጦች የሉም"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "ስህተት፣ ለእያንዳንዱ መሣሪያ ምትኬዎች ሊኖሩዎት ይገባል።"
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "የማረሚያ መረጃ ለ%s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "ምንም ለውጥ የለም"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "ምንም መሳሪያዎች አልተቀየሩም፦ አዲሱ መርሐግብር በመሣሪያ መታወቂያ(ዎች) %s ላይ መሥራት አይችልም፣ ምክንያቱም ወራቶቻቸው፣ የወሩ ቀናት፣ የወሩ ሳምንታት ወይም የሳምንቱ ቀናት ስለጎደሉ ወይም ስለማይከሰቱ ነው። መርሐግብሩን በእነዚያ መሳሪያዎች ላይ በተናጠል ያቀናብሩ።"
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "በ %d መሣሪያ(ዎች) ላይ ቅንብሮች ዘምነዋል።"
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "ምንም ቅንብሮች አልተቀየሩም፤ እያንዳንዱ መስክ \"ለውጥ የለም\" ላይ ተትቷል።"
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: '%s'ን ከ'%s' ክርክሮች ጋር በመጠቀም በእጅ ምትኬ በማስፈጸም ላይ"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "የራውተር ምትኬ ተጀምሯል። ለማጠናቀቂያ ሁኔታ እና ጊዜ የምትኬ ቀን አምድን ወይም የCacti መዝገብን ይመልከቱ"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "የሚከተሉትን መሣሪያ(ዎች) ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "የሚከተሉትን መሣሪያ(ዎች) ለማንቃት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "መሳሪያ(ዎች)ን አንቃ"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "የሚከተሉትን መሣሪያ(ዎች) ለማሰናከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "መሳሪያ(ዎች)ን አሰናክል"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "ለሚከተሉት መሣሪያ(ዎች) የተከማቸውን የSSH አስተናጋጅ ቁልፍ ለማጽዳት 'ቀጥል' የሚለውን ጠቅ ያድርጉ። ቀጣዩ የSSH ግንኙነት የሚቀበለውን ቁልፍ ያምናል እና ይመዘግባል።"
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "የSSH አስተናጋጅ ቁልፍ(ፎች)ን አጽዳ"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "በተመረጠው መሣሪያ(ዎች) ላይ ከሚከተሉት ቅንብሮች አንዱን ወይም ከዚያ በላይ ያዘጋጁ። 'ለውጥ የለም' ላይ የተተዉ መስኮች አይቀየሩም።"
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "ተሰናክሏል"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "ቅንብሮችን ለመሣሪያ(ዎች) ተግብር"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "ቢያንስ የራውተር መሣሪያ መምረጥ አለብዎት።"
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "የአስተናጋጅ ስሙ ትክክል አይደለም። ፊደሎችን፣ አሃዞችን፣ ክፍተቶችን እና . - _ : ቁምፊዎችን ብቻ ይጠቀሙ እንዲሁም የዱካ መለያዎችን ወይም \"..\" አይጠቀሙ።"
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "የተመረጠው የመርሐግብር አይነት ወይም በየጊዜው ዳግም ማስኬጃ (Rerun Every) ልክ አይደለም።"
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "ያልተመዘገበ"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "ራውተር: [አርትዕ: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "ራውተር: [አዲስ]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "የራውተር መሣሪያ አስተዳደር"
+
+#: router-devices.php
+msgid "Account"
+msgstr "መለያ"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "ድርጊቶች"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "የመጨረሻ ምትኬ"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "የመሣሪያው የመሣሪያ ዓይነት"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "የግንኙነት ዓይነት"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "ለዚህ መሣሪያ የግንኙነት ዓይነት"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "ውቅሮች"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "ለዚህ መሣሪያ ያሉ የውቅሮች ብዛት"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "የዚህ መሣሪያ IP አድራሻ"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "ለእያንዳንዱ መሣሪያ የሚሆን TFTP አገልጋይ፣ ወይም ዓለም አቀፋዊውን የTFTP አገልጋይ ቅንብር ሲጠቀም ነባሪ (Default)"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "ቀጣይ ምትኬ"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "የምትኬ ቀን"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "ቀጣይ ሙከራ"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "የመጨረሻ ሙከራ"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "የለውጥ ቀን"
+
+#: router-devices.php
+msgid "Today"
+msgstr "ዛሬ"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "ትናንት"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "ይህ ሳምንት"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "ይህ ወር"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "በአንድ ዓመት ውስጥ"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "ከረጅም ጊዜ በፊት"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "አይ"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "አዎ"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "በSSH በኩል ተገናኝ"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "በTelnet በኩል ተገናኝ"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "የመንገድ ክትትል"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "የራውተር ማረሚያ መረጃ"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "ምትኬዎች (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "የአሁኑ"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "ምንም የራውተር መሳሪያዎች አልተገኙም"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "'ቀጥል' የሚለውን ሲጫኑ፣ የሚከተሉት መሳሪያ(ዎች) ይሰረዛሉ።"
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "ከመግባት በኋላ የሚታዩ መጠየቂያዎች ትክክለኛ መደበኛ አገላለጽ ያልሆነ መጠየቂያ ይዟል፦ %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "መጠይቅ [አርትዕ: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "መጠይቅ [አዲስ]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "የራውተር መሣሪያ ዓይነቶችን ተመልከት"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "ዓይነት"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "የተጠቃሚ መጠየቂያ"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "የይለፍ ቃል መጠየቂያ"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "ስሪት"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "የማረጋገጫ ጥያቄ"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "በውቅር ውስጥ መጨረሻን አረጋግጥ"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "ምንም የራውተር መሣሪያ ዓይነቶች አልተገኙም"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "የራውተር ውቅሮች"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: '%s'ን ከ'%s' ክርክሮች ጋር በማስፈጸም ላይ"
+
+#: setup.php
+msgid "Utilities"
+msgstr "መገልገያዎች"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "የራውተር መሳሪያዎች"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(አርትዕ)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(ተግባራት)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "ዲባግ ተመልከት"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "የራውተር መለያዎች"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "የራውተር ንጽጽር"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "ራውተሮች"
+

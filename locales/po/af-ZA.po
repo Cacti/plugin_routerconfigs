@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Afrikaans\n"
+"Language: af-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Skrap"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Rugsteun"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Wysig (verander instellings in grootmaat)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Aktiveer"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Deaktiveer"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Maak SSH-gasheersleutel skoon"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Oorerf"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Daagliks"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Weekliks"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Maandeliks"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d maand"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d maande"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d jaar"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d jaar"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Nooit"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d uur"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d uur"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 vm)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 vm)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 vm)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 vm)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 vm)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 vm)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 vm)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 vm)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 vm)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 vm)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 vm)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 vm)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 nm)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 nm)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 nm)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 nm)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 nm)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 nm)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 nm)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 nm)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 nm)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 nm)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 nm)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 nm)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d reël"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d reëls"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Naam"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Gee hierdie rekening 'n betekenisvolle naam wat vertoon sal word."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Die gebruikersnaam wat vir verifikasie gebruik sal word."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Wagwoord"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Die wagwoord wat vir stawing gebruik word."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Enable-wagwoord"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Jou Aktiveer-wagwoord, indien vereis."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Aktiveer toestel"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Ontmerk hierdie blokkie om rugsteuning van hierdie toestel te deaktiveer."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Beskrywing"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Naam van hierdie toestel (sal gebruik word vir die stoor van konfigurasie en SVN as geen gasheernaam in die konfigurasie teenwoordig is nie)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "IP-adres"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Dit is die IP-adres wat gebruik word om met die toestel te kommunikeer."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "TFTP-bediener"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Opsionele TFTP-bediener waarna hierdie toestel sy konfigurasie kopieer. Laat leeg om die globale TFTP-bediener-instelling te gebruik."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Gestoorde SSH-gasheersleutel"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Vergelyk hierdie gasheersleutel-algoritme en SHA-1-heksadesimale vingerafdruk met die toestel deur 'n betroubare kanaal. Vervang die pad hieronder op die bediener met die ooreenstemmende publieke gasheersleutellêer en voer uit: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Gebruik die toestelaksie om dit skoon te maak ná 'n wettige sleutelverandering."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Gids"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Dit is die relatiewe gidsstruktuur wat gebruik word om die konfigurasies te stoor."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Skeduletipe"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Hoe gereeld om hierdie toestel te rugsteun. Daagliks met 'n Herhaal elke van 10 voer elke 10 dae 'n rugsteun uit; Maandeliks voer 'n werklike kalendermaand-rugsteun uit."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Herhaal elke"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Vir Daaglikse skedules, voer die rugsteun elke X dae weer uit. Vir Weeklikse skedules sonder spesifieke Dae van die week, voer dit elke X weke weer uit; sodra Dae van die week gekies is, loop die rugsteun elke week op daardie dae en is hierdie veld nie van toepassing nie."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Dae van die week"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Vir 'n Weeklikse skedule, die dag(e) van die week waarop die rugsteun elke week uitgevoer moet word. Laat leeg om eerder elke Herloop Elke weke uit te voer."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Maande van die jaar"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Vir 'n Maandelikse skedule, die maand(e) van die jaar waarin die rugsteun uitgevoer moet word."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Dae van die maand"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Vir 'n Maandelikse skedule, die dag(e) van die maand waarop die rugsteun uitgevoer moet word (Laaste = laaste dag van die maand)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Weke van maand"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Vir 'n Maandeliks op Dag-skedule, die week (weke) van die maand waarin die rugsteun uitgevoer moet word."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Dae van die week (Maandeliks)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Vir 'n Maandeliks op Dag-skedule, die weeksdag(e) om met die keuse van Weke van die maand te paar."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Toesteltipe"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Kies die tipe toestel wat die roeteerder is."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Outo-bespeur"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Verbindingstipe"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Dit is die tipe verbinding wat gebruik word om met die toestel te kommunikeer."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Stawingsrekening"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Kies 'n rekening om te gebruik om by die roeteerder aan te meld"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Geen"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Verstek-uitteltyd"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Verstek-wagtyd in sekondes vir 'n antwoord"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Verstek-slaaptyd"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Verstek-slaaptyd in mikrosekondes (1/1,000,000ste van 'n sekonde)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Aanvaar verhoogde regte"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Merk hierdie blokkie om aan te neem dat hierdie toestel altyd verhoogde regte het"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Naam van hierdie toesteltipe."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Gebruikersnaamaansporing"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Dit is die gebruikersnaampor om by aanmelding te pas."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Wagwoordversoek"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Dit is die wagwoordpor om by aanmelding te pas."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Konfigurasielêer"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Dit is die standaardligging van die konfigurasielêer op die afgeleë toestel. Dit word vir die SCP- en SFTP-metode gebruik"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Kopieer TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Dit is die CLI-teks wat gebruik word om die rugsteun na die tftp-bediener te stuur."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Vasvangopdrag"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Opsionele opdrag waarvan die uitvoer as die konfigurasie gestoor word, in plaas daarvan om dit na 'n TFTP-bediener te kopieer. Dit loop altyd oor SSH, ongeag die verbindingsoort, en die toestel het dan geen TFTP-bediener nodig nie. Laat leeg vir toestelle wat hul konfigurasie na TFTP kopieer. Voorbeeld vir MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Wys weergawe"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Dit is die CLI-teks wat gebruik word om die huidige weergawe te vertoon."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Bevestigingsporboodskap"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Dit is die bevestigingsaanporing wat voor oordrag ooreen moet stem."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Bevestig"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Is daar 'n bevestigingsversoek vir die kopiëring van die konfigurasie?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Dwing bevestiging af"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Is daar 'n gedwonge bevestigingsversoek vir die kopiëring van die konfigurasie?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Kontroleer End in opstelling"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Kontroleer end in opstelling?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Enige toets-por"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Teks wat pas by 'n 'Press Any Key To Continue'-styl aanpor"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Na-aanmelding-aanporings"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Opsionele por-/reaksiepare wat reg ná aanmelding gestuur word, voor die kopieer-na-TFTP-opdrag, een per reël as por|reaksie. Die por word as 'n hoofletter-onsensitiewe gereelde uitdrukking teen die toesteluitvoer gepas (dus kan dit nie self | bevat nie, en hakies en ander spesiale karakters moet ontsnap word, bv. Save \\\\[y/n\\\\]), en die reaksie word gestuur soos getik, of gebruik <CR> om net 'n reëlterugkeer (carriage return) te stuur. 'n Reaksie word slegs gestuur sodra die por daarvan gesien is, óf in die antwoord op die vorige reaksie óf in latere uitvoer; anders word 'n waarskuwing in die logboek aangeteken en niks word gestuur nie. Hierdie word eerste beantwoord; die 'Any Key'-por hierbo word later beantwoord terwyl die toestel geaktiveer word, dus bereik 'n por wat hier beantwoord word nooit 'Any Key' nie. Voorbeeld: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Algemene instellings"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Aanbiedingsmodus"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Moet roeteerder-konfigurasies op die Konsole of 'n boonste oortjie vertoon word."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Konsole"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Boonste Oortjie"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Konfigurasie-diff-konteksreëls"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Die verstekaantal onveranderde reëls om voor en ná elke verandering te vertoon wanneer twee rugsteune vergelyk word. 'n Groter waarde maak dit makliker om die omliggende konfigurasiekonteks te sien. Dit kan per vergelyking op die Vergelyk-bladsy oorheers word."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Verbindingstydverstryking"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Maksimum wagtyd in sekondes wanneer die aanvanklike netwerkverbinding na 'n toestel opgestel word. 'n Vasgehaakte of onbereikbare toestel word na hierdie uitteltyd laat vaar sodat 'n geskeduleerde rugsteunlopie met die oorblywende toestelle kan voortgaan."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Sluit sonder om af te sluit"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Indien gemerk, word geen 'exit'-opdrag uitgereik wanneer die toestelverbinding gesluit word nie"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Ontfout-verbindingsbuffer"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Of direkte afvoer van die toestelverbinding aangeteken moet word"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Aanvaar alle toestelle het verhoogde regte"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Of aangeneem moet word dat alle toestelle verhoogde regte het"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Aflaai-uur"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Die uur van die dag waarop die volledige aflaaie uitgevoer word."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Herpogingskedule"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Die tyd om te wag voordat 'n bykomende aflaai gepoog word wanneer 'n geskeduleerde aflaai misluk"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Behoudtydperk"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Die aantal dae om ou rugsteune te behou."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Behou rugsteune van onaktiewe toestelle"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Wanneer gemerk, sal die retensie-opruiming nie verouderde rugsteune skrap wat aan gedeaktiveerde toestelle of toestelle wat verwyder is behoort nie, sodat konfigurasies vir uitdiensgestelde of onbereikbare toerusting behou word."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Oordragopsies"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Verstek-verbindingstipe"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Verstek tipe verbinding wat gebruik word om met die toestel te kommunikeer."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Skei volgens Toestel"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Skei geargiveerde Konfigurasies in 'n gids per toestel"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Gedateerde subgids"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Voeg 'n datumgebaseerde subgids in die argiefpad in (voor die gids per toestel), sodat elke lopie onder sy rugsteundatum gestoor word, bv. .../2020-11-04/hostname/.... Af behou die bestaande uitleg."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "SCP-pad"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Wanneer SCP gebruik word en jy hierdie leeg laat, sal PHP se SCP-module gebruik word, wat nie altyd werk nie. Eksterne SCP is gedeaktiveer terwyl SSH-gasheersleutelverifikasie geaktiveer is omdat dit nie die geverifieerde verbinding kan hergebruik nie."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Verifieer SSH-gasheersleutels"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Teken elke toestel se SSH-gasheersleutel by die eerste verbinding aan en weier om aanmeldbesonderhede te stuur as dit later verander. SSH/Telnet-modus sal nie na Telnet terugval terwyl verifikasie geaktiveer is nie. Na 'n geldige sleutelverandering, gebruik die toestelaksie om die gestoorde gasheersleutel skoon te maak."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "TFTP-bediener-IP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Moet 'n IP wees wat na u Cacti-bediener wys."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "TFTP-rugsteungidspad"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Die pad waarheen u konfigurasies gerugsteun sal word; dit moet die pad wees waarheen die plaaslike TFTP-bediener skryf."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Argiefgids-pad"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Die pad waarheen u konfigurasies geargiveer sal word (verskuif vanaf TFTP-gids)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "E-posopsies"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Van-adres"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "E-posadres waarvandaan die nagtelike rugsteun gestuur sal word."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Van-naam"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Naam waarvan die nagtelike rugsteun gestuur sal word."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "E-posadres"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "'n Kommageskeide lys van E-posadresse waarheen die nagtelike rugsteun-E-pos gestuur moet word."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Sluit Konfigurasieverskille in"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Heg 'n verenigde verskil (unified diff) van elke toestel waarvan die konfigurasie tydens die lopie verander het, aan die rugsteun-E-pos aan sodat 'n beoordelaar presies kan sien wat verander het. Binêre (nie-teks) konfigurasies word oorgeslaan. Vlugtige reëls wat by elke rugsteun verander (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' en 'Current configuration :', en NX-OS '!Time:' en '!Running configuration last done at:') word altyd geïgnoreer. Waarskuwing: die verskil word in duidelike teks aan elke ontvanger van die E-pos gestuur, dus kan dit konfigurasie openbaar wat privaat moet bly; laat 'Sluit geheime in verskille in' ongemerk."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Sluit Geheime in Verskille in"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Stuur geheime waardes in die ge-e-poste diff soos hulle is. Wanneer dit nie gemerk is nie (die verstek), word die veranderde reëls op die rou konfigurasies gevind en geredigeerd gedruk, wat veilig faal: reëls wat geheim-agtige woorde bevat (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) en SNMP-gasheer- en -gebruikerreëls word verkort tot hul eerste woord gevolg deur &lt;secret hidden&gt;, en elke reël van 'n PEM-blok, 'n sertifikaat- of sleutelstringblok, of 'n meerreëlige aangehaalde waarde, en enige heks- of base64-ry, word versteek; 'n blok wat nooit eindig nie, versteek die res van die konfigurasie. Dit versteek ook onskadelike reëls (bv. 'n beskrywing wat 'n sleutel noem), maar elke veranderde reël verskyn steeds, gemerk as (changed) wanneer slegs sy versteekte deel verskil, en 'n blok wat nooit eindig nie, word in die E-pos vermeld. Gestoorde rugsteune word nooit verander nie."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Diff-uitsluitingspatrone"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Opsionele gereelde uitdrukkings (een per reël) wat konfigurasiereëls pas wat by vergelyking geïgnoreer moet word, sodat vlugtige reëls soos tydstempels of reeksnommers nie as veranderinge wys nie. Elke patroon word hoofletter-onsensitief enige plek in 'n reël gepas tensy dit met ^ of $ geanker is; 'n patroon wat nie 'n geldige gereelde uitdrukking is nie, word geïgnoreer."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Thold-kennisgewingslys"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Wanneer Thold geïnstalleer is, stuur ook die rugsteun-e-pos aan die ontvangers van die geselekteerde Thold-kennisgewingslys."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Voeg by RouterConfigs-rugsteun"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Klik 'Gaan voort' om die volgende Toestel(le) by RouterConfigs te voeg vir rugsteun. Enige toestel wat reeds in RouterConfigs teenwoordig is, word oorgeslaan."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Toestelle"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Toesteltipes"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Stawing"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Rugsteune"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Vergelyk"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Tegniese Ondersteuning [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s karakters)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Nie Gestel Nie)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "KENNISGEWING: Begin handmatige rugsteun van %s toestelle"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "KENNISGEWING: Begin outomatiese herprobering"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "KENNISGEWING: Begin outomatiese rugsteun"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "FATAAL: TFTP-rugsteunpad is nie gestel nie of is nie 'n gids nie"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Poog aflaai vir %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "%s toestelle suksesvol gerugsteun."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "%s toestelle se rugsteun het misluk."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "%s toestelle gedeaktiveer vir rugsteun."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Geen konfigurasieveranderings is bespeur nie."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Konfigurasierugsteune"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Konfigurasierugsteune"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Geforseerd"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Handmatig"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Gesimuleer"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Geskeduleer"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Herprobeer"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Gedeeltelik"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": MISLUK"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "STATISTIEK: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "FOUT: Rugsteunpad is nie gestel nie of is nie 'n gids nie"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "WAARSKUWING: Bewaarperiode '%s' is ongeldig, verstek na 30 dae"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "STATISTIEK: Rugsteun loop nou sedert %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "WAARSKUWING: Rugsteun loop reeds sedert %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Cacti-toestel-ID %s is nie gevind nie; nie by RouterConfigs gevoeg nie."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Toestel '%s' is reeds in RouterConfigs; oorgeslaan."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Toestel '%s' is by RouterConfigs gevoeg (gedeaktiveer totdat 'n rekening en toesteltipe gestel is)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Kon nie Toestel '%s' by RouterConfigs voeg nie."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Redigeringblok op reël %d van die vorige rugsteun is nooit gesluit nie; daaropvolgende reëls is versteek."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Redigeringblok op reël %d van die nuwe rugsteun is nooit gesluit nie; daaropvolgende reëls is versteek."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "FOUT: Die gasheernaam van Toestel '%s' is nie geldig as 'n rugsteunlêernaam nie; wysig die Toestel en gebruik slegs gasheernaam- of IP-adreskarakters"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "FOUT: Geen TFTP-bediener is vir Toestel '%s' gestel nie; stel 'n TFTP-bediener op die toestel of in die globale instellings"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "FOUT: SSH-gasheersleutelverifikasie het vir Toestel '%s' misluk; weier om aanmeldbesonderhede te stuur of na Telnet terug te val"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "FOUT: SSH-verbinding het vir Toestel '%s' misluk; Telnet-terugval is gedeaktiveer terwyl SSH-gasheersleutelverifikasie geaktiveer is"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "FOUT: Kon nie aan Toestel '%s' koppel met verbindingstipe: %s nie"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "FOUT: Kon nie '%s' na '%s' via '%s' aflaai nie"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Geaktiveer"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Die gekose %s is nie geldig nie; geen toestelle is verander nie."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Lêerpad-validering het misluk"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Lêer '%s' kon nie laai nie"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Lêer '%s' is nie gevind nie"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Roeteerderkonfigurasie vir %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Rugsteun vanaf %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Lêer: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Handmatig"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Maandeliks op dag"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Sondag"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Maandag"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Donderdag"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Vrydag"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Saterdag"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Januarie"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Februarie"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Maart"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "April"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Mei"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Junie"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Julie"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Augustus"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "September"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktober"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "November"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Desember"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Laaste"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Eerste"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Tweede"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Derde"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Vierde"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Af (geen gedateerde subgids nie)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (genes)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Die gekose %s is nie geldig nie."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Vir 'n Maandelikse skedule moet u minstens een Maand en een Dag van die maand kies."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Vir 'n Maandeliks op Dag-skedule moet u Maande, Weke van die maand en Dae van die week kies."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Die gekose Maande en Dae van die Maand kom nooit saam voor nie; kies 'n ander dag, of Laaste vir die laaste dag van die maand."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Klik 'Gaan voort' om die volgende rekening(e) te skrap."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Kanselleer"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Gaan voort"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Skrap Toestel(le)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Jy moet ten minste een toestel kies."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Keer terug"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Rekening: [wysig: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Rekening: [nuut]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Rekeninge"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Rekeningbestuur"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Geen roeteerderrekeninge gevind nie"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Roeteerderrugsteune"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Enige"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Soek"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Verstek"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Gaan"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Stel/verfris filters"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Maak skoon"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Maak filters skoon"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Gasheernaam"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Óf 'n IP-adres, óf 'n gasheernaam. Indien dit 'n gasheernaam is, moet dit óf deur DNS óf vanaf jou hosts-lêer opgelos kan word."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Die interne databasis-ID vir hierdie toestel. Nuttig wanneer outomatisering of ontfouting uitgevoer word."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Funksies"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Voer funksies op hierdie rugsteun uit"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Die gids van die gestoorde Toestel-rugsteune"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Rugsteuntyd"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Die laaste rugsteuntyd van die toestel"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Laaste wysiging"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Die laaste wysigingstyd van die toestel"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Verander deur"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Die laaste persoon wat die konfigurasie van die toestel verander het"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Lêernaam"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Die lêernaam van die gestoorde toestelrugsteune"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Bekyk konfigurasie"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Geen roeteerder-rugsteune gevind nie"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Roeteerder-rugsteunvergelyking"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Diff-modus"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Inlyn"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Langs mekaar"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Konteksreëls"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Vergelyk uitvoer"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Rugsteun %s nie gevind nie"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Daar is geen Veranderinge nie"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Fout, u moet rugsteune vir elke toestel hê."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Ontfouting vir %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Geen verandering"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Geen toestelle is verander nie: die nuwe skedule kan nie op toestel-ID('s) %s loop nie, omdat hul Maande, Dae van Maand, Weke van Maand of Dae van Week ontbreek of nooit voorkom nie. Stel die skedule individueel op daardie toestelle."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Instellings op %d toestel(le) bygewerk."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Geen instellings is verander nie; elke veld is op \"Geen verandering\" gelaat."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Voer handmatige rugsteun uit met '%s' en argumente '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Roeteerderrugsteun het begin. Gaan die Rugsteundatum-kolom of die Cacti-log na vir voltooiingstatus en tydsberekening"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Klik 'Gaan voort' om die volgende toestel(le) te skrap."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Klik 'Gaan voort' om die volgende toestel(le) te aktiveer."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Aktiveer Toestel(le)"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Klik 'Gaan voort' om die volgende toestel(le) te deaktiveer."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Deaktiveer Toestel(le)"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Klik 'Gaan voort' om die gestoorde SSH-gasheersleutel vir die volgende toestel(le) skoon te maak. Die volgende SSH-verbinding sal die sleutel wat dit ontvang vertrou en opneem."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Maak SSH-gasheersleutel(s) skoon"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Stel een of meer van die volgende instellings op die geselekteerde toestel(le). Velde wat op 'Geen verandering' gelaat word, word nie gewysig nie."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Gedeaktiveer"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Pas instellings op Toestel(le) toe"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Jy moet ten minste een Roeteerder-toestel kies."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Die gasheernaam is nie geldig nie. Gebruik slegs letters, syfers, spasies en die karakters . - _ : en moenie padskeiers of \"..\" gebruik nie."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Die gekose Skeduleringstipe of Herloop Elke is nie geldig nie."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Nie aangeteken nie"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Roeteerder: [wysig: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Roeteerder: [nuut]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Roeteerdertoestelbestuur"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Rekening"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Aksies"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Laaste rugsteun"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Die toesteltipe van die Toestel"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Verbindingstipe"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Die verbindingstipe vir hierdie Toestel"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Konfigurasies"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Die aantal konfigurasies vir hierdie toestel"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Die IP-adres van hierdie toestel"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Die TFTP-bediener per toestel, of Verstek wanneer dit die globale TFTP-bediener-instelling gebruik"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Volgende rugsteun"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Rugsteundatum"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Volgende poging"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Laaste poging"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Wysigingsdatum"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Vandag"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Gister"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Hierdie week"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Hierdie maand"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Binne 'n jaar"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Lank, lank gelede"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Nee"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Ja"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Verbind via SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Verbind via Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Roetesporing"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Roeteerder-ontfoutingsinligting"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Rugsteune (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Huidige"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Geen roeteerder-toestelle gevind nie"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Wanneer jy op 'Gaan voort' klik, sal die volgende toestel(le) geskrap word."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Na-aanmelding-aanporings bevat 'n aanporing wat nie 'n geldige reguliere uitdrukking is nie: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Navraag [wysig: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Navraag [nuut]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Bekyk roeteerder-toesteltipes"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Tipe"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Gebruikersaansporing"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Wagwoordversoek"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Weergawe"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Bevestig porboodskap"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Kontroleer End in Opstelling"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Geen roeteerder-toesteltipes gevind nie"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Roeteerderkonfigurasies"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Voer '%s' uit met argumente '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Nutsprogramme"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Roeteerdertoestelle"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(wysig)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(aksies)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Bekyk ontfouting"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Roeteerderrekeninge"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Roeteerdervergelyking"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Roeteerders"
+
