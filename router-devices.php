@@ -959,7 +959,7 @@ function show_devices() {
 					</td>
 					<td>
 						<select id='rows'>
-							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default'); ?></option>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'routerconfigs'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
 		foreach ($item_rows as $key => $value) {

@@ -6,8 +6,8 @@
 */
 
 /*
- * Unit coverage for routerconfigs_show_tab() in setup.php and regression
- * check that the routerconfigs text domain is spelled consistently.
+ * Unit coverage for routerconfigs_show_tab() in setup.php. Text domain usage is
+ * covered for the whole plugin by I18nTextDomainTest.php.
  */
 
 beforeAll(function () {
@@ -59,14 +59,4 @@ it('renders a placeholder image src on non-classic themes and omits output outsi
 	$consoleOutput = ob_get_clean();
 
 	expect($consoleOutput)->toBe('');
-});
-
-it('uses the routerconfigs gettext domain in setup.php and router-devices.php', function () {
-	$setup   = file_get_contents(__DIR__ . '/../../setup.php');
-	$devices = file_get_contents(__DIR__ . '/../../router-devices.php');
-
-	expect($setup)->toContain("__('Routers', 'routerconfigs')");
-	expect($setup)->not->toContain("'routerconfig'");
-	expect($devices)->toContain("__('Current', 'routerconfigs')");
-	expect($devices)->not->toContain("'routerconfig'");
 });
