@@ -1184,7 +1184,7 @@ function show_devices() {
 			form_selectable_cell(filter_value($row['devicetype'], get_request_var('filter'), 'router-devtypes.php?&action=edit&id=' . $row['devicetypeid']), $row['id'], '10%');
 			form_selectable_cell(filter_value($row['connecttype'], get_request_var('filter')), $row['id'], '10%');
 
-			form_selectable_cell(filter_value(__('Current', 'routerconfig'), get_request_var('filter'), 'router-devices.php?action=viewconfig&id=' . $row['id']) . ' - ' . filter_value(__('Backups (%s)', $total, 'routerconfigs'), get_request_var('filter'), 'router-backups.php?device=' . $row['id']), $row['id'], '14%');
+			form_selectable_cell(filter_value(__('Current', 'routerconfigs'), get_request_var('filter'), 'router-devices.php?action=viewconfig&id=' . $row['id']) . ' - ' . filter_value(__('Backups (%s)', $total, 'routerconfigs'), get_request_var('filter'), 'router-backups.php?device=' . $row['id']), $row['id'], '14%');
 
 			form_selectable_cell(filter_value($row['ipaddress'], get_request_var('filter')), $row['id'], '5%');
 			$effective_tftp = plugin_routerconfigs_device_tftpserver($row, '');
