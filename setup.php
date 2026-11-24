@@ -846,7 +846,7 @@ function routerconfigs_show_tab() {
 
 		print '<a id="routerconfigs"
 			href="' . $config['url_path'] . 'plugins/routerconfigs/router-devices.php">
-			<img src="' . ($selected_theme == 'classic' ? get_classic_tabimage(__('Routers', 'routerconfig'), $down) : '#') . '" alt="' . __esc('RouterConfigs', 'routerconfigs') . '"></a>';
+			<img src="' . ($selected_theme == 'classic' ? get_classic_tabimage(__('Routers', 'routerconfigs'), $down) : '#') . '" alt="' . __esc('RouterConfigs', 'routerconfigs') . '"></a>';
 	}
 }
 

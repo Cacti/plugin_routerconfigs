@@ -5,6 +5,7 @@ installation guidance and source-checked behavior.
 
 --- 2.1 ---
 
+* issue#219: Fix misspelled `'routerconfig'` gettext text domain to `'routerconfigs'` in `router-devices.php` and `setup.php`, pass it to the `'Default'` label in `router-devices.php` that had no domain, and add a test that every translation helper call passes the plugin text domain, and remove orphan `locales/LC_MESSAGES/ka.mo`
 * security: Validate the device Hostname on save (hostname/IP characters only) and refuse to use a stored hostname that is not a single plain file name when building backup file paths; escape the hostname in the device edit header, delete confirmation list and backup report email
 * issue: Contain device backup file paths within the configured backup and archive directories, so the per-device directory field, the device hostname, and a name parsed from the returned configuration cannot cause a backup to be written, read, or removed outside those directories
 * issue: Reject failed SSH capture commands before writing an incoming backup, and drain standard error alongside configuration output

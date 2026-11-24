@@ -270,6 +270,18 @@ if (!function_exists('get_current_page')) {
 	}
 }
 
+if (!function_exists('get_selected_theme')) {
+	function get_selected_theme() {
+		return routerconfigs_test_stub('get_selected_theme', array(), 'modern');
+	}
+}
+
+if (!function_exists('get_classic_tabimage')) {
+	function get_classic_tabimage($text, $down = false) {
+		return routerconfigs_test_stub('get_classic_tabimage', array($text, $down), 'tab_' . strtolower((string) $text) . ($down ? '_down' : '') . '.gif');
+	}
+}
+
 if (!function_exists('read_config_option')) {
 	function read_config_option($name, $force = false) {
 		return routerconfigs_test_stub('read_config_option', array($name, $force), '');
