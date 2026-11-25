@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:25-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: it_IT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Italian <https://translate.cacti.net/projects/cacti/routerconfigs/it/>\nLanguage: it-IT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -52,7 +41,7 @@ msgstr "SSH"
 
 #: includes/arrays.php
 msgid "Telnet"
-msgstr "远程登录"
+msgstr "Telnet"
 
 #: includes/arrays.php
 #, fuzzy
@@ -582,7 +571,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 #: includes/arrays.php
 #, fuzzy
@@ -846,9 +835,8 @@ msgid "Devices"
 msgstr "Dispositivi"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
-msgstr "Tipi di dispositivi"
+msgstr "Tipi di dispositivo"
 
 #: includes/functions.php
 msgid "Authentication"
@@ -1181,7 +1169,7 @@ msgstr ""
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "Cognome"
 
 #: includes/scheduler.php
 msgid "First"
@@ -1246,14 +1234,12 @@ msgid "Continue"
 msgstr "Continua"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "Cancellare il dispositivo o i dispositivi"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "È necessario selezionare almeno un dispositivo."
+msgstr "Devi selezionare almeno un dispositivo."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
@@ -1304,9 +1290,8 @@ msgid "Go"
 msgstr "Vai"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Imposta / Aggiorna filtri"
+msgstr "Impostazione/Rifresh Filtri"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
@@ -1511,10 +1496,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Disabilita"
+msgstr "Disabilitato"
 
 #: router-devices.php
 #, fuzzy
@@ -1616,7 +1599,7 @@ msgstr "Prossimo tentativo"
 
 #: router-devices.php
 msgid "Last Attempt"
-msgstr "Ultima Prova"
+msgstr "Ultimo tentativo"
 
 #: router-devices.php
 #, fuzzy
@@ -1773,9 +1756,8 @@ msgid "(edit)"
 msgstr "(modificare)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Azioni"
+msgstr "(azioni)"
 
 #: setup.php
 #, fuzzy
