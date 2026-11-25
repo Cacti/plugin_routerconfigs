@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:36-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: vi_VN\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/routerconfigs/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -83,24 +72,24 @@ msgid "Monthly"
 msgstr "Hàng tháng"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d tháng"
+msgstr "%d Tháng"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d tháng"
+msgstr "%d Tháng"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d Năm"
+msgstr "%d Năm"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "% d Năm"
+msgstr "%d Năm"
 
 #: includes/arrays.php
 msgid "Never"
@@ -244,7 +233,7 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d Dòng"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -338,10 +327,8 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "Đây là cấu trúc thư mục tương đối được sử dụng để lưu trữ các cấu hình."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "Lịch trình"
+msgstr "Loại lịch trình"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
@@ -587,7 +574,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "Cài đặt chung"
 
 #: includes/arrays.php
 #, fuzzy
@@ -600,7 +587,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "Console"
-msgstr ""
+msgstr "Bảng điều khiển"
 
 #: includes/arrays.php
 msgid "Top Tab"
@@ -851,7 +838,6 @@ msgid "Devices"
 msgstr "Thiết bị"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
 msgstr "Các loại thiết bị"
 
@@ -1251,18 +1237,16 @@ msgid "Continue"
 msgstr "Tiếp tục"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "Xóa thiết bị"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
 msgstr "Bạn phải chọn ít nhất một thiết bị."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
-msgstr "Trở về trang cài đặt bắt buộc Plugins"
+msgstr "Quay lại"
 
 #: router-accounts.php
 #, fuzzy, php-format
@@ -1309,16 +1293,14 @@ msgid "Go"
 msgstr "Đi"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Đặt / làm mới bộ lọc"
+msgstr "Đặt / Làm mới Bộ lọc"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
 msgstr "Xóa"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "Xóa bộ lọc"
 
@@ -1342,7 +1324,7 @@ msgstr "ID cơ sở dữ liệu nội bộ cho Thiết bị này. Hữu ích khi
 
 #: router-backups.php
 msgid "Functions"
-msgstr "Máy chủ của bạn không hỗ trợ các chức năng %s  - điều này là bắt buộc để mã hóa ký tự tốt hơn. Một số mục dự phòng sẽ được sử dụng thay cho nó."
+msgstr "Chức năng"
 
 #: router-backups.php
 #, fuzzy
@@ -1517,10 +1499,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Vô hiệu hóa"
+msgstr "đã vô hiệu hóa"
 
 #: router-devices.php
 #, fuzzy
@@ -1622,9 +1602,8 @@ msgid "Next Attempt"
 msgstr "Nỗ lực tiếp theo"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
-msgstr "Nỗ lực cuối cùng"
+msgstr "Lần thử gần nhất"
 
 #: router-devices.php
 #, fuzzy
@@ -1781,9 +1760,8 @@ msgid "(edit)"
 msgstr "(chinnhr sửa)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Hành động"
+msgstr "(thao tác)"
 
 #: setup.php
 #, fuzzy
