@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:23-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: fr_FR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/routerconfigs/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -582,7 +571,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "Réglages généraux"
 
 #: includes/arrays.php
 #, fuzzy
@@ -847,7 +836,7 @@ msgstr "Équipements"
 
 #: includes/functions.php router-devtypes.php
 msgid "Device Types"
-msgstr "Types d’appareil"
+msgstr "Types d'équipement"
 
 #: includes/functions.php
 msgid "Authentication"
@@ -1179,7 +1168,7 @@ msgstr ""
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "Dernier"
 
 #: includes/scheduler.php
 msgid "First"
@@ -1244,13 +1233,12 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "Supprimer le(s) appareil(s)"
 
 #: router-accounts.php
 msgid "You must select at least one device."
-msgstr "Vous devez sélectionner au moins un appareil."
+msgstr "Vous devez sélectionner au moins un périphérique."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
@@ -1286,7 +1274,7 @@ msgstr "Sauvegardes du routeur"
 
 #: router-backups.php router-devices.php
 msgid "Any"
-msgstr "N'importe quel"
+msgstr "N'importe lequel"
 
 #: router-backups.php router-devices.php
 msgid "Search"
@@ -1298,7 +1286,7 @@ msgstr "Défaut"
 
 #: router-backups.php router-devices.php
 msgid "Go"
-msgstr "Aller"
+msgstr "Go"
 
 #: router-backups.php router-devices.php
 msgid "Set/Refresh Filters"
@@ -1502,10 +1490,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Désactiver"
+msgstr "Désactivé"
 
 #: router-devices.php
 #, fuzzy
@@ -1762,9 +1748,8 @@ msgid "(edit)"
 msgstr "Éditer"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Actions"
+msgstr "(actions)"
 
 #: setup.php
 #, fuzzy
