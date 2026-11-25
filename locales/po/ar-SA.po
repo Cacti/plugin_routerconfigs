@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:20-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: ar_SA\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/routerconfigs/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -83,24 +72,24 @@ msgid "Monthly"
 msgstr "شهري"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "٪ د الشهر"
+msgstr "%d شهر"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "٪ د أشهر"
+msgstr "%d أشهر"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "٪ د السنة"
+msgstr "%d سنة"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "٪ د السنة"
+msgstr "%d سنوات"
 
 #: includes/arrays.php
 msgid "Never"
@@ -114,7 +103,7 @@ msgstr "%d ساعة"
 #: includes/arrays.php
 #, php-format
 msgid "%d hours"
-msgstr "%d ساعات"
+msgstr "%d د ساعات"
 
 #: includes/arrays.php
 #, fuzzy
@@ -589,7 +578,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "الاعدادات العامة"
 
 #: includes/arrays.php
 #, fuzzy
@@ -852,7 +841,6 @@ msgid "Devices"
 msgstr "الأجهزة"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
 msgstr "أنواع الأجهزة"
 
@@ -1200,7 +1188,7 @@ msgstr ""
 
 #: includes/scheduler.php
 msgid "Third"
-msgstr ""
+msgstr "الثالث"
 
 #: includes/scheduler.php
 msgid "Fourth"
@@ -1253,14 +1241,12 @@ msgid "Continue"
 msgstr "إستمرار"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "حذف الجهاز (الأجهزة)"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "يجب عليك اختيار جهاز واحد على الأقل."
+msgstr "يجب عليك تحديد جهاز واحد على الأقل."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
@@ -1311,13 +1297,12 @@ msgid "Go"
 msgstr "أذهب"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "تعيين / تحديث عوامل التصفية"
+msgstr "مجموعة / تحديث الفلاتر"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
-msgstr "واضح"
+msgstr "مسح"
 
 #: router-backups.php router-devices.php
 msgid "Clear Filters"
@@ -1519,10 +1504,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "تعطيل"
+msgstr "معطل"
 
 #: router-devices.php
 #, fuzzy
@@ -1624,7 +1607,6 @@ msgid "Next Attempt"
 msgstr "المحاولة التالية"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "آخر محاولة"
 
@@ -1695,7 +1677,7 @@ msgstr "النسخ الاحتياطية (٪ s)"
 
 #: router-devices.php
 msgid "Current"
-msgstr "بريدك الإلكتروني الحالي غير مسموح"
+msgstr "الحالي"
 
 #: router-devices.php
 #, fuzzy
@@ -1784,9 +1766,8 @@ msgid "(edit)"
 msgstr "(تعديل)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "أفعال"
+msgstr "(إجراءات)"
 
 #: setup.php
 #, fuzzy
