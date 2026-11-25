@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:24-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: he_IL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/routerconfigs/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -82,24 +71,24 @@ msgid "Monthly"
 msgstr "באופן חודשי"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d חודש"
+msgstr "%d חודש"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% חודשים"
+msgstr "%d חודשים"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d שנה"
+msgstr "%d שנה"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "% d שנה"
+msgstr "%d שנים"
 
 #: includes/arrays.php
 msgid "Never"
@@ -113,7 +102,7 @@ msgstr "%d שעה"
 #: includes/arrays.php
 #, php-format
 msgid "%d hours"
-msgstr "%d לפני מספר ימים"
+msgstr "%d שעות"
 
 #: includes/arrays.php
 #, fuzzy
@@ -243,7 +232,7 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d שורות"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -337,10 +326,8 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "זהו מבנה הספריות היחסי המשמש לאחסון התצורות."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "תאריך משלוח"
+msgstr "סוג לוח זמנים"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
@@ -586,7 +573,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: includes/arrays.php
 #, fuzzy
@@ -847,12 +834,11 @@ msgstr ""
 
 #: includes/functions.php router-accounts.php
 msgid "Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+msgstr "התקנים"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
-msgstr "סוגי מכשירים"
+msgstr "סוגי התקנים"
 
 #: includes/functions.php
 msgid "Authentication"
@@ -1251,18 +1237,16 @@ msgid "Continue"
 msgstr "המשך"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "מחק מכשירים"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "עליך לבחור לפחות מכשיר אחד."
+msgstr "עליך לבחור לפחות התקן אחד."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
-msgstr "חזרה אל עריכת פוסט"
+msgstr "חזור"
 
 #: router-accounts.php
 #, fuzzy, php-format
@@ -1309,7 +1293,6 @@ msgid "Go"
 msgstr "עבור"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "הגדר / רענן מסננים"
 
@@ -1516,10 +1499,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "כיבוי"
+msgstr "מושבת"
 
 #: router-devices.php
 #, fuzzy
@@ -1621,7 +1602,6 @@ msgid "Next Attempt"
 msgstr "הניסיון הבא"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "ניסיון אחרון"
 
@@ -1768,7 +1748,7 @@ msgstr "DEBUG: ביצוע '%s' עם ארגומנטים '%s'"
 
 #: setup.php
 msgid "Utilities"
-msgstr "Comment"
+msgstr "כלי עזר"
 
 #: setup.php
 #, fuzzy
@@ -1780,9 +1760,8 @@ msgid "(edit)"
 msgstr "(עריכה)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "פעולות"
+msgstr "(פעולות)"
 
 #: setup.php
 #, fuzzy
