@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/routerconfigs/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/routerconfigs/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -16,7 +16,7 @@ msgstr "Backup"
 
 #: includes/arrays.php
 msgid "Edit (bulk change settings)"
-msgstr ""
+msgstr "Bearbeiten (Einstellungen massenhaft ändern)"
 
 #: includes/arrays.php
 msgid "Enable"
@@ -28,29 +28,25 @@ msgstr "Deaktivieren"
 
 #: includes/arrays.php
 msgid "Clear SSH Host Key"
-msgstr ""
+msgstr "SSH-Host-Schlüssel leeren"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SSH/Telnet"
-msgstr "Telnet"
+msgstr "SSH/Telnet"
 
 #: includes/arrays.php
 msgid "SSH"
 msgstr "SSH"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Telnet"
 msgstr "Telnet"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SCP"
 msgstr "SCP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SFTP"
 msgstr "SFTP"
 
@@ -105,129 +101,105 @@ msgid "%d hours"
 msgstr "%d Stunden"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "00:00 (12am)"
-msgstr "00:00 (12 Uhr)"
+msgstr "00:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "01:00 (1am)"
-msgstr "01:00 (1 Uhr morgens)"
+msgstr "01:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "02:00 (2am)"
-msgstr "02:00 (2 Uhr morgens)"
+msgstr "02:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "03:00 (3am)"
-msgstr "03:00 (3 Uhr morgens)"
+msgstr "03:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "04:00 (4am)"
-msgstr "04:00 (4 Uhr morgens)"
+msgstr "04:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "05:00 (5am)"
-msgstr "05:00 (5 Uhr morgens)"
+msgstr "05:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "06:00 (6am)"
-msgstr "06:00 (6 Uhr morgens)"
+msgstr "06:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "07:00 (7am)"
-msgstr "07:00 (7 Uhr morgens)"
+msgstr "07:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "08:00 (8am)"
-msgstr "08:00 (8 Uhr)"
+msgstr "08:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "09:00 (9am)"
-msgstr "09:00 (9 Uhr)"
+msgstr "09:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "10:00 (12am)"
-msgstr "10:00 (12 Uhr)"
+msgstr "10:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "11:00 (11am)"
-msgstr "11:00 (11 Uhr)"
+msgstr "11:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "12:00 (12pm)"
-msgstr "12:00 (12 Uhr)"
+msgstr "12:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "13:00 (1pm)"
-msgstr "13:00 (13 Uhr)"
+msgstr "13:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "14:00 (2pm)"
-msgstr "14:00 (14 Uhr)"
+msgstr "14:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "15:00 (3pm)"
-msgstr "15:00 (15 Uhr)"
+msgstr "15:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "16:00 (4pm)"
-msgstr "16:00 (16 Uhr)"
+msgstr "16:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "17:00 (5pm)"
-msgstr "17:00 (17 Uhr)"
+msgstr "17:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "18:00 (6pm)"
-msgstr "18:00 (18 Uhr)"
+msgstr "18:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "19:00 (7pm)"
-msgstr "19:00 (19 Uhr)"
+msgstr "19:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "20:00 (8pm)"
-msgstr "20:00 (20 Uhr)"
+msgstr "20:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "21:00 (9pm)"
-msgstr "21:00 (21 Uhr)"
+msgstr "21:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "22:00 (10pm)"
-msgstr "22:00 (22 Uhr)"
+msgstr "22:00 Uhr"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "23:00 (11pm)"
-msgstr "23:00 (23:00 Uhr)"
+msgstr "23:00 Uhr"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d line"
-msgstr ""
+msgstr "%d Zeile"
 
 #: includes/arrays.php
 #, php-format
@@ -239,16 +211,14 @@ msgid "Name"
 msgstr "Name"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Give this account a meaningful name that will be displayed."
-msgstr "Geben Sie diesem Konto einen aussagekräftigen Namen, der angezeigt wird."
+msgstr "Geben Sie diesem Konto einen aussagekräftigen Anzeigenamen."
 
 #: includes/arrays.php router-accounts.php
 msgid "Username"
 msgstr "Benutzername"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The username that will be used for authentication."
 msgstr "Der Benutzername, der für die Authentifizierung verwendet wird."
 
@@ -257,145 +227,130 @@ msgid "Password"
 msgstr "Kennwort"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The password used for authentication."
 msgstr "Das für die Authentifizierung verwendete Passwort."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Enable Password"
-msgstr "Passwort aktivieren"
+msgstr "Enable-Passwort"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Your Enable Password, if required."
-msgstr "Ihr Aktivierungspasswort, falls erforderlich."
+msgstr "Ihr Enable-Passwort, falls erforderlich."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Enable Device"
 msgstr "Gerät aktivieren"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Uncheck this box to disabled this device from being backed up."
-msgstr "Deaktivieren Sie dieses Kontrollkästchen, um zu verhindern, dass dieses Gerät gesichert wird."
+msgstr "Deaktivieren Sie dieses Kontrollkästchen, damit dieses Gerät nicht gesichert wird."
 
 #: includes/arrays.php router-accounts.php
 msgid "Description"
 msgstr "Beschreibung"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
-msgstr "Name dieses Geräts (wird für die Konfigurationsspeicherung und SVN verwendet, wenn kein Hostname in der Konfiguration vorhanden ist)."
+msgstr "Name dieses Geräts (wird zum Speichern der Konfiguration und für SVN verwendet, falls kein Hostname in der Konfiguration vorhanden ist)."
 
 #: includes/arrays.php router-devices.php
 msgid "IP Address"
 msgstr "IP Adresse"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the IP Address used to communicate with the device."
-msgstr "Dies ist die IP-Adresse, die zur Kommunikation mit dem Gerät verwendet wird."
+msgstr "Dies ist die IP-Adresse, die für die Kommunikation mit dem Gerät verwendet wird."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
 msgid "TFTP Server"
-msgstr "TFTP-Server IP"
+msgstr "TFTP-Server"
 
 #: includes/arrays.php
 msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
-msgstr ""
+msgstr "Optionaler TFTP-Server, auf den dieses Gerät seine Konfiguration kopiert. Leer lassen, um die globale Einstellung „TFTP-Server“ zu verwenden."
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
-msgstr ""
+msgstr "Gespeicherter SSH-Hostschlüssel"
 
 #: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
-msgstr ""
+msgstr "Vergleichen Sie diesen Host-Key-Algorithmus und den SHA-1-Hex-Fingerabdruck über einen vertrauenswürdigen Kanal mit dem Gerät. Ersetzen Sie auf dem Server den untenstehenden Pfad durch die passende öffentliche Host-Key-Datei und führen Sie aus: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Verwenden Sie die Geräteaktion, um ihn nach einer legitimen Schlüsseländerung zu leeren."
 
 #: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
 msgstr "Verzeichnis"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the relative directory structure used to store the configs."
 msgstr "Dies ist die relative Verzeichnisstruktur, die zum Speichern der Konfigurationen verwendet wird."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "Zeitplan"
+msgstr "Terminplan Typ"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
-msgstr ""
+msgstr "Wie oft dieses Gerät gesichert werden soll. „Täglich“ mit „Erneut ausführen alle“ = 10 führt alle 10 Tage eine Sicherung durch; „Monatlich“ führt eine Sicherung pro Kalendermonat durch."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Rerun Every"
-msgstr ""
+msgstr "Erneut ausführen alle"
 
 #: includes/arrays.php
 msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
-msgstr ""
+msgstr "Bei täglichen Zeitplänen wird die Sicherung alle X Tage erneut ausgeführt. Bei wöchentlichen Zeitplänen ohne bestimmte Wochentage wird sie alle X Wochen erneut ausgeführt; sobald Wochentage ausgewählt sind, läuft die Sicherung jede Woche an diesen Tagen und dieses Feld wird nicht angewendet."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week"
-msgstr ""
+msgstr "Wochentage"
 
 #: includes/arrays.php
 msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
-msgstr ""
+msgstr "Für einen wöchentlichen Zeitplan: der/die Wochentag(e), an denen die Sicherung jede Woche ausgeführt werden soll. Leer lassen, um stattdessen gemäß „Erneut ausführen alle“ Wochen zu starten."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Months of Year"
-msgstr ""
+msgstr "Monate des Jahres"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
-msgstr ""
+msgstr "Für einen monatlichen Zeitplan: der/die Monat(e) des Jahres, in denen die Sicherung ausgeführt werden soll."
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
-#| msgid "This Month"
 msgid "Days of Month"
-msgstr "Dieser Monat"
+msgstr "Tage des Monats"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
-msgstr ""
+msgstr "Für einen monatlichen Zeitplan: der/die Tag(e) des Monats, an denen die Sicherung ausgeführt werden soll (Letzter = letzter Tag des Monats)."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Weeks of Month"
-msgstr ""
+msgstr "Wochen des Monats"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
-msgstr ""
+msgstr "Für einen Zeitplan „Monatlich am Wochentag“: die Woche(n) des Monats, in denen die Sicherung ausgeführt werden soll."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week (Monthly)"
-msgstr ""
+msgstr "Wochentage (monatlich)"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
-msgstr ""
+msgstr "Für einen Zeitplan „Monatlich am Wochentag“: der/die Wochentag(e), die mit der Auswahl „Wochen des Monats“ kombiniert werden."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
 msgstr "Gerätetyp"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Choose the type of device that the router is."
-msgstr "Wählen Sie den Gerätetyp, der der Router ist."
+msgstr "Wählen Sie den Gerätetyp des Routers aus."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
 msgid "Auto-Detect"
 msgstr "Automatisch erkennen"
 
@@ -404,360 +359,304 @@ msgid "Connection Type"
 msgstr "Verbindungstyp"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the type of connection used to communicate with the device."
-msgstr "Dies ist die IP-Adresse, die zur Kommunikation mit dem Gerät verwendet wird."
+msgstr "Dies ist der Verbindungstyp, der für die Kommunikation mit dem Gerät verwendet wird."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
 msgid "Authentication Account"
 msgstr "Authentifizierungskonto"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Choose an account to use to Login to the router"
-msgstr "Wählen Sie ein Konto, mit dem Sie sich beim Router anmelden können."
+msgstr "Wählen Sie ein Konto für die Anmeldung am Router aus"
 
 #: includes/arrays.php
 msgid "None"
 msgstr "Nichts"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default timeout"
-msgstr "Standardzeitlimit"
+msgstr "Standard-Timeout"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default time to wait in seconds for a response"
-msgstr "Standardzeit, um in Sekunden auf eine Antwort zu warten"
+msgstr "Standard-Wartezeit in Sekunden auf eine Antwort"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default sleep time"
-msgstr "Standardschlafzeit"
+msgstr "Standard-Wartezeit"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr "Standardzeit zum Schlafen in Mikrosekunden (1 / 1.000.000stel Sekunde)"
+msgstr "Standard-Wartezeit in Mikrosekunden (1/1.000.000 Sekunde)"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Assume elevated"
-msgstr "Angenommen, erhöht"
+msgstr "Privilegierten Modus annehmen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check this box to assume this device is always elevated"
-msgstr "Deaktivieren Sie dieses Kontrollkästchen, um zu verhindern, dass dieses Gerät gesichert wird."
+msgstr "Aktivieren Sie dieses Kontrollkästchen, um für dieses Gerät immer den privilegierten Modus anzunehmen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name of this device type."
 msgstr "Name dieses Gerätetyps."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Username Prompt"
-msgstr "Eingabeaufforderung für den Benutzernamen"
+msgstr "Benutzernamen-Eingabeaufforderung"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the username prompt to match on login."
-msgstr "Dies ist die Eingabeaufforderung für den Benutzernamen, die bei der Anmeldung übereinstimmt."
+msgstr "Dies ist die Benutzername-Eingabeaufforderung, die bei der Anmeldung übereinstimmen muss."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Password Prompt"
-msgstr "Passwortabfrage"
+msgstr "Passwort-Eingabeaufforderung"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the password prompt to match on login."
-msgstr "Dies ist die Passwortabfrage, die bei der Anmeldung übereinstimmen muss."
+msgstr "Dies ist die Passwort-Eingabeaufforderung, die bei der Anmeldung übereinstimmen muss."
 
 #: includes/arrays.php
 msgid "Configuration file"
 msgstr "Konfigurationsdateiname"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
-msgstr "Dies ist der Standardspeicherort der Konfigurationsdatei auf dem Remote-Gerät."
+msgstr "Dies ist der Standardspeicherort der Konfigurationsdatei auf dem Remote-Gerät. Er wird für die Methoden SCP und SFTP verwendet"
 
 #: includes/arrays.php router-devtypes.php
-#, fuzzy
 msgid "Copy TFTP"
 msgstr "TFTP kopieren"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the CLI text used to send the backup to tftp server."
-msgstr "Dies ist der CLI-Text, mit dem das Backup an den tftp-Server gesendet wird."
+msgstr "Dies ist der CLI-Text, der zum Senden des Backups an den TFTP-Server verwendet wird."
 
 #: includes/arrays.php
 msgid "Capture Command"
-msgstr ""
+msgstr "Erfassungsbefehl"
 
 #: includes/arrays.php
 msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
-msgstr ""
+msgstr "Optionaler Befehl, dessen Ausgabe als Konfiguration gespeichert wird, anstatt sie auf einen TFTP-Server zu kopieren. Er wird unabhängig vom Verbindungstyp immer über SSH ausgeführt, und das Gerät benötigt dann keinen TFTP-Server. Leer lassen für Geräte, die ihre Konfiguration per TFTP kopieren. Beispiel für MikroTik RouterOS: /export"
 
 #: includes/arrays.php
 msgid "Show Version"
 msgstr "Zeige Version"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the CLI text used to display the current version."
 msgstr "Dies ist der CLI-Text, der zur Anzeige der aktuellen Version verwendet wird."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Confirmation Prompt"
-msgstr "Konfigurations-Backups"
+msgstr "Bestätigungsaufforderung"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "This is the confirmation prompt to match before transmission."
-msgstr "Dies ist die Eingabeaufforderung für den Benutzernamen, die bei der Anmeldung übereinstimmt."
+msgstr "Dies ist die Bestätigungsaufforderung, die vor der Übertragung übereinstimmen muss."
 
 #: includes/arrays.php router-devtypes.php
 msgid "Confirm"
 msgstr "Bestätigen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr "Gibt es eine Sicherheitsabfrage zum Kopieren der Konfiguration?"
+msgstr "Gibt es eine Bestätigungsabfrage zum Kopieren der Konfiguration?"
 
 #: includes/arrays.php router-devtypes.php
-#, fuzzy
 msgid "Force Confirm"
-msgstr "Bestätigen erzwingen"
+msgstr "Bestätigung erzwingen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Is there a force confirmation prompt for copying the config?"
-msgstr "Gibt es eine Force Confirmation Abfrage zum Kopieren der Konfiguration?"
+msgstr "Gibt es eine erzwungene Bestätigungsabfrage zum Kopieren der Konfiguration?"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check End in Config"
-msgstr "Ende in Config prüfen"
+msgstr "Ende in Konfiguration prüfen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Check end in config?"
-msgstr "Ende in der Konfiguration überprüfen?"
+msgstr "Ende in Konfiguration prüfen?"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Any Key prompt"
-msgstr "Beliebige Schlüsselaufforderung"
+msgstr "Eingabeaufforderung für beliebige Taste"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr "Text, der mit der Eingabeaufforderung \"Drücken Sie eine beliebige Taste, um fortzufahren\" übereinstimmt"
+msgstr "Text, der zu einer Eingabeaufforderung im Stil von „Press Any Key To Continue“ passt"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Post-Login Prompts"
-msgstr "Passwortabfrage"
+msgstr "Eingabeaufforderungen nach der Anmeldung"
 
 #: includes/arrays.php
 msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
-msgstr ""
+msgstr "Optionale Eingabeaufforderungs-/Antwortpaare, die direkt nach der Anmeldung vor dem Befehl zum Kopieren per TFTP gesendet werden, ein Paar pro Zeile im Format Eingabeaufforderung|Antwort. Die Eingabeaufforderung wird als regulärer Ausdruck ohne Berücksichtigung der Groß-/Kleinschreibung mit der Geräteausgabe abgeglichen (sie darf daher selbst kein | enthalten, und Klammern sowie andere Sonderzeichen müssen maskiert werden, z. B. Save \\[y/n\\]); die Antwort wird wie eingegeben gesendet, oder verwenden Sie <CR>, um nur einen Wagenrücklauf zu senden. Eine Antwort wird erst gesendet, wenn ihre Eingabeaufforderung erkannt wurde, entweder in der Antwort auf die vorherige Eingabe oder in einer späteren Ausgabe; andernfalls wird eine Warnung protokolliert und nichts gesendet. Diese werden zuerst beantwortet; die Eingabeaufforderung „Any Key“ oben wird später während der Aktivierung des Geräts beantwortet, sodass eine hier beantwortete Eingabeaufforderung „Any Key“ nie erreicht. Beispiel: Press any key|<CR>"
 
 #: includes/arrays.php
 msgid "General Settings"
 msgstr "Basis Einstellungen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Presentation Mode"
-msgstr "Aufbewahrungsfrist"
+msgstr "Darstellungsmodus"
 
 #: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
-msgstr ""
+msgstr "Ob Router Configs in der Konsole oder als oberer Tab angezeigt werden soll."
 
 #: includes/arrays.php
 msgid "Console"
-msgstr ""
+msgstr "Konsole"
 
 #: includes/arrays.php
 msgid "Top Tab"
-msgstr ""
+msgstr "Registerkarte „Oben“"
 
 #: includes/arrays.php
 msgid "Config Diff Context Lines"
-msgstr ""
+msgstr "Kontextzeilen für Konfigurations-Diff"
 
 #: includes/arrays.php
 msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
-msgstr ""
+msgstr "Die Standardanzahl unveränderter Zeilen, die beim Vergleich zweier Sicherungen vor und nach jeder Änderung angezeigt werden. Ein größerer Wert erleichtert das Erkennen des umgebenden Konfigurationskontexts. Dies kann pro Vergleich auf der Vergleichsseite überschrieben werden."
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Connection Type"
 msgid "Connection timeout"
-msgstr "Verbindungstyp"
+msgstr "Verbindungs-Timeout"
 
 #: includes/arrays.php
 msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
-msgstr ""
+msgstr "Maximale Wartezeit in Sekunden beim Aufbau der initialen Netzwerkverbindung zu einem Gerät. Ein hängendes oder nicht erreichbares Gerät wird nach dieser Zeitüberschreitung abgebrochen, damit ein geplanter Sicherungslauf mit den verbleibenden Geräten fortfahren kann."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Close without exit"
-msgstr "Ohne Ausgang schließen"
+msgstr "Schließen ohne Beenden"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
-msgstr "Wenn diese Option aktiviert ist, wird beim Schließen der Geräteverbindung kein Befehl zum Beenden ausgegeben"
+msgstr "Wenn aktiviert, wird beim Beenden der Geräteverbindung kein 'exit'-Befehl gesendet"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Debug Connection Buffer"
 msgstr "Debug-Verbindungspuffer"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Whether to log direct output of device connection"
-msgstr "Gibt an, ob die direkte Ausgabe der Geräteverbindung protokolliert werden soll"
+msgstr "Ob die direkte Ausgabe der Geräteverbindung protokolliert werden soll"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Assume all devices elevated"
-msgstr "Angenommen, alle Geräte sind erhöht"
+msgstr "Für alle Geräte privilegierten Modus annehmen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Whether to assume all devices are elevated"
-msgstr "Gibt an, ob alle Geräte erhöht sind"
+msgstr "Ob davon ausgegangen werden soll, dass alle Geräte über erhöhte Berechtigungen verfügen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Download Hour"
-msgstr "Stunde herunterladen"
+msgstr "Download-Stunde"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The hour of the day to perform the full downloads."
-msgstr "Die Stunde des Tages, um die vollständigen Downloads durchzuführen."
+msgstr "Die Tagesstunde, zu der vollständige Downloads durchgeführt werden."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Retry Schedule"
-msgstr "Zeitplan"
+msgstr "Wiederholungszeitplan"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr "Die Wartezeit, bevor versucht wird, einen zusätzlichen Download durchzuführen, wenn der geplante Download fehlschlägt"
+msgstr "Die Wartezeit vor einem erneuten Download-Versuch, wenn ein geplanter Download fehlschlägt"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Retention Period"
 msgstr "Aufbewahrungsfrist"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The number of days to retain old backups."
-msgstr "Die Anzahl der Tage, in denen alte Backups aufbewahrt werden."
+msgstr "Die Anzahl der Tage, für die alte Backups aufbewahrt werden."
 
 #: includes/arrays.php
 msgid "Keep Inactive Device Backups"
-msgstr ""
+msgstr "Sicherungen inaktiver Geräte behalten"
 
 #: includes/arrays.php
 msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
-msgstr ""
+msgstr "Wenn aktiviert, löscht die Aufbewahrungsbereinigung keine abgelaufenen Sicherungen, die zu deaktivierten oder entfernten Geräten gehören, sodass Konfigurationen für außer Betrieb genommene oder nicht erreichbare Geräte erhalten bleiben."
 
 #: includes/arrays.php
 msgid "Transfer Options"
 msgstr "Transfer-Optionen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default connection type"
-msgstr "Standardverbindungstyp"
+msgstr "Standard-Verbindungstyp"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Default type of connection used to communicate with the device."
-msgstr "Dies ist die IP-Adresse, die zur Kommunikation mit dem Gerät verwendet wird."
+msgstr "Standard-Verbindungstyp für die Kommunikation mit dem Gerät."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Separate By Device"
 msgstr "Nach Gerät trennen"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Separate archived Configs into a folder per device"
-msgstr "Trennen Sie archivierte Konfigurationen pro Gerät in einen Ordner"
+msgstr "Archivierte Konfigurationen in einen Ordner pro Gerät trennen"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Directory"
 msgid "Dated Subdirectory"
-msgstr "Verzeichnis"
+msgstr "Datums-Unterverzeichnis"
 
 #: includes/arrays.php
 msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
-msgstr ""
+msgstr "Fügt ein datumsbasiertes Unterverzeichnis in den Archivpfad ein (vor dem gerätespezifischen Ordner), sodass jeder Durchlauf unter seinem Sicherungsdatum gespeichert wird, z. B. .../2020-11-04/hostname/.... „Aus“ behält das bestehende Layout bei."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "SCP Path"
 msgstr "SCP-Pfad"
 
 #: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
-msgstr ""
+msgstr "Wenn Sie SCP verwenden und dieses Feld leer lassen, wird das SCP-Modul von PHP genutzt, das nicht immer funktioniert. Externes SCP ist deaktiviert, solange die SSH-Hostschlüsselüberprüfung aktiviert ist, da es die verifizierte Verbindung nicht wiederverwenden kann."
 
 #: includes/arrays.php
 msgid "Verify SSH Host Keys"
-msgstr ""
+msgstr "SSH-Hostschlüssel überprüfen"
 
 #: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
-msgstr ""
+msgstr "Speichert den SSH-Host-Schlüssel jedes Geräts bei der ersten Verbindung und verweigert das Senden von Anmeldedaten, falls er sich später ändert. Der SSH/Telnet-Modus fällt bei aktivierter Überprüfung nicht auf Telnet zurück. Verwenden Sie nach einer legitimen Schlüsseländerung die Geräteaktion, um den gespeicherten Host-Schlüssel zu löschen."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "TFTP Server IP"
-msgstr "TFTP-Server IP"
+msgstr "TFTP-Server-IP"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Must be an IP pointing to your Cacti server."
-msgstr "Muss eine IP sein, die auf Ihren Cacti-Server zeigt."
+msgstr "Muss eine IP-Adresse sein, die auf Ihren Cacti-Server verweist."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "TFTP Backup Directory Path"
-msgstr "Backup-Verzeichnispfad"
+msgstr "TFTP-Backup-Verzeichnispfad"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
-msgstr "Der Pfad, zu dem Ihre Configs gesichert werden sollen, muss der Pfad sein, in den der lokale TFTP-Server schreibt."
+msgstr "Der Pfad, in dem Ihre Konfigurationen gesichert werden; dies muss der Pfad sein, in den der lokale TFTP-Server schreibt."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Archive Directory Path"
-msgstr "Backup-Verzeichnispfad"
+msgstr "Archiv-Verzeichnispfad"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
-msgstr "Der Pfad, zu dem Ihre Configs gesichert werden sollen, muss der Pfad sein, in den der lokale TFTP-Server schreibt."
+msgstr "Der Pfad, in dem Ihre Konfigurationen archiviert werden (aus dem TFTP-Verzeichnis verschoben)"
 
 #: includes/arrays.php
 msgid "Email Options"
@@ -768,69 +667,64 @@ msgid "From Address"
 msgstr "Absender Adresse"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Email address the nightly backup will be sent from."
-msgstr "E-Mail-Adresse, von der aus das nächtliche Backup gesendet wird."
+msgstr "E-Mail-Adresse, von der die nächtliche Sicherung gesendet wird."
 
 #: includes/arrays.php
 msgid "From Name"
 msgstr "Von Name"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Name the nightly backup will be sent from."
-msgstr "E-Mail-Adresse, von der aus das nächtliche Backup gesendet wird."
+msgstr "Absendername, von dem das nächtliche Backup gesendet wird."
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Email Address"
-msgstr "E-Mail-Adresse"
+msgstr "E-Mail Adresse"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
 msgstr "Eine kommagetrennte Liste von E-Mail-Adressen, an die die nächtliche Backup-E-Mail gesendet werden soll."
 
 #: includes/arrays.php
 msgid "Include Config Diffs"
-msgstr ""
+msgstr "Konfigurationsunterschiede (Diffs) einbeziehen"
 
 #: includes/arrays.php
 msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
-msgstr ""
+msgstr "Einen Unified Diff für jedes Gerät, dessen Konfiguration sich während des Laufs geändert hat, an die Sicherungs-E-Mail anhängen, damit ein Prüfer genau sehen kann, was sich geändert hat. Binäre (Nicht-Text-)Konfigurationen werden übersprungen. Flüchtige Zeilen, die sich bei jeder Sicherung ändern (Cisco IOS „! Last configuration change“, „! NVRAM config last updated“, „ntp clock-period“ und „Current configuration :“ sowie NX-OS „!Time:“ und „!Running configuration last done at:“), werden immer ignoriert. Warnung: Der Diff wird im Klartext an jeden Empfänger der E-Mail gesendet und kann daher Konfigurationen offenlegen, die vertraulich bleiben sollten; lassen Sie „Geheimnisse in Diffs einschließen“ deaktiviert."
 
 #: includes/arrays.php
 msgid "Include Secrets in Diffs"
-msgstr ""
+msgstr "Geheimnisse (Secrets) in Diffs einbeziehen"
 
 #: includes/arrays.php
 msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
-msgstr ""
+msgstr "Geheime Werte im per E-Mail gesendeten Diff unverändert mitsenden. Wenn deaktiviert (Standard), werden geänderte Zeilen in den Rohkonfigurationen ermittelt und geschwärzt ausgegeben (Fail-Closed): Zeilen mit geheimnisähnlichen Begriffen (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) sowie SNMP-Host- und Benutzerzeilen werden auf ihr erstes Wort gefolgt von &lt;secret hidden&gt; gekürzt, und jede Zeile eines PEM-Blocks, eines Zertifikats- oder Schlüsselzeichenketten-Blocks, eines mehrzeiligen Wertes in Anführungszeichen sowie jede Hex- oder Base64-Zeile wird ausgeblendet; ein nicht geschlossener Block blendet den Rest der Konfiguration aus. Dadurch werden auch harmlose Zeilen ausgeblendet (z. B. eine Beschreibung, die einen Schlüssel erwähnt), aber jede geänderte Zeile erscheint weiterhin, mit (changed) markiert, wenn sich nur der ausgeblendete Teil unterscheidet, und ein nicht geschlossener Block wird in der E-Mail vermerkt. Gespeicherte Sicherungen werden niemals verändert."
 
 #: includes/arrays.php
 msgid "Diff Exclude Patterns"
-msgstr ""
+msgstr "Ausschlussmuster für Diff"
 
 #: includes/arrays.php
 msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
-msgstr ""
+msgstr "Optionale reguläre Ausdrücke (einer pro Zeile) für Konfigurationszeilen, die beim Vergleich ignoriert werden sollen, damit veränderliche Zeilen wie Zeitstempel oder Seriennummern nicht als Änderungen angezeigt werden. Jedes Muster wird ohne Berücksichtigung der Groß-/Kleinschreibung an beliebiger Stelle einer Zeile abgeglichen, sofern es nicht mit ^ oder $ verankert ist; ein ungültiger regulärer Ausdruck wird ignoriert."
 
 #: includes/arrays.php
 msgid "Thold Notification List"
-msgstr ""
+msgstr "Thold-Benachrichtigungsliste"
 
 #: includes/arrays.php
 msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
-msgstr ""
+msgstr "Wenn Thold installiert ist, die Sicherungs-E-Mail ebenfalls an die Empfänger der ausgewählten Thold-Benachrichtigungsliste senden."
 
 #: includes/devices.php
-#, fuzzy
 msgid "Add to RouterConfigs Backup"
-msgstr "Router-Konfigurationen"
+msgstr "Zu RouterConfigs-Backup hinzufügen"
 
 #: includes/devices.php
 msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
-msgstr ""
+msgstr "Klicken Sie auf „Weiter“, um die folgenden Geräte zur Sicherung zu RouterConfigs hinzuzufügen. Jedes bereits in RouterConfigs vorhandene Gerät wird übersprungen."
 
 #: includes/functions.php router-accounts.php
 msgid "Devices"
@@ -853,193 +747,178 @@ msgid "Compare"
 msgstr "Vergleichen"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Technical Support [ %s ]"
 msgstr "Technischer Support [ %s ]"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "(%s chars)"
 msgstr "(%s Zeichen)"
 
 #: includes/functions.php
-#, fuzzy
 msgid "(Not Set)"
-msgstr "Als Standard"
+msgstr "(Nicht festgelegt)"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
-msgstr "HINWEIS: Starten der manuellen Sicherung von %s Geräten"
+msgstr "HINWEIS: Manuelle Sicherung von %s Geräten wird gestartet"
 
 #: includes/functions.php
-#, fuzzy
 msgid "NOTICE: Starting automatic retry"
-msgstr "HINWEIS: Automatische Wiederholung starten"
+msgstr "HINWEIS: Automatischer Wiederholungsversuch wird gestartet"
 
 #: includes/functions.php
-#, fuzzy
 msgid "NOTICE: Starting automatic backup"
-msgstr "HINWEIS: Startet die automatische Sicherung"
+msgstr "HINWEIS: Automatische Sicherung wird gestartet"
 
 #: includes/functions.php
-#, fuzzy
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
-msgstr "FATAL: Backup-Pfad ist nicht gesetzt oder ist kein Verzeichnis."
+msgstr "FATAL: TFTP-Backup-Pfad ist nicht festgelegt oder ist kein Verzeichnis"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Attempting download for %s"
-msgstr "DEBUG: Versuch des Downloads für %s"
+msgstr "DEBUG: Download-Versuch für %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices backed up successfully."
-msgstr "%s Geräte haben erfolgreich gesichert.<br>"
+msgstr "%s Geräte erfolgreich gesichert."
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices failed to backup."
-msgstr "%s Geräte konnten keine Sicherung durchführen. <br>"
+msgstr "Sicherung für %s Geräte fehlgeschlagen."
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s devices disabled from backup."
-msgstr "%s Geräte konnten keine Sicherung durchführen. <br>"
+msgstr "%s Geräte von der Sicherung deaktiviert."
 
 #: includes/functions.php
 msgid "No configuration changes were detected."
-msgstr ""
+msgstr "Es wurden keine Konfigurationsänderungen erkannt."
 
 #: includes/functions.php
-#, fuzzy
 msgid "Config Backups"
 msgstr "Konfigurations-Backups"
 
 #: includes/functions.php
-#, fuzzy
 msgid "Configuration Backups"
-msgstr "Konfigurations-Backups"
+msgstr "Konfigurationssicherungen"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Forced"
-msgstr " - Gezwungen"
+msgstr " - Erzwungen"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Manual"
-msgstr "Manuell"
+msgstr " - Manuell"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Simulated"
 msgstr " - Simuliert"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Scheduled"
-msgstr "Geplant"
+msgstr " - Geplant"
 
 #: includes/functions.php
-#, fuzzy
 msgid " - Reattempt"
-msgstr " - Wiederversuch"
+msgstr " - Erneuter Versuch"
 
 #: includes/functions.php
-#, fuzzy
 msgid ": Partial"
 msgstr ": Teilweise"
 
 #: includes/functions.php
-#, fuzzy
 msgid ": FAILED"
-msgstr "FEHLGESCHLAGEN"
+msgstr ": FEHLGESCHLAGEN"
 
 #: includes/functions.php
-#, fuzzy
 msgid "STATS: "
-msgstr "Statistik"
+msgstr "STATS: "
 
 #: includes/functions.php
-#, fuzzy
 msgid "ERROR: Backup Path is not set or is not a directory"
-msgstr "Sicherungspfad ist nicht gesetzt oder ist kein Verzeichnis."
+msgstr "FEHLER: Sicherungspfad ist nicht festgelegt oder ist kein Verzeichnis"
 
 #: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
-msgstr ""
+msgstr "WARNUNG: Aufbewahrungsdauer '%s' ist ungültig, Standardwert von 30 Tagen wird verwendet"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "STATS: Backup now running since %s"
 msgstr "STATS: Backup läuft jetzt seit %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "WARN: Backup already running since %s"
 msgstr "WARNUNG: Backup läuft bereits seit %s"
 
 #: includes/functions.php
 #, php-format
 msgid "Cacti Device id %s was not found; not added to RouterConfigs."
-msgstr ""
+msgstr "Die Cacti-Geräte-ID %s wurde nicht gefunden; nicht zu RouterConfigs hinzugefügt."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' is already in RouterConfigs; skipped."
-msgstr ""
+msgstr "Gerät '%s' ist bereits in RouterConfigs vorhanden; übersprungen."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
-msgstr ""
+msgstr "Gerät '%s' zu RouterConfigs hinzugefügt (deaktiviert, bis ein Konto und ein Gerätetyp festgelegt wurden)."
 
 #: includes/functions.php
 #, php-format
 msgid "Failed to add Device '%s' to RouterConfigs."
-msgstr ""
+msgstr "Gerät '%s' konnte nicht zu RouterConfigs hinzugefügt werden."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
-msgstr ""
+msgstr "Schwärzungsblock in Zeile %d der vorherigen Sicherung wurde nie geschlossen; nachfolgende Zeilen ausgeblendet."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
-msgstr ""
+msgstr "Schwärzungsblock in Zeile %d der neuen Sicherung wurde nie geschlossen; nachfolgende Zeilen ausgeblendet."
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
-msgstr ""
+msgstr "FEHLER: Der Hostname von Gerät '%s' ist als Sicherungsdateiname ungültig; bearbeiten Sie das Gerät und verwenden Sie nur Zeichen für Hostnamen oder IP-Adressen"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
-msgstr ""
+msgstr "FEHLER: Für Gerät '%s' ist kein TFTP-Server festgelegt; legen Sie einen TFTP-Server am Gerät oder in den globalen Einstellungen fest"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
-msgstr ""
+msgstr "FEHLER: SSH-Hostschlüssel-Überprüfung für Gerät '%s' fehlgeschlagen; Senden von Anmeldedaten oder Fallback auf Telnet wird verweigert"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
-msgstr ""
+msgstr "FEHLER: SSH-Verbindung für Gerät '%s' fehlgeschlagen; Telnet-Fallback ist deaktiviert, solange die SSH-Hostschlüssel-Überprüfung aktiviert ist"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
-msgstr "FEHLER: Verbindung zum Gerät '%s' mit dem Verbindungstyp %s konnte nicht hergestellt werden"
+msgstr "FEHLER: Verbindung zu Gerät '%s' über Verbindungstyp %s fehlgeschlagen"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
-msgstr "FEHLER: Fehler beim Herunterladen von '%s' auf '%s' über '%s'"
+msgstr "FEHLER: Herunterladen von '%s' nach '%s' über '%s' fehlgeschlagen"
 
 #: includes/functions.php router-devices.php
 msgid "Enabled"
@@ -1048,184 +927,177 @@ msgstr "Aktiviert"
 #: includes/functions.php
 #, php-format
 msgid "The selected %s is not valid; no devices were changed."
-msgstr ""
+msgstr "Die Auswahl für %s ist ungültig; es wurden keine Geräte geändert."
 
 #: includes/functions.php
 msgid "File path validation failed"
-msgstr ""
+msgstr "Dateipfad-Validierung fehlgeschlagen"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File '%s' failed to load"
 msgstr "Datei '%s' konnte nicht geladen werden"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File '%s' was not found"
 msgstr "Datei '%s' wurde nicht gefunden"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Router Config for %s (%s)"
 msgstr "Router-Konfiguration für %s (%s)"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backup from %s"
-msgstr "Sicherung von %s"
+msgstr "Sicherung vom %s"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "File: %s/%s"
 msgstr "Datei: %s/%s"
 
 #: includes/scheduler.php
-#, fuzzy
 msgid "Manual"
 msgstr "Manuell"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Monthly"
 msgid "Monthly on Day"
-msgstr "Monatlich"
+msgstr "Monatlich am Tag"
 
 #: includes/scheduler.php
 msgid "Sunday"
-msgstr ""
+msgstr "Sonntag"
 
 #: includes/scheduler.php
 msgid "Monday"
-msgstr ""
+msgstr "Montag"
 
 #: includes/scheduler.php
 msgid "Tuesday"
-msgstr ""
+msgstr "Dienstag"
 
 #: includes/scheduler.php
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #: includes/scheduler.php
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #: includes/scheduler.php
 msgid "Friday"
-msgstr ""
+msgstr "Freitag"
 
 #: includes/scheduler.php
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"
 
 #: includes/scheduler.php
-#, fuzzy
 msgid "January"
-msgstr "Manuell"
+msgstr "Januar"
 
 #: includes/scheduler.php
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Search"
 msgid "March"
-msgstr "Suche"
+msgstr "März"
 
 #: includes/scheduler.php
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: includes/scheduler.php
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 #: includes/scheduler.php
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 #: includes/scheduler.php
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 #: includes/scheduler.php
 msgid "August"
-msgstr ""
+msgstr "August"
 
 #: includes/scheduler.php
 msgid "September"
-msgstr ""
+msgstr "September"
 
 #: includes/scheduler.php
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 #: includes/scheduler.php
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: includes/scheduler.php
 msgid "December"
-msgstr ""
+msgstr "Dezember"
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "Letzte"
 
 #: includes/scheduler.php
 msgid "First"
-msgstr ""
+msgstr "Erste"
 
 #: includes/scheduler.php
 msgid "Second"
-msgstr ""
+msgstr "Sekunde"
 
 #: includes/scheduler.php
 msgid "Third"
-msgstr ""
+msgstr "Dritter"
 
 #: includes/scheduler.php
 msgid "Fourth"
-msgstr ""
+msgstr "Vierter"
 
 #: includes/scheduler.php
 msgid "Off (no dated subdirectory)"
-msgstr ""
+msgstr "Aus (kein datiertes Unterverzeichnis)"
 
 #: includes/scheduler.php
 msgid "YYYY-MM-DD"
-msgstr ""
+msgstr "JJJJ-MM-TT"
 
 #: includes/scheduler.php
 msgid "YYYY/MM/DD (nested)"
-msgstr ""
+msgstr "JJJJ/MM/TT (verschachtelt)"
 
 #: includes/scheduler.php
 msgid "DD-MM-YYYY"
-msgstr ""
+msgstr "TT-MM-JJJJ"
 
 #: includes/scheduler.php
 #, php-format
 msgid "The selected %s is not valid."
-msgstr ""
+msgstr "Die Auswahl für %s ist ungültig."
 
 #: includes/scheduler.php
 msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
-msgstr ""
+msgstr "Für einen monatlichen Zeitplan müssen Sie mindestens einen Monat und einen Tag des Monats auswählen."
 
 #: includes/scheduler.php
 msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
-msgstr ""
+msgstr "Für einen Zeitplan „Monatlich am Wochentag“ müssen Sie Monate, Wochen des Monats und Wochentage auswählen."
 
 #: includes/scheduler.php
 msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
-msgstr ""
+msgstr "Die ausgewählten Monate und Tage des Monats treten nie gemeinsam auf; wählen Sie einen anderen Tag oder „Letzter“ für den letzten Tag des Monats."
 
 #: router-accounts.php
-#, fuzzy
 msgid "Click 'Continue' to delete the following account(s)."
-msgstr "Klicken Sie auf \"Weiter\", um die folgenden Konten zu löschen."
+msgstr "Klicken Sie auf 'Weiter', um die folgenden Konten zu löschen."
 
 #: router-accounts.php router-devices.php router-devtypes.php
 msgid "Cancel"
@@ -1248,12 +1120,11 @@ msgid "Return"
 msgstr "Zurück"
 
 #: router-accounts.php
-#, fuzzy, php-format
+#, php-format
 msgid "Account: [edit: %s]"
-msgstr "Konto: (edit: %s)"
+msgstr "Konto: [bearbeiten: %s]"
 
 #: router-accounts.php
-#, fuzzy
 msgid "Account: [new]"
 msgstr "Konto: [neu]"
 
@@ -1266,12 +1137,10 @@ msgid "Account Management"
 msgstr "Kontoverwaltung"
 
 #: router-accounts.php
-#, fuzzy
 msgid "No Router Accounts Found"
 msgstr "Keine Router-Konten gefunden"
 
 #: router-backups.php setup.php
-#, fuzzy
 msgid "Router Backups"
 msgstr "Router-Backups"
 
@@ -1308,58 +1177,50 @@ msgid "Hostname"
 msgstr "Zielsystemname"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr "Entweder eine IP-Adresse oder ein Hostname. Wenn es sich um einen Hostnamen handelt, muss dieser entweder über DNS oder aus Ihrer Hosts-Datei aufgelöst werden können."
+msgstr "Entweder eine IP-Adresse oder ein Hostname. Wenn es sich um einen Hostnamen handelt, muss dieser entweder über DNS oder Ihre Hosts-Datei auflösbar sein."
 
 #: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
 msgstr "ID"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr "Die interne Datenbank-ID für dieses Gerät. Nützlich bei der Durchführung von Automatisierung oder Debugging."
+msgstr "Die interne Datenbank-ID für dieses Gerät. Nützlich bei der Automatisierung oder beim Debuggen."
 
 #: router-backups.php
 msgid "Functions"
 msgstr "Funktionen"
 
 #: router-backups.php
-#, fuzzy
 msgid "Perform functions against this backup"
-msgstr "Führen Sie Funktionen für diese Sicherung aus"
+msgstr "Funktionen für diese Sicherung ausführen"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The directory of the stored device backups"
-msgstr "Die Anzahl der Tage, in denen alte Backups aufbewahrt werden."
+msgstr "Das Verzeichnis der gespeicherten Geräte-Backups"
 
 #: router-backups.php
 msgid "Backup Time"
 msgstr "Backup-Zeit"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "The last Backup time of the device"
-msgstr "Wie oft soll dieses Gerät gesichert werden?"
+msgstr "Der Zeitpunkt des letzten Backups des Geräts"
 
 #: router-backups.php
 msgid "Last Change"
 msgstr "Letzte Änderung"
 
 #: router-backups.php
-#, fuzzy
 msgid "The last Change time of the device"
-msgstr "Die letzte Änderungszeit des Geräts"
+msgstr "Der Zeitpunkt der letzten Änderung des Geräts"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Changed By"
-msgstr "Geändert"
+msgstr "Geändert von"
 
 #: router-backups.php
-#, fuzzy
 msgid "The last person to change the configuration of the device"
 msgstr "Die letzte Person, die die Konfiguration des Geräts geändert hat"
 
@@ -1368,174 +1229,154 @@ msgid "Filename"
 msgstr "Dateiname"
 
 #: router-backups.php
-#, fuzzy
 msgid "The filename of the stored device backups"
-msgstr "Die Anzahl der Tage, in denen alte Backups aufbewahrt werden."
+msgstr "Der Dateiname der gespeicherten Geräte-Backups"
 
 #: router-backups.php setup.php
-#, fuzzy
 msgid "View Config"
-msgstr "View Config"
+msgstr "Konfiguration anzeigen"
 
 #: router-backups.php
-#, fuzzy
 msgid "No Router Backups Found"
 msgstr "Keine Router-Backups gefunden"
 
 #: router-compare.php
-#, fuzzy
 msgid "Router Backup Comparison"
-msgstr "Router-Backups"
+msgstr "Router-Backup-Vergleich"
 
 #: router-compare.php
 msgid "Diff Mode"
-msgstr ""
+msgstr "Diff-Modus"
 
 #: router-compare.php
 msgid "Inline"
-msgstr ""
+msgstr "Inline"
 
 #: router-compare.php
 msgid "Side by Side"
-msgstr ""
+msgstr "Nebeneinander"
 
 #: router-compare.php
-#, fuzzy
-#| msgid "Continue"
 msgid "Context Lines"
-msgstr "Fortsetzen"
+msgstr "Kontextzeilen"
 
 #: router-compare.php
-#, fuzzy
 msgid "Compare Output"
-msgstr "Output vergleichen"
+msgstr "Ausgabe vergleichen"
 
 #: router-compare.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backup %s not found"
-msgstr "Datei '%s' wurde nicht gefunden"
+msgstr "Sicherung %s nicht gefunden"
 
 #: router-compare.php
-#, fuzzy
 msgid "There are no Changes"
-msgstr "Weitergabe der Änderungen"
+msgstr "Es gibt keine Änderungen"
 
 #: router-compare.php
-#, fuzzy
 msgid "Error, you must have backups for each device."
-msgstr "Fehler, Sie müssen für jedes Gerät Backups haben."
+msgstr "Fehler: Sie müssen für jedes Gerät Backups haben."
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Debug for %s (%s)<br><br>"
-msgstr "Debuggen für %s (%s)<br><br><br><br>"
+msgstr "Debug-Ausgabe für %s (%s)<br><br>"
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Last Change"
 msgid "No Change"
-msgstr "Letzte Änderung"
+msgstr "Keine Änderung"
 
 #: router-devices.php
 #, php-format
 msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
-msgstr ""
+msgstr "Es wurden keine Geräte geändert: Der neue Zeitplan kann für die Geräte-ID(s) %s nicht ausgeführt werden, da Monate, Monatstage, Monatswochen oder Wochentage fehlen oder nie eintreten. Legen Sie den Zeitplan für diese Geräte einzeln fest."
 
 #: router-devices.php
 #, php-format
 msgid "Updated settings on %d device(s)."
-msgstr ""
+msgstr "Einstellungen auf %d Gerät(en) aktualisiert."
 
 #: router-devices.php
 msgid "No settings were changed; every field was left on \"No Change\"."
-msgstr ""
+msgstr "Es wurden keine Einstellungen geändert; alle Felder blieben auf „Keine Änderung“."
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr "DEBUG: Manuelle Sicherung mit '%s' mit den Argumenten '%s' ausführen."
+msgstr "DEBUG: Führe manuelle Sicherung mit '%s' und Argumenten '%s' aus"
 
 #: router-devices.php
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
-msgstr ""
+msgstr "Router-Backup gestartet. Prüfen Sie die Spalte „Backup-Datum“ oder das Cacti-Protokoll auf Abschlussstatus und Zeitangaben"
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr "Klicken Sie auf \"Weiter\", um die folgenden Geräte zu löschen."
+msgstr "Klicken Sie auf 'Weiter', um die folgenden Geräte zu löschen."
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr "Klicken Sie auf \"Fortfahren\", um die folgenden Geräte zu aktivieren."
+msgstr "Klicken Sie auf 'Weiter', um die folgenden Geräte zu aktivieren."
 
 #: router-devices.php
-#, fuzzy
 msgid "Enable Device(s)"
 msgstr "Gerät(e) aktivieren"
 
 #: router-devices.php
-#, fuzzy
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr "Klicken Sie auf \"Weiter\", um die folgenden Geräte zu deaktivieren."
+msgstr "Klicken Sie auf 'Weiter', um die folgenden Geräte zu deaktivieren."
 
 #: router-devices.php
-#, fuzzy
 msgid "Disable Device(s)"
 msgstr "Gerät(e) deaktivieren"
 
 #: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
-msgstr ""
+msgstr "Klicken Sie auf „Weiter“, um den gespeicherten SSH-Host-Schlüssel für die folgenden Geräte zu leeren. Bei der nächsten SSH-Verbindung wird dem empfangenen Schlüssel vertraut und er wird gespeichert."
 
 #: router-devices.php
 msgid "Clear SSH Host Key(s)"
-msgstr ""
+msgstr "SSH-Host-Schlüssel leeren"
 
 #: router-devices.php
 msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
-msgstr ""
+msgstr "Legen Sie eine oder mehrere der folgenden Einstellungen für die ausgewählten Geräte fest. Felder mit „Keine Änderung“ bleiben unverändert."
 
 #: router-devices.php
 msgid "Disabled"
 msgstr "Deaktiviert"
 
 #: router-devices.php
-#, fuzzy
 msgid "Apply settings to Device(s)"
-msgstr "Gerät(e) löschen"
+msgstr "Einstellungen auf Gerät(e) anwenden"
 
 #: router-devices.php
-#, fuzzy
 msgid "You must select at least Router Device."
-msgstr "Sie müssen mindestens Router Device auswählen."
+msgstr "Sie müssen mindestens ein Router-Gerät auswählen."
 
 #: router-devices.php
 msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
-msgstr ""
+msgstr "Der Hostname ist ungültig. Verwenden Sie nur Buchstaben, Ziffern, Leerzeichen sowie die Zeichen . - _ : und verwenden Sie keine Pfadtrennzeichen oder \"..\"."
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
-msgstr ""
+msgstr "Der ausgewählte Zeitplantyp oder das Wiederholungsintervall ist ungültig."
 
 #: router-devices.php
 msgid "Not recorded"
-msgstr ""
+msgstr "Nicht aufgezeichnet"
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Router: [edit: %s]"
-msgstr "Router: (edit: %s)"
+msgstr "Router: [Bearbeiten: %s]"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router: [new]"
-msgstr "Router: [neu]"
+msgstr "Router: [Neu]"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router Device Management"
-msgstr "Verwaltung von Router-Geräten"
+msgstr "Router-Geräteverwaltung"
 
 #: router-devices.php
 msgid "Account"
@@ -1546,22 +1387,18 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Backup"
 msgstr "Letztes Backup"
 
 #: router-devices.php
-#, fuzzy
 msgid "The device type of the device"
 msgstr "Der Gerätetyp des Geräts"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect Type"
-msgstr "Gerätetyp"
+msgstr "Verbindungstyp"
 
 #: router-devices.php
-#, fuzzy
 msgid "The connection type for this device"
 msgstr "Der Verbindungstyp für dieses Gerät"
 
@@ -1570,28 +1407,24 @@ msgid "Configs"
 msgstr "Konfigurationen"
 
 #: router-devices.php
-#, fuzzy
 msgid "The number of configurations for this device"
 msgstr "Die Anzahl der Konfigurationen für dieses Gerät"
 
 #: router-devices.php
-#, fuzzy
 msgid "The IP address of this device"
-msgstr "Name dieses Gerätetyps."
+msgstr "Die IP-Adresse dieses Geräts"
 
 #: router-devices.php
 msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
-msgstr ""
+msgstr "Der gerätespezifische TFTP-Server oder Standard, wenn die globale Einstellung für den TFTP-Server verwendet wird"
 
 #: router-devices.php
-#, fuzzy
 msgid "Next Backup"
-msgstr "Letztes Backup"
+msgstr "Nächstes Backup"
 
 #: router-devices.php
-#, fuzzy
 msgid "Date Backup"
-msgstr "Letztes Backup"
+msgstr "Backup-Datum"
 
 #: router-devices.php
 msgid "Next Attempt"
@@ -1602,9 +1435,8 @@ msgid "Last Attempt"
 msgstr "Letzter Versuch"
 
 #: router-devices.php
-#, fuzzy
 msgid "Date Change"
-msgstr "Letzte Änderung"
+msgstr "Änderungsdatum"
 
 #: router-devices.php
 msgid "Today"
@@ -1623,14 +1455,12 @@ msgid "This Month"
 msgstr "Dieser Monat"
 
 #: router-devices.php
-#, fuzzy
 msgid "Within a Year"
 msgstr "Innerhalb eines Jahres"
 
 #: router-devices.php
-#, fuzzy
 msgid "Long, Long Ago"
-msgstr "Sehr lange her"
+msgstr "Vor sehr langer Zeit"
 
 #: router-devices.php router-devtypes.php
 msgid "No"
@@ -1641,75 +1471,65 @@ msgid "Yes"
 msgstr "Ja"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect via SSH"
-msgstr "Verbindung über SSH herstellen"
+msgstr "Über SSH verbinden"
 
 #: router-devices.php
-#, fuzzy
 msgid "Connect via Telnet"
-msgstr "Verbindung über Telnet herstellen"
+msgstr "Über Telnet verbinden"
 
 #: router-devices.php
-#, fuzzy
 msgid "Trace Route"
-msgstr "Trace-Route"
+msgstr "Traceroute"
 
 #: router-devices.php
-#, fuzzy
 msgid "Router Debug Info"
-msgstr "Router Debug Info"
+msgstr "Router-Debug-Informationen"
 
 #: router-devices.php
-#, fuzzy, php-format
+#, php-format
 msgid "Backups (%s)"
-msgstr "Backups (%s)"
+msgstr "Sicherungen (%s)"
 
 #: router-devices.php
 msgid "Current"
 msgstr "Aktuell"
 
 #: router-devices.php
-#, fuzzy
 msgid "No Router Devices Found"
 msgstr "Keine Router-Geräte gefunden"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "When you click 'Continue', the following device(s) will be deleted."
-msgstr "Wenn Sie auf \"Fortfahren\" klicken, werden die folgenden Geräte gelöscht."
+msgstr "Wenn Sie auf 'Fortfahren' klicken, werden die folgenden Geräte gelöscht."
 
 #: router-devtypes.php
 #, php-format
 msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
-msgstr ""
+msgstr "Post-Login-Eingabeaufforderungen enthalten eine Eingabeaufforderung, die kein gültiger regulärer Ausdruck ist: %s"
 
 #: router-devtypes.php
-#, fuzzy, php-format
+#, php-format
 msgid "Query [edit: %s]"
 msgstr "Abfrage [bearbeiten: %s]"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Query [new]"
-msgstr "Abfrage[neu]"
+msgstr "Abfrage [neu]"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "View Router Device Types"
-msgstr "Anzeigen von Router-Gerätetypen"
+msgstr "Router-Gerätetypen anzeigen"
 
 #: router-devtypes.php
 msgid "Type"
 msgstr "Typ"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "User Prompt"
-msgstr "Eingabeaufforderung für den Benutzernamen"
+msgstr "Benutzer-Eingabeaufforderung"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Pass Prompt"
 msgstr "Passwortabfrage"
 
@@ -1718,71 +1538,61 @@ msgid "Version"
 msgstr "Version"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Confirm Prompt"
-msgstr "Neues Passwort bestätigen"
+msgstr "Bestätigungs-Prompt"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Check End In Config"
-msgstr "Check End In Config"
+msgstr "Ende in Konfiguration prüfen"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "No Router Device Types Found"
 msgstr "Keine Router-Gerätetypen gefunden"
 
 #: setup.php
-#, fuzzy
 msgid "Router Configs"
 msgstr "Router-Konfigurationen"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
-msgstr "DEBUG: '%s' mit den Argumenten '%s' ausführen."
+msgstr "DEBUG: Führe '%s' mit Argumenten '%s' aus"
 
 #: setup.php
 msgid "Utilities"
 msgstr "Werkzeuge"
 
 #: setup.php
-#, fuzzy
 msgid "Router Devices"
 msgstr "Router-Geräte"
 
 #: setup.php
 msgid "(edit)"
-msgstr "(Bearbeiten)"
+msgstr "(Verändern)"
 
 #: setup.php
 msgid "(actions)"
 msgstr "(Aktionen)"
 
 #: setup.php
-#, fuzzy
 msgid "View Debug"
 msgstr "Debug anzeigen"
 
 #: setup.php
-#, fuzzy
 msgid "Router Accounts"
 msgstr "Router-Konten"
 
 #: setup.php
-#, fuzzy
 msgid "Router Compare"
 msgstr "Router-Vergleich"
 
 #: setup.php
-#, fuzzy
 msgid "RouterConfigs"
-msgstr "Router-Konfigurationen"
+msgstr "RouterConfigs"
 
 #: setup.php
-#, fuzzy
 msgid "Routers"
-msgstr "Router-Konfigurationen"
+msgstr "Router"
 
 #, fuzzy
 #~ msgid "FATAL: TFTP Server is not set"
