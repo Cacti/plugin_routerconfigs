@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2021-01-18 18:17+0000\n"
-"Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/routerconfigs/pt_PT/>\n"
-"Language: pt-PT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/routerconfigs/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -84,24 +72,24 @@ msgid "Monthly"
 msgstr "Mensalmente"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
 msgstr "%d Mês"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "Meses"
+msgstr "%d Meses"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
 msgstr "%d Ano"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "%d Ano"
+msgstr "%d Anos"
 
 #: includes/arrays.php
 msgid "Never"
@@ -778,9 +766,8 @@ msgid "Email Options"
 msgstr "Opções de email"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "From Address"
-msgstr "A partir do endereço"
+msgstr "Endereço de remetente"
 
 #: includes/arrays.php
 #, fuzzy
@@ -851,9 +838,8 @@ msgid "Devices"
 msgstr "Dispositivos"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
-msgstr "Tipos de dispositivos"
+msgstr "Tipos de dispositivo"
 
 #: includes/functions.php
 msgid "Authentication"
@@ -1256,9 +1242,8 @@ msgid "Delete Device(s)"
 msgstr "Eliminar Dispositivo(s)"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "Você deve selecionar pelo menos um dispositivo."
+msgstr "Deve selecionar pelo menos um dispositivo."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
@@ -1309,9 +1294,8 @@ msgid "Go"
 msgstr "Ir"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Definir / Atualizar Filtros"
+msgstr "Filtros Set/Refresh"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
@@ -1516,10 +1500,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Desativar"
+msgstr "Desativado"
 
 #: router-devices.php
 #, fuzzy
@@ -1622,7 +1604,6 @@ msgid "Next Attempt"
 msgstr "Próxima tentativa"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "Última tentativa"
 
@@ -1777,14 +1758,12 @@ msgid "Router Devices"
 msgstr "Dispositivos de Roteador"
 
 #: setup.php
-#, fuzzy
 msgid "(edit)"
-msgstr "(Editar)"
+msgstr "(editar)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Acções"
+msgstr "(ações)"
 
 #: setup.php
 #, fuzzy
