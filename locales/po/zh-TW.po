@@ -4,22 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2026-10-06 13:29+0000\n"
-"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
-"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\n"
-"Language: zh-TW\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/routerconfigs/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Delete"
 msgstr "刪除"
 
@@ -32,12 +19,10 @@ msgid "Edit (bulk change settings)"
 msgstr ""
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Enable"
 msgstr "啟用"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Disable"
 msgstr "停用"
 
@@ -72,52 +57,48 @@ msgid "Inherit"
 msgstr "繼承"
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
 msgid "Daily"
 msgstr "每日"
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
 msgid "Weekly"
 msgstr "每週"
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
 msgid "Monthly"
 msgstr "每月"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "%d月"
+msgstr "%d 個月"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d個月"
+msgstr "%d 個月"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "%d年"
+msgstr "%d 年"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "%d年"
+msgstr "%d 年"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Never"
 msgstr "從不"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d hour"
 msgstr "%d 小時"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d hours"
 msgstr "%d 小時"
 
@@ -249,10 +230,9 @@ msgstr "內嵌"
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d 行"
 
 #: includes/arrays.php router-devtypes.php
-#, fuzzy
 msgid "Name"
 msgstr "名稱"
 
@@ -262,9 +242,8 @@ msgid "Give this account a meaningful name that will be displayed."
 msgstr "為此帳戶提供將顯示的有意義的名稱。"
 
 #: includes/arrays.php router-accounts.php
-#, fuzzy
 msgid "Username"
-msgstr "用戶名"
+msgstr "使用者名稱"
 
 #: includes/arrays.php
 #, fuzzy
@@ -272,7 +251,6 @@ msgid "The username that will be used for authentication."
 msgstr "用於身份驗證的用戶名。"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "Password"
 msgstr "密碼"
 
@@ -302,7 +280,6 @@ msgid "Uncheck this box to disabled this device from being backed up."
 msgstr "取消選中此框可禁用此設備的備份。"
 
 #: includes/arrays.php router-accounts.php
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
@@ -347,9 +324,8 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "這是用於存儲配置的相對目錄結構。"
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
 msgid "Schedule Type"
-msgstr "排程"
+msgstr "排程類型"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
@@ -437,7 +413,6 @@ msgid "Choose an account to use to Login to the router"
 msgstr "選擇用於登錄路由器的帳戶"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "None"
 msgstr "無"
 
@@ -592,7 +567,6 @@ msgid "Optional prompt/response pairs sent right after login, before the copy-to
 msgstr ""
 
 #: includes/arrays.php
-#, fuzzy
 msgid "General Settings"
 msgstr "一般設定"
 
@@ -797,7 +771,6 @@ msgid "Email address the nightly backup will be sent from."
 msgstr "每晚備份的電子郵件地址將從中發送。"
 
 #: includes/arrays.php
-#, fuzzy
 msgid "From Name"
 msgstr "寄件者名稱"
 
@@ -858,14 +831,12 @@ msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for back
 msgstr ""
 
 #: includes/functions.php router-accounts.php
-#, fuzzy
 msgid "Devices"
-msgstr "設備"
+msgstr "裝置"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
-msgstr "設備類型"
+msgstr "裝置類型"
 
 #: includes/functions.php
 #, fuzzy
@@ -1070,9 +1041,8 @@ msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
 msgstr "錯誤：無法通過“ %s”將“ %s”下載到“ %s”"
 
 #: includes/functions.php router-devices.php
-#, fuzzy
 msgid "Enabled"
-msgstr "啟用"
+msgstr "已啟用"
 
 #: includes/functions.php
 #, php-format
@@ -1120,31 +1090,31 @@ msgstr "每月"
 
 #: includes/scheduler.php
 msgid "Sunday"
-msgstr ""
+msgstr "星期日"
 
 #: includes/scheduler.php
 msgid "Monday"
-msgstr ""
+msgstr "星期一"
 
 #: includes/scheduler.php
 msgid "Tuesday"
-msgstr ""
+msgstr "星期二"
 
 #: includes/scheduler.php
 msgid "Wednesday"
-msgstr ""
+msgstr "星期三"
 
 #: includes/scheduler.php
 msgid "Thursday"
-msgstr ""
+msgstr "星期四"
 
 #: includes/scheduler.php
 msgid "Friday"
-msgstr ""
+msgstr "星期五"
 
 #: includes/scheduler.php
 msgid "Saturday"
-msgstr ""
+msgstr "星期六"
 
 #: includes/scheduler.php
 #, fuzzy
@@ -1256,27 +1226,22 @@ msgid "Click 'Continue' to delete the following account(s)."
 msgstr "點擊“繼續”以刪除以下帳戶。"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Continue"
 msgstr "繼續"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "刪除設備"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "您必須至少選擇一個設備。"
+msgstr "您必須至少選擇一個裝置。"
 
 #: router-accounts.php router-devices.php
-#, fuzzy
 msgid "Return"
 msgstr "返回"
 
@@ -1309,7 +1274,6 @@ msgid "Router Backups"
 msgstr "路由器備份"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Any"
 msgstr "任何"
 
@@ -1327,7 +1291,7 @@ msgstr "送出"
 
 #: router-backups.php router-devices.php
 msgid "Set/Refresh Filters"
-msgstr "設置/刷新過濾器"
+msgstr "設定/重新整理篩選器"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
@@ -1338,7 +1302,6 @@ msgid "Clear Filters"
 msgstr "清除過濾器"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
 
@@ -1348,7 +1311,6 @@ msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable 
 msgstr "IP地址或主機名。如果是主機名，則必須由DNS或主機文件解析。"
 
 #: router-backups.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -1533,9 +1495,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
 msgid "Disabled"
-msgstr "停用"
+msgstr "已停用"
 
 #: router-devices.php
 #, fuzzy
@@ -1579,7 +1540,6 @@ msgid "Account"
 msgstr "帳戶"
 
 #: router-devices.php
-#, fuzzy
 msgid "Actions"
 msgstr "動作"
 
@@ -1635,9 +1595,8 @@ msgid "Next Attempt"
 msgstr "下一次嘗試"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
-msgstr "最後一次嘗試"
+msgstr "上次嘗試"
 
 #: router-devices.php
 #, fuzzy
@@ -1673,12 +1632,10 @@ msgid "Long, Long Ago"
 msgstr "很久很久以前"
 
 #: router-devices.php router-devtypes.php
-#, fuzzy
 msgid "No"
 msgstr "否"
 
 #: router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Yes"
 msgstr "是"
 
@@ -1708,9 +1665,8 @@ msgid "Backups (%s)"
 msgstr "備份（％s）"
 
 #: router-devices.php
-#, fuzzy
 msgid "Current"
-msgstr "當前"
+msgstr "目前"
 
 #: router-devices.php
 #, fuzzy
@@ -1743,7 +1699,6 @@ msgid "View Router Device Types"
 msgstr "查看路由器設備類型"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Type"
 msgstr "類型"
 
@@ -1758,7 +1713,6 @@ msgid "Pass Prompt"
 msgstr "密碼提示"
 
 #: router-devtypes.php
-#, fuzzy
 msgid "Version"
 msgstr "版本"
 
@@ -1788,7 +1742,6 @@ msgid "DEBUG: Executing '%s' with arguments '%s'"
 msgstr "調試：使用參數“ %s”執行“ %s”"
 
 #: setup.php
-#, fuzzy
 msgid "Utilities"
 msgstr "公用程式"
 
@@ -1798,14 +1751,12 @@ msgid "Router Devices"
 msgstr "路由設備"
 
 #: setup.php
-#, fuzzy
 msgid "(edit)"
 msgstr "(編輯)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "動作"
+msgstr "(動作)"
 
 #: setup.php
 #, fuzzy
