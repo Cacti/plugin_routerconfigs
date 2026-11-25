@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2026-09-24 21:02+0000\n"
-"Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
-"Language-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\n"
-"Language: ka-GE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -986,10 +974,8 @@ msgid "File: %s/%s"
 msgstr "ფაილი: %s/%s"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid " - Manual"
 msgid "Manual"
-msgstr " - სახელმძღვანელო"
+msgstr "ხელით"
 
 #: includes/scheduler.php
 #, fuzzy
@@ -1026,10 +1012,8 @@ msgid "Saturday"
 msgstr ""
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid " - Manual"
 msgid "January"
-msgstr " - სახელმძღვანელო"
+msgstr "იანვარი"
 
 #: includes/scheduler.php
 msgid "February"
@@ -1512,7 +1496,7 @@ msgstr "არა"
 
 #: router-devices.php router-devtypes.php
 msgid "Yes"
-msgstr "კი"
+msgstr "დიახ"
 
 #: router-devices.php
 msgid "Connect via SSH"
