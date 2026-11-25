@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2020-12-13 10:21-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: bg_BG\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/routerconfigs/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -81,24 +70,24 @@ msgid "Monthly"
 msgstr "Месечно"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d Месец"
+msgstr "%d Месец"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d Месеци"
+msgstr "%d месеца"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d Година"
+msgstr "%d Година"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "% d Година"
+msgstr "%d години"
 
 #: includes/arrays.php
 msgid "Never"
@@ -242,7 +231,7 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d линии"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -336,10 +325,8 @@ msgid "This is the relative directory structure used to store the configs."
 msgstr "Това е относителната структура на директории, използвана за съхраняване на конфиг."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "Планиране"
+msgstr "Тип график"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
@@ -587,7 +574,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "Основни настройки"
 
 #: includes/arrays.php
 #, fuzzy
@@ -850,7 +837,6 @@ msgid "Devices"
 msgstr "Устройства"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
 msgstr "Типове устройства"
 
@@ -1250,12 +1236,10 @@ msgid "Continue"
 msgstr "Продължи"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "Изтриване на устройствата"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
 msgstr "Трябва да изберете поне едно устройство."
 
@@ -1308,16 +1292,14 @@ msgid "Go"
 msgstr "Търси"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Задаване / обновяване на филтри"
+msgstr "Задаване / опресняване на филтрите"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
 msgstr "Изчисти"
 
 #: router-backups.php router-devices.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "Изчистване на филтрите"
 
@@ -1517,10 +1499,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Изключи"
+msgstr "деактивиран"
 
 #: router-devices.php
 #, fuzzy
@@ -1622,7 +1602,6 @@ msgid "Next Attempt"
 msgstr "Следващ опит"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "Последен опит"
 
@@ -1781,9 +1760,8 @@ msgid "(edit)"
 msgstr "Редактиране..."
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Действия"
+msgstr "(действия)"
 
 #: setup.php
 #, fuzzy
