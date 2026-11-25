@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2024-01-31 14:27+0000\n"
-"Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
-"Language-Team: Dutch <http://translate.cacti.net/projects/cacti/routerconfigs/nl/>\n"
-"Language: nl-NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/routerconfigs/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -820,7 +808,6 @@ msgid "Devices"
 msgstr "Apparaten"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
 msgstr "Apparaattypen"
 
@@ -1224,7 +1211,6 @@ msgid "Delete Device(s)"
 msgstr "Verwijder appara(a)t(en)"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
 msgstr "U moet ten minste één apparaat selecteren."
 
@@ -1282,7 +1268,7 @@ msgstr "Stel in/vernieuw filters"
 
 #: router-backups.php router-devices.php
 msgid "Clear"
-msgstr "Herstel"
+msgstr "Wissen"
 
 #: router-backups.php router-devices.php
 msgid "Clear Filters"
@@ -1478,10 +1464,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Uitschakelen"
+msgstr "Uitgeschakeld"
 
 #: router-devices.php
 #, fuzzy
@@ -1583,7 +1567,6 @@ msgid "Next Attempt"
 msgstr "Volgende poging"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "Laatste poging"
 
@@ -1740,9 +1723,8 @@ msgid "(edit)"
 msgstr "(bewerken)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Acties"
+msgstr "(acties)"
 
 #: setup.php
 #, fuzzy
