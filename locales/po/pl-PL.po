@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-13 14:35-0500\n"
-"PO-Revision-Date: 2022-11-25 15:50+0000\n"
-"Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
-"Language-Team: Polish <http://translate.cacti.net/projects/cacti/routerconfigs/pl/>\n"
-"Language: pl-PL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 00:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/routerconfigs/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -97,9 +85,9 @@ msgid "%d Year"
 msgstr "%d rok"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Years"
-msgstr "%d Rok"
+msgstr "%d Lata"
 
 #: includes/arrays.php
 msgid "Never"
@@ -108,12 +96,12 @@ msgstr "Nigdy"
 #: includes/arrays.php
 #, php-format
 msgid "%d hour"
-msgstr "%d godz."
+msgstr "%d godz"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d hours"
-msgstr "%d godz."
+msgstr "%d godz"
 
 #: includes/arrays.php
 #, fuzzy
@@ -586,7 +574,7 @@ msgstr ""
 
 #: includes/arrays.php
 msgid "General Settings"
-msgstr ""
+msgstr "Ustawienia główne"
 
 #: includes/arrays.php
 #, fuzzy
@@ -849,7 +837,6 @@ msgid "Devices"
 msgstr "Urządzenia"
 
 #: includes/functions.php router-devtypes.php
-#, fuzzy
 msgid "Device Types"
 msgstr "Typy urządzeń"
 
@@ -1184,7 +1171,7 @@ msgstr ""
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "Last"
 
 #: includes/scheduler.php
 msgid "First"
@@ -1249,14 +1236,12 @@ msgid "Continue"
 msgstr "Kontynuuj"
 
 #: router-accounts.php router-devices.php router-devtypes.php
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "Usuń urządzenie(-a)"
 
 #: router-accounts.php
-#, fuzzy
 msgid "You must select at least one device."
-msgstr "Należy wybrać co najmniej jedno urządzenie."
+msgstr "Musisz wybrać co najmniej jedno urządzenie."
 
 #: router-accounts.php router-devices.php
 msgid "Return"
@@ -1513,10 +1498,8 @@ msgid "Set one or more of the following settings on the selected device(s). Fiel
 msgstr ""
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "Wyłącz"
+msgstr "Wyłączone"
 
 #: router-devices.php
 #, fuzzy
@@ -1618,7 +1601,6 @@ msgid "Next Attempt"
 msgstr "Następna próba"
 
 #: router-devices.php
-#, fuzzy
 msgid "Last Attempt"
 msgstr "Ostatnia próba"
 
@@ -1777,9 +1759,8 @@ msgid "(edit)"
 msgstr "(edytuj)"
 
 #: setup.php
-#, fuzzy
 msgid "(actions)"
-msgstr "Akcje"
+msgstr "(akcje)"
 
 #: setup.php
 #, fuzzy
