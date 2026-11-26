@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/routerconfigs/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -16,7 +16,7 @@ msgstr "მარქაფი"
 
 #: includes/arrays.php
 msgid "Edit (bulk change settings)"
-msgstr ""
+msgstr "რედაქტირება (პარამეტრების მასობრივი შეცვლა)"
 
 #: includes/arrays.php
 msgid "Enable"
@@ -28,7 +28,7 @@ msgstr "გათიშვა"
 
 #: includes/arrays.php
 msgid "Clear SSH Host Key"
-msgstr ""
+msgstr "SSH ჰოსტის გასაღების გასუფთავება"
 
 #: includes/arrays.php
 msgid "SSH/Telnet"
@@ -197,15 +197,14 @@ msgid "23:00 (11pm)"
 msgstr "23:00 (11pm)"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "Inline"
+#, php-format
 msgid "%d line"
-msgstr "ხაზში"
+msgstr "%d ხაზი"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d lines"
-msgstr ""
+msgstr "%d ხაზი"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Name"
@@ -213,7 +212,7 @@ msgstr "სახელი"
 
 #: includes/arrays.php
 msgid "Give this account a meaningful name that will be displayed."
-msgstr ""
+msgstr "მიანიჭეთ ამ ანგარიშს აზრიანი სახელი, რომელიც ეკრანზე გამოჩნდება."
 
 #: includes/arrays.php router-accounts.php
 msgid "Username"
@@ -221,7 +220,7 @@ msgstr "მომხმარებლის სახელი"
 
 #: includes/arrays.php
 msgid "The username that will be used for authentication."
-msgstr ""
+msgstr "მომხმარებლის სახელი, რომელიც გამოიყენება ავთენტიფიკაციისთვის."
 
 #: includes/arrays.php
 msgid "Password"
@@ -245,7 +244,7 @@ msgstr "მოწყობილობის ჩართვა"
 
 #: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
-msgstr ""
+msgstr "მოხსენით მონიშვნა ამ ველს, რათა გამორთოთ ამ მოწყობილობის სარეზერვო ასლის შექმნა."
 
 #: includes/arrays.php router-accounts.php
 msgid "Description"
@@ -253,7 +252,7 @@ msgstr "აღწერა"
 
 #: includes/arrays.php
 msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
-msgstr ""
+msgstr "ამ მოწყობილობის სახელი (გამოიყენება კონფიგურაციის შენახვისა და SVN-ისთვის, თუ კონფიგურაციაში ჰოსტის სახელი მითითებული არ არის)."
 
 #: includes/arrays.php router-devices.php
 msgid "IP Address"
@@ -261,25 +260,23 @@ msgstr "IP მისამართი"
 
 #: includes/arrays.php
 msgid "This is the IP Address used to communicate with the device."
-msgstr ""
+msgstr "ეს არის IP მისამართი, რომელიც გამოიყენება მოწყობილობასთან კომუნიკაციისთვის."
 
 #: includes/arrays.php router-devices.php
-#, fuzzy
-#| msgid "TFTP Server IP"
 msgid "TFTP Server"
-msgstr "TFTP სერვერის IP"
+msgstr "TFTP სერვერი"
 
 #: includes/arrays.php
 msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
-msgstr ""
+msgstr "არასავალდებულო TFTP სერვერი, რომელზეც ეს მოწყობილობა აკოპირებს თავის კონფიგურაციას. დატოვეთ ცარიელი გლობალური TFTP სერვერის პარამეტრის გამოსაყენებლად."
 
 #: includes/arrays.php
 msgid "Stored SSH Host Key"
-msgstr ""
+msgstr "შენახული SSH ჰოსტის გასაღები"
 
 #: includes/arrays.php
 msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
-msgstr ""
+msgstr "შეადარეთ ეს ჰოსტის გასაღების ალგორითმი და SHA-1 თექვსმეტობითი ანაბეჭდი მოწყობილობას სანდო არხით. სერვერზე შეცვალეთ ქვემოთ მოცემული ბილიკი შესაბამისი საჯარო ჰოსტის გასაღების ფაილით და გაუშვით: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. გასაღების ლეგიტიმური ცვლილების შემდეგ გასასუფთავებლად გამოიყენეთ მოწყობილობის მოქმედება."
 
 #: includes/arrays.php router-backups.php router-devices.php
 msgid "Directory"
@@ -287,67 +284,63 @@ msgstr "საქაღალდე"
 
 #: includes/arrays.php
 msgid "This is the relative directory structure used to store the configs."
-msgstr ""
+msgstr "ეს არის კონფიგურაციების შესანახად გამოყენებული ფარდობითი დირექტორიის სტრუქტურა."
 
 #: includes/arrays.php includes/functions.php router-devices.php
-#, fuzzy
-#| msgid "Schedule"
 msgid "Schedule Type"
-msgstr "გეგმა"
+msgstr "გეგმის ტიპი"
 
 #: includes/arrays.php
 msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
-msgstr ""
+msgstr "რამდენად ხშირად შეიქმნას ამ მოწყობილობის სარეზერვო ასლი. „ყოველდღიური“ „თავიდან გაშვება ყოველ“-ით 10 ასრულებს სარეზერვო ასლს ყოველ 10 დღეში; „ყოველთვიური“ ასრულებს სარეზერვო ასლს კალენდარული თვის მიხედვით."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Rerun Every"
-msgstr ""
+msgstr "თავიდან გაშვება ყოველ"
 
 #: includes/arrays.php
 msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
-msgstr ""
+msgstr "„ყოველდღიური“ გეგმებისთვის სარეზერვო ასლი თავიდან გაეშვება ყოველ X დღეში. „ყოველკვირეული“ გეგმებისთვის კონკრეტული „კვირის დღეების“ გარეშე — ყოველ X კვირაში; როგორც კი „კვირის დღეები“ აირჩევა, სარეზერვო ასლი გაეშვება ამ დღეებში ყოველ კვირას და ეს ველი არ გამოიყენება."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week"
-msgstr ""
+msgstr "კვირის დღეები"
 
 #: includes/arrays.php
 msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
-msgstr ""
+msgstr "„ყოველკვირეული“ გეგმისთვის კვირის დღე(ებ)ი, როდესაც სარეზერვო ასლი უნდა გაეშვას ყოველ კვირას. დატოვეთ ცარიელი, რათა ნაცვლად გაეშვას ყოველ „თავიდან გაშვება ყოველ“ კვირაში."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Months of Year"
-msgstr ""
+msgstr "წლის თვეები"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
-msgstr ""
+msgstr "„ყოველთვიური“ გეგმისთვის წლის თვე(ებ)ი, რომლებშიც უნდა გაეშვას სარეზერვო ასლი."
 
 #: includes/arrays.php includes/scheduler.php
-#, fuzzy
-#| msgid "This Month"
 msgid "Days of Month"
-msgstr "ამ თვეში"
+msgstr "თვის დღეები"
 
 #: includes/arrays.php
 msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
-msgstr ""
+msgstr "„ყოველთვიური“ გეგმისთვის თვის დღე(ებ)ი, როდესაც უნდა გაეშვას სარეზერვო ასლი („ბოლო“ = თვის ბოლო დღე)."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Weeks of Month"
-msgstr ""
+msgstr "თვის კვირები"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
-msgstr ""
+msgstr "„ყოველთვიურად კონკრეტულ დღეს“ გეგმისთვის თვის კვირა(ებ)ი, რომლებშიც უნდა გაეშვას სარეზერვო ასლი."
 
 #: includes/arrays.php includes/scheduler.php
 msgid "Days of Week (Monthly)"
-msgstr ""
+msgstr "კვირის დღეები (ყოველთვიური)"
 
 #: includes/arrays.php
 msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
-msgstr ""
+msgstr "„ყოველთვიურად კონკრეტულ დღეს“ გეგმისთვის კვირის დღე(ებ)ი, რომლებიც დაწყვილდება „თვის კვირების“ არჩევანთან."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Device Type"
@@ -355,7 +348,7 @@ msgstr "მოწყობილობის ტიპი"
 
 #: includes/arrays.php
 msgid "Choose the type of device that the router is."
-msgstr ""
+msgstr "აირჩიეთ მოწყობილობის ტიპი, რომელსაც როუტერი წარმოადგენს."
 
 #: includes/arrays.php router-devices.php
 msgid "Auto-Detect"
@@ -367,7 +360,7 @@ msgstr "კავშირის ტიპი"
 
 #: includes/arrays.php
 msgid "This is the type of connection used to communicate with the device."
-msgstr ""
+msgstr "ეს არის კავშირის ტიპი, რომელიც გამოიყენება მოწყობილობასთან კომუნიკაციისთვის."
 
 #: includes/arrays.php includes/functions.php router-devices.php
 msgid "Authentication Account"
@@ -375,7 +368,7 @@ msgstr "ავთენტიკაციის ანგარიში"
 
 #: includes/arrays.php
 msgid "Choose an account to use to Login to the router"
-msgstr ""
+msgstr "აირჩიეთ ანგარიში როუტერში შესასვლელად"
 
 #: includes/arrays.php
 msgid "None"
@@ -387,7 +380,7 @@ msgstr "ნაგულისხმევი მოლოდინის ვა�
 
 #: includes/arrays.php
 msgid "Default time to wait in seconds for a response"
-msgstr ""
+msgstr "პასუხის მოლოდინის ნაგულისხმევი დრო წამებში"
 
 #: includes/arrays.php
 msgid "Default sleep time"
@@ -395,7 +388,7 @@ msgstr "ნაგულისხმევი ძილის დრო"
 
 #: includes/arrays.php
 msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
-msgstr ""
+msgstr "დაყოვნების ნაგულისხმევი დრო მიკროწამებში (წამის 1/1,000,000 ნაწილი)"
 
 #: includes/arrays.php
 msgid "Assume elevated"
@@ -403,7 +396,7 @@ msgstr "აწევის ჩათვლა"
 
 #: includes/arrays.php
 msgid "Check this box to assume this device is always elevated"
-msgstr ""
+msgstr "მონიშნეთ ეს ველი, რათა ჩაითვალოს, რომ ამ მოწყობილობას ყოველთვის აქვს პრივილეგირებული წვდომა"
 
 #: includes/arrays.php
 msgid "Name of this device type."
@@ -415,7 +408,7 @@ msgstr "მომხმარებლის სახელის მოთხ�
 
 #: includes/arrays.php
 msgid "This is the username prompt to match on login."
-msgstr ""
+msgstr "ეს არის მომხმარებლის სახელის მოთხოვნა, რომელიც უნდა დაემთხვეს შესვლისას."
 
 #: includes/arrays.php
 msgid "Password Prompt"
@@ -423,7 +416,7 @@ msgstr "პაროლის მოთხოვნა"
 
 #: includes/arrays.php
 msgid "This is the password prompt to match on login."
-msgstr ""
+msgstr "ეს არის პაროლის მოთხოვნა, რომელიც უნდა დაემთხვეს შესვლისას."
 
 #: includes/arrays.php
 msgid "Configuration file"
@@ -431,7 +424,7 @@ msgstr "კონფიგურაციის ფაილი"
 
 #: includes/arrays.php
 msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
-msgstr ""
+msgstr "ეს არის კონფიგურაციის ფაილის სტანდარტული მდებარეობა დაშორებულ მოწყობილობაზე. გამოიყენება SCP და SFTP მეთოდებისთვის"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Copy TFTP"
@@ -439,15 +432,15 @@ msgstr "TFTP-ის კოპირება"
 
 #: includes/arrays.php
 msgid "This is the CLI text used to send the backup to tftp server."
-msgstr ""
+msgstr "ეს არის CLI ტექსტი, რომელიც გამოიყენება სარეზერვო ასლის tftp სერვერზე გასაგზავნად."
 
 #: includes/arrays.php
 msgid "Capture Command"
-msgstr ""
+msgstr "ამოღების ბრძანება"
 
 #: includes/arrays.php
 msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
-msgstr ""
+msgstr "არასავალდებულო ბრძანება, რომლის გამომავალი შედეგიც ინახება კონფიგურაციის სახით, TFTP სერვერზე კოპირების ნაცვლად. ის ყოველთვის ეშვება SSH-ით, კავშირის ტიპის მიუხედავად, და მოწყობილობას აღარ სჭირდება TFTP სერვერი. დატოვეთ ცარიელი იმ მოწყობილობებისთვის, რომლებიც კონფიგურაციას TFTP-ზე აკოპირებენ. მაგალითი MikroTik RouterOS-ისთვის: /export"
 
 #: includes/arrays.php
 msgid "Show Version"
@@ -455,7 +448,7 @@ msgstr "ვერსიის ჩვენება"
 
 #: includes/arrays.php
 msgid "This is the CLI text used to display the current version."
-msgstr ""
+msgstr "ეს არის CLI ტექსტი, რომელიც გამოიყენება მიმდინარე ვერსიის საჩვენებლად."
 
 #: includes/arrays.php
 msgid "Confirmation Prompt"
@@ -463,7 +456,7 @@ msgstr "დადასტურების მოთხოვნა"
 
 #: includes/arrays.php
 msgid "This is the confirmation prompt to match before transmission."
-msgstr ""
+msgstr "ეს არის დადასტურების მოთხოვნა, რომელიც უნდა დაემთხვეს გადაცემამდე."
 
 #: includes/arrays.php router-devtypes.php
 msgid "Confirm"
@@ -471,7 +464,7 @@ msgstr "დადასტურება"
 
 #: includes/arrays.php
 msgid "Is there a confirmation prompt for copying the config?"
-msgstr ""
+msgstr "არსებობს თუ არა დადასტურების მოთხოვნა კონფიგურაციის კოპირებისთვის?"
 
 #: includes/arrays.php router-devtypes.php
 msgid "Force Confirm"
@@ -479,7 +472,7 @@ msgstr "ნაძალადევი დადასტურება"
 
 #: includes/arrays.php
 msgid "Is there a force confirmation prompt for copying the config?"
-msgstr ""
+msgstr "არსებობს თუ არა იძულებითი დადასტურების მოთხოვნა კონფიგურაციის კოპირებისთვის?"
 
 #: includes/arrays.php
 msgid "Check End in Config"
@@ -495,17 +488,15 @@ msgstr "ნებისმიერი ღილაკის კითხვა"
 
 #: includes/arrays.php
 msgid "Text to match a 'Press Any Key To Continue' styled prompt"
-msgstr ""
+msgstr "ტექსტი 'Press Any Key To Continue' ტიპის მოთხოვნის დასამთხვევად"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Pass Prompt"
 msgid "Post-Login Prompts"
-msgstr "პაროლის მოთხოვნა"
+msgstr "შესვლის შემდგომი მოთხოვნები"
 
 #: includes/arrays.php
 msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
-msgstr ""
+msgstr "არასავალდებულო მოთხოვნა/პასუხის წყვილები, რომლებიც იგზავნება შესვლისთანავე, TFTP-ზე კოპირების ბრძანებამდე, თითო ხაზზე თითო წყვილი სახით prompt|response. მოთხოვნა (prompt) მოწყობილობის გამომავალთან შედარდება როგორც რეგისტრის მიმართ არამგრძნობიარე რეგულარული გამოსახულება (ამიტომ თავად ვერ შეიცავს |-ს, ხოლო ფრჩხილები და სხვა სპეციალური სიმბოლოები უნდა იყოს ეკრანირებული, მაგ., Save \\[y/n\\]), ხოლო პასუხი (response) იგზავნება ზუსტად ისე, როგორც აკრეფილია, ან გამოიყენეთ <CR> მხოლოდ კარეტის დაბრუნების გასაგზავნად. პასუხი იგზავნება მხოლოდ მას შემდეგ, რაც მისი მოთხოვნა გამოჩნდება წინა პასუხის გამოხმაურებაში ან შემდგომ გამომავალში; წინააღმდეგ შემთხვევაში ჟურნალში ჩაიწერება გაფრთხილება და არაფერი გაიგზავნება. ესენი პირველ რიგში იპასუხება; ზემოთ მოცემული „ნებისმიერი ღილაკის“ (Any Key) მოთხოვნა იპასუხება მოგვიანებით, მოწყობილობის ჩართვისას, ამიტომ აქ ნაპასუხები მოთხოვნა ვერასდროს მიაღწევს Any Key-მდე. მაგალითი: Press any key|<CR>"
 
 #: includes/arrays.php
 msgid "General Settings"
@@ -517,7 +508,7 @@ msgstr "პრეზენტაციის რეჟიმი"
 
 #: includes/arrays.php
 msgid "Should Router Configs be presented on the Console or a Top Tab."
-msgstr ""
+msgstr "უნდა გამოჩნდეს თუ არა როუტერის კონფიგურაციები კონსოლში თუ ზედა ჩანართში."
 
 #: includes/arrays.php
 msgid "Console"
@@ -529,21 +520,19 @@ msgstr "ზედა ჩანართი"
 
 #: includes/arrays.php
 msgid "Config Diff Context Lines"
-msgstr ""
+msgstr "კონფიგურაციის სხვაობის კონტექსტის ხაზები"
 
 #: includes/arrays.php
 msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
-msgstr ""
+msgstr "ორი სარეზერვო ასლის შედარებისას თითოეული ცვლილების წინ და შემდეგ საჩვენებელი უცვლელი ხაზების ნაგულისხმევი რაოდენობა. უფრო დიდი მნიშვნელობა აადვილებს გარემომცველი კონფიგურაციის კონტექსტის დანახვას. ეს შეიძლება შეიცვალოს თითოეული შედარებისთვის „შედარების“ გვერდზე."
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Connection Type"
 msgid "Connection timeout"
-msgstr "კავშირის ტიპი"
+msgstr "კავშირის მოლოდინის დრო"
 
 #: includes/arrays.php
 msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
-msgstr ""
+msgstr "მოწყობილობასთან საწყისი ქსელური კავშირის დამყარებისას მოლოდინის მაქსიმალური დრო წამებში. გაჭედილი ან მიუწვდომელი მოწყობილობა ამ დროის ამოწურვის შემდეგ გამოიტოვება, რათა დაგეგმილი სარეზერვო ასლის შექმნა გაგრძელდეს დარჩენილი მოწყობილობებისთვის."
 
 #: includes/arrays.php
 msgid "Close without exit"
@@ -551,7 +540,7 @@ msgstr "დახურვა გასვლის გარეშე"
 
 #: includes/arrays.php
 msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
-msgstr ""
+msgstr "თუ მონიშნულია, მოწყობილობასთან კავშირის დახურვისას 'exit' ბრძანება არ გაიგზავნება"
 
 #: includes/arrays.php
 msgid "Debug Connection Buffer"
@@ -559,7 +548,7 @@ msgstr "კავშირის ბუფერის გამართვა"
 
 #: includes/arrays.php
 msgid "Whether to log direct output of device connection"
-msgstr ""
+msgstr "აღირიცხოს თუ არა ჟურნალში მოწყობილობასთან კავშირის პირდაპირი გამომავალი მონაცემები"
 
 #: includes/arrays.php
 msgid "Assume all devices elevated"
@@ -567,7 +556,7 @@ msgstr "ყველა მოწყობილობის აწეულა�
 
 #: includes/arrays.php
 msgid "Whether to assume all devices are elevated"
-msgstr ""
+msgstr "ჩაითვალოს თუ არა, რომ ყველა მოწყობილობას აქვს პრივილეგირებული წვდომა"
 
 #: includes/arrays.php
 msgid "Download Hour"
@@ -575,7 +564,7 @@ msgstr "საათის გადმოწერა"
 
 #: includes/arrays.php
 msgid "The hour of the day to perform the full downloads."
-msgstr ""
+msgstr "დღის საათი სრული ჩამოტვირთვების შესასრულებლად."
 
 #: includes/arrays.php
 msgid "Retry Schedule"
@@ -583,7 +572,7 @@ msgstr "გეგმის თავიდან ცდა"
 
 #: includes/arrays.php
 msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
-msgstr ""
+msgstr "მოლოდინის დრო დამატებითი ჩამოტვირთვის მცდელობამდე, როდესაც დაგეგმილი ჩამოტვირთვა ვერ ხერხდება"
 
 #: includes/arrays.php
 msgid "Retention Period"
@@ -591,15 +580,15 @@ msgstr "შენარჩუნების პერიოდი"
 
 #: includes/arrays.php
 msgid "The number of days to retain old backups."
-msgstr ""
+msgstr "ძველი სარეზერვო ასლების შენახვის დღეების რაოდენობა."
 
 #: includes/arrays.php
 msgid "Keep Inactive Device Backups"
-msgstr ""
+msgstr "არააქტიური მოწყობილობების სარეზერვო ასლების შენახვა"
 
 #: includes/arrays.php
 msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
-msgstr ""
+msgstr "მონიშვნის შემთხვევაში, შენახვის ვადის გასუფთავება არ წაშლის ვადაგასულ სარეზერვო ასლებს, რომლებიც ეკუთვნის გამორთულ ან წაშლილ მოწყობილობებს, რათა შენარჩუნდეს ექსპლუატაციიდან ამოღებული ან მიუწვდომელი აღჭურვილობის კონფიგურაციები."
 
 #: includes/arrays.php
 msgid "Transfer Options"
@@ -611,7 +600,7 @@ msgstr "ნაგულისხმევი კავშირის ტიპ�
 
 #: includes/arrays.php
 msgid "Default type of connection used to communicate with the device."
-msgstr ""
+msgstr "მოწყობილობასთან კომუნიკაციისთვის გამოყენებული კავშირის ნაგულისხმევი ტიპი."
 
 #: includes/arrays.php
 msgid "Separate By Device"
@@ -619,17 +608,15 @@ msgstr "გაყოფა მოწყობილობით"
 
 #: includes/arrays.php
 msgid "Separate archived Configs into a folder per device"
-msgstr ""
+msgstr "დაარქივებული კონფიგურაციების განცალკევება თითოეული მოწყობილობის საქაღალდეში"
 
 #: includes/arrays.php
-#, fuzzy
-#| msgid "Directory"
 msgid "Dated Subdirectory"
-msgstr "საქაღალდე"
+msgstr "თარიღიანი ქვესაქაღალდე"
 
 #: includes/arrays.php
 msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
-msgstr ""
+msgstr "არქივის ბილიკში თარიღზე დაფუძნებული ქვესაქაღალდის ჩასმა (მოწყობილობის საქაღალდის წინ), რათა თითოეული გაშვება შეინახოს მისი სარეზერვო ასლის თარიღის ქვეშ, მაგ., .../2020-11-04/hostname/.... „გამორთული“ ინარჩუნებს არსებულ განლაგებას."
 
 #: includes/arrays.php
 msgid "SCP Path"
@@ -637,15 +624,15 @@ msgstr "SCP-ის ბილიკი"
 
 #: includes/arrays.php
 msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
-msgstr ""
+msgstr "SCP-ის გამოყენებისას, ამ ველის ცარიელად დატოვება გამოიყენებს PHP-ის SCP მოდულს, რომელიც ყოველთვის არ მუშაობს. გარე SCP გამორთულია, სანამ SSH ჰოსტის გასაღების შემოწმება ჩართულია, რადგან მას არ შეუძლია შემოწმებული კავშირის ხელახლა გამოყენება."
 
 #: includes/arrays.php
 msgid "Verify SSH Host Keys"
-msgstr ""
+msgstr "SSH ჰოსტის გასაღებების შემოწმება"
 
 #: includes/arrays.php
 msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
-msgstr ""
+msgstr "თითოეული მოწყობილობის SSH ჰოსტის გასაღების ჩაწერა პირველი დაკავშირებისას და ავტორიზაციის მონაცემების გაგზავნაზე უარის თქმა, თუ ის მოგვიანებით შეიცვლება. SSH/Telnet რეჟიმი არ გადაერთვება Telnet-ზე, სანამ შემოწმება ჩართულია. გასაღების ლეგიტიმური ცვლილების შემდეგ შენახული ჰოსტის გასაღების გასასუფთავებლად გამოიყენეთ მოწყობილობის მოქმედება."
 
 #: includes/arrays.php
 msgid "TFTP Server IP"
@@ -653,7 +640,7 @@ msgstr "TFTP სერვერის IP"
 
 #: includes/arrays.php
 msgid "Must be an IP pointing to your Cacti server."
-msgstr ""
+msgstr "უნდა იყოს IP მისამართი, რომელიც მიუთითებს თქვენს Cacti სერვერზე."
 
 #: includes/arrays.php
 msgid "TFTP Backup Directory Path"
@@ -661,7 +648,7 @@ msgstr "TFTP მარქაფის საქაღალდის ბილ�
 
 #: includes/arrays.php
 msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
-msgstr ""
+msgstr "გზა, სადაც შეინახება თქვენი კონფიგურაციების სარეზერვო ასლები; ეს უნდა იყოს გზა, რომელშიც ლოკალური TFTP სერვერი წერს."
 
 #: includes/arrays.php
 msgid "Archive Directory Path"
@@ -669,7 +656,7 @@ msgstr "არქივის საქაღალდის ბილიკი"
 
 #: includes/arrays.php
 msgid "The path to where your Configs will be archived (moved from TFTP directory)"
-msgstr ""
+msgstr "გზა, სადაც დაარქივდება თქვენი კონფიგურაციები (გადატანილი TFTP დირექტორიიდან)"
 
 #: includes/arrays.php
 msgid "Email Options"
@@ -681,7 +668,7 @@ msgstr "მისამართიდან"
 
 #: includes/arrays.php
 msgid "Email address the nightly backup will be sent from."
-msgstr ""
+msgstr "ელფოსტის მისამართი, საიდანაც გაიგზავნება ღამის სარეზერვო ასლი."
 
 #: includes/arrays.php
 msgid "From Name"
@@ -689,7 +676,7 @@ msgstr "რა სახელისგან"
 
 #: includes/arrays.php
 msgid "Name the nightly backup will be sent from."
-msgstr ""
+msgstr "სახელი, რომლის სახელითაც გაიგზავნება ღამის სარეზერვო ასლი."
 
 #: includes/arrays.php
 msgid "Email Address"
@@ -697,49 +684,47 @@ msgstr "ელფოსტის მისამართი"
 
 #: includes/arrays.php
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
-msgstr ""
+msgstr "მძიმით გამოყოფილი ელფოსტის მისამართების სია, რომლებზეც გაიგზავნება ღამის სარეზერვო ასლის წერილი."
 
 #: includes/arrays.php
 msgid "Include Config Diffs"
-msgstr ""
+msgstr "კონფიგურაციის სხვაობების ჩართვა"
 
 #: includes/arrays.php
 msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
-msgstr ""
+msgstr "თითოეული მოწყობილობის გაერთიანებული სხვაობის (unified diff) დართვა სარეზერვო ასლის ელფოსტაში, რომლის კონფიგურაციაც შეიცვალა გაშვებისას, რათა შემმოწმებელმა ზუსტად დაინახოს, რა შეიცვალა. ორობითი (არატექსტური) კონფიგურაციები გამოიტოვება. ცვალებადი ხაზები, რომლებიც ყოველ სარეზერვო ასლზე იცვლება (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' და 'Current configuration :', ასევე NX-OS '!Time:' და '!Running configuration last done at:') ყოველთვის უგულებელყოფილია. გაფრთხილება: სხვაობა იგზავნება ღია ტექსტით ელფოსტის ყველა მიმღებთან, ამიტომ მას შეუძლია გაამჟღავნოს კონფიგურაცია, რომელიც კონფიდენციალური უნდა დარჩეს; დატოვეთ „საიდუმლოებების ჩართვა სხვაობებში“ მოუნიშნავი."
 
 #: includes/arrays.php
 msgid "Include Secrets in Diffs"
-msgstr ""
+msgstr "საიდუმლო მონაცემების ჩართვა სხვაობებში"
 
 #: includes/arrays.php
 msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
-msgstr ""
+msgstr "ელფოსტით გაგზავნილ სხვაობებში საიდუმლო მნიშვნელობების უცვლელად გაგზავნა. როცა მონიშნული არ არის (ნაგულისხმევი), შეცვლილი სტრიქონები იძებნება დაუმუშავებელ კონფიგურაციებში და იბეჭდება რედაქტირებულად, უსაფრთხო დახურვის პრინციპით: სტრიქონები, რომლებიც შეიცავს საიდუმლოს მსგავს სიტყვებს (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private), აგრეთვე SNMP ჰოსტისა და მომხმარებლის სტრიქონები მცირდება მხოლოდ პირველ სიტყვამდე, რომელსაც მოსდევს &lt;secret hidden&gt;, ხოლო PEM ბლოკის, სერტიფიკატის ან გასაღების სტრიქონის ბლოკის, მრავალსტრიქონიანი ბრჭყალებში ჩასმული მნიშვნელობის ყოველი სტრიქონი და ნებისმიერი hex ან base64 მწკრივი იმალება; დაუსრულებელი ბლოკი მალავს კონფიგურაციის დანარჩენ ნაწილს. ეს ასევე მალავს უვნებელ სტრიქონებსაც (მაგ., აღწერას, სადაც გასაღებია ნახსენები), თუმცა ყოველი შეცვლილი სტრიქონი მაინც ჩანს და აღინიშნება როგორც (changed), როცა მხოლოდ მისი დამალული ნაწილი განსხვავდება, ხოლო დაუსრულებელი ბლოკი აღინიშნება ელფოსტაში. შენახული სარეზერვო ასლები არასდროს იცვლება."
 
 #: includes/arrays.php
 msgid "Diff Exclude Patterns"
-msgstr ""
+msgstr "სხვაობებიდან გამორიცხვის შაბლონები"
 
 #: includes/arrays.php
 msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
-msgstr ""
+msgstr "არასავალდებულო რეგულარული გამოსახულებები (თითო სტრიქონზე ერთი), რომლებიც შეესაბამება შედარებისას უგულებელყოფილ კონფიგურაციის სტრიქონებს, რათა ცვალებადი სტრიქონები, როგორიცაა დროის ნიშნულები ან სერიული ნომრები, ცვლილებებად არ გამოჩნდეს. თითოეული შაბლონი მოწმდება რეგისტრის გაუთვალისწინებლად სტრიქონის ნებისმიერ ადგილას, თუ არ არის მიბმული ^ ან $ სიმბოლოებით; შაბლონი, რომელიც არ არის სწორი რეგულარული გამოსახულება, უგულებელყოფილია."
 
 #: includes/arrays.php
 msgid "Thold Notification List"
-msgstr ""
+msgstr "Thold შეტყობინებების სია"
 
 #: includes/arrays.php
 msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
-msgstr ""
+msgstr "როცა Thold დაინსტალირებულია, ასევე გააგზავნეთ სარეზერვო ასლის ელფოსტა არჩეული Thold შეტყობინებების სიის მიმღებებთან."
 
 #: includes/devices.php
-#, fuzzy
-#| msgid "RouterConfigs"
 msgid "Add to RouterConfigs Backup"
-msgstr "რაუტერის კონფიგურაციები"
+msgstr "RouterConfigs სარეზერვო ასლში დამატება"
 
 #: includes/devices.php
 msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
-msgstr ""
+msgstr "შემდეგი მოწყობილობ(ებ)ის RouterConfigs-ში სარეზერვო ასლის შესაქმნელად დასამატებლად დააწკაპუნეთ 'გაგრძელება'-ზე. ნებისმიერი მოწყობილობა, რომელიც უკვე არის RouterConfigs-ში, გამოიტოვება."
 
 #: includes/functions.php router-accounts.php
 msgid "Devices"
@@ -778,7 +763,7 @@ msgstr "(დაყენებული არაა)"
 #: includes/functions.php
 #, php-format
 msgid "NOTICE: Starting manual backup of %s devices"
-msgstr ""
+msgstr "NOTICE: იწყება %s მოწყობილობის ხელით სარეზერვო ასლის შექმნა"
 
 #: includes/functions.php
 msgid "NOTICE: Starting automatic retry"
@@ -790,12 +775,12 @@ msgstr "გაფრთხილება: ავტომატური მა
 
 #: includes/functions.php
 msgid "FATAL: TFTP Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "FATAL: TFTP სარეზერვო ასლების გზა არ არის დაყენებული ან არ წარმოადგენს დირექტორიას"
 
 #: includes/functions.php
 #, php-format
 msgid "DEBUG: Attempting download for %s"
-msgstr ""
+msgstr "DEBUG: %s-სთვის ჩამოტვირთვის მცდელობა"
 
 #: includes/functions.php
 #, php-format
@@ -810,11 +795,11 @@ msgstr "%s მოწყობილობის მარქაფი ჩავ�
 #: includes/functions.php
 #, php-format
 msgid "%s devices disabled from backup."
-msgstr ""
+msgstr "%s მოწყობილობას გამორთული აქვს სარეზერვო ასლის შექმნა."
 
 #: includes/functions.php
 msgid "No configuration changes were detected."
-msgstr ""
+msgstr "კონფიგურაციის ცვლილებები არ დაფიქსირებულა."
 
 #: includes/functions.php
 msgid "Config Backups"
@@ -858,82 +843,82 @@ msgstr "სტატისტიკა: "
 
 #: includes/functions.php
 msgid "ERROR: Backup Path is not set or is not a directory"
-msgstr ""
+msgstr "ERROR: სარეზერვო ასლების გზა არ არის დაყენებული ან არ წარმოადგენს დირექტორიას"
 
 #: includes/functions.php
 #, php-format
 msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
-msgstr ""
+msgstr "გაფრთხილება: შენახვის პერიოდი '%s' არასწორია, ნაგულისხმევად გამოიყენება 30 დღე"
 
 #: includes/functions.php
 #, php-format
 msgid "STATS: Backup now running since %s"
-msgstr ""
+msgstr "STATS: სარეზერვო ასლის შექმნა მიმდინარეობს %s-დან"
 
 #: includes/functions.php
 #, php-format
 msgid "WARN: Backup already running since %s"
-msgstr ""
+msgstr "WARN: სარეზერვო ასლის შექმნა უკვე მიმდინარეობს %s-დან"
 
 #: includes/functions.php
 #, php-format
 msgid "Cacti Device id %s was not found; not added to RouterConfigs."
-msgstr ""
+msgstr "Cacti მოწყობილობა ID-ით %s ვერ მოიძებნა; RouterConfigs-ში არ დაემატა."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' is already in RouterConfigs; skipped."
-msgstr ""
+msgstr "მოწყობილობა '%s' უკვე არის RouterConfigs-ში; გამოტოვებულია."
 
 #: includes/functions.php
 #, php-format
 msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
-msgstr ""
+msgstr "მოწყობილობა '%s' დაემატა RouterConfigs-ში (გამორთულია ანგარიშისა და მოწყობილობის ტიპის დაყენებამდე)."
 
 #: includes/functions.php
 #, php-format
 msgid "Failed to add Device '%s' to RouterConfigs."
-msgstr ""
+msgstr "მოწყობილობის '%s' RouterConfigs-ში დამატება ვერ მოხერხდა."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
-msgstr ""
+msgstr "წინა სარეზერვო ასლის %d სტრიქონზე დაწყებული რედაქტირების ბლოკი არ დახურულა; მომდევნო სტრიქონები დამალულია."
 
 #: includes/functions.php
 #, php-format
 msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
-msgstr ""
+msgstr "ახალი სარეზერვო ასლის %d სტრიქონზე დაწყებული რედაქტირების ბლოკი არ დახურულა; მომდევნო სტრიქონები დამალულია."
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
-msgstr ""
+msgstr "შეცდომა: მოწყობილობის '%s' ჰოსტის სახელი არ არის მართებული სარეზერვო ასლის ფაილის სახელისთვის; შეცვალეთ მოწყობილობა და გამოიყენეთ მხოლოდ ჰოსტის სახელის ან IP მისამართის სიმბოლოები"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
-msgstr ""
+msgstr "შეცდომა: მოწყობილობისთვის '%s' TFTP სერვერი არ არის დაყენებული; მიუთითეთ TFTP სერვერი მოწყობილობაზე ან გლობალურ პარამეტრებში"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
-msgstr ""
+msgstr "შეცდომა: SSH ჰოსტის გასაღების შემოწმება ვერ მოხერხდა მოწყობილობისთვის '%s'; უარი ითქვა ავტორიზაციის მონაცემების გაგზავნაზე ან Telnet-ზე გადართვაზე"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
-msgstr ""
+msgstr "შეცდომა: SSH კავშირი ვერ შედგა მოწყობილობისთვის '%s'; Telnet-ზე გადართვა გამორთულია, სანამ SSH ჰოსტის გასაღების შემოწმება ჩართულია"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
-msgstr ""
+msgstr "შეცდომა: მოწყობილობასთან '%s' დაკავშირება ვერ მოხერხდა კავშირის ტიპით: %s"
 
 #: includes/functions.php
 #, php-format
 msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
-msgstr ""
+msgstr "შეცდომა: '%s'-ის ჩამოტვირთვა '%s'-ში '%s'-ის მეშვეობით ვერ მოხერხდა"
 
 #: includes/functions.php router-devices.php
 msgid "Enabled"
@@ -942,11 +927,11 @@ msgstr "ჩართულია"
 #: includes/functions.php
 #, php-format
 msgid "The selected %s is not valid; no devices were changed."
-msgstr ""
+msgstr "არჩეული %s არასწორია; არც ერთი მოწყობილობა არ შეცვლილა."
 
 #: includes/functions.php
 msgid "File path validation failed"
-msgstr ""
+msgstr "ფაილის ბილიკის შემოწმება ვერ მოხერხდა"
 
 #: includes/functions.php
 #, php-format
@@ -978,38 +963,36 @@ msgid "Manual"
 msgstr "ხელით"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Monthly"
 msgid "Monthly on Day"
-msgstr "თვეში ერთხელ"
+msgstr "ყოველთვიურად კონკრეტულ დღეს"
 
 #: includes/scheduler.php
 msgid "Sunday"
-msgstr ""
+msgstr "კვირა"
 
 #: includes/scheduler.php
 msgid "Monday"
-msgstr ""
+msgstr "ორშაბათი"
 
 #: includes/scheduler.php
 msgid "Tuesday"
-msgstr ""
+msgstr "სამშაბათი"
 
 #: includes/scheduler.php
 msgid "Wednesday"
-msgstr ""
+msgstr "ოთხშაბათი"
 
 #: includes/scheduler.php
 msgid "Thursday"
-msgstr ""
+msgstr "ხუთშაბათი"
 
 #: includes/scheduler.php
 msgid "Friday"
-msgstr ""
+msgstr "პარასკევი"
 
 #: includes/scheduler.php
 msgid "Saturday"
-msgstr ""
+msgstr "შაბათი"
 
 #: includes/scheduler.php
 msgid "January"
@@ -1017,106 +1000,104 @@ msgstr "იანვარი"
 
 #: includes/scheduler.php
 msgid "February"
-msgstr ""
+msgstr "თებერვალი"
 
 #: includes/scheduler.php
-#, fuzzy
-#| msgid "Search"
 msgid "March"
-msgstr "ძებნა"
+msgstr "მარტი"
 
 #: includes/scheduler.php
 msgid "April"
-msgstr ""
+msgstr "აპრილი"
 
 #: includes/scheduler.php
 msgid "May"
-msgstr ""
+msgstr "მაისი"
 
 #: includes/scheduler.php
 msgid "June"
-msgstr ""
+msgstr "ივნისი"
 
 #: includes/scheduler.php
 msgid "July"
-msgstr ""
+msgstr "ივლისი"
 
 #: includes/scheduler.php
 msgid "August"
-msgstr ""
+msgstr "აგვისტო"
 
 #: includes/scheduler.php
 msgid "September"
-msgstr ""
+msgstr "სექტემბერი"
 
 #: includes/scheduler.php
 msgid "October"
-msgstr ""
+msgstr "ოქტომბერი"
 
 #: includes/scheduler.php
 msgid "November"
-msgstr ""
+msgstr "ნოემბერი"
 
 #: includes/scheduler.php
 msgid "December"
-msgstr ""
+msgstr "დეკემბერი"
 
 #: includes/scheduler.php
 msgid "Last"
-msgstr ""
+msgstr "ბოლო"
 
 #: includes/scheduler.php
 msgid "First"
-msgstr ""
+msgstr "პირველი"
 
 #: includes/scheduler.php
 msgid "Second"
-msgstr ""
+msgstr "წამი"
 
 #: includes/scheduler.php
 msgid "Third"
-msgstr ""
+msgstr "მესამე"
 
 #: includes/scheduler.php
 msgid "Fourth"
-msgstr ""
+msgstr "მეოთხე"
 
 #: includes/scheduler.php
 msgid "Off (no dated subdirectory)"
-msgstr ""
+msgstr "გამორთული (თარიღიანი ქვესაქაღალდის გარეშე)"
 
 #: includes/scheduler.php
 msgid "YYYY-MM-DD"
-msgstr ""
+msgstr "YYYY-MM-DD"
 
 #: includes/scheduler.php
 msgid "YYYY/MM/DD (nested)"
-msgstr ""
+msgstr "YYYY/MM/DD (ჩადგმული)"
 
 #: includes/scheduler.php
 msgid "DD-MM-YYYY"
-msgstr ""
+msgstr "DD-MM-YYYY"
 
 #: includes/scheduler.php
 #, php-format
 msgid "The selected %s is not valid."
-msgstr ""
+msgstr "არჩეული %s არასწორია."
 
 #: includes/scheduler.php
 msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
-msgstr ""
+msgstr "„ყოველთვიური“ გეგმისთვის უნდა აირჩიოთ მინიმუმ ერთი თვე და თვის ერთი დღე."
 
 #: includes/scheduler.php
 msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
-msgstr ""
+msgstr "„ყოველთვიურად კონკრეტულ დღეს“ გეგმისთვის უნდა აირჩიოთ „თვეები“, „თვის კვირები“ და „კვირის დღეები“."
 
 #: includes/scheduler.php
 msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
-msgstr ""
+msgstr "არჩეული „თვეები“ და „თვის დღეები“ ერთად არასდროს დგება; აირჩიეთ სხვა დღე, ან „ბოლო“ თვის ბოლო დღისთვის."
 
 #: router-accounts.php
 msgid "Click 'Continue' to delete the following account(s)."
-msgstr ""
+msgstr "შემდეგი ანგარიშ(ებ)ის წასაშლელად დააწკაპუნეთ 'გაგრძელება'-ზე."
 
 #: router-accounts.php router-devices.php router-devtypes.php
 msgid "Cancel"
@@ -1197,7 +1178,7 @@ msgstr "ჰოსტის სახელი"
 
 #: router-backups.php router-devices.php
 msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
-msgstr ""
+msgstr "IP მისამართი ან ჰოსტის სახელი. თუ ეს ჰოსტის სახელია, ის უნდა იხსნებოდეს DNS-ით ან თქვენი hosts ფაილიდან."
 
 #: router-backups.php router-devices.php router-devtypes.php
 msgid "ID"
@@ -1205,7 +1186,7 @@ msgstr "ID"
 
 #: router-backups.php router-devices.php
 msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
-msgstr ""
+msgstr "ამ მოწყობილობის შიდა მონაცემთა ბაზის ID. სასარგებლოა ავტომატიზაციის ან გამართვისას."
 
 #: router-backups.php
 msgid "Functions"
@@ -1213,11 +1194,11 @@ msgstr "ფუნქციები"
 
 #: router-backups.php
 msgid "Perform functions against this backup"
-msgstr ""
+msgstr "ფუნქციების შესრულება ამ სარეზერვო ასლზე"
 
 #: router-backups.php router-devices.php
 msgid "The directory of the stored device backups"
-msgstr ""
+msgstr "მოწყობილობის შენახული სარეზერვო ასლების საქაღალდე"
 
 #: router-backups.php
 msgid "Backup Time"
@@ -1225,7 +1206,7 @@ msgstr "მარქაფის დრო"
 
 #: router-backups.php router-devices.php
 msgid "The last Backup time of the device"
-msgstr ""
+msgstr "მოწყობილობის ბოლო სარეზერვო ასლის შექმნის დრო"
 
 #: router-backups.php
 msgid "Last Change"
@@ -1233,7 +1214,7 @@ msgstr "ბოლო ცვლილება"
 
 #: router-backups.php
 msgid "The last Change time of the device"
-msgstr ""
+msgstr "მოწყობილობის ბოლო ცვლილების დრო"
 
 #: router-backups.php router-devices.php
 msgid "Changed By"
@@ -1241,7 +1222,7 @@ msgstr "ცვლილების ავტორი"
 
 #: router-backups.php
 msgid "The last person to change the configuration of the device"
-msgstr ""
+msgstr "ბოლო მომხმარებელი, ვინც შეცვალა მოწყობილობის კონფიგურაცია"
 
 #: router-backups.php
 msgid "Filename"
@@ -1249,7 +1230,7 @@ msgstr "ფაილის სახელი"
 
 #: router-backups.php
 msgid "The filename of the stored device backups"
-msgstr ""
+msgstr "მოწყობილობის შენახული სარეზერვო ასლების ფაილის სახელი"
 
 #: router-backups.php setup.php
 msgid "View Config"
@@ -1276,20 +1257,17 @@ msgid "Side by Side"
 msgstr "გვერდიგვერდ"
 
 #: router-compare.php
-#, fuzzy
-#| msgid "Continue"
 msgid "Context Lines"
-msgstr "გაგრძელება"
+msgstr "კონტექსტის ხაზები"
 
 #: router-compare.php
 msgid "Compare Output"
 msgstr "გამოტანის შედარება"
 
 #: router-compare.php
-#, fuzzy, php-format
-#| msgid "File '%s' was not found"
+#, php-format
 msgid "Backup %s not found"
-msgstr "ფაილი '%s' აღმოჩენილი არაა"
+msgstr "სარეზერვო ასლი %s ვერ მოიძებნა"
 
 #: router-compare.php
 msgid "There are no Changes"
@@ -1297,7 +1275,7 @@ msgstr "ცვლილებების გარეშე"
 
 #: router-compare.php
 msgid "Error, you must have backups for each device."
-msgstr ""
+msgstr "შეცდომა: თითოეული მოწყობილობისთვის უნდა გქონდეთ სარეზერვო ასლები."
 
 #: router-devices.php
 #, php-format
@@ -1305,41 +1283,39 @@ msgid "Debug for %s (%s)<br><br>"
 msgstr "%s-ის (%s) გამართვა<br><br>"
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Last Change"
 msgid "No Change"
-msgstr "ბოლო ცვლილება"
+msgstr "ცვლილებების გარეშე"
 
 #: router-devices.php
 #, php-format
 msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
-msgstr ""
+msgstr "არც ერთი მოწყობილობა არ შეცვლილა: ახალი გეგმა ვერ გაეშვება მოწყობილობ(ებ)ზე ID-ით %s, რადგან მათი „თვეები“, „თვის დღეები“, „თვის კვირები“ ან „კვირის დღეები“ აკლია ან არასდროს დგება. დააყენეთ გეგმა ამ მოწყობილობებზე ინდივიდუალურად."
 
 #: router-devices.php
 #, php-format
 msgid "Updated settings on %d device(s)."
-msgstr ""
+msgstr "პარამეტრები განახლდა %d მოწყობილობაზე."
 
 #: router-devices.php
 msgid "No settings were changed; every field was left on \"No Change\"."
-msgstr ""
+msgstr "პარამეტრები არ შეცვლილა; ყველა ველი დარჩა მნიშვნელობაზე „ცვლილებების გარეშე“."
 
 #: router-devices.php
 #, php-format
 msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
-msgstr ""
+msgstr "გამართვა: ხელით სარეზერვო ასლის შექმნის შესრულება '%s'-ით არგუმენტებით '%s'"
 
 #: router-devices.php
 msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
-msgstr ""
+msgstr "რაუტერის სარეზერვო ასლის შექმნა დაიწყო. დასრულების სტატუსისა და დროისთვის შეამოწმეთ სვეტი „ასლის თარიღი“ ან Cacti-ის ჟურნალი"
 
 #: router-devices.php
 msgid "Click 'Continue' to Delete the following device(s)."
-msgstr ""
+msgstr "შემდეგი მოწყობილობ(ებ)ის წასაშლელად დააწკაპუნეთ 'გაგრძელება'-ზე."
 
 #: router-devices.php
 msgid "Click 'Continue' to Enable the following device(s)."
-msgstr ""
+msgstr "შემდეგი მოწყობილობ(ებ)ის ჩასართავად დააწკაპუნეთ 'გაგრძელება'-ზე."
 
 #: router-devices.php
 msgid "Enable Device(s)"
@@ -1347,7 +1323,7 @@ msgstr "მოწყობილობ(ებ)-ის ჩართვა"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
-msgstr ""
+msgstr "შემდეგი მოწყობილობ(ებ)ის გამოსართავად დააწკაპუნეთ 'გაგრძელება'-ზე."
 
 #: router-devices.php
 msgid "Disable Device(s)"
@@ -1355,43 +1331,39 @@ msgstr "მოწყობილობ(ებ)-ის გათიშვა"
 
 #: router-devices.php
 msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
-msgstr ""
+msgstr "შემდეგი მოწყობილობ(ებ)ისთვის შენახული SSH ჰოსტის გასაღების გასასუფთავებლად დააწკაპუნეთ 'გაგრძელება'-ზე. მომდევნო SSH კავშირი ენდობა და ჩაიწერს მიღებულ გასაღებს."
 
 #: router-devices.php
 msgid "Clear SSH Host Key(s)"
-msgstr ""
+msgstr "SSH ჰოსტის გასაღებ(ებ)ის გასუფთავება"
 
 #: router-devices.php
 msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
-msgstr ""
+msgstr "დააყენეთ ერთი ან მეტი შემდეგი პარამეტრი არჩეულ მოწყობილობ(ებ)ზე. ველები, რომლებიც დარჩა მნიშვნელობაზე 'ცვლილებების გარეშე', არ იცვლება."
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Disable"
 msgid "Disabled"
-msgstr "გათიშვა"
+msgstr "გათიშულია"
 
 #: router-devices.php
-#, fuzzy
-#| msgid "Delete Device(s)"
 msgid "Apply settings to Device(s)"
-msgstr "მოწყობილობ(ებ)-ის წაშლა"
+msgstr "პარამეტრების მისადაგება მოწყობილობ(ებ)ზე"
 
 #: router-devices.php
 msgid "You must select at least Router Device."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი რაუტერის მოწყობილობა."
 
 #: router-devices.php
 msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
-msgstr ""
+msgstr "ჰოსტის სახელი არასწორია. გამოიყენეთ მხოლოდ ასოები, ციფრები, შორისები და სიმბოლოები . - _ : და არ გამოიყენოთ გზის გამყოფები ან \"..\"."
 
 #: router-devices.php
 msgid "The selected Schedule Type or Rerun Every is not valid."
-msgstr ""
+msgstr "არჩეული „გეგმის ტიპი“ ან „თავიდან გაშვება ყოველ“ არასწორია."
 
 #: router-devices.php
 msgid "Not recorded"
-msgstr ""
+msgstr "არ არის ჩაწერილი"
 
 #: router-devices.php
 #, php-format
@@ -1420,7 +1392,7 @@ msgstr "ბოლო მარქაფი"
 
 #: router-devices.php
 msgid "The device type of the device"
-msgstr ""
+msgstr "მოწყობილობის ტიპი"
 
 #: router-devices.php
 msgid "Connect Type"
@@ -1428,7 +1400,7 @@ msgstr "კავშირის ტიპი"
 
 #: router-devices.php
 msgid "The connection type for this device"
-msgstr ""
+msgstr "ამ მოწყობილობის კავშირის ტიპი"
 
 #: router-devices.php
 msgid "Configs"
@@ -1436,15 +1408,15 @@ msgstr "პარამეტრები"
 
 #: router-devices.php
 msgid "The number of configurations for this device"
-msgstr ""
+msgstr "ამ მოწყობილობის კონფიგურაციების რაოდენობა"
 
 #: router-devices.php
 msgid "The IP address of this device"
-msgstr ""
+msgstr "ამ მოწყობილობის IP მისამართი"
 
 #: router-devices.php
 msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
-msgstr ""
+msgstr "მოწყობილობის ინდივიდუალური TFTP სერვერი, ან „ნაგულისხმევი“, როდესაც გამოიყენება გლობალური TFTP სერვერის პარამეტრი"
 
 #: router-devices.php
 msgid "Next Backup"
@@ -1529,12 +1501,12 @@ msgstr "რაუტერი მოწყობილობები აღმ�
 
 #: router-devtypes.php
 msgid "When you click 'Continue', the following device(s) will be deleted."
-msgstr ""
+msgstr "'გაგრძელება'-ზე დაწკაპუნებისას შემდეგი მოწყობილობ(ებ)ი წაიშლება."
 
 #: router-devtypes.php
 #, php-format
 msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
-msgstr ""
+msgstr "შესვლის შემდგომი მოთხოვნები შეიცავს მოთხოვნას, რომელიც არ არის სწორი რეგულარული გამოსახულება: %s"
 
 #: router-devtypes.php
 #, php-format
@@ -1584,7 +1556,7 @@ msgstr "რაუნტერის კონფიგურაციები"
 #: setup.php
 #, php-format
 msgid "DEBUG: Executing '%s' with arguments '%s'"
-msgstr ""
+msgstr "გამართვა: '%s'-ის შესრულება არგუმენტებით '%s'"
 
 #: setup.php
 msgid "Utilities"
