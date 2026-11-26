@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/routerconfigs/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 10:48+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/routerconfigs/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -532,7 +532,7 @@ msgstr "Hết thời gian chờ kết nối"
 
 #: includes/arrays.php
 msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
-msgstr "Thời gian chờ tối đa tính bằng giây khi thiết lập kết nối mạng ban đầu tới thiết bị. Thiết bị bị treo hoặc không thể truy cập sẽ bị bỏ qua sau thời gian chờ này để lượt sao lưu theo lịch trình tiếp tục với các thiết bị còn lại."
+msgstr "Thời gian chờ tối đa tính bằng giây khi thiết lập kết nối mạng ban đầu tới thiết bị. Thiết bị đang bị treo hoặc không thể truy cập sẽ bị bỏ qua sau thời gian chờ này để lượt sao lưu theo lịch trình tiếp tục với các thiết bị còn lại."
 
 #: includes/arrays.php
 msgid "Close without exit"
