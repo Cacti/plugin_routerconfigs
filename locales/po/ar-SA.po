@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/routerconfigs/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/routerconfigs/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -240,7 +240,7 @@ msgstr "كلمة مرور التمكين (Enable) الخاصة بك، إذا ك�
 
 #: includes/arrays.php
 msgid "Enable Device"
-msgstr "تمكين الأجهزة (الأجهزة)"
+msgstr "تمكين الجهاز"
 
 #: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
@@ -1319,7 +1319,7 @@ msgstr "انقر على 'متابعة' لتمكين الجهاز (الأجهزة
 
 #: router-devices.php
 msgid "Enable Device(s)"
-msgstr "تمكين الأجهزة (الأجهزة)"
+msgstr "تمكين الجهاز (الأجهزة)"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
