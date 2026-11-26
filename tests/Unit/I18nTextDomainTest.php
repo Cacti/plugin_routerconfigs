@@ -33,7 +33,7 @@ it('passes the routerconfigs text domain to every translation helper call', func
 	 */
 	$known = [
 		// backup list labels
-		'router-backups.php' => 9,
+		'router-backups.php' => 2,
 	];
 
 	$found = [];
