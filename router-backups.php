@@ -324,28 +324,28 @@ function show_devices() {
 			'tip'     => __('The directory of the stored device backups', 'routerconfigs')
 		],
 		'btime' => [
-			'display' => __('Backup Time'),
+			'display' => __('Backup Time', 'routerconfigs'),
 			'align'   => 'left',
 			'sort'    => 'DESC',
-			'tip'     => __('The last Backup time of the device')
+			'tip'     => __('The last Backup time of the device', 'routerconfigs')
 		],
 		'lastchange' => [
-			'display' => __('Last Change'),
+			'display' => __('Last Change', 'routerconfigs'),
 			'align'   => 'left',
 			'sort'    => 'DESC',
-			'tip'     => __('The last Change time of the device')
+			'tip'     => __('The last Change time of the device', 'routerconfigs')
 		],
 		'lastuser' => [
-			'display' => __('Changed By'),
+			'display' => __('Changed By', 'routerconfigs'),
 			'align'   => 'left',
 			'sort'    => 'ASC',
-			'tip'     => __('The last person to change the configuration of the device')
+			'tip'     => __('The last person to change the configuration of the device', 'routerconfigs')
 		],
 		'filename' => [
 			'display' => __('Filename'),
 			'align'   => 'left',
 			'sort'    => 'ASC',
-			'tip'     => __('The filename of the stored device backups')
+			'tip'     => __('The filename of the stored device backups', 'routerconfigs')
 		],
 	];
 
