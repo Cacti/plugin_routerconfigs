@@ -1,0 +1,1605 @@
+# Bosnian translation for Cacti.
+# Copyright (C) 2004-2026 The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-26 18:57+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Bosnian <developers@cacti.net>\n"
+"Language: bs-BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Obriši"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Sigurnosna kopija"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Uredi (grupna izmjena postavki)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Omogući"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Onemogući"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Očisti SSH ključ hosta"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Naslijedi"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Dnevno"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Sedmično"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Mjesečno"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d mjesec"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d mjeseci"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d godina"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d godina"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Nikada"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d sat"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d sati"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12am)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1am)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2am)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3am)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4am)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5am)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6am)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7am)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8am)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9am)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12am)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11am)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12pm)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1pm)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2pm)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3pm)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4pm)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5pm)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6pm)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7pm)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8pm)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9pm)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10pm)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11pm)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d linija"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d linija"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Naziv"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Dajte ovom računu smislen naziv koji će biti prikazan."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Korisničko ime"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Korisničko ime koje će se koristiti za autentifikaciju."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Lozinka"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Lozinka koja se koristi za autentifikaciju."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Enable lozinka"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Vaša Enable lozinka, ako je potrebna."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Omogući uređaj"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Odznačite ovu kućicu da biste onemogućili pravljenje sigurnosne kopije ovog uređaja."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Opis"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Naziv ovog uređaja (koristit će se za čuvanje konfiguracije i SVN ako u konfiguraciji nema imena hosta)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "IP adresa"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Ovo je IP adresa koja se koristi za komunikaciju s uređajem."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "TFTP server"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Opcioni TFTP server na koji ovaj uređaj kopira svoju konfiguraciju. Ostavite prazno za korištenje globalne postavke za TFTP server."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Sačuvani SSH ključ hosta"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Uporedite ovaj algoritam ključa hosta i SHA-1 heksadecimalni otisak prsta s uređajem putem pouzdanog kanala. Na serveru zamijenite putanju ispod odgovarajućom datotekom javnog ključa hosta i pokrenite: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Koristite radnju uređaja da ga očistite nakon legitimne promjene ključa."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Direktorij"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Ovo je relativna struktura direktorija koja se koristi za čuvanje konfiguracija."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Tip rasporeda"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Koliko često treba praviti sigurnosnu kopiju ovog uređaja. Dnevno uz Ponovi svakih 10 pravi sigurnosnu kopiju svakih 10 dana; Mjesečno pravi sigurnosnu kopiju po stvarnom kalendarskom mjesecu."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Ponovo pokreni svakih"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Za Dnevni raspored, ponovo pokreni sigurnosnu kopiju svakih X dana. Za Sedmični raspored bez određenih Dana u sedmici, ponovo je pokreni svakih X sedmica; kada su Dani u sedmici odabrani, sigurnosna kopija se izvršava tim danima svake sedmice i ovo polje se ne primjenjuje."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Dani u sedmici"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Za Sedmični raspored, dan(i) u sedmici kada se sigurnosna kopija pokreće svake sedmice. Ostavite prazno da se umjesto toga pokreće prema postavci Ponovi svakih sedmica."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Mjeseci u godini"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Za Mjesečni raspored, mjesec(i) u godini kada se sigurnosna kopija pokreće."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Dani u mjesecu"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Za Mjesečni raspored, dan(i) u mjesecu kada se sigurnosna kopija pokreće (Posljednji = posljednji dan u mjesecu)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Sedmice u mjesecu"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Za raspored Mjesečno po danu, sedmica(e) u mjesecu u kojima se sigurnosna kopija pokreće."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Dani u sedmici (Mjesečno)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Za raspored Mjesečno po danu, dan(i) u sedmici koji se uparuju s odabirom Sedmice u mjesecu."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Tip uređaja"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Odaberite tip uređaja kojem ruter pripada."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Automatsko otkrivanje"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Tip veze"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Ovo je tip veze koji se koristi za komunikaciju s uređajem."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Nalog za autentifikaciju"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Odaberite nalog koji će se koristiti za prijavu na ruter"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Nijedan"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Podrazumijevano vrijeme isteka"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Podrazumijevano vrijeme čekanja na odgovor u sekundama"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Podrazumijevano vrijeme mirovanja"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Podrazumijevano vrijeme mirovanja u mikrosekundama (1/1.000.000 dio sekunde)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Pretpostavi povišene privilegije"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Označite ovo polje da pretpostavite da ovaj uređaj uvijek ima povišene privilegije"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Naziv ovog tipa uređaja."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Upit za korisničko ime"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Ovo je upit za korisničko ime koji se podudara pri prijavi."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Upit za lozinku"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Ovo je upit za lozinku koji se podudara pri prijavi."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Konfiguracijska datoteka"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Ovo je standardna lokacija konfiguracijske datoteke na udaljenom uređaju. Koristi se za SCP i SFTP metod"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Kopiraj TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Ovo je CLI tekst koji se koristi za slanje sigurnosne kopije na TFTP server."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Komanda za hvatanje"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Opciona komanda čiji se izlaz čuva kao konfiguracija, umjesto kopiranja na TFTP server. Uvijek se izvršava preko SSH-a, bez obzira na Tip veze, i tada uređaju nije potreban TFTP server. Ostavite prazno za uređaje koji svoju konfiguraciju kopiraju na TFTP. Primjer za MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Prikaži verziju"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Ovo je CLI tekst koji se koristi za prikaz trenutne verzije."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Upit za potvrdu"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Ovo je upit za potvrdu koji se podudara prije prenosa."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Potvrda"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Postoji li upit za potvrdu prilikom kopiranja konfiguracije?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Prisilna potvrda"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Postoji li upit za prisilnu potvrdu prilikom kopiranja konfiguracije?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Provjeri kraj u konfiguraciji"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Provjeriti kraj u konfiguraciji?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Upit za bilo koju tipku"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Tekst za podudaranje s upitom u stilu 'Press Any Key To Continue'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Upiti nakon prijave"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Opcioni parovi upit/odgovor koji se šalju odmah nakon prijave, prije komande za kopiranje na TFTP, po jedan u redu u obliku upit|odgovor. Upit se podudara kao regularni izraz neosjetljiv na veličinu slova u odnosu na izlaz uređaja (tako da sam ne može sadržavati |, a zagrade i drugi specijalni znakovi moraju biti izbjegnuti, npr. Save \\[y/n\\]), a odgovor se šalje kako je upisan, ili koristite <CR> za slanje samo znaka za novi red (carriage return). Odgovor se šalje tek nakon što je njegov upit uočen, bilo u odgovoru na prethodni odgovor ili u kasnijem izlazu; u suprotnom se u dnevnik bilježi upozorenje i ništa se ne šalje. Na ove upite se odgovara prvo; na Upit za bilo koju tipku iznad odgovara se kasnije, dok se uređaj omogućava, tako da upit na koji je ovdje odgovoreno nikada ne dospije do upita za bilo koju tipku. Primjer: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Opće postavke"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Način prikaza"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Da li Konfiguracije rutera trebaju biti prikazane na Konzoli ili na Gornjoj kartici."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Konzola"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Gornja kartica"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Linije konteksta za razliku konfiguracija"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Podrazumijevani broj nepromijenjenih linija koje se prikazuju prije i poslije svake izmjene pri poređenju dvije sigurnosne kopije. Veća vrijednost olakšava uvid u okolni kontekst konfiguracije. Ovo se može nadjačati po pojedinačnom poređenju na stranici Poredi."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Vrijeme isteka veze"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Maksimalno vrijeme čekanja u sekundama pri uspostavljanju početne mrežne veze s uređajem. Zablokiran ili nedostupan uređaj se napušta nakon ovog isteka vremena kako bi se zakazano pravljenje sigurnosne kopije nastavilo s preostalim uređajima."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Zatvori bez komande exit"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Ako je označeno, prilikom zatvaranja veze s uređajem neće se izdati komanda 'exit'"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Otklanjanje grešaka bafera konekcije"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Da li zapisivati direktan izlaz konekcije uređaja"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Pretpostavi da svi uređaji imaju povišene privilegije"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Da li pretpostaviti da svi uređaji imaju povišene privilegije"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Sat preuzimanja"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Sat u danu kada se vrše potpuna preuzimanja."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Raspored ponovnog pokušaja"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Vrijeme čekanja prije pokušaja dodatnog preuzimanja kada zakazano preuzimanje ne uspije"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Period čuvanja"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Broj dana za čuvanje starih sigurnosnih kopija."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Zadrži sigurnosne kopije neaktivnih uređaja"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Kada je označeno, čišćenje po periodu čuvanja neće obrisati zastarjele sigurnosne kopije koje pripadaju onemogućenim ili uklonjenim uređajima, tako da se konfiguracije za povučenu ili nedostupnu opremu zadržavaju."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Opcije prijenosa"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Podrazumijevani tip konekcije"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Podrazumijevani tip konekcije koji se koristi za komunikaciju sa uređajem."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Odvoji po uređaju"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Odvoji arhivirane konfiguracije u folder po uređaju"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Poddirektorij s datumom"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Umeće poddirektorij zasnovan na datumu u putanju arhive (prije foldera za pojedinačni uređaj), tako da se svako pokretanje čuva pod datumom svoje sigurnosne kopije, npr. .../2020-11-04/hostname/.... Isključeno zadržava postojeći raspored."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "SCP putanja"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Kada koristite SCP, ako ovo ostavite prazno koristit će se PHP-ov SCP modul koji ne radi uvijek. Eksterni SCP je onemogućen dok je uključena provjera SSH ključa hosta jer ne može ponovo koristiti provjerenu konekciju."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Provjeri SSH ključeve hosta"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Zabilježi SSH ključ hosta svakog uređaja pri prvom povezivanju i odbij slanje podataka za prijavu ako se kasnije promijeni. SSH/Telnet režim se neće vratiti na Telnet dok je provjera omogućena. Nakon opravdane promjene ključa, upotrijebite radnju uređaja za brisanje sačuvanog ključa hosta."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP TFTP servera"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Mora biti IP adresa koja pokazuje na vaš Cacti server."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Putanja direktorija za TFTP sigurnosne kopije"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Putanja na koju će se praviti sigurnosne kopije vaših konfiguracija, to mora biti putanja u koju lokalni TFTP server upisuje."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Putanja direktorija arhive"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Putanja na koju će vaše konfiguracije biti arhivirane (premještene iz TFTP direktorija)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Opcije e-pošte"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Adresa pošiljaoca"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Adresa e-pošte sa koje će se slati noćna sigurnosna kopija."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Ime pošiljaoca"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Ime sa kojeg će se slati noćna sigurnosna kopija."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Email adresa"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Zarezom odvojena lista adresa e-pošte na koje se šalje e-pošta o noćnoj sigurnosnoj kopiji."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Uključi razlike konfiguracija"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Dodaje objedinjenu razliku (unified diff) svakog uređaja čija se konfiguracija promijenila tokom pokretanja u e-poštu sa sigurnosnom kopijom, tako da osoba koja pregleda može tačno vidjeti šta se promijenilo. Binarne (netekstualne) konfiguracije se preskaču. Promjenjive linije koje se mijenjaju pri svakoj sigurnosnoj kopiji (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' i 'Current configuration :', te NX-OS '!Time:' i '!Running configuration last done at:') uvijek se zanemaruju. Upozorenje: razlika se šalje u običnom tekstu svakom primaocu e-pošte, pa može otkriti konfiguraciju koja bi trebala ostati privatna; ostavite opciju Uključi tajne u razlike neoznačenom."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Uključi tajne u razlike"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Šalje tajne vrijednosti u razlikama poslanim e-poštom onakve kakve jesu. Kada nije označeno (podrazumijevano), promijenjene linije se pronalaze u sirovim konfiguracijama i ispisuju redigovano, uz sigurno zatvaranje (fail-closed): linije koje sadrže riječi nalik tajnama (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) te linije za SNMP host i korisnika skraćuju se na prvu riječ iza koje slijedi &lt;secret hidden&gt;, a svaka linija PEM bloka, bloka certifikata ili ključa, ili višelinijske vrijednosti pod navodnicima, kao i svaki hex ili base64 red, biva skrivena; blok koji se nikad ne završava skriva ostatak konfiguracije. Ovo također skriva i bezopasne linije (npr. opis koji spominje ključ), ali svaka promijenjena linija se i dalje prikazuje, označena sa (changed) kada se razlikuje samo njen skriveni dio, a blok koji se nikad ne završava se napominje u e-pošti. Pohranjene sigurnosne kopije se nikada ne mijenjaju."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Obrasci za izuzimanje iz razlika"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Opcionalni regularni izrazi (po jedan u liniji) koji odgovaraju linijama konfiguracije koje treba zanemariti prilikom poređenja, kako se promjenjive linije poput vremenskih oznaka ili serijskih brojeva ne bi prikazivale kao promjene. Svaki obrazac se upoređuje bez obzira na veličinu slova bilo gdje u liniji osim ako nije usidren sa ^ ili $; obrazac koji nije ispravan regularni izraz se zanemaruje."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Thold lista obavještenja"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Kada je Thold instaliran, pošalji e-poštu sa sigurnosnom kopijom i primaocima odabrane Thold liste obavještenja."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Dodaj u RouterConfigs sigurnosnu kopiju"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Kliknite 'Nastavi' da dodate sljedeći uređaj(e) u RouterConfigs za sigurnosnu kopiju. Svaki uređaj koji je već prisutan u RouterConfigs se preskače."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Uređaji"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Tipovi uređaja"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Autentifikacija"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Sigurnosne kopije"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Uporedi"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Tehnička podrška [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s znakova)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Nije postavljeno)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "OBAVJEŠTENJE: Pokretanje ručne sigurnosne kopije za %s uređaja"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "OBAVJEŠTENJE: Pokretanje automatskog ponovnog pokušaja"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "OBAVJEŠTENJE: Pokretanje automatske sigurnosne kopije"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "FATALNO: Putanja za TFTP sigurnosne kopije nije postavljena ili nije direktorij"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Pokušaj preuzimanja za %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "%s uređaja je uspješno sačuvano u sigurnosnoj kopiji."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Izrada sigurnosne kopije nije uspjela za %s uređaja."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Sigurnosna kopija je onemogućena za %s uređaja."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Nisu otkrivene promjene konfiguracije."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Sigurnosne kopije konfiguracije"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Sigurnosne kopije konfiguracije"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Prisilno"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Ručno"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Simulirano"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Zakazano"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Ponovni pokušaj"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Djelomično"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": NEUSPJEŠNO"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "STATISTIKA: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "GREŠKA: Putanja za sigurnosne kopije nije postavljena ili nije direktorij"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "UPOZORENJE: Period čuvanja '%s' nije važeći, podrazumijevano se postavlja na 30 dana"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "STATISTIKA: Sigurnosno kopiranje se sada izvodi od %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "UPOZORENJE: Sigurnosno kopiranje se već izvodi od %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Cacti uređaj s ID-om %s nije pronađen; nije dodan u RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Uređaj '%s' je već u RouterConfigs; preskočeno."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Uređaj '%s' je dodan u RouterConfigs (onemogućen dok se ne postave račun i tip uređaja)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Dodavanje uređaja '%s' u RouterConfigs nije uspjelo."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Blok za redakciju na liniji %d prethodne sigurnosne kopije nikada nije zatvoren; sljedeće linije su skrivene."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Blok za redakciju na liniji %d nove sigurnosne kopije nikada nije zatvoren; sljedeće linije su skrivene."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "GREŠKA: Naziv hosta uređaja '%s' nije važeći kao naziv datoteke sigurnosne kopije; uredite uređaj i koristite samo znakove naziva hosta ili IP adrese"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "GREŠKA: TFTP server nije postavljen za uređaj '%s'; postavite TFTP server na uređaju ili u globalnim postavkama"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "GREŠKA: Provjera SSH ključa hosta nije uspjela za uređaj '%s'; odbijeno slanje akreditiva ili prelazak na Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "GREŠKA: SSH veza nije uspjela za uređaj '%s'; prelazak na Telnet je onemogućen dok je uključena provjera SSH ključa hosta"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "GREŠKA: Povezivanje s uređajem '%s' nije uspjelo korištenjem tipa veze: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "GREŠKA: Preuzimanje '%s' u '%s' putem '%s' nije uspjelo"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Odabrani %s nije važeći; nijedan uređaj nije izmijenjen."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Provjera valjanosti putanje datoteke nije uspjela"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Učitavanje datoteke '%s' nije uspjelo"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Datoteka '%s' nije pronađena"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Konfiguracija rutera za %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Sigurnosna kopija od %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Datoteka: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Ručno"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Mjesečno na dan"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Nedjelja"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Ponedjeljak"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Utorak"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Srijeda"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Četvrtak"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Petak"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Subota"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Januar"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Februar"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Mart"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "April"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Maj"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Juni"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Juli"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "August"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Septembar"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktobar"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Novembar"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Decembar"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Posljednji"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Prvi"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Drugi"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Treći"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Četvrti"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Isključeno (bez poddirektorija s datumom)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (ugniježđeno)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Odabrani %s nije važeći."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Za mjesečni raspored morate odabrati najmanje jedan mjesec i jedan dan u mjesecu."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Za raspored mjesečno po danu morate odabrati mjesece, sedmice u mjesecu i dane u sedmici."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Odabrani mjeseci i dani u mjesecu nikada se ne pojavljuju zajedno; izaberite drugi dan ili Zadnji za posljednji dan u mjesecu."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Kliknite 'Nastavi' da obrišete sljedeći(e) račun(e)."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Nastavi"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Obriši uređaj(e)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Morate odabrati najmanje jedan uređaj."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Povratak"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Račun: [uredi: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Račun: [novi]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Računi"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Upravljanje računima"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Nisu pronađeni računi rutera"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Sigurnosne kopije rutera"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Bilo koji"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Pretraži"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Podrazumijevano"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Idi"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Postavi/osvježi filtere"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Očisti"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Očisti filtere"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Naziv hosta"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Ili IP adresa, ili naziv hosta. Ako je naziv hosta, mora biti razrješiv putem DNS-a ili iz vaše hosts datoteke."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Interni ID baze podataka za ovaj uređaj. Korisno prilikom automatizacije ili otklanjanja grešaka."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Funkcije"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Izvršite funkcije nad ovom sigurnosnom kopijom"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Direktorij pohranjenih sigurnosnih kopija uređaja"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Vrijeme sigurnosne kopije"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Vrijeme posljednje sigurnosne kopije uređaja"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Posljednja promjena"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Vrijeme posljednje promjene uređaja"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Promijenio"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Posljednja osoba koja je promijenila konfiguraciju uređaja"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Naziv datoteke"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Naziv datoteke pohranjenih sigurnosnih kopija uređaja"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Prikaži konfiguraciju"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Nisu pronađene sigurnosne kopije rutera"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Poređenje sigurnosnih kopija rutera"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Režim prikaza razlika"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Ugrađeno"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Uporedo"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Linije konteksta"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Izlaz poređenja"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Sigurnosna kopija %s nije pronađena"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Nema promjena"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Greška, morate imati sigurnosne kopije za svaki uređaj."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Otklanjanje grešaka za %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Bez promjene"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Nijedan uređaj nije izmijenjen: novi raspored se ne može pokrenuti na uređaju/uređajima s ID-om %s, jer nedostaju mjeseci, dani u mjesecu, sedmice u mjesecu ili dani u sedmici ili se nikada ne pojavljuju. Postavite raspored na tim uređajima pojedinačno."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Postavke su ažurirane na %d uređaju(ima)."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Nijedna postavka nije promijenjena; svako polje je ostavljeno na \"Bez promjene\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Izvršavanje ručne sigurnosne kopije koristeći '%s' sa argumentima '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Sigurnosna kopija rutera je pokrenuta. Provjerite kolonu Datum sigurnosne kopije ili Cacti dnevnik za status završetka i vrijeme"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Kliknite 'Nastavi' da obrišete sljedeći(e) uređaj(e)."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Kliknite 'Nastavi' da omogućite sljedeći(e) uređaj(e)."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Omogući uređaje"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Kliknite 'Nastavi' da onemogućite sljedeći(e) uređaj(e)."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Onemogući uređaje"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Kliknite 'Nastavi' da očistite pohranjeni SSH ključ hosta za sljedeći(e) uređaj(e). Sljedeća SSH veza će vjerovati primljenom ključu i zabilježiti ga."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Očisti SSH ključ(eve) hosta"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Postavite jednu ili više sljedećih postavki na odabrani(m) uređaj(ima). Polja ostavljena na 'Bez promjene' se ne mijenjaju."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Onemogućeno"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Primijeni postavke na uređaj(e)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Morate odabrati barem jedan ruter uređaj."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Naziv hosta nije važeći. Koristite samo slova, cifre, razmake i znakove . - _ : te nemojte koristiti separatore putanje ili \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Odabrani tip rasporeda ili interval ponovnog pokretanja nije važeći."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Nije zabilježeno"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Ruter: [uredi: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Ruter: [novi]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Upravljanje ruter uređajima"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Nalog"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Radnje"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Posljednja sigurnosna kopija"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Tip uređaja za ovaj uređaj"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Tip veze"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Tip veze za ovaj uređaj"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Konfiguracije"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Broj konfiguracija za ovaj uređaj"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "IP adresa ovog uređaja"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "TFTP server za pojedinačni uređaj, ili Podrazumijevano kada koristi globalnu postavku TFTP servera"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Sljedeća sigurnosna kopija"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Datum sigurnosne kopije"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Sljedeći pokušaj"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Posljednji pokušaj"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Datum promjene"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Danas"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Jučer"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Ova sedmica"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Ovaj mjesec"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Unutar jedne godine"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Davno, davno"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Ne"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Da"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Poveži se putem SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Poveži se putem Telneta"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Praćenje rute"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Debug informacije rutera"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Sigurnosne kopije (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Trenutno"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Nije pronađen nijedan ruter uređaj"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Kada kliknete 'Nastavi', sljedeći uređaj(i) će biti obrisani."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Upiti nakon prijave sadrže upit koji nije važeći regularni izraz: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Upit [uredi: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Upit [novi]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Prikaži tipove ruter uređaja"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Tip"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Upit za korisnika"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Upit za lozinku"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Verzija"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Upit za potvrdu"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Provjeri kraj u konfiguraciji"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Nije pronađen nijedan tip ruter uređaja"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Konfiguracije rutera"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Izvršavanje '%s' sa argumentima '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Alati"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Ruter uređaji"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(uredi)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(radnje)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Prikaži debug"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Nalozi rutera"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Poređenje rutera"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Ruteri"
