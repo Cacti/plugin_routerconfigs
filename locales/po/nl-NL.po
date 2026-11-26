@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/routerconfigs/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 10:48+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/routerconfigs/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -106,7 +106,7 @@ msgstr "00:00 (12 uur)"
 
 #: includes/arrays.php
 msgid "01:00 (1am)"
-msgstr "01:00 (01:00 uur)"
+msgstr "01:00 (1 uur 's nachts)"
 
 #: includes/arrays.php
 msgid "02:00 (2am)"
@@ -146,55 +146,55 @@ msgstr "10:00 (12 uur)"
 
 #: includes/arrays.php
 msgid "11:00 (11am)"
-msgstr "11:00 (11:00 uur)"
+msgstr "11:00 (11 uur 's ochtends)"
 
 #: includes/arrays.php
 msgid "12:00 (12pm)"
-msgstr "12:00 (12:00 uur)"
+msgstr "12:00 (12 uur 's middags)"
 
 #: includes/arrays.php
 msgid "13:00 (1pm)"
-msgstr "13:00 (13:00 uur)"
+msgstr "13:00 (1 uur 's middags)"
 
 #: includes/arrays.php
 msgid "14:00 (2pm)"
-msgstr "14:00 (14:00 uur)"
+msgstr "14:00 (2 uur 's middags)"
 
 #: includes/arrays.php
 msgid "15:00 (3pm)"
-msgstr "15:00 (15:00 uur)"
+msgstr "15:00 (3 uur 's middags)"
 
 #: includes/arrays.php
 msgid "16:00 (4pm)"
-msgstr "16:00 (16:00 uur)"
+msgstr "16:00 (4 uur 's middags)"
 
 #: includes/arrays.php
 msgid "17:00 (5pm)"
-msgstr "17:00 (17:00 uur)"
+msgstr "17:00 (5 uur 's middags)"
 
 #: includes/arrays.php
 msgid "18:00 (6pm)"
-msgstr "18:00 (18:00 uur)"
+msgstr "18:00 (6 uur 's avonds)"
 
 #: includes/arrays.php
 msgid "19:00 (7pm)"
-msgstr "19:00 (19:00 uur)"
+msgstr "19:00 (7 uur 's avonds)"
 
 #: includes/arrays.php
 msgid "20:00 (8pm)"
-msgstr "20:00 (20:00 uur)"
+msgstr "20:00 (8 uur 's avonds)"
 
 #: includes/arrays.php
 msgid "21:00 (9pm)"
-msgstr "21:00 (21:00 uur)"
+msgstr "21:00 (9 uur 's avonds)"
 
 #: includes/arrays.php
 msgid "22:00 (10pm)"
-msgstr "22:00 (22:00 uur)"
+msgstr "22:00 (10 uur 's avonds)"
 
 #: includes/arrays.php
 msgid "23:00 (11pm)"
-msgstr "23:00 (23:00 uur)"
+msgstr "23:00 (11 uur 's avonds)"
 
 #: includes/arrays.php
 #, php-format

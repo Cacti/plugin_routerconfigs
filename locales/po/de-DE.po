@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/routerconfigs/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 10:48+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/routerconfigs/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -684,7 +684,7 @@ msgstr "E-Mail Adresse"
 
 #: includes/arrays.php
 msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
-msgstr "Eine kommagetrennte Liste von E-Mail-Adressen, an die die nächtliche Backup-E-Mail gesendet werden soll."
+msgstr "Eine kommagetrennte Liste von E-Mail-Adressen, an welche die nächtliche Backup-E-Mail gesendet werden soll."
 
 #: includes/arrays.php
 msgid "Include Config Diffs"
@@ -1222,7 +1222,7 @@ msgstr "Geändert von"
 
 #: router-backups.php
 msgid "The last person to change the configuration of the device"
-msgstr "Die letzte Person, die die Konfiguration des Geräts geändert hat"
+msgstr "Die letzte Person, welche die Konfiguration des Geräts geändert hat"
 
 #: router-backups.php
 msgid "Filename"
