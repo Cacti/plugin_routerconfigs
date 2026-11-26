@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/routerconfigs/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-13 14:35-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/routerconfigs/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Delete"
@@ -240,7 +240,7 @@ msgstr "סיסמת ה-Enable שלך, אם נדרש."
 
 #: includes/arrays.php
 msgid "Enable Device"
-msgstr "הפעלת מכשירים (מכשירים)"
+msgstr "הפעלת מכשיר"
 
 #: includes/arrays.php
 msgid "Uncheck this box to disabled this device from being backed up."
@@ -1146,7 +1146,7 @@ msgstr "גיבויי נתב"
 
 #: router-backups.php router-devices.php
 msgid "Any"
-msgstr "הכל"
+msgstr "כלשהו"
 
 #: router-backups.php router-devices.php
 msgid "Search"
@@ -1319,7 +1319,7 @@ msgstr "לחץ על 'המשך' כדי להפעיל את ההתקנים הבאי�
 
 #: router-devices.php
 msgid "Enable Device(s)"
-msgstr "הפעלת מכשירים (מכשירים)"
+msgstr "הפעלת מכשיר(ים)"
 
 #: router-devices.php
 msgid "Click 'Continue' to Disable the following device(s)."
@@ -1343,7 +1343,7 @@ msgstr "הגדר אחת או יותר מההגדרות הבאות בהתקנים
 
 #: router-devices.php
 msgid "Disabled"
-msgstr "לא זמין"
+msgstr "מושבת"
 
 #: router-devices.php
 msgid "Apply settings to Device(s)"
