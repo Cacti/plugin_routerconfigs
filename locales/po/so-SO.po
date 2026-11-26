@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Somali\n"
+"Language: so-SO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Tirtir"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Nuqul kayd ah"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Wax ka beddel (beddelidda dejinta oo wadajir ah)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Hawl-geli"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Hawl-jooji"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Nadiifi Furaha Martigeliyaha SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Ka dhaxal"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Maalinle"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Toddobaadle"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Bille"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Bil"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Bilood"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Sano"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d Sano"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Marna"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d saac"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d saacadood"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 habeenimo)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 habeenimo)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 habeenimo)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 habeenimo)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 habeenimo)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 subaxnimo)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 subaxnimo)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 subaxnimo)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 subaxnimo)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 subaxnimo)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 habeenimo)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 subaxnimo)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 duhurnimo)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 duhurnimo)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 duhurnimo)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 galabnimo)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 galabnimo)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 galabnimo)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 fiidnimo)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 fiidnimo)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 habeenimo)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 habeenimo)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 habeenimo)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 habeenimo)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d sadar"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d sadarro"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Magac"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Sii koontadan magac macno leh oo la soo bandhigi doono."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Magaca isticmaalaha"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Magaca isticmaalaha ee loo adeegsan doono xaqiijinta."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Erayga sirta ah"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Erayga sirta ah ee loo isticmaalo xaqiijinta."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Hawlgeli Erayga sirta ah"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Eraygaaga sirta ah ee Enable, haddii loo baahdo."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Hawlgeli Aaladda"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Ka saar calaamadda sanduuqan si aad u joojiso in qalabkan keyd-celin loo sameeyo."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Sharaxaadda"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Magaca qalabkan (waxaa loo isticmaali doonaa keydinta habaynta iyo SVN haddii aanu magaca martigeliyaha ku jirin habaynta)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Ciwaanka IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Kani waa Cinwaanka IP-ga ee loo adeegsado in lagula xiriiro qalabka."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Adeegaha TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Adeegaha TFTP ee ikhtiyaariga ah ee qalabkani uu u koobiyeeyo habayntiisa. Bannaanka u daa si aad u isticmaasho dejinta guud ee Adeegaha TFTP."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Furaha Martigeliyaha SSH ee la Kaydiyay"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Isbarbardhig algorithm-ka furaha martigeliyaha iyo faraha hex-ka SHA-1 qalabka adigoo maraya kanaal la aamini karo. Server-ka dhexdiisa, ku beddel waddada hoose faylka furaha martigeliyaha ee guud ee u dhigma oo orod: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Isticmaal ficilka qalabka si aad u nadiifiso ka dib beddelaad furaha oo sharci ah."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Galka"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Kani waa qaab-dhismeedka galka qaraabada ah ee loo adeegsado kaydinta dejimaha."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Nooca Jadwalka"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Intee jeer ayaa kayd-celin loogu sameeyaa qalabkan. Maalinle leh Ku-celin Kasta oo 10 ah wuxuu sameeyaa kayd-celin 10-kii maalmoodba mar; Bille wuxuu sameeyaa kayd-celin bil-kalander dhab ah."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Dib u socodsii Mar kasta"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Jadwallada Maalinlaha ah, dib u socodsii keydinta X maalmoodba mar. Jadwallada Toddobaadlaha ah ee aan lahayn Maalmaha Toddobaadka oo gaar ah, dib u socodsii X toddobaadba mar; marka la doorto Maalmaha Toddobaadka keydintu waxay ku shaqeysaa maalmahaas toddobaad kasta goobtanina ma khuseyso."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Maalmaha Toddobaadka"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Jadwalka Toddobaadlaha ah, maalinta/maalmaha toddobaadka ee la rabo in keydinta la socodsiiyo toddobaad kasta. Bannaanka u daa si ay u shaqeyso toddobaadyada Dib u Socodsiinta Kasta beddelkeeda."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Bilaha Sannadka"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Jadwalka Bishiiba mar, bisha/bilaha sannadka ee la rabo in keydinta la socodsiiyo."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Maalmaha Bisha"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Jadwalka Bishiiba mar, maalinta/maalmaha bisha ee la rabo in keydinta la socodsiiyo (Ugu dambeysa = maalinta ugu dambeysa ee bisha)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Toddobaadyada Bisha"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Jadwalka Bishiiba Maalin Go'an, toddobaadka/toddobaadyada bisha ee la rabo in keydinta la socodsiiyo."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Maalmaha Toddobaadka (Bishii)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Jadwalka Bishiiba Maalin Go'an, maalinta/maalmaha shaqada ee lala lammaanaynayo doorashada Toddobaadyada Bisha."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Nooca Qalabka"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Dooro nooca qalabka uu yahay ruutarku."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Ogaansho-Toos ah"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Nooca Xidhiidhka"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Kani waa nooca isku xirka ee loo adeegsado la xiriiridda qalabka."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Koontada Xaqiijinta"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Dooro akoon loo isticmaalo in lagu galo router-ka"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Midna"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Waqtiga dhammaadka ee caadiga ah"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Waqtiga caadiga ah ee ilbiriqsiyada lagu sugo jawaabta"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Waqtiga hurdada ee caadiga ah"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Waqtiga caadiga ah ee la sugo oo ku cabbiran maykro-ilbiriqsi (1/1,000,000 ilbiriqsi)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "U qaado in sare loo qaaday"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Calaamadee sanduuqan si aad u qaadato in qalabkani uu had iyo jeer sarreeyo"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Magaca nooca qalabkan."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Codsiga Magaca Isticmaalaha"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Tani waa codsiga magaca isticmaalaha ee la waafajinayo marka la soo galayo."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Dalabka Erayga sirta ah"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Tani waa codsiga erayga sirta ah ee la waafajinayo marka la soo galayo."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Faylka qaabeynta"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Kani waa goobta caadiga ah ee faylka dejinta ee ku yaalla qalabka fog. Waxaa loo adeegsadaa hababka SCP iyo SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Koobiyeey TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Kani waa qoraalka CLI ee loo adeegsado in loogu diro kaydinta adeegaha tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Amarka Qabashada"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Amar ikhtiyaari ah oo wax-soo-saarkiisa loo keydiyo sidii habayn ahaan, halkii loogu koobiyayn lahaa adeegaha TFTP. Mar walba wuxuu ku socdaa SSH, iyadoo aan loo eegin Nooca Xiriirka, qalabkuna markaas uma baahna adeegaha TFTP. Bannaanka u daa aaladaha u koobiyeeya habayntooda TFTP. Tusaale ahaan MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Muuji Nooca"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Kani waa qoraalka CLI ee loo adeegsado in lagu muujiyo nooca hadda jira."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Digniinta Xaqiijinta"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Tani waa codsiga xaqiijinta ee la waafajinayo ka hor dirista."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Xaqiiji"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Ma jiraa weydiin xaqiijin ah oo ku saabsan koobiyeynta habaynta?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Ku qasab Xaqiijinta"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Ma jiraa weydiin xaqiijin qasab ah oo ku saabsan koobiyeynta habaynta?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Hubi Dhammaadka Qaabeynta"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Hubi dhammaadka qaabeynta?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Codsi Furaha Kasta"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Qoraal u dhigma codsi qaabaysan oo ah 'Riix Fure Kasta Si Aad U Sii Wadato'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Tilmaamaha Gelitaanka Kadib"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Lammaaneyaal su'aal/jawaab ikhtiyaari ah oo la diro isla marka la galo kaddib, ka hor amarka koobiyaynta-TFTP, halkii sadarba mid sida prompt|response. Su'aasha waxaa loo barbardhigaa sidii regular expression aan kala saarin xarfaha waaweyn iyo kuwa yaryar oo ka dhan ah wax-soo-saarka qalabka (markaa iyadu ma koobi karto |, qaansooyinka iyo xarfaha gaarka ahna waa in la baxsiiyo, tusaale Save \\[y/n\\]), jawaabtana waxaa loo diraa sidii loo qoray, ama isticmaal <CR> si aad u dirto soo-celin gaari oo keliya. Jawaabta waxaa la diraa oo keliya marka su'aasheeda la arko, ha noqoto jawaabta jawaabtii hore ama wax-soo-saarka dambe; haddii kale digniin ayaa la diiwaangeliyaa waxna lama diro. Kuwan ayaa marka hore laga jawaabaa; su'aasha Any Key ee kore waxaa laga jawaabaa hadhow, inta qalabka la hawlgelinayo, markaa su'aal halkan looga jawaabay waligeed ma gaarto Any Key. Tusaale: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Dejinta Guud"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Qaabka Soo-bandhigidda"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Ma in Qaabeynta Router-ka lagu soo bandhigo Console-ka mise Tab-ka Sare."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Koonsool"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Tabka Sare"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Xariiqyada Macnaha Farqiga Qaabeynta"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Tirada caadiga ah ee xariiqaha aan isbeddelin ee la soo bandhigayo ka hor iyo ka dib isbeddel kasta marka la isbarbar dhigayo laba kayd (backup). Qiimo weyn wuxuu fududeeyaa in la arko macnaha dejinta ku hareeraysan. Tan waa la dhaafi karaa isbarbar dhig kasta bogga Isbarbar-dhigga."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Waqtiga xidhiidhka wuu dhammaaday"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Waqtiga ugu badan ee la sugo oo ilbiriqsiyo ah marka la samaynayo isku-xirka shabakadda ee bilowga ah ee lala yeelanayo qalab. Qalab xanniban ama aan la gaari karin waa laga tagaa kaddib waqtigan dhammaadka si kaydinta jadwalsan ay ugu sii socoto aaladaha kale."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Xir adigoon bixin"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Haddii la calaamadeeyo, marka la xirayo isku xirka Qalabka, lama bixin doono amar 'exit' ah"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Kaydka Xiriirka Cilad-saarka"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Haddii la diiwaangelinayo wax-soo-saarka tooska ah ee xiriirka qalabka"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "U qaado in dhammaan aaladaha sare loo qaaday"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Haddii loo qaadanayo in dhammaan aaladuhu ay leeyihiin mudnaan sare"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Saacadda Soo dejinta"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Saacadda maalinta ee la samaynayo soo dejinta buuxda."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Jadwalka Isku-dayga"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Waqtiga la sugayo ka hor inta aan la isku dayin soo dejin dheeraad ah marka soo dejinta jadwalka leh ay fashilanto"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Muddada Kaydinta"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Tirada maalmaha lagu haynayo nuqullada kaydka duugga ah."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Keydi Nuqullada Kaydka ee Qalabka Aan Firfircoonayn"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Marka la calaamadeeyo, nadiifinta haynta ma tirtiri doonto nuqullada kaydka ee duugoobay ee ka tirsan aaladaha la joojiyay ama aaladaha laga saaray, si habaynta qalabka la joojiyay ama aan la gaari karin loo hayo."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Ikhtiyaarrada Wareejinta"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Nooca xiriirka ee caadiga ah"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Nooca xiriirka ee caadiga ah ee loo adeegsado in lagula xiriiro qalabka."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Ku kala saar Qalab ahaan"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "U kala saar Qaabaynta la kaydiyay fayl-gal qalabkiiba"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Galka-hoosaadka Taariikhaysan"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Geli galka hoose ee ku salaysan taariikhda waddada kaydinta (ka hor galka qalab kasta), si hawlgal kasta loogu kaydiyo taariikhda kaydintiisa, tusaale ahaan .../2020-11-04/hostname/.... Haddii uu dansan yahay wuxuu ilaaliyaa qaabka hadda jira."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Jidka SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Marka la isticmaalayo SCP, ka tagista meeshan oo bannaani waxay isticmaali doontaa qaybta SCP ee PHP taas oo aan had iyo jeer shaqayn. SCP dibadda ah waa la joojiyay inta xaqiijinta furaha martigeliyaha SSH la hawlgeliyay sababtoo ah dib uma isticmaali karto xiriirka la xaqiijiyay."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Xaqiiji Furayaasha Martigeliyaha SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Diiwaangeli furaha martigeliyaha SSH ee qalab kasta marka ugu horreysa ee la xiro oo diid dirista aqoonsiga haddii uu hadhow isbeddelo. Habka SSH/Telnet dib uguma laaban doono Telnet inta xaqiijintu ay hawlgashan tahay. Ka dib isbeddel furaha oo sharci ah, isticmaal tallaabooyinka qalabka si aad u nadiifiso furaha martigeliyaha ee kaydsan."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP-ga Adeegaha TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Waa inuu ahaadaa IP tilmaamaya adeegahaaga Cacti."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Waddada Galka Kaydinta TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Jidka meesha lagu kaydin doono nuqulka qaabayntaada, waa inuu ahaadaa jidka uu ku qoro Server-ka TFTP ee maxalliga ah."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Waddada Galka Kaydka"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Jidka meesha lagu kaydin doono qaabayntaada (laga soo raro galka TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Ikhtiyaarrada Iimaylka"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Cinwaanka Diraha"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Ciwaanka iimaylka ee laga soo diri doono kaydka habeenkii."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Magaca Diraha"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Magaca laga soo diri doono kaydinta habeenkii."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Cinwaanka Iimaylka"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Liis ciwaanno Iimayl ah oo koomo lagu kala saaray oo loo dirayo Iimaylka kaydinta habeenkii."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Ku dar Kala-duwanaanshaha Habaynta"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Ku dar farqiga midaysan (unified diff) ee qalab kasta oo qaabayntiisu isbeddeshay intii lagu jiray hawlgalka Iimaylka kaydinta, si dib-u-eeguhu u arko waxa dhabta ah ee isbeddelay. Qaabaynta binary-ga ah (aan qoraal ahayn) waa laga boodaa. Sadarada isbeddela kaydin kasta (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' iyo 'Current configuration :', iyo NX-OS '!Time:' iyo '!Running configuration last done at:') had iyo jeer waa la iska indho-tiraa. Digniin: farqiga waxaa loogu diraa qoraal cad qof kasta oo hela Iimaylka, sidaas darteed wuxuu daaha ka qaadi karaa qaabayn ahayd inay qarsoonaato; ka tag Ku dar Siraha Farqiga (Include Secrets in Diffs) iyadoon la calaamadin."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Ku dar Siraha Kala-duwanaanshaha"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "U dir qiyamka sirta ah ee ku jira farqiga la iimaylay sida ay yihiin. Marka aan la calaamadayn (tan caadiga ah), sadarrada isbeddelay waxaa laga helaa qaabaynta ceeriin waxaana la daabacaa iyaga oo la qariyay, iyadoo la xirayo haddii khalad dhaco: sadarrada ay ku jiraan erayo sir u eg (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) iyo sadarrada martigeliyaha iyo isticmaalaha SNMP waxaa lagu soo koobaa eraygooda koowaad oo ay ku xigto &lt;secret hidden&gt;, sadar kasta oo ka tirsan baloog PEM ah, shahaado ama baloog xarig-furaha, ama qiimo leh xigasho dhowr-sadar ah, iyo sadar kasta oo hex ama base64 ah, waa la qariyaa; baloog aan waligiis dhammaan wuxuu qariyaa inta ka hartay qaabaynta. Tani waxay sidoo kale qarisaa sadarrada aan dhibka lahayn (tusaale sharraxaad xusaysa fure), laakiin sadar kasta oo isbeddelay weli wuu soo muuqdaa, isagoo lagu calaamadeeyay (changed) marka qaybtiisa qarsoon oo keliya ay kala duwan tahay, baloog aan waligiis dhammaanna waxaa lagu xusaa Iimaylka. Kaydyada la keydiyay weligood lama beddelo."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Qaababka Ka-reebista Diff"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Weedho joogto ah (regular expressions) oo ikhtiyaari ah (halkii sadarba mid) oo u dhigma sadarrada habaynta ee la iska indho-tirayo marka la isbarbardhigayo, si sadarrada isbeddelaya sida shaabadaha waqtiga ama lambarada taxanaha aysan ugu muuqan isbeddel. Qaab kasta waxaa loo waafajiyaa iyadoo aan la kala saarin xarfaha waaweyn iyo kuwa yaryar meel kasta oo sadarka ka mid ah haddii aan lagu xirin ^ ama $; qaab aan ahayn weedh joogto ah oo sax ah waa la iska indho-tiraa."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Liiska Ogeysiiska Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Marka Thold la rakibo, sidoo kale u dir Iimayl kayd ah qaateyaasha Liiska Ogeysiiska Thold ee la doortay."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Ku dar Kaydinta RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Guji 'Sii wad' si aad ugu darto Qalab(yada) soo socda RouterConfigs si loogu kaydiyo. Qalab kasta oo horay ugu jiray RouterConfigs waa laga boodayaa."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Aaladaha"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Noocyada Qalabka"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Xaqiijinta Aqoonsiga"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Nuqullada kaydka ah"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Isbarbardhig"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Taageerada Farsamada [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s xaraf)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Lama Dejin)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "OGAYSIIS: Bilaabidda kaydinta gacanta ee %s aaladood"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "OGAYSIIS: Bilaabidda isku-dayga tooska ah"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "OGAYSIIS: Bilaabidda kaydinta tooska ah"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "HALIS: Jidka Kaydka TFTP lama dejin ama ma aha gal"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Waxaa la isku dayayaa soo dejinta %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "%s aaladaha si guul leh ayaa loo kaydiyay."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "%s aaladaha kaydintoodu way fashilantay."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "%s aaladaha waa laga joojiyay kaydinta."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Wax isbeddel ah oo habaynta ku saabsan lama ogaan."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Nuqullada Kaydka Qaabeynta"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Nuqullada Kaydka Qaabeynta"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - La qasbay"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Gacan ku samayn"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - La ekaysiiyay"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Jadwalaysan"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Isku day mar kale"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Qayb ahaan"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": FASHILMAY"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "TIRAKOOBKA: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "QALAD: Waddada Kaydka lama dejin ama ma aha gal"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "DIGNIIN: Muddada haynta '%s' ma saxna, waxaa si caadi ah loogu celinayaa 30 maalmood"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "TIRAKOOBKA: Kaydinta xogta hadda waxay socotaa tan iyo %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "DIGNIIN: Kaydinta xogtu mar hore ayay socotay tan iyo %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Aqoonsiga Qalabka Cacti %s lama helin; laguma darin RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Qalabka '%s' mar hore ayuu ku jiraa RouterConfigs; waa laga booday."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Qalabka '%s' waxaa lagu daray RouterConfigs (waa la joojiyay ilaa akoon iyo nooca qalabka laga dejiyo)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Waa lagu guuldareystay in Qalab '%s' lagu daro RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Qaybta qarin-xogta ee safka %d ee kaydka hore weligeed lama xirin; safafka soo socda waa la qariyay."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Qaybta qarin-xogta ee safka %d ee kaydka cusub weligeed lama xirin; safafka soo socda waa la qariyay."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "QALAD: Magaca martigeliyaha ee Qalabka '%s' ma aha mid sax ah oo u qalma magac fayl kayd ah; wax ka beddel Qalabka oo isticmaal xarfo magac martigeliye ama ciwaan IP kaliya"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "QALAD: Wax adeegaha TFTP ah looma dejin Qalabka '%s'; ka deji Adeegaha TFTP qalabka ama dejinta guud"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "QALAD: Xaqiijinta furaha martigeliyaha SSH way u fashilantay Qalabka '%s'; waa la diiday in la diro aqoonsiga ama dib loogu laabto Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "QALAD: Xiriirka SSH wuu u fashilmay Qalabka '%s'; dib-ugu-noqoshada Telnet waa la joojiyay inta xaqiijinta furaha martigeliyaha SSH la hawlgeliyay"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "QALAD: Way ku guuldarreysatay in lagu xiro Qalabka '%s' iyadoo la adeegsanayo nooca xiriirka: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "QALAD: Way ku guuldarreysatay in la soo dejiyo '%s' loona geeyo '%s' iyadoo loo marayo '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "La hawlgeliyay"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s-ka la doortay ma aha mid sax ah; wax aalado ah lama beddelin."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Xaqiijinta jidka faylku way fashilantay"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Faylka '%s' wuu ku guuldareystay inuu soo rarmo"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Faylka '%s' lama helin"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Habaynta Ruuwterka ee %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Nuqul kayd ah oo ka yimid %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Faylka: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Gacanta"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Bishiiba Maalin"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Axad"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Isniin"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Talaado"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Arbaco"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Khamiis"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Jimco"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Sabti"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Jannaayo"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Febraayo"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Maarso"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Abriil"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Maajo"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Juun"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Luuliyo"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Agoosto"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Sebteembar"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktoobar"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Nofeembar"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Diseembar"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Ugu dambeeya"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Kowaad"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Labaad"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Saddexaad"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Afraad"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Dansan (ma jiro galka hoose ee taariikhda leh)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (isku dhex jira)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s-ka la doortay ma aha mid sax ah."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Jadwalka Bishiiba mar, waa inaad doorataa ugu yaraan hal Bil iyo hal Maalin oo Bisha ka mid ah."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Jadwalka Bishiiba Maalin Go'an, waa inaad doorataa Bilaha, Toddobaadyada Bisha, iyo Maalmaha Toddobaadka."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Bilaha iyo Maalmaha Bisha ee la doortay weligood isla ma dhacaan; dooro maalin kale, ama Ugu Dambaysa maalinta ugu dambaysa ee bisha."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Guji 'Sii wad' si aad u tirtirto akoon(nada) soo socda."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Jooji"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Sii wad"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Tirtir Qalab(yada)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Waa inaad doorataa ugu yaraan hal qalab."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Ku noqo"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Akoon: [wax ka beddel: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Akoon: [cusub]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Akoonnada"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Maareynta Akoonka"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Akoonnada Router-ka Lama Helin"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Kaydadka Ruuwterka"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Mid kasta"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Raadi"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Asal ah"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Soco"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Deji/Cusboonaysii Shaandheeyayaasha"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Nadiifi Shaandheeyayaasha"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Magaca Martigeliyaha"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Ama ciwaan IP, ama magaca martigeliyaha. Haddii uu yahay magac martigeliye, waa in lagu xallin karaa DNS, ama faylkaaga hosts."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "Aqoonsiga"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Aqoonsiga keydka xogta gudaha ee Aaladdan. Waxtar leh marka la samaynayo otomaatigga ama cilad-bixinta."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Hawlaha"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Ku fuli hawlo kaydkan"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Galka kaydadka qalabka ee la keydiyay"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Waqtiga Kaydinta"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Wakhtigii ugu dambeeyay ee kaydinta Qalabka"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Isbeddelkii Ugu Dambeeyay"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Wakhtigii ugu dambeeyay ee isbeddelka Qalabka"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Waxaa beddelay"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Qofkii ugu dambeeyay ee beddelay qaabeynta Qalabka"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Magaca faylka"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Magaca faylka nuqullada kaydka Qalabka la keydiyay"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Eeg Habaynta"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Kaydka Router-ka Lama Helin"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Isbarbardhigga Kaydka Ruuwterka"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Habka Diff"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Gudaha Bogga"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Dhinac iyo dhinac"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Xariiqyada Macnaha"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Isbarbardhig Soo-saarka"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Nuqulka kaydka ah %s lama helin"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Ma jiraan wax Isbeddelo ah"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Khalad, waa inaad u haysataa kayd-celin qalab kasta."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Cilad-saarka %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Isbeddel Ma Jiro"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Waxba lagama beddelin aaladaha: jadwalka cusub kuma shaqeyn karo aqoonsiga(yada) qalabka %s, sababtoo ah Bilaha, Maalmaha Bisha, Toddobaadyada Bisha ama Maalmaha Toddobaadka way maqan yihiin ama weligood ma dhacaan. Jadwalka u deji aaladahaas si gaar ah."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Dejinta waxaa lagu cusbooneysiiyay %d qalab."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Dejinta waxba lagama beddelin; goob kasta waxaa lagu daayay \"Isbeddel Ma Jiro\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Waxaa la fulinayaa kaydinta gacanta iyadoo la adeegsanayo '%s' oo wata halbeegyada '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Kaydinta Ruuwterka waa la bilaabay. Ka eeg tiirka Taariikhda Kaydinta ama Diiwaanka Cacti xaaladda dhammaystirka iyo waqtiga"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Guji 'Sii wad' si aad u Tirtirto qalabka/aaladaha soo socda."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Guji 'Sii wad' si aad u Hawlgeliso qalabka/aaladaha soo socda."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Hawlgeli Aaladda/Aaladaha"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Guji 'Sii wad' si aad u Joojiso qalabka/aaladaha soo socda."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Hawl-jooji Aaladda/Aaladaha"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Guji 'Sii wad' si aad u nadiifiso furaha martigeliyaha SSH ee u kaydsan qalab(yada) soo socda. Xiriirka xiga ee SSH wuxuu aamini doonaa oo duubi doonaa furaha uu helo."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Nadiifi Furaha/Furayaasha Martigeliyaha SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Ku deji mid ama ka badan oo ka mid ah dejinta soo socda qalabka/aaladaha la doortay. Goobaha lagu daayo 'Isbeddel La'aan' waxba lagama beddelo."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "La joojiyay"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "U dabbaq dejinta Qalabka/Aaladaha"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Waa inaad doorataa ugu yaraan Qalabka Router-ka."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Magaca martigeliyuhu ma aha mid ansax ah. Isticmaal keliya xarfaha, lambarada, meelaha bannaan iyo calaamadaha . - _ : hana isticmaalin kala-soocayaasha jidka ama \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Nooca Jadwalka ama Ku-celinta Mar Kasta ee la doortay ma aha mid sax ah."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Lama diiwaangelin"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Ruuwter: [wax ka beddel: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Ruuwter: [cusub]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Maaraynta Qalabka Ruuwterka"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Akoon"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Ficillada"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Nuqulkii Kaydka ee Ugu Dambeeyay"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Nooca qalabka ee qalabka"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Nooca Xidhiidhka"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Nooca isku xirka qalabkan"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Qaabeynta"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Tirada qaabeynta ee Qalabkan"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Cinwaanka IP ee qalabkan"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Server-ka TFTP ee qalabkiiba, ama Caadi marka uu isticmaalo dejinta Server-ka TFTP ee guud"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Kaydinta Xigta"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Taariikhda Kaydka"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Isku-dayga Xiga"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Isku-daygii Ugu Dambeeyay"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Taariikhda Beddelka"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Maanta"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Shalay"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Toddobaadkan"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Bishan"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Sannad Gudihiis"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Muddo Aad u Fog Kahor"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Maya"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Haa"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Ku xidh SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Ku xidh Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Raadinta Waddada"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Macluumaadka Cilad-saarka Ruuwterka"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Nuqullada kaydka ah (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Hadda"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Aaladaha Router-ka Lama Helin"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Marka aad gujiso 'Sii wad', qalabka/aaladaha soo socda waa la tirtiri doonaa."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Tilmaamaha Gelitaanka Kadib waxay ka kooban yihiin tilmaan aan ahayn weedh caadi ah oo ansax ah: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Weydiin [wax ka beddel: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Weydiin [cusub]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Eeg Noocyada Qalabka Router-ka"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Nooca"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Codsiga Isticmaalaha"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Dalabka Erayga Sirta ah"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Nooca"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Digniinta Xaqiijinta"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Hubi Dhammaadka Qaabeynta"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Noocyada Qalab Router-ka Lama Helin"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Habaynnada Ruuwterka"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Waxaa la fulinayaa '%s' iyadoo la adeegsanayo halbeegyada '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Adeegyada"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Aaladaha Ruuwterka"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(wax ka beddel)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(hawlaha)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Eeg Khalad-saarista"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Akoonnada Ruuwterka"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Isbarbardhigga Ruuwterka"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Ruuwterrada"
+

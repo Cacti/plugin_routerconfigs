@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Igbo\n"
+"Language: ig-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Hichapụ"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Nchekwa ndabere"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Dezie (gbanwee ntọala n'ọtụtụ)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Gbanye"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Gbanyụọ"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Kpochapụ Igodo Onye Nnabata SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Keta"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Kwa Ụbọchị"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Kwa Izu"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Kwa Ọnwa"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Ọnwa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Ọnwa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Afọ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "Afọ %d"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Ọ dịtụbeghị"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "awa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "awa %d"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 nke abalị)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 nke abalị)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 nke ụtụtụ)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 nke ehihie)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 nke ehihie)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 nke ehihie)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 nke ehihie)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 nke ehihie)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 nke ehihie)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 nke mgbede)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 nke mgbede)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 nke abalị)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 nke abalị)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 nke abalị)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 nke abalị)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "ahịrị %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "ahịrị %d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Aha"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Nye akaụntụ a aha nwere nghọta a ga-egosipụta."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Aha njirimara"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Aha njirimara a ga-eji maka nkwenye njirimara."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Okwuntụghe"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Okwuntụghe e ji eme nkwenye njirimara."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Gbanye Okwuntụghe"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Okwuntụghe Enable gị, ma ọ bụrụ na achọrọ ya."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Gbanye Ngwaọrụ"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Wepụ akara n'igbe a iji gbanyụọ ngwaọrụ a ka a ghara idowe nkwado ya."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Nkọwa"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Aha ngwaọrụ a (a ga-eji ya chekwaa nhazi na SVN ma ọ bụrụ na enweghị aha onye nnabata na nhazi)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Adreesị IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Nke a bụ Adreesị IP eji ezirịta ozi na ngwaọrụ ahụ."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Sava TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Sava TFTP nhọrọ ebe ngwaọrụ a na-edepụtagasị nhazi ya. Hapụ ya n'efu iji ntọala Sava TFTP zuru ụwa ọnụ."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Igodo Onye nnabata SSH Echekwara"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Tụnyere algọridim igodo onye nnabata a na akara mkpịsị aka hex SHA-1 na ngwaọrụ ahụ site na ọwa a tụkwasịrị obi. Na sava ahụ, dochie ụzọ dị n'okpuru na faịlụ igodo onye nnabata ọha dabara adaba ma gbaa: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Jiri omume ngwaọrụ kpochapụ ya mgbe emechara mgbanwe igodo ziri ezi."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Ndekọ faịlụ"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Nke a bụ usoro ndekọ nwere mmekọrịta e ji echekwa nhazi."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Ụdị Nhazi Oge"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Ugboro ole a ga-echekwa nkwado (Backup) nke Ngwaọrụ a. Kwa ụbọchị nwere Megharịa Kwa 10 na-eme nkwado kwa ụbọchị 10; Kwa ọnwa na-eme nkwado ezigbo ọnwa kalenda."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Megharịa Kwa"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Maka nhazi oge Kwa Ụbọchị, mee nkwado ndabere ọzọ kwa ụbọchị X. Maka nhazi oge Kwa Izu na-enweghị Ụbọchị Izu akọwapụtara, mee ya ọzọ kwa izu X; ozugbo ahọpụtara Ụbọchị Izu, nkwado ndabere ga na-agba n'ụbọchị ndị ahụ kwa izu na ubi a agaghị emetụta."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Ụbọchị nke Izu"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Maka nhazi oge Kwa Izu, ụbọchị nke izu a ga-eme nkwado ndabere, kwa izu. Hapụ ya n'efu ka ọ gbaa kwa izu Mee Ọzọ Kwa kama."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Ọnwa nke Afọ"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Maka nhazi oge Kwa Ọnwa, ọnwa nke afọ a ga-eme nkwado ndabere."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Ụbọchị nke Ọnwa"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Maka nhazi oge Kwa Ọnwa, ụbọchị nke ọnwa a ga-eme nkwado ndabere (Ikpeazụ = ụbọchị ikpeazụ nke ọnwa)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Izu nke Ọnwa"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Maka nhazi oge Kwa Ọnwa n'Ụbọchị, izu nke ọnwa a ga-eme nkwado ndabere."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Ụbọchị nke Izu (Kwa Ọnwa)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Maka nhazi oge Kwa Ọnwa n'Ụbọchị, ụbọchị izu a ga-ejikọta na nhọrọ Izu nke Ọnwa."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Ụdị Ngwaọrụ"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Họrọ ụdị ngwaọrụ nke rauta ahụ bụ."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Chọpụta Na-akpaghị Aka"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Ụdị Njikọ"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Nke a bụ ụdị njikọ e ji akparịta ụka na Ngwaọrụ ahụ."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Akaụntụ Nkwenye"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Họrọ akaụntụ ị ga-eji banye na rụta"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Ọ Dịghị Nke Ọ Bụla"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Oge njedebe nke ndabara"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Oge nchere nke ndabara na sekọnd maka nzaghachi"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Oge izu ike nke ndabara"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Oge izu ike nke ndabara na maịkrọsekọnd (1/1,000,000 nke otu sekọnd)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Were ya na ebuliri elu"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Kaa akara n'igbe a iji were na ngwaọrụ a nọ n'ọkwa dị elu mgbe niile"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Aha ụdị ngwaọrụ a."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Nkwupụta Aha Njirimara"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Nke a bụ mkpali aha njirimara a ga-ekwekọ na nbanye."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Arịrịọ Okwuntụghe"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Nke a bụ mkpali okwuntụghe a ga-ekwekọ na nbanye."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Faịlụ nhazi"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Nke a bụ ebe nkịtị faịlụ nhazi dị na ngwaọrụ dị anya. A na-eji ya maka usoro SCP na SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Depụtaghachi TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Nke a bụ ederede CLI eji ezipụ ndabere na sava tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Iwu Njide"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Iwu nhọrọ nke a na-echekwa nsonaazụ ya dịka nhazi, kama idetụ ya na sava TFTP. Ọ na-agba mgbe niile site na SSH, n'agbanyeghị Ụdị Njikọ, ngwaọrụ ahụ adịghịkwa mkpa sava TFTP. Hapụ ya n'efu maka ngwaọrụ ndị na-edepụta nhazi ha na TFTP. Ọmụmaatụ maka MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Gosi Ụdị"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Nke a bụ ederede CLI eji egosipụta ụdị dị ugbu a."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Ajụjụ Nkwenye"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Nke a bụ mkpali nkwenye a ga-adaba tupu ezipu ya."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Kwenye"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Enwere arịrịọ nkwenye maka iṅomi nhazi ahụ?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Manye Nkwenye"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Enwere arịrịọ nkwenye mmanye maka iṅomi nhazi ahụ?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Lelee Ọgwụgwụ na Nhazi"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Lelee ọgwụgwụ na nhazi?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Mkpalite Igodo Ọ Bụla"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Ederede ga-adakọrọ na ntuziaka ụdị 'Pịa Igodo Ọ Bụla Iji Gaa n'ihu'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Ntụziaka Mgbe E Binyere N'ime"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Abụọ ajụjụ/nzaghachi nhọrọ e zigara ozugbo nbanye gasịrị, tupu iwu nṅomi-na-TFTP, otu n'ahịrị dịka prompt|response. A na-ejikọta ajụjụ ahụ dịka okwu mgbe niile na-adịghị echebara mkpụrụedemede ukwu ma ọ bụ obere echiche megide mmepụta ngwaọrụ (ya mere ọ nweghị ike inwe | n'onwe ya, a ga-agbanahụkwa nkwado na mkpụrụedemede pụrụ iche ndị ọzọ, dịka Save \\[y/n\\]), a na-ezigakwa nzaghachi ahụ dịka e si pịnye ya, ma ọ bụ jiri <CR> iji zipu naanị nlaghachi ụgbọ. A na-eziga nzaghachi naanị otu ugboro mgbe a hụchara ajụjụ ya, ma na nzaghachi nke nzaghachi gara aga ma ọ bụ na mmepụta emechara; ma ọ bụghị ya, a na-edekọ ịdọ aka ná ntị ma ọ dịghị ihe a na-eziga. A na-aza ndị a na mbụ; a na-aza ajụjụ Any Key dị n'elu emechaa, mgbe a na-agbanye ngwaọrụ ahụ, ya mere ajụjụ a zara ebe a anaghị erute Any Key. Ọmụmaatụ: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Ntọala Izugbe"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Ọnọdụ Ngosi"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Ekwesịrị igosi Nhazi Router na Console ma ọ bụ na Taabụ Elu."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Kọnsọlụ"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Taabụ Elu"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Ahịrị Okwu Nchọpụta Ihe Dị Iche na Nhazi"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Ọnụọgụgụ ndabara nke ahịrị ndị a na-agbanweghị iji gosipụta tupu na mgbe mgbanwe ọ bụla gasịrị mgbe a na-atụnyere nkwado ndabere abụọ. Uru ka ukwuu na-eme ka ọ dị mfe ịhụ gburugburu nhazi dị nso. Enwere ike ịgbanwe nke a maka ntụnyere ọ bụla na peeji Tụnyere."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Oge njikọ agwụla"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Oge kacha elu a ga-echere na sekọnd mgbe a na-eguzobe njikọ netwọk mbụ na ngwaọrụ. A na-ahapụ ngwaọrụ kwụsịrị ma ọ bụ nke a na-apụghị iru mgbe oge a gwụchara ka ọrụ ndabere e haziri hazi wee gaa n'ihu na ngwaọrụ ndị fọdụrụ."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Mechie n'apụghị"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Ọ bụrụ na a kaa ya akara, mgbe a na-emechi njikọ ngwaọrụ, a naghị enye iwu 'exit'"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Nchekwa Nwa Oge Njikọ Nchọpụta Mperi"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Ma a ga-edekọ mmepụta ozugbo nke njikọ ngwaọrụ"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Were ya na ebuliri ngwaọrụ niile elu"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Ma a ga-eche na ngwaọrụ niile nwere ikike dị elu"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Elekere Nbudata"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Elekere nke ụbọchị iji mee nbudata zuru ezu."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Nhazi Oge Ịnwa Ọzọ"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Oge a ga-echere tupu ịgbalị imezu nbudata ọzọ mgbe nbudata e haziri dara"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Oge Nchekwa"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Ọnụọgụgụ ụbọchị iji debe nkwado ndabere ochie."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Debe Nchekwa Azụ Ngwaọrụ Na-adịghị Arụ Ọrụ"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Mgbe a tụrụ akara, nhicha njide agaghị ehichapụ ndabere ochie nke ngwaọrụ gbanyụrụ ma ọ bụ ngwaọrụ e wepụrụ, ya mere a na-edobe nhazi maka akụrụngwa a kwụsịrị ọrụ ma ọ bụ nke a na-apụghị iru."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Nhọrọ Mbufe"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Ụdị njikọ nke ndabara"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Ụdị njikọ nke ndabara eji ekwurịta okwu na ngwaọrụ."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Kewaa Site na Ngwaọrụ"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Kewaa Nhazi echekwara n'ime folda maka ngwaọrụ ọ bụla"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Ndekọ dị n'ime nwere ụbọchị"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Tinye obere folda dabere na ụbọchị n'ime ụzọ ebe nchekwa (tupu folda nke ngwaọrụ ọ bụla), ka e wee chekwaa ọsọ ọ bụla n'okpuru ụbọchị nkwado ya, dịka .../2020-11-04/hostname/.... Gbanyụrụ na-echekwa nhazi dị ugbu a."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Ụzọ SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Mgbe ị na-eji SCP, ịhapụ nke a oghere ga-eji modul SCP nke PHP nke na-anaghị arụ ọrụ mgbe niile. A gbanyụrụ SCP dị na mpụga mgbe a gbanyere nkwenye igodo onye nnabata SSH n'ihi na ọ nweghị ike iji njikọ enwetara nkwenye ọzọ."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Nyochaa Igodo Onye nnabata SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Dekọọ igodo onye nnabata SSH nke ngwaọrụ ọ bụla na njikọ mbụ ma jụ izipu nzere ma ọ bụrụ na ọ gbanwee ma emechaa. Ọnọdụ SSH/Telnet agaghị alaghachi na Telnet mgbe agbanyere nkwenye. Mgbe mgbanwe igodo ziri ezi gasịrị, jiri omume ngwaọrụ kpochapụ igodo onye nnabata echekwara."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP Sava TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Ọ ga-abụrịrị IP na-arụtụ aka na sava Cacti gị."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Ụzọ Nduzi Nchekwa Ndabere TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Ụzọ ebe a ga-akwado Configs gị, ọ ga-abụrịrị ụzọ nke Sava TFTP dị n'ime na-ede na ya."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Ụzọ Nchekwa Akwụkwọ Ochie"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Ụzọ ebe a ga-edobe Configs gị n'ebe nchekwa ochie (ebugharịrị site na ndekọ TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Nhọrọ Ozi-e"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Adreesị Onye Nzipu"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Adreesị ozi-e a ga-esi zite nchekwa azụ nke abalị."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Site na Aha"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Aha a ga-esi zite nchekwa abalị."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Adreesị Ozi-e"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Ndepụta adreesị Ozi-e nke rịkọm kewara iji ziga Ozi-e nkwado abalị."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Tinye Ọdịiche Nhazi"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Tinye diff dị n'otu nke ngwaọrụ ọ bụla nhazi ya gbanwere n'oge ọrụ ahụ na Ozi-e nchekwa, ka onye nyocha nwee ike ịhụ kpọmkwem ihe gbanwere. A na-awụfe nhazi binary (ndị na-abụghị ederede). A na-eleghara ahịrị na-agbanwe agbanwe na nchekwa ọ bụla anya mgbe nile (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' na 'Current configuration :', na NX-OS '!Time:' na '!Running configuration last done at:'). Ịdọ aka ná ntị: a na-eziga diff ahụ n'ederede doro anya nye onye ọ bụla natara Ozi-e ahụ, ya mere o nwere ike ikpughe nhazi kwesịrị ịdị na nzuzo; hapụ Tinye Ihe Nzuzo na Diffs ka ọ bụrụ nke a na-akaghị akara."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Tinye Ihe Nzuzo n'ime Ọdịiche"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Ziga ọnụọgụ nzuzo dị na diff e zigara n'ozi-e ka ha dị. Mgbe ewepụrụ akara (nke ndabara), a na-achọta ahịrị ndị gbanwere na nhazi izizi ma bipụta ha n'ụzọ e zoro ezo, na-emechi ma ọ daa: ahịrị ndị nwere okwu dị ka nzuzo (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) na ahịrị onye nnabata na onye ọrụ SNMP ka a na-ebelata ruo okwu mbụ ha nke &lt;secret hidden&gt; na-eso, na ahịrị ọ bụla nke ngọngọ PEM, asambodo ma ọ bụ ngọngọ eriri igodo, ma ọ bụ ọnụọgụ e kwuru n'ọtụtụ ahịrị, na ahịrị hex ma ọ bụ base64 ọ bụla, na-ezobe; ngọngọ na-adịghị agwụ agwụ na-ezobe akụkụ fọdụrụ nke nhazi ahụ. Nke a na-ezobekwa ahịrị ndị na-adịghị emerụ ahụ (dịka nkọwa na-akpọ igodo), mana ahịrị ọ bụla gbanwere ka na-egosi, nwee akara (changed) mgbe naanị akụkụ zoro ezo ya dị iche, ma e debe ngọngọ na-adịghị agwụ agwụ n'ime Ozi-e ahụ. A naghị agbanwe nchekwa ndabere echekwara."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Ụkpụrụ Ewepụrụ na Diff"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Okwu mgbe niile nhọrọ (otu n'ahịrị) na-adakọrịta na ahịrị nhazi a ga-eleghara anya mgbe a na-atụnyere, ka ahịrị na-agbanwe agbanwe dịka akara oge ma ọ bụ nọmba nsonazụ ghara ịpụta dịka mgbanwe. A na-ejikọta ụkpụrụ ọ bụla n'enweghị nchebara mkpụrụedemede ukwu ma ọ bụ obere ebe ọ bụla n'ahịrị ọ gwụla ma ejiri ^ ma ọ bụ $ kwụsie ya; a na-eleghara ụkpụrụ na-abụghị okwu mgbe niile ziri ezi anya."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Ndepụta Ọkwa Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Mgbe a wụnyere Thold, zipụkwa Ozi-e ndabere nye ndị nnata nke Ndepụta Ọkwa Thold ahọpụtara."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Tinye na Nchekwa Ndabere RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Pịa 'Gaa n'ihu' iji tinye Ngwaọrụ ndị na-esonụ na RouterConfigs maka nchekwa nkwado. A ga-amafe ngwaọrụ ọ bụla dịbu na RouterConfigs."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Ngwaọrụ"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Ụdị Ngwaọrụ Gasị"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Nkwenye Njirimara"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Nchekwa ndabere Gasị"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Tụnyere"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Nkwado Nka na Ụzụ [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(mkpụrụedemede %s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Etọbeghị)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ỌKWA: Na-amalite nchekwa aka nke ngwaọrụ %s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ỌKWA: Na-amalite nwagharị akpaaka"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ỌKWA: Na-amalite nchekwa akpaaka"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "NJỌ UKWU: Etinyeghị Ụzọ Nchekwa TFTP ma ọ bụ na ọ bụghị ndekọ faịlụ"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Na-anwa ibudata maka %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "E chekwara ndabere ngwaọrụ %s nke ọma."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Nchekwa ndabere maka ngwaọrụ %s kụrụ afọ n'ala."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "A gbanyụrụ nchekwa ndabere maka ngwaọrụ %s."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Achọpụtaghị mgbanwe nhazi ọ bụla."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Nkwado Nchekwa Nhazi"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Nkwado Nchekwa Nhazi"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Amanyere n'ike"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Nke aka"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Eṅomiri"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Ahaziri"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Nwaa ọzọ"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Akụkụ"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": DARA"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "ỌNỤỌGỤGỤ: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "NJỌ: Ahazighị Ụzọ Nchekwa azụ ma ọ bụ na ọ bụghị ndekọ"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "ỊDỌ AKA NÁ NTỊ: Oge njide '%s' ezighi ezi, na-alaghachi na ụbọchị 30"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "ỌNỤỌGỤGỤ: Nkwado ndabere na-agba ugbu a kemgbe %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "ỊDỌ AKA NÁ NTỊ: Nkwado ndabere na-agba ọsọ ugbua kemgbe %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Ahụghị ID Ngwaọrụ Cacti %s; etinyeghị ya na RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Ngwaọrụ '%s' adịlarị na RouterConfigs; a gafere ya."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Etinyere Ngwaọrụ '%s' na RouterConfigs (gbanyụrụ ruo mgbe etinyere akaụntụ na ụdị ngwaọrụ)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Emezighị itinye Ngwaọrụ '%s' na RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Ngọngọ nkpuchi n'ahịrị %d nke ndabere gara aga emechighị; ezochiri ahịrị ndị na-esote."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Ngọngọ nkpuchi n'ahịrị %d nke ndabere ọhụrụ emechighị; ezochiri ahịrị ndị na-esote."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "NJỌ: Aha onye nnabata nke Ngwaọrụ '%s' adabaghị dịka aha faịlụ nchekwa azụ; dezie Ngwaọrụ ahụ ma jiri naanị mkpụrụedemede aha onye nnabata ma ọ bụ adreesị IP"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "NJỌ: Enweghị sava TFTP e setịpụrụ maka Ngwaọrụ '%s'; setịpụ Sava TFTP na ngwaọrụ ahụ ma ọ bụ na ntọala zuru ụwa ọnụ"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "NJỌ: Nkwenye igodo onye nnabata SSH dara maka Ngwaọrụ '%s'; ọ na-ajụ izipu nzere ma ọ bụ ilaghachi na Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "NJỌ: Njikọ SSH dara maka Ngwaọrụ '%s'; agbanyụrụ nlaghachi Telnet mgbe agbanyere nkwenye igodo onye nnabata SSH"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "NJỌ: Ọ dara ijikọ na Ngwaọrụ '%s' site n'iji ụdị njikọ: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "NJỌ: Ọ dara ibudata '%s' gaa '%s' site na '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Gbanyere"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s ahọpụtara adịghị irè; ọ nweghị ngwaọrụ agbanwere."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Nkwado ụzọ faịlụ dara"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Faịlụ '%s' emezighị ibudata"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Achọtaghị faịlụ '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Nhazi Rauta maka %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Nchekwa ndabere site na %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Faịlụ: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Nke Aka"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Kwa Ọnwa n'Ụbọchị"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Sọnde"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Mọnde"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Tiuzdee"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Wenezdee"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Tọọzdee"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Fraịdee"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Satọdee"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Jenụwarị"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Febrụwarị"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Maachị"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Epreel"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Mee"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Juun"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Julaị"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Ọgọst"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Septemba"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Ọktoba"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Novemba"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Disemba"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Ikpeazụ"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Mbụ"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Nke Abụọ"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Nke Atọ"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Nke anọ"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Gbanyụrụ (enweghị ndekọ nta nwere ụbọchị)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (nke etinyere n'ime ibe ya)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s ahọpụtara adịghị irè."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Maka nhazi oge Kwa Ọnwa, ị ga-ahọrọ opekata mpe otu Ọnwa na otu Ụbọchị nke Ọnwa."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Maka nhazi oge Kwa Ọnwa n'Ụbọchị, ị ga-ahọrọ Ọnwa, Izu nke Ọnwa, na Ụbọchị nke Izu."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Ọnwa na Ụbọchị nke Ọnwa ahọpụtara anaghị eme otu mgbe; họrọ ụbọchị ọzọ, maọbụ Ikpeazụ maka ụbọchị ikpeazụ nke ọnwa."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Pịa 'Gaa n'ihu' iji hichapụ akaụntụ ndị na-esonụ."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Kagbuo"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Gaa n'ihu"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Hichapụ Ngwaọrụ"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Ị ga-ahọrọ opekata mpe otu ngwaọrụ."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Laghachi"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Akaụntụ: [dezie: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Akaụntụ: [ọhụrụ]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Akaụntụ Gasị"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Njikwa Akaụntụ"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Ahụghị Akaụntụ Router Ọ bụla"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Nkwado Rauta Gasị"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Ọ Bụla"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Chọọ"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Nke Ndabere"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Gaa"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Tọọ/Megharịa Ihe nzacha"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Kpochapụ"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Kpochapụ Ihe nzacha"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Aha Host"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Ma ọ bụ adreesị IP, ma ọ bụ aha host.  Ọ bụrụ na ọ bụ aha host, ọ ga-abụrịrị nke DNS ma ọ bụ faịlụ hosts gị nwere ike ịchọpụta."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "Njirimara"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "ID nchekwa data dị n'ime maka Ngwaọrụ a.  Ọ bara uru mgbe a na-eme ọrụ akpaaka ma ọ bụ nchọpụta mmejọ."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Ọrụ Gasị"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Mee ọrụ dị iche iche megide nkwado ndabere a"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Ndekọ nke nkwado ndabere ngwaọrụ e chekwara"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Oge Nchekwa ndabere"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Oge nkwado ndabere ikpeazụ nke Ngwaọrụ ahụ"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Mgbanwe Ikpeazụ"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Oge mgbanwe ikpeazụ nke Ngwaọrụ ahụ"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Onye Gbanwere"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Onye ikpeazụ gbanwere nhazi nke Ngwaọrụ ahụ"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Aha faịlụ"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Aha faịlụ nke nkwado ndabere Ngwaọrụ echekwara"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Lee Nhazi"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Ahụghị Ndabere Router Ọ bụla"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Ntụnyere Nkwado Rauta"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Ọnọdụ Diff"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "N'ime Ihuakwụkwọ"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "N'akụkụ n'akụkụ"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Ahịrị Okwu Gburugburu"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Tụnyere Mpụta"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Ahụghị nchekwa ndabere %s"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Enweghị Mgbanwe ọ bụla"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Njehie, ị ga-enwerịrị nkwado ndabere maka ngwaọrụ ọ bụla."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Nchọpụta mperi maka %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Enweghị Mgbanwe"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Ọ dịghị ngwaọrụ agbanwere: usoro oge ọhụrụ enweghị ike ịgba na ID ngwaọrụ %s, n'ihi na Ọnwa, Ụbọchị nke Ọnwa, Izu nke Ọnwa ma ọ bụ Ụbọchị nke Izu ha na-efu ma ọ bụ anaghị eme. Hazie usoro oge na ngwaọrụ ndị ahụ n'otu n'otu."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Emelitere ntọala na ngwaọrụ %d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Ọ dịghị ntọala agbanwere; ahapụrụ ngalaba niile na \"Enweghị Mgbanwe\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Na-eme nkwado ndabere aka site na iji '%s' na arụmụka '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Nkwado Rauta amalitela.  Lelee kọlụm Ụbọchị Nkwado ma ọ bụ Ndekọ Cacti maka ọnọdụ mmezu na oge"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Hichapụ ngwaọrụ ndị na-esonụ."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Gbanye ngwaọrụ ndị na-esonụ."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Mee ka Ngwaọrụ Rụọ Ọrụ"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Gbanyụọ ngwaọrụ ndị na-esonụ."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Gbanyụọ Ngwaọrụ"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Pịa 'Gaa n'ihu' iji hichapụ igodo onye nnabata SSH e chekwara maka ngwaọrụ ndị na-esonụ. Njikọ SSH ọzọ ga-atụkwasị obi ma dekọọ igodo ọ natara."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Kpochapụ Igodo Onye Nnabata SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Tọọ otu ma ọ bụ karịa n'ime ntọala ndị a na ngwaọrụ ndị ahọpụtara. A naghị agbanwe mpaghara ndị ahapụrụ na 'Enweghị Mgbanwe'."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Gbanyụrụ"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Tinye ntọala na Ngwaọrụ"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Ị ga-ahọrọ opekata mpe otu Ngwaọrụ Router."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Aha onye nnabata adịghị mma. Jiri naanị mkpụrụedemede, ọnụọgụgụ, oghere na akara . - _ : ma ejikwala ihe nkewa ụzọ ma ọ bụ \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Ụdị Nhazi Oge maọbụ Gbaa Ọzọ Kwa Oge ahọpụtara adịghị irè."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Edeghị ya"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Rauta: [dezie: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Rauta: [ọhụrụ]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Njikwa Ngwaọrụ Rauta"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Akaụntụ"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Omume"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Nchekwa Azụ Ikpeazụ"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Ụdị ngwaọrụ nke ngwaọrụ ahụ"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Ụdị Njikọ"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Ụdị njikọ maka ngwaọrụ a"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Nhazi Gasị"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Ọnụọgụgụ nhazi maka Ngwaọrụ a"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Adreesị IP nke ngwaọrụ a"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Sava TFTP maka ngwaọrụ ọ bụla, maọbụ Nke izugbe mgbe ọ na-eji ntọala Sava TFTP zuru ụwa ọnụ"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Nchekwa Na-esote"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Ụbọchị Nkwado"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Nnwale Na-esote"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Mgbalị Ikpeazụ"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Ụbọchị Mgbanwe"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Taa"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Ụnyaahụ"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Izu Nke A"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Ọnwa Nke A"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "N'ime Otu Afọ"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Ogologo Oge Gara Aga"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Mba"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Ee"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Jikọọ site na SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Jikọọ site na Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Chọpụta Ụzọ"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Ozi Nchọpụta Mperi Rauta"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Nchekwa ndabere (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Ugbu a"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Ahụghị Ngwaọrụ Router Ọ bụla"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Mgbe ị pịrị 'Gaa n'ihu', a ga-ehichapụ ngwaọrụ ndị na-esonụ."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Ntụziaka Mgbe E Binyere N'ime nwere ntụziaka nke na-abụghị okwu mgbe niile ziri ezi: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Ajụjụ [dezie: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Ajụjụ [ọhụrụ]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Lee Ụdị Ngwaọrụ Rauta"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Ụdị"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Nkwupụta Onye Ọrụ"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Arịrịọ Okwuntụghe"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Ụdị"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Ajụjụ Nkwenye"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Lelee Ọgwụgwụ Na Nhazi"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Ahụghị Ụdị Ngwaọrụ Router Ọ bụla"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Nhazi Rauta Gasị"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Na-eme '%s' na arụmụka '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Ngwa Ọrụ"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Ngwaọrụ Rauta"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(dezie)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(omume)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Lee Nchọpụta Njehie"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Akaụntụ Rauta"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Tụnyere Rauta"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Rauta Gasị"
+

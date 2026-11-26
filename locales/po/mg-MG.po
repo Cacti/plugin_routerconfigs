@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Malagasy\n"
+"Language: mg-MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Tahiry fiarovana"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Ovao (ovaina indray mandeha ny fandrindrana)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Alefa"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Ajanony"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Esory ny fanalahidin'ny Mpampiantrano SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Mandova"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Isan'andro"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Isan-kerinandro"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Isam-bolana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Volana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Volana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d taona"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d Taona"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Tsy mihitsy"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d ora"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d ora"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 alina)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 maraina)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 maraina)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 maraina)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 maraina)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 maraina)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 maraina)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 maraina)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 maraina)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 maraina)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 alina)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 maraina)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 atoandro)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 tolakandro)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 tolakandro)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 tolakandro)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 tolakandro)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 tolakandro)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 hariva)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 hariva)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 alina)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 alina)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 alina)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 alina)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d andalana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d andalana"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Anarana"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Omeo anarana mazava ity kaonty ity izay haseho."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Anaran'ny mpampiasa"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Ny anaran'ny mpampiasa hampiasaina amin'ny fanamarinana."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Tenimiafina"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Ny tenimiafina ampiasaina amin'ny fanamarinana."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Tenimiafina Enable"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Ny Tenimiafina Enable anao, raha ilaina."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Alefaso ny fitaovana"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Esory ny marika amin'ity boaty ity mba tsy ho voatahiry intsony ity Fitaovana ity."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Famaritana"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Anaran'ity Fitaovana ity (hampiasaina amin'ny fitahirizana ny fikirakirana sy SVN raha tsy misy anaran'ny mpampiantrano ao amin'ny fikirakirana)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Adiresy IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Ity ny Adiresy IP ampiasaina hifandraisana amin'ny fitaovana."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Mpizara TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Mpizara TFTP safidy handikana ny fikandrana avy amin'ity Fitaovana ity. Avelao ho banga raha hampiasa ny fandrindrana Mpizara TFTP ankapobeny."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Fanalahidin'ny Mpampiantrano SSH voatahiry"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Ampitahao amin'ny fitaovana amin'ny alalan'ny fantsona azo antoka ity algôritma fanalahidin'ny mpampiantrano sy dian-tanana hex SHA-1 ity. Ao amin'ny mpizara, soloy ny rakitra fanalahidy ho an'ny daholobe mifanaraka amin'ny mpampiantrano ny lalana etsy ambany ary alefaso: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Ampiasao ny hetsika amin'ny fitaovana hamafana azy aorian'ny fanovana fanalahidy ara-dalàna."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Lahatahiry"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Ity no rafitry ny lahatahiry mifandraika ampiasaina hitahirizana ny fikirakirana."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Karazana fandaharam-potoana"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Impiry no hanaovana tahiry ity Fitaovana ity. Ny isan'andro miaraka amin'ny Famerenana isaky ny 10 dia manao tahiry isaky ny 10 andro; ny isam-bolana dia manao tahiry tena izy araka ny volana amin'ny tetiandro."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Avereno isaky ny"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Ho an'ny fandaharam-potoana isan'andro, avereno alefa isaky ny X andro ny tahiry fiarovana. Ho an'ny fandaharam-potoana isan-kerinandro tsy misy andro voatondro ao anatin'ny herinandro, avereno alefa isaky ny X herinandro izany; raha vao voafantina ny andro ao anatin'ny herinandro dia mandeha amin'ireo andro ireo isan-kerinandro ny tahiry fiarovana ary tsy mihatra intsony ity saha ity."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Andron'ny herinandro"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Ho an'ny fandaharam-potoana Isan-kerinandro, ny andro ao anatin'ny herinandro handefasana ny tahiry fiarovana, isan-kerinandro. Avelao ho banga raha handefa isaky ny herinandro voafaritra ao amin'ny Avereno Isaky ny."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Volan'ny taona"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana, ny volana ao anatin'ny taona handefasana ny tahiry fiarovana."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Andron'ny volana"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana, ny andro ao anatin'ny volana handefasana ny tahiry fiarovana (Farany = andro farany amin'ny volana)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Herinandro ao amin'ny volana"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana amin'ny Andro voatondro, ny herinandro ao anatin'ny volana handefasana ny tahiry fiarovana."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Andro amin'ny herinandro (Isam-bolana)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana amin'ny Andro voatondro, ny andro ao anatin'ny herinandro hiaraka amin'ny safidin'ny Herinandro ao anatin'ny Volana."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Karazana fitaovana"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Safidio ny karazana Fitaovana misy ilay router."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Fitiliana ho azy"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Karazana fifandraisana"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Ity no karazana fifandraisana ampiasaina hifaneraserana amin'ilay fitaovana."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Kaonty fanamarinana"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Safidio ny kaonty hampiasaina hidirana ao amin'ny router"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Tsy misy"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Fe-potoana mahazatra"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Fotoana fiandrasana valiny mahazatra amin'ny segondra"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Fotoana fiatoana mahazatra"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Fotoana fiatoana mahazatra amin'ny mikrosegondra (1/1.000.000-n'ny segondra)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Heverina ho manana zo ambony"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Mariho ity boaty ity mba hiheverana fa manana fahefana avo hatrany ity fitaovana ity"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Anaran'ity karazana Fitaovana ity."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Fangatahana anaran'ny mpampiasa"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Ity no fangatahana anaran'ny mpampiasa ampitoviana amin'ny fidirana."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Fangatahana tenimiafina"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Ity no fangatahana tenimiafina ampitoviana amin'ny fidirana."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Rakitra fandrindrana"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Ity no toerana mahazatra misy ny rakitra fikirakirana ao amin'ilay fitaovana lavitra. Ampiasaina amin'ny fomba SCP sy SFTP izany"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Adikao TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Ity ny lahatsoratra CLI ampiasaina handefasana ny tahiry fiarovana any amin'ny mpizara tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Baiko fisamborana"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Baiko safidy izay tahirizina ho fikandrana ny vokany, fa tsy adika amin'ny mpizara TFTP. Mandeha amin'ny SSH foana izy io, na inona na inona karazana fifandraisana, ary tsy mila mpizara TFTP ny Fitaovana avy eo. Avelao ho banga ho an'ny Fitaovana mandika ny fikandrany amin'ny TFTP. Ohatra ho an'ny MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Asehoy ny dikan-teny"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Ity ny lahatsoratra CLI ampiasaina hampisehoana ny kinova ankehitriny."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Fanontaniana fanamafisana"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Ity ny hafatra fanamafisana tsy maintsy ampifanarahina alohan'ny fandefasana."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Hamafiso"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Misy fangatahana fanamafisana ve alohan'ny handikana ny fikandrana?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Terena ny fanamafisana"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Misy fangatahana fanamafisana an-tery ve alohan'ny handikana ny fikandrana?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Hamarino ny End ao amin'ny fikirakirana"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Hamarino ny end ao amin'ny fikirakirana?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Fanontaniana Tsindrio izay kitendry"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Lahatsoratra hifanaraka amin'ny fampandrenesana miendrika 'Tsindrio ny bokotra iray mba hanohizana'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Hafatra fangatahana aorian'ny fidirana"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Mpivady fanontaniana/valiny safidy alefa avy hatrany aorian'ny fidirana, alohan'ny baiko copy-to-TFTP, iray isaky ny andalana amin'ny endrika prompt|response. Ny fanontaniana dia ampifanandrifina ho toy ny fanehoana ara-dalàna tsy manavaka sora-baventy na kely amin'ny vokatra avy amin'ny Fitaovana (ka tsy afaka ahitana | ny tenany, ary tsy maintsy asiana famantarana fandosirana ny fononteny sy ny marika manokana hafa, oh. Save \\[y/n\\]), ary ny valiny dia alefa araka izay nosoratana, na ampiasao ny <CR> handefasana fiverenana andalana fotsiny. Alefa ihany ny valiny rehefa hita ny fanontaniana mifanaraka aminy, na ao amin'ny valin'ny valiny teo aloha na ao amin'ny vokatra manaraka; raha tsy izany dia misy fampitandremana voarakitra ary tsy misy na inona na inona alefa. Ireo no valiana voalohany; ny fanontaniana Any Key etsy ambony dia valiana any aoriana, mandritra ny fampavitrihana ny Fitaovana, koa ny fanontaniana voavaly eto dia tsy tonga any amin'ny Any Key mihitsy. Ohatra: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Fikirana ankapobeny"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Fomba fiseho"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Tokony aseho eo amin'ny Console sa eo amin'ny tabilao ambony ny kirakira Router."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Konsoly"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Kiheba ambony"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Andalana manodidina ny fahasamihafan'ny fandrindrana"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Ny isan'ny andalana tsy niova voafaritra mialoha haseho aloha sy aorian'ny fanovana tsirairay rehefa mampitaha tahiry roa. Ny sanda lehibe kokoa dia manamora ny fahitana ny tontolon'ny fikirakirana manodidina. Azo ovaina isaky ny fampitahana ao amin'ny pejy Fampitahana izany."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Lany ny fetr'andro fifandraisana"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Fotoana farany ambony hiandrasana amin'ny segondra rehefa mametraka ny fifandraisana tambajotra voalohany amin'ny fitaovana iray. Avela ny fitaovana mihantona na tsy azo idirana aorian'io fe-potoana io mba hitohizan'ny fitahirizana voalahatra miaraka amin'ireo fitaovana sisa."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Akatony tsy mivoaka"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Raha voamarika, rehefa manidy ny fifandraisana amin'ny Fitaovana, dia tsy misy baiko 'exit' alefa"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Buffer fifandraisana ho an'ny fitiliana hadisoana"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Na hosoratana anaty diary ny vokatra mivantana avy amin'ny fifandraisana amin'ny Fitaovana na tsia"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Heverina ho manana zo ambony avokoa ny fitaovana rehetra"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Na heverina fa manana fahefana avo ny Fitaovana rehetra na tsia"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Ora fampidinana"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Ny ora ao anatin'ny andro hanaovana ny fampidinana feno."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Fandaharam-potoana fanandramana indray"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Ny fotoana andrasana alohan'ny hanandramana fampidinana fanampiny rehefa tsy mahomby ny fampidinana voalahatra"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Fe-potoana fitahirizana"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Ny isan'ny andro hitahirizana ny tahiry vonjimaika taloha."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Tehirizo ny tahiry fiarovana ho an'ny Fitaovana tsy mavitrika"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Rehefa voamarika, ny fanadiovana fitahirizana dia tsy hamafa ny tahiry tranainy izay an'ny Fitaovana tsy mavitrika na an'ny Fitaovana nesorina, mba hitahirizana ny fandrindrana ho an'ny Fitaovana tsy ampiasaina intsony na tsy azo idirana."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Safidy famindrana"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Karazana fifandraisana mahazatra"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Karazana fifandraisana mahazatra ampiasaina hifandraisana amin'ny Fitaovana."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Saraho araka ny Fitaovana"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Saraho ho anaty lahatahiry iray isaky ny Fitaovana ireo fikirakirana voatahiry"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Zana-lahatahiry misy daty"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Ampidiro zana-lahatahiry mifototra amin'ny daty ao amin'ny lalan'ny tahiry (alohan'ny lahatahiry isaky ny fitaovana), mba hotehirizina eo ambanin'ny datin'ny tahiry ny fandehanana tsirairay, ohatra: .../2020-11-04/hostname/.... Raha tsy alefa dia mitazona ny firafitra efa misy."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Lalana SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Rehefa mampiasa SCP, raha avela ho banga ity dia hampiasa ny maody SCP an'ny PHP izay tsy mandeha foana. Tsy mavitrika ny SCP ivelany rehefa mavitrika ny fanamarinana ny lakilen'ny Mpampiantrano SSH satria tsy afaka mampiasa indray ny fifandraisana voamarina izy."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Hamarino ny fanalahidin'ny Mpampiantrano SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Raketo ny fanalahidy mpampiantrano SSH an'ny fitaovana tsirairay amin'ny fifandraisana voalohany ary manda ny handefa mombamomba ny fidirana raha miova izany aty aoriana. Ny fomba SSH/Telnet dia tsy hiverina amin'ny Telnet raha mbola mavitrika ny fanamarinana. Aorian'ny fiovan'ny fanalahidy ara-dalàna, ampiasao ny hetsika amin'ny fitaovana mba hamafana ny fanalahidy mpampiantrano voatahiry."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP an'ny mpizara TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Tsy maintsy adiresy IP manondro ny lohamilina Cacti-nao."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Lalan'ny lahatahiry fitahirizana TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Ny lalana hitehirizana ny tahiry fikirakirana anao, tsy maintsy ilay lalana anoratan'ny mpizara TFTP eo an-toerana izany."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Lalan'ny lahatahiry arsiva"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Ny lalana hanatobiana ny fikirakirana anao (afindra avy ao amin'ny lahatahiry TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Safidin'ny mailaka"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Adiresin'ny mpandefa"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Adiresy mailaka handefasana ny tahiry isan'alina avy aminy."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Anaran'ny mpandefa"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Anarana handefasana ny tahiry isan'alina."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Adiresy mailaka"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Lisitry ny adiresy Mailaka sarahin'ny faingo handefasana ny Mailaka fitahirizana isan'alina."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Ampidiro ny Fahasamihafan'ny Fandrindrana"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Ampio unified diff ho an'ny fitaovana tsirairay niova fanamboarana nandritra ny fandehanana ao amin'ny Mailaka tahiry, mba hahitan'ny mpandinika tsara izay niova. Tsy raharahaina ny fanamboarana binary (tsy lahatsoratra). Tsy raharahaina foana ireo andalana miovaova isaky ny manao tahiry (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' sy 'Current configuration :', ary NX-OS '!Time:' sy '!Running configuration last done at:'). Fampitandremana: alefa amin'ny lahatsoratra mazava any amin'ny mpandray rehetra ny Mailaka ny diff, ka mety hamoaka fanamboarana tokony hijanona ho tsiambaratelo; aza asiana marika ny Ampidiro ny Tsiambaratelo ao amin'ny Diffs."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Ampidiro ao anatin'ny Fahasamihafana ny Tsiambaratelo"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Alefaso araka izay tena izy ny sanda miafina ao amin'ny fahasamihafana alefa amin'ny mailaka. Rehefa tsy voamarika (ny mahazatra), ny andalana niova dia hita ao amin'ny fikirakirana manta ary atonta voafehy sy voasivana, mikatona raha misy hadisoana: ny andalana misy teny toy ny tsiambaratelo (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) sy ny andalan'ny mpampiantrano sy mpampiasa SNMP dia ahena ho amin'ny teny voalohany arahin'ny &lt;secret hidden&gt;, ary ny andalana tsirairay amin'ny vondrona PEM, ny mari-pankasitrahana na vondrona tady-fanalahidy, na sanda anaty teny notsongaina maro andalana, sy ny andalana hex na base64 rehetra, dia afenina; ny vondrona tsy mifarana dia manafina ny ambin'ny fikirakirana. Izany koa dia manafina andalana tsy mampidi-doza (ohatra: famaritana manonona fanalahidy), fa mbola miseho ihany ny andalana niova rehetra, voamarika hoe (changed) rehefa ny ampahany miafina ihany no samy hafa, ary voamarika ao amin'ny Mailaka ny vondrona tsy mifarana. Tsy ovaina na oviana ny kopia voatahiry."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Endrika avela amin'ny fampitahana (Diff)"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Fanehoana ara-dalàna safidy (iray isaky ny andalana) mifanandrify amin'ny andalana fikandrana tsy raharahaina rehefa mampitaha, mba tsy hiseho ho fiovana ireo andalana miovaova toy ny mari-potoana na laharan'ny andiany. Ny endrika tsirairay dia ampifanandrifina tsy manavaka sora-baventy na kely na aiza na aiza ao amin'ny andalana raha tsy voafetra amin'ny ^ na $; tsy raharahaina ny endrika izay tsy fanehoana ara-dalàna manan-kery."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Lisitry ny Fampandrenesana Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Rehefa tafapetraka ny Thold, alefaso any amin'ireo mpandray ao amin'ny Lisitra fampahafantarana Thold voafantina ihany koa ny Mailaka tahiry."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Manampy ao amin'ny tahiry RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Tsindrio ny 'Tohizo' mba hampiditra ireto Fitaovana manaraka ireto ao amin'ny RouterConfigs ho tahiry. Hodiavina izay fitaovana efa misy ao amin'ny RouterConfigs."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Fitaovana"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Karazana fitaovana"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Fanamarinana"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Tahiry fiarovana"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Ampitahao"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Fanohanana ara-teknika [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(tarehintsoratra %s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Tsy voafaritra)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "FAMPANDRENESANA: Manomboka ny fitahirizana amin'ny tanana ny fitaovana %s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "FAMPANDRENESANA: Manomboka ny fiverenana manandrana mandeha ho azy"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "FAMPANDRENESANA: Manomboka ny fitahirizana mandeha ho azy"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "MATOTRA: Tsy voafaritra na tsy lahatahiry ny lalan'ny tahiry TFTP"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Manandrana maka ny %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Fitaovana %s voatahiry soa aman-tsara."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Fitaovana %s tsy nahavita nitahiry tahiry."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Fitaovana %s tsy mavitrika amin'ny fitahirizana tahiry."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Tsy nisy fanovana fikirakirana hita."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Tahiry fandrindrana"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Tahiry fandrindrana"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Noterena"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Amin'ny tanana"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Natao tahaka"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Voalahatra"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Andrana fanindroany"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Ampahany"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": TSY NAHOMBY"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "ANTONTAN'ISA: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "HADISOANA: Tsy voafaritra na tsy lahatahiry ny lalan'ny tahiry"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "FAMPITANDREMANA: Tsy manan-kery ny fe-potoana fitahirizana '%s', averina ho 30 andro amin'ny alalan'ny mahazatra"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "ANTONTAN'ISA: Mandeha ny fitahirizana hatramin'ny %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "FAMPITANDREMANA: Efa mandeha ny fitahirizana kopia hatramin'ny %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Tsy hita ny ID Fitaovana Cacti %s; tsy nampidirina tao amin'ny RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Efa ao amin'ny RouterConfigs ny fitaovana '%s'; nodinganina."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Nampiana tao amin'ny RouterConfigs ny fitaovana '%s' (tsy mavitrika mandra-pametraka kaonty sy karazana fitaovana)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Tsy nahomby ny fanampiana ny Fitaovana '%s' tao amin'ny RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Ny sakana fanafenana eo amin'ny andalana %d amin'ny tahiry teo aloha dia tsy nikatona mihitsy; nafenina ireto andalana manaraka ireto."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Ny sakana fanafenana eo amin'ny andalana %d amin'ny tahiry vaovao dia tsy nikatona mihitsy; nafenina ireto andalana manaraka ireto."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "HADISOANA: Tsy manan-kery ho anaran-drakitra tahiry ny anaran'ny mpampiantrano an'ny Fitaovana '%s'; ovao ny Fitaovana ary litera na marika ho an'ny anaran'ny mpampiantrano na adiresy IP ihany no ampiasaina"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "HADISOANA: Tsy misy lohamilina TFTP voafaritra ho an'ny Fitaovana '%s'; mametraha Lohamilina TFTP eo amin'ny fitaovana na ao amin'ny fandrindrana ankapobeny"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "HADISOANA: Tsy nahomby ny fanamarinana ny fanalahidin'ny mpampiantrano SSH ho an'ny Fitaovana '%s'; mandà tsy handefa ny mombamomba na hihemotra ho amin'ny Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "HADISOANA: Tsy nahomby ny fifandraisana SSH ho an'ny Fitaovana '%s'; tsy mavitrika ny fihemorana ho amin'ny Telnet raha mbola mavitrika ny fanamarinana ny fanalahidin'ny mpampiantrano SSH"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "HADISOANA: Tsy nahomby ny fifandraisana amin'ny Fitaovana '%s' amin'ny fampiasana ny karazam-pifandraisana: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "HADISOANA: Tsy nahomby ny fampidinana '%s' ho any '%s' amin'ny alalan'ny '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Mavitrika"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Tsy manan-kery ny %s voafidy; tsy nisy fitaovana novaina."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Tsy nahomby ny fanamarinana ny lalan'ny rakitra"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Tsy nahomby ny fampidirana ny rakitra '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Tsy hita ny rakitra '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Fikirakirana rotera ho an'ny %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Tahiry fiarovana tamin'ny %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Rakitra: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Ataon-tanana"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Isam-bolana amin'ny andro"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Alahady"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Alatsinainy"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Talata"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Alarobia"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Alakamisy"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Zoma"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Asabotsy"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Janoary"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Febroary"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Martsa"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Aprily"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Mey"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Jona"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Jolay"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Aogositra"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Septambra"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktobra"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Novambra"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Desambra"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Farany"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Voalohany"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Faharoa"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Fahatelo"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Fahefatra"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Maty (tsy misy zana-lahatahiry misy daty)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (mifampiditra)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Tsy manan-kery ny %s voafidy."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana dia tsy maintsy misafidy Volana iray farafahakeliny sy Andro iray ao anatin'ny Volana ianao."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Ho an'ny fandaharam-potoana Isam-bolana amin'ny Andro voatondro dia tsy maintsy misafidy Volana, Herinandro ao anatin'ny Volana, ary Andro ao anatin'ny Herinandro ianao."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Tsy miaraka mitranga mihitsy ny Volana sy ny Andron'ny Volana voafidy; misafidiana andro hafa, na Farany ho an'ny andro farany amin'ny volana."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hamafa ireto kaonty manaraka ireto."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Tohizo"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Hamafa Fitaovana"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Tsy maintsy misafidy fitaovana iray farafahakeliny ianao."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Miverina"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Kaonty: [ovao: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Kaonty: [vaovao]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Kaonty"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Fitantanana kaonty"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Tsy misy kaonty router hita"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Tahirin'ny rotera"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Na inona na inona"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Fikarohana"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Voafaritra mialoha"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Alefa"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Hametraka/Hanavao sivana"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Fafao"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Esory ny sivana"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Anaran'ny mpampiantrano"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Na adiresy IP, na anaran'ny mpampiantrano. Raha anaran'ny mpampiantrano dia tsy maintsy azo vahana amin'ny alalan'ny DNS, na avy ao amin'ny rakitra hosts-nao izany."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Ny ID anatiny ao amin'ny tahirin-kevitra ho an'ity fitaovana ity. Ilaina rehefa manao fampandehanana ho azy na fitiliana lesoka."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Fiasa"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Hanao asa amin'ity tahiry fiarovana ity"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Ny lahatahirin'ny tahiry voatahirin'ny Fitaovana"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Fotoana fanaovana tahiry fiarovana"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Ny fotoana farany nanaovana tahiry vonjimaika ny fitaovana"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Fiovana farany"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Ny fotoana farany nanovana ny fitaovana"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Novain'i"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Ny olona farany nanova ny fikirakirana ny fitaovana"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Anaran-drakitra"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Ny anaran-drakitry ny tahiry vonjimaika an'ny fitaovana voatahiry"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Jereo ny fikirakirana"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Tsy misy tahiry fiarovana router hita"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Fampitahana ny tahirin'ny rotera"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Fomba fampitahana (Diff)"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Anaty pejy"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Mifanila"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Andalana manodidina"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Ampitahao ny valiny"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Tsy hita ny tahiry fiarovana %s"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Tsy misy Fiovana"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Hadisoana, tsy maintsy manana tahiry fiarovana ho an'ny fitaovana tsirairay ianao."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Fitiliana hadisoana ho an'ny %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Tsy misy fiovana"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Tsy nisy fitaovana novana: tsy afaka mandeha amin'ny famantarana fitaovana %s ny fandaharam-potoana vaovao, satria tsy ampy na tsy mitranga mihitsy ny Volana, Andron'ny volana, Herinandron'ny volana na Andron'ny herinandro. Amboary tsirairay amin'ireo fitaovana ireo ny fandaharam-potoana."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Voaavao ny fandrindrana amin'ny fitaovana %d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Tsy nisy fandrindrana novana; navela tamin'ny \"Tsy misy fanovana\" ny saha rehetra."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Manatanteraka tahiry tanana amin'ny alalan'ny '%s' miaraka amin'ny masontsivana '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Natomboka ny tahirin'ny rotera. Jereo ny tsanganana Daty Tahiry na ny Firaketan'i Cacti raha te hahalala ny sata fahavitany sy ny fotoanany"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Fitaovana manaraka ireto."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampavitrika ireto Fitaovana manaraka ireto."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Ampandehano ny Fitaovana"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hanaovana ho Tsy mavitrika ireto Fitaovana manaraka ireto."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Atsaharo ny Fitaovana"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Tsindrio ny 'Tohizo' mba hamafa ny fanalahidy mpampiantrano SSH voatahiry ho an'ireto fitaovana manaraka ireto. Ny fifandraisana SSH manaraka dia hatoky sy hitahiry ny fanalahidy azony."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Esory ny fanalahidin'ny Mpampiantrano SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Amboary ny iray na maromaro amin'ireto fandrindrana ireto eo amin'ny fitaovana voafidy. Tsy ovaina ireo saha avela amin'ny 'Tsy misy fiovana'."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Tsy mavitrika"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Ampiharo amin'ny Fitaovana ny fandrindrana"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Tsy maintsy misafidy Fitaovana Router iray farafahakeliny ianao."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Tsy manan-kery ny anaran'ny mpampiantrano. Litera, isa, elanelana ary ireo marika . - _ : ihany no ampiasao ary aza mampiasa mpanasaraka lalana na \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Tsy manan-kery ny Karazana Fandaharam-potoana na ny Famerenana Isaky ny voafidy."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Tsy voarakitra"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Rotera: [ovaina: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Rotera: [vaovao]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Fitantanana fitaovana rotera"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Kaonty"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Tahiry fiarovana farany"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Ny karazana fitaovan'ny Fitaovana"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Karazana fifandraisana"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Ny karazana fifandraisana ho an'ity Fitaovana ity"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Fandrindrana"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Ny isan'ny fikirakirana ho an'ity fitaovana ity"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Ny adiresy IP an'ity Fitaovana ity"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Ny mpizara TFTP isaky ny fitaovana, na Tsotra raha mampiasa ny fandrindrana mpizara TFTP ankapobeny"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Tahiry manaraka"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Datin'ny tahiry"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Andrana manaraka"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Fanandramana farany"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Daty fanovana"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Androany"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Omaly"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Ity herinandro ity"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Ity volana ity"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Ao anatin'ny iray taona"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Efa ela be izay"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Tsia"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Eny"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Mifandraisa amin'ny alalan'ny SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Mifandraisa amin'ny alalan'ny Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Fanarahana lalana"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Fampahalalana fanamboarana lesoka amin'ny rotera"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Tahiry fiarovana (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Ankehitriny"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Tsy misy Fitaovana router hita"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Rehefa manindry 'Tohizo' ianao, dia hofafana ireto Fitaovana manaraka ireto."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Ny Hafatra fangatahana aorian'ny fidirana dia misy fiteny tsy fomba fiteny ara-dalàna manan-kery: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Fangatahana [ovao: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Fangatahana [vaovao]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Jereo ny karazana Fitaovana router"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Karazana"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Fangatahana mpampiasa"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Fangatahana tenimiafina"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Kinova"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Fanontaniana fanamafisana"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Hamarino ny End ao amin'ny fikirakirana"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Tsy misy karazana Fitaovana router hita"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Fikirakirana rotera"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Manatanteraka ny '%s' miaraka amin'ny masontsivana '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Fitaovana fanampiny"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Fitaovana rotera"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(ovao)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(hetsika)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Jereo ny famahana olana"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Kaontin'ny rotera"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Fampitahana rotera"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Rotera"
+

@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Yoruba\n"
+"Language: yo-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Àpamọ́ Ààbò"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Ṣàtúnṣe (yí àwọn ètò padà lọ́pọ̀)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Mú Ṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Dá Dúró"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Nu Kọ́kọ́rọ́ Olùgbàlejò SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Jogún"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Ojoojúmọ́"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Ọ̀sọ̀ọ̀sẹ̀"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Oṣooṣù"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Oṣù %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Oṣù %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Ọdún %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "Ọdún %d"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Kò ṣẹlẹ̀ rí"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "wákàtí %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "wákàtí %d"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 àárọ̀)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 àárọ̀)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 àárọ̀)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 àárọ̀)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 àárọ̀)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 àárọ̀)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 àárọ̀)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 àárọ̀)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 àárọ̀)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 àárọ̀)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12 àárọ̀)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 àárọ̀)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 ọ̀sán)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 ọ̀sán)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "ìlà %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "àwọn ìlà %d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Orúkọ"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Fún àkántì yìí ní orúkọ tí ó ní ìtumọ̀ tí a óò fi hàn."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Orúkọ Olùlò"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Orúkọ Olùlò tí a ó lò fún ìdánimọ̀."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Ọ̀rọ̀ Aṣínà"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Ọ̀rọ̀ Aṣínà tí a lò fún ìjẹ́rìísí."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Ọ̀rọ̀ Aṣínà Ìmúṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Ọ̀rọ̀ Aṣínà Ìṣiṣẹ́ rẹ, bí a bá béèrè fún un."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Mú Ẹ̀rọ Ṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Yọ àmì kúrò nínú àpótí yìí láti dẹ́kun ṣíṣe àtìlẹ́yìn àfipamọ́ fún ẹ̀rọ yìí."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Orúkọ ẹ̀rọ yìí (yóò wúlò fún ìfipamọ́ ètò àti SVN tí kò bá sí orúkọ olùgbàlejò nínú ètò)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Àdírẹ́ẹ̀sì IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Èyí ni Àdírẹ́sì IP tí a lò láti bá ẹ̀rọ náà sọ̀rọ̀."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Olùpèsè TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Olùpèsè TFTP àṣàyàn tí ẹ̀rọ yìí ń da ètò rẹ̀ sí. Fi sílẹ̀ ní òfo láti lo ètò Olùpèsè TFTP gbogbogbòò."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Kọ́kọ́rọ́ Olùgbàlejò SSH tí a Fipamọ́"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Ṣe àfiwé àlùgọ́rídìmù kọ́kọ́rọ́ olùgbàlejò yìí àti ìtẹ̀ka hex SHA-1 pẹ̀lú ẹ̀rọ náà nípasẹ̀ ọ̀nà tí a fọkàn tán. Lórí sáfà, rọ́pò ipa-ọ̀nà ìsàlẹ̀ yìí pẹ̀lú fáìlì kọ́kọ́rọ́ olùgbàlejò gbangba tó báramu kí o sì ṣiṣẹ́: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Lo ìgbésẹ̀ ẹ̀rọ náà láti pa á rẹ́ lẹ́yìn àyípadà kọ́kọ́rọ́ tòótọ́."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Àkójọ-fáìlì"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Èyí ni ìṣètò àkójọ-fáìlì ìbátan tí a lò láti fi àwọn ìṣètò pamọ́."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Irú Ètò Àkókò"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Ìgbà mélòó láti Ṣe Àfẹ̀yìntì ẹ̀rọ yìí. Ojoojúmọ́ pẹ̀lú Ìtúnṣe Ní Gbogbo 10 ń ṣe àfẹ̀yìntì ní gbogbo ọjọ́ mẹ́wàá; Oṣooṣù ń ṣe àfẹ̀yìntì oṣù kàlẹ́ńdà tòótọ́."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Tún ṣe ní Gbogbo"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Fún àwọn ìṣètò àkókò Ojoojúmọ́, tún ṣe àfẹ̀yìntì ní gbogbo ọjọ́ X. Fún àwọn ìṣètò àkókò Ọ̀sọ̀ọ̀sẹ̀ láìsí àwọn Ọjọ́ Ọ̀sẹ̀ pàtó, tún ṣe é ní gbogbo ọ̀sẹ̀ X; ní gbà tí a bá ti yan àwọn Ọjọ́ Ọ̀sẹ̀, àfẹ̀yìntì yóò máa ṣiṣẹ́ ní àwọn ọjọ́ wọ̀nyẹn ní gbogbo ọ̀sẹ̀, ààyè yìí kò sì ní ṣiṣẹ́."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Àwọn Ọjọ́ Ọ̀sẹ̀"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Fún ìṣètò àkókò Ọ̀sọ̀ọ̀sẹ̀, àwọn ọjọ́ inú ọ̀sẹ̀ láti ṣe àfẹ̀yìntì ní gbogbo ọ̀sẹ̀. Fi sílẹ̀ ní òfo láti ṣiṣẹ́ ní gbogbo ọ̀sẹ̀ Tún Ṣe Ní Gbogbo dípò."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Àwọn Oṣù Ọdún"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Fún ìṣètò àkókò Oṣooṣù, àwọn oṣù inú ọdún láti ṣe àfẹ̀yìntì."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Àwọn Ọjọ́ Oṣù"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Fún ìṣètò àkókò Oṣooṣù, àwọn ọjọ́ inú oṣù láti ṣe àfẹ̀yìntì (Ìkẹyìn = ọjọ́ ìkẹyìn oṣù)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Àwọn Ọ̀sẹ̀ Oṣù"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Fún ìṣètò àkókò Oṣooṣù ní Ọjọ́, àwọn ọ̀sẹ̀ inú oṣù láti ṣe àfẹ̀yìntì."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Àwọn Ọjọ́ Ọ̀sẹ̀ (Lóṣooṣù)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Fún ìṣètò àkókò Oṣooṣù ní Ọjọ́, àwọn ọjọ́ ọ̀sẹ̀ láti so pọ̀ mọ́ àṣàyàn àwọn Ọ̀sẹ̀ Oṣù."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Irú Ẹ̀rọ"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Yan irú ẹ̀rọ tí router náà jẹ́."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Ṣàwárí-Aládàáṣe"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Irú Ìsopọ̀"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Èyí ni irú ìsopọ̀ tí a lò láti bá ẹ̀rọ náà sọ̀rọ̀."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Àkáǹtì Ìdánimọ̀"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Yan àkáǹtì kan láti lò láti Wọlé sí router"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Kò Sí"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Àkókò ìparí àìyípadà"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Àkókò àìyípadà láti dúró ní ìṣẹ́jú-àáyá fún ìdáhùn"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Àkókò ìdádúró àìyípadà"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Àkókò àìyípadà láti dúró ní ìdá-mílíọ̀nù ìṣẹ́jú-àáyá (1/1,000,000th ìṣẹ́jú-àáyá)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Gbà pé ó ní àṣẹ gíga"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Fi àmì sí àpótí yìí láti gbà pé Ẹ̀rọ yìí wà ní ipò gíga nígbà gbogbo"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Orúkọ irú ẹ̀rọ yìí."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Ìbéèrè Orúkọ Olùlò"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Èyí ni ìbéèrè Orúkọ Olùlò láti báramu nígbà ìwọlé."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Ìbéèrè Ọ̀rọ̀ Aṣínà"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Èyí ni ìbéèrè Ọ̀rọ̀ Aṣínà láti báramu nígbà ìwọlé."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Fáìlì ìṣètò"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Èyí ni ibi ìṣedéédé fáìlì ìṣètò lórí ẹ̀rọ òkèèrè. A ń lò ó fún ọ̀nà SCP àti SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Ṣe àdàkọ TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Èyí ni ọ̀rọ̀ CLI tí a lò láti fi àtìlẹ́yìn-àpamọ́ ránṣẹ́ sí olùpèsè tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Àṣẹ Ìgbàmú"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Àṣẹ àṣàyàn tí a máa ń fi èsì rẹ̀ pamọ́ gẹ́gẹ́ bí ètò, dípò dídà á sí orí olùpèsè TFTP. Ó máa ń ṣiṣẹ́ lórí SSH nígbà gbogbo, láìka Irú Ìsopọ̀ sí, nígbà náà ẹ̀rọ náà kò nílò olùpèsè TFTP kankan. Fi sílẹ̀ ní òfo fún àwọn ẹ̀rọ tí ó ń da ètò wọn sí TFTP. Àpẹẹrẹ fún MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Ṣàfihàn Ẹ̀yà"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Èyí ni ọ̀rọ̀ CLI tí a lò láti ṣàfihàn ẹ̀yà lọ́wọ́lọ́wọ́."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Ìtọ́ka Ìfìdímúlẹ̀"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Èyí ni ìbéèrè ìfìdíkalẹ̀ láti báramu ṣáájú ìfìránṣẹ́."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Fìdí múlẹ̀"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Ṣé ìbéèrè ìjẹ́rìísí wà fún dídà ìṣètò náà?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Fipá Mú Ìjẹ́rìísí"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Ṣé ìbéèrè ìjẹ́rìísí àfipáṣe wà fún dídà ìṣètò náà?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Ṣàyẹ̀wò Ìparí nínú Ìṣètò"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Ṣàyẹ̀wò ìparí nínú ìṣètò?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Ìbéèrè Bọ́tìnì Eyíkéyìí"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Ọ̀rọ̀ láti bá àṣẹ́ irú 'Tẹ Bọ́tìnì Èyíkéyìí Láti Tẹ̀síwájú' mu"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Àwọn Àṣẹ Lẹ́yìn Ìwọlé"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Àwọn àṣàyàn tọkọtaya ìbéèrè/ìdáhùn tí a fi ránṣẹ́ lẹ́sẹ̀kẹsẹ̀ lẹ́yìn ìwọlé, ṣáájú àṣẹ ìdàkọ-sí-TFTP, ọ̀kan fún ìlà kọ̀ọ̀kan bíi prompt|response. A máa ń fi ìbéèrè náà wé èsì ẹ̀rọ gẹ́gẹ́ bí gbólóhùn déédéé tí kò ka lẹ́tà ńlá tàbí kékeré sí (nítorí náà fúnra rẹ̀ kò gbọdọ̀ ní | nínú, àti pé a gbọ́dọ̀ fi àmì àsálà sí àwọn àkámọ́ àti àwọn àmì pàtàkì mìíràn, àpẹẹrẹ Save \\[y/n\\]), a sì máa ń fi ìdáhùn ránṣẹ́ gẹ́gẹ́ bí a ṣe tẹ̀ ẹ́, tàbí lo <CR> láti fi ìpadàsíbẹ̀rẹ̀ nìkan ránṣẹ́. A máa ń fi ìdáhùn ránṣẹ́ lẹ́yìn tí a bá ti rí ìbéèrè rẹ̀ nìkan, yálà nínú ìdáhùn sí ìdáhùn tẹ́lẹ̀ tàbí nínú èsì tí ó tẹ̀lé; bí bẹ́ẹ̀ kọ́ a ó kọ ìkìlọ̀ sílẹ̀, a kò sì ní fi ohunkóhun ránṣẹ́. A máa ń dáhùn àwọn wọ̀nyí lákọ̀ọ́kọ́; a ó dáhùn ìbéèrè Any Key lókè lẹ́yìn náà, nígbà tí a bá ń mú ẹ̀rọ náà ṣiṣẹ́, nítorí náà ìbéèrè tí a bá dáhùn níbí kì í dé Any Key láéláé. Àpẹẹrẹ: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Àwọn Ètò Gbogbogbòò"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Ipò Ìfihàn"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Ṣé kí a ṣàfihàn Àwọn Ètò Olùdarí-ìsopọ̀ lórí Kọ́nsólù tàbí Táàbù Òkè."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Kọ́ńsólù"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Taàbù Òkè"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Àwọn Ìlà Àyíká Ìyàtọ̀ Ìṣètò"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Iye àìyípadà ti àwọn ìlà tí kò yípadà láti ṣàfihàn ṣáájú àti lẹ́yìn àyípadà kọ̀ọ̀kan nígbà tí a bá ń fi àwọn àtìlẹ́yìn méjì wéra. Iye tó tóbi jù máa ń jẹ́ kí ó rọrùn láti rí àyíká ìṣètò tó yí i ká. A lè yí èyí padà fún ìfiwéra kọ̀ọ̀kan lórí ojú-ewé Ìfiwéra."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Àkókò ìsopọ̀ ti parí"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Àkókò ìdúró tó pọ̀ jù lọ ní ìṣẹ́jú-àáyá nígbà tí a bá ń ṣe ìsopọ̀ nẹ́tíwọ́ọ̀kì àkọ́kọ́ sí Ẹ̀rọ kan. A ó fi Ẹ̀rọ tí ó bá kọ́ tàbí tí kò ṣeé dé sílẹ̀ lẹ́yìn àkókò ìparí yìí kí ìṣiṣẹ́ àfẹ̀yìntì tí a ṣètò lè tẹ̀síwájú pẹ̀lú Àwọn Ẹ̀rọ tí ó kù."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Pa dé láìjáde"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Tí a bá yàn án, nígbà tí a bá ń pa ìsopọ̀ Ẹ̀rọ dé, a kò ní fi àṣẹ 'exit' ránṣẹ́"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Bọ́fà Àyẹ̀wò Àṣìṣe Àsopọ̀"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Bóyá láti kọ àbájáde tààrà ti àsopọ̀ ẹ̀rọ sílẹ̀"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Gbà pé gbogbo àwọn ẹ̀rọ ní àṣẹ gíga"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Bóyá láti gbà pé gbogbo àwọn ẹ̀rọ ní àṣẹ gíga"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Wákàtí Ìgbàsílẹ̀"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Wákàtí ọjọ́ láti ṣe àwọn ìgbàsílẹ̀ kíkún."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Ètò Àtúngbìyànjú"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Àkókò láti dúró ṣáájú kí o tó gbìyànjú láti ṣe ìgbasílẹ̀ àfikún nígbà tí ìgbasílẹ̀ tí a ṣètò bá kùnà"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Àsìkò Ìpamọ́"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Iye ọjọ́ láti pa àwọn àkọpamọ́ àtijọ́ mọ́."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Pa Àwọn Àfẹ̀yìntì Ẹ̀rọ Tí Kò Ṣiṣẹ́ Mọ́"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Nígbà tí a bá fọwọ́ sí i, ìwẹ̀nùmọ́ ìpamọ́ kò ní pa àwọn àfẹ̀hìntì tó ti pẹ́ rẹ́ tí wọ́n jẹ́ ti àwọn ẹ̀rọ àìṣiṣẹ́ tàbí àwọn ẹ̀rọ tí a ti yọ kúrò, kí a lè pa àwọn ìṣètò fún ohun èlò tí a ti dá dúró tàbí tí kò ṣeé dé ọ̀dọ̀ rẹ̀ mọ́."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Àwọn Àṣàyàn Ìgbéránṣẹ́"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Irú àsopọ̀ àìyípadà"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Irú àsopọ̀ àìyípadà tí a lò láti bá ẹ̀rọ náà sọ̀rọ̀."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Yà Sọ́tọ̀ Nípa Ẹ̀rọ"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Yà àwọn Ìṣètò tí a tọ́jú sọ́tọ̀ sínú fódà fún Ẹ̀rọ kọ̀ọ̀kan"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Abẹ́-fódà Tí Ó Ní Ọjọ́"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Fi àkójọpọ̀ abẹ́ tí ó dá lórí déètì sínú ipa ọ̀nà ìpamọ́ (ṣáájú àpò kọ̀ọ̀kan fún Ẹ̀rọ), kí a lè fi ìṣiṣẹ́ kọ̀ọ̀kan pamọ́ sábẹ́ déètì àfẹ̀yìntì rẹ̀, fún àpẹẹrẹ .../2020-11-04/hostname/.... Pípà á tọ́jú ìtòlẹ́sẹẹsẹ tó wà tẹ́lẹ̀."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Ọ̀nà SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Nígbà tí a bá ń lo SCP, fífi èyí sí òfo yóò lo módù SCP ti PHP èyí tí kì í ṣiṣẹ́ nígbà gbogbo. A ti sọ SCP ìta di àìṣiṣẹ́ nígbà tí ìjẹ́rìísí kọ́kọ́rọ́ olùgbàlejò SSH bá ṣiṣẹ́ nítorí kò lè tún àsopọ̀ tí a ti fìdí rẹ̀ múlẹ̀ lò."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Jẹ́rìísí Àwọn Kọ́kọ́rọ́ Olùgbàlejò SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Kọ kọ́kọ́rọ́ olùgbàlejò SSH ti ẹ̀rọ kọ̀ọ̀kan sílẹ̀ ní ìsopọ̀ àkọ́kọ́ kí o sì kọ̀ láti fi ìwé-ẹ̀rí ìwọlé ránṣẹ́ tí ó bá yípadà lẹ́yìn náà. Ipò SSH/Telnet kò ní padà sẹ́yìn sí Telnet nígbà tí ìjẹ́rìísí bá ń ṣiṣẹ́. Lẹ́yìn ìyípadà kọ́kọ́rọ́ tí ó tọ́, lo ìgbésẹ̀ ẹ̀rọ láti pa kọ́kọ́rọ́ olùgbàlejò tí a tọ́jú rẹ́."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "IP Olùpèsè TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Ó gbọ́dọ̀ jẹ́ IP tí ó ń tọ́ka sí sáfà Cacti rẹ."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Ọ̀nà Àkójọpọ̀ Àfẹ̀yìntì TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Ọ̀nà sí ibi tí a óò ti ṣe àfẹ̀yìntì àwọn ìṣètò rẹ, ó gbọ́dọ̀ jẹ́ ọ̀nà tí Olùpèsè TFTP agbègbè ń kọ sí."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Ọ̀nà Àkójọpọ̀ Fáìlì Ìpamọ́"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Ọ̀nà sí ibi tí a óò fi àwọn ìṣètò rẹ pamọ́ sí (tí a gbé kúrò nínú àkójọpọ̀ fáìlì TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Àwọn Àṣàyàn Ímeèlì"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Àdírẹ́sì Olùfiránṣẹ́"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Àdírẹ́sì ímeèlì tí a ó ti fi àfipamọ́ alẹ́ ránṣẹ́."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Orúkọ Olùfiránṣẹ́"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Orúkọ tí àfẹ̀yìntì alẹ́ yóò ti ránṣẹ́."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Àdírẹ́ẹ̀sì Ímeèlì"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Àtòjọ àwọn àdírẹ́sì Ímeèlì tí àmì idánudúró pín sí láti fi Ímeèlì àtìlẹ́yìn òru ránṣẹ́ sí."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Fi Àwọn Ìyàtọ̀ Ìṣètò Kún un"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Fi ìyàtọ̀ àpapọ̀ ti ẹ̀rọ kọ̀ọ̀kan tí ìṣètò rẹ̀ yí padà nígbà ìṣiṣẹ́ kún Ímeèlì àfipamọ́, kí olùṣàyẹ̀wò lè rí ohun tó yí padà ní pàtó. A máa ń fò àwọn ìṣètò aláìṣọ̀rọ̀ (binary) dà. Àwọn ìlà tó máa ń yí padà ní gbogbo àfipamọ́ (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' àti 'Current configuration :', àti NX-OS '!Time:' àti '!Running configuration last done at:') ni a máa ń gbójú fò nígbà gbogbo. Ìkìlọ̀: a máa ń fi ìyàtọ̀ náà ránṣẹ́ ní ọ̀rọ̀ gbangba sí gbogbo olùgbà Ímeèlì náà, nítorí náà ó lè ṣí ìṣètò tí ó yẹ kí ó wà ní ìkọ̀kọ̀ payá; má ṣe sàmì sí Fi Àwọn Àṣírí Kún Nínú Àwọn Ìyàtọ̀."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Fi Àwọn Àṣírí Kún Àwọn Ìyàtọ̀"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Fi àwọn ìní ìkọ̀kọ̀ ránṣẹ́ nínú ìyàtọ̀ tí a fi ímeèlì ránṣẹ́ gẹ́gẹ́ bí wọ́n ti rí. Nígbà tí a kò bá ṣàmì sí i (àìyípadà), a ó wá àwọn ìlà tí ó yípadà lára àwọn ìṣètò àìṣàtúnṣe a ó sì tẹ̀ wọ́n jáde ní ìbòjú, pẹ̀lú dídí ní ìtìpa: àwọn ìlà tí ó ní àwọn ọ̀rọ̀ bíi ìkọ̀kọ̀ (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) àti àwọn ìlà olùgbàlejò àti olùlò SNMP ni a ó dín kù sí ọ̀rọ̀ àkọ́kọ́ wọn tí &lt;secret hidden&gt; tẹ̀lé, gbogbo ìlà ìdìpọ̀ PEM, ìwé-ẹ̀rí tàbí ìdìpọ̀ okùn kọ́kọ́rọ́, tàbí ìní àkọ́jọpọ̀ ìlà púpọ̀ tí a fi àmì ọ̀rọ̀ dì, àti ìlà hex tàbí base64 èyíkéyìí, ni a ó fi pamọ́; ìdìpọ̀ tí kò parí rárá yóò fi ìyókù ìṣètò náà pamọ́. Èyí tún máa ń fi àwọn ìlà aláìléwu pamọ́ (bí àpẹẹrẹ, àpèjúwe tí ó mẹ́nu ba kọ́kọ́rọ́ kan), ṣùgbọ́n gbogbo ìlà tí ó yípadà yóò ṣì hàn, tí a ó sàmì sí (changed) nígbà tí apá tí a fi pamọ́ nìkan bá yàtọ̀, a ó sì ṣàkọsílẹ̀ ìdìpọ̀ tí kò parí rárá nínú Ímeèlì. Àwọn àfipamọ́ tí a tọ́jú kì í yípadà láé."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Àwọn Àpẹẹrẹ Ìyọkúrò Ìyàtọ̀"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Àwọn gbólóhùn déédéé àṣàyàn (ọ̀kan fún ìlà kọ̀ọ̀kan) tí ó bá àwọn ìlà ètò mu láti fojú fò nígbà ìfiwéra, kí àwọn ìlà tí ó máa ń yípadà bíi àmì àkókò tàbí nọ́ńbà ìtẹ̀léra má baà hàn gẹ́gẹ́ bí ìyípadà. A máa ń fi àpẹẹrẹ kọ̀ọ̀kan wé ibikíbi nínú ìlà láìka lẹ́tà ńlá tàbí kékeré sí àyàfi tí a bá fi ^ tàbí $ dì í mú; a ó fojú fò àpẹẹrẹ tí kì í ṣe gbólóhùn déédéé tí ó tọ́."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Àtòjọ Ìfitónilétí Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Nígbà tí a bá ti fi Thold sílẹ̀, tún fi Ímeèlì àtìlẹ́yìn ránṣẹ́ sí àwọn olùgbà ti Àtòjọ Ìfitónilétí Thold tí a yàn."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Fi kún Àfikọsílẹ̀ Ààbò RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Tẹ 'Tẹ̀síwájú' láti fi Ẹ̀rọ wọ̀nyí kún RouterConfigs fún ìfipamọ́ àtẹ̀lé. Ẹ̀rọ èyíkéyìí tí ó ti wà nínú RouterConfigs tẹ́lẹ̀ ni a ó fo."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Àwọn Ẹ̀rọ"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Àwọn Irú Ẹ̀rọ"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Ìjẹ́rìísí"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Àwọn Àpamọ́ Ààbò"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Ṣe àfiwé"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Àtìlẹ́yìn Ìmọ̀-ẹ̀rọ [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(àwọn lẹ́tà %s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Kò Tíì Sètò)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ÌFITÓNILÉTÍ: Ń bẹ̀rẹ̀ àtìlẹ́yìn àfọwọ́ṣe ti àwọn ẹ̀rọ %s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ÌFITÓNILÉTÍ: Ń bẹ̀rẹ̀ ìgbìyànjú túnṣe aládàáni"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ÌFITÓNILÉTÍ: Ń bẹ̀rẹ̀ àtìlẹ́yìn aládàáni"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "ÀṢÌṢE PÀTÀKÌ: A kò ṣètò Ọ̀nà Àfẹ̀yìntì TFTP tàbí kì í ṣe àpò-ìpamọ́"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Ń gbìyànjú láti gba %s wọlé"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Àwọn ẹ̀rọ %s ni a ṣe àtìlẹ́yìn àpamọ́ fún ní àṣeyọrí."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Àwọn ẹ̀rọ %s kùnà láti ṣe àtìlẹ́yìn àpamọ́."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Àwọn ẹ̀rọ %s ni a sọ di àìṣiṣẹ́ kúrò nínú àtìlẹ́yìn àpamọ́."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Kò sí àyípadà ìṣètò kankan tí a ṣàwárí."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Àwọn Àtìlẹ́yìn Ìṣètò"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Àwọn Àtìlẹ́yìn Ìṣètò"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Tí a fipá mú"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Àfọwọ́ṣe"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Tí a ṣàfarawé"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Tí a ṣètò àkókò rẹ̀"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Gbìyànjú lẹ́ẹ̀kan sí i"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Lápá kan"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": KÙNÀ"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "ÌṢIRÒ: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "ÀṢÌṢE: A kò ṣètò Ọ̀nà Àfipamọ́ tàbí kì í ṣe àpò ìkówèé"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "ÌKÌLỌ̀: Àkókò ìpamọ́ '%s' kò tọ́, ó ń lo àtìbẹ̀rẹ̀ ọjọ́ 30"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "ÌṢIRÒ: Ìfipamọ́ ń ṣiṣẹ́ báyìí láti %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "ÌKÌLỌ̀: Àfẹ̀yìntì ti ń ṣiṣẹ́ tẹ́lẹ̀ láti %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "A kò rí id Ẹ̀rọ Cacti %s; a kò fi kún RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Ẹ̀rọ '%s' ti wà nínú RouterConfigs tẹ́lẹ̀; a fò ó."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "A ti fi ẹ̀rọ '%s' kún RouterConfigs (àìṣiṣẹ́ títí tí a fi ṣètò àkọọ́lẹ̀ àti irú ẹ̀rọ)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Kíkùnà láti fi Ẹ̀rọ '%s' kún RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Àkójọ ìfipamọ́-ọ̀rọ̀ ní ìlà %d ti àkọ́pamọ́ tẹ́lẹ̀ kò tíì tì rí; àwọn ìlà tí ó tẹ̀lé wà ní ìpamọ́."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Àkójọ ìfipamọ́-ọ̀rọ̀ ní ìlà %d ti àkọ́pamọ́ tuntun kò tíì tì rí; àwọn ìlà tí ó tẹ̀lé wà ní ìpamọ́."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "ÀṢÌṢE: Orúkọ olùgbàlejò ti Ẹ̀rọ '%s' kò tọ́ gẹ́gẹ́ bí orúkọ fáìlì àfipamọ́; ṣàtúnṣe Ẹ̀rọ náà kí o sì lo àwọn lẹ́tà orúkọ olùgbàlejò tàbí àdírẹ́sì IP nìkan"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "ÀṢÌṢE: Kò sí olùpèsè TFTP tí a ṣètò fún Ẹ̀rọ '%s'; ṣètò Olùpèsè TFTP lórí ẹ̀rọ náà tàbí nínú àwọn ètò àgbáyé"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "ÀṢÌṢE: Ìjẹ́rìísí kọ́kọ́rọ́ olùgbàlejò SSH kùnà fún Ẹ̀rọ '%s'; ó kọ̀ láti fi àwọn ẹ̀rí ìwọlé ránṣẹ́ tàbí láti padà sẹ́yìn sí Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "ÀṢÌṢE: Ìsopọ̀ SSH kùnà fún Ẹ̀rọ '%s'; ìpadàsẹ́yìn sí Telnet wà ní àìṣiṣẹ́ nígbà tí ìjẹ́rìísí kọ́kọ́rọ́ olùgbàlejò SSH bá ṣiṣẹ́"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "ÀṢÌṢE: Kò lè sopọ̀ mọ́ Ẹ̀rọ '%s' nípa lílo irú ìsopọ̀: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "ÀṢÌṢE: Kò lè gba '%s' sílẹ̀ sí '%s' nípasẹ̀ '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Ṣiṣẹ́"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "%s tí a yàn kò tọ́; kò sí àwọn Ẹ̀rọ kankan tí a yí padà."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Ìfìdí-òdodo ọ̀nà fáìlì kùnà"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Fáìlì '%s' kùnà láti wọlé"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "A kò rí fáìlì '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Ìṣètò Ráútà fún %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Àpamọ́ ààbò láti %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Fáìlì: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Àfọwọ́ṣe"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Oṣooṣù ní Ọjọ́"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Ọjọ́ Àìkú"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Ọjọ́ Ajé"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Ọjọ́ Ìṣẹ́gun"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Ọjọ́rú"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Ọjọ́bọ"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Ọjọ́ Ẹtì"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Ọjọ́ Àbámẹ́ta"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Oṣù Ṣẹ́rẹ́"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Oṣù Èrèlè"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Oṣù Ẹrẹ̀nà"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Oṣù Ìgbé"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Oṣù Ẹ̀bibi"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Oṣù Òkúdu"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Oṣù Agẹmọ"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Oṣù Ògún"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Oṣù Owewe"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oṣù Ọ̀wàrà"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Oṣù Bélú"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Oṣù Ọ̀pẹ̀"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Ìkẹyìn"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Àkọ́kọ́"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Ìkejì"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Ìkẹta"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Ìkẹrin"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Pa (kò sí abẹ́-àpò tí ó ní déètì)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (tí a tẹ̀ sínú ara wọn)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "%s tí a yàn kò tọ́."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Fún ìṣètò àkókò Oṣooṣù, o gbọ́dọ̀ yan ó kéré tán Oṣù kan àti Ọjọ́ Oṣù kan."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Fún ìṣètò àkókò Oṣooṣù ní Ọjọ́, o gbọ́dọ̀ yan àwọn Oṣù, àwọn Ọ̀sẹ̀ Oṣù, àti àwọn Ọjọ́ Ọ̀sẹ̀."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Àwọn Oṣù àti Ọjọ́ Oṣù tí a yàn kì í ṣẹlẹ̀ papọ̀ láé; yan ọjọ́ mìíràn, tàbí Ìkẹyìn fún ọjọ́ ìkẹyìn oṣù náà."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti pa àwọn àkọọ́lẹ̀ wọ̀nyí rẹ́."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Tẹ̀síwájú"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Pa Ẹ̀rọ Rẹ́"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "O gbọ́dọ̀ yan ó kéré jù ẹ̀rọ kan."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Padà"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Àkọọ́lẹ̀: [ṣàtúnṣe: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Àkọọ́lẹ̀: [tuntun]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Àwọn Àkọọ́lẹ̀"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Ìṣàkóso Àkọọ́lẹ̀"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Kò sí Àwọn Àkọọ́lẹ̀ Ráútà kankan tí a rí"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Àwọn Àfẹ̀kọ̀ Ráútà"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Èyíkéyìí"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Ṣàwárí"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Àìyípadà"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Lọ"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Ṣètò/Sọ Àwọn Àlẹ̀mọ́ Dọ̀tun"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Nu Kúrò"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Pa Àwọn Àlẹ̀mọ́ Rẹ́"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Orúkọ Olùgbàlejò"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Yálà àdírẹ́ẹ̀sì IP, tàbí orúkọ olùgbàlejò. Tí ó bá jẹ́ orúkọ olùgbàlejò, ó gbọ́dọ̀ ṣeé túmọ̀ nípasẹ̀ DNS, tàbí láti inú fáìlì hosts rẹ."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "ID ibi-ìpamọ́ dátà inú fún Ẹ̀rọ yìí. Ó wúlò nígbà tí a bá ń ṣe iṣẹ́ aládàáṣe tàbí àyẹ̀wò àṣìṣe."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Àwọn Iṣẹ́"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Ṣe àwọn iṣẹ́ lórí àkọpamọ́ yìí"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Àpò ìpamọ́ ti àwọn àtìlẹ́yìn ẹ̀rọ tí a fipamọ́"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Àkókò Àpamọ́ Ààbò"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Àkókò Àkọpamọ́ tó kẹ́yìn fún ẹ̀rọ náà"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Àyípadà Tó Kẹ́yìn"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Àkókò Àyípadà tó kẹ́yìn fún ẹ̀rọ náà"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Ẹni tí ó yí i padà"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Ẹni tí ó kẹ́yìn tí ó yí ìṣètò ẹ̀rọ náà padà"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Orúkọ Fáìlì"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Orúkọ fáìlì àwọn àkọpamọ́ ẹ̀rọ tí a tọ́jú"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Wo Ìṣètò"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Kò sí Àwọn Àkọpamọ́ Ráútà kankan tí a rí"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Ìfiwéra Àfẹ̀kọ̀ Ráútà"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Ipò Ìyàtọ̀"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Nínú-ìlà"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Ní ẹ̀gbẹ́ ara wọn"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Àwọn Ìlà Àyíká"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Ṣe àfiwé Àbájáde"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "A kò rí àpamọ́ ààbò %s"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Kò sí Àwọn Àyípadà kankan"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Àṣìṣe, o gbọ́dọ̀ ní àwọn àkọsílẹ̀ àfipamọ́ fún ẹ̀rọ kọ̀ọ̀kan."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Àyẹ̀wò àṣìṣe fún %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Kò Sí Ìyípadà"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "A kò yí àwọn ẹ̀rọ kankan padà: ètò àkókò tuntun kò lè ṣiṣẹ́ lórí ID ẹ̀rọ %s, nítorí pé Àwọn Oṣù, Àwọn Ọjọ́ Oṣù, Àwọn Ọ̀sẹ̀ Oṣù tàbí Àwọn Ọjọ́ Ọ̀sẹ̀ wọn kò sí tàbí kò wáyé rárá. Ṣètò àkókò lórí àwọn ẹ̀rọ wọ̀nyẹn lọ́kọ̀ọ̀kan."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "A ti sọ àwọn ètò di tuntun lórí ẹ̀rọ %d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "A kò yí àwọn ètò kankan padà; gbogbo pápá ni a fi sílẹ̀ sí \"Kò Sí Àyípadà\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Ń ṣe àfẹ̀yìntì aláfọwọ́ṣe nípa lílo '%s' pẹ̀lú àwọn àríyànjiyàn '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Àfẹ̀kọ̀ Ráútà ti bẹ̀rẹ̀.  Ṣàyẹ̀wò òpó Ọjọ́ Àfẹ̀kọ̀ tàbí Àkọọ́lẹ̀ Cacti fún ipò ìparí àti àkókò"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa ẹ̀rọ wọ̀nyí rẹ́."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Mú ẹ̀rọ wọ̀nyí ṣiṣẹ́."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Mú Àwọn Ẹ̀rọ Ṣiṣẹ́"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Mú ẹ̀rọ wọ̀nyí di àìṣiṣẹ́."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Pa Iṣẹ́ Àwọn Ẹ̀rọ"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Tẹ 'Tẹ̀síwájú' láti pa kọ́kọ́rọ́ Olùgbàlejò SSH tí a fipamọ́ rẹ́ fún ẹ̀rọ wọ̀nyí. Àsopọ̀ SSH tí ó tẹ̀lé yóò gbẹ́kẹ̀lé kí ó sì gba kọ́kọ́rọ́ tí ó bá gbà sílẹ̀."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Nu Àwọn Kọ́kọ́rọ́ Olùgbàlejò SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Ṣètò ọ̀kan tàbí jù bẹ́ẹ̀ lọ lára àwọn ètò wọ̀nyí lórí Ẹ̀rọ tí a yàn. Àwọn ààyè tí a fi sílẹ̀ lórí 'Kò sí Àyípadà' kò ní yípadà."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Àìṣiṣẹ́"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Lo àwọn ètò sí Ẹ̀rọ (Àwọn Ẹ̀rọ)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "O gbọ́dọ̀ yan ó kéré jù Ẹ̀rọ Olùdarí (Router) kan."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Orúkọ Olùgbàlejò kò wúlò. Lo àwọn lẹ́tà, nọ́ńbà, ààyè àti àwọn àmì . - _ : nìkan, má sì lo àwọn ìpínyà ipa-ọ̀nà tàbí \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Irú Ìtòlẹ́sẹẹsẹ Àkókò tàbí Túnṣe Ní Gbogbo tí a yàn kò tọ́."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Kò sí nínú àkọsílẹ̀"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Ráútà: [ṣàtúnṣe: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Ráútà: [tuntun]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Ìṣàkóso Ẹ̀rọ Ráútà"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Àkọọ́lẹ̀"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Àfẹ̀yìntì Tó Kẹ́yìn"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Irú ẹ̀rọ ti ẹ̀rọ náà"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Irú Ìsopọ̀"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Irú ìsopọ̀ fún ẹ̀rọ yìí"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Àwọn Ìṣètò"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Iye àwọn ìṣètò fún ẹ̀rọ yìí"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Àdírẹ́sì IP ti ẹ̀rọ yìí"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Olùpèsè TFTP fún Ẹ̀rọ kọ̀ọ̀kan, tàbí Àìyípadà nígbà tí ó bá lo ètò Olùpèsè TFTP àgbáyé"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Àfẹ̀yìntì Tókàn"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Ọjọ́ Àfipamọ́"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Ìgbìyànjú Tókàn"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Ìgbìyànjú Tó Kẹ́yìn"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Ọjọ́ Ìyípadà"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Òní"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Àná"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Ọ̀sẹ̀ Yìí"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Oṣù Yìí"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Láàárín Ọdún Kan"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Nígbà Láyéláyé"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Rárá"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Bẹ́ẹ̀ Ni"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Sopọ̀ nípasẹ̀ SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Sopọ̀ nípasẹ̀ Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Ìtọ́pa Ọ̀nà"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Àlàyé Àtúnṣe Àṣìṣe Ráútà"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Àwọn Àpamọ́ Ààbò (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Lọ́wọ́lọ́wọ́"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Kò sí Àwọn Ẹ̀rọ Ráútà kankan tí a rí"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Nígbà tí o bá tẹ 'Tẹ̀síwájú', a óò pa àwọn ẹ̀rọ ìsàlẹ̀ wọ̀nyí rẹ́."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Àwọn Àṣẹ Lẹ́yìn Ìwọlé ní àṣẹ kan tí kì í ṣe ìsọ̀rọ̀ déédéé tó tọ́: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Ìbéèrè [ṣàtúnṣe: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Ìbéèrè [tuntun]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Wo Àwọn Irú Ẹ̀rọ Olùdarí"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Irú"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Ìbéèrè Olùlò"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Ìbéèrè Ọ̀rọ̀ Aṣínà"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Ẹ̀yà"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Ìtọ́ka Ìfìdímúlẹ̀"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Ṣàyẹ̀wò Ìparí Nínú Ìṣètò"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Kò sí Àwọn Irú Ẹ̀rọ Ráútà kankan tí a rí"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Àwọn Ìṣètò Ráútà"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Ń ṣe '%s' pẹ̀lú àwọn àríyànjiyàn '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Àwọn Ohun-èlò"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Àwọn Ẹ̀rọ Ráútà"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(ṣàtúnṣe)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(àwọn ìgbésẹ̀)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Wo Àyẹ̀wò Àṣìṣe"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Àwọn Àkáùǹtì Ráútà"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Ìfiwéra Ráútà"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Àwọn Ráútà"
+

@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Zulu\n"
+"Language: zu-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Susa"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Isipele"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Hlela (shintsha izilungiselelo ngobuningi)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Nika amandla"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Khubaza"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Sula Ukhiye Womsingathi we-SSH"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Zuza njengefa"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Nsuku Zonke"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Maviki Onke"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Nyanga Zonke"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Inyanga engu-%d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Izinyanga ezingu-%d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Unyaka ongu-%d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "Iminyaka engu-%d"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Akukaze"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "Ihora elingu-%d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "amahora angu-%d"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12am)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1am)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2am)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3am)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4am)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5am)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6am)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7am)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8am)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9am)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (12am)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11am)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12pm)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1pm)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2pm)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3pm)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4pm)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5pm)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6pm)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7pm)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8pm)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9pm)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10pm)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11pm)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "Umugqa ongu-%d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "Imigqa engu-%d"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Igama"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Nika le akhawunti igama elinencazelo elizovezwa."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Igama lomsebenzisi"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Igama lomsebenzisi elizosetshenziselwa ukuqinisekisa ubuqotho."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Iphasiwedi"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Iphasiwedi esetshenziselwa ukuqinisekisa."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Nika amandla Iphasiwedi"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Iphasiwedi yakho ye-Enable, uma idingeka."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Nika Amandla Idivayisi"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Susa ukumaka leli bhokisi ukuze ukhubaze le divayisi ekwenziweni ikhophi yasenqolobaneni."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Incazelo"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Igama lale divayisi (lizosetshenziselwa ukulondoloza ukulungiselelwa kanye ne-SVN uma kungekho gama lomsingathi ekulungiselelweni)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "Ikheli le-IP"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Leli yikheli le-IP elisetshenziswa ukuxhumana nedivayisi."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "Iseva ye-TFTP"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Iseva ye-TFTP ongayikhetha le divayisi ekopisha kuyo ukulungiselelwa kwayo. Shiya kungenalutho ukuze usebenzise isilungiselelo se-TFTP Server somhlaba wonke."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Ukhiye Womsingathi We-SSH Olondoloziwe"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Qhathanisa le algorithm yokhiye womsingathi kanye ne-SHA-1 hex fingerprint nedivayisi ngokusebenzisa ishaneli ethembekile. Kuseva, buyisela umzila ongezansi ngefayela lokhiye womsingathi womphakathi elifanayo bese usebenzisa: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Sebenzisa isenzo sedivayisi ukuze uyisule ngemva koshintsho lokhiye olusemthethweni."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Uhla lwemibhalo"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Lesi isakhiwo sohlu lwezinkomba esihlobene esisetshenziselwa ukugcina izilungiselelo."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Uhlobo Lohlelo"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Kufanele yenziwe kangaki ikhophi yasenqolobaneni yale divayisi. Okwansuku zonke okune-Phinda Njalo ngo-10 kwenza ikhophi yasenqolobaneni njalo ezinsukwini eziyi-10; Okwenyanga kwenza ikhophi yasenqolobaneni yenyanga yekhalenda yangempela."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Phinda Uqhube Njalo"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Kumashejuli Ansuku Zonke, phinda usebenzise ikhophi eyisipele njalo ezinsukwini ezingu-X. Kumashejuli Amaviki Onke angenazo Izinsuku Zeviki eziqondile, yiphinde njalo emavikini angu-X; uma Izinsuku Zeviki sezikhethiwe, ikhophi eyisipele isebenza ngalezo zinsuku njalo ngeviki futhi le nkambu ayisebenzi."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Izinsuku Zeviki"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Kwishejuli Yeviki, izinsuku zeviki okuzosetshenziswa ngazo ikhophi eyisipele, njalo ngeviki. Shiya kungenalutho ukuze kusebenze njalo emavikini e-Rerun Every esikhundleni salokho."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Izinyanga Zonyaka"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Kwishejuli Yenyanga, izinyanga zonyaka okuzosetshenziswa kuzo ikhophi eyisipele."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Izinsuku Zenyanga"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Kwishejuli Yenyanga, izinsuku zenyanga okuzosetshenziswa ngazo ikhophi eyisipele (Last = usuku lokugcina lwenyanga)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Amaviki Enyanga"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Kwishejuli Yenyanga Ngosuku, amaviki enyanga okuzosetshenziswa kuwo ikhophi eyisipele."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Izinsuku Zeviki (Nyanga Zonke)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Kwishejuli Yenyanga Ngosuku, izinsuku zesonto zokuhambisana nokukhethwa Kwamaviki Enyanga."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Uhlobo Lwedivayisi"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Khetha uhlobo lwedivayisi eyilo i-router."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Thola Ngokuzenzakalelayo"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Uhlobo Lokuxhumana"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Lolu uhlobo loxhumo olusetshenziselwa ukuxhumana nedivayisi."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "I-akhawunti Yokuqinisekisa"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Khetha i-akhawunti ozoyisebenzisa ukuze Ungene ku-router"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Akukho"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Isikhathi sokuphela esizenzakalelayo"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Isikhathi esizenzakalelayo sokulinda impendulo ngemizuzwana"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Isikhathi sokulala esizenzakalelayo"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Isikhathi sokulala esizenzakalelayo ngamamayikrosekhendi (1/1,000,000 yomzuzwana)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Thatha njengokuphakanyisiwe"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Maka leli bhokisi ukuze ucabange ukuthi le divayisi ihlala inamalungelo aphezulu"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Igama lalolu hlobo lwedivayisi."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Umyalelo Wegama Lomsebenzisi"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Lesi isicelo segama lomsebenzisi okufanele sifaniswe lapho ungena ngemvume."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Umyalelo Wephasiwedi"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Lesi isicelo sephasiwedi okufanele sifaniswe lapho ungena ngemvume."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Ifayela lokumisa"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Lena indawo ejwayelekile yefayela lokulungiselela kudivayisi ekude. Isetshenziselwa indlela ye-SCP ne-SFTP"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Kopisha i-TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "Lona umbhalo we-CLI osetshenziselwa ukuthumela isipele kuseva ye-tftp."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Umyalo Wokuthwebula"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Umyalo ongakukhetha okukhipha kwawo kulondolozwa njengokulungiselelwa, esikhundleni sokukukopishela kuseva ye-TFTP. Uhlala usebenza nge-SSH, noma ngabe yiluphi Uhlobo Lokuxhuma, futhi idivayisi ayisadingi iseva ye-TFTP. Shiya kungenalutho kumadivayisi akopisha ukulungiselelwa kwawo ku-TFTP. Isibonelo se-MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Bonisa Inguqulo"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "Lona umbhalo we-CLI osetshenziselwa ukubonisa inguqulo yamanje."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Umbuzo Wokuqinisekisa"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Lona ngumyalo wokuqinisekisa okufanele uhambisane nawo ngaphambi kokudlulisela."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Qinisekisa"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Ingabe kukhona umyalo wokuqinisekisa ukukopisha ukumiswa?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Phoqa Ukuqinisekisa"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Ingabe kukhona umyalo wokuqinisekisa ngempoqo ukukopisha ukumiswa?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Hlola i-End ku-Config"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Hlola i-end ku-config?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Umkhombandlela Wanoma Yimuphi Ukhiye"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Umbhalo ozohambisana nesikhombi esisesitayeleni esithi 'Cindezela Noma Imuphi Ukhiye Ukuze Uqhubeke'"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Imiyalo Yangemva Kokungena"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Amapheya okucela/impendulo ongawakhetha athunyelwa ngokushesha ngemva kokungena, ngaphambi komyalo wokukopishela ku-TFTP, elilodwa kulayini ngamunye njenge-prompt|response. Isicelo sifaniswa njengenkulumo evamile engahlukanisi usayizi wezinhlamvu ngokumelene nokukhipha kwedivayisi (ngakho-ke angeke liqukathe i-| ngokwalo, futhi abakaki nezinye izinhlamvu ezikhethekile kufanele kuphunywe kuzo, isib. Save \\[y/n\\]), futhi impendulo ithunyelwa njengoba ibhaliwe, noma sebenzisa u-<CR> ukuze uthumele ukubuyisela kwenqola kuphela. Impendulo ithunyelwa kuphela uma isicelo sayo sesiboniwe, kungaba sempendulweni yesicelo sangaphambilini noma kokukhipha kwakamuva; kungenjalo kubhalwa isexwayiso futhi akukho okuthunyelwayo. Lezi ziphendulwa kuqala; isicelo se-Any Key esingenhla siphendulwa kamuva, ngenkathi idivayisi inikwa amandla, ngakho-ke isicelo esiphendulwe lapha asisoze safika ku-Any Key. Isibonelo: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Izilungiselelo Ezivamile"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Imodi Yokwethula"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Ingabe Izilungiselelo Zerutha kufanele zivezwe kuKhonsoli noma kuThebhu Ephezulu."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Ikhonsoli"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Ithebhu Ephezulu"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Imigqa Yokuqukethwe Komehluko Wokumisa"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Inani elizenzakalelayo lemigqa engashintshiwe okufanele iboniswe ngaphambi nangemva kwenguquko ngayinye lapho kuqhathaniswa ama-backup amabili. Inani elikhulu lenza kube lula ukubona umongo wokulungiselela ozungezile. Lokhu kungaguqulwa ngokuqhathanisa ngakunye ekhasini lokuqhathanisa."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Isikhathi sokuxhumana siphelile"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Isikhathi esiphezulu sokulinda ngamasekhondi lapho kusungulwa uxhumano lokuqala lwenethiwekhi kudivayisi. Idivayisi ebambekile noma engafinyeleleki iyashiywa ngemva kwalesi sikhathi sokuphela ukuze ukwenziwa kwekhophi eyisipele okuhleliwe kuqhubeke namadivayisi asele."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Vala ngaphandle kokuphuma"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Uma kukhethiwe, lapho kuvalwa uxhumano lwedivayisi, akukho myalo othi 'exit' okhishwayo"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Ibhafa Yokuxhumana Yokulungisa Amaphutha"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Ukuthi kubhalwe umphumela oqondile wokuxhumeka kwedivayisi yini"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Thatha wonke amadivayisi njengaphakanyisiwe"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Ukuthi kuqagelwe ukuthi wonke amadivayisi anamalungelo aphakeme yini"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Ihora Lokulanda"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Ihora losuku lokwenza ukulanda okugcwele."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Uhlelo Lokuzama Futhi"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Isikhathi sokulinda ngaphambi kokuzama ukwenza ukulanda okwengeziwe uma ukulanda okuhleliwe kwehluleka"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Isikhathi Sokugcina"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Inani lezinsuku zokugcina amakhophi okulondoloza amadala."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Gcina Amakhophi Asalondoloziwe Edivayisi Engasebenzi"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Uma kukhethiwe, ukuhlanzwa kokugcina ngeke kususe amakhophi okulondoloza amadala angawamadivayisi akhutshaziwe noma amadivayisi asusiwe, ngakho izilungiselelo zamadivayisi angasasebenzi noma angafinyeleleki ziyagcinwa."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Izinketho Zokudlulisa"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Uhlobo lokuxhumana oluzenzakalelayo"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Uhlobo oluzenzakalelayo lokuxhumana olusetshenziselwa ukuxhumana nedivayisi."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Hlukanisa Ngedivayisi"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Hlukanisa Izilungiselelo ezigciniwe zibe kufolda yedivayisi ngayinye"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Ifolda Engaphansi Enosuku"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Faka uhla lwemibhalo oluncike osukwini endleleni yengobo yomlando (ngaphambi kwefolda yedivayisi ngayinye), ukuze ukusebenza ngakunye kugcinwe ngaphansi kosuku lwakho lwekhophi eyisipele, isib. .../2020-11-04/hostname/.... Ukuvala kugcina ukwakheka okukhona."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "Indlela ye-SCP"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Uma usebenzisa i-SCP, ukushiya lokhu kungenalutho kuzosebenzisa imojuli ye-SCP ye-PHP engahlali isebenza njalo. I-SCP yangaphandle ikhutshaziwe ngenkathi ukuqinisekiswa kokhiye womsingathi we-SSH kunikwe amandla ngoba ngeke ikwazi ukusebenzisa kabusha uxhumo oluqinisekisiwe."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Qinisekisa Izikhiye Zomsingathi ze-SSH"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Rekhoda ukhiye womsingathi we-SSH wedivayisi ngayinye ekuxhumekeni kokuqala bese wenqaba ukuthumela izifakazo uma ushintsha kamuva. Imodi ye-SSH/Telnet ngeke ibuyele ku-Telnet ngenkathi ukuqinisekisa kunikwe amandla. Ngemva kokushintsha kokhiye okusemthethweni, sebenzisa isenzo sedivayisi ukuze usule ukhiye womsingathi ogciniwe."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "I-IP Yeseva ye-TFTP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Kumele kube i-IP ekhomba kuseva yakho ye-Cacti."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "Indlela Yohlu Lwemibhalo Lwekhophi Yasenqolobaneni ye-TFTP"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Indlela eya lapho ama-Config akho azogcinelwa khona ikhophi yasenqolobaneni, kufanele kube yindlela iseva ye-TFTP yendawo ebhala kuyo."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Indlela Yohlu Lwezinqolobane"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Indlela eya lapho ama-Config akho azogcinwa khona efayeleni lomlando (asuswe kumkhombandlela we-TFTP)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "Izinketho Ze-imeyili"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Ikheli Lomsuka"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "Ikheli le-imeyili okuzothunyelwa kulo ikhophi yasenqolobaneni yasebusuku."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Igama lomthumeli"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Igama okuzothunyelwa ngalo ikhophi yasenqolobaneni yasebusuku."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "Ikheli Le-imeyili"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Uhlu lwamakheli e-imeyili ahlukaniswe ngokhefana okuthunyelwa kuwo i-imeyili yokulondoloza ebusuku."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Faka Umehluko Wokulungiselelwa"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Engeza i-diff ehlanganisiwe yedivayisi ngayinye ekulungiselelwa kwayo okushintshile ngesikhathi sokusebenza ku-imeyili yesipele, ukuze umbuyekezi abone ncamashi okushintshile. Ukulungiselelwa okumbaxambili (okungesona umbhalo) kuyeqiwa. Imigqa eguquguqukayo eshintsha kusipele ngasinye (i-Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' ne-'Current configuration :', kanye ne-NX-OS '!Time:' ne-'!Running configuration last done at:') ihlala inganakwa. Isexwayiso: i-diff ithunyelwa njengombhalo ocacile kumamukeli ngamunye we-imeyili, ngakho ingadalula ukulungiselelwa okufanele kuhlale kuyimfihlo; shiya ukuthi Faka Izimfihlo ku-Diffs kungamakiwe."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Faka Izimfihlo Emehlukweni"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Thumela amanani ayimfihlo ku-diff ethunyelwe nge-imeyili njengoba enjalo. Uma kungahloliwe (okuzenzakalelayo), imigqa eshintshiwe itholakala kuzilungiselelo ezingahluziwe bese iphrintwa ifihliwe, ihluleka ngokuvala: imigqa equkethe amagama afana nemfihlo (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) nemigqa yomsingathi nomsebenzisi we-SNMP incishiswa ibe yigama layo lokuqala elilandelwa ngu-&lt;secret hidden&gt;, futhi wonke umugqa webhulokhi ye-PEM, isitifiketi noma ibhulokhi yochungechunge lokhiye, noma inani elibhalwe phakathi kwezimpawu zokucaphuna emigqeni eminingi, nanoma yimuphi umugqa we-hex noma i-base64, kuyafihlwa; ibhulokhi engapheli ifihla konke okusele kwesilungiselelo. Lokhu kufihla nemigqa engenangozi (isib. incazelo ekhuluma ngokhiye), kodwa wonke umugqa oshintshiwe uyabonakala njalo, uphawulwe ngokuthi (changed) uma kwehluka ingxenye yawo efihliwe kuphela, futhi ibhulokhi engapheli iyaphawulwa ku-imeyili. Amabhakhaphu agciniwe awashintshwa neze."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Amaphethini Okukhishwa Ku-Diff"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Izinkulumo ezivamile ongazikhetha (eyodwa kulayini ngamunye) ezifanisa imigqa yokulungiselela okufanele inganakwa uma kuqhathaniswa, ukuze imigqa eguquguqukayo efana nezitembu zesikhathi noma izinombolo zochungechunge ingaveli njengezinguquko. Iphethini ngayinye ifaniswa ngaphandle kokubheka usayizi wezinhlamvu noma kuphi emugqeni ngaphandle kokuba iboshwe ngo-^ noma u-$; iphethini engeyona inkulumo evamile esebenzayo ayinakwa."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Uhlu Lwezaziso ze-Thold"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Lapho i-Thold ifakiwe, thumela futhi i-imeyili yesipele kubamukeli Bohlu Lwezaziso ze-Thold olukhethiwe."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Engeza Kusipele se-RouterConfigs"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Chofoza u-'Qhubeka' ukuze wengeze Amadivayisi alandelayo ku-RouterConfigs ukuze alondolozwe njengesipele. Noma iyiphi idivayisi eseyivele ikhona ku-RouterConfigs iyayekwa."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Amadivayisi"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Izinhlobo Zedivayisi"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Ukuqinisekiswa"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Izipele"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Qhathanisa"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Ukwesekwa Kwezobuchwepheshe [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(izinhlamvu ezingu-%s)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Akusethiwe)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "ISAZISO: Kuqalwa ikhophi yasenqolobaneni eyenziwa ngesandla yamadivayisi angu-%s"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "ISAZISO: Kuqalwa ukuzama futhi okuzenzakalelayo"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "ISAZISO: Kuqalwa ikhophi yasenqolobaneni ezenzakalelayo"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "OKUBUCAYI: Indlela Yokwenza Ikhophi Yasenqolobaneni ye-TFTP ayisethiwe noma akuyona umkhombandlela"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "DEBUG: Kuzanywa ukulanda i-%s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Amadivayisi angu-%s enzelwe ikhophi yokulondoloza ngempumelelo."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Amadivayisi angu-%s ahlulekile ukwenza ikhophi yokulondoloza."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Amadivayisi angu-%s akhutshaziwe ekwenzeni ikhophi yokulondoloza."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Azikho izinguquko zokucushwa ezitholiwe."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Izipele Zokumisa"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Izipele Zokumisa"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Kuphoqiwe"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Okwenziwa ngesandla"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Kulingisiwe"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Kuhleliwe"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Zama futhi"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Ingxenye"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": KUHLULEKILE"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "IZIBALO: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "IPHUTHA: Indlela Yekhophi Yasenqolobaneni ayimisiwe noma akuyona uhla lwemibhalo"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "ISEXWAYISO: Isikhathi sokugcina esithi '%s' asivumelekile, kubuyiselwa ezinsukwini ezingama-30 ngokuzenzakalelayo"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "IZIBALO: Ikhophi yokusekelayo manje iyasebenza kusukela ngo-%s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "ISEXWAYISO: Ukwenza ikhophi yesipele sekuyasebenza kusukela ngo-%s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "I-ID yedivayisi ye-Cacti engu-%s ayitholakalanga; ayengezwanga ku-RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Idivayisi '%s' isivele iku-RouterConfigs; yeqiwe."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Idivayisi '%s' yengezwe ku-RouterConfigs (kukhutshaziwe kuze kube yilapho kusethwa i-akhawunti nohlobo lwedivayisi)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Ihlulekile ukwengeza Idivayisi '%s' ku-RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Ibhulokhi yokususa imininingwane emgqeni %d wekhophi yasenqolobaneni yangaphambilini ayizange ivalwe; imigqa elandelayo ifihliwe."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Ibhulokhi yokususa imininingwane emgqeni %d wekhophi yasenqolobaneni entsha ayizange ivalwe; imigqa elandelayo ifihliwe."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "IPHUTHA: Igama lomsingathi le-Idivayisi '%s' alivumelekile njengegama lefayela lekhophi yasenqolobaneni; hlela Idivayisi bese usebenzisa izinhlamvu zegama lomsingathi noma zekheli le-IP kuphela"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "IPHUTHA: Ayikho iseva ye-TFTP emiselwe Idivayisi '%s'; misela Iseva ye-TFTP kudivayisi noma kuzilungiselelo jikelele"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "IPHUTHA: Ukuqinisekiswa kukhiye womsingathi we-SSH kwehlulekile ku-Idivayisi '%s'; yenqaba ukuthumela imininingwane yokungena noma ukubuyela ku-Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "IPHUTHA: Ukuxhumeka kwe-SSH kwehlulekile ku-Idivayisi '%s'; ukubuyela ku-Telnet kukhutshaziwe ngenkathi ukuqinisekiswa kukhiye womsingathi we-SSH kunikwe amandla"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "IPHUTHA: Kwehlulekile ukuxhumeka ku-Idivayisi '%s' kusetshenziswa uhlobo lokuxhuma: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "IPHUTHA: Kwehlulekile ukulanda '%s' kuya ku-'%s' nge-'%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Kunikwe amandla"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "I-%s ekhethiwe ayisebenzi; awekho amadivayisi ashintshiwe."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Ukuqinisekiswa kwendlela yefayela kuhlulekile"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Ifayela '%s' lihlulekile ukulayisha"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Ifayela '%s' alitholakalanga"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Ukucushwa Kwe-Router kwe-%s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Isipele esivela ku-%s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Ifayela: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Okwenziwa ngesandla"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Njalo ngenyanga ngosuku"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "iSonto"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "uMsombuluko"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "uLwesibili"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "uLwesithathu"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "uLwesine"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "uLwesihlanu"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "uMgqibelo"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "uJanuwari"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "uFebruwari"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "uMashi"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "u-Ephreli"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "uMeyi"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "uJuni"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "uJulayi"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "u-Agasti"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "uSepthemba"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "u-Okthoba"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "uNovemba"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "uDisemba"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Okokugcina"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Okokuqala"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Okwesibili"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Okwesithathu"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Okwesine"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Kuvaliwe (akukho folda engaphansi enosuku)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "YYYY/MM/DD (okufakwe ngaphakathi)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "I-%s ekhethiwe ayisebenzi."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Kwishejuli Yenyanga kumele ukhethe okungenani Inyanga eyodwa kanye Nosuku Lwenyanga olulodwa."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Kwishejuli Yenyanga Ngosuku kumele ukhethe Izinyanga, Amaviki Enyanga, kanye Nezinsuku Zeviki."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Izinyanga kanye Nezinsuku Zenyanga ezikhethiwe azikaze zenzeke kanyekanye; khetha olunye usuku, noma Okokugcina kosuku lokugcina lwenyanga."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Chofoza u-'Qhubeka' ukuze ususe ama-akhawunti alandelayo."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Khansela"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Qhubeka"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Susa Idivayisi/Amadivayisi"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Kufanele ukhethe okungenani idivayisi eyodwa."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Buyela"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "I-akhawunti: [hlela: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "I-akhawunti: [entsha]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Ama-akhawunti"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Ukuphathwa Kwe-akhawunti"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Awekho Ama-Akhawunti E-Router Atholakele"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Amakhophi Asenqolobaneni E-Router"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Noma yikuphi"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Sesha"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Okuzenzakalelayo"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Hamba"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Setha/Vuselela Izihlungi"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Sula"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Sula Izihlungi"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Igama Lomsingathi"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "Kungaba ikheli le-IP, noma igama lomsingathi. Uma kuyigama lomsingathi, kumele lixazululeke nge-DNS, noma kusukela kufayela lakho le-hosts."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "I-ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "I-ID yesizindalwazi yangaphakathi yale Divayisi. Iwusizo uma wenza ukusebenza ngokuzenzakalelayo noma ulungisa amaphutha."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Imisebenzi"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Yenza imisebenzi kule khophi yokusekela"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Uhla lwemibhalo lwama-backup edivayisi agciniwe"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Isikhathi Sesipele"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Isikhathi sokugcina sokwenziwa kwekhophi yokulondoloza yedivayisi"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Ushintsho Lokugcina"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Isikhathi sokugcina sokushintshwa kwedivayisi"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Kushintshwe Ngu"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Umuntu wokugcina oshintshe ukulungiselelwa kwedivayisi"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Igama lefayela"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Igama lefayela lamakhophi okulondoloza edivayisi agciniwe"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Buka Ukucushwa"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Azikho Izipele Ze-Router Ezitholakele"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Ukuqhathanisa Kwekhophi Yasenqolobaneni Ye-Router"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Imodi Ye-Diff"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Emgqeni"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Eceleni kwesinye"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Imigqa Yokuqukethwe"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Qhathanisa Okuphumayo"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Isipele %s asitholakalanga"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Azikho Izinguquko"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Iphutha, kufanele ube namakhophi okulondoloza edivayisi ngayinye."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Ukulungisa amaphutha kwe-%s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Alukho Ushintsho"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Awekho amadivayisi ashintshiwe: ishejuli entsha ayikwazi ukusebenza kuma-ID edivayisi %s, ngoba Izinyanga, Izinsuku Zenyanga, Amaviki Enyanga noma Izinsuku Zeviki zawo azikho noma azikaze zenzeke. Setha ishejuli kulawo madivayisi ngalinye ngalinye."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Kubuyekezwe izilungiselelo kumadivayisi angu-%d."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Azikho izilungiselelo ezishintshiwe; yonke inkambu ishiywe ku-\"Akukho Ushintsho\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "DEBUG: Kuqhutshwa isipele ngesandla kusetshenziswa '%s' ngama-argument '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Ikhophi yasenqolobaneni ye-Router iqalile. Hlola ikholomu Yosuku Lwekhophi Yasenqolobaneni noma Ilogi ye-Cacti ukuze uthole isimo sokuqedwa nesikhathi"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Chofoza u-'Qhubeka' ukuze ususe idivayisi(amadivayisi) elandelayo."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Chofoza u-'Qhubeka' ukuze unike amandla idivayisi(amadivayisi) elandelayo."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Nika Amandla Idivayisi/Amadivayisi"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Chofoza u-'Qhubeka' ukuze ukhubaze idivayisi(amadivayisi) elandelayo."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Khubaza Idivayisi/Amadivayisi"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Chofoza u-'Qhubeka' ukuze usule ukhiye womsingathi we-SSH ogciniwe wamadivayisi alandelayo. Ukuxhumeka okulandelayo kwe-SSH kuzowethemba futhi kuqophe ukhiye okutholayo."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Sula Ukhiye/Okhiye Bomsingathi be-SSH"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Setha isilungiselelo esisodwa noma ngaphezulu kulezi ezilandelayo kudivayisi (kumadivayisi) ekhethiwe. Izinkambu ezishiywe ku-'Akukho Shintsho' azishintshwa."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Kukhutshaziwe"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Sebenzisa izilungiselelo Kudivayisi(Emadivayisini)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Kufanele ukhethe okungenani Idivayisi ye-Router."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Igama lomsingathi alivumelekile. Sebenzisa kuphela izinhlamvu, izinombolo, izikhala kanye nezinhlamvu . - _ : futhi ungasebenzisi izihlukanisi zendlela noma \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Uhlobo Lwesheduli noma Ukuphinda Kwenziwe Njalo okukhethiwe akusebenzi."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Akurekhodiwe"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "I-Router: [hlela: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "I-Router: [okusha]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Ukuphathwa Kwedivayisi Ye-Router"
+
+#: router-devices.php
+msgid "Account"
+msgstr "I-akhawunti"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Izenzo"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Ikhophi Yokulondoloza Yokugcina"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Uhlobo lwedivayisi lwedivayisi"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Uhlobo Lokuxhuma"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Uhlobo lokuxhumana lwale divayisi"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Ukumisa"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Inani lokulungiselelwa kwale divayisi"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Ikheli le-IP lale divayisi"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Iseva ye-TFTP yedivayisi ngayinye, noma Okuzenzakalelayo uma isebenzisa izilungiselelo zeseva ye-TFTP zomhlaba wonke"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Ikhophi Yasenqolobaneni Elandelayo"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Usuku Lwesipele"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Umzamo Olandelayo"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Umzamo Wokugcina"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Usuku Lokushintsha"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Namuhla"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Izolo"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Leli Viki"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Le Nyanga"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Phakathi Nonyaka"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Kudala, Kudala Kakhulu"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Cha"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Yebo"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Xhuma nge-SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Xhuma nge-Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Landelela Umzila"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Ulwazi Lokususa Iphutha Lwe-Router"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Izipele (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Okwamanje"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Awakho Amadivayisi E-Router Atholakele"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Uma uchofoza u-'Qhubeka', lawa madivayisi (noma le divayisi) alandelayo azosuswa."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Imiyalo Yangemva Kokungena iqukethe umyalo okungeyona inkulumo ejwayelekile evumelekile: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Umbuzo [hlela: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Umbuzo [omusha]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Buka Izinhlobo Zamadivayisi E-Router"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Uhlobo"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Umyalelo Womsebenzisi"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Umyalelo Wephasiwedi"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Inguqulo"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Umbuzo Wokuqinisekisa"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Hlola i-End ku-Config"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Azikho Izinhlobo Zedivayisi Ye-Router Ezitholakele"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Amakhonfigi E-Router"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "DEBUG: Kuqhutshwa '%s' ngama-argument '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Izinsiza"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Amadivayisi E-Router"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(hlela)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(izenzo)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Buka Ukulungisa Iphutha"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Ama-akhawunti e-Router"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Ukuqhathanisa Kwe-Router"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Ama-Router"
+
