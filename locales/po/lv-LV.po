@@ -1,0 +1,1606 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-13 14:35-0500\n"
+"PO-Revision-Date: 2026-11-28 02:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Latvian <https://translate.cacti.net/projects/cacti/routerconfigs/lv/>\n"
+"Language: lv-LV\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+
+#: includes/arrays.php
+msgid "Delete"
+msgstr "Dzēst"
+
+#: includes/arrays.php
+msgid "Backup"
+msgstr "Dublēt"
+
+#: includes/arrays.php
+msgid "Edit (bulk change settings)"
+msgstr "Rediģēt (masveida iestatījumu maiņa)"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Iespējot"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Atspējot"
+
+#: includes/arrays.php
+msgid "Clear SSH Host Key"
+msgstr "Notīrīt SSH resursdatora atslēgu"
+
+#: includes/arrays.php
+msgid "SSH/Telnet"
+msgstr "SSH/Telnet"
+
+#: includes/arrays.php
+msgid "SSH"
+msgstr "SSH"
+
+#: includes/arrays.php
+msgid "Telnet"
+msgstr "Telnet"
+
+#: includes/arrays.php
+msgid "SCP"
+msgstr "SCP"
+
+#: includes/arrays.php
+msgid "SFTP"
+msgstr "SFTP"
+
+#: includes/arrays.php
+msgid "Inherit"
+msgstr "Mantot"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Daily"
+msgstr "Ikdienas"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weekly"
+msgstr "Iknedēļas"
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Monthly"
+msgstr "Katru mēnesi"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d mēnesis"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d mēneši"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d gads"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Years"
+msgstr "%d gadi"
+
+#: includes/arrays.php
+msgid "Never"
+msgstr "Nekad"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hour"
+msgstr "%d stunda"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d hours"
+msgstr "%d stundas"
+
+#: includes/arrays.php
+msgid "00:00 (12am)"
+msgstr "00:00 (12 priekšp.)"
+
+#: includes/arrays.php
+msgid "01:00 (1am)"
+msgstr "01:00 (1 priekšp.)"
+
+#: includes/arrays.php
+msgid "02:00 (2am)"
+msgstr "02:00 (2 priekšp.)"
+
+#: includes/arrays.php
+msgid "03:00 (3am)"
+msgstr "03:00 (3 priekšp.)"
+
+#: includes/arrays.php
+msgid "04:00 (4am)"
+msgstr "04:00 (4 priekšp.)"
+
+#: includes/arrays.php
+msgid "05:00 (5am)"
+msgstr "05:00 (5 priekšp.)"
+
+#: includes/arrays.php
+msgid "06:00 (6am)"
+msgstr "06:00 (6 priekšp.)"
+
+#: includes/arrays.php
+msgid "07:00 (7am)"
+msgstr "07:00 (7 priekšp.)"
+
+#: includes/arrays.php
+msgid "08:00 (8am)"
+msgstr "08:00 (8 priekšp.)"
+
+#: includes/arrays.php
+msgid "09:00 (9am)"
+msgstr "09:00 (9 priekšp.)"
+
+#: includes/arrays.php
+msgid "10:00 (12am)"
+msgstr "10:00 (10 priekšp.)"
+
+#: includes/arrays.php
+msgid "11:00 (11am)"
+msgstr "11:00 (11 priekšp.)"
+
+#: includes/arrays.php
+msgid "12:00 (12pm)"
+msgstr "12:00 (12 pēcp.)"
+
+#: includes/arrays.php
+msgid "13:00 (1pm)"
+msgstr "13:00 (1 pēcp.)"
+
+#: includes/arrays.php
+msgid "14:00 (2pm)"
+msgstr "14:00 (2 pēcp.)"
+
+#: includes/arrays.php
+msgid "15:00 (3pm)"
+msgstr "15:00 (3 pēcp.)"
+
+#: includes/arrays.php
+msgid "16:00 (4pm)"
+msgstr "16:00 (4 pēcp.)"
+
+#: includes/arrays.php
+msgid "17:00 (5pm)"
+msgstr "17:00 (5 pēcp.)"
+
+#: includes/arrays.php
+msgid "18:00 (6pm)"
+msgstr "18:00 (6 pēcp.)"
+
+#: includes/arrays.php
+msgid "19:00 (7pm)"
+msgstr "19:00 (7 pēcp.)"
+
+#: includes/arrays.php
+msgid "20:00 (8pm)"
+msgstr "20:00 (8 pēcp.)"
+
+#: includes/arrays.php
+msgid "21:00 (9pm)"
+msgstr "21:00 (9 pēcp.)"
+
+#: includes/arrays.php
+msgid "22:00 (10pm)"
+msgstr "22:00 (10 pēcp.)"
+
+#: includes/arrays.php
+msgid "23:00 (11pm)"
+msgstr "23:00 (11 pēcp.)"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d line"
+msgstr "%d rinda"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d lines"
+msgstr "%d rindas"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Name"
+msgstr "Nosaukums"
+
+#: includes/arrays.php
+msgid "Give this account a meaningful name that will be displayed."
+msgstr "Piešķiriet šim kontam saprotamu nosaukumu, kas tiks attēlots."
+
+#: includes/arrays.php router-accounts.php
+msgid "Username"
+msgstr "Lietotājvārds"
+
+#: includes/arrays.php
+msgid "The username that will be used for authentication."
+msgstr "Lietotājvārds, kas tiks izmantots autentifikācijai."
+
+#: includes/arrays.php
+msgid "Password"
+msgstr "Parole"
+
+#: includes/arrays.php
+msgid "The password used for authentication."
+msgstr "Parole, kas tiek izmantota autentifikācijai."
+
+#: includes/arrays.php
+msgid "Enable Password"
+msgstr "Enable parole"
+
+#: includes/arrays.php
+msgid "Your Enable Password, if required."
+msgstr "Jūsu Enable parole, ja tā ir nepieciešama."
+
+#: includes/arrays.php
+msgid "Enable Device"
+msgstr "Iespējot ierīci"
+
+#: includes/arrays.php
+msgid "Uncheck this box to disabled this device from being backed up."
+msgstr "Noņemiet atzīmi no šīs izvēles rūtiņas, lai atspējotu šīs ierīces dublēšanu."
+
+#: includes/arrays.php router-accounts.php
+msgid "Description"
+msgstr "Apraksts"
+
+#: includes/arrays.php
+msgid "Name of this device (will be used for config saving and SVN if no hostname is present in config)."
+msgstr "Šīs ierīces nosaukums (tiks izmantots konfigurācijas saglabāšanai un SVN, ja konfigurācijā nav norādīts resursdatora nosaukums)."
+
+#: includes/arrays.php router-devices.php
+msgid "IP Address"
+msgstr "IP adrese"
+
+#: includes/arrays.php
+msgid "This is the IP Address used to communicate with the device."
+msgstr "Šī ir IP adrese, ko izmanto saziņai ar ierīci."
+
+#: includes/arrays.php router-devices.php
+msgid "TFTP Server"
+msgstr "TFTP serveris"
+
+#: includes/arrays.php
+msgid "Optional TFTP server this device copies its configuration to. Leave blank to use the global TFTP Server setting."
+msgstr "Neobligāts TFTP serveris, uz kuru šī ierīce kopē savu konfigurāciju. Atstājiet tukšu, lai izmantotu globālo TFTP servera iestatījumu."
+
+#: includes/arrays.php
+msgid "Stored SSH Host Key"
+msgstr "Saglabātā SSH resursdatora atslēga"
+
+#: includes/arrays.php
+msgid "Compare this host-key algorithm and SHA-1 hex fingerprint with the device through a trusted channel. On the server, replace the path below with the matching public host-key file and run: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Use the device action to clear it after a legitimate key change."
+msgstr "Salīdziniet šo resursdatora atslēgas algoritmu un SHA-1 heksadecimālo nospiedumu ar ierīci, izmantojot uzticamu kanālu. Serverī aizstājiet tālāk norādīto ceļu ar atbilstošo publiskās resursdatora atslēgas failu un izpildiet: awk '{print $2}' /etc/ssh/ssh_host_ed25519_key.pub | base64 -d | openssl dgst -sha1 | awk '{print toupper($NF)}'. Pēc pamatotas atslēgas nomaiņas izmantojiet ierīces darbību, lai to notīrītu."
+
+#: includes/arrays.php router-backups.php router-devices.php
+msgid "Directory"
+msgstr "Katalogs"
+
+#: includes/arrays.php
+msgid "This is the relative directory structure used to store the configs."
+msgstr "Šī ir relatīvā katalogu struktūra, ko izmanto konfigurāciju glabāšanai."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Schedule Type"
+msgstr "Plānotāja tips"
+
+#: includes/arrays.php
+msgid "How often to Backup this device. Daily with a Rerun Every of 10 performs a backup every 10 days; Monthly performs a true calendar-month backup."
+msgstr "Cik bieži dublēt šo ierīci. Režīms \"Katru dienu\" ar \"Atkārtot ik pēc\" vērtību 10 veic dublēšanu ik pēc 10 dienām; \"Katru mēnesi\" veic dublēšanu pēc faktiskā kalendārā mēneša."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Rerun Every"
+msgstr "Atkārtot ik pēc"
+
+#: includes/arrays.php
+msgid "For Daily schedules, rerun the backup every X days. For Weekly schedules without specific Days of Week, rerun it every X weeks; once Days of Week are selected the backup runs on those days every week and this field does not apply."
+msgstr "Ikdienas plānojumiem atkārtot dublēšanu ik pēc X dienām. Iknedēļas plānojumiem bez konkrētām nedēļas dienām atkārtot ik pēc X nedēļām; tiklīdz ir atlasītas nedēļas dienas, dublēšana tiek izpildīta šajās dienās katru nedēļu un šis lauks netiek piemērots."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week"
+msgstr "Nedēļas dienas"
+
+#: includes/arrays.php
+msgid "For a Weekly schedule, the day(s) of the week to run the backup on, every week. Leave empty to run every Rerun Every weeks instead."
+msgstr "Nedēļas diena(-s), kurā(-s) iknedēļas plānojumā katru nedēļu veikt dublēšanu. Atstājiet tukšu, lai tā vietā izpildītu ik pēc laukā \"Atkārtot ik pēc\" norādītā nedēļu skaita."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Months of Year"
+msgstr "Gada mēneši"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the month(s) of the year to run the backup in."
+msgstr "Ikmēneša grafikam: gada mēnesis(-ši), kurā(-os) veikt dublēšanu."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Month"
+msgstr "Mēneša dienas"
+
+#: includes/arrays.php
+msgid "For a Monthly schedule, the day(s) of the month to run the backup on (Last = last day of the month)."
+msgstr "Ikmēneša grafikam: mēneša diena(-s), kurā(-ās) veikt dublēšanu (Pēdējais = mēneša pēdējā diena)."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Weeks of Month"
+msgstr "Mēneša nedēļas"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the week(s) of the month to run the backup in."
+msgstr "Grafikam \"Ikmēneša noteiktā dienā\": mēneša nedēļa(-s), kurā(-ās) veikt dublēšanu."
+
+#: includes/arrays.php includes/scheduler.php
+msgid "Days of Week (Monthly)"
+msgstr "Nedēļas dienas (ikmēneša)"
+
+#: includes/arrays.php
+msgid "For a Monthly on Day schedule, the weekday(s) to pair with the Weeks of Month selection."
+msgstr "Grafikam \"Ikmēneša noteiktā dienā\": nedēļas diena(-s), ko apvienot ar izvēlētajām mēneša nedēļām."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Device Type"
+msgstr "Ierīces tips"
+
+#: includes/arrays.php
+msgid "Choose the type of device that the router is."
+msgstr "Izvēlieties maršrutētāja ierīces veidu."
+
+#: includes/arrays.php router-devices.php
+msgid "Auto-Detect"
+msgstr "Automātiska noteikšana"
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Connection Type"
+msgstr "Savienojuma veids"
+
+#: includes/arrays.php
+msgid "This is the type of connection used to communicate with the device."
+msgstr "Savienojuma veids, ko izmanto saziņai ar ierīci."
+
+#: includes/arrays.php includes/functions.php router-devices.php
+msgid "Authentication Account"
+msgstr "Autentifikācijas konts"
+
+#: includes/arrays.php
+msgid "Choose an account to use to Login to the router"
+msgstr "Izvēlieties kontu pieteikšanai maršrutētājā"
+
+#: includes/arrays.php
+msgid "None"
+msgstr "Nav"
+
+#: includes/arrays.php
+msgid "Default timeout"
+msgstr "Noklusējuma noildze"
+
+#: includes/arrays.php
+msgid "Default time to wait in seconds for a response"
+msgstr "Noklusējuma gaidīšanas laiks sekundēs atbildes saņemšanai"
+
+#: includes/arrays.php
+msgid "Default sleep time"
+msgstr "Noklusējuma pauzes laiks"
+
+#: includes/arrays.php
+msgid "Default time to sleep in microseconds (1/1,000,000th of a second)"
+msgstr "Noklusējuma pauzes laiks mikrosekundēs (1/1 000 000 no sekundes)"
+
+#: includes/arrays.php
+msgid "Assume elevated"
+msgstr "Pieņemt priviliģēto režīmu"
+
+#: includes/arrays.php
+msgid "Check this box to assume this device is always elevated"
+msgstr "Atzīmējiet šo izvēles rūtiņu, lai pieņemtu, ka ierīce vienmēr ir priviliģētajā režīmā"
+
+#: includes/arrays.php
+msgid "Name of this device type."
+msgstr "Šī ierīces veida nosaukums."
+
+#: includes/arrays.php
+msgid "Username Prompt"
+msgstr "Lietotājvārda uzvedne"
+
+#: includes/arrays.php
+msgid "This is the username prompt to match on login."
+msgstr "Lietotājvārda uzvedne, ko meklēt pieteikšanās laikā."
+
+#: includes/arrays.php
+msgid "Password Prompt"
+msgstr "Paroles uzvedne"
+
+#: includes/arrays.php
+msgid "This is the password prompt to match on login."
+msgstr "Paroles uzvedne, ko meklēt pieteikšanās laikā."
+
+#: includes/arrays.php
+msgid "Configuration file"
+msgstr "Konfigurācijas fails"
+
+#: includes/arrays.php
+msgid "This is the standard location of the configuration file on the remote device. It is used for SCP and SFTP method"
+msgstr "Standarta konfigurācijas faila atrašanās vieta attālajā ierīcē. Tiek izmantota SCP un SFTP metodei"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Copy TFTP"
+msgstr "Kopēt uz TFTP"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to send the backup to tftp server."
+msgstr "CLI komandas teksts, ko izmanto dublējuma nosūtīšanai uz TFTP serveri."
+
+#: includes/arrays.php
+msgid "Capture Command"
+msgstr "Tveršanas komanda"
+
+#: includes/arrays.php
+msgid "Optional command whose output is saved as the configuration, instead of copying it to a TFTP server. It always runs over SSH, whatever the Connection Type, and the device then needs no TFTP server. Leave blank for devices that copy their configuration to TFTP. Example for MikroTik RouterOS: /export"
+msgstr "Neobligāta komanda, kuras izvade tiek saglabāta kā konfigurācija, nevis kopēta uz TFTP serveri. Tā vienmēr tiek izpildīta, izmantojot SSH, neatkarīgi no savienojuma veida, un ierīcei tad nav nepieciešams TFTP serveris. Atstājiet tukšu ierīcēm, kas kopē konfigurāciju uz TFTP. Piemērs MikroTik RouterOS: /export"
+
+#: includes/arrays.php
+msgid "Show Version"
+msgstr "Rādīt versiju"
+
+#: includes/arrays.php
+msgid "This is the CLI text used to display the current version."
+msgstr "CLI komandas teksts, ko izmanto pašreizējās versijas attēlošanai."
+
+#: includes/arrays.php
+msgid "Confirmation Prompt"
+msgstr "Apstiprinājuma uzvedne"
+
+#: includes/arrays.php
+msgid "This is the confirmation prompt to match before transmission."
+msgstr "Apstiprinājuma uzvedne, ko meklēt pirms pārsūtīšanas."
+
+#: includes/arrays.php router-devtypes.php
+msgid "Confirm"
+msgstr "Apstiprināt"
+
+#: includes/arrays.php
+msgid "Is there a confirmation prompt for copying the config?"
+msgstr "Vai konfigurācijas kopēšanai tiek rādīta apstiprinājuma uzvedne?"
+
+#: includes/arrays.php router-devtypes.php
+msgid "Force Confirm"
+msgstr "Piespiedu apstiprināšana"
+
+#: includes/arrays.php
+msgid "Is there a force confirmation prompt for copying the config?"
+msgstr "Vai konfigurācijas kopēšanai tiek rādīta piespiedu apstiprinājuma uzvedne?"
+
+#: includes/arrays.php
+msgid "Check End in Config"
+msgstr "Pārbaudīt beigas konfigurācijā"
+
+#: includes/arrays.php
+msgid "Check end in config?"
+msgstr "Pārbaudīt beigu atzīmi konfigurācijā?"
+
+#: includes/arrays.php
+msgid "Any Key prompt"
+msgstr "Jebkura taustiņa uzvedne"
+
+#: includes/arrays.php
+msgid "Text to match a 'Press Any Key To Continue' styled prompt"
+msgstr "Teksts, kas atbilst 'Press Any Key To Continue' veida uzvednei"
+
+#: includes/arrays.php
+msgid "Post-Login Prompts"
+msgstr "Uzvednes pēc pieteikšanās"
+
+#: includes/arrays.php
+msgid "Optional prompt/response pairs sent right after login, before the copy-to-TFTP command, one per line as prompt|response. The prompt is matched as a case-insensitive regular expression against the device output (so it cannot itself contain |, and brackets and other special characters must be escaped, e.g. Save \\[y/n\\]), and the response is sent as typed, or use <CR> to send just a carriage return. A response is only sent once its prompt has been seen, either in the reply to the previous response or in later output; otherwise a warning is logged and nothing is sent. These are answered first; the Any Key prompt above is answered later, while the device is being enabled, so a prompt answered here never reaches Any Key. Example: Press any key|<CR>"
+msgstr "Neobligāti uzvednes/atbildes pāri, kas tiek nosūtīti uzreiz pēc pieteikšanās pirms kopēšanas uz TFTP komandas, pa vienam rindā formātā uzvedne|atbilde. Uzvedne tiek salīdzināta kā reģistrnejutīga regulārā izteiksme pret ierīces izvadi (tāpēc tā pati nedrīkst saturēt |, un kvadrātiekavas un citas speciālās rakstzīmes ir jāekranē, piem., Save \\[y/n\\]), savukārt atbilde tiek nosūtīta tieši kā ievadīta, vai izmantojiet <CR>, lai nosūtītu tikai rakstatgriezi. Atbilde tiek nosūtīta tikai pēc tam, kad tās uzvedne ir redzama atbildē uz iepriekšējo komandu vai vēlākā izvadē; pretējā gadījumā žurnālā tiek ierakstīts brīdinājums un nekas netiek nosūtīts. Uz šīm uzvednēm atbild vispirms; iepriekš norādītajai jebkura taustiņa uzvednei atbild vēlāk, ieslēdzot ierīces priviliģēto režīmu, tāpēc šeit atbildētā uzvedne nekad nenonāk līdz jebkura taustiņa uzvednei. Piemērs: Press any key|<CR>"
+
+#: includes/arrays.php
+msgid "General Settings"
+msgstr "Vispārīgie iestatījumi"
+
+#: includes/arrays.php
+msgid "Presentation Mode"
+msgstr "Attēlošanas režīms"
+
+#: includes/arrays.php
+msgid "Should Router Configs be presented on the Console or a Top Tab."
+msgstr "Vai Router Configs jāattēlo konsolē vai augšējā cilnē."
+
+#: includes/arrays.php
+msgid "Console"
+msgstr "Konsole"
+
+#: includes/arrays.php
+msgid "Top Tab"
+msgstr "Augšējā cilne"
+
+#: includes/arrays.php
+msgid "Config Diff Context Lines"
+msgstr "Konfigurācijas atšķirību konteksta rindas"
+
+#: includes/arrays.php
+msgid "The default number of unchanged lines to display before and after each change when comparing two backups. A larger value makes it easier to see the surrounding configuration context. This may be overridden per comparison on the Compare page."
+msgstr "Noklusējuma nemainīto rindu skaits, ko rādīt pirms un pēc katras izmaiņas, salīdzinot divus dublējumus. Lielāka vērtība atvieglo apkārtējās konfigurācijas konteksta pārskatīšanu. Šo vērtību var pārrakstīt katram salīdzinājumam lapā \"Salīdzināt\"."
+
+#: includes/arrays.php
+msgid "Connection timeout"
+msgstr "Savienojuma noildze"
+
+#: includes/arrays.php
+msgid "Maximum time to wait in seconds when establishing the initial network connection to a device. A hung or unreachable device is abandoned after this timeout so a scheduled backup run continues with the remaining devices."
+msgstr "Maksimālais gaidīšanas laiks sekundēs, izveidojot sākotnējo tīkla savienojumu ar ierīci. Pēc šīs noildzes iestāšanās uzkārusies vai nesasniedzama ierīce tiek izlaista, lai plānotā dublēšana varētu turpināties ar pārējām ierīcēm."
+
+#: includes/arrays.php
+msgid "Close without exit"
+msgstr "Aizvērt bez komandas exit"
+
+#: includes/arrays.php
+msgid "If ticked, when closing down the device connection, no 'exit' command is issued"
+msgstr "Ja atzīmēts, aizverot savienojumu ar ierīci, komanda 'exit' netiek izpildīta"
+
+#: includes/arrays.php
+msgid "Debug Connection Buffer"
+msgstr "Atkļūdot savienojuma buferi"
+
+#: includes/arrays.php
+msgid "Whether to log direct output of device connection"
+msgstr "Vai reģistrēt tiešo ierīces savienojuma izvadi"
+
+#: includes/arrays.php
+msgid "Assume all devices elevated"
+msgstr "Pieņemt priviliģēto režīmu visām ierīcēm"
+
+#: includes/arrays.php
+msgid "Whether to assume all devices are elevated"
+msgstr "Vai pieņemt, ka visas ierīces ir priviliģētajā režīmā"
+
+#: includes/arrays.php
+msgid "Download Hour"
+msgstr "Lejupielādes stunda"
+
+#: includes/arrays.php
+msgid "The hour of the day to perform the full downloads."
+msgstr "Diennakts stunda, kurā veikt pilnās lejupielādes."
+
+#: includes/arrays.php
+msgid "Retry Schedule"
+msgstr "Atkārtoto mēģinājumu grafiks"
+
+#: includes/arrays.php
+msgid "The time to wait before attempting to perform an additional download when scheduled download fails"
+msgstr "Gaidīšanas laiks pirms papildu lejupielādes mēģinājuma, ja plānotā lejupielāde neizdodas"
+
+#: includes/arrays.php
+msgid "Retention Period"
+msgstr "Saglabāšanas periods"
+
+#: includes/arrays.php
+msgid "The number of days to retain old backups."
+msgstr "Dienu skaits, cik ilgi saglabāt vecos dublējumus."
+
+#: includes/arrays.php
+msgid "Keep Inactive Device Backups"
+msgstr "Saglabāt neaktīvo ierīču dublējumus"
+
+#: includes/arrays.php
+msgid "When checked, the retention cleanup will not delete aged-out backups that belong to disabled devices or to devices that have been removed, so configurations for decommissioned or unreachable equipment are retained."
+msgstr "Ja atzīmēts, saglabāšanas tīrīšana nedzēsīs novecojušos dublējumus, kas pieder atspējotām vai noņemtām ierīcēm, tāpēc ekspluatācijā vairs neesošu vai nesasniedzamu iekārtu konfigurācijas tiks saglabātas."
+
+#: includes/arrays.php
+msgid "Transfer Options"
+msgstr "Pārsūtīšanas opcijas"
+
+#: includes/arrays.php
+msgid "Default connection type"
+msgstr "Noklusējuma savienojuma veids"
+
+#: includes/arrays.php
+msgid "Default type of connection used to communicate with the device."
+msgstr "Noklusējuma savienojuma veids saziņai ar ierīci."
+
+#: includes/arrays.php
+msgid "Separate By Device"
+msgstr "Atdalīt pa ierīcēm"
+
+#: includes/arrays.php
+msgid "Separate archived Configs into a folder per device"
+msgstr "Atdalīt arhivētās konfigurācijas atsevišķā mapē katrai ierīcei"
+
+#: includes/arrays.php
+msgid "Dated Subdirectory"
+msgstr "Datēta apakšdirektorija"
+
+#: includes/arrays.php
+msgid "Insert a date-based subdirectory into the archive path (before the per-device folder), so each run is stored under its backup date, e.g. .../2020-11-04/hostname/.... Off preserves the existing layout."
+msgstr "Ievietot uz datumu balstītu apakšdirektoriju arhīva ceļā (pirms ierīces mapes), lai katra izpilde tiktu saglabāta zem tās dublēšanas datuma, piem., .../2020-11-04/hostname/.... Opcija \"Izslēgts\" saglabā esošo izkārtojumu."
+
+#: includes/arrays.php
+msgid "SCP Path"
+msgstr "SCP ceļš"
+
+#: includes/arrays.php
+msgid "When using SCP, leaving this blank will use PHP's SCP module which does not always work. External SCP is disabled while SSH host key verification is enabled because it cannot reuse the verified connection."
+msgstr "Izmantojot SCP un atstājot šo lauku tukšu, tiks izmantots PHP SCP modulis, kas ne vienmēr darbojas. Ārējais SCP ir atspējots, kamēr ir iespējota SSH resursdatora atslēgu pārbaude, jo tas nevar atkārtoti izmantot pārbaudīto savienojumu."
+
+#: includes/arrays.php
+msgid "Verify SSH Host Keys"
+msgstr "Pārbaudīt SSH resursdatora atslēgas"
+
+#: includes/arrays.php
+msgid "Record each device's SSH host key on first connect and refuse to send credentials if it later changes. SSH/Telnet mode will not fall back to Telnet while verification is enabled. After a legitimate key change, use the device action to clear the stored host key."
+msgstr "Saglabāt katras ierīces SSH resursdatora atslēgu pirmajā savienojumā un atteikties sūtīt akreditācijas datus, ja tā vēlāk mainās. Režīms SSH/Telnet nepāries uz Telnet, kamēr pārbaude ir iespējota. Pēc pamatotas atslēgas maiņas izmantojiet ierīces darbību, lai notīrītu saglabāto resursdatora atslēgu."
+
+#: includes/arrays.php
+msgid "TFTP Server IP"
+msgstr "TFTP servera IP"
+
+#: includes/arrays.php
+msgid "Must be an IP pointing to your Cacti server."
+msgstr "Jānorāda IP adrese, kas norāda uz jūsu Cacti serveri."
+
+#: includes/arrays.php
+msgid "TFTP Backup Directory Path"
+msgstr "TFTP dublējumu direktorijas ceļš"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be backed up, it must be the path that the local TFTP Server writes to."
+msgstr "Ceļš, kur tiks saglabāti konfigurāciju dublējumi; tam jābūt ceļam, kurā raksta vietējais TFTP serveris."
+
+#: includes/arrays.php
+msgid "Archive Directory Path"
+msgstr "Arhīva direktorijas ceļš"
+
+#: includes/arrays.php
+msgid "The path to where your Configs will be archived (moved from TFTP directory)"
+msgstr "Ceļš, kur tiks arhivētas konfigurācijas (pārvietotas no TFTP direktorijas)"
+
+#: includes/arrays.php
+msgid "Email Options"
+msgstr "E-pasta opcijas"
+
+#: includes/arrays.php
+msgid "From Address"
+msgstr "Sūtītāja adrese"
+
+#: includes/arrays.php
+msgid "Email address the nightly backup will be sent from."
+msgstr "E-pasta adrese, no kuras tiks nosūtīta nakts dublēšanas atskaite."
+
+#: includes/arrays.php
+msgid "From Name"
+msgstr "Sūtītāja vārds"
+
+#: includes/arrays.php
+msgid "Name the nightly backup will be sent from."
+msgstr "Vārds, no kura tiks nosūtīta nakts dublēšanas atskaite."
+
+#: includes/arrays.php
+msgid "Email Address"
+msgstr "E-pasta adrese"
+
+#: includes/arrays.php
+msgid "A comma delimited list of Email addresses to send the nightly backup Email to."
+msgstr "Ar komatiem atdalīts e-pasta adrešu saraksts, uz kurām sūtīt nakts dublēšanas e-pastu."
+
+#: includes/arrays.php
+msgid "Include Config Diffs"
+msgstr "Iekļaut konfigurācijas atšķirības"
+
+#: includes/arrays.php
+msgid "Append a unified diff of each device whose configuration changed during the run to the backup Email, so a reviewer can see exactly what changed. Binary (non-text) configurations are skipped. Volatile lines that change on every backup (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' and 'Current configuration :', and NX-OS '!Time:' and '!Running configuration last done at:') are always ignored. Warning: the diff is sent in clear text to every recipient of the Email, so it can reveal configuration that should stay private; leave Include Secrets in Diffs unchecked."
+msgstr "Pievienot dublēšanas e-pastam vienotu atšķirību pārskatu (unified diff) par katru ierīci, kuras konfigurācija izpildes laikā mainījās, lai pārskatītājs varētu precīzi redzēt izmaiņas. Binārās (neteksta) konfigurācijas tiek izlaistas. Mainīgās rindas, kas mainās katrā dublējumā (Cisco IOS '! Last configuration change', '! NVRAM config last updated', 'ntp clock-period' un 'Current configuration :', kā arī NX-OS '!Time:' un '!Running configuration last done at:'), vienmēr tiek ignorētas. Brīdinājums: atšķirību pārskats tiek nosūtīts nešifrētā tekstā katram e-pasta saņēmējam, tāpēc tas var atklāt konfigurāciju, kurai jāpaliek privātai; atstājiet opciju \"Iekļaut noslēpumus atšķirībās\" neatzīmētu."
+
+#: includes/arrays.php
+msgid "Include Secrets in Diffs"
+msgstr "Iekļaut noslēpumus atšķirībās"
+
+#: includes/arrays.php
+msgid "Send secret values in the emailed diff as they are. When unchecked (the default), the changed lines are found on the raw configurations and printed redacted, failing closed: lines containing secret-like words (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private) and SNMP host and user lines are reduced to their first word followed by &lt;secret hidden&gt;, and every line of a PEM block, a certificate or key-string block, or a multi-line quoted value, and any hex or base64 row, is hidden; a block that never ends hides the rest of the configuration. This also hides harmless lines (e.g. a description mentioning a key), but every changed line still shows up, marked (changed) when only its hidden part differs, and a block that never ends is noted in the Email. Stored backups are never changed."
+msgstr "Sūtīt noslēpumu vērtības e-pasta atšķirību pārskatā tādas, kādas tās ir. Ja nav atzīmēts (noklusējums), mainītās rindas tiek atrastas neapstrādātajās konfigurācijās un izdrukātas rediģētā veidā pēc drošas noklusējuma bloķēšanas principa: rindas, kas satur noslēpumiem raksturīgus vārdus (passw, passphrase, pwd, secret, psk, key, community, md5, authentication, credential, token, private), kā arī SNMP resursdatora un lietotāja rindas tiek saīsinātas līdz to pirmajam vārdam, kam seko &lt;secret hidden&gt;, un katra PEM bloka, sertifikāta vai atslēgu virknes bloka, vairākrindu pēdiņās iekļautas vērtības rinda, kā arī jebkura heksadecimālā vai base64 rinda tiek paslēpta; bloks, kas nekad nebeidzas, paslēpj pārējo konfigurāciju. Tas paslēpj arī nekaitīgas rindas (piem., aprakstu, kurā minēta atslēga), taču katra mainītā rinda joprojām tiek parādīta ar atzīmi (changed), ja atšķiras tikai tās paslēptā daļa, un par bloku, kas nekad nebeidzas, tiek ziņots e-pastā. Saglabātie dublējumi nekad netiek mainīti."
+
+#: includes/arrays.php
+msgid "Diff Exclude Patterns"
+msgstr "Atšķirību izslēgšanas šabloni"
+
+#: includes/arrays.php
+msgid "Optional regular expressions (one per line) matching configuration lines to ignore when comparing, so volatile lines such as timestamps or serial numbers do not show up as changes. Each pattern is matched case-insensitively anywhere in a line unless anchored with ^ or $; a pattern that is not a valid regular expression is ignored."
+msgstr "Neobligātas regulārās izteiksmes (pa vienai rindā), kas atbilst konfigurācijas rindām, kuras ignorēt salīdzināšanā, lai mainīgas rindas, piemēram, laika zīmogi vai sērijas numuri, neparādītos kā izmaiņas. Katrs šablons tiek salīdzināts reģistrnejutīgi jebkurā rindas vietā, ja vien nav piesaistīts ar ^ vai $; nederīga regulārā izteiksme tiek ignorēta."
+
+#: includes/arrays.php
+msgid "Thold Notification List"
+msgstr "Thold paziņojumu saraksts"
+
+#: includes/arrays.php
+msgid "When Thold is installed, also send the backup Email to the recipients of the selected Thold Notification List."
+msgstr "Ja ir instalēts Thold, nosūtīt dublēšanas e-pastu arī atlasītā Thold paziņojumu saraksta saņēmējiem."
+
+#: includes/devices.php
+msgid "Add to RouterConfigs Backup"
+msgstr "Pievienot RouterConfigs dublēšanai"
+
+#: includes/devices.php
+msgid "Click 'Continue' to add the following Device(s) to RouterConfigs for backup. Any device already present in RouterConfigs is skipped."
+msgstr "Noklikšķiniet uz 'Turpināt', lai pievienotu šo(-ās) ierīci(-es) spraudnim RouterConfigs dublēšanai. Jebkura ierīce, kas jau ir pievienota RouterConfigs, tiek izlaista."
+
+#: includes/functions.php router-accounts.php
+msgid "Devices"
+msgstr "Ierīces"
+
+#: includes/functions.php router-devtypes.php
+msgid "Device Types"
+msgstr "Ierīču tipi"
+
+#: includes/functions.php
+msgid "Authentication"
+msgstr "Autentifikācija"
+
+#: includes/functions.php
+msgid "Backups"
+msgstr "Dublējumi"
+
+#: includes/functions.php router-backups.php
+msgid "Compare"
+msgstr "Salīdzināt"
+
+#: includes/functions.php
+#, php-format
+msgid "Technical Support [ %s ]"
+msgstr "Tehniskais atbalsts [ %s ]"
+
+#: includes/functions.php
+#, php-format
+msgid "(%s chars)"
+msgstr "(%s rakstzīmes)"
+
+#: includes/functions.php
+msgid "(Not Set)"
+msgstr "(Nav iestatīts)"
+
+#: includes/functions.php
+#, php-format
+msgid "NOTICE: Starting manual backup of %s devices"
+msgstr "PAZIŅOJUMS: Sāk manuālu %s ierīču dublēšanu"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic retry"
+msgstr "PAZIŅOJUMS: Sāk automātisku atkārtotu mēģinājumu"
+
+#: includes/functions.php
+msgid "NOTICE: Starting automatic backup"
+msgstr "PAZIŅOJUMS: Sāk automātisku dublēšanu"
+
+#: includes/functions.php
+msgid "FATAL: TFTP Backup Path is not set or is not a directory"
+msgstr "KRITISKA KĻŪDA: TFTP dublējumu ceļš nav iestatīts vai nav direktorija"
+
+#: includes/functions.php
+#, php-format
+msgid "DEBUG: Attempting download for %s"
+msgstr "ATKĻŪDOŠANA: Mēģina lejupielādēt ierīcei %s"
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices backed up successfully."
+msgstr "Veiksmīgi dublētas %s ierīces."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices failed to backup."
+msgstr "Neizdevās dublēt %s ierīces."
+
+#: includes/functions.php
+#, php-format
+msgid "%s devices disabled from backup."
+msgstr "Dublēšanai atspējotas %s ierīces."
+
+#: includes/functions.php
+msgid "No configuration changes were detected."
+msgstr "Konfigurācijas izmaiņas netika konstatētas."
+
+#: includes/functions.php
+msgid "Config Backups"
+msgstr "Konfigurāciju dublējumi"
+
+#: includes/functions.php
+msgid "Configuration Backups"
+msgstr "Konfigurāciju dublējumi"
+
+#: includes/functions.php
+msgid " - Forced"
+msgstr " - Piespiedu"
+
+#: includes/functions.php
+msgid " - Manual"
+msgstr " - Manuāli"
+
+#: includes/functions.php
+msgid " - Simulated"
+msgstr " - Simulēti"
+
+#: includes/functions.php
+msgid " - Scheduled"
+msgstr " - Plānoti"
+
+#: includes/functions.php
+msgid " - Reattempt"
+msgstr " - Atkārtots mēģinājums"
+
+#: includes/functions.php
+msgid ": Partial"
+msgstr ": Daļēji"
+
+#: includes/functions.php
+msgid ": FAILED"
+msgstr ": NEIZDEVĀS"
+
+#: includes/functions.php
+msgid "STATS: "
+msgstr "STATISTIKA: "
+
+#: includes/functions.php
+msgid "ERROR: Backup Path is not set or is not a directory"
+msgstr "KĻŪDA: Dublējumu ceļš nav iestatīts vai nav direktorija"
+
+#: includes/functions.php
+#, php-format
+msgid "WARNING: Retention period '%s' is invalid, defaulting to 30 days"
+msgstr "BRĪDINĀJUMS: Saglabāšanas periods '%s' nav derīgs, tiek izmantots noklusējums 30 dienas"
+
+#: includes/functions.php
+#, php-format
+msgid "STATS: Backup now running since %s"
+msgstr "STATISTIKA: Dublēšana darbojas kopš %s"
+
+#: includes/functions.php
+#, php-format
+msgid "WARN: Backup already running since %s"
+msgstr "BRĪDINĀJUMS: Dublēšana jau darbojas kopš %s"
+
+#: includes/functions.php
+#, php-format
+msgid "Cacti Device id %s was not found; not added to RouterConfigs."
+msgstr "Cacti ierīce ar ID %s netika atrasta; netika pievienota RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' is already in RouterConfigs; skipped."
+msgstr "Ierīce '%s' jau atrodas RouterConfigs; izlaista."
+
+#: includes/functions.php
+#, php-format
+msgid "Device '%s' added to RouterConfigs (disabled until an account and device type are set)."
+msgstr "Ierīce '%s' pievienota RouterConfigs (atspējota, līdz tiek iestatīts konts un ierīces veids)."
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to add Device '%s' to RouterConfigs."
+msgstr "Neizdevās pievienot ierīci '%s' spraudnim RouterConfigs."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the previous backup never closed; following lines hidden."
+msgstr "Rediģēšanas bloks iepriekšējā dublējuma %d. rindā nekad netika aizvērts; turpmākās rindas ir paslēptas."
+
+#: includes/functions.php
+#, php-format
+msgid "Redaction block on line %d of the new backup never closed; following lines hidden."
+msgstr "Rediģēšanas bloks jaunā dublējuma %d. rindā nekad netika aizvērts; turpmākās rindas ir paslēptas."
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: The hostname of Device '%s' is not valid as a backup file name; edit the Device and use only hostname or IP address characters"
+msgstr "KĻŪDA: Ierīces '%s' resursdatora nosaukums nav derīgs kā dublējuma faila nosaukums; rediģējiet ierīci un izmantojiet tikai resursdatora nosaukuma vai IP adreses rakstzīmes"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: No TFTP server is set for Device '%s'; set a TFTP Server on the device or in the global settings"
+msgstr "KĻŪDA: Ierīcei '%s' nav iestatīts TFTP serveris; iestatiet TFTP serveri ierīcei vai globālajos iestatījumos"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH host key verification failed for Device '%s'; refusing to send credentials or fall back to Telnet"
+msgstr "KĻŪDA: Neizdevās SSH resursdatora atslēgas pārbaude ierīcei '%s'; tiek atteikta akreditācijas datu sūtīšana un pāreja uz Telnet"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: SSH connection failed for Device '%s'; Telnet fallback is disabled while SSH host key verification is enabled"
+msgstr "KĻŪDA: SSH savienojums ar ierīci '%s' neizdevās; pāreja uz Telnet ir atspējota, kamēr ir iespējota SSH resursdatora atslēgu pārbaude"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to connect to Device '%s' using connection type: %s"
+msgstr "KĻŪDA: Neizdevās izveidot savienojumu ar ierīci '%s', izmantojot savienojuma veidu: %s"
+
+#: includes/functions.php
+#, php-format
+msgid "ERROR: Failed to download '%s' to '%s' via '%s'"
+msgstr "KĻŪDA: Neizdevās lejupielādēt '%s' uz '%s', izmantojot '%s'"
+
+#: includes/functions.php router-devices.php
+msgid "Enabled"
+msgstr "Iespējots"
+
+#: includes/functions.php
+#, php-format
+msgid "The selected %s is not valid; no devices were changed."
+msgstr "Izvēlētā vērtība \"%s\" nav derīga; neviena ierīce netika mainīta."
+
+#: includes/functions.php
+msgid "File path validation failed"
+msgstr "Faila ceļa pārbaude neizdevās"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' failed to load"
+msgstr "Neizdevās ielādēt failu '%s'"
+
+#: includes/functions.php
+#, php-format
+msgid "File '%s' was not found"
+msgstr "Fails '%s' netika atrasts"
+
+#: includes/functions.php
+#, php-format
+msgid "Router Config for %s (%s)"
+msgstr "Maršrutētāja konfigurācija ierīcei %s (%s)"
+
+#: includes/functions.php
+#, php-format
+msgid "Backup from %s"
+msgstr "Dublējums no %s"
+
+#: includes/functions.php
+#, php-format
+msgid "File: %s/%s"
+msgstr "Fails: %s/%s"
+
+#: includes/scheduler.php
+msgid "Manual"
+msgstr "Manuāls"
+
+#: includes/scheduler.php
+msgid "Monthly on Day"
+msgstr "Ikmēneša noteiktā dienā"
+
+#: includes/scheduler.php
+msgid "Sunday"
+msgstr "Svētdiena"
+
+#: includes/scheduler.php
+msgid "Monday"
+msgstr "Pirmdiena"
+
+#: includes/scheduler.php
+msgid "Tuesday"
+msgstr "Otrdiena"
+
+#: includes/scheduler.php
+msgid "Wednesday"
+msgstr "Trešdiena"
+
+#: includes/scheduler.php
+msgid "Thursday"
+msgstr "Ceturtdiena"
+
+#: includes/scheduler.php
+msgid "Friday"
+msgstr "Piektdiena"
+
+#: includes/scheduler.php
+msgid "Saturday"
+msgstr "Sestdiena"
+
+#: includes/scheduler.php
+msgid "January"
+msgstr "Janvāris"
+
+#: includes/scheduler.php
+msgid "February"
+msgstr "Februāris"
+
+#: includes/scheduler.php
+msgid "March"
+msgstr "Marts"
+
+#: includes/scheduler.php
+msgid "April"
+msgstr "Aprīlis"
+
+#: includes/scheduler.php
+msgid "May"
+msgstr "Maijs"
+
+#: includes/scheduler.php
+msgid "June"
+msgstr "Jūnijs"
+
+#: includes/scheduler.php
+msgid "July"
+msgstr "Jūlijs"
+
+#: includes/scheduler.php
+msgid "August"
+msgstr "Augusts"
+
+#: includes/scheduler.php
+msgid "September"
+msgstr "Septembris"
+
+#: includes/scheduler.php
+msgid "October"
+msgstr "Oktobris"
+
+#: includes/scheduler.php
+msgid "November"
+msgstr "Novembris"
+
+#: includes/scheduler.php
+msgid "December"
+msgstr "Decembris"
+
+#: includes/scheduler.php
+msgid "Last"
+msgstr "Pēdējais"
+
+#: includes/scheduler.php
+msgid "First"
+msgstr "Pirmais"
+
+#: includes/scheduler.php
+msgid "Second"
+msgstr "Otrais"
+
+#: includes/scheduler.php
+msgid "Third"
+msgstr "Trešais"
+
+#: includes/scheduler.php
+msgid "Fourth"
+msgstr "Ceturtais"
+
+#: includes/scheduler.php
+msgid "Off (no dated subdirectory)"
+msgstr "Izslēgts (bez datētas apakšdirektorijas)"
+
+#: includes/scheduler.php
+msgid "YYYY-MM-DD"
+msgstr "GGGG-MM-DD"
+
+#: includes/scheduler.php
+msgid "YYYY/MM/DD (nested)"
+msgstr "GGGG/MM/DD (ligzdota)"
+
+#: includes/scheduler.php
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-GGGG"
+
+#: includes/scheduler.php
+#, php-format
+msgid "The selected %s is not valid."
+msgstr "Izvēlētā vērtība \"%s\" nav derīga."
+
+#: includes/scheduler.php
+msgid "For a Monthly schedule you must select at least one Month and one Day of Month."
+msgstr "Ikmēneša grafikam ir jāizvēlas vismaz viens mēnesis un viena mēneša diena."
+
+#: includes/scheduler.php
+msgid "For a Monthly on Day schedule you must select Months, Weeks of Month, and Days of Week."
+msgstr "Grafikam \"Ikmēneša noteiktā dienā\" ir jāizvēlas mēneši, mēneša nedēļas un nedēļas dienas."
+
+#: includes/scheduler.php
+msgid "The selected Months and Days of Month never occur together; choose another day, or Last for the last day of the month."
+msgstr "Izvēlētie mēneši un mēneša dienas nekad nesakrīt; izvēlieties citu dienu vai \"Pēdējais\" mēneša pēdējai dienai."
+
+#: router-accounts.php
+msgid "Click 'Continue' to delete the following account(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu šo(-s) kontu(-s)."
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Continue"
+msgstr "Turpināt"
+
+#: router-accounts.php router-devices.php router-devtypes.php
+msgid "Delete Device(s)"
+msgstr "Dzēst ierīci(-es)"
+
+#: router-accounts.php
+msgid "You must select at least one device."
+msgstr "Jāatlasa vismaz viena ierīce."
+
+#: router-accounts.php router-devices.php
+msgid "Return"
+msgstr "Atgriezties"
+
+#: router-accounts.php
+#, php-format
+msgid "Account: [edit: %s]"
+msgstr "Konts: [rediģēt: %s]"
+
+#: router-accounts.php
+msgid "Account: [new]"
+msgstr "Konts: [jauns]"
+
+#: router-accounts.php
+msgid "Accounts"
+msgstr "Konti"
+
+#: router-accounts.php
+msgid "Account Management"
+msgstr "Kontu pārvaldība"
+
+#: router-accounts.php
+msgid "No Router Accounts Found"
+msgstr "Maršrutētāju konti nav atrasti"
+
+#: router-backups.php setup.php
+msgid "Router Backups"
+msgstr "Maršrutētāju dublējumi"
+
+#: router-backups.php router-devices.php
+msgid "Any"
+msgstr "Jebkurš"
+
+#: router-backups.php router-devices.php
+msgid "Search"
+msgstr "Meklēt"
+
+#: router-backups.php router-devices.php
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: router-backups.php router-devices.php
+msgid "Go"
+msgstr "Atlasīt"
+
+#: router-backups.php router-devices.php
+msgid "Set/Refresh Filters"
+msgstr "Iestatīt/atsvaidzināt filtrus"
+
+#: router-backups.php router-devices.php
+msgid "Clear"
+msgstr "Notīrīt"
+
+#: router-backups.php router-devices.php
+msgid "Clear Filters"
+msgstr "Notīrīt filtrus"
+
+#: router-backups.php router-devices.php
+msgid "Hostname"
+msgstr "Resursdatora nosaukums"
+
+#: router-backups.php router-devices.php
+msgid "Either an IP address, or hostname.  If a hostname, it must be resolvable by either DNS, or from your hosts file."
+msgstr "IP adrese vai resursdatora nosaukums. Ja tas ir resursdatora nosaukums, tam jābūt atrisināmam ar DNS vai jūsu hosts failu."
+
+#: router-backups.php router-devices.php router-devtypes.php
+msgid "ID"
+msgstr "ID"
+
+#: router-backups.php router-devices.php
+msgid "The internal database ID for this Device.  Useful when performing automation or debugging."
+msgstr "Šīs ierīces iekšējais datubāzes ID. Noderīgs automatizācijai vai atkļūdošanai."
+
+#: router-backups.php
+msgid "Functions"
+msgstr "Funkcijas"
+
+#: router-backups.php
+msgid "Perform functions against this backup"
+msgstr "Veikt darbības ar šo dublējumu"
+
+#: router-backups.php router-devices.php
+msgid "The directory of the stored device backups"
+msgstr "Saglabāto ierīces dublējumu direktorija"
+
+#: router-backups.php
+msgid "Backup Time"
+msgstr "Dublēšanas laiks"
+
+#: router-backups.php router-devices.php
+msgid "The last Backup time of the device"
+msgstr "Ierīces pēdējās dublēšanas laiks"
+
+#: router-backups.php
+msgid "Last Change"
+msgstr "Pēdējā izmaiņa"
+
+#: router-backups.php
+msgid "The last Change time of the device"
+msgstr "Ierīces pēdējo izmaiņu laiks"
+
+#: router-backups.php router-devices.php
+msgid "Changed By"
+msgstr "Mainīja"
+
+#: router-backups.php
+msgid "The last person to change the configuration of the device"
+msgstr "Pēdējā persona, kas mainīja ierīces konfigurāciju"
+
+#: router-backups.php
+msgid "Filename"
+msgstr "Faila nosaukums"
+
+#: router-backups.php
+msgid "The filename of the stored device backups"
+msgstr "Saglabāto ierīces dublējumu faila nosaukums"
+
+#: router-backups.php setup.php
+msgid "View Config"
+msgstr "Skatīt konfigurāciju"
+
+#: router-backups.php
+msgid "No Router Backups Found"
+msgstr "Maršrutētāju dublējumi nav atrasti"
+
+#: router-compare.php
+msgid "Router Backup Comparison"
+msgstr "Maršrutētāja dublējumu salīdzinājums"
+
+#: router-compare.php
+msgid "Diff Mode"
+msgstr "Atšķirību režīms"
+
+#: router-compare.php
+msgid "Inline"
+msgstr "Vienā kolonnā"
+
+#: router-compare.php
+msgid "Side by Side"
+msgstr "Blakus"
+
+#: router-compare.php
+msgid "Context Lines"
+msgstr "Konteksta rindas"
+
+#: router-compare.php
+msgid "Compare Output"
+msgstr "Salīdzinājuma izvade"
+
+#: router-compare.php
+#, php-format
+msgid "Backup %s not found"
+msgstr "Dublējums %s nav atrasts"
+
+#: router-compare.php
+msgid "There are no Changes"
+msgstr "Izmaiņu nav"
+
+#: router-compare.php
+msgid "Error, you must have backups for each device."
+msgstr "Kļūda, katrai ierīcei ir jābūt dublējumiem."
+
+#: router-devices.php
+#, php-format
+msgid "Debug for %s (%s)<br><br>"
+msgstr "Atkļūdošana ierīcei %s (%s)<br><br>"
+
+#: router-devices.php
+msgid "No Change"
+msgstr "Bez izmaiņām"
+
+#: router-devices.php
+#, php-format
+msgid "No devices were changed: the new schedule cannot run on device id(s) %s, because their Months, Days of Month, Weeks of Month or Days of Week are missing or never occur. Set the schedule on those devices individually."
+msgstr "Neviena ierīce netika mainīta: jauno grafiku nevar izpildīt ierīcei(-ēm) ar ID %s, jo to mēneši, mēneša dienas, mēneša nedēļas vai nedēļas dienas trūkst vai nekad neiestājas. Iestatiet grafiku šīm ierīcēm atsevišķi."
+
+#: router-devices.php
+#, php-format
+msgid "Updated settings on %d device(s)."
+msgstr "Atjaunināti iestatījumi %d ierīcei(-ēm)."
+
+#: router-devices.php
+msgid "No settings were changed; every field was left on \"No Change\"."
+msgstr "Neviens iestatījums netika mainīts; visos laukos tika atstāta vērtība \"Bez izmaiņām\"."
+
+#: router-devices.php
+#, php-format
+msgid "DEBUG: Executing manual backup using '%s' with arguments '%s'"
+msgstr "ATKĻŪDOŠANA: Izpilda manuālo dublēšanu, izmantojot '%s' ar argumentiem '%s'"
+
+#: router-devices.php
+msgid "Router Backup started.  Check the Date Backup column or the Cacti Log for completion status and timing"
+msgstr "Maršrutētāja dublēšana ir sākta. Pārbaudiet kolonnu \"Dublēšanas datums\" vai Cacti žurnālu, lai redzētu pabeigšanas statusu un ilgumu"
+
+#: router-devices.php
+msgid "Click 'Continue' to Delete the following device(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu tālāk norādīto(-ās) ierīci(-es)."
+
+#: router-devices.php
+msgid "Click 'Continue' to Enable the following device(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai iespējotu tālāk norādīto(-ās) ierīci(-es)."
+
+#: router-devices.php
+msgid "Enable Device(s)"
+msgstr "Iespējot ierīci(-es)"
+
+#: router-devices.php
+msgid "Click 'Continue' to Disable the following device(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atspējotu tālāk norādīto(-ās) ierīci(-es)."
+
+#: router-devices.php
+msgid "Disable Device(s)"
+msgstr "Atspējot ierīci(-es)"
+
+#: router-devices.php
+msgid "Click 'Continue' to clear the stored SSH host key for the following device(s). The next SSH connection will trust and record the key it receives."
+msgstr "Noklikšķiniet uz 'Turpināt', lai notīrītu saglabāto SSH resursdatora atslēgu tālāk norādītajai(-ām) ierīcei(-ēm). Nākamais SSH savienojums uzticēsies saņemtajai atslēgai un saglabās to."
+
+#: router-devices.php
+msgid "Clear SSH Host Key(s)"
+msgstr "Notīrīt SSH resursdatora atslēgu(-as)"
+
+#: router-devices.php
+msgid "Set one or more of the following settings on the selected device(s). Fields left on 'No Change' are not modified."
+msgstr "Iestatiet vienu vai vairākus no tālāk norādītajiem iestatījumiem atlasītajai(-ām) ierīcei(-ēm). Lauki, kuros atstāta vērtība 'Bez izmaiņām', netiek mainīti."
+
+#: router-devices.php
+msgid "Disabled"
+msgstr "Atspējots"
+
+#: router-devices.php
+msgid "Apply settings to Device(s)"
+msgstr "Lietot iestatījumus ierīcei(-ēm)"
+
+#: router-devices.php
+msgid "You must select at least Router Device."
+msgstr "Jāatlasa vismaz viena maršrutētāja ierīce."
+
+#: router-devices.php
+msgid "The Hostname is not valid. Use only letters, digits, spaces and the characters . - _ : and do not use path separators or \"..\"."
+msgstr "Resursdatora nosaukums nav derīgs. Izmantojiet tikai burtus, ciparus, atstarpes un rakstzīmes . - _ : un neizmantojiet ceļa atdalītājus vai \"..\"."
+
+#: router-devices.php
+msgid "The selected Schedule Type or Rerun Every is not valid."
+msgstr "Atlasītais grafika tips vai atkārtošanas intervāls nav derīgs."
+
+#: router-devices.php
+msgid "Not recorded"
+msgstr "Nav reģistrēts"
+
+#: router-devices.php
+#, php-format
+msgid "Router: [edit: %s]"
+msgstr "Maršrutētājs: [rediģēt: %s]"
+
+#: router-devices.php
+msgid "Router: [new]"
+msgstr "Maršrutētājs: [jauns]"
+
+#: router-devices.php
+msgid "Router Device Management"
+msgstr "Maršrutētāju ierīču pārvaldība"
+
+#: router-devices.php
+msgid "Account"
+msgstr "Konts"
+
+#: router-devices.php
+msgid "Actions"
+msgstr "Darbības"
+
+#: router-devices.php
+msgid "Last Backup"
+msgstr "Pēdējais dublējums"
+
+#: router-devices.php
+msgid "The device type of the device"
+msgstr "Ierīces tips"
+
+#: router-devices.php
+msgid "Connect Type"
+msgstr "Savienojuma tips"
+
+#: router-devices.php
+msgid "The connection type for this device"
+msgstr "Šīs ierīces savienojuma tips"
+
+#: router-devices.php
+msgid "Configs"
+msgstr "Konfigurācijas"
+
+#: router-devices.php
+msgid "The number of configurations for this device"
+msgstr "Šīs ierīces konfigurāciju skaits"
+
+#: router-devices.php
+msgid "The IP address of this device"
+msgstr "Šīs ierīces IP adrese"
+
+#: router-devices.php
+msgid "The per-device TFTP server, or Default when it uses the global TFTP Server setting"
+msgstr "Konkrētās ierīces TFTP serveris vai Noklusējuma, ja tiek izmantots globālais TFTP servera iestatījums"
+
+#: router-devices.php
+msgid "Next Backup"
+msgstr "Nākamais dublējums"
+
+#: router-devices.php
+msgid "Date Backup"
+msgstr "Dublēšanas datums"
+
+#: router-devices.php
+msgid "Next Attempt"
+msgstr "Nākamais mēģinājums"
+
+#: router-devices.php
+msgid "Last Attempt"
+msgstr "Pēdējais mēģinājums"
+
+#: router-devices.php
+msgid "Date Change"
+msgstr "Izmaiņu datums"
+
+#: router-devices.php
+msgid "Today"
+msgstr "Šodien"
+
+#: router-devices.php
+msgid "Yesterday"
+msgstr "Vakar"
+
+#: router-devices.php
+msgid "This Week"
+msgstr "Šonedēļ"
+
+#: router-devices.php
+msgid "This Month"
+msgstr "Šomēnes"
+
+#: router-devices.php
+msgid "Within a Year"
+msgstr "Gada laikā"
+
+#: router-devices.php
+msgid "Long, Long Ago"
+msgstr "Ļoti sen"
+
+#: router-devices.php router-devtypes.php
+msgid "No"
+msgstr "Nē"
+
+#: router-devices.php router-devtypes.php
+msgid "Yes"
+msgstr "Jā"
+
+#: router-devices.php
+msgid "Connect via SSH"
+msgstr "Savienoties ar SSH"
+
+#: router-devices.php
+msgid "Connect via Telnet"
+msgstr "Savienoties ar Telnet"
+
+#: router-devices.php
+msgid "Trace Route"
+msgstr "Maršruta izsekošana"
+
+#: router-devices.php
+msgid "Router Debug Info"
+msgstr "Maršrutētāja atkļūdošanas informācija"
+
+#: router-devices.php
+#, php-format
+msgid "Backups (%s)"
+msgstr "Dublējumi (%s)"
+
+#: router-devices.php
+msgid "Current"
+msgstr "Pašreizējais"
+
+#: router-devices.php
+msgid "No Router Devices Found"
+msgstr "Maršrutētāju ierīces nav atrastas"
+
+#: router-devtypes.php
+msgid "When you click 'Continue', the following device(s) will be deleted."
+msgstr "Noklikšķinot uz 'Turpināt', tālāk norādītā(-ās) ierīce(-es) tiks dzēsta(-as)."
+
+#: router-devtypes.php
+#, php-format
+msgid "Post-Login Prompts contains a prompt that is not a valid regular expression: %s"
+msgstr "Lauks \"Uzvednes pēc pieteikšanās\" satur uzvedni, kas nav derīga regulārā izteiksme: %s"
+
+#: router-devtypes.php
+#, php-format
+msgid "Query [edit: %s]"
+msgstr "Vaicājums [rediģēt: %s]"
+
+#: router-devtypes.php
+msgid "Query [new]"
+msgstr "Vaicājums [jauns]"
+
+#: router-devtypes.php
+msgid "View Router Device Types"
+msgstr "Skatīt maršrutētāju ierīču tipus"
+
+#: router-devtypes.php
+msgid "Type"
+msgstr "Tips"
+
+#: router-devtypes.php
+msgid "User Prompt"
+msgstr "Lietotāja uzvedne"
+
+#: router-devtypes.php
+msgid "Pass Prompt"
+msgstr "Paroles uzvedne"
+
+#: router-devtypes.php
+msgid "Version"
+msgstr "Versija"
+
+#: router-devtypes.php
+msgid "Confirm Prompt"
+msgstr "Apstiprinājuma uzvedne"
+
+#: router-devtypes.php
+msgid "Check End In Config"
+msgstr "Pārbaudīt beigas konfigurācijā"
+
+#: router-devtypes.php
+msgid "No Router Device Types Found"
+msgstr "Maršrutētāju ierīču tipi nav atrasti"
+
+#: setup.php
+msgid "Router Configs"
+msgstr "Maršrutētāju konfigurācijas"
+
+#: setup.php
+#, php-format
+msgid "DEBUG: Executing '%s' with arguments '%s'"
+msgstr "ATKĻŪDOŠANA: Izpilda '%s' ar argumentiem '%s'"
+
+#: setup.php
+msgid "Utilities"
+msgstr "Utilītas"
+
+#: setup.php
+msgid "Router Devices"
+msgstr "Maršrutētāju ierīces"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(rediģēt)"
+
+#: setup.php
+msgid "(actions)"
+msgstr "(darbības)"
+
+#: setup.php
+msgid "View Debug"
+msgstr "Skatīt atkļūdošanu"
+
+#: setup.php
+msgid "Router Accounts"
+msgstr "Maršrutētāju konti"
+
+#: setup.php
+msgid "Router Compare"
+msgstr "Maršrutētāju salīdzināšana"
+
+#: setup.php
+msgid "RouterConfigs"
+msgstr "RouterConfigs"
+
+#: setup.php
+msgid "Routers"
+msgstr "Maršrutētāji"
